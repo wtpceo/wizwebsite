@@ -23,14 +23,15 @@ import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { useEffect, useState } from "react"
 import Header from "@/components/layout/Header"
-import Footer from "@/components/layout/Footer"
+import Footer from "@/components/sections/Footer"
 
 const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 60, scale: 0.95 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6 },
+    scale: 1,
+    transition: { duration: 0.8, ease: "backOut" },
   },
 }
 
@@ -39,17 +40,18 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.35,
     },
   },
 }
 
 const itemFadeIn = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 40, scale: 0.9 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5 },
+    scale: 1,
+    transition: { duration: 0.6, type: "spring", bounce: 0.5 },
   },
 }
 
@@ -96,6 +98,14 @@ export default function DeliveryServicePage() {
   const [trustRef, trustInView] = useInView({ triggerOnce: true, threshold: 0.1 })
   const [statsRef, statsInView] = useInView({ triggerOnce: true, threshold: 0.1 })
   const [contactRef, contactInView] = useInView({ triggerOnce: true, threshold: 0.1 })
+
+  const contactBlobs = [
+    { width: 120, height: 180, left: 10, top: 20 },
+    { width: 200, height: 120, left: 60, top: 10 },
+    { width: 180, height: 160, left: 30, top: 60 },
+    { width: 160, height: 140, left: 70, top: 40 },
+    { width: 140, height: 200, left: 40, top: 70 },
+  ]
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -327,7 +337,7 @@ export default function DeliveryServicePage() {
             >
               {[
                 { title: "중개 수수료 인상", icon: <BarChart className="text-red-600" size={24} /> },
-                { title: "쿠팡이츠 vs 배민 가격 전쟁", icon: <AlertTriangle className="text-red-600" size={24} /> },
+                { title: "쿠팡이츠 vs 배민 점유 전쟁", icon: <AlertTriangle className="text-red-600" size={24} /> },
                 { title: "땡겨요의 약진", icon: <ChevronDown className="text-red-600" size={24} /> },
                 {
                   title: "리뷰 관리부터 광고까지 직접 해야 하는 현실",
@@ -367,7 +377,7 @@ export default function DeliveryServicePage() {
               variants={fadeIn}
               className="text-2xl md:text-3xl font-bold mb-8 text-center"
             >
-              배달의민족은 지금 이렇게 바뀌고 있습니다
+              배달시장은 지금 이렇게 바뀌고 있습니다
             </motion.h2>
 
             <motion.div
@@ -386,8 +396,8 @@ export default function DeliveryServicePage() {
                   description: '"모르면 손해보는 구조"로 변화하여 전문적인 관리가 필요합니다.',
                 },
                 {
-                  title: "다중 플랫폼 운영",
-                  description: "7개 플랫폼을 동시에 운영하는 자영업자가 증가하고 있습니다.",
+                  title: "다중 매장 운영",
+                  description: "4개 매장을 동시에 운영하는 자영업자가 증가하고 있습니다.",
                 },
               ].map((item, index) => (
                 <motion.div key={index} variants={itemFadeIn}>
@@ -622,7 +632,7 @@ export default function DeliveryServicePage() {
             >
               <h3 className="text-xl font-bold mb-4">위즈더플래닝은 배달앱 관리의 선두주자입니다</h3>
               <p className="text-gray-700 mb-4">
-                9년간의 경험을 바탕으로 7,000개 이상의 매장을 성공적으로 관리해온 노하우를 가지고 있습니다. 배달앱
+                9년간의 경험을 바탕으로 7,000개 이상의 매장을 성공적으로 관리해온 노하우를 가지고 있습니다.<br /> 배달앱
                 시장의 변화에 발맞춰 끊임없이 진화하는 전략으로 사장님들의 매출 향상을 돕고 있습니다.
               </p>
               <p className="text-gray-700 font-medium">
@@ -742,25 +752,21 @@ export default function DeliveryServicePage() {
         <section id="contact" className="py-16 bg-red-600 text-white relative overflow-hidden">
           {/* Background animation elements */}
           <div className="absolute inset-0 overflow-hidden">
-            {[...Array(5)].map((_, i) => (
+            {contactBlobs.map((blob, i) => (
               <motion.div
                 key={i}
                 className="absolute rounded-full bg-white/5"
                 style={{
-                  width: `${Math.random() * 300 + 50}px`,
-                  height: `${Math.random() * 300 + 50}px`,
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
+                  width: `${blob.width}px`,
+                  height: `${blob.height}px`,
+                  left: `${blob.left}%`,
+                  top: `${blob.top}%`,
+                  opacity: 0.1,
                 }}
                 initial={{ opacity: 0.1, scale: 0 }}
-                animate={{
-                  opacity: [0.05, 0.1, 0.05],
-                  scale: [0, 1],
-                  x: [0, Math.random() * 100 - 50],
-                  y: [0, Math.random() * 100 - 50],
-                }}
+                animate={{ opacity: [0.1, 0.2, 0.1], scale: [0, 1, 0] }}
                 transition={{
-                  duration: Math.random() * 10 + 10,
+                  duration: 12 + i * 2,
                   repeat: Number.POSITIVE_INFINITY,
                   repeatType: "reverse",
                 }}

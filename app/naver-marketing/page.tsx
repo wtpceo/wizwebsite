@@ -362,7 +362,7 @@ export default function NaverMarketingPage() {
             <Card className="border-none shadow-2xl rounded-3xl overflow-hidden bg-white">
               <CardContent className="p-8 md:p-12">
                 <h2 className="text-3xl font-bold mb-8 text-gray-800">
-                  당신의 매장이 네이버에서 <span className="text-red-500">사라지고 있습니다</span>
+                  혹시 이런 상황을 <span className="text-red-500">겪고 계신가요?</span>
                 </h2>
 
                 <div className="space-y-6">
@@ -378,10 +378,10 @@ export default function NaverMarketingPage() {
                     </div>
                     <div>
                       <h3 className="text-xl font-semibold text-gray-800">
-                        네이버에 정보는 있지만 <span className="text-red-500">아무도 보지 않습니다</span>
+                        오래된 사진, <span className="text-red-500">부족한 정보 때문에</span>
                       </h3>
                       <p className="text-gray-600 mt-1">
-                        오래된 사진, 부족한 정보, 낮은 평점으로 고객의 신뢰를 잃고 있습니다
+                        고객이 그냥 지나치고 있진 않으신가요?
                       </p>
                     </div>
                   </motion.div>
@@ -398,10 +398,10 @@ export default function NaverMarketingPage() {
                     </div>
                     <div>
                       <h3 className="text-xl font-semibold text-gray-800">
-                        경쟁업체가 <span className="text-red-500">당신의 고객을 가져갑니다</span>
+                        검색만 하면 <span className="text-red-500">경쟁업체가 상단에 노출되고</span>
                       </h3>
                       <p className="text-gray-600 mt-1">
-                        검색 결과에서 경쟁업체가 상위에 노출되어 잠재 고객을 모두 가져가고 있습니다
+                        내 가게는 아래로 밀려 보이지도 않을 때, 속상하셨죠?
                       </p>
                     </div>
                   </motion.div>
@@ -418,20 +418,21 @@ export default function NaverMarketingPage() {
                     </div>
                     <div>
                       <h3 className="text-xl font-semibold text-gray-800">
-                        광고비는 <span className="text-red-500">계속 증가하는데 효과는 미미합니다</span>
+                        광고비는 <span className="text-red-500">계속 오르는데</span>
                       </h3>
                       <p className="text-gray-600 mt-1">
-                        비싼 광고비를 지불해도 일시적인 효과만 있고 지속적인 노출은 이루어지지 않습니다
+                        효과는 단발성이고, 고객은 늘지 않을 때 답답하셨을 꺼에요.
                       </p>
                     </div>
                   </motion.div>
                 </div>
 
                 <div className="mt-10 pt-8 border-t border-gray-100">
-                  <h3 className="text-2xl font-bold text-red-500 mb-3">이대로 가다간 비즈니스가 위험합니다</h3>
+                  <h3 className="text-2xl font-bold text-red-500 mb-3">지금 바로 바꿀 수 있습니다.</h3>
                   <p className="text-xl text-gray-700">
-                    네이버 검색에서 발견되지 않는 비즈니스는 <strong>매년 30%의 잠재 고객을 잃고 있습니다.</strong> 지금
-                    바로 조치하지 않으면 더 많은 고객과 매출을 경쟁업체에 빼앗기게 될 것입니다.
+                    당신의 가게는 사라진게 아니라 <strong>보이지 않고 있을 뿐입니다.</strong> <br /> 지금
+                    제대로 정비하고, 고객에게 다시 보이게 만들어 드립니다.<br />
+                    <strong>매년 30%의 고객을 잃는 대신,</strong> 매달 새로운 고객이 찾아오는 가게로 바꿔보세요.
                   </p>
                 </div>
               </CardContent>
@@ -718,7 +719,7 @@ export default function NaverMarketingPage() {
                   transition={{ delay: 0.2 }}
                   className="text-3xl md:text-4xl font-bold mb-6"
                 >
-                  지금 시작하세요. 3개월 안에 변화는 무조건 찾아옵니다.
+                  지금 시작하세요. <br /> 3개월 안에 변화는 무조건 찾아옵니다.
                 </motion.h2>
 
                 <motion.p
@@ -751,14 +752,6 @@ export default function NaverMarketingPage() {
                     >
                       <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                     </motion.span>
-                  </Button>
-
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-2 border-white/30 text-white hover:bg-white/10 text-lg px-8 py-6 rounded-full"
-                  >
-                    서비스 상세 보기
                   </Button>
                 </motion.div>
               </CardContent>
