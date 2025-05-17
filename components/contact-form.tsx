@@ -90,8 +90,9 @@ export default function ContactForm() {
             <SelectItem value="content">콘텐츠 제작</SelectItem>
             <SelectItem value="delivery">배달앱 관리</SelectItem>
             <SelectItem value="print">인쇄물 제작</SelectItem>
-            <SelectItem value="ad">온라인 광고</SelectItem>
-            <SelectItem value="all">통합 패키지</SelectItem>
+            <SelectItem value="ad">네이버 마케팅</SelectItem>
+            <SelectItem value="all-package">통합 패키지</SelectItem>
+            <SelectItem value="homepage">홈페이지 제작</SelectItem>
           </SelectContent>
         </Select>
       </motion.div>

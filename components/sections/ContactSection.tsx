@@ -55,7 +55,7 @@ export default function ContactSection() {
             </motion.div>
             <motion.div className="space-y-4" variants={staggerContainer}>
               {[
-                { icon: <Phone className="h-5 w-5 text-pink-600" />, title: "전화 문의", content: "02-123-4567" },
+                { icon: <Phone className="h-5 w-5 text-pink-600" />, title: "전화 문의", content: "1670-0704" },
                 {
                   icon: <MessageCircle className="h-5 w-5 text-purple-600" />,
                   title: "카카오톡 문의",
@@ -64,7 +64,7 @@ export default function ContactSection() {
                 {
                   icon: <Mail className="h-5 w-5 text-blue-600" />,
                   title: "이메일 문의",
-                  content: "contact@wiztheplanning.com",
+                  content: "wiz@wiztheplanning.com",
                 },
               ].map((item, index) => (
                 <motion.div key={index} className="flex items-center gap-2" variants={fadeIn}>

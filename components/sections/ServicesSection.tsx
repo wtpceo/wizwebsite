@@ -112,7 +112,23 @@ const BentoCard = ({
             </Button>
           </Link>
         )}
-        {portfolio && (
+        {name === "영상 콘텐츠 제작" && (
+          <a
+            href="https://www.instagram.com/matzip_town?igsh=NGpsYmg3bHA0Nmh4"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pointer-events-auto"
+          >
+            <Button 
+              size="sm" 
+              className="pointer-events-auto text-sm font-medium bg-amber-100 text-amber-700 hover:bg-amber-200 hover:text-amber-800 transition-colors duration-200"
+            >
+              포트폴리오 보기
+              <ChevronRight className="ml-2 h-4 w-4" />
+            </Button>
+          </a>
+        )}
+        {portfolio && name !== "영상 콘텐츠 제작" && (
           <Link href="/portfolio" className="pointer-events-auto">
             <Button 
               size="sm" 

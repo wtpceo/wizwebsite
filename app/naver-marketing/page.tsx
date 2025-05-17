@@ -6,6 +6,8 @@ import { CheckCircle, Search, FileText, ArrowRight, Shield, TrendingUp, Award, U
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
+import Header from "@/components/sections/Header"
+import Footer from "@/components/sections/Footer"
 
 const AnimatedBackground = () => {
   const [circles, setCircles] = useState<Array<{
@@ -272,495 +274,499 @@ export default function NaverMarketingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
-      {/* 헤더 섹션 */}
-      <motion.div
-        ref={heroRef}
-        className="relative h-screen flex items-center justify-center overflow-hidden"
-        style={{ opacity, scale }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-500 to-indigo-600 opacity-90"></div>
-        <AnimatedBackground />
-        <FloatingWordsBackground />
+    <div className="flex min-h-screen flex-col bg-white overflow-hidden">
+      <Header />
+      <main className="flex-1">
+        {/* 헤더 섹션 */}
+        <motion.div
+          ref={heroRef}
+          className="relative h-screen flex items-center justify-center overflow-hidden"
+          style={{ opacity, scale }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-500 to-indigo-600 opacity-90"></div>
+          <AnimatedBackground />
+          <FloatingWordsBackground />
 
-        <div className="container relative z-10 px-4 text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
-              <span className="block">검색에서 발견되지 않는 다면</span>
-              <motion.span
+          <div className="container relative z-10 px-4 text-center">
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
+                <span className="block">검색에서 발견되지 않는 다면</span>
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5, duration: 0.8 }}
+                  className="relative inline-block"
+                >
+                  <span className="relative z-10">존재하지 않는것과 같습니다</span>
+                  <motion.span
+                    initial={{ width: "0%" }}
+                    animate={{ width: "100%" }}
+                    transition={{ delay: 1.3, duration: 1 }}
+                    className="absolute bottom-2 left-0 h-3 bg-yellow-400 opacity-50 rounded-full"
+                  ></motion.span>
+                </motion.span>
+              </h1>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 0.8 }}
+                className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-10"
+              >
+                온라인에서도 <strong>노출이 되어야 하고</strong> 그 다음이 바로 콘텐츠 입니다.
+              </motion.p>
+
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-                className="relative inline-block"
+                transition={{ delay: 1.5, duration: 0.5 }}
               >
-                <span className="relative z-10">존재하지 않는것과 같습니다</span>
-                <motion.span
-                  initial={{ width: "0%" }}
-                  animate={{ width: "100%" }}
-                  transition={{ delay: 1.3, duration: 1 }}
-                  className="absolute bottom-2 left-0 h-3 bg-yellow-400 opacity-50 rounded-full"
-                ></motion.span>
-              </motion.span>
-            </h1>
+                <Button
+                  size="lg"
+                  className="bg-white text-blue-600 hover:bg-white/90 text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+                >
+                  <span>무료 상담 받기</span>
+                  <motion.span
+                    initial={{ x: 0 }}
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5, repeatDelay: 2 }}
+                  >
+                    <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </motion.span>
+                </Button>
+              </motion.div>
+            </motion.div>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 0.8 }}
-              className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-10"
+              transition={{ delay: 2, duration: 1 }}
+              className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
             >
-              온라인에서도 <strong>노출이 되어야 하고</strong> 그 다음이 바로 콘텐츠 입니다.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.5, duration: 0.5 }}
-            >
-              <Button
-                size="lg"
-                className="bg-white text-blue-600 hover:bg-white/90 text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
-              >
-                <span>무료 상담 받기</span>
-                <motion.span
-                  initial={{ x: 0 }}
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5, repeatDelay: 2 }}
-                >
-                  <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </motion.span>
-              </Button>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2, duration: 1 }}
-            className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-          >
-            <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2 }}>
-              <ChevronRight className="h-10 w-10 text-white/70 transform rotate-90" />
-            </motion.div>
-          </motion.div>
-        </div>
-      </motion.div>
-
-      <div className="container mx-auto px-4 py-20 max-w-6xl">
-        {/* 문제 상황 카드 */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7 }}
-          className="mb-20"
-        >
-          <Card className="border-none shadow-2xl rounded-3xl overflow-hidden bg-white">
-            <CardContent className="p-8 md:p-12">
-              <h2 className="text-3xl font-bold mb-8 text-gray-800">
-                당신의 매장이 네이버에서 <span className="text-red-500">사라지고 있습니다</span>
-              </h2>
-
-              <div className="space-y-6">
-                <motion.div
-                  initial={{ x: -20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                  className="flex items-start gap-4"
-                >
-                  <div className="bg-red-100 p-2 rounded-full">
-                    <CheckCircle className="h-6 w-6 text-red-500" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-800">
-                      네이버에 정보는 있지만 <span className="text-red-500">아무도 보지 않습니다</span>
-                    </h3>
-                    <p className="text-gray-600 mt-1">
-                      오래된 사진, 부족한 정보, 낮은 평점으로 고객의 신뢰를 잃고 있습니다
-                    </p>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ x: -20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 }}
-                  className="flex items-start gap-4"
-                >
-                  <div className="bg-red-100 p-2 rounded-full">
-                    <CheckCircle className="h-6 w-6 text-red-500" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-800">
-                      경쟁업체가 <span className="text-red-500">당신의 고객을 가져갑니다</span>
-                    </h3>
-                    <p className="text-gray-600 mt-1">
-                      검색 결과에서 경쟁업체가 상위에 노출되어 잠재 고객을 모두 가져가고 있습니다
-                    </p>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ x: -20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.6 }}
-                  className="flex items-start gap-4"
-                >
-                  <div className="bg-red-100 p-2 rounded-full">
-                    <CheckCircle className="h-6 w-6 text-red-500" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-800">
-                      광고비는 <span className="text-red-500">계속 증가하는데 효과는 미미합니다</span>
-                    </h3>
-                    <p className="text-gray-600 mt-1">
-                      비싼 광고비를 지불해도 일시적인 효과만 있고 지속적인 노출은 이루어지지 않습니다
-                    </p>
-                  </div>
-                </motion.div>
-              </div>
-
-              <div className="mt-10 pt-8 border-t border-gray-100">
-                <h3 className="text-2xl font-bold text-red-500 mb-3">이대로 가다간 비즈니스가 위험합니다</h3>
-                <p className="text-xl text-gray-700">
-                  네이버 검색에서 발견되지 않는 비즈니스는 <strong>매년 30%의 잠재 고객을 잃고 있습니다.</strong> 지금
-                  바로 조치하지 않으면 더 많은 고객과 매출을 경쟁업체에 빼앗기게 될 것입니다.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        {/* 솔루션 소개 */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7 }}
-          className="mb-20 text-center"
-        >
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-transparent bg-clip-text inline-block">
-            네이버 검색을 지배하는 솔루션
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-16">
-            광고비 없이도 네이버 검색 결과 최상위에 노출되어 <br className="hidden md:block" />
-            <span className="font-semibold">지속적인 고객 유입과 매출 증가</span>를 경험하세요
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              className="bg-gradient-to-br from-blue-50 to-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <div className="bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Search className="h-8 w-8 text-blue-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">검색 최적화 전략</h3>
-              <p className="text-gray-600 mb-6">
-                네이버 알고리즘을 완벽하게 분석하여 귀사의 비즈니스가 관련 키워드에서 최상위에 노출되도록 최적화합니다.
-              </p>
-              <div className="text-blue-600 font-medium flex items-center justify-center">
-                <span>자세히 보기</span>
-                <ChevronRight className="ml-1 h-5 w-5" />
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              className="bg-gradient-to-br from-indigo-50 to-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <div className="bg-indigo-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <FileText className="h-8 w-8 text-indigo-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">콘텐츠 마케팅</h3>
-              <p className="text-gray-600 mb-6">
-                전문 작가팀이 귀사의 비즈니스에 최적화된 고품질 콘텐츠를 제작하여 네이버 검색 결과를 장악합니다.
-              </p>
-              <div className="text-indigo-600 font-medium flex items-center justify-center">
-                <span>자세히 보기</span>
-                <ChevronRight className="ml-1 h-5 w-5" />
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              className="bg-gradient-to-br from-teal-50 to-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <div className="bg-teal-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <TrendingUp className="h-8 w-8 text-teal-600" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">데이터 기반 성과 관리</h3>
-              <p className="text-gray-600 mb-6">
-                실시간 데이터 분석으로 노출 현황을 모니터링하고 지속적인 개선을 통해 최상의 결과를 보장합니다.
-              </p>
-              <div className="text-teal-600 font-medium flex items-center justify-center">
-                <span>자세히 보기</span>
-                <ChevronRight className="ml-1 h-5 w-5" />
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
-
-        {/* 통계 섹션 */}
-        <motion.div
-          ref={statsRef}
-          className="mb-20 py-16 px-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl text-white text-center"
-        >
-          <h2 className="text-3xl font-bold mb-12">우리의 솔루션이 만드는 실제 결과</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {statsData.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isStatsInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: index * 0.2, duration: 0.5 }}
-                className="flex flex-col items-center"
-              >
-                <div className="text-5xl font-bold mb-2">
-                  {isStatsInView && <CountUp value={stat.value} suffix={stat.suffix} />}
-                </div>
-                <div className="text-xl text-white/80">{stat.label}</div>
+              <motion.div animate={{ y: [0, 10, 0] }} transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2 }}>
+                <ChevronRight className="h-10 w-10 text-white/70 transform rotate-90" />
               </motion.div>
-            ))}
+            </motion.div>
           </div>
         </motion.div>
 
-        {/* 광고 아님 섹션 */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7 }}
-          className="mb-20"
-        >
-          <Card className="border-none shadow-2xl rounded-3xl overflow-hidden bg-white">
-            <CardContent className="p-8 md:p-12">
-              <div className="flex flex-col md:flex-row gap-8 items-center">
-                <div className="md:w-1/2">
+        <div className="container mx-auto px-4 py-20 max-w-6xl">
+          {/* 문제 상황 카드 */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+            className="mb-20"
+          >
+            <Card className="border-none shadow-2xl rounded-3xl overflow-hidden bg-white">
+              <CardContent className="p-8 md:p-12">
+                <h2 className="text-3xl font-bold mb-8 text-gray-800">
+                  당신의 매장이 네이버에서 <span className="text-red-500">사라지고 있습니다</span>
+                </h2>
+
+                <div className="space-y-6">
                   <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ x: -20, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
+                    className="flex items-start gap-4"
                   >
-                    <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                      <span className="text-blue-600">광고가 아닌</span> 자연 검색 노출의 힘
-                    </h2>
-
-                    <div className="space-y-6">
-                      <div className="flex items-start gap-3">
-                        <div className="bg-green-100 p-2 rounded-full mt-1">
-                          <CheckCircle className="h-5 w-5 text-green-600" />
-                        </div>
-                        <div>
-                          <h3 className="text-lg font-semibold text-gray-800">지속적인 효과</h3>
-                          <p className="text-gray-600">
-                            광고와 달리 한번 최적화된 콘텐츠는 지속적으로 효과를 발휘합니다
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-start gap-3">
-                        <div className="bg-green-100 p-2 rounded-full mt-1">
-                          <CheckCircle className="h-5 w-5 text-green-600" />
-                        </div>
-                        <div>
-                          <h3 className="text-lg font-semibold text-gray-800">높은 신뢰도</h3>
-                          <p className="text-gray-600">소비자들은 광고보다 자연 검색 결과를 더 신뢰하고 클릭합니다</p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-start gap-3">
-                        <div className="bg-green-100 p-2 rounded-full mt-1">
-                          <CheckCircle className="h-5 w-5 text-green-600" />
-                        </div>
-                        <div>
-                          <h3 className="text-lg font-semibold text-gray-800">비용 효율성</h3>
-                          <p className="text-gray-600">
-                            광고비 지출 없이 지속적인 고객 유입을 만들어 ROI가 극대화됩니다
-                          </p>
-                        </div>
-                      </div>
+                    <div className="bg-red-100 p-2 rounded-full">
+                      <CheckCircle className="h-6 w-6 text-red-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-800">
+                        네이버에 정보는 있지만 <span className="text-red-500">아무도 보지 않습니다</span>
+                      </h3>
+                      <p className="text-gray-600 mt-1">
+                        오래된 사진, 부족한 정보, 낮은 평점으로 고객의 신뢰를 잃고 있습니다
+                      </p>
                     </div>
                   </motion.div>
-                </div>
 
-                <div className="md:w-1/2">
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ x: -20, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.4, duration: 0.5 }}
-                    className="bg-gray-50 p-8 rounded-2xl"
+                    transition={{ delay: 0.4 }}
+                    className="flex items-start gap-4"
                   >
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="bg-blue-100 p-3 rounded-full">
-                        <Shield className="h-6 w-6 text-blue-600" />
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-800">네이버 알고리즘 준수</h3>
+                    <div className="bg-red-100 p-2 rounded-full">
+                      <CheckCircle className="h-6 w-6 text-red-500" />
                     </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-800">
+                        경쟁업체가 <span className="text-red-500">당신의 고객을 가져갑니다</span>
+                      </h3>
+                      <p className="text-gray-600 mt-1">
+                        검색 결과에서 경쟁업체가 상위에 노출되어 잠재 고객을 모두 가져가고 있습니다
+                      </p>
+                    </div>
+                  </motion.div>
 
-                    <p className="text-gray-700 mb-6">
-                      우리는 네이버의 알고리즘을 정확히 분석하고 준수합니다. 어뷰징이나 블랙햇 기법을 사용하지 않아 계정 제재 위험이 없으며, 지속 가능한 결과를 제공합니다.
-                    </p>
-
-                    <div className="bg-blue-50 p-4 rounded-xl">
-                      <p className="text-blue-700 font-medium">
-                        "어뷰징으로 효과보고 있나요? 언제까지 그럴까요?"
+                  <motion.div
+                    initial={{ x: -20, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.6 }}
+                    className="flex items-start gap-4"
+                  >
+                    <div className="bg-red-100 p-2 rounded-full">
+                      <CheckCircle className="h-6 w-6 text-red-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-gray-800">
+                        광고비는 <span className="text-red-500">계속 증가하는데 효과는 미미합니다</span>
+                      </h3>
+                      <p className="text-gray-600 mt-1">
+                        비싼 광고비를 지불해도 일시적인 효과만 있고 지속적인 노출은 이루어지지 않습니다
                       </p>
                     </div>
                   </motion.div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
 
-        {/* 고객 후기 */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7 }}
-          className="mb-20"
-        >
-          <h2 className="text-4xl font-bold mb-4 text-center">실제 고객의 성공 사례</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12 text-center">
-            우리의 솔루션으로 비즈니스를 성장시킨 고객들의 이야기를 들어보세요
-          </p>
+                <div className="mt-10 pt-8 border-t border-gray-100">
+                  <h3 className="text-2xl font-bold text-red-500 mb-3">이대로 가다간 비즈니스가 위험합니다</h3>
+                  <p className="text-xl text-gray-700">
+                    네이버 검색에서 발견되지 않는 비즈니스는 <strong>매년 30%의 잠재 고객을 잃고 있습니다.</strong> 지금
+                    바로 조치하지 않으면 더 많은 고객과 매출을 경쟁업체에 빼앗기게 될 것입니다.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
 
-          <div className="relative">
-            <AnimatePresence mode="wait">
-              {testimonials.map(
-                (testimonial, index) =>
-                  activeTab === index && (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -20 }}
-                      transition={{ duration: 0.5 }}
-                      className="bg-white rounded-3xl shadow-xl p-8 md:p-10"
-                    >
-                      <div className="flex flex-col md:flex-row gap-6 items-center">
-                        <div className="md:w-1/4 flex justify-center">
-                          <div className="w-24 h-24 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center">
-                            <Users className="h-12 w-12 text-blue-500" />
-                          </div>
-                        </div>
-                        <div className="md:w-3/4">
-                          <div className="flex items-center mb-4">
-                            {[...Array(5)].map((_, i) => (
-                              <Award key={i} className="h-5 w-5 text-yellow-400" />
-                            ))}
-                          </div>
-                          <p className="text-xl text-gray-700 mb-6 italic">"{testimonial.content}"</p>
-                          <div>
-                            <h4 className="text-lg font-bold text-gray-800">{testimonial.name}</h4>
-                            <p className="text-gray-500">{testimonial.business}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ),
-              )}
-            </AnimatePresence>
+          {/* 솔루션 소개 */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+            className="mb-20 text-center"
+          >
+            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-transparent bg-clip-text inline-block">
+              네이버 검색을 지배하는 솔루션
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-16">
+              광고비 없이도 네이버 검색 결과 최상위에 노출되어 <br className="hidden md:block" />
+              <span className="font-semibold">지속적인 고객 유입과 매출 증가</span>를 경험하세요
+            </p>
 
-            <div className="flex justify-center mt-8 gap-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveTab(index)}
-                  className={cn(
-                    "w-3 h-3 rounded-full transition-all duration-300",
-                    activeTab === index ? "bg-blue-600 w-8" : "bg-gray-300",
-                  )}
-                />
-              ))}
-            </div>
-          </div>
-        </motion.div>
-
-        {/* CTA 섹션 */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-20"
-        >
-          <Card className="border-none shadow-2xl rounded-3xl overflow-hidden bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
-            <CardContent className="p-12">
-              <motion.h2
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="text-3xl md:text-4xl font-bold mb-6"
+                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                className="bg-gradient-to-br from-blue-50 to-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                지금 시작하세요. 3개월 안에 변화는 무조건 찾아옵니다.
-              </motion.h2>
+                <div className="bg-blue-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <Search className="h-8 w-8 text-blue-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">검색 최적화 전략</h3>
+                <p className="text-gray-600 mb-6">
+                  네이버 알고리즘을 완벽하게 분석하여 귀사의 비즈니스가 관련 키워드에서 최상위에 노출되도록 최적화합니다.
+                </p>
+                <div className="text-blue-600 font-medium flex items-center justify-center">
+                  <span>자세히 보기</span>
+                  <ChevronRight className="ml-1 h-5 w-5" />
+                </div>
+              </motion.div>
 
-              <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="text-xl text-white/90 max-w-3xl mx-auto mb-10"
+                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                className="bg-gradient-to-br from-indigo-50 to-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                무료 상담을 통해 귀사의 비즈니스에 맞는 맞춤형 전략을 제안해 드립니다.
-                <br />
-                지금 바로 네이버 검색 최적화의 첫 걸음을 시작하세요.
-              </motion.p>
+                <div className="bg-indigo-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <FileText className="h-8 w-8 text-indigo-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">콘텐츠 마케팅</h3>
+                <p className="text-gray-600 mb-6">
+                  전문 작가팀이 귀사의 비즈니스에 최적화된 고품질 콘텐츠를 제작하여 네이버 검색 결과를 장악합니다.
+                </p>
+                <div className="text-indigo-600 font-medium flex items-center justify-center">
+                  <span>자세히 보기</span>
+                  <ChevronRight className="ml-1 h-5 w-5" />
+                </div>
+              </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.6 }}
-                className="flex flex-col md:flex-row gap-4 justify-center"
+                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                className="bg-gradient-to-br from-teal-50 to-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <Button
-                  size="lg"
-                  className="bg-white text-blue-600 hover:bg-white/90 text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
-                >
-                  <span>무료 상담 신청하기</span>
-                  <motion.span
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5, repeatDelay: 1 }}
-                  >
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </motion.span>
-                </Button>
-
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-2 border-white/30 text-white hover:bg-white/10 text-lg px-8 py-6 rounded-full"
-                >
-                  서비스 상세 보기
-                </Button>
+                <div className="bg-teal-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <TrendingUp className="h-8 w-8 text-teal-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">데이터 기반 성과 관리</h3>
+                <p className="text-gray-600 mb-6">
+                  실시간 데이터 분석으로 노출 현황을 모니터링하고 지속적인 개선을 통해 최상의 결과를 보장합니다.
+                </p>
+                <div className="text-teal-600 font-medium flex items-center justify-center">
+                  <span>자세히 보기</span>
+                  <ChevronRight className="ml-1 h-5 w-5" />
+                </div>
               </motion.div>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </div>
+            </div>
+          </motion.div>
+
+          {/* 통계 섹션 */}
+          <motion.div
+            ref={statsRef}
+            className="mb-20 py-16 px-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl text-white text-center"
+          >
+            <h2 className="text-3xl font-bold mb-12">우리의 솔루션이 만드는 실제 결과</h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {statsData.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isStatsInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ delay: index * 0.2, duration: 0.5 }}
+                  className="flex flex-col items-center"
+                >
+                  <div className="text-5xl font-bold mb-2">
+                    {isStatsInView && <CountUp value={stat.value} suffix={stat.suffix} />}
+                  </div>
+                  <div className="text-xl text-white/80">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* 광고 아님 섹션 */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+            className="mb-20"
+          >
+            <Card className="border-none shadow-2xl rounded-3xl overflow-hidden bg-white">
+              <CardContent className="p-8 md:p-12">
+                <div className="flex flex-col md:flex-row gap-8 items-center">
+                  <div className="md:w-1/2">
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.2 }}
+                    >
+                      <h2 className="text-3xl font-bold text-gray-800 mb-6">
+                        <span className="text-blue-600">광고가 아닌</span> 자연 검색 노출의 힘
+                      </h2>
+
+                      <div className="space-y-6">
+                        <div className="flex items-start gap-3">
+                          <div className="bg-green-100 p-2 rounded-full mt-1">
+                            <CheckCircle className="h-5 w-5 text-green-600" />
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-semibold text-gray-800">지속적인 효과</h3>
+                            <p className="text-gray-600">
+                              광고와 달리 한번 최적화된 콘텐츠는 지속적으로 효과를 발휘합니다
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="flex items-start gap-3">
+                          <div className="bg-green-100 p-2 rounded-full mt-1">
+                            <CheckCircle className="h-5 w-5 text-green-600" />
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-semibold text-gray-800">높은 신뢰도</h3>
+                            <p className="text-gray-600">소비자들은 광고보다 자연 검색 결과를 더 신뢰하고 클릭합니다</p>
+                          </div>
+                        </div>
+
+                        <div className="flex items-start gap-3">
+                          <div className="bg-green-100 p-2 rounded-full mt-1">
+                            <CheckCircle className="h-5 w-5 text-green-600" />
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-semibold text-gray-800">비용 효율성</h3>
+                            <p className="text-gray-600">
+                              광고비 지출 없이 지속적인 고객 유입을 만들어 ROI가 극대화됩니다
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+
+                  <div className="md:w-1/2">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.4, duration: 0.5 }}
+                      className="bg-gray-50 p-8 rounded-2xl"
+                    >
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="bg-blue-100 p-3 rounded-full">
+                          <Shield className="h-6 w-6 text-blue-600" />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-800">네이버 알고리즘 준수</h3>
+                      </div>
+
+                      <p className="text-gray-700 mb-6">
+                        우리는 네이버의 알고리즘을 정확히 분석하고 준수합니다. 어뷰징이나 블랙햇 기법을 사용하지 않아 계정 제재 위험이 없으며, 지속 가능한 결과를 제공합니다.
+                      </p>
+
+                      <div className="bg-blue-50 p-4 rounded-xl">
+                        <p className="text-blue-700 font-medium">
+                          "어뷰징으로 효과보고 있나요? 언제까지 그럴까요?"
+                        </p>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          {/* 고객 후기 */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+            className="mb-20"
+          >
+            <h2 className="text-4xl font-bold mb-4 text-center">실제 고객의 성공 사례</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12 text-center">
+              우리의 솔루션으로 비즈니스를 성장시킨 고객들의 이야기를 들어보세요
+            </p>
+
+            <div className="relative">
+              <AnimatePresence mode="wait">
+                {testimonials.map(
+                  (testimonial, index) =>
+                    activeTab === index && (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.5 }}
+                        className="bg-white rounded-3xl shadow-xl p-8 md:p-10"
+                      >
+                        <div className="flex flex-col md:flex-row gap-6 items-center">
+                          <div className="md:w-1/4 flex justify-center">
+                            <div className="w-24 h-24 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center">
+                              <Users className="h-12 w-12 text-blue-500" />
+                            </div>
+                          </div>
+                          <div className="md:w-3/4">
+                            <div className="flex items-center mb-4">
+                              {[...Array(5)].map((_, i) => (
+                                <Award key={i} className="h-5 w-5 text-yellow-400" />
+                              ))}
+                            </div>
+                            <p className="text-xl text-gray-700 mb-6 italic">"{testimonial.content}"</p>
+                            <div>
+                              <h4 className="text-lg font-bold text-gray-800">{testimonial.name}</h4>
+                              <p className="text-gray-500">{testimonial.business}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ),
+                )}
+              </AnimatePresence>
+
+              <div className="flex justify-center mt-8 gap-2">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveTab(index)}
+                    className={cn(
+                      "w-3 h-3 rounded-full transition-all duration-300",
+                      activeTab === index ? "bg-blue-600 w-8" : "bg-gray-300",
+                    )}
+                  />
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* CTA 섹션 */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-20"
+          >
+            <Card className="border-none shadow-2xl rounded-3xl overflow-hidden bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
+              <CardContent className="p-12">
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="text-3xl md:text-4xl font-bold mb-6"
+                >
+                  지금 시작하세요. 3개월 안에 변화는 무조건 찾아옵니다.
+                </motion.h2>
+
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 }}
+                  className="text-xl text-white/90 max-w-3xl mx-auto mb-10"
+                >
+                  무료 상담을 통해 귀사의 비즈니스에 맞는 맞춤형 전략을 제안해 드립니다.
+                  <br />
+                  지금 바로 네이버 검색 최적화의 첫 걸음을 시작하세요.
+                </motion.p>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6 }}
+                  className="flex flex-col md:flex-row gap-4 justify-center"
+                >
+                  <Button
+                    size="lg"
+                    className="bg-white text-blue-600 hover:bg-white/90 text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+                  >
+                    <span>무료 상담 신청하기</span>
+                    <motion.span
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{ repeat: Number.POSITIVE_INFINITY, duration: 1.5, repeatDelay: 1 }}
+                    >
+                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </motion.span>
+                  </Button>
+
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-2 border-white/30 text-white hover:bg-white/10 text-lg px-8 py-6 rounded-full"
+                  >
+                    서비스 상세 보기
+                  </Button>
+                </motion.div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      </main>
+      <Footer />
     </div>
   )
 } 
