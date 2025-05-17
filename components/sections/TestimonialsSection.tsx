@@ -37,15 +37,17 @@ export default function TestimonialsSection() {
               고객 후기
             </Badge>
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight bg-gradient-to-r from-amber-700 via-pink-600 to-purple-500 bg-clip-text text-transparent">
-              7,000여 광고주의 선택
+              <span className="hidden md:inline">7,000여 광고주의 선택</span>
+              <span className="block md:hidden">7,000여<br />광고주의 선택</span>
             </h2>
             <p className="mx-auto max-w-[700px] text-gray-700 md:text-xl">
-              위즈더플래닝과 함께한 고객들의 생생한 후기를 확인하세요.
+              <span className="hidden md:inline">위즈더플래닝과 함께한 고객들의 생생한 후기를 확인하세요.</span>
+              <span className="block md:hidden">위즈더플래닝과 함께한<br />고객들의 생생한 후기를 확인하세요.</span>
             </p>
           </div>
         </motion.div>
         <motion.div
-          className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 mt-12"
+          className="mx-auto grid grid-cols-1 gap-6 sm:gap-4 md:grid-cols-2 lg:grid-cols-3 mt-12"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"

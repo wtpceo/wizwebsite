@@ -27,10 +27,12 @@ export default function PricingSection() {
               가격 비교
             </Badge>
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight bg-gradient-to-r from-teal-700 via-blue-600 to-amber-500 bg-clip-text text-transparent">
-              합리적인 가격, 전문적인 서비스
+              <span className="hidden md:inline">합리적인 가격, 전문적인 서비스</span>
+              <span className="block md:hidden">합리적인 가격,<br />전문적인 서비스</span>
             </h2>
             <p className="mx-auto max-w-[700px] text-gray-700 md:text-xl">
-              재능마켓과 비교해보세요. 위즈더플래닝은 전문성과 품질을 보장합니다.
+              <span className="hidden md:inline">재능마켓과 비교해보세요. 위즈더플래닝은 전문성과 품질을 보장합니다.</span>
+              <span className="block md:hidden">재능마켓과 비교해보세요.<br />위즈더플래닝은 전문성과 품질을 보장합니다.</span>
             </p>
           </div>
         </motion.div>

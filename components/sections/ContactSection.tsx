@@ -45,12 +45,12 @@ export default function ContactSection() {
                 문의하기
               </Badge>
               <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight bg-gradient-to-r from-pink-700 via-purple-600 to-blue-500 bg-clip-text text-transparent">
-                지금 바로 상담받고
-                <br />
-                마케팅 고민을 해결하세요
+                <span className="hidden md:inline">지금 바로 상담받고<br />마케팅 고민을 해결하세요</span>
+                <span className="block md:hidden">지금 바로 상담받고<br />마케팅 고민을 해결하세요</span>
               </h2>
               <p className="max-w-[600px] text-gray-700 md:text-xl">
-                위즈더플래닝의 전문가가 귀하의 비즈니스에 맞는 최적의 마케팅 솔루션을 제안해드립니다.
+                <span className="hidden md:inline">위즈더플래닝의 전문가가 귀하의 비즈니스에 맞는 최적의 마케팅 솔루션을 제안해드립니다.</span>
+                <span className="block md:hidden">위즈더플래닝의 전문가가<br />귀하의 비즈니스에 맞는 최적의 마케팅 솔루션을 제안해드립니다.</span>
               </p>
             </motion.div>
             <motion.div className="space-y-4" variants={staggerContainer}>

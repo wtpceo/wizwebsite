@@ -177,7 +177,8 @@ export default function DeliveryServicePage() {
                 }}
                 transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
               >
-                배달앱 운영, 아직 혼자 하세요?
+                <span className="hidden md:inline">배달앱 운영, 아직 혼자 하세요?</span>
+                <span className="block md:hidden">배달앱 운영,<br />아직 혼자 하세요?</span>
               </motion.h1>
             </motion.div>
 
@@ -187,38 +188,74 @@ export default function DeliveryServicePage() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
-              <motion.span
-                className="inline-block font-bold text-red-200 mr-1"
-                whileHover={{ scale: 1.1, color: "#ffffff" }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                배달의민족
-              </motion.span>
-              <span>부터</span>
-              <motion.span
-                className="inline-block font-bold text-yellow-200 mx-1"
-                whileHover={{ scale: 1.1, color: "#ffffff" }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                요기요
-              </motion.span>
-              <span>,</span>
-              <motion.span
-                className="inline-block font-bold text-blue-200 mx-1"
-                whileHover={{ scale: 1.1, color: "#ffffff" }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                쿠팡이츠
-              </motion.span>
-              <span>,</span>
-              <motion.span
-                className="inline-block font-bold text-green-200 mx-1"
-                whileHover={{ scale: 1.1, color: "#ffffff" }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                땡겨요
-              </motion.span>
-              <span>까지</span>
+              <span className="hidden md:inline">
+                <motion.span
+                  className="inline-block font-bold text-red-200 mr-1"
+                  whileHover={{ scale: 1.1, color: "#ffffff" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  배달의민족
+                </motion.span>
+                <span>부터</span>
+                <motion.span
+                  className="inline-block font-bold text-yellow-200 mx-1"
+                  whileHover={{ scale: 1.1, color: "#ffffff" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  요기요
+                </motion.span>
+                <span>,</span>
+                <motion.span
+                  className="inline-block font-bold text-blue-200 mx-1"
+                  whileHover={{ scale: 1.1, color: "#ffffff" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  쿠팡이츠
+                </motion.span>
+                <span>,</span>
+                <motion.span
+                  className="inline-block font-bold text-green-200 mx-1"
+                  whileHover={{ scale: 1.1, color: "#ffffff" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  땡겨요
+                </motion.span>
+                <span>까지</span>
+              </span>
+              <span className="block md:hidden">
+                <motion.span
+                  className="inline-block font-bold text-red-200 mr-1"
+                  whileHover={{ scale: 1.1, color: "#ffffff" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  배달의민족
+                </motion.span>
+                <span>부터<br /></span>
+                <motion.span
+                  className="inline-block font-bold text-yellow-200 mx-1"
+                  whileHover={{ scale: 1.1, color: "#ffffff" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  요기요
+                </motion.span>
+                <span>,</span>
+                <motion.span
+                  className="inline-block font-bold text-blue-200 mx-1"
+                  whileHover={{ scale: 1.1, color: "#ffffff" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  쿠팡이츠
+                </motion.span>
+                <span>,</span>
+                <motion.span
+                  className="inline-block font-bold text-green-200 mx-1"
+                  whileHover={{ scale: 1.1, color: "#ffffff" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  땡겨요
+                </motion.span>
+                <span>까지</span>
+              </span>
               <br />
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -237,7 +274,8 @@ export default function DeliveryServicePage() {
                   }}
                   transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
                 >
-                  이제는 선택이 아니라, 생존 전략입니다.
+                  <span className="hidden md:inline">이제는 선택이 아니라, 생존 전략입니다.</span>
+                  <span className="block md:hidden">이제는 선택이 아니라,<br />생존 전략입니다.</span>
                 </motion.span>
               </motion.div>
             </motion.div>
@@ -325,7 +363,8 @@ export default function DeliveryServicePage() {
             >
               <h2 className="text-2xl md:text-4xl font-bold mb-4 text-gray-900">
                 <AlertTriangle className="inline-block mr-2 text-red-600" size={32} />
-                매출이 줄고 있는데, 이유를 모른다면...
+                <span className="hidden md:inline">매출이 줄고 있는데, 이유를 모른다면...</span>
+                <span className="block md:hidden">매출이 줄고 있는데,<br />이유를 모른다면...</span>
               </h2>
             </motion.div>
 
@@ -377,7 +416,8 @@ export default function DeliveryServicePage() {
               variants={fadeIn}
               className="text-2xl md:text-3xl font-bold mb-8 text-center"
             >
-              배달시장은 지금 이렇게 바뀌고 있습니다
+              <span className="hidden md:inline">배달시장은 지금 이렇게 바뀌고 있습니다</span>
+              <span className="block md:hidden">배달시장은<br />지금 이렇게<br />바뀌고 있습니다</span>
             </motion.h2>
 
             <motion.div
@@ -435,7 +475,8 @@ export default function DeliveryServicePage() {
               variants={fadeIn}
               className="text-2xl md:text-3xl font-bold mb-8 text-center"
             >
-              사장님이 지금 혼자 하셔야 하는 일
+              <span className="hidden md:inline">사장님이 지금 혼자 하셔야 하는 일</span>
+              <span className="block md:hidden">사장님이 지금<br />혼자 하셔야 하는 일</span>
             </motion.h2>
 
             <motion.div
@@ -492,7 +533,10 @@ export default function DeliveryServicePage() {
               animate={realityInView ? "visible" : "hidden"}
               className="text-center"
             >
-              <p className="text-2xl font-bold">🤯 혼자 하긴, 불가능한 일이 되었습니다.</p>
+              <p className="text-2xl font-bold">
+                <span className="hidden md:inline">🤯 혼자 하긴, 불가능한 일이 되었습니다.</span>
+                <span className="block md:hidden">🤯 혼자 하긴,<br />불가능한 일이 되었습니다.</span>
+              </p>
             </motion.div>
           </div>
         </section>
@@ -507,7 +551,8 @@ export default function DeliveryServicePage() {
               variants={fadeIn}
               className="text-2xl md:text-3xl font-bold mb-8 text-center"
             >
-              생존을 위한 핵심 포인트 5가지
+              <span className="hidden md:inline">생존을 위한 핵심 포인트 5가지</span>
+              <span className="block md:hidden">생존을 위한<br />핵심 포인트 5가지</span>
             </motion.h2>
 
             <motion.div
@@ -569,7 +614,10 @@ export default function DeliveryServicePage() {
               variants={fadeIn}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl md:text-4xl font-bold mb-4">9년의 노하우, 7,000개 이상의 성공 사례</h2>
+              <h2 className="text-2xl md:text-4xl font-bold mb-4">
+                <span className="hidden md:inline">9년의 노하우, 7,000개 이상의 성공 사례</span>
+                <span className="block md:hidden">9년의 노하우,<br />7,000개 이상의<br />성공 사례</span>
+              </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                 2016년부터 시작된 위즈더플래닝의 여정은
                 <br />
@@ -630,7 +678,10 @@ export default function DeliveryServicePage() {
               animate={statsInView ? "visible" : "hidden"}
               className="text-center bg-white p-8 rounded-lg shadow-md"
             >
-              <h3 className="text-xl font-bold mb-4">위즈더플래닝은 배달앱 관리의 선두주자입니다</h3>
+              <h3 className="text-xl font-bold mb-4">
+                <span className="hidden md:inline">위즈더플래닝은 배달앱 관리의 선두주자입니다</span>
+                <span className="block md:hidden">위즈더플래닝은<br />배달앱 관리의 선두주자입니다</span>
+              </h3>
               <p className="text-gray-700 mb-4">
                 9년간의 경험을 바탕으로 7,000개 이상의 매장을 성공적으로 관리해온 노하우를 가지고 있습니다.<br /> 배달앱
                 시장의 변화에 발맞춰 끊임없이 진화하는 전략으로 사장님들의 매출 향상을 돕고 있습니다.
@@ -652,7 +703,10 @@ export default function DeliveryServicePage() {
               variants={fadeIn}
               className="text-center mb-12"
             >
-              <h2 className="text-2xl md:text-4xl font-bold mb-4">위즈더플래닝의 역할</h2>
+              <h2 className="text-2xl md:text-4xl font-bold mb-4">
+                <span className="hidden md:inline">위즈더플래닝의 역할</span>
+                <span className="block md:hidden">위즈더플래닝의<br />역할</span>
+              </h2>
               <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                 "7개 플랫폼 운영 + 광고 효율화 + 리뷰/사진 통합관리"
                 <br />
@@ -782,7 +836,10 @@ export default function DeliveryServicePage() {
               variants={fadeIn}
               className="max-w-3xl mx-auto text-center mb-12"
             >
-              <h2 className="text-2xl md:text-4xl font-bold mb-4">이제, 선택이 아닌 '필수'입니다.</h2>
+              <h2 className="text-2xl md:text-4xl font-bold mb-4">
+                <span className="hidden md:inline">이제, 선택이 아닌 '필수'입니다.</span>
+                <span className="block md:hidden">이제, 선택이 아닌<br />'필수'입니다.</span>
+              </h2>
               <p className="text-xl mb-8">매출이 줄고 있다면, 지금이 바꿀 타이밍입니다.</p>
             </motion.div>
 

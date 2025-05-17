@@ -39,10 +39,12 @@ export default function PortfolioSection() {
               포트폴리오
             </Badge>
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight bg-gradient-to-r from-purple-700 via-blue-600 to-teal-500 bg-clip-text text-transparent">
-              성공적인 마케팅 사례
+              <span className="hidden md:inline">성공적인 마케팅 사례</span>
+              <span className="block md:hidden">성공적인<br />마케팅 사례</span>
             </h2>
             <p className="mx-auto max-w-[700px] text-gray-700 md:text-xl">
-              위즈더플래닝과 함께한 다양한 업종의 성공 사례를 확인하세요.
+              <span className="hidden md:inline">위즈더플래닝과 함께한 다양한 업종의 성공 사례를 확인하세요.</span>
+              <span className="block md:hidden">위즈더플래닝과 함께한<br />다양한 업종의 성공 사례를 확인하세요.</span>
             </p>
           </div>
         </motion.div>
@@ -84,7 +86,7 @@ export default function PortfolioSection() {
             </div>
             <TabsContent value="all" className="mt-6">
               <motion.div
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+                className="grid grid-cols-1 gap-6 sm:gap-4 md:grid-cols-2 lg:grid-cols-3"
                 variants={staggerContainer}
                 initial="hidden"
                 whileInView="visible"
@@ -92,7 +94,7 @@ export default function PortfolioSection() {
               >
                 {[1, 2, 3, 4, 5, 6].map((item) => (
                   <motion.div key={item} variants={fadeIn}>
-                    <Card className="overflow-hidden border-gray-100 transition-all duration-300 hover:shadow-lg hover:shadow-purple-200/50 group">
+                    <Card className="overflow-hidden border-gray-100 transition-all duration-300 hover:shadow-lg hover:shadow-purple-200/50 group p-4 sm:p-6">
                       <div className="aspect-video relative overflow-hidden">
                         <Image
                           src={`/placeholder.svg?height=300&width=400&text=포트폴리오 ${item}`}
@@ -110,11 +112,10 @@ export default function PortfolioSection() {
                           } opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
                         ></div>
                       </div>
-                      <CardContent className="p-4 bg-white">
-                        <h3 className="font-medium text-gray-800">프로젝트 {item}</h3>
-                        <p className="text-sm text-gray-600">
-                          {item % 3 === 0 ? "음식점 마케팅" : item % 3 === 1 ? "카페 브랜딩" : "소매점 마케팅"}{" "}
-                          프로젝트
+                      <CardContent className="p-3 sm:p-4 bg-white">
+                        <h3 className="font-medium text-gray-800 text-base sm:text-lg">프로젝트 {item}</h3>
+                        <p className="text-xs sm:text-sm text-gray-600">
+                          {item % 3 === 0 ? "음식점 마케팅" : item % 3 === 1 ? "카페 브랜딩" : "소매점 마케팅"} 프로젝트
                         </p>
                       </CardContent>
                     </Card>

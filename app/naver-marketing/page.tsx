@@ -290,21 +290,8 @@ export default function NaverMarketingPage() {
           <div className="container relative z-10 px-4 text-center">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
               <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
-                <span className="block">검색에서 발견되지 않는 다면</span>
-                <motion.span
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.8 }}
-                  className="relative inline-block"
-                >
-                  <span className="relative z-10">존재하지 않는것과 같습니다</span>
-                  <motion.span
-                    initial={{ width: "0%" }}
-                    animate={{ width: "100%" }}
-                    transition={{ delay: 1.3, duration: 1 }}
-                    className="absolute bottom-2 left-0 h-3 bg-yellow-400 opacity-50 rounded-full"
-                  ></motion.span>
-                </motion.span>
+                <span className="hidden md:inline">검색에서 발견되지 않는 다면<br />존재하지 않는것과 같습니다</span>
+                <span className="block md:hidden">검색에서 발견되지 않는 다면<br />존재하지 않는것과 같습니다</span>
               </h1>
 
               <motion.p
@@ -313,7 +300,8 @@ export default function NaverMarketingPage() {
                 transition={{ delay: 1, duration: 0.8 }}
                 className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-10"
               >
-                온라인에서도 <strong>노출이 되어야 하고</strong> 그 다음이 바로 콘텐츠 입니다.
+                <span className="hidden md:inline">온라인에서도 노출이 되어야 하고 그 다음이 바로 콘텐츠 입니다.</span>
+                <span className="block md:hidden">온라인에서도 노출이 되어야 하고<br />그 다음이 바로 콘텐츠 입니다.</span>
               </motion.p>
 
               <motion.div
@@ -362,7 +350,8 @@ export default function NaverMarketingPage() {
             <Card className="border-none shadow-2xl rounded-3xl overflow-hidden bg-white">
               <CardContent className="p-8 md:p-12">
                 <h2 className="text-3xl font-bold mb-8 text-gray-800">
-                  혹시 이런 상황을 <span className="text-red-500">겪고 계신가요?</span>
+                  <span className="hidden md:inline">혹시 이런 상황을 겪고 계신가요?</span>
+                  <span className="block md:hidden">혹시 이런 상황을<br />겪고 계신가요?</span>
                 </h2>
 
                 <div className="space-y-6">
@@ -378,7 +367,8 @@ export default function NaverMarketingPage() {
                     </div>
                     <div>
                       <h3 className="text-xl font-semibold text-gray-800">
-                        오래된 사진, <span className="text-red-500">부족한 정보 때문에</span>
+                        오래된 사진,<span className="block md:hidden" />
+                        <span className="text-red-500">부족한 정보 때문에</span>
                       </h3>
                       <p className="text-gray-600 mt-1">
                         고객이 그냥 지나치고 있진 않으신가요?
@@ -398,7 +388,8 @@ export default function NaverMarketingPage() {
                     </div>
                     <div>
                       <h3 className="text-xl font-semibold text-gray-800">
-                        검색만 하면 <span className="text-red-500">경쟁업체가 상단에 노출되고</span>
+                        검색만 하면<span className="block md:hidden" />
+                        <span className="text-red-500">경쟁업체가 상단에 노출되고</span>
                       </h3>
                       <p className="text-gray-600 mt-1">
                         내 가게는 아래로 밀려 보이지도 않을 때, 속상하셨죠?
@@ -418,7 +409,8 @@ export default function NaverMarketingPage() {
                     </div>
                     <div>
                       <h3 className="text-xl font-semibold text-gray-800">
-                        광고비는 <span className="text-red-500">계속 오르는데</span>
+                        광고비는<span className="block md:hidden" />
+                        <span className="text-red-500">계속 오르는데</span>
                       </h3>
                       <p className="text-gray-600 mt-1">
                         효과는 단발성이고, 고객은 늘지 않을 때 답답하셨을 꺼에요.
@@ -448,7 +440,8 @@ export default function NaverMarketingPage() {
             className="mb-20 text-center"
           >
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-transparent bg-clip-text inline-block">
-              네이버 검색을 지배하는 솔루션
+              <span className="hidden md:inline">네이버 검색을 지배하는 솔루션</span>
+              <span className="block md:hidden">네이버 검색을<br />지배하는 솔루션</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-16">
               광고비 없이도 네이버 검색 결과 최상위에 노출되어 <br className="hidden md:block" />
@@ -719,7 +712,8 @@ export default function NaverMarketingPage() {
                   transition={{ delay: 0.2 }}
                   className="text-3xl md:text-4xl font-bold mb-6"
                 >
-                  지금 시작하세요. <br /> 3개월 안에 변화는 무조건 찾아옵니다.
+                  <span className="hidden md:inline">지금 시작하세요. <br />3개월 안에 변화는 무조건 찾아옵니다.</span>
+                  <span className="block md:hidden">지금 시작하세요.<br />3개월 안에 변화는 무조건 찾아옵니다.</span>
                 </motion.h2>
 
                 <motion.p
@@ -729,9 +723,8 @@ export default function NaverMarketingPage() {
                   transition={{ delay: 0.4 }}
                   className="text-xl text-white/90 max-w-3xl mx-auto mb-10"
                 >
-                  무료 상담을 통해 귀사의 비즈니스에 맞는 맞춤형 전략을 제안해 드립니다.
-                  <br />
-                  지금 바로 네이버 검색 최적화의 첫 걸음을 시작하세요.
+                  <span className="hidden md:inline">무료 상담을 통해 귀사의 비즈니스에 맞는 맞춤형 전략을 제안해 드립니다.<br />지금 바로 네이버 검색 최적화의 첫 걸음을 시작하세요.</span>
+                  <span className="block md:hidden">무료 상담을 통해 귀사의 비즈니스에 맞는 맞춤형 전략을 제안해 드립니다.<br />지금 바로 네이버 검색 최적화의 첫 걸음을 시작하세요.</span>
                 </motion.p>
 
                 <motion.div

@@ -41,7 +41,7 @@ const BentoGrid = ({
   return (
     <div
       className={cn(
-        "grid w-full auto-rows-[22rem] grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4",
+        "grid w-full auto-rows-[22rem] grid-cols-1 gap-6 sm:gap-4 md:grid-cols-2 lg:grid-cols-3",
         className,
       )}
     >
@@ -77,18 +77,19 @@ const BentoCard = ({
       "group relative col-span-1 flex flex-col justify-between overflow-hidden rounded-xl",
       "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
       "transform-gpu dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
+      "p-5 sm:p-6",
       className,
     )}
   >
     <div>{background}</div>
-    <div className="relative z-10 flex flex-col gap-4 p-6">
-      <div className="flex items-center gap-4">
-        <div className="rounded-xl bg-white/90 p-3 shadow-lg backdrop-blur-sm ring-1 ring-black/5">
-          <Icon className="h-7 w-7 text-gray-700 transition-transform duration-300 group-hover:scale-110" />
+    <div className="relative z-10 flex flex-col gap-4 p-4 sm:p-6">
+      <div className="flex items-center gap-3 sm:gap-4">
+        <div className="rounded-xl bg-white/90 p-2 sm:p-3 shadow-lg backdrop-blur-sm ring-1 ring-black/5">
+          <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-gray-700 transition-transform duration-300 group-hover:scale-110" />
         </div>
-        <h3 className="text-2xl font-bold tracking-tight text-gray-900">{name}</h3>
+        <h3 className="text-lg sm:text-2xl font-bold tracking-tight text-gray-900">{name}</h3>
       </div>
-      <p className="text-base leading-relaxed text-gray-600">{description}</p>
+      <p className="text-sm sm:text-base leading-relaxed text-gray-600">{description}</p>
       <div className="mt-4 h-[36px]">
         {name === "전문 사진 촬영" && (
           <Link href="/portfolio" className="pointer-events-auto">
@@ -304,10 +305,12 @@ export default function ServicesSection() {
               서비스 소개
             </Badge>
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight bg-gradient-to-r from-blue-700 via-purple-600 to-teal-500 bg-clip-text text-transparent">
-              자영업자를 위한 통합 마케팅 솔루션
+              <span className="hidden md:inline">자영업자를 위한 통합 마케팅 솔루션</span>
+              <span className="block md:hidden">자영업자를 위한<br />통합 마케팅 솔루션</span>
             </h2>
             <p className="mx-auto max-w-[700px] text-gray-700 md:text-xl">
-              위즈더플래닝은 자영업자를 위한 모든 마케팅 서비스를 한 곳에서 제공합니다.
+              <span className="hidden md:inline">위즈더플래닝은 자영업자를 위한 모든 마케팅 서비스를 한 곳에서 제공합니다.</span>
+              <span className="block md:hidden">위즈더플래닝은 자영업자를 위한<br />모든 마케팅 서비스를 한 곳에서 제공합니다.</span>
             </p>
           </div>
         </motion.div>

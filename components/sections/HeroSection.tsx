@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { useEffect, useMemo, useState } from "react"
+import React from "react"
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -26,9 +27,34 @@ const staggerContainer = {
 
 export default function HeroSection() {
   const [titleNumber, setTitleNumber] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+    return () => window.removeEventListener("resize", checkMobile)
+  }, [])
+
   const titles = useMemo(
-    () => ["음식점, 학원, 뷰티, 운동", "캠핑장, 팬션, 숙박업", "공간이 있는 곳", "마케팅 시작과 끝", "위즈더플래닝"],
-    []
+    () =>
+      isMobile
+        ? [
+            "음식점 학원",
+            "뷰티샵 운동",
+            "캠핑장 팬션",
+            "공간이 있는 곳",
+            "마케팅의 시작",
+            "위즈더플래닝",
+          ]
+        : [
+            "음식점, 학원, 뷰티, 운동",
+            "캠핑장, 팬션, 숙박업",
+            "공간이 있는 곳",
+            "마케팅 시작과 끝",
+            "위즈더플래닝",
+          ],
+    [isMobile]
   )
 
   useEffect(() => {
@@ -59,7 +85,13 @@ export default function HeroSection() {
               2016년부터 7,000여 광고주와 함께
             </Badge>
             <h1 className="text-4xl font-bold tracking-tighter sm:text-6xl xl:text-7xl/none">
-              자영업 마케팅 <span className="rainbow-text font-extrabold">ALL IN ONE</span>
+              <span className="hidden md:inline">
+                자영업 마케팅 <span className="rainbow-text font-extrabold">ALL IN ONE</span>
+              </span>
+              <span className="block md:hidden">
+                자영업 마케팅<br />
+                <span className="rainbow-text font-extrabold">ALL IN ONE</span>
+              </span>
               <br />
               <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
                 &nbsp;
@@ -91,13 +123,15 @@ export default function HeroSection() {
                           }
                     }
                   >
-                    {title}
+                    <span className="hidden md:inline">{title}</span>
+                    <span className="block md:hidden">{title}</span>
                   </motion.span>
                 ))}
               </span>
             </h1>
             <p className="max-w-[800px] mx-auto text-gray-700 md:text-2xl mb-8">
-              9년간의 노하우 가성비 최적화 솔루션
+              <span className="hidden md:inline">9년간의 노하우 가성비 최적화 솔루션</span>
+              <span className="block md:hidden">9년간의 노하우<br />가성비 최적화 솔루션</span>
             </p>
           </motion.div>
           <motion.div className="flex flex-col gap-3 min-[400px]:flex-row" variants={fadeIn}>
@@ -120,18 +154,21 @@ export default function HeroSection() {
               </Button>
             </Link>
           </motion.div>
-          <motion.div className="flex items-center gap-6 text-base" variants={fadeIn}>
+          <motion.div className="flex flex-col items-center gap-2 text-base md:flex-row md:gap-6" variants={fadeIn}>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="h-5 w-5 text-purple-600" />
-              <span className="text-gray-800">9년 전문 경험</span>
+              <span className="text-gray-800 hidden md:inline">9년 전문 경험</span>
+              <span className="text-gray-800 block md:hidden text-sm">9년<br />전문 경험</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="h-5 w-5 text-blue-600" />
-              <span className="text-gray-800">7,000+ 고객사</span>
+              <span className="text-gray-800 hidden md:inline">7,000+ 고객사</span>
+              <span className="text-gray-800 block md:hidden text-sm">7,000+<br />고객사</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="h-5 w-5 text-teal-600" />
-              <span className="text-gray-800">통합 솔루션</span>
+              <span className="text-gray-800 hidden md:inline">통합 솔루션</span>
+              <span className="text-gray-800 block md:hidden text-sm">통합<br />솔루션</span>
             </div>
           </motion.div>
         </motion.div>

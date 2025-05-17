@@ -86,55 +86,58 @@ export default function PricingComparison() {
   ]
 
   return (
-    <motion.div
-      className="rounded-xl border border-gray-200 overflow-x-auto bg-white/90 shadow-2xl"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
-      style={{ minWidth: 360 }}
-    >
-      <Table className="min-w-[700px]">
-        <TableHeader>
-          <TableRow className="bg-gradient-to-r from-teal-100 via-white to-amber-100 border-b-2 border-teal-200">
-            <TableHead className="w-[220px] text-lg text-gray-900 font-bold tracking-tight py-4 px-6 border-r border-gray-200">서비스</TableHead>
-            <TableHead className="text-lg text-gray-800 font-bold py-4 px-6 border-r border-gray-200">재능마켓</TableHead>
-            <TableHead className="text-lg font-bold py-4 px-6 bg-gradient-to-r from-teal-200/40 to-amber-100/40 text-teal-900 text-center">위즈더플래닝</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {rows.map((row, i) => (
-            <motion.tr
-              key={i}
-              custom={i}
-              variants={rowVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className={`transition hover:bg-teal-50/40 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
-            >
-              <TableCell className="font-semibold text-gray-900 py-4 px-6 border-r border-gray-100">{row.service}</TableCell>
-              <TableCell className="py-4 px-6 border-r border-gray-100">
-                <div className="flex flex-col gap-1">
-                  <span className="text-base text-gray-700">{row.competitor.price}</span>
-                  {row.competitor.note && <span className="text-xs text-gray-500">{row.competitor.note}</span>}
-                </div>
-              </TableCell>
-              {i === 0 && (
-                <TableCell
-                  className="py-4 px-6 text-center align-middle"
-                  rowSpan={rows.length}
-                  style={{ verticalAlign: "middle" }}
-                >
-                  <div className="flex flex-col items-center justify-center h-full min-h-[400px]">
-                    <BlindButton />
+    <div className="overflow-x-auto">
+      <motion.div
+        className="rounded-xl border border-gray-200 bg-white/90 shadow-2xl min-w-[360px]"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        style={{ minWidth: 360 }}
+      >
+        <Table className="min-w-[700px]">
+          <TableHeader>
+            <TableRow className="bg-gradient-to-r from-teal-100 via-white to-amber-100 border-b-2 border-teal-200">
+              <TableHead className="w-[220px] text-lg text-gray-900 font-bold tracking-tight py-4 px-6 border-r border-gray-200">서비스</TableHead>
+              <TableHead className="text-lg text-gray-800 font-bold py-4 px-6 border-r border-gray-200">재능마켓</TableHead>
+              <TableHead className="text-lg font-bold py-4 px-6 bg-gradient-to-r from-teal-200/40 to-amber-100/40 text-teal-900 text-center">위즈더플래닝</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {rows.map((row, i) => (
+              <motion.tr
+                key={i}
+                custom={i}
+                variants={rowVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className={`transition hover:bg-teal-50/40 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
+              >
+                <TableCell className="font-semibold text-gray-900 py-4 px-6 border-r border-gray-100">{row.service}</TableCell>
+                <TableCell className="py-4 px-6 border-r border-gray-100">
+                  <div className="flex flex-col gap-1">
+                    <span className="text-base text-gray-700">{row.competitor.price}</span>
+                    {row.competitor.note && <span className="text-xs text-gray-500">{row.competitor.note}</span>}
                   </div>
                 </TableCell>
-              )}
-            </motion.tr>
-          ))}
-        </TableBody>
-      </Table>
-    </motion.div>
+                {i === 0 && (
+                  <TableCell
+                    className="py-4 px-6 text-center align-middle"
+                    rowSpan={rows.length}
+                    style={{ verticalAlign: "middle" }}
+                  >
+                    <div className="flex flex-col items-center justify-center h-full min-h-[400px]">
+                      <BlindButton />
+                    </div>
+                  </TableCell>
+                )}
+              </motion.tr>
+            ))}
+          </TableBody>
+        </Table>
+      </motion.div>
+      <div className="block md:hidden text-sm text-blue-500 font-semibold text-center mt-3">← 옆으로 밀어보세요</div>
+    </div>
   )
 }
