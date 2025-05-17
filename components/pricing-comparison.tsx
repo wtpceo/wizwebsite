@@ -39,12 +39,12 @@ export default function PricingComparison() {
           {[
             {
               service: "전문 사진 촬영",
-              competitor: { price: "5만원~10만원", note: "(1회 촬영)" },
+              competitor: { price: "30만원", note: "(1회 촬영)" },
               wiz: { price: "8만원~15만원", note: "전문 장비 및 보정 포함", highlight: true, available: true },
             },
             {
               service: "체험단 운영",
-              competitor: { price: "3만원~5만원", note: "(1회 모집)" },
+              competitor: { price: "15만원", note: "(월 모집)" },
               wiz: { price: "5만원~10만원", note: "모집부터 관리까지 올인원", highlight: true, available: true },
             },
             {
@@ -54,8 +54,8 @@ export default function PricingComparison() {
             },
             {
               service: "배달앱 관리",
-              competitor: { available: false },
-              wiz: { price: "월 10만원~", available: true },
+              competitor: { price: "15만원~30만원", note: "(월)" },
+              wiz: { price: "월 15만원~30만원", available: true },
             },
             {
               service: "인쇄물 제작",
@@ -64,12 +64,12 @@ export default function PricingComparison() {
             },
             {
               service: "통합 패키지",
-              competitor: { available: false },
+              competitor: { price: "80만원~90만원", note: "(월 비용)" },
               wiz: { price: "월 30만원~", note: "모든 서비스 포함", available: true },
             },
             {
               service: "전담 매니저",
-              competitor: { available: false },
+              competitor: { price: "350만원", note: "(월 비용)" },
               wiz: { available: true, note: "전담 매니저 배정" },
             },
           ].map((row, i) => (
