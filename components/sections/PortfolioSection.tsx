@@ -1,27 +1,9 @@
+"use client"
+
 import Image from "next/image"
-import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
-
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-}
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-}
 
 export default function PortfolioSection() {
   return (
@@ -30,7 +12,7 @@ export default function PortfolioSection() {
       className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-purple-50 via-white to-teal-50"
     >
       <div className="container px-4 md:px-6">
-        <motion.div className="flex flex-col items-center justify-center space-y-4 text-center" variants={fadeIn}>
+        <div className="flex flex-col items-center justify-center space-y-4 text-center animate-fade-in">
           <div className="space-y-2">
             <Badge
               className="w-fit mx-auto bg-gradient-to-r from-purple-100 to-teal-100 text-purple-700 hover:from-purple-200 hover:to-teal-200 border-purple-200"
@@ -47,29 +29,23 @@ export default function PortfolioSection() {
               <span className="block md:hidden">위즈더플래닝과 함께한<br />다양한 업종의 성공 전략을 확인하세요.</span>
             </p>
           </div>
-        </motion.div>
-        <motion.div variants={fadeIn} className="mt-12">
-          <motion.div
-            className="grid grid-cols-1 gap-6 sm:gap-4 md:grid-cols-2 lg:grid-cols-3"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-          >
+        </div>
+        <div className="mt-12">
+          <div className="grid grid-cols-1 gap-6 sm:gap-4 md:grid-cols-2 lg:grid-cols-3">
             {[
               { id: 1, title: "홀판매 음식점 전략", category: "음식점 마케팅", link: "/portfolio/1" },
               { id: 2, title: "배달 전문 음식점 전략", category: "배달매장 마케팅", link: "/portfolio/2" },
               { id: 3, title: "학원 마케팅 전략", category: "학원 마케팅", link: "/portfolio/3" },
               { id: 4, title: "캠핑/팬션 마케팅 전략", category: "숙박업 마케팅", link: "/portfolio/4" },
-              { id: 5, title: "프로젝트 5", category: "카페 브랜딩", link: "/portfolio/5" },
-              { id: 6, title: "프로젝트 6", category: "소매점 마케팅", link: "/portfolio/6" },
-            ].map((item) => (
-              <motion.div key={item.id} variants={fadeIn}>
+              { id: 5, title: "뷰티 업종 마케팅 전략", category: "뷰티 업종 마케팅", link: "/portfolio/5" },
+              { id: 6, title: "운동 업종 마케팅 전략", category: "운동 업종 마케팅", link: "/portfolio/6" },
+            ].map((item, index) => (
+              <div key={item.id} className="animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
                 <Link href={item.link}>
                   <Card className="overflow-hidden border-gray-100 transition-all duration-300 hover:shadow-lg hover:shadow-purple-200/50 group p-4 sm:p-6 cursor-pointer">
                     <div className="aspect-video relative overflow-hidden">
                       <Image
-                        src={item.id <= 3 ? `/images/portfolio/portfolio-${item.id}.jpg` : `/placeholder.svg?height=300&width=400&text=포트폴리오 ${item.id}`}
+                        src={`/images/portfolio/portfolio-${item.id}.jpg`}
                         alt={`포트폴리오 ${item.id}`}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -90,10 +66,10 @@ export default function PortfolioSection() {
                     </CardContent>
                   </Card>
                 </Link>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   )

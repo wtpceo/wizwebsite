@@ -21,7 +21,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import Image from "next/image"
 import Header from "@/components/layout/Header"
-import Footer from "@/components/layout/Footer"
+import Footer from "@/components/sections/Footer"
 import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import ContactForm from "@/components/contact-form"
