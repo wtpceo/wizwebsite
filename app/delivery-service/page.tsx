@@ -845,21 +845,52 @@ export default function DeliveryServicePage() {
 
             <motion.div variants={fadeIn} className="max-w-md mx-auto bg-white rounded-lg p-8 shadow-lg">
               <h3 className="text-xl font-bold mb-6 text-gray-900 text-center">무료 진단 신청하기</h3>
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={async (e) => {
+                e.preventDefault()
+                const formData = new FormData(e.currentTarget)
+                const data = {
+                  name: formData.get('name'),
+                  phone: formData.get('phone'),
+                  email: formData.get('email'),
+                  message: formData.get('message')
+                }
+
+                try {
+                  const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                  })
+
+                  if (response.ok) {
+                    alert('문의가 성공적으로 접수되었습니다.')
+                    e.currentTarget.reset()
+                  } else {
+                    alert('문의 접수 중 오류가 발생했습니다. 다시 시도해 주세요.')
+                  }
+                } catch (error) {
+                  console.error('문의 처리 중 오류:', error)
+                  alert('문의 접수 중 오류가 발생했습니다. 다시 시도해 주세요.')
+                }
+              }}>
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <Input placeholder="상호명" className="bg-gray-50" />
+                  <Input name="name" placeholder="상호명" className="bg-gray-50" required />
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <Input placeholder="연락처" className="bg-gray-50" />
+                  <Input name="phone" placeholder="연락처" className="bg-gray-50" required />
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <Input placeholder="이메일" className="bg-gray-50" />
+                  <Input name="email" type="email" placeholder="이메일" className="bg-gray-50" required />
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <Textarea placeholder="문의사항" className="bg-gray-50" rows={4} />
+                  <Textarea name="message" placeholder="문의사항" className="bg-gray-50" rows={4} required />
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button className="w-full bg-red-600 hover:bg-red-700 transition-colors">무료 진단 신청하기</Button>
+                  <Button type="submit" className="w-full bg-red-600 hover:bg-red-700 transition-colors">
+                    무료 진단 신청하기
+                  </Button>
                 </motion.div>
               </form>
             </motion.div>
