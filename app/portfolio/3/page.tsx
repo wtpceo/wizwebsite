@@ -4,9 +4,12 @@ import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, CheckCircle, Search, Users, BookOpen, Trophy, MessageSquare } from "lucide-react";
+import { ArrowRight, CheckCircle, Search, Users, BookOpen, Trophy, MessageSquare, Phone, MessageCircle, Mail } from "lucide-react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 export default function AcademyMarketingPage() {
   const prefersReducedMotion = useReducedMotion();
@@ -288,60 +291,171 @@ export default function AcademyMarketingPage() {
         </section>
 
         {/* Conclusion & CTA Section */}
-        <section className="py-24 bg-gradient-to-b from-white to-emerald-50">
-          <div className="container mx-auto px-6 max-w-5xl text-center">
-            <motion.h2 className="text-3xl md:text-4xl font-bold mb-10" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={getAnimation(fadeInUp)}>
-              지금 학부모가 학원을 고르는 기준은 단 하나입니다:
-            </motion.h2>
-            <motion.p className="text-2xl md:text-3xl font-bold mb-16 inline-block bg-emerald-100 px-8 py-4 rounded-lg" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={getAnimation(fadeInUp)} whileHover={{ scale: 1.03 }}>
-              "검색하면 나오는가, 안 나오는가"
-            </motion.p>
-            <motion.div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-10 mb-16" initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={getAnimation(fadeIn)}>
-              <motion.h3 className="text-2xl md:text-3xl font-bold mb-8 text-emerald-700" variants={getAnimation(fadeInUp)}>
-                ✅ 우리는 학원의 온라인 기반을 설계합니다.
-              </motion.h3>
-              <motion.div className="grid md:grid-cols-2 gap-8" variants={getAnimation(staggerContainer)} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                <motion.div className="bg-emerald-50 rounded-lg p-6" variants={getAnimation(staggerItem)} whileHover={{ y: -5 }}>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-6 w-6 text-emerald-600 mr-3 flex-shrink-0" />
-                    <p className="text-gray-800 text-lg">네이버 플레이스 관리</p>
-                  </div>
+        <section className="py-24 bg-gradient-to-br from-emerald-50 via-white to-green-50">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
+              <motion.div
+                className="flex flex-col justify-center space-y-4"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+              >
+                <motion.div className="space-y-2" variants={fadeIn}>
+                  <Badge
+                    className="w-fit bg-gradient-to-r from-emerald-100 to-green-100 text-emerald-700 hover:from-emerald-200 hover:to-green-200 border-emerald-200"
+                    variant="outline"
+                  >
+                    문의하기
+                  </Badge>
+                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
+                    <span className="hidden md:inline">지금 바로 상담받고<br />마케팅 고민을 해결하세요</span>
+                    <span className="block md:hidden">지금 바로 상담받고<br />마케팅 고민을 해결하세요</span>
+                  </h2>
+                  <p className="max-w-[600px] text-gray-700 md:text-xl">
+                    <span className="hidden md:inline">위즈더플래닝의 전문가가 귀하의 학원에 맞는 최적의 마케팅 솔루션을 제안해드립니다.</span>
+                    <span className="block md:hidden">위즈더플래닝의 전문가가<br />귀하의 학원에 맞는 최적의 마케팅 솔루션을 제안해드립니다.</span>
+                  </p>
                 </motion.div>
-                <motion.div className="bg-emerald-50 rounded-lg p-6" variants={getAnimation(staggerItem)} whileHover={{ y: -5 }}>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-6 w-6 text-emerald-600 mr-3 flex-shrink-0" />
-                    <p className="text-gray-800 text-lg">콘텐츠형 블로그 운영</p>
-                  </div>
-                </motion.div>
-                <motion.div className="bg-emerald-50 rounded-lg p-6" variants={getAnimation(staggerItem)} whileHover={{ y: -5 }}>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-6 w-6 text-emerald-600 mr-3 flex-shrink-0" />
-                    <p className="text-gray-800 text-lg">키워드 설계 & 검색 노출</p>
-                  </div>
-                </motion.div>
-                <motion.div className="bg-emerald-50 rounded-lg p-6" variants={getAnimation(staggerItem)} whileHover={{ y: -5 }}>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-6 w-6 text-emerald-600 mr-3 flex-shrink-0" />
-                    <p className="text-gray-800 text-lg">사진/리뷰/운영 정보 정리</p>
-                  </div>
+                <motion.div className="space-y-4" variants={staggerContainer}>
+                  {[
+                    { icon: <Phone className="h-5 w-5 text-emerald-600" />, title: "전화 문의", content: "1670-0704" },
+                    {
+                      icon: <MessageCircle className="h-5 w-5 text-green-600" />,
+                      title: "카카오톡 문의",
+                      content: "@위즈더플래닝",
+                    },
+                    {
+                      icon: <Mail className="h-5 w-5 text-emerald-600" />,
+                      title: "이메일 문의",
+                      content: "wiz@wiztheplanning.com",
+                    },
+                  ].map((item, index) => (
+                    <motion.div key={index} className="flex items-center gap-2" variants={fadeIn}>
+                      <div
+                        className={`rounded-full ${
+                          index === 0 ? "bg-emerald-100" : index === 1 ? "bg-green-100" : "bg-emerald-100"
+                        } p-2`}
+                      >
+                        {item.icon}
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-800">{item.title}</p>
+                        <p
+                          className={`${
+                            index === 0 ? "text-emerald-600" : index === 1 ? "text-green-600" : "text-emerald-600"
+                          }`}
+                        >
+                          {item.content}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </motion.div>
               </motion.div>
-            </motion.div>
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={getAnimation(fadeInUp)} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-xl px-8 py-7 h-auto">
-                무료 학원 마케팅 진단받기 <ArrowRight className="ml-3 h-6 w-6" />
-              </Button>
-            </motion.div>
+              <motion.div
+                className="flex items-center"
+                variants={fadeIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+              >
+                <div className="w-full max-w-md mx-auto bg-white rounded-3xl shadow-xl p-6 md:p-8">
+                  <form className="space-y-4" onSubmit={async (e) => {
+                    e.preventDefault()
+                    const formData = new FormData(e.currentTarget)
+                    const data = {
+                      name: formData.get('name'),
+                      phone: formData.get('phone'),
+                      storeName: formData.get('storeName'),
+                      message: formData.get('message')
+                    }
+
+                    try {
+                      const response = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                      })
+
+                      if (response.ok) {
+                        alert('문의가 성공적으로 접수되었습니다.')
+                        e.currentTarget.reset()
+                      } else {
+                        alert('문의 접수 중 오류가 발생했습니다. 다시 시도해 주세요.')
+                      }
+                    } catch (error) {
+                      console.error('문의 처리 중 오류:', error)
+                      alert('문의 접수 중 오류가 발생했습니다. 다시 시도해 주세요.')
+                    }
+                  }}>
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="text-sm font-medium text-gray-700">
+                        이름
+                      </label>
+                      <Input
+                        id="name"
+                        name="name"
+                        placeholder="홍길동"
+                        required
+                        className="h-12 bg-gray-50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500/20"
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <label htmlFor="phone" className="text-sm font-medium text-gray-700">
+                        연락처
+                      </label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        name="phone"
+                        placeholder="010-0000-0000"
+                        required
+                        className="h-12 bg-gray-50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500/20"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="storeName" className="text-sm font-medium text-gray-700">
+                        학원명
+                      </label>
+                      <Input
+                        id="storeName"
+                        name="storeName"
+                        placeholder="학원 이름을 입력해주세요"
+                        required
+                        className="h-12 bg-gray-50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500/20"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="message" className="text-sm font-medium text-gray-700">
+                        문의사항
+                      </label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        placeholder="문의하실 내용을 자유롭게 작성해주세요"
+                        className="min-h-[120px] bg-gray-50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500/20"
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      className="w-full h-12 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white font-medium shadow-lg shadow-emerald-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/30"
+                    >
+                      무료 상담 신청하기
+                    </Button>
+                  </form>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
       </main>
-      {/* Floating CTA */}
-      <motion.div className="fixed bottom-8 right-8 z-50" initial={{ y: 100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 1, duration: 0.5 }} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-        <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 shadow-lg text-lg px-6 py-6 h-auto">
-          <MessageSquare className="mr-3 h-6 w-6" />
-          무료 상담 신청
-        </Button>
-      </motion.div>
       <Footer />
     </div>
   );

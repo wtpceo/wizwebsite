@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
+import { motion } from "framer-motion"
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -37,50 +38,89 @@ export default function ContactForm() {
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit} className="space-y-3 w-full max-w-md mx-auto">
-        <Input
-          name="name"
-          placeholder="이름"
-          value={formData.name}
-          onChange={handleChange}
-          required
-          className="bg-white/10 border-white/20 placeholder:text-white/70 text-white h-12"
-        />
-        <Input
-          type="tel"
-          name="phone"
-          placeholder="연락처"
-          value={formData.phone}
-          onChange={handleChange}
-          required
-          className="bg-white/10 border-white/20 placeholder:text-white/70 text-white h-12"
-        />
-        <Input
-          name="storeName"
-          placeholder="가게명"
-          value={formData.storeName}
-          onChange={handleChange}
-          required
-          className="bg-white/10 border-white/20 placeholder:text-white/70 text-white h-12"
-        />
-        <Textarea
-          name="message"
-          placeholder="문의사항 (선택사항)"
-          value={formData.message}
-          onChange={handleChange}
-          className="bg-white/10 border-white/20 placeholder:text-white/70 text-white"
-          rows={3}
-        />
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="w-full max-w-md mx-auto bg-white rounded-3xl shadow-xl p-6 md:p-8"
+    >
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="space-y-2">
+          <label htmlFor="name" className="text-sm font-medium text-gray-700">
+            이름
+          </label>
+          <Input
+            id="name"
+            name="name"
+            placeholder="홍길동"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="h-12 bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20"
+          />
+        </div>
+        
+        <div className="space-y-2">
+          <label htmlFor="phone" className="text-sm font-medium text-gray-700">
+            연락처
+          </label>
+          <Input
+            id="phone"
+            type="tel"
+            name="phone"
+            placeholder="010-0000-0000"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+            className="h-12 bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label htmlFor="storeName" className="text-sm font-medium text-gray-700">
+            가게명
+          </label>
+          <Input
+            id="storeName"
+            name="storeName"
+            placeholder="가게 이름을 입력해주세요"
+            value={formData.storeName}
+            onChange={handleChange}
+            required
+            className="h-12 bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label htmlFor="message" className="text-sm font-medium text-gray-700">
+            문의사항
+          </label>
+          <Textarea
+            id="message"
+            name="message"
+            placeholder="문의하실 내용을 자유롭게 작성해주세요"
+            value={formData.message}
+            onChange={handleChange}
+            className="min-h-[120px] bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20"
+          />
+        </div>
+
         <Button
           type="submit"
-          className="w-full bg-white text-rose-600 hover:bg-white/90 font-medium h-12"
+          className="w-full h-12 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium shadow-lg shadow-blue-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/30"
           disabled={isSubmitting}
         >
-          {isSubmitting ? "제출 중..." : "무료 진단 신청하기"}
+          {isSubmitting ? (
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              <span>제출 중...</span>
+            </div>
+          ) : (
+            "무료 상담 신청하기"
+          )}
         </Button>
       </form>
       <Toaster />
-    </>
+    </motion.div>
   )
 }

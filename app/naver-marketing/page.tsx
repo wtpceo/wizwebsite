@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 import Header from "@/components/sections/Header"
 import Footer from "@/components/sections/Footer"
+import ContactSection from "@/components/sections/ContactSection"
 
 const AnimatedBackground = () => {
   const [circles, setCircles] = useState<Array<{
@@ -752,6 +753,7 @@ export default function NaverMarketingPage() {
           </motion.div>
         </div>
       </main>
+      <ContactSection />
       <Footer />
     </div>
   )

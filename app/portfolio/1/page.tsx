@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Camera, Palette, Globe, Ticket, Key, Calendar } from "lucide-react"
+import { ArrowRight, Camera, Palette, Globe, Ticket, Key, Calendar, Phone, MessageCircle, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { MobileMenu } from "@/components/mobile-menu"
 import { ScrollToTopButton } from "@/components/scroll-to-top-button"
@@ -11,6 +11,29 @@ import ContactForm from "@/components/contact-form"
 import { useState } from "react"
 import Header from "@/components/sections/Header"
 import Footer from "@/components/sections/Footer"
+import { motion } from "framer-motion"
+import { Badge } from "@/components/ui/badge"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+}
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+}
 
 export default function PortfolioDetail() {
   return (
@@ -295,22 +318,167 @@ export default function PortfolioDetail() {
         </section>
 
         {/* CTA 섹션 */}
-        <section className="w-full py-10 md:py-24 lg:py-32 bg-rose-600 text-white">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-rose-50 via-white to-pink-50">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
-              <div className="flex flex-col justify-center space-y-4">
-                <div className="space-y-2">
-                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-                    우리 가게도 노출되게 만들고 싶다면?
+              <motion.div
+                className="flex flex-col justify-center space-y-4"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+              >
+                <motion.div className="space-y-2" variants={fadeIn}>
+                  <Badge
+                    className="w-fit bg-gradient-to-r from-rose-100 to-pink-100 text-rose-700 hover:from-rose-200 hover:to-pink-200 border-rose-200"
+                    variant="outline"
+                  >
+                    문의하기
+                  </Badge>
+                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent">
+                    <span className="hidden md:inline">지금 바로 상담받고<br />마케팅 고민을 해결하세요</span>
+                    <span className="block md:hidden">지금 바로 상담받고<br />마케팅 고민을 해결하세요</span>
                   </h2>
-                  <p className="max-w-[600px] text-white/80 md:text-xl">
-                    지금 무료로 마케팅 상태 진단 받아보세요.
+                  <p className="max-w-[600px] text-gray-700 md:text-xl">
+                    <span className="hidden md:inline">위즈더플래닝의 전문가가 귀하의 비즈니스에 맞는 최적의 마케팅 솔루션을 제안해드립니다.</span>
+                    <span className="block md:hidden">위즈더플래닝의 전문가가<br />귀하의 비즈니스에 맞는 최적의 마케팅 솔루션을 제안해드립니다.</span>
                   </p>
+                </motion.div>
+                <motion.div className="space-y-4" variants={staggerContainer}>
+                  {[
+                    { icon: <Phone className="h-5 w-5 text-rose-600" />, title: "전화 문의", content: "1670-0704" },
+                    {
+                      icon: <MessageCircle className="h-5 w-5 text-pink-600" />,
+                      title: "카카오톡 문의",
+                      content: "@위즈더플래닝",
+                    },
+                    {
+                      icon: <Mail className="h-5 w-5 text-rose-600" />,
+                      title: "이메일 문의",
+                      content: "wiz@wiztheplanning.com",
+                    },
+                  ].map((item, index) => (
+                    <motion.div key={index} className="flex items-center gap-2" variants={fadeIn}>
+                      <div
+                        className={`rounded-full ${
+                          index === 0 ? "bg-rose-100" : index === 1 ? "bg-pink-100" : "bg-rose-100"
+                        } p-2`}
+                      >
+                        {item.icon}
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-800">{item.title}</p>
+                        <p
+                          className={`${
+                            index === 0 ? "text-rose-600" : index === 1 ? "text-pink-600" : "text-rose-600"
+                          }`}
+                        >
+                          {item.content}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </motion.div>
+              <motion.div
+                className="flex items-center"
+                variants={fadeIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+              >
+                <div className="w-full max-w-md mx-auto bg-white rounded-3xl shadow-xl p-6 md:p-8">
+                  <form className="space-y-4" onSubmit={async (e) => {
+                    e.preventDefault()
+                    const formData = new FormData(e.currentTarget)
+                    const data = {
+                      name: formData.get('name'),
+                      phone: formData.get('phone'),
+                      storeName: formData.get('storeName'),
+                      message: formData.get('message')
+                    }
+
+                    try {
+                      const response = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                      })
+
+                      if (response.ok) {
+                        alert('문의가 성공적으로 접수되었습니다.')
+                        e.currentTarget.reset()
+                      } else {
+                        alert('문의 접수 중 오류가 발생했습니다. 다시 시도해 주세요.')
+                      }
+                    } catch (error) {
+                      console.error('문의 처리 중 오류:', error)
+                      alert('문의 접수 중 오류가 발생했습니다. 다시 시도해 주세요.')
+                    }
+                  }}>
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="text-sm font-medium text-gray-700">
+                        이름
+                      </label>
+                      <Input
+                        id="name"
+                        name="name"
+                        placeholder="홍길동"
+                        required
+                        className="h-12 bg-gray-50 border-gray-200 focus:border-rose-500 focus:ring-rose-500/20"
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <label htmlFor="phone" className="text-sm font-medium text-gray-700">
+                        연락처
+                      </label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        name="phone"
+                        placeholder="010-0000-0000"
+                        required
+                        className="h-12 bg-gray-50 border-gray-200 focus:border-rose-500 focus:ring-rose-500/20"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="storeName" className="text-sm font-medium text-gray-700">
+                        가게명
+                      </label>
+                      <Input
+                        id="storeName"
+                        name="storeName"
+                        placeholder="가게 이름을 입력해주세요"
+                        required
+                        className="h-12 bg-gray-50 border-gray-200 focus:border-rose-500 focus:ring-rose-500/20"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="message" className="text-sm font-medium text-gray-700">
+                        문의사항
+                      </label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        placeholder="문의하실 내용을 자유롭게 작성해주세요"
+                        className="min-h-[120px] bg-gray-50 border-gray-200 focus:border-rose-500 focus:ring-rose-500/20"
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      className="w-full h-12 bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white font-medium shadow-lg shadow-rose-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/30"
+                    >
+                      무료 상담 신청하기
+                    </Button>
+                  </form>
                 </div>
-              </div>
-              <div className="flex items-center justify-center">
-                <ContactForm />
-              </div>
+              </motion.div>
             </div>
           </div>
         </section>

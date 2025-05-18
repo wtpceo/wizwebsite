@@ -58,9 +58,9 @@ export default function PortfolioSection() {
           >
             {[
               { id: 1, title: "홀판매 음식점 전략", category: "음식점 마케팅", link: "/portfolio/1" },
-              { id: 2, title: "프로젝트 2", category: "카페 브랜딩", link: "/portfolio/2" },
+              { id: 2, title: "배달 전문 음식점 전략", category: "배달매장 마케팅", link: "/portfolio/2" },
               { id: 3, title: "학원 마케팅 전략", category: "학원 마케팅", link: "/portfolio/3" },
-              { id: 4, title: "프로젝트 4", category: "음식점 마케팅", link: "/portfolio/4" },
+              { id: 4, title: "캠핑/팬션 마케팅 전략", category: "숙박업 마케팅", link: "/portfolio/4" },
               { id: 5, title: "프로젝트 5", category: "카페 브랜딩", link: "/portfolio/5" },
               { id: 6, title: "프로젝트 6", category: "소매점 마케팅", link: "/portfolio/6" },
             ].map((item) => (
@@ -69,7 +69,7 @@ export default function PortfolioSection() {
                   <Card className="overflow-hidden border-gray-100 transition-all duration-300 hover:shadow-lg hover:shadow-purple-200/50 group p-4 sm:p-6 cursor-pointer">
                     <div className="aspect-video relative overflow-hidden">
                       <Image
-                        src={`/placeholder.svg?height=300&width=400&text=포트폴리오 ${item.id}`}
+                        src={item.id <= 3 ? `/images/portfolio/portfolio-${item.id}.jpg` : `/placeholder.svg?height=300&width=400&text=포트폴리오 ${item.id}`}
                         alt={`포트폴리오 ${item.id}`}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"

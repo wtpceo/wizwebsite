@@ -18,12 +18,16 @@ import {
   Users,
   Calendar,
   Award,
+  Phone,
+  MessageCircle,
+  Mail,
 } from "lucide-react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { useEffect, useState } from "react"
 import Header from "@/components/layout/Header"
 import Footer from "@/components/sections/Footer"
+import { Badge } from "@/components/ui/badge"
 
 const fadeIn = {
   hidden: { opacity: 0, y: 60, scale: 0.95 },
@@ -803,97 +807,168 @@ export default function DeliveryServicePage() {
         </section>
 
         {/* CTA 섹션 */}
-        <section id="contact" className="py-16 bg-red-600 text-white relative overflow-hidden">
-          {/* Background animation elements */}
-          <div className="absolute inset-0 overflow-hidden">
-            {contactBlobs.map((blob, i) => (
+        <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-red-50 via-white to-orange-50">
+          <div className="container px-4 md:px-6">
+            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
               <motion.div
-                key={i}
-                className="absolute rounded-full bg-white/5"
-                style={{
-                  width: `${blob.width}px`,
-                  height: `${blob.height}px`,
-                  left: `${blob.left}%`,
-                  top: `${blob.top}%`,
-                  opacity: 0.1,
-                }}
-                initial={{ opacity: 0.1, scale: 0 }}
-                animate={{ opacity: [0.1, 0.2, 0.1], scale: [0, 1, 0] }}
-                transition={{
-                  duration: 12 + i * 2,
-                  repeat: Number.POSITIVE_INFINITY,
-                  repeatType: "reverse",
-                }}
-              />
-            ))}
-          </div>
-
-          <div className="container mx-auto px-4 relative z-10">
-            <motion.div
-              ref={contactRef}
-              initial="hidden"
-              animate={contactInView ? "visible" : "hidden"}
-              variants={fadeIn}
-              className="max-w-3xl mx-auto text-center mb-12"
-            >
-              <h2 className="text-2xl md:text-4xl font-bold mb-4">
-                <span className="hidden md:inline">이제, 선택이 아닌 '필수'입니다.</span>
-                <span className="block md:hidden">이제, 선택이 아닌<br />'필수'입니다.</span>
-              </h2>
-              <p className="text-xl mb-8">매출이 줄고 있다면, 지금이 바꿀 타이밍입니다.</p>
-            </motion.div>
-
-            <motion.div variants={fadeIn} className="max-w-md mx-auto bg-white rounded-lg p-8 shadow-lg">
-              <h3 className="text-xl font-bold mb-6 text-gray-900 text-center">무료 진단 신청하기</h3>
-              <form className="space-y-4" onSubmit={async (e) => {
-                e.preventDefault()
-                const formData = new FormData(e.currentTarget)
-                const data = {
-                  name: formData.get('name'),
-                  phone: formData.get('phone'),
-                  email: formData.get('email'),
-                  message: formData.get('message')
-                }
-
-                try {
-                  const response = await fetch('/api/contact', {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json',
+                className="flex flex-col justify-center space-y-4"
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+              >
+                <motion.div className="space-y-2" variants={fadeIn}>
+                  <Badge
+                    className="w-fit bg-gradient-to-r from-red-100 to-orange-100 text-red-700 hover:from-red-200 hover:to-orange-200 border-red-200"
+                    variant="outline"
+                  >
+                    문의하기
+                  </Badge>
+                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
+                    <span className="hidden md:inline">지금 바로 상담받고<br />배달앱 고민을 해결하세요</span>
+                    <span className="block md:hidden">지금 바로 상담받고<br />배달앱 고민을 해결하세요</span>
+                  </h2>
+                  <p className="max-w-[600px] text-gray-700 md:text-xl">
+                    <span className="hidden md:inline">위즈더플래닝의 전문가가 귀하의 비즈니스에 맞는 최적의 배달앱 운영 솔루션을 제안해드립니다.</span>
+                    <span className="block md:hidden">위즈더플래닝의 전문가가<br />귀하의 비즈니스에 맞는 최적의 배달앱 운영 솔루션을 제안해드립니다.</span>
+                  </p>
+                </motion.div>
+                <motion.div className="space-y-4" variants={staggerContainer}>
+                  {[
+                    { icon: <Phone className="h-5 w-5 text-red-600" />, title: "전화 문의", content: "1670-0704" },
+                    {
+                      icon: <MessageCircle className="h-5 w-5 text-orange-600" />,
+                      title: "카카오톡 문의",
+                      content: "@위즈더플래닝",
                     },
-                    body: JSON.stringify(data),
-                  })
+                    {
+                      icon: <Mail className="h-5 w-5 text-red-600" />,
+                      title: "이메일 문의",
+                      content: "wiz@wiztheplanning.com",
+                    },
+                  ].map((item, index) => (
+                    <motion.div key={index} className="flex items-center gap-2" variants={fadeIn}>
+                      <div
+                        className={`rounded-full ${
+                          index === 0 ? "bg-red-100" : index === 1 ? "bg-orange-100" : "bg-red-100"
+                        } p-2`}
+                      >
+                        {item.icon}
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-800">{item.title}</p>
+                        <p
+                          className={`${
+                            index === 0 ? "text-red-600" : index === 1 ? "text-orange-600" : "text-red-600"
+                          }`}
+                        >
+                          {item.content}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </motion.div>
+              <motion.div
+                className="flex items-center"
+                variants={fadeIn}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.1 }}
+              >
+                <div className="w-full max-w-md mx-auto bg-white rounded-3xl shadow-xl p-6 md:p-8">
+                  <form className="space-y-4" onSubmit={async (e) => {
+                    e.preventDefault()
+                    const formData = new FormData(e.currentTarget)
+                    const data = {
+                      name: formData.get('name'),
+                      phone: formData.get('phone'),
+                      storeName: formData.get('storeName'),
+                      message: formData.get('message')
+                    }
 
-                  if (response.ok) {
-                    alert('문의가 성공적으로 접수되었습니다.')
-                    e.currentTarget.reset()
-                  } else {
-                    alert('문의 접수 중 오류가 발생했습니다. 다시 시도해 주세요.')
-                  }
-                } catch (error) {
-                  console.error('문의 처리 중 오류:', error)
-                  alert('문의 접수 중 오류가 발생했습니다. 다시 시도해 주세요.')
-                }
-              }}>
-                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <Input name="name" placeholder="상호명" className="bg-gray-50" required />
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <Input name="phone" placeholder="연락처" className="bg-gray-50" required />
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <Input name="email" type="email" placeholder="이메일" className="bg-gray-50" required />
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                  <Textarea name="message" placeholder="문의사항" className="bg-gray-50" rows={4} required />
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Button type="submit" className="w-full bg-red-600 hover:bg-red-700 transition-colors">
-                    무료 진단 신청하기
-                  </Button>
-                </motion.div>
-              </form>
-            </motion.div>
+                    try {
+                      const response = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                      })
+
+                      if (response.ok) {
+                        alert('문의가 성공적으로 접수되었습니다.')
+                        e.currentTarget.reset()
+                      } else {
+                        alert('문의 접수 중 오류가 발생했습니다. 다시 시도해 주세요.')
+                      }
+                    } catch (error) {
+                      console.error('문의 처리 중 오류:', error)
+                      alert('문의 접수 중 오류가 발생했습니다. 다시 시도해 주세요.')
+                    }
+                  }}>
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="text-sm font-medium text-gray-700">
+                        이름
+                      </label>
+                      <Input
+                        id="name"
+                        name="name"
+                        placeholder="홍길동"
+                        required
+                        className="h-12 bg-gray-50 border-gray-200 focus:border-red-500 focus:ring-red-500/20"
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <label htmlFor="phone" className="text-sm font-medium text-gray-700">
+                        연락처
+                      </label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        name="phone"
+                        placeholder="010-0000-0000"
+                        required
+                        className="h-12 bg-gray-50 border-gray-200 focus:border-red-500 focus:ring-red-500/20"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="storeName" className="text-sm font-medium text-gray-700">
+                        가게명
+                      </label>
+                      <Input
+                        id="storeName"
+                        name="storeName"
+                        placeholder="가게 이름을 입력해주세요"
+                        required
+                        className="h-12 bg-gray-50 border-gray-200 focus:border-red-500 focus:ring-red-500/20"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="message" className="text-sm font-medium text-gray-700">
+                        문의사항
+                      </label>
+                      <Textarea
+                        id="message"
+                        name="message"
+                        placeholder="문의하실 내용을 자유롭게 작성해주세요"
+                        className="min-h-[120px] bg-gray-50 border-gray-200 focus:border-red-500 focus:ring-red-500/20"
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      className="w-full h-12 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-medium shadow-lg shadow-red-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-red-500/30"
+                    >
+                      무료 진단 신청하기
+                    </Button>
+                  </form>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
       </main>
