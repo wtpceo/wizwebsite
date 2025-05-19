@@ -51,7 +51,7 @@ export async function POST(req: Request) {
         html: adminHtml
       });
       
-      console.log('관리자 이메일 전송 성공:', adminResult.id);
+      console.log('관리자 이메일 전송 성공:', adminResult); // id 속성 참조 제거
     } catch (error) {
       // 오류 처리 - 이메일 전송 실패
       console.error('이메일 전송 오류:', error);

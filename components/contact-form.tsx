@@ -39,11 +39,20 @@ export default function ContactForm() {
         body: JSON.stringify(formData),
       });
       
-      const result = await response.json();
-      console.log('API 응답:', result); // 응답 확인용
+      // 응답 객체 로깅
+      console.log('API 응답 상태:', response.status, response.statusText);
+      
+      let result;
+      try {
+        result = await response.json();
+        console.log('API 응답 데이터:', result);
+      } catch (jsonError) {
+        console.error('응답 JSON 파싱 오류:', jsonError);
+        throw new Error('서버 응답을 파싱하는 데 실패했습니다');
+      }
       
       if (!response.ok) {
-        throw new Error(result.error || '서버 오류가 발생했습니다');
+        throw new Error(result.error || result.details || '서버 오류가 발생했습니다');
       }
 
       // 성공 메시지 표시
