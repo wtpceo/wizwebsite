@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
-export default function AcademyMarketingPage() {
+export default function StrategyDetail() {
   const prefersReducedMotion = useReducedMotion();
 
   const fadeIn = {

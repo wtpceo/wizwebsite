@@ -44,7 +44,7 @@ const staggerContainer = {
   visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
 };
 
-export default function DeliveryMarketingPage() {
+export default function StrategyDetail() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const aboutRef = useRef<HTMLElement>(null);
   const problemsRef = useRef<HTMLElement>(null);

@@ -58,14 +58,14 @@ export default function TestimonialsSection() {
               name: "김OO",
               business: "서울 미아사거리 술집",
               content:
-                "사진 촬영부터 SNS 관리까지 릴스 메타 광고로 손님이 꽉 차서 너무 좋아요!",
+                "플레이스 꾸미고 영상 촬영하고 릴스 메타 광고를 했는데 평일에도 손님이 꽉 찼어요. 너무 좋아요!",
               rating: 5,
               color: "purple",
             },
             {
               name: "이OO",
               business: "부천 중동 뷰티샵",
-              content: "인쇄물 제작 부터 저는 이벤트만 기획해도 온라인 전역에 퍼져 대응이 빨라요.",
+              content: "제가 이벤트만 기획하면 인쇄물 제작 부터 온라인 전역에 빠르게 퍼트려줘요. 대응이 빨라요.",
               rating: 5,
               color: "blue",
             },
@@ -86,14 +86,14 @@ export default function TestimonialsSection() {
             {
               name: "정OO",
               business: "시흥 한정식",
-              content: "맛집 키워드에 그렇게 들어가고 싶었는데, 어뷰징이 아닌 다른 방법으로 해야한다는걸 알았어요.",
+              content: "맛집 키워드에 그렇게 들어가고 싶었는데, 어뷰징끊으니까 오래걸렸지만 2등입니다. 이제 어뷰징 안해요.",
               rating: 5,
               color: "amber",
             },
             {
               name: "강OO",
               business: "고깃집 사장님",
-              content: "위즈더플래닝 남긴 하나요? 네이버부터 당근 배달까지 진짜 너무 좋아요.",
+              content: "위즈더플래닝 남긴 하나요? 블로그 퀄리티 진짜 미쳤어요.",
               rating: 5,
               color: "indigo",
             },

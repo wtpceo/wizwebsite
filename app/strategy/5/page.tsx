@@ -29,7 +29,7 @@ import Header from "@/components/sections/Header"
 import Footer from "@/components/sections/Footer"
 import ContactForm from "@/components/contact-form"
 
-export default function Home() {
+export default function StrategyDetail() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />

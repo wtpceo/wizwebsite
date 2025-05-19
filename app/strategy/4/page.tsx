@@ -45,7 +45,7 @@ const staggerContainer = {
   },
 }
 
-export default function Page() {
+export default function StrategyDetail() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />

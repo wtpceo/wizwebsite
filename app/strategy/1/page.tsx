@@ -35,7 +35,7 @@ const staggerContainer = {
   },
 }
 
-export default function PortfolioDetail() {
+export default function StrategyDetail() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
