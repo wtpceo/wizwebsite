@@ -50,7 +50,7 @@ export default function StrategyDetail() {
   const problemsRef = useRef<HTMLElement>(null);
   const solutionsRef = useRef<HTMLElement>(null);
   const servicesRef = useRef<HTMLElement>(null);
-  const contactRef = useRef<HTMLElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   const scrollToSection = (ref: React.RefObject<HTMLElement | null>) => {
     setIsMenuOpen(false);
@@ -64,26 +64,34 @@ export default function StrategyDetail() {
         {/* Hero Section */}
         <section ref={aboutRef} className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-b from-rose-50 to-white overflow-hidden">
           <div className="container px-4 md:px-6">
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
-              <motion.div className="space-y-6" initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl leading-tight">
-                  배달 플랫폼 관리의 <span className="text-rose-600">모든 것</span>
-                </h1>
-                <p className="max-w-[600px] text-gray-600 text-lg md:text-xl/relaxed lg:text-xl/relaxed xl:text-2xl/relaxed">
-                  7개의 플랫폼 관리, 광고 효율화, 고객 데이터 기반 마케팅까지 - 위즈더플래닝이 도와드립니다.
-                </p>
-                <div className="flex flex-col gap-3 min-[400px]:flex-row">
-                  <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                    <Button className="bg-rose-600 hover:bg-rose-700 text-lg py-6 shadow-lg hover:shadow-xl transition-all duration-300">
-                      무료 상담 신청
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </motion.div>
-                </div>
-              </motion.div>
-              <motion.div className="flex justify-center" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-                <img src="/placeholder-0cz4y.png" alt="배달 플랫폼 관리 서비스" className="rounded-lg object-cover shadow-xl" width={550} height={450} />
-              </motion.div>
+            <div className="flex flex-col md:grid md:grid-cols-2 gap-6 lg:gap-12 items-center">
+              <div className="space-y-6 order-1 md:order-none">
+                <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+                  <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold text-gray-900 leading-tight text-center break-keep max-w-xs sm:max-w-lg mx-auto">
+                    배달 플랫폼 관리의 <span className="text-rose-600">모든 것</span>
+                  </h1>
+                  <p className="text-base sm:text-lg md:text-xl text-gray-600 text-center max-w-xs sm:max-w-md md:max-w-lg mx-auto mt-2 break-keep">
+                    7개의 플랫폼 관리, 광고 효율화, 고객 데이터 기반 마케팅까지<br className="block sm:hidden" />
+                    위즈더플래닝이 도와드립니다.
+                  </p>
+                  <div className="flex flex-col gap-3 min-[400px]:flex-row">
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                      <Button
+                        className="bg-rose-600 hover:bg-rose-700 text-lg py-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                        onClick={() => scrollToSection(contactRef)}
+                      >
+                        무료 상담 신청
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </Button>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </div>
+              <div className="flex justify-center order-2 md:order-none mt-8 md:mt-0">
+                <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
+                  <img src="/placeholder-0cz4y.png" alt="배달 플랫폼 관리 서비스" className="rounded-lg object-cover shadow-xl" width={550} height={450} />
+                </motion.div>
+              </div>
             </div>
           </div>
         </section>
@@ -93,23 +101,24 @@ export default function StrategyDetail() {
         {/* Detailed Ad System Changes (이미지처럼 수정) */}
         <section className="w-full py-16 md:py-24 lg:py-32">
           <div className="container px-4 md:px-6">
-            <motion.div
-              className="flex flex-col items-center justify-center space-y-6 text-center"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={fadeInUp}
-            >
-              <div className="inline-block rounded-lg bg-rose-100 px-3 py-1 text-sm text-rose-600 font-medium mb-2">
-                현재 배달 플랫폼 환경
-              </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-2">
-                배달 시장의 변화와 도전
-              </h2>
-              <p className="text-gray-500 text-lg md:text-xl max-w-2xl">
-                2025년, 배달 시장은 급격한 변화를 맞이하고 있습니다. 점주님들이 직면한 현실을 살펴보세요.
-              </p>
-            </motion.div>
+            <div className="flex flex-col items-center justify-center space-y-6 text-center">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={fadeInUp}
+              >
+                <div className="inline-block rounded-lg bg-rose-100 px-3 py-1 text-sm text-rose-600 font-medium mb-2">
+                  현재 배달 플랫폼 환경
+                </div>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-2">
+                  배달 시장의 변화와 도전
+                </h2>
+                <p className="text-gray-500 text-lg md:text-xl max-w-2xl">
+                  2025년, 배달 시장은 급격한 변화를 맞이하고 있습니다. 점주님들이 직면한 현실을 살펴보세요.
+                </p>
+              </motion.div>
+            </div>
             <div className="mx-auto grid max-w-5xl grid-cols-1 md:grid-cols-3 gap-6 mt-12">
               {/* 배달의민족 매출 하락 */}
               <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 flex flex-col h-full">
@@ -270,75 +279,77 @@ export default function StrategyDetail() {
                 하나하나 수작업으로는 불가능한 시대입니다. 전문 대행사의 도움이 필요합니다.
               </div>
               <Button className="bg-rose-600 hover:bg-rose-700 text-base font-semibold px-8 py-4 rounded-lg">
-                위즈더플래닝 서비스 알아보기
+                이제는 정말 전문가의 도움이 필요합니다.
               </Button>
             </div>
           </div>
         </section>
 
         {/* Portfolio/Case Studies (이미지처럼 수정) */}
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={fadeInUp}
-          className="w-full py-16 md:py-24 lg:py-32 bg-rose-50"
-        >
-          <div className="container px-4 md:px-6">
-            <motion.div
-              className="flex flex-col items-center text-center mb-12"
-              variants={fadeInUp}
-            >
-              <div className="inline-block rounded-lg bg-rose-100 px-3 py-1 text-sm text-rose-600 font-medium mb-3">
-                위즈더플래닝의 역할
+        <div className="w-full py-16 md:py-24 lg:py-32 bg-rose-50">
+          <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeInUp}
+          >
+            <div className="container px-4 md:px-6">
+              <div className="flex flex-col items-center text-center mb-12">
+                <motion.div
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
+                >
+                  <div className="inline-block rounded-lg bg-rose-100 px-3 py-1 text-sm text-rose-600 font-medium mb-3 whitespace-nowrap">
+                    위즈더플래닝의 역할
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-2 max-w-xs sm:max-w-md md:max-w-2xl mx-auto break-keep">
+                    위즈더플래닝이 제공하는<br className="block sm:hidden" /> 핵심 서비스
+                  </h2>
+                  <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-xs sm:max-w-md md:max-w-2xl mx-auto break-keep">
+                    7개의 플랫폼 관리 + 광고 효율화 +<br className="block sm:hidden" /> 고객 데이터 기반 마케팅
+                  </p>
+                </motion.div>
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-2">
-                위즈더플래닝이 제공하는 핵심 서비스
-              </h2>
-              <p className="text-gray-600 text-lg md:text-xl leading-relaxed max-w-2xl">
-                7개의 플랫폼 관리 + 광고 효율화 + 고객 데이터 기반 마케팅
-              </p>
-            </motion.div>
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-            >
-              {/* 통합 플랫폼 관리 */}
-              <motion.div variants={fadeInUp} className="bg-white border border-gray-200 rounded-2xl p-8 md:p-10 flex flex-col items-center shadow-md">
-                <div className="flex items-center justify-center h-20 w-20 rounded-full bg-rose-100 mb-6">
-                  <Smartphone className="h-10 w-10 text-rose-500" />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 md:p-10 flex flex-col items-center shadow-md">
+                  <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
+                    <div className="flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-rose-100 mb-4 sm:mb-6">
+                      <Smartphone className="h-8 w-8 sm:h-10 sm:w-10 text-rose-500" />
+                    </div>
+                    <div className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center break-keep">통합 플랫폼 관리</div>
+                    <div className="text-sm sm:text-base md:text-lg text-gray-700 text-center leading-relaxed break-keep">
+                      7개 플랫폼의 메뉴, 가격, 영업시간,<br className="block sm:hidden" /> 휴무일 등을 한 번에 관리해 드립니다.
+                    </div>
+                  </motion.div>
                 </div>
-                <div className="text-xl md:text-2xl font-bold mb-2">통합 플랫폼 관리</div>
-                <div className="text-gray-700 text-base md:text-lg text-center leading-relaxed">
-                  7개 플랫폼의 메뉴, 가격, 영업시간, 휴무일 등을 한 번에 관리해 드립니다.
+                <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 md:p-10 flex flex-col items-center shadow-md">
+                  <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
+                    <div className="flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-rose-100 mb-4 sm:mb-6">
+                      <BarChart3 className="h-8 w-8 sm:h-10 sm:w-10 text-rose-500" />
+                    </div>
+                    <div className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center break-keep">광고 효율화</div>
+                    <div className="text-sm sm:text-base md:text-lg text-gray-700 text-center leading-relaxed break-keep">
+                      CPC 입찰 최적화, 광고 성과 분석,<br className="block sm:hidden" /> 비용 대비 효율 극대화를 지원합니다.
+                    </div>
+                  </motion.div>
                 </div>
-              </motion.div>
-              {/* 광고 효율화 */}
-              <motion.div variants={fadeInUp} className="bg-white border border-gray-200 rounded-2xl p-8 md:p-10 flex flex-col items-center shadow-md">
-                <div className="flex items-center justify-center h-20 w-20 rounded-full bg-rose-100 mb-6">
-                  <BarChart3 className="h-10 w-10 text-rose-500" />
+                <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 md:p-10 flex flex-col items-center shadow-md">
+                  <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
+                    <div className="flex items-center justify-center h-16 w-16 sm:h-20 sm:w-20 rounded-full bg-rose-100 mb-4 sm:mb-6">
+                      <Users className="h-8 w-8 sm:h-10 sm:w-10 text-rose-500" />
+                    </div>
+                    <div className="text-lg sm:text-xl md:text-2xl font-bold mb-2 text-center break-keep">리뷰 및 고객 관리</div>
+                    <div className="text-sm sm:text-base md:text-lg text-gray-700 text-center leading-relaxed break-keep">
+                      고객 리뷰 대응, 이벤트 기획,<br className="block sm:hidden" /> 단골 고객 확보 전략을 제공합니다.
+                    </div>
+                  </motion.div>
                 </div>
-                <div className="text-xl md:text-2xl font-bold mb-2">광고 효율화</div>
-                <div className="text-gray-700 text-base md:text-lg text-center leading-relaxed">
-                  CPC 입찰 최적화, 광고 성과 분석, 비용 대비 효율 극대화를 지원합니다.
-                </div>
-              </motion.div>
-              {/* 리뷰 및 고객 관리 */}
-              <motion.div variants={fadeInUp} className="bg-white border border-gray-200 rounded-2xl p-8 md:p-10 flex flex-col items-center shadow-md">
-                <div className="flex items-center justify-center h-20 w-20 rounded-full bg-rose-100 mb-6">
-                  <Users className="h-10 w-10 text-rose-500" />
-                </div>
-                <div className="text-xl md:text-2xl font-bold mb-2">리뷰 및 고객 관리</div>
-                <div className="text-gray-700 text-base md:text-lg text-center leading-relaxed">
-                  고객 리뷰 대응, 이벤트 기획, 단골 고객 확보 전략을 제공합니다.
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </motion.section>
+              </div>
+            </div>
+          </motion.section>
+        </div>
 
         {/* 선택이 아닌 필수의 시대 강조 섹션 (이미지처럼) */}
         <section className="w-full py-24 bg-white">
@@ -352,18 +363,25 @@ export default function StrategyDetail() {
             <div className="text-2xl font-semibold text-gray-900 mb-10">
               위즈더플래닝 = 실무자의 일손 + 마케팅 전문가의 두뇌
             </div>
-            <motion.button
-              whileHover={{ scale: 1.04, boxShadow: "0 4px 24px rgba(244,63,94,0.15)" }}
-              whileTap={{ scale: 0.97 }}
-              className="bg-rose-600 hover:bg-rose-700 text-lg md:text-xl font-semibold px-16 py-5 rounded-lg shadow-md mt-8"
-            >
-              무료 상담 신청하기
-            </motion.button>
+            <div className="flex flex-col items-center text-center">
+              <motion.div
+                whileHover={{ scale: 1.04, boxShadow: "0 4px 24px rgba(244,63,94,0.15)" }}
+                whileTap={{ scale: 0.97 }}
+              >
+                <button
+                  className="bg-rose-600 hover:bg-rose-700 text-lg md:text-xl font-semibold px-16 py-5 rounded-lg shadow-md mt-8"
+                >
+                  무료 상담 신청하기
+                </button>
+              </motion.div>
+            </div>
           </div>
         </section>
 
         {/* Contact Form (메인페이지와 동일하게) */}
-        <ContactSection />
+        <div ref={contactRef}>
+          <ContactSection />
+        </div>
       </main>
       <Footer />
     </div>
