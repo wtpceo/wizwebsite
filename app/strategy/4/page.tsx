@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link"
 import {
   ArrowDown,
@@ -14,6 +16,7 @@ import {
   MessageCircle,
   Mail,
   ChevronRight,
+  TrendingUp,
 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -25,6 +28,7 @@ import Footer from "@/components/sections/Footer"
 import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
 import ContactForm from "@/components/contact-form"
+import { useRef } from "react"
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -46,6 +50,10 @@ const staggerContainer = {
 }
 
 export default function StrategyDetail() {
+  const contactRef = useRef<HTMLDivElement>(null);
+  const scrollToContact = () => {
+    contactRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -96,7 +104,7 @@ export default function StrategyDetail() {
                     <Mountain className="h-5 w-5 text-green-300" />
                     <span className="text-sm font-medium text-green-100">캠핑장 & 펜션 마케팅 솔루션</span>
                   </div>
-                  <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl leading-tight drop-shadow-lg">
+                  <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl leading-tight drop-shadow-lg whitespace-nowrap max-w-none">
                     당신의 숙소, 정말 잘 보이고 있나요?
                   </h1>
                 </AnimateOnScroll>
@@ -110,16 +118,10 @@ export default function StrategyDetail() {
                     <Button
                       size="lg"
                       className="bg-gradient-to-r from-green-500 to-emerald-400 hover:from-green-600 hover:to-emerald-500 text-white font-medium text-lg py-6 px-8 shadow-lg"
+                      onClick={scrollToContact}
                     >
                       무료 상담받기
                       <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="text-white border-white hover:bg-white/20 text-lg py-6 px-8 shadow-lg backdrop-blur-sm bg-white/10"
-                    >
-                      성공 사례 보기
                     </Button>
                   </div>
                 </AnimateOnScroll>
@@ -182,9 +184,9 @@ export default function StrategyDetail() {
               </div>
             </AnimateOnScroll>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-8 items-stretch">
               <AnimateOnScroll animation="slide-up" delay={200}>
-                <Card className="border-2 border-gray-200 hover:border-green-600 transition-all hover:shadow-xl shadow-md rounded-xl overflow-hidden group">
+                <Card className="border-2 border-gray-200 hover:border-green-600 transition-all hover:shadow-xl shadow-md rounded-xl overflow-hidden group h-full flex flex-col">
                   <div className="h-2 bg-gradient-to-r from-amber-400 to-orange-500"></div>
                   <CardHeader className="pb-2">
                     <div className="p-4 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white inline-block mb-4 transform group-hover:scale-110 transition-transform">
@@ -192,7 +194,7 @@ export default function StrategyDetail() {
                     </div>
                     <CardTitle className="text-2xl mb-2">홈페이지 제작의 어려움</CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="flex-1 flex items-end">
                     <p className="text-gray-700 text-lg leading-relaxed">
                       홈페이지는 있어야 할 것 같은데, 어디에 맡겨야 할지 모르겠고 드론이니, 촬영이니 들어가면 금액이
                       너무 부담스럽죠?
@@ -202,7 +204,7 @@ export default function StrategyDetail() {
               </AnimateOnScroll>
 
               <AnimateOnScroll animation="slide-up" delay={400}>
-                <Card className="border-2 border-gray-200 hover:border-green-600 transition-all hover:shadow-xl shadow-md rounded-xl overflow-hidden group">
+                <Card className="border-2 border-gray-200 hover:border-green-600 transition-all hover:shadow-xl shadow-md rounded-xl overflow-hidden group h-full flex flex-col">
                   <div className="h-2 bg-gradient-to-r from-blue-400 to-cyan-500"></div>
                   <CardHeader className="pb-2">
                     <div className="p-4 rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 text-white inline-block mb-4 transform group-hover:scale-110 transition-transform">
@@ -210,7 +212,7 @@ export default function StrategyDetail() {
                     </div>
                     <CardTitle className="text-2xl mb-2">플레이스 정보의 한계</CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="flex-1 flex items-end">
                     <p className="text-gray-700 text-lg leading-relaxed">
                       플레이스에 올릴 수 있는 사진은 몇 장뿐, 객실별 정보, 주변 시설, 사장님의 스토리까지 보여주긴
                       역부족입니다.
@@ -220,7 +222,7 @@ export default function StrategyDetail() {
               </AnimateOnScroll>
 
               <AnimateOnScroll animation="slide-up" delay={600}>
-                <Card className="border-2 border-gray-200 hover:border-green-600 transition-all hover:shadow-xl shadow-md rounded-xl overflow-hidden group">
+                <Card className="border-2 border-gray-200 hover:border-green-600 transition-all hover:shadow-xl shadow-md rounded-xl overflow-hidden group h-full flex flex-col">
                   <div className="h-2 bg-gradient-to-r from-purple-400 to-pink-500"></div>
                   <CardHeader className="pb-2">
                     <div className="p-4 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 text-white inline-block mb-4 transform group-hover:scale-110 transition-transform">
@@ -228,7 +230,7 @@ export default function StrategyDetail() {
                     </div>
                     <CardTitle className="text-2xl mb-2">높은 수수료 부담</CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="flex-1 flex items-end">
                     <p className="text-gray-700 text-lg leading-relaxed">
                       광고는 해도 잠깐 반짝하고, 수수료는 계속 빠져나갑니다. 예약 플랫폼에만 의존하신다면 수수료는
                       쌓이고, 고객은 '그 플랫폼의 고객'이지, 내 단골이 아닐 수 있습니다.
@@ -253,7 +255,7 @@ export default function StrategyDetail() {
               <span className="inline-block px-4 py-1 bg-white/20 text-white rounded-full text-sm font-medium mb-4 backdrop-blur-sm">
                 해결책
               </span>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-8 leading-tight drop-shadow-md">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-8 leading-tight drop-shadow-md whitespace-nowrap max-w-none">
                 이제는 "내 공간"으로 고객을 모셔올 시간입니다.
               </h2>
               <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
@@ -281,67 +283,55 @@ export default function StrategyDetail() {
               </div>
             </AnimateOnScroll>
 
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid md:grid-cols-2 gap-12 items-stretch">
               <AnimateOnScroll animation="slide-right" delay={200}>
-                <div className="flex gap-6 items-start bg-gradient-to-br from-white to-green-50 p-6 rounded-xl shadow-md border border-green-100 hover:shadow-lg transition-shadow">
+                <div className="flex gap-6 items-start bg-gradient-to-br from-white to-green-50 p-6 rounded-xl shadow-md border border-green-100 hover:shadow-lg transition-shadow h-full flex-col">
                   <div className="p-4 rounded-full bg-gradient-to-br from-green-600 to-emerald-500 text-white flex-shrink-0 shadow-md">
                     <Compass className="h-8 w-8" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-4 text-green-800">드론 항공 촬영 + 감성 실내/야경 사진</h3>
-                    <p className="text-gray-700 text-lg leading-relaxed">
-                      전문 촬영팀이 드론으로 숙소의 전경을 담아내고, 감성적인 실내 및 야경 사진으로 고객의 마음을
-                      사로잡습니다.
-                    </p>
-                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-green-800 whitespace-nowrap max-w-none">드론 항공 촬영 + 감성 실내/야경 사진</h3>
+                  <p className="text-gray-700 text-lg leading-relaxed flex-1">
+                    전문 촬영팀이 드론으로 숙소의 전경을 담아내고, 감성적인 실내 및 야경 사진으로 고객의 마음을
+                    사로잡습니다.
+                  </p>
                 </div>
               </AnimateOnScroll>
 
               <AnimateOnScroll animation="slide-left" delay={200}>
-                <div className="flex gap-6 items-start bg-gradient-to-br from-white to-blue-50 p-6 rounded-xl shadow-md border border-blue-100 hover:shadow-lg transition-shadow">
+                <div className="flex gap-6 items-start bg-gradient-to-br from-white to-blue-50 p-6 rounded-xl shadow-md border border-blue-100 hover:shadow-lg transition-shadow h-full flex-col">
                   <div className="p-4 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 text-white flex-shrink-0 shadow-md">
                     <Home className="h-8 w-8" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-4 text-blue-800">
-                      객실 소개 + 예약 연결이 가능한 모바일 홈페이지
-                    </h3>
-                    <p className="text-gray-700 text-lg leading-relaxed">
-                      모바일에 최적화된 홈페이지로 객실 정보를 상세히 소개하고, 직접 예약까지 연결되는 시스템을
-                      구축합니다.
-                    </p>
-                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-blue-800 whitespace-nowrap max-w-none">객실 소개 + 예약 연결이 가능한 모바일 홈페이지</h3>
+                  <p className="text-gray-700 text-lg leading-relaxed flex-1">
+                    모바일에 최적화된 홈페이지로 객실 정보를 상세히 소개하고, 직접 예약까지 연결되는 시스템을
+                    구축합니다.
+                  </p>
                 </div>
               </AnimateOnScroll>
 
               <AnimateOnScroll animation="slide-right" delay={400}>
-                <div className="flex gap-6 items-start bg-gradient-to-br from-white to-amber-50 p-6 rounded-xl shadow-md border border-amber-100 hover:shadow-lg transition-shadow">
+                <div className="flex gap-6 items-start bg-gradient-to-br from-white to-amber-50 p-6 rounded-xl shadow-md border border-amber-100 hover:shadow-lg transition-shadow h-full flex-col">
                   <div className="p-4 rounded-full bg-gradient-to-br from-amber-500 to-orange-400 text-white flex-shrink-0 shadow-md">
                     <Star className="h-8 w-8" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-4 text-amber-800">블로그 리뷰 + 네이버 플레이스 최적화</h3>
-                    <p className="text-gray-700 text-lg leading-relaxed">
-                      전문적인 블로그 리뷰 작성과 네이버 플레이스 정보 최적화로 검색 노출을 극대화합니다.
-                    </p>
-                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-amber-800 whitespace-nowrap max-w-none">블로그 리뷰 + 네이버 플레이스 최적화</h3>
+                  <p className="text-gray-700 text-lg leading-relaxed flex-1">
+                    전문적인 블로그 리뷰 작성과 네이버 플레이스 정보 최적화로 검색 노출을 극대화합니다.
+                  </p>
                 </div>
               </AnimateOnScroll>
 
               <AnimateOnScroll animation="slide-left" delay={400}>
-                <div className="flex gap-6 items-start bg-gradient-to-br from-white to-purple-50 p-6 rounded-xl shadow-md border border-purple-100 hover:shadow-lg transition-shadow">
+                <div className="flex gap-6 items-start bg-gradient-to-br from-white to-purple-50 p-6 rounded-xl shadow-md border border-purple-100 hover:shadow-lg transition-shadow h-full flex-col">
                   <div className="p-4 rounded-full bg-gradient-to-br from-purple-500 to-pink-400 text-white flex-shrink-0 shadow-md">
                     <Users className="h-8 w-8" />
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold mb-4 text-purple-800">
-                      체험단 운영, 파워링크 광고까지 모두 한번에
-                    </h3>
-                    <p className="text-gray-700 text-lg leading-relaxed">
-                      체험단 운영으로 진정성 있는 리뷰를 확보하고, 효과적인 파워링크 광고로 타겟 고객에게 직접
-                      도달합니다.
-                    </p>
-                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-purple-800 whitespace-nowrap max-w-none">체험단 운영, 파워링크 광고까지 모두 한번에</h3>
+                  <p className="text-gray-700 text-lg leading-relaxed flex-1">
+                    체험단 운영으로 진정성 있는 리뷰를 확보하고, 효과적인 파워링크 광고로 타겟 고객에게 직접
+                    도달합니다.
+                  </p>
                 </div>
               </AnimateOnScroll>
             </div>
@@ -366,9 +356,9 @@ export default function StrategyDetail() {
               </div>
             </AnimateOnScroll>
 
-            <div className="grid md:grid-cols-3 gap-10">
+            <div className="grid md:grid-cols-3 gap-10 items-stretch">
               <AnimateOnScroll animation="slide-up" delay={200}>
-                <Card className="text-center shadow-lg border-0 rounded-xl overflow-hidden">
+                <Card className="text-center shadow-lg border-0 rounded-xl overflow-hidden h-full flex flex-col">
                   <div className="h-2 bg-gradient-to-r from-green-500 to-emerald-400"></div>
                   <CardHeader>
                     <div className="mx-auto p-5 rounded-full bg-gradient-to-br from-green-500 to-emerald-400 text-white shadow-md">
@@ -378,7 +368,7 @@ export default function StrategyDetail() {
                       4배 이상
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="flex-1 flex items-end">
                     <CardDescription className="text-xl text-gray-700">
                       숙소 1곳당 평균 4배 이상 콘텐츠 노출 증가
                     </CardDescription>
@@ -387,7 +377,7 @@ export default function StrategyDetail() {
               </AnimateOnScroll>
 
               <AnimateOnScroll animation="slide-up" delay={400}>
-                <Card className="text-center shadow-lg border-0 rounded-xl overflow-hidden">
+                <Card className="text-center shadow-lg border-0 rounded-xl overflow-hidden h-full flex flex-col">
                   <div className="h-2 bg-gradient-to-r from-blue-500 to-cyan-400"></div>
                   <CardHeader>
                     <div className="mx-auto p-5 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 text-white shadow-md">
@@ -397,14 +387,14 @@ export default function StrategyDetail() {
                       50+ 리뷰
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="flex-1 flex items-end">
                     <CardDescription className="text-xl text-gray-700">리뷰수 50개 이상 증가 사례 다수</CardDescription>
                   </CardContent>
                 </Card>
               </AnimateOnScroll>
 
               <AnimateOnScroll animation="slide-up" delay={600}>
-                <Card className="text-center shadow-lg border-0 rounded-xl overflow-hidden">
+                <Card className="text-center shadow-lg border-0 rounded-xl overflow-hidden h-full flex flex-col">
                   <div className="h-2 bg-gradient-to-r from-amber-500 to-orange-400"></div>
                   <CardHeader>
                     <div className="mx-auto p-5 rounded-full bg-gradient-to-br from-amber-500 to-orange-400 text-white shadow-md">
@@ -414,7 +404,7 @@ export default function StrategyDetail() {
                       전환율 개선
                     </CardTitle>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="flex-1 flex items-end">
                     <CardDescription className="text-xl text-gray-700">
                       예약 전환율 개선 & 재방문 유입 보고됨
                     </CardDescription>
@@ -427,16 +417,15 @@ export default function StrategyDetail() {
             <AnimateOnScroll animation="fade-in" delay={300}>
               <div className="mt-20 bg-white p-10 rounded-xl shadow-xl border-0 bg-gradient-to-br from-white to-gray-50">
                 <div className="flex flex-col md:flex-row gap-10 items-center">
-                  <AnimateOnScroll animation="slide-right" className="md:w-1/2">
-                    <div className="rounded-xl overflow-hidden shadow-lg relative">
-                      <div className="absolute inset-0 bg-gradient-to-tr from-green-600/20 to-transparent z-10"></div>
-                      <Image
-                        src="/images/portfolio/portfolio-4.jpg"
-                        alt="성공 사례 이미지"
-                        width={600}
-                        height={400}
-                        className="object-cover w-full h-full"
-                      />
+                  <AnimateOnScroll animation="slide-right" className="md:w-1/2 flex items-center justify-center">
+                    {/* 인포그래픽/일러스트 대체 */}
+                    <div className="w-full h-64 flex flex-col items-center justify-center bg-gradient-to-br from-green-100 to-emerald-50 rounded-xl shadow-inner">
+                      <div className="flex items-center justify-center mb-4">
+                        <Star className="h-16 w-16 text-emerald-400 drop-shadow-md" />
+                        <TrendingUp className="h-16 w-16 text-green-400 drop-shadow-md ml-4" />
+                      </div>
+                      <div className="text-2xl font-bold text-green-700 mb-2">예약률 30% 증가!</div>
+                      <div className="text-lg text-green-600">재방문 고객 증가 & 안정적 운영</div>
                     </div>
                   </AnimateOnScroll>
                   <AnimateOnScroll animation="slide-left" className="md:w-1/2 space-y-6">
@@ -464,7 +453,7 @@ export default function StrategyDetail() {
         </section>
 
         {/* CTA 섹션 */}
-        <section className="w-full py-24 md:py-32 lg:py-40 bg-gradient-to-b from-green-50 via-white to-emerald-50">
+        <section ref={contactRef} className="w-full py-24 md:py-32 lg:py-40 bg-gradient-to-b from-green-50 via-white to-emerald-50">
           <div className="container px-4 md:px-6">
             <AnimateOnScroll animation="fade-in">
               <div className="flex flex-col items-center justify-center space-y-8 text-center max-w-4xl mx-auto mb-16">

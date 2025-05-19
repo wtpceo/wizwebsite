@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, CheckCircle } from "lucide-react"
+import { ArrowRight, CheckCircle, Monitor, LayoutDashboard, Sparkles, Link as LinkIcon, Globe } from "lucide-react"
 import { motion } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
@@ -79,14 +79,13 @@ export default function MarketingStrategyPage() {
                 viewport={{ once: true }}
                 className="flex items-center justify-center"
               >
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <Image
-                    src="/store-online-comparison.png"
-                    alt="온라인과 오프라인 인테리어 비교"
-                    width={600}
-                    height={400}
-                    className="rounded-2xl object-cover transform hover:scale-105 transition-transform duration-500"
-                  />
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-purple-100 via-blue-50 to-white flex flex-col items-center justify-center w-full max-w-xl h-[320px]">
+                  <div className="flex items-center justify-center mb-4">
+                    <LayoutDashboard className="h-20 w-20 text-purple-400 drop-shadow-md" />
+                    <Monitor className="h-20 w-20 text-blue-400 drop-shadow-md ml-4" />
+                  </div>
+                  <div className="text-2xl font-bold text-purple-700 mb-2">온라인 인테리어의 힘</div>
+                  <div className="text-lg text-blue-600">오프라인만큼 중요한<br/>온라인 첫인상!</div>
                 </div>
               </motion.div>
             </div>
@@ -245,14 +244,13 @@ export default function MarketingStrategyPage() {
                 viewport={{ once: true }}
                 className="flex items-center justify-center order-2 lg:order-1"
               >
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                  <Image
-                    src="/online-offline-connection.png"
-                    alt="오프라인과 온라인 연결"
-                    width={600}
-                    height={400}
-                    className="rounded-2xl object-cover transform hover:scale-105 transition-transform duration-500"
-                  />
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-100 via-purple-50 to-white flex flex-col items-center justify-center w-full max-w-xl h-[320px]">
+                  <div className="flex items-center justify-center mb-4">
+                    <LinkIcon className="h-20 w-20 text-blue-400 drop-shadow-md" />
+                    <Globe className="h-20 w-20 text-purple-400 drop-shadow-md ml-4" />
+                  </div>
+                  <div className="text-2xl font-bold text-blue-700 mb-2">오프라인과 온라인의 연결</div>
+                  <div className="text-lg text-purple-600">고객의 여정, 온라인에서 완성!</div>
                 </div>
               </motion.div>
               <motion.div 

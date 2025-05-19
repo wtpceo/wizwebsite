@@ -201,23 +201,23 @@ export default function NaverMarketingPage() {
 
   const testimonials = [
     {
-      name: "김성준",
-      business: "카페 오너",
-      content: "3개월 만에 네이버 검색 노출이 450% 증가했습니다. 주말 예약이 꽉 차고 매출이 2배 늘었어요!",
+      name: "김*준",
+      business: "계속해서 100위권이었던 한정식 사장님",
+      content: "2개월 만에 네이버 검색 노출이 450% 증가했습니다. 주말 예약이 꽉 차고 맛집 2등입니다.!",
       image: "/placeholder.svg?height=60&width=60",
     },
     {
-      name: "이미영",
-      business: "레스토랑 운영자",
+      name: "이*영",
+      business: "경쟁 치열한 지역에서 뷰티샵 사장님",
       content:
-        "경쟁이 치열한 지역에서도 검색 1위에 노출되니 가게를 찾는 손님이 확실히 늘었습니다. 투자 대비 최고의 효과였어요.",
+        "경쟁이 치열한 지역에서도 계속 상승 하고 있습니다. 비용대비 만족하는 효과에요.",
       image: "/placeholder.svg?height=60&width=60",
     },
     {
-      name: "박준호",
-      business: "헤어샵 대표",
+      name: "박*호",
+      business: "마케팅회사에 계속 사기 당하던 사장님",
       content:
-        "블로그 글 하나 없던 저희 가게가 이제는 네이버에서 검색하면 첫 페이지에 가득합니다. 신규 고객이 매주 늘고 있어요!",
+        "마케팅은 해야하니까 한 번 더 믿어보자 하고 결정했는데 이제 여기랑만 합니다.",
       image: "/placeholder.svg?height=60&width=60",
     },
   ]
@@ -466,7 +466,7 @@ export default function NaverMarketingPage() {
                   네이버 알고리즘을 완벽하게 분석하여 귀사의 비즈니스가 관련 키워드에서 최상위에 노출되도록 최적화합니다.
                 </p>
                 <div className="text-blue-600 font-medium flex items-center justify-center">
-                  <span>자세히 보기</span>
+                  <span>SEO 전략 설계</span>
                   <ChevronRight className="ml-1 h-5 w-5" />
                 </div>
               </motion.div>
@@ -487,7 +487,7 @@ export default function NaverMarketingPage() {
                   전문 작가팀이 귀사의 비즈니스에 최적화된 고품질 콘텐츠를 제작하여 네이버 검색 결과를 장악합니다.
                 </p>
                 <div className="text-indigo-600 font-medium flex items-center justify-center">
-                  <span>자세히 보기</span>
+                  <span>콘텐츠 마케팅</span>
                   <ChevronRight className="ml-1 h-5 w-5" />
                 </div>
               </motion.div>
@@ -508,7 +508,7 @@ export default function NaverMarketingPage() {
                   실시간 데이터 분석으로 노출 현황을 모니터링하고 지속적인 개선을 통해 최상의 결과를 보장합니다.
                 </p>
                 <div className="text-teal-600 font-medium flex items-center justify-center">
-                  <span>자세히 보기</span>
+                  <span>데이터 기반 성과 관리</span>
                   <ChevronRight className="ml-1 h-5 w-5" />
                 </div>
               </motion.div>
@@ -738,6 +738,7 @@ export default function NaverMarketingPage() {
                   <Button
                     size="lg"
                     className="bg-white text-blue-600 hover:bg-white/90 text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                   >
                     <span>무료 상담 신청하기</span>
                     <motion.span

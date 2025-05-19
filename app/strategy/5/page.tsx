@@ -28,8 +28,13 @@ import { AnimatedSection } from "@/app/components/AnimatedSection"
 import Header from "@/components/sections/Header"
 import Footer from "@/components/sections/Footer"
 import ContactForm from "@/components/contact-form"
+import { useRef } from "react"
 
 export default function StrategyDetail() {
+  const contactRef = useRef<HTMLDivElement>(null);
+  const scrollToContact = () => {
+    contactRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
@@ -49,11 +54,8 @@ export default function StrategyDetail() {
                   효과 강조? 시술 사진? 글 하나에도 법적 리스크가 따릅니다.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" className="gap-2">
+                  <Button size="lg" className="gap-2" onClick={scrollToContact}>
                     무료 상담 신청하기 <ArrowRight className="h-4 w-4" />
-                  </Button>
-                  <Button size="lg" variant="outline">
-                    뷰티 매장 성공 사례 보기
                   </Button>
                 </div>
               </div>
@@ -71,16 +73,17 @@ export default function StrategyDetail() {
           <div className="container">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <AnimatedSection delay={200}>
-                <div className="bg-gradient-to-br from-rose-50 to-pink-50 p-8 rounded-2xl relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-rose-100/50 rounded-full translate-x-1/2 -translate-y-1/2 blur-2xl"></div>
-                  <div className="absolute bottom-0 left-0 w-24 h-24 bg-pink-100/50 rounded-full -translate-x-1/2 translate-y-1/2 blur-2xl"></div>
-
-                  <div className="relative z-10 flex flex-col items-center justify-center h-full py-8">
-                    <Sparkles className="h-16 w-16 text-rose-400 mb-6" />
-                    <h3 className="text-xl font-medium text-center mb-4">뷰티 산업의 변화</h3>
-                    <p className="text-center text-muted-foreground">
-                      요즘은 남성들도 피부, 헤어, 네일에 적극적입니다.
-                      <br />
+                <div className="bg-gradient-to-br from-rose-100 via-pink-50 to-white p-10 rounded-3xl shadow-xl relative overflow-hidden flex flex-col items-center justify-center min-h-[320px]">
+                  <div className="absolute top-4 right-8 w-32 h-32 bg-rose-200/40 rounded-full blur-2xl"></div>
+                  <div className="absolute bottom-4 left-8 w-24 h-24 bg-pink-200/40 rounded-full blur-2xl"></div>
+                  <div className="relative z-10 flex flex-col items-center justify-center h-full">
+                    <div className="flex items-center justify-center mb-6">
+                      <Sparkles className="h-20 w-20 text-rose-400 drop-shadow-lg" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-rose-500 mb-2">뷰티 산업의 변화</h3>
+                    <div className="text-lg text-gray-700 font-semibold mb-2">고객층 확대 & 마케팅 복잡성 증가</div>
+                    <p className="text-center text-gray-500 text-base max-w-xs">
+                      요즘은 남성들도 피부, 헤어, 네일에 적극적입니다.<br />
                       고객층은 넓어졌지만, 마케팅 환경은 더욱 복잡해졌습니다.
                     </p>
                   </div>
@@ -89,7 +92,7 @@ export default function StrategyDetail() {
 
               <AnimatedSection delay={400}>
                 <div>
-                  <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-6">
+                  <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-6 whitespace-nowrap max-w-none">
                     고객은 많아졌지만, 마케팅은 점점 더 어렵고 위험해졌습니다
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6">
@@ -227,30 +230,60 @@ export default function StrategyDetail() {
                   icon: <MapPin className="h-16 w-16 text-rose-400 mb-6" />,
                   title: "네이버 플레이스 최적화",
                   description: "고객이 가장 먼저 접하는 매장 정보를\n매력적이고 전문적으로 구성합니다",
+                  points: [
+                    "검색 상위 노출을 위한 키워드 최적화",
+                    "고객 리뷰 관리 및 평점 향상 전략",
+                    "매장 정보, 사진, 지도 등 최신화",
+                    "이벤트/프로모션 연동으로 방문 유도"
+                  ]
                 },
                 {
                   value: "blog",
                   icon: <MessageSquare className="h-16 w-16 text-rose-400 mb-6" />,
                   title: "전문성 있는 블로그 콘텐츠",
                   description: "의료법을 준수하면서도 효과적인\nBefore & After 콘텐츠를 제작합니다",
+                  points: [
+                    "의료법 준수, 안전한 마케팅 콘텐츠",
+                    "전문가가 직접 작성하는 신뢰도 높은 포스팅",
+                    "Before & After, 후기, Q&A 등 다양한 포맷",
+                    "검색 노출 극대화를 위한 키워드 전략"
+                  ]
                 },
                 {
                   value: "photo",
                   icon: <Camera className="h-16 w-16 text-rose-400 mb-6" />,
                   title: "전문 사진 촬영",
                   description: "매장의 분위기와 전문성을\n고품질 이미지로 담아냅니다",
+                  points: [
+                    "매장/시술/제품 등 맞춤형 촬영 기획",
+                    "고화질 이미지로 브랜드 신뢰도 상승",
+                    "SNS/플레이스/홈페이지 등 멀티 활용",
+                    "감각적인 연출로 차별화된 이미지 제공"
+                  ]
                 },
                 {
                   value: "community",
                   icon: <Smartphone className="h-16 w-16 text-rose-400 mb-6" />,
                   title: "체험단 & 커뮤니티 활용",
                   description: "실제 고객의 생생한 후기로\n신뢰도를 높입니다",
+                  points: [
+                    "실제 고객 후기 기반 신뢰도 강화",
+                    "다양한 커뮤니티/플랫폼 연계 노출",
+                    "체험단 모집/운영/후기 관리 원스톱",
+                    "바이럴 효과로 자연스러운 홍보"
+                  ]
                 },
                 {
                   value: "website",
                   icon: <Globe className="h-16 w-16 text-rose-400 mb-6" />,
                   title: "통합 홈페이지 구축",
                   description: "모든 마케팅 채널을 하나로 통합하여\n효율적인 관리가 가능합니다",
+                  points: [
+                    "모바일/PC 반응형 맞춤 디자인",
+                    "예약, 문의, 후기 등 기능 통합",
+                    "플레이스/블로그/SNS와 연동",
+                    "브랜드 신뢰도와 정보 전달력 극대화"
+                  ]
                 },
               ].map((tab, index) => (
                 <TabsContent key={tab.value} value={tab.value} className="mt-6">
@@ -272,7 +305,12 @@ export default function StrategyDetail() {
                           <h3 className="text-2xl font-bold">{tab.title}</h3>
                         </div>
                         <ul className="space-y-4">
-                          {/* Add your list items here */}
+                          {tab.points && tab.points.map((point, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-base text-gray-700">
+                              <CheckCircle className="h-5 w-5 text-rose-400 mt-1 flex-shrink-0" />
+                              <span>{point}</span>
+                            </li>
+                          ))}
                         </ul>
                       </div>
                     </AnimatedSection>
@@ -298,7 +336,7 @@ export default function StrategyDetail() {
                   이제 위즈더플래닝이 도와드립니다.
                 </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 items-stretch">
                   {[
                     {
                       icon: <TrendingUp className="h-6 w-6 text-rose-500" />,
@@ -317,13 +355,13 @@ export default function StrategyDetail() {
                     },
                   ].map((item, index) => (
                     <AnimatedSection key={item.title} delay={200 * (index + 1)}>
-                      <Card className="border-none shadow-lg bg-white">
-                        <CardContent className="p-6 flex flex-col items-center">
+                      <Card className="border-none shadow-lg bg-white h-full flex flex-col">
+                        <CardContent className="p-6 flex flex-col items-center flex-1">
                           <div className="h-12 w-12 rounded-full bg-rose-100 flex items-center justify-center mb-4">
                             {item.icon}
                           </div>
                           <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                          <p className="text-muted-foreground text-center">{item.description}</p>
+                          <p className="text-muted-foreground text-center flex-1">{item.description}</p>
                         </CardContent>
                       </Card>
                     </AnimatedSection>
@@ -331,9 +369,9 @@ export default function StrategyDetail() {
                 </div>
 
                 <AnimatedSection delay={800}>
-                  <div className="bg-white p-8 rounded-lg shadow-lg">
+                  <div className="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center">
                     <h3 className="text-2xl font-bold mb-6">법적 리스크 없이, 고객에게 선택받는 마케팅</h3>
-                    <p className="text-lg mb-8">지금 시작하세요</p>
+                    <p className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-rose-500 to-pink-500 bg-clip-text text-transparent mb-8 animate-pulse drop-shadow-md">지금 시작하세요</p>
                   </div>
                 </AnimatedSection>
               </div>
@@ -342,7 +380,7 @@ export default function StrategyDetail() {
         </section>
 
         {/* Contact Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-b from-rose-50 to-white relative overflow-hidden">
+        <section ref={contactRef} className="py-16 md:py-24 bg-gradient-to-b from-rose-50 to-white relative overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-rose-100/30 rounded-full translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-pink-100/30 rounded-full -translate-x-1/3 translate-y-1/3 blur-3xl"></div>
 

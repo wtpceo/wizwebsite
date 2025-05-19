@@ -69,7 +69,7 @@ export default function ContactSection() {
                 {
                   icon: <MessageCircle className="h-6 w-6" />,
                   title: "카카오톡 문의",
-                  content: "@위즈더플래닝",
+                  content: "@위즈더플래닝마케팅",
                 },
                 {
                   icon: <Mail className="h-6 w-6" />,
@@ -96,6 +96,7 @@ export default function ContactSection() {
               <Button
                 size="lg"
                 className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg shadow-purple-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/30 text-lg px-8 py-6"
+                onClick={() => window.open("http://pf.kakao.com/_QUTxcb", "_blank")}
               >
                 카카오톡 상담 바로가기
                 <ChevronRight className="ml-2 h-5 w-5" />
