@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Header from "@/components/sections/Header";
-import Footer from "@/components/sections/Footer";
+import Footer from "@/components/Footer";
 import ContactSection from "@/components/sections/ContactSection";
 
 // CounterAnimation 컴포넌트
@@ -145,7 +145,7 @@ export default function StrategyDetail() {
                   배달 시장의 변화와 도전
                 </h2>
                 <p className="text-gray-600 text-lg md:text-xl max-w-2xl">
-                  2025년, 배달 시장은 급격한 변화를 맞이하고 있습니다. 점주님들이 직면한 현실을 살펴보세요.
+                  2025년, 배달 시장은 급격한 변화를 맞이하고 있습니다.<br /> 점주님들이 직면한 현실을 살펴보세요.
                 </p>
               </motion.div>
             </div>
@@ -222,7 +222,7 @@ export default function StrategyDetail() {
                 <div className="text-rose-600 text-6xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-rose-600 to-pink-600">7</div>
                 <div className="text-gray-700 text-base mb-4 text-center">최대 7개 플랫폼을 동시에 관리해야 하는 부담</div>
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {['배민','쿠팡이츠','요기요','땡겨요','네이버','카카오','기타'].map((platform, idx) => (
+                  {['배민','쿠팡이츠','요기요','땡겨요','네이버','당근','기타'].map((platform, idx) => (
                     <motion.span 
                       key={platform} 
                       className="bg-gradient-to-r from-rose-50 to-pink-50 text-rose-600 rounded-full px-4 py-1 text-sm font-medium border border-rose-100"
@@ -519,7 +519,7 @@ export default function StrategyDetail() {
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
                 지금은 <span className="bg-clip-text text-transparent bg-gradient-to-r from-rose-600 to-pink-600">"선택"이 아닌 "필수"</span>의 시대
               </h2>
-              <p className="text-gray-600 text-lg md:text-xl mb-10 max-w-2xl">
+              <p className="text-gray-600 text-lg md:text-xl mb-10 max-w-2xl text-center mx-auto whitespace-nowrap">
                 혼자서는 도저히 감당 불가한 구조, 전문 대행사와 협업하지 않으면 매출 유지조차 힘든 환경
               </p>
               <div className="text-2xl font-semibold text-gray-900 mb-10">

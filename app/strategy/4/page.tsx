@@ -23,11 +23,11 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 import Image from "next/image"
-import Header from "@/components/layout/Header"
+import Header from "@/components/sections/Header"
 import Footer from "@/components/sections/Footer"
 import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
-import ContactForm from "@/components/contact-form"
+import ContactSection from "@/components/sections/ContactSection"
 import { useRef } from "react"
 
 const fadeIn = {
@@ -105,12 +105,12 @@ export default function StrategyDetail() {
                     <span className="text-sm font-medium text-green-100">캠핑장 & 펜션 마케팅 솔루션</span>
                   </div>
                   <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl leading-tight drop-shadow-lg whitespace-nowrap max-w-none">
-                    당신의 숙소, 정말 잘 보이고 있나요?
+                    언제까지 수수료 쉐어링 하시겠습니까?
                   </h1>
                 </AnimateOnScroll>
                 <AnimateOnScroll animation="slide-up" delay={400}>
                   <p className="text-xl md:text-2xl text-gray-100 leading-relaxed drop-shadow-md">
-                    캠핑장과 펜션, 플레이스만으로는 고객의 마음을 사로잡기 어렵습니다.
+                    맞습니다. 숙박업은 플레이스만으로 정보를 다 담기 힘들죠.
                   </p>
                 </AnimateOnScroll>
                 <AnimateOnScroll animation="slide-up" delay={600}>
@@ -120,7 +120,7 @@ export default function StrategyDetail() {
                       className="bg-gradient-to-r from-green-500 to-emerald-400 hover:from-green-600 hover:to-emerald-500 text-white font-medium text-lg py-6 px-8 shadow-lg"
                       onClick={scrollToContact}
                     >
-                      무료 상담받기
+                      대책 상담받기
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </div>
@@ -169,74 +169,73 @@ export default function StrategyDetail() {
         {/* 문제점 섹션 */}
         <section id="problems" className="pt-0 pb-20 md:pb-28 bg-white relative">
           <div className="absolute top-0 left-0 right-0 h-24 bg-[url('/pattern-dots.png')] opacity-5 z-0"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-green-50/20 to-white z-0"></div>
           <div className="container max-w-6xl relative z-10 pt-16 md:pt-20">
             <AnimateOnScroll animation="fade-in">
-              <div className="text-center mb-16">
-                <span className="inline-block px-4 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-4">
+              <div className="text-center mb-20">
+                <span className="inline-block px-5 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-5 shadow-sm">
                   캠핑장 & 펜션 사장님의 고민
                 </span>
-                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-6 bg-gradient-to-r from-green-700 to-emerald-600 bg-clip-text text-transparent">
+                <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl mb-8 bg-gradient-to-r from-green-700 to-emerald-600 bg-clip-text text-transparent">
                   이런 고민이 있으신가요?
                 </h2>
-                <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed md:text-2xl">
                   캠핑장과 펜션 사장님들이 자주 겪는 마케팅 문제들입니다.
                 </p>
               </div>
             </AnimateOnScroll>
 
-            <div className="grid md:grid-cols-3 gap-8 items-stretch">
-              <AnimateOnScroll animation="slide-up" delay={200}>
-                <Card className="border-2 border-gray-200 hover:border-green-600 transition-all hover:shadow-xl shadow-md rounded-xl overflow-hidden group h-full flex flex-col">
-                  <div className="h-2 bg-gradient-to-r from-amber-400 to-orange-500"></div>
-                  <CardHeader className="pb-2">
-                    <div className="p-4 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 text-white inline-block mb-4 transform group-hover:scale-110 transition-transform">
-                      <Home className="h-10 w-10" />
+            <div className="grid md:grid-cols-3 gap-10 items-stretch">
+              <AnimateOnScroll animation="slide-up" delay={200} className="flex">
+                <div className="bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden flex-1 flex flex-col">
+                  <div className="bg-gradient-to-r from-amber-400 to-orange-500 px-6 py-5 flex items-center gap-4">
+                    <div className="bg-white/20 p-3 rounded-full">
+                      <Home className="h-8 w-8 text-white" />
                     </div>
-                    <CardTitle className="text-2xl mb-2">홈페이지 제작의 어려움</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-1 flex items-end">
-                    <p className="text-gray-700 text-lg leading-relaxed">
-                      홈페이지는 있어야 할 것 같은데, 어디에 맡겨야 할지 모르겠고 드론이니, 촬영이니 들어가면 금액이
-                      너무 부담스럽죠?
+                    <h3 className="text-xl font-bold text-white whitespace-nowrap">과도한 비용의 홈페이지 제작</h3>
+                  </div>
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                      네이버 수요는 있는데 플레이스에 모든 정보를 담기에는 공간이 좁죠. 홈페이지를 만들자니 촬영비에 제작비까지 정말 높은 금액 그리고 예약 매출 쉐어링
                     </p>
-                  </CardContent>
-                </Card>
+                    <div className="w-16 h-1 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                </div>
               </AnimateOnScroll>
 
-              <AnimateOnScroll animation="slide-up" delay={400}>
-                <Card className="border-2 border-gray-200 hover:border-green-600 transition-all hover:shadow-xl shadow-md rounded-xl overflow-hidden group h-full flex flex-col">
-                  <div className="h-2 bg-gradient-to-r from-blue-400 to-cyan-500"></div>
-                  <CardHeader className="pb-2">
-                    <div className="p-4 rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 text-white inline-block mb-4 transform group-hover:scale-110 transition-transform">
-                      <MapPin className="h-10 w-10" />
+              <AnimateOnScroll animation="slide-up" delay={400} className="flex">
+                <div className="bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden flex-1 flex flex-col">
+                  <div className="bg-gradient-to-r from-blue-400 to-cyan-500 px-6 py-5 flex items-center gap-4">
+                    <div className="bg-white/20 p-3 rounded-full">
+                      <MapPin className="h-8 w-8 text-white" />
                     </div>
-                    <CardTitle className="text-2xl mb-2">플레이스 정보의 한계</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-1 flex items-end">
-                    <p className="text-gray-700 text-lg leading-relaxed">
-                      플레이스에 올릴 수 있는 사진은 몇 장뿐, 객실별 정보, 주변 시설, 사장님의 스토리까지 보여주긴
-                      역부족입니다.
+                    <h3 className="text-xl font-bold text-white whitespace-nowrap">숙박 어플들의 수수료</h3>
+                  </div>
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                      숙박 어플을 통해 들어오는 손님은 우리 손님이 아니라 숙박 어플 손님입니다. 자체 마케팅 해야 합니다.
                     </p>
-                  </CardContent>
-                </Card>
+                    <div className="w-16 h-1 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                </div>
               </AnimateOnScroll>
 
-              <AnimateOnScroll animation="slide-up" delay={600}>
-                <Card className="border-2 border-gray-200 hover:border-green-600 transition-all hover:shadow-xl shadow-md rounded-xl overflow-hidden group h-full flex flex-col">
-                  <div className="h-2 bg-gradient-to-r from-purple-400 to-pink-500"></div>
-                  <CardHeader className="pb-2">
-                    <div className="p-4 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 text-white inline-block mb-4 transform group-hover:scale-110 transition-transform">
-                      <DollarSign className="h-10 w-10" />
+              <AnimateOnScroll animation="slide-up" delay={600} className="flex">
+                <div className="bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden flex-1 flex flex-col">
+                  <div className="bg-gradient-to-r from-purple-400 to-pink-500 px-6 py-5 flex items-center gap-4">
+                    <div className="bg-white/20 p-3 rounded-full">
+                      <DollarSign className="h-8 w-8 text-white" />
                     </div>
-                    <CardTitle className="text-2xl mb-2">높은 수수료 부담</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-1 flex items-end">
-                    <p className="text-gray-700 text-lg leading-relaxed">
+                    <h3 className="text-xl font-bold text-white whitespace-nowrap">높은 수수료 부담</h3>
+                  </div>
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <p className="text-gray-700 text-lg leading-relaxed mb-4">
                       광고는 해도 잠깐 반짝하고, 수수료는 계속 빠져나갑니다. 예약 플랫폼에만 의존하신다면 수수료는
                       쌓이고, 고객은 '그 플랫폼의 고객'이지, 내 단골이 아닐 수 있습니다.
                     </p>
-                  </CardContent>
-                </Card>
+                    <div className="w-16 h-1 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                </div>
               </AnimateOnScroll>
             </div>
           </div>
@@ -250,13 +249,13 @@ export default function StrategyDetail() {
           <div className="absolute inset-0 bg-[url('/pattern-dots.png')] opacity-10 z-0"></div>
           <div className="absolute -right-20 -top-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
           <div className="absolute -left-20 -bottom-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
-          <div className="container text-center max-w-4xl relative z-10">
+          <div className="container mx-auto px-4 max-w-4xl flex flex-col items-center relative z-10 text-center">
             <AnimateOnScroll animation="zoom-in">
               <span className="inline-block px-4 py-1 bg-white/20 text-white rounded-full text-sm font-medium mb-4 backdrop-blur-sm">
                 해결책
               </span>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-8 leading-tight drop-shadow-md whitespace-nowrap max-w-none">
-                이제는 "내 공간"으로 고객을 모셔올 시간입니다.
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-8 leading-tight drop-shadow-md whitespace-nowrap">
+                이제는 숙박어플의 손님이 아니라 내 손님을 받아야 합니다.
               </h2>
               <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
                 저희는 캠핑장과 펜션에 꼭 맞는 마케팅 솔루션을 제공합니다.
@@ -348,10 +347,10 @@ export default function StrategyDetail() {
                   성과
                 </span>
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-6 leading-tight bg-gradient-to-r from-green-700 to-emerald-600 bg-clip-text text-transparent">
-                  검증된 성과
+                  수수료를 아끼면
                 </h2>
                 <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                  저희 마케팅 솔루션으로 이미 많은 캠핑장과 펜션이 성공했습니다.
+                  더 많은 서비스를 고객에게 돌려줄 수 있습니다.,
                 </p>
               </div>
             </AnimateOnScroll>
@@ -365,12 +364,12 @@ export default function StrategyDetail() {
                       <CheckCircle className="h-10 w-10" />
                     </div>
                     <CardTitle className="text-3xl mt-6 mb-2 bg-gradient-to-r from-green-700 to-emerald-600 bg-clip-text text-transparent">
-                      4배 이상
+                      웰컴 드링크
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="flex-1 flex items-end">
                     <CardDescription className="text-xl text-gray-700">
-                      숙소 1곳당 평균 4배 이상 콘텐츠 노출 증가
+                      오는 손님들에게 특별한 차 한잔 드립니다.
                     </CardDescription>
                   </CardContent>
                 </Card>
@@ -384,11 +383,11 @@ export default function StrategyDetail() {
                       <CheckCircle className="h-10 w-10" />
                     </div>
                     <CardTitle className="text-3xl mt-6 mb-2 bg-gradient-to-r from-blue-700 to-cyan-600 bg-clip-text text-transparent">
-                      50+ 리뷰
+                      즉석 사진기
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="flex-1 flex items-end">
-                    <CardDescription className="text-xl text-gray-700">리뷰수 50개 이상 증가 사례 다수</CardDescription>
+                    <CardDescription className="text-xl text-gray-700">추억을 담을 사진기를 준비해드립니다.</CardDescription>
                   </CardContent>
                 </Card>
               </AnimateOnScroll>
@@ -401,12 +400,12 @@ export default function StrategyDetail() {
                       <CheckCircle className="h-10 w-10" />
                     </div>
                     <CardTitle className="text-3xl mt-6 mb-2 bg-gradient-to-r from-amber-700 to-orange-600 bg-clip-text text-transparent">
-                      전환율 개선
+                      평일 숙박권
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="flex-1 flex items-end">
                     <CardDescription className="text-xl text-gray-700">
-                      예약 전환율 개선 & 재방문 유입 보고됨
+                      말도 안되는 가격의 평일 숙박권을 드릴 수 있습니다.
                     </CardDescription>
                   </CardContent>
                 </Card>
@@ -452,89 +451,10 @@ export default function StrategyDetail() {
           </div>
         </section>
 
-        {/* CTA 섹션 */}
-        <section ref={contactRef} className="w-full py-24 md:py-32 lg:py-40 bg-gradient-to-b from-green-50 via-white to-emerald-50">
-          <div className="container px-4 md:px-6">
-            <AnimateOnScroll animation="fade-in">
-              <div className="flex flex-col items-center justify-center space-y-8 text-center max-w-4xl mx-auto mb-16">
-                <div className="space-y-4">
-                  <Badge
-                    className="w-fit mx-auto bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 hover:from-green-200 hover:to-emerald-200 border-green-200"
-                    variant="outline"
-                  >
-                    문의하기
-                  </Badge>
-                  <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-                    <span className="hidden md:inline">지금 바로 상담받고<br />마케팅 고민을 해결하세요</span>
-                    <span className="block md:hidden">지금 바로 상담받고<br />마케팅 고민을 해결하세요</span>
-                  </h2>
-                  <p className="max-w-[800px] mx-auto text-gray-700 md:text-xl">
-                    <span className="hidden md:inline">위즈더플래닝의 전문가가 귀하의 비즈니스에 맞는 최적의 마케팅 솔루션을 제안해드립니다.</span>
-                    <span className="block md:hidden">위즈더플래닝의 전문가가<br />귀하의 비즈니스에 맞는 최적의 마케팅 솔루션을 제안해드립니다.</span>
-                  </p>
-                </div>
-              </div>
-            </AnimateOnScroll>
-
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 max-w-6xl mx-auto">
-              <AnimateOnScroll animation="slide-right" delay={200}>
-                <div className="flex flex-col justify-center space-y-8">
-                  <div className="space-y-6">
-                    {[
-                      { icon: <Phone className="h-6 w-6 text-green-600" />, title: "전화 문의", content: "1670-0704" },
-                      {
-                        icon: <MessageCircle className="h-6 w-6 text-emerald-600" />,
-                        title: "카카오톡 문의",
-                        content: "@위즈더플래닝",
-                      },
-                      {
-                        icon: <Mail className="h-6 w-6 text-green-600" />,
-                        title: "이메일 문의",
-                        content: "wiz@wiztheplanning.com",
-                      },
-                    ].map((item, index) => (
-                      <div key={index} className="flex items-center gap-4">
-                        <div
-                          className={`rounded-full ${
-                            index === 0 ? "bg-green-100" : index === 1 ? "bg-emerald-100" : "bg-green-100"
-                          } p-3`}
-                        >
-                          {item.icon}
-                        </div>
-                        <div>
-                          <p className="font-medium text-gray-800 text-lg">{item.title}</p>
-                          <p
-                            className={`${
-                              index === 0 ? "text-green-600" : index === 1 ? "text-emerald-600" : "text-green-600"
-                            } text-lg`}
-                          >
-                            {item.content}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="pt-4">
-                    <Button
-                      size="lg"
-                      className="gap-1 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg shadow-green-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-green-500/30 text-lg px-8 py-6"
-                    >
-                      카카오톡 상담 바로가기
-                      <ChevronRight className="h-5 w-5" />
-                    </Button>
-                  </div>
-                </div>
-              </AnimateOnScroll>
-              <AnimateOnScroll animation="slide-left" delay={200}>
-                <div className="flex items-center">
-                  <div className="w-full max-w-md mx-auto bg-white rounded-3xl shadow-xl p-8">
-                    <ContactForm />
-                  </div>
-                </div>
-              </AnimateOnScroll>
-            </div>
-          </div>
-        </section>
+        {/* Contact Section */}
+        <div id="contact">
+          <ContactSection />
+        </div>
       </main>
       <Footer />
     </div>

@@ -8,7 +8,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Header from "@/components/sections/Header"
-import Footer from "@/components/sections/Footer"
+import Footer from "@/components/Footer"
 import ContactSection from "@/components/sections/ContactSection"
 
 export default function MarketingStrategyPage() {
@@ -31,7 +31,7 @@ export default function MarketingStrategyPage() {
                   온라인 매장도,<br className="hidden sm:block" /> 인테리어가 필요합니다.
                 </h1>
                 <p className="mx-auto max-w-[700px] text-gray-600 text-base sm:text-lg md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed break-keep">
-                  매장을 어떻게 꾸몄든,<br className="sm:hidden" /> 고객은 온라인에서 한 번 더 검색합니다.
+                  훌륭한 우리 매장<br className="sm:hidden" /> 내 매장에 큰 돈 들여 인테리어 한 이유가 무엇인가요?
                 </p>
               </div>
             </motion.div>
@@ -47,7 +47,7 @@ export default function MarketingStrategyPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="space-y-6"
+                className="flex flex-col items-center space-y-6"
               >
                 <div className="inline-block rounded-full bg-gradient-to-r from-purple-600 to-blue-600 px-4 py-1.5 text-sm text-white shadow-lg shadow-purple-500/20">
                   온라인 인테리어의 중요성
@@ -55,19 +55,18 @@ export default function MarketingStrategyPage() {
                 <div className="space-y-6">
                   <div className="rounded-2xl border bg-white/50 p-6 shadow-lg backdrop-blur-sm transition-all hover:shadow-xl">
                     <p className="text-base sm:text-lg text-gray-700 break-keep">
-                      수천만 원 들여 인테리어를 완성한 사장님, 원장님.<br className="sm:hidden" /> 그 정성만큼, 온라인도 '깔끔하고 신뢰감 있게'
-                      꾸며야 합니다. 왜냐고요?
+                      수천만 원 들여 인테리어를 완성한 사장님, 원장님.<br className="sm:hidden" /><br /> 인테리어에 정성과 큰 돈을 쏟은 이유가 무엇인가요?
                     </p>
                   </div>
                   <div className="rounded-2xl border bg-white/50 p-6 shadow-lg backdrop-blur-sm transition-all hover:shadow-xl">
                     <p className="text-base sm:text-lg text-gray-700 break-keep">
-                      고객은 전단지를 봐도,
+                      매장 앞을 지나다니는 유동인구 때문 아닌가요?,
                       <br />
-                      친구에게 소개받아도,
+                      온라인에는,
                       <br />
-                      매장을 지나가다 간판을 봐도…
+                      더 많은 유동인구가 있습니다.
                       <br />
-                      <span className="font-bold text-purple-600">한 번은 반드시 검색합니다.</span>
+                      <span className="font-bold text-purple-600">온라인 첫인상은 오프라인 첫인상과 같습니다.</span>
                     </p>
                   </div>
                 </div>
@@ -118,7 +117,7 @@ export default function MarketingStrategyPage() {
               {[
                 {
                   title: "음식점",
-                  description: "네이버 플레이스 + 블로그",
+                  description: "네이버 플레이스 + 체험단",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -139,10 +138,14 @@ export default function MarketingStrategyPage() {
                       <path d="M6.5 21a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
                     </svg>
                   ),
+                  color: "from-orange-500 to-red-500",
+                  borderColor: "border-orange-200",
+                  hoverBorderColor: "hover:border-orange-300",
+                  textColor: "text-orange-700"
                 },
                 {
-                  title: "병원",
-                  description: "네이버 + 카카오맵 + 리뷰 사이트",
+                  title: "학원",
+                  description: "네이버 플레이스 + 브랜드 블로그",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -156,17 +159,18 @@ export default function MarketingStrategyPage() {
                       strokeLinejoin="round"
                       className="h-6 w-6"
                     >
-                      <path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1" />
-                      <path d="M17 3h1a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1" />
-                      <path d="M12 12v6" />
-                      <path d="M8 17h8" />
-                      <path d="M12 3v4" />
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                      <path d="M6 12v5c3 3 9 3 12 0v-5" />
                     </svg>
                   ),
+                  color: "from-blue-500 to-indigo-500",
+                  borderColor: "border-blue-200",
+                  hoverBorderColor: "hover:border-blue-300",
+                  textColor: "text-blue-700"
                 },
                 {
                   title: "운동시설",
-                  description: "네이버 + 인스타그램",
+                  description: "네이버 플레이스 + 인스타그램 + 브랜드 블로그",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -188,10 +192,14 @@ export default function MarketingStrategyPage() {
                       <circle cx="12" cy="12" r="4" />
                     </svg>
                   ),
+                  color: "from-green-500 to-emerald-500",
+                  borderColor: "border-green-200",
+                  hoverBorderColor: "hover:border-green-300",
+                  textColor: "text-green-700"
                 },
                 {
-                  title: "학원",
-                  description: "네이버 + 블로그 콘텐츠",
+                  title: "뷰티",
+                  description: "네이버 플레이스 + 블로그 콘텐츠",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -205,10 +213,17 @@ export default function MarketingStrategyPage() {
                       strokeLinejoin="round"
                       className="h-6 w-6"
                     >
-                      <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                      <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                      <path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1" />
+                      <path d="M17 3h1a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1" />
+                      <path d="M12 12v6" />
+                      <path d="M8 17h8" />
+                      <path d="M12 3v4" />
                     </svg>
                   ),
+                  color: "from-pink-500 to-rose-500",
+                  borderColor: "border-pink-200",
+                  hoverBorderColor: "hover:border-pink-300",
+                  textColor: "text-pink-700"
                 },
               ].map((item, index) => (
                 <motion.div
@@ -218,13 +233,14 @@ export default function MarketingStrategyPage() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="h-full border-2 border-purple-100 bg-white/50 backdrop-blur-sm transition-all hover:shadow-xl hover:border-purple-200">
-                    <CardContent className="flex flex-col items-center p-6">
-                      <div className="mb-4 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 p-3 text-white shadow-lg">
+                  <Card className={`h-full border-2 ${item.borderColor} ${item.hoverBorderColor} bg-white/50 backdrop-blur-sm transition-all hover:shadow-xl overflow-hidden`}>
+                    <div className={`h-2 bg-gradient-to-r w-full ${item.color}`}></div>
+                    <CardContent className="flex flex-col items-center p-6 pt-8">
+                      <div className={`mb-4 rounded-full bg-gradient-to-r ${item.color} p-3 text-white shadow-lg`}>
                         {item.icon}
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900">{item.title}</h3>
-                      <p className="text-sm text-gray-600 mt-2 text-center">{item.description}</p>
+                      <h3 className={`text-xl font-bold ${item.textColor} mb-3`}>{item.title}</h3>
+                      <p className="text-sm text-gray-600 text-center">{item.description}</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -266,13 +282,13 @@ export default function MarketingStrategyPage() {
                 <div className="space-y-6">
                   <div className="rounded-2xl border bg-white/50 p-6 shadow-lg backdrop-blur-sm transition-all hover:shadow-xl">
                     <p className="text-base sm:text-lg text-gray-700 break-keep">
-                      오프라인 배너에 적은 할인, 혜택, 안내사항.<br className="sm:hidden" /> 그 정보가 온라인에는 없으면 무슨 일이 벌어질까요?
+                      오프라인 배너에 적은 할인, 혜택, 안내사항.<br className="sm:hidden" /><br /> 그 정보를 온라인에 왜 적지 않을까요?
                     </p>
                   </div>
                   <div className="rounded-2xl border bg-white/50 p-6 shadow-lg backdrop-blur-sm transition-all hover:shadow-xl">
                     <p className="text-base sm:text-lg text-gray-700 break-keep">
-                      "정보가 부족하네..."
-                      <br />→ 다른 곳으로 넘어갑니다.
+                      온라인은 오프라인보다
+                      <br />더 많은 사람들이 보게 됩니다.
                     </p>
                   </div>
                   <div className="rounded-2xl border bg-white/50 p-6 shadow-lg backdrop-blur-sm transition-all hover:shadow-xl">
@@ -375,8 +391,8 @@ export default function MarketingStrategyPage() {
                   고객을 한 번 더 잡는, <span className="font-bold text-purple-600">온라인 인테리어 전문가</span>입니다.
                 </p>
                 <Button className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg shadow-purple-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/30 px-8 py-6 text-lg">
-                  지금 우리 매장, 온라인 상태 진단받기
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  이제 망설이지 말고 시작 하세요.
+                  
                 </Button>
               </div>
             </motion.div>

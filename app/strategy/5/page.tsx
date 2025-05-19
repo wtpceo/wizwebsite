@@ -26,8 +26,8 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { AnimatedSection } from "@/app/components/AnimatedSection"
 import Header from "@/components/sections/Header"
-import Footer from "@/components/sections/Footer"
-import ContactForm from "@/components/contact-form"
+import Footer from "@/components/Footer"
+import ContactSection from "@/components/sections/ContactSection"
 import { useRef } from "react"
 
 export default function StrategyDetail() {
@@ -48,7 +48,7 @@ export default function StrategyDetail() {
                   <span className="text-rose-500 mr-1">뷰티 업종</span> 마케팅 전문가
                 </div>
                 <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight mb-6 break-keep">
-                  뷰티 마케팅, 아무거나 올렸다가 <span className="text-rose-500">의료법에 걸릴 수 있습니다</span>
+                  뷰티 마케팅, 아무거나 올렸다다가<br /> <span className="text-rose-500">의료법에 걸릴 수 있습니다</span>
                 </h1>
                 <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 break-keep">
                   효과 강조? 시술 사진? 글 하나에도 법적 리스크가 따릅니다.
@@ -93,7 +93,7 @@ export default function StrategyDetail() {
               <AnimatedSection delay={400}>
                 <div>
                   <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-6 whitespace-nowrap max-w-none">
-                    고객은 많아졌지만, 마케팅은 점점 더 어렵고 위험해졌습니다
+                    고객은 많아졌지만,<br /> 마케팅은 점점 더 어렵고 위험해졌습니다
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6">
                     뷰티 업종의 마케팅 환경이 변화하면서 새로운 도전과 위험이 생겨났습니다.
@@ -148,7 +148,7 @@ export default function StrategyDetail() {
               {[
                 {
                   icon: <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-rose-500" />,
-                  title: "기기",
+                  title: "의료 기기",
                   description: "최신 장비와 기술을 효과적으로 소개해야 합니다",
                 },
                 {
@@ -198,7 +198,7 @@ export default function StrategyDetail() {
               <div className="text-center mb-16 max-w-3xl mx-auto">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-6 break-keep">위즈더플래닝이 제안하는 전략</h2>
                 <p className="text-base sm:text-lg text-muted-foreground break-keep">
-                  고객은 눈으로 확인하고, 검색해서 결정합니다. 이제는 감각적인 콘텐츠와 탄탄한 운영으로 신뢰를 쌓아야 할
+                  고객은 눈으로 확인하고, 검색해서 결정합니다.<br /> 이제는 감각적인 콘텐츠와 탄탄한 운영으로 신뢰를 쌓아야 할
                   때입니다.
                 </p>
               </div>
@@ -380,75 +380,7 @@ export default function StrategyDetail() {
         </section>
 
         {/* Contact Section */}
-        <section ref={contactRef} className="py-16 md:py-24 bg-gradient-to-b from-rose-50 to-white relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-rose-100/30 rounded-full translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-pink-100/30 rounded-full -translate-x-1/3 translate-y-1/3 blur-3xl"></div>
-
-          <div className="container relative z-10">
-            <AnimatedSection>
-              <div className="text-center max-w-3xl mx-auto mb-16">
-                <div className="inline-flex items-center rounded-full border px-4 py-1.5 text-sm font-medium mb-6">
-                  <span className="text-rose-500 mr-1">문의하기</span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-6 break-keep">
-                  지금 바로 상담받고<br className="block sm:hidden" />마케팅 고민을 해결하세요
-                </h2>
-                <p className="text-base sm:text-lg text-muted-foreground break-keep">
-                  위즈더플래닝의 전문가가 귀하의 비즈니스에 맞는 최적의 마케팅 솔루션을 제안해드립니다.
-                </p>
-              </div>
-            </AnimatedSection>
-
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 max-w-6xl mx-auto">
-              <AnimatedSection delay={200}>
-                <div className="flex flex-col justify-center space-y-6 sm:space-y-8">
-                  <div className="space-y-4 sm:space-y-6">
-                    {[
-                      { icon: <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-rose-500" />, title: "전화 문의", content: "1670-0704" },
-                      {
-                        icon: <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 text-rose-500" />,
-                        title: "카카오톡 문의",
-                        content: "@위즈더플래닝",
-                      },
-                      {
-                        icon: <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-rose-500" />,
-                        title: "이메일 문의",
-                        content: "wiz@wiztheplanning.com",
-                      },
-                    ].map((item, index) => (
-                      <div key={index} className="flex items-center gap-3 sm:gap-4">
-                        <div className="rounded-full bg-rose-100 p-2 sm:p-3">
-                          {item.icon}
-                        </div>
-                        <div>
-                          <p className="font-medium text-gray-800 text-base sm:text-lg">{item.title}</p>
-                          <p className="text-rose-500 text-base sm:text-lg break-keep">{item.content}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="pt-2 sm:pt-4">
-                    <Button
-                      size="lg"
-                      className="gap-1 bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 shadow-lg shadow-rose-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-rose-500/30 text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 w-full sm:w-auto"
-                    >
-                      카카오톡 상담 바로가기
-                      <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
-                    </Button>
-                  </div>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection delay={400}>
-                <div className="flex items-center">
-                  <div className="w-full max-w-md mx-auto bg-white rounded-2xl sm:rounded-3xl shadow-xl p-4 sm:p-8">
-                    <ContactForm />
-                  </div>
-                </div>
-              </AnimatedSection>
-            </div>
-          </div>
-        </section>
+        <ContactSection />
       </main>
       <Footer />
     </div>

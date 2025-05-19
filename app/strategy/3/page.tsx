@@ -10,9 +10,13 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useRef } from "react";
+import ContactSection from "@/components/sections/ContactSection";
 
 export default function StrategyDetail() {
   const prefersReducedMotion = useReducedMotion();
+  const contactRef = useRef<HTMLDivElement>(null);
+  const scrollToContact = () => contactRef.current?.scrollIntoView({ behavior: "smooth" });
 
   const fadeIn = {
     hidden: { opacity: 0 },
@@ -79,7 +83,7 @@ export default function StrategyDetail() {
                 className="text-xl md:text-2xl text-gray-700 mt-8 max-w-3xl mx-auto" 
                 variants={getAnimation(fadeInUp)}
               >
-                👉 지금 우리 학원, <span className="font-bold text-emerald-600">검색하면 나오는 게 있나요?</span>
+                👉 지금 우리 학원, <span className="font-bold text-emerald-600">검색하면 어떻게 나오고 있나요?</span>
               </motion.p>
               <motion.div 
                 className="mt-10" 
@@ -89,6 +93,7 @@ export default function StrategyDetail() {
               >
                 <Button 
                   size="lg" 
+                  onClick={scrollToContact}
                   className="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-lg px-8 py-6 h-auto shadow-lg shadow-emerald-500/20 hover:shadow-xl hover:shadow-emerald-500/30 transition-all duration-300"
                 >
                   무료 마케팅 진단 신청하기 <ArrowRight className="ml-2 h-5 w-5" />
@@ -119,7 +124,7 @@ export default function StrategyDetail() {
                 variants={getAnimation(fadeInLeft)}
               >
                 <p className="text-xl md:text-2xl text-gray-800">"우리 반 친구가 다니는 학원이라고 소개받았어요"</p>
-                <p className="text-gray-600 mt-4 text-lg">→ 그런데 학부모는 그 다음에 뭘 하죠?</p>
+                <p className="text-gray-600 mt-4 text-lg">→ 그런데 학부모는 그 다음에 뭘 할까요?</p>
               </motion.div>
               <motion.div 
                 className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-2xl p-8 shadow-lg max-w-2xl border border-emerald-100 hover:shadow-xl transition-shadow duration-300" 
@@ -132,7 +137,7 @@ export default function StrategyDetail() {
                   <CheckCircle className="text-emerald-600 mr-3 h-6 w-6 mt-1 flex-shrink-0" />
                   <span>네이버에 학원 이름 검색합니다.</span>
                 </p>
-                <p className="mt-6 text-lg ml-9">그리고 가장 먼저 보는 건 <span className="font-bold text-emerald-600">네이버 플레이스입니다.</span></p>
+                <p className="mt-6 text-lg ml-9">그리고 가장 먼저 나오는 건 <span className="font-bold text-emerald-600">네이버 플레이스입니다.</span></p>
               </motion.div>
             </div>
           </div>
@@ -149,7 +154,7 @@ export default function StrategyDetail() {
               variants={getAnimation(fadeInUp)}
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
-                네이버 플레이스는 <span className="italic">"운영 중인 학원의<br className="hidden sm:block" /> 살아있는 분위기"</span>를 보여줍니다.
+                네이버 플레이스는<br /> <span className="italic text-yellow-500">"운영 중인 학원의<br className="hidden sm:block" /> 살아있는 분위기"</span>를 보여줍니다.
               </h2>
             </motion.div>
             <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
@@ -208,11 +213,11 @@ export default function StrategyDetail() {
                       </div>
                     </div>
                     <h4 className="text-2xl font-bold text-red-700">정보가 없는 경우</h4>
-                    <p className="text-red-600">검색해도 나오지 않는 학원은<br />신뢰도가 떨어질 수 있습니다</p>
+                    <p className="text-red-600">정보가 부족한 경우<br />잠시라도 망설여 질 수 밖에 없습니다.</p>
                   </div>
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold mb-6 text-blue-700">이게 없다면?</h3>
+                  <h3 className="text-2xl font-bold mb-6 text-blue-700">정보가 없다면?</h3>
                   <motion.div 
                     className="bg-red-50 p-6 rounded-lg border border-red-100" 
                     whileInView={{ scale: [1, 1.05, 1] }} 
@@ -220,8 +225,8 @@ export default function StrategyDetail() {
                     viewport={{ once: true }}
                   >
                     <p className="flex items-center text-red-700 text-lg">
-                      <span className="text-3xl mr-3">👎</span>
-                      <span>"잘 안 하는 학원인가?"라는 인식이 생깁니다.</span>
+                      <span className="text-3xl mr-3"></span>
+                      <span>"어떻게 운영되는 학원인가 궁금할 수 밖에 없습니다."</span>
                     </p>
                   </motion.div>
                   <p className="mt-6 text-gray-600 text-lg leading-relaxed">
@@ -308,7 +313,7 @@ export default function StrategyDetail() {
               viewport={{ once: true, margin: "-100px" }} 
               variants={getAnimation(fadeInUp)}
             >
-              <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gray-800">🧩 이 세 가지는 어디에서 제대로 보여줄 수 있을까요?</h3>
+              <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gray-800">이 세 가지는 어디에서 제대로 보여줄 수 있을까요?</h3>
               <motion.div 
                 className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-5 px-8 rounded-lg inline-block shadow-lg hover:shadow-xl transition-shadow duration-300" 
                 whileInView={{ y: [10, -5, 0] }} 
@@ -419,7 +424,7 @@ export default function StrategyDetail() {
                   viewport={{ once: true }}
                 >
                   <ArrowRight className="mr-3 h-6 w-6" />
-                  "동네에서 진짜 신경 쓰는 학원이구나"라는 신뢰를 줍니다.
+                  "학부모와 학생들은 이 학원의 존재를 잊을 수 없을 것입니다."
                 </motion.p>
               </motion.div>
             </div>
@@ -464,10 +469,10 @@ export default function StrategyDetail() {
                   transition={{ duration: 1, times: [0, 0.25, 0.5, 0.75, 1] }} 
                   viewport={{ once: true }}
                 >
-                  <span className="text-3xl mr-3">👎</span>
+                  <span className="text-3xl mr-3"></span>
                   <span>광고만 날리는 셈입니다.</span>
                 </motion.p>
-                <p className="text-gray-600 text-lg leading-relaxed">온라인에서 검색했을 때 정보가 없다면, 전단지는 단순한 종이 쓰레기가 될 뿐입니다.</p>
+                <p className="text-gray-600 text-lg leading-relaxed">전단지에서 학원을 보더라도 온라인에서 반드시 검색해봅니다.</p>
               </motion.div>
               <motion.div 
                 className="bg-white rounded-xl shadow-lg p-8 border border-emerald-100 hover:shadow-xl transition-shadow duration-300" 
@@ -494,8 +499,8 @@ export default function StrategyDetail() {
                   transition={{ duration: 0.8, times: [0, 0.5, 1] }} 
                   viewport={{ once: true }}
                 >
-                  <span className="text-3xl mr-3">👊</span>
-                  <span>"검색하면 다 나오는 학원" → 등록률 상승</span>
+                  <span className="text-3xl mr-3"></span>
+                  <span>"검색하면 다 나오는 학원" → 더 알아볼 확률이 상승합니다.</span>
                 </motion.p>
                 <p className="text-gray-600 text-lg leading-relaxed">전단지를 보고 온라인에서 검색했을 때 풍부한 정보가 나온다면 신뢰도와 등록률이 크게 높아집니다.</p>
               </motion.div>
@@ -503,175 +508,10 @@ export default function StrategyDetail() {
           </div>
         </section>
 
-        {/* Conclusion & CTA Section */}
-        <section className="py-24 bg-gradient-to-br from-emerald-50 via-white to-green-50">
-          <div className="container mx-auto px-6 max-w-5xl">
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
-              <motion.div
-                className="flex flex-col justify-center space-y-4"
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.1 }}
-              >
-                <motion.div className="space-y-2" variants={fadeIn}>
-                  <Badge
-                    className="w-fit bg-gradient-to-r from-emerald-100 to-green-100 text-emerald-700 hover:from-emerald-200 hover:to-green-200 border-emerald-200"
-                    variant="outline"
-                  >
-                    문의하기
-                  </Badge>
-                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
-                    <span className="hidden md:inline">지금 바로 상담받고<br />마케팅 고민을 해결하세요</span>
-                    <span className="block md:hidden">지금 바로 상담받고<br />마케팅 고민을 해결하세요</span>
-                  </h2>
-                  <p className="max-w-[600px] text-gray-700 md:text-xl">
-                    <span className="hidden md:inline">위즈더플래닝의 전문가가 귀하의 학원에 맞는 최적의 마케팅 솔루션을 제안해드립니다.</span>
-                    <span className="block md:hidden">위즈더플래닝의 전문가가<br />귀하의 학원에 맞는 최적의 마케팅 솔루션을 제안해드립니다.</span>
-                  </p>
-                </motion.div>
-                <motion.div className="space-y-4" variants={staggerContainer}>
-                  {[
-                    { icon: <Phone className="h-5 w-5 text-emerald-600" />, title: "전화 문의", content: "1670-0704" },
-                    {
-                      icon: <MessageCircle className="h-5 w-5 text-green-600" />,
-                      title: "카카오톡 문의",
-                      content: "@위즈더플래닝",
-                    },
-                    {
-                      icon: <Mail className="h-5 w-5 text-emerald-600" />,
-                      title: "이메일 문의",
-                      content: "wiz@wiztheplanning.com",
-                    },
-                  ].map((item, index) => (
-                    <motion.div 
-                      key={index} 
-                      className="flex items-center gap-2 bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300" 
-                      variants={fadeIn}
-                    >
-                      <div
-                        className={`rounded-full ${
-                          index === 0 ? "bg-emerald-100" : index === 1 ? "bg-green-100" : "bg-emerald-100"
-                        } p-2`}
-                      >
-                        {item.icon}
-                      </div>
-                      <div>
-                        <p className="font-medium text-gray-800">{item.title}</p>
-                        <p
-                          className={`${
-                            index === 0 ? "text-emerald-600" : index === 1 ? "text-green-600" : "text-emerald-600"
-                          }`}
-                        >
-                          {item.content}
-                        </p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </motion.div>
-              <motion.div
-                className="flex items-center"
-                variants={fadeIn}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.1 }}
-              >
-                <div className="w-full max-w-md mx-auto bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-emerald-100">
-                  <form className="space-y-4" onSubmit={async (e) => {
-                    e.preventDefault()
-                    const formData = new FormData(e.currentTarget)
-                    const data = {
-                      name: formData.get('name'),
-                      phone: formData.get('phone'),
-                      storeName: formData.get('storeName'),
-                      message: formData.get('message')
-                    }
-
-                    try {
-                      const response = await fetch('/api/contact', {
-                        method: 'POST',
-                        headers: {
-                          'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(data),
-                      })
-
-                      if (response.ok) {
-                        alert('문의가 성공적으로 접수되었습니다.')
-                        e.currentTarget.reset()
-                      } else {
-                        alert('문의 접수 중 오류가 발생했습니다. 다시 시도해 주세요.')
-                      }
-                    } catch (error) {
-                      console.error('문의 처리 중 오류:', error)
-                      alert('문의 접수 중 오류가 발생했습니다. 다시 시도해 주세요.')
-                    }
-                  }}>
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium text-gray-700">
-                        이름
-                      </label>
-                      <Input
-                        id="name"
-                        name="name"
-                        placeholder="홍길동"
-                        required
-                        className="h-12 bg-gray-50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500/20"
-                      />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <label htmlFor="phone" className="text-sm font-medium text-gray-700">
-                        연락처
-                      </label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        name="phone"
-                        placeholder="010-0000-0000"
-                        required
-                        className="h-12 bg-gray-50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500/20"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label htmlFor="storeName" className="text-sm font-medium text-gray-700">
-                        학원명
-                      </label>
-                      <Input
-                        id="storeName"
-                        name="storeName"
-                        placeholder="학원 이름을 입력해주세요"
-                        required
-                        className="h-12 bg-gray-50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500/20"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label htmlFor="message" className="text-sm font-medium text-gray-700">
-                        문의사항
-                      </label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        placeholder="문의하실 내용을 자유롭게 작성해주세요"
-                        className="min-h-[120px] bg-gray-50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500/20"
-                      />
-                    </div>
-
-                    <Button
-                      type="submit"
-                      className="w-full h-12 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white font-medium shadow-lg shadow-emerald-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/30"
-                    >
-                      무료 상담 신청하기
-                    </Button>
-                  </form>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
+        {/* Contact Section */}
+        <div ref={contactRef}>
+          <ContactSection />
+        </div>
       </main>
       <Footer />
     </div>

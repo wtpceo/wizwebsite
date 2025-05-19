@@ -26,8 +26,8 @@ import { EqualHeightCards } from "../../docs/1/components/equer-hegiht-card"
 import { MobileMenu } from "../../docs/1/components/mobile-menu"
 import { ScrollToTopButton } from "../../docs/1/components/scrolltopbutten"
 import { Timeline, TimelineItem } from "../../docs/1/components/timline"
-import Header from "@/components/layout/Header"
-import Footer from "@/components/Footer"
+import Header from "@/components/sections/Header"
+import Footer from "@/components/sections/Footer"
 import ContactSection from "@/components/sections/ContactSection"
 
 export default function Page() {

@@ -3,9 +3,9 @@
 import Image from "next/image"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import Header from "@/components/layout/Header"
+import Header from "@/components/sections/Header"
 import ContactSection from "@/components/sections/ContactSection"
-import Footer from "@/components/Footer"
+import Footer from "@/components/sections/Footer"
 
 const images = [
   "/portfolio/DSC09449.jpg",

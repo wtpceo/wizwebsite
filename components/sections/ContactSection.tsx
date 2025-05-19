@@ -25,11 +25,24 @@ const staggerContainer = {
   },
 }
 
-export default function ContactSection() {
+export default function ContactSection({ sectionClassName = "", variant = "default" }: { sectionClassName?: string; variant?: "default" | "redOrange" }) {
+  const styleMap = {
+    default: {
+      iconBg: "bg-gradient-to-r from-purple-600 to-blue-600",
+      text: "text-purple-600",
+      button: "bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 shadow-purple-500/20 hover:shadow-purple-500/30",
+    },
+    redOrange: {
+      iconBg: "bg-gradient-to-r from-red-600 to-orange-600",
+      text: "text-red-600",
+      button: "bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 shadow-red-500/20 hover:shadow-red-500/30",
+    },
+  }
+  const style = styleMap[variant]
   return (
     <section
       id="contact"
-      className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white to-purple-50/30 relative overflow-hidden"
+      className={`w-full py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white to-purple-50/30 relative overflow-hidden ${sectionClassName}`}
     >
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
       <div className="container px-4 md:px-6 relative">
@@ -82,12 +95,12 @@ export default function ContactSection() {
                   className="flex items-center gap-6 rounded-2xl border bg-white/50 p-6 shadow-lg backdrop-blur-sm transition-all hover:shadow-xl" 
                   variants={fadeIn}
                 >
-                  <div className="rounded-full bg-gradient-to-r from-purple-600 to-blue-600 p-3 text-white shadow-lg">
+                  <div className={`rounded-full ${style.iconBg} p-3 text-white shadow-lg`}>
                     {item.icon}
                   </div>
                   <div>
                     <p className="font-medium text-gray-900 text-lg">{item.title}</p>
-                    <p className="text-purple-600 text-lg">{item.content}</p>
+                    <p className={`${style.text} text-lg`}>{item.content}</p>
                   </div>
                 </motion.div>
               ))}
@@ -95,7 +108,7 @@ export default function ContactSection() {
             <motion.div variants={fadeIn} className="pt-4">
               <Button
                 size="lg"
-                className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg shadow-purple-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/30 text-lg px-8 py-6"
+                className={`w-full ${style.button} text-white transition-all duration-300 hover:shadow-xl text-lg px-8 py-6`}
                 onClick={() => window.open("http://pf.kakao.com/_QUTxcb", "_blank")}
               >
                 카카오톡 상담 바로가기
