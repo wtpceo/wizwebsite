@@ -13,6 +13,7 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+    email: "",
     storeName: "",
     message: "",
   })
@@ -22,19 +23,45 @@ export default function ContactForm() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // 실제 폼 제출 로직 (여기서는 예시로 타임아웃 사용)
-    setTimeout(() => {
+    try {
+      // API 라우트 호출하여 이메일 전송
+      console.log('폼 데이터 전송 시작:', formData); // 디버깅용
+      
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const result = await response.json();
+      console.log('API 응답:', result); // 응답 확인용
+      
+      if (!response.ok) {
+        throw new Error(result.error || '서버 오류가 발생했습니다');
+      }
+
+      // 성공 메시지 표시
       setIsSubmitting(false)
       toast({
         title: "상담 신청이 완료되었습니다",
         description: "빠른 시일 내에 연락드리겠습니다.",
       })
-      setFormData({ name: "", phone: "", storeName: "", message: "" })
-    }, 1500)
+      setFormData({ name: "", phone: "", email: "", storeName: "", message: "" })
+    } catch (error) {
+      console.error('문의 제출 오류:', error); // 오류 로깅
+      setIsSubmitting(false)
+      toast({
+        title: "오류가 발생했습니다",
+        description: error instanceof Error ? error.message : "다시 시도해주세요.",
+        variant: "destructive",
+      })
+    }
   }
 
   return (
@@ -72,6 +99,21 @@ export default function ContactForm() {
             value={formData.phone}
             onChange={handleChange}
             required
+            className="h-12 bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label htmlFor="email" className="text-sm font-medium text-gray-700">
+            이메일
+          </label>
+          <Input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="example@email.com"
+            value={formData.email}
+            onChange={handleChange}
             className="h-12 bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20"
           />
         </div>
