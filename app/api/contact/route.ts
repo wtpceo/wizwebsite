@@ -1,25 +1,47 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-// Resend API 초기화 - 환경 변수에서 키 가져오기
-const resend = new Resend(process.env.RESEND_API_KEY)
+// API 키 디버깅을 위한 함수
+function maskApiKey(key: string | undefined) {
+  if (!key) return 'undefined';
+  if (key.length < 8) return 'too_short_to_be_valid';
+  return `${key.substring(0, 3)}...${key.substring(key.length - 3)}`;
+}
 
 export async function POST(req: Request) {
   try {
     console.log('API 요청 시작'); // 디버깅 로그
     
     // 요청 데이터 파싱
-    const { name, phone, email, message, storeName } = await req.json()
-    console.log('받은 데이터:', { name, phone, email }); // 민감하지 않은 정보만 로깅
+    let requestData;
+    try {
+      requestData = await req.json();
+      const { name, phone, email, message, storeName } = requestData;
+      console.log('받은 데이터:', { name, phone, email }); // 민감하지 않은 정보만 로깅
+    } catch (parseError) {
+      console.error('요청 데이터 파싱 오류:', parseError);
+      return NextResponse.json(
+        { error: '요청 데이터를 파싱할 수 없습니다', details: String(parseError) },
+        { status: 400 }
+      );
+    }
     
-    // API 키 확인
-    if (!process.env.RESEND_API_KEY) {
+    // API 키 확인 및 로깅 (마스킹된 형태로)
+    const apiKey = process.env.RESEND_API_KEY;
+    console.log('API 키 확인:', maskApiKey(apiKey));
+    
+    if (!apiKey) {
       console.error('RESEND_API_KEY 환경 변수가 설정되지 않았습니다');
       return NextResponse.json(
         { error: 'API 키가 설정되지 않았습니다' },
         { status: 500 }
       );
     }
+
+    // Resend 인스턴스 생성
+    const resend = new Resend(apiKey);
+    
+    const { name, phone, email, message, storeName } = requestData;
 
     // 관리자 이메일을 배열로 관리 (여러 수신자 설정 가능)
     const adminEmails = [
@@ -44,14 +66,18 @@ export async function POST(req: Request) {
     
     // 간소화된 Resend API 호출
     try {
-      const adminResult = await resend.emails.send({
+      console.log('Resend API 호출 시작: 관리자 이메일');
+      const adminParams = {
         from: 'onboarding@resend.dev', // 처음엔 이 공식 주소를 사용
         to: adminEmails,
         subject: `[위즈더플래닝] ${name}님의 문의가 접수되었습니다`,
         html: adminHtml
-      });
+      };
+      console.log('Resend API 파라미터:', { ...adminParams, html: '(생략)' });
       
-      console.log('관리자 이메일 전송 성공:', adminResult); // id 속성 참조 제거
+      const adminResult = await resend.emails.send(adminParams);
+      
+      console.log('관리자 이메일 전송 성공:', adminResult);
     } catch (error) {
       // 오류 처리 - 이메일 전송 실패
       console.error('이메일 전송 오류:', error);
@@ -64,6 +90,8 @@ export async function POST(req: Request) {
     // 고객 자동 응답 이메일 (이메일이 제공된 경우)
     if (email) {
       try {
+        console.log('Resend API 호출 시작: 사용자 응답 이메일');
+        
         const userHtml = `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
             <h2 style="color: #4338ca;">문의 접수 확인</h2>
@@ -82,6 +110,8 @@ export async function POST(req: Request) {
           subject: '[위즈더플래닝] 문의가 접수되었습니다',
           html: userHtml
         });
+        
+        console.log('사용자 응답 이메일 전송 성공');
       } catch (userError) {
         // 사용자 이메일 전송 실패는 전체 프로세스를 중단하지 않음
         console.error('사용자 자동응답 이메일 전송 실패:', userError);
@@ -89,7 +119,8 @@ export async function POST(req: Request) {
     }
 
     // 성공 응답
-    return NextResponse.json({ success: true })
+    console.log('문의 처리 완료: 성공 응답 반환');
+    return NextResponse.json({ success: true });
   } catch (error) {
     // 전체 프로세스 오류 처리
     console.error('문의 처리 중 오류 발생:', error)

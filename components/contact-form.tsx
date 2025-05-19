@@ -31,7 +31,11 @@ export default function ContactForm() {
       // API 라우트 호출하여 이메일 전송
       console.log('폼 데이터 전송 시작:', formData); // 디버깅용
       
-      const response = await fetch('/api/contact', {
+      // 절대 경로 사용
+      const apiUrl = window.location.origin + '/api/contact';
+      console.log('API 요청 URL:', apiUrl);
+      
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,17 +46,28 @@ export default function ContactForm() {
       // 응답 객체 로깅
       console.log('API 응답 상태:', response.status, response.statusText);
       
+      // 응답 타입 확인
+      const contentType = response.headers.get('content-type');
+      console.log('응답 Content-Type:', contentType);
+      
       let result;
       try {
-        result = await response.json();
-        console.log('API 응답 데이터:', result);
+        if (contentType && contentType.includes('application/json')) {
+          result = await response.json();
+          console.log('API 응답 데이터:', result);
+        } else {
+          // JSON이 아닌 경우 텍스트로 읽기
+          const textResult = await response.text();
+          console.error('응답이 JSON이 아님 (첫 100자):', textResult.substring(0, 100));
+          throw new Error('서버가 JSON이 아닌 응답을 반환했습니다');
+        }
       } catch (jsonError) {
-        console.error('응답 JSON 파싱 오류:', jsonError);
-        throw new Error('서버 응답을 파싱하는 데 실패했습니다');
+        console.error('응답 처리 오류:', jsonError);
+        throw new Error('서버 응답을 처리하는 데 실패했습니다');
       }
       
       if (!response.ok) {
-        throw new Error(result.error || result.details || '서버 오류가 발생했습니다');
+        throw new Error(result?.error || result?.details || '서버 오류가 발생했습니다');
       }
 
       // 성공 메시지 표시
