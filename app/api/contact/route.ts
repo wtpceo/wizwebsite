@@ -45,7 +45,7 @@ export async function POST(req: Request) {
 
     // 관리자 이메일을 배열로 관리 (여러 수신자 설정 가능)
     const adminEmails = [
-      'wiz@wiztheplanning.com',
+      'ceo@wiztheplanning.com', // Resend 테스트 모드에서는 이 주소로만 전송 가능
       // 추가 수신자 이메일을 여기에 작성
     ]
     
@@ -104,9 +104,12 @@ export async function POST(req: Request) {
           </div>
         `;
         
+        // 테스트 모드에서는 사용자 응답 이메일도 ceo@wiztheplanning.com으로 전송
+        const userEmailTarget = process.env.NODE_ENV === 'production' ? email : 'ceo@wiztheplanning.com';
+        
         await resend.emails.send({
           from: 'onboarding@resend.dev', // 공식 샘플 주소 사용
-          to: email,
+          to: userEmailTarget,
           subject: '[위즈더플래닝] 문의가 접수되었습니다',
           html: userHtml
         });
