@@ -1,5 +1,3 @@
-"use client"
-
 import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
 import HeroSection from "@/components/sections/HeroSection"
@@ -12,8 +10,8 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
-      <HeroSection />
-      <ServicesSection />
+      <HeroSection locale="ko" />
+      <ServicesSection locale="ko" />
       <StrategySection />
       <PricingSection />
       <ContactSection />

@@ -3,6 +3,7 @@
 import { useState, useEffect, memo } from "react"
 import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
+// import { useTranslations } from 'next-intl'
 import {
   Camera,
   Users,
@@ -22,6 +23,39 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import GradientButton from "@/components/ui/button-1"
 import Link from "next/link"
+
+// 한국어 서비스 텍스트 정의
+const SERVICES_TEXT = {
+  title: "마케팅 서비스",
+  subtitle: "전문가의 맞춤형 솔루션",
+  photo: {
+    title: "전문 사진 촬영",
+    description: "메뉴, 인테리어등 전문 장비와 노하우로 고퀄리티 사진 촬영 서비스 제공"
+  },
+  marketing: {
+    title: "네이버 마케팅",
+    description: "플레이스의 콘텐츠 마케팅과 리뷰관리로 순위 상승"
+  },
+  video: {
+    title: "영상 콘텐츠 제작",
+    description: "블로그, SNS, 웹사이트 등 다양한 채널에 최적화된 맞춤형 영상 콘텐츠 제작"
+  },
+  delivery: {
+    title: "배달앱 관리",
+    description: "배달의민족, 요기요 등 배달앱 등록 및 최적화, 메뉴 관리, 프로모션 설정"
+  },
+  print: {
+    title: "인쇄물 제작",
+    description: "메뉴판, 전단지, 명함, 배너 등 다양한 인쇄물 디자인 및 제작"
+  },
+  experience: {
+    title: "체험단 운영",
+    description: "네이버 플레이스, 인스타그램 등 다양한 플랫폼에서 효과적인 체험단 모집 및 관리"
+  },
+  portfolio: "포트폴리오 보기",
+  intro: "상품 소개 보러가기",
+  service_info: "서비스 소개 보러가기"
+};
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -62,6 +96,9 @@ const BentoCard = memo(({
   cta,
   portfolio,
   delivery,
+  portfolioText,
+  introText,
+  serviceInfoText
 }: {
   name: string
   className: string
@@ -72,6 +109,9 @@ const BentoCard = memo(({
   cta: string
   portfolio?: boolean
   delivery?: boolean
+  portfolioText: string
+  introText: string
+  serviceInfoText: string
 }) => {
   return (
     <div
@@ -101,7 +141,7 @@ const BentoCard = memo(({
                 size="sm" 
                 className="pointer-events-auto text-sm font-medium bg-purple-100 text-purple-700 hover:bg-purple-200 hover:text-purple-800 transition-colors duration-200"
               >
-                포트폴리오 보기
+                {portfolioText}
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -112,7 +152,7 @@ const BentoCard = memo(({
                 size="sm" 
                 className="pointer-events-auto text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 hover:text-blue-800 transition-colors duration-200"
               >
-                상품 소개 보러가기
+                {introText}
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -128,7 +168,7 @@ const BentoCard = memo(({
                 size="sm" 
                 className="pointer-events-auto text-sm font-medium bg-amber-100 text-amber-700 hover:bg-amber-200 hover:text-amber-800 transition-colors duration-200"
               >
-                포트폴리오 보기
+                {portfolioText}
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
             </a>
@@ -139,7 +179,7 @@ const BentoCard = memo(({
                 size="sm" 
                 className="pointer-events-auto text-sm font-medium bg-amber-100 text-amber-700 hover:bg-amber-200 hover:text-amber-800 transition-colors duration-200"
               >
-                포트폴리오 보기
+                {portfolioText}
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -150,7 +190,7 @@ const BentoCard = memo(({
                 size="sm" 
                 className="pointer-events-auto text-sm font-medium bg-pink-100 text-pink-700 hover:bg-pink-200 hover:text-pink-800 transition-colors duration-200"
               >
-                서비스 소개 보러가기
+                {serviceInfoText}
                 <ChevronRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -163,98 +203,9 @@ const BentoCard = memo(({
 })
 BentoCard.displayName = "BentoCard"
 
-const services = [
-  {
-    name: "전문 사진 촬영",
-    description: (
-      <>
-        메뉴, 인테리어등 전문 장비와 노하우로<br />
-        고퀄리티 사진 촬영 서비스 제공
-      </>
-    ),
-    icon: CameraIcon,
-    color: "purple",
-    background: "bg-gradient-to-br from-purple-100 via-purple-50 to-white",
-    href: "#contact",
-    cta: "상담 신청하기",
-  },
-  {
-    name: "네이버 마케팅",
-    description: (
-      <>
-        플레이스의 콘텐츠 마케팅과<br />
-        리뷰관리로 순위 상승
-      </>
-    ),
-    icon: BarChart3,
-    color: "blue",
-    background: "bg-gradient-to-br from-blue-100 via-blue-50 to-white",
-    href: "#contact",
-    cta: "상담 신청하기",
-  },
-  {
-    name: "영상 콘텐츠 제작",
-    description: (
-      <>
-        블로그, SNS, 웹사이트 등 다양한 채널에<br />
-        최적화된 맞춤형 영상 콘텐츠 제작
-      </>
-    ),
-    icon: FileTextIcon,
-    color: "teal",
-    background: "bg-gradient-to-br from-teal-100 via-teal-50 to-white",
-    href: "#contact",
-    cta: "상담 신청하기",
-    portfolio: true,
-  },
-  {
-    name: "배달앱 관리",
-    description: (
-      <>
-        배달의민족, 요기요 등 배달앱 등록 및<br />
-        최적화, 메뉴 관리, 프로모션 설정
-      </>
-    ),
-    icon: SmartphoneIcon,
-    color: "pink",
-    background: "bg-gradient-to-br from-pink-100 via-pink-50 to-white",
-    href: "#contact",
-    cta: "상담 신청하기",
-    delivery: true,
-  },
-  {
-    name: "인쇄물 제작",
-    description: (
-      <>
-        메뉴판, 전단지, 명함, 배너 등<br />
-        다양한 인쇄물 디자인 및 제작
-      </>
-    ),
-    icon: PrinterIcon,
-    color: "amber",
-    background: "bg-gradient-to-br from-amber-100 via-amber-50 to-white",
-    href: "#contact",
-    cta: "상담 신청하기",
-    portfolio: true,
-  },
-  {
-    name: "체험단 운영",
-    description: (
-      <>
-        네이버 플레이스, 인스타그램 등<br />
-        다양한 플랫폼에서 효과적인 체험단 모집 및 관리
-      </>
-    ),
-    icon: UsersRound,
-    color: "indigo",
-    background: "bg-gradient-to-br from-indigo-100 via-indigo-50 to-white",
-    href: "#contact",
-    cta: "상담 신청하기",
-  },
-]
-
-function ServicesSection() {
+function ServicesSection({ locale }: { locale?: string }) {
   const [isVisible, setIsVisible] = useState(false);
+  // const t = useTranslations('services');
   
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -262,67 +213,124 @@ function ServicesSection() {
     }, 100);
     
     return () => clearTimeout(timer);
-  }, []);
-  
+  }, [locale]);
+
+  const services = [
+    {
+      name: SERVICES_TEXT.photo.title,
+      description: SERVICES_TEXT.photo.description,
+      icon: CameraIcon,
+      color: "purple",
+      background: "bg-gradient-to-br from-purple-100 via-purple-50 to-white",
+      href: "#contact",
+      cta: "상담 신청하기",
+    },
+    {
+      name: SERVICES_TEXT.marketing.title,
+      description: SERVICES_TEXT.marketing.description,
+      icon: BarChart3,
+      color: "blue",
+      background: "bg-gradient-to-br from-blue-100 via-blue-50 to-white",
+      href: "#contact",
+      cta: "상담 신청하기",
+    },
+    {
+      name: SERVICES_TEXT.video.title,
+      description: SERVICES_TEXT.video.description,
+      icon: FileTextIcon,
+      color: "teal",
+      background: "bg-gradient-to-br from-teal-100 via-teal-50 to-white",
+      href: "#contact",
+      cta: "상담 신청하기",
+      portfolio: true,
+    },
+    {
+      name: SERVICES_TEXT.delivery.title,
+      description: SERVICES_TEXT.delivery.description,
+      icon: SmartphoneIcon,
+      color: "pink",
+      background: "bg-gradient-to-br from-pink-100 via-pink-50 to-white",
+      href: "#contact",
+      cta: "상담 신청하기",
+      delivery: true,
+    },
+    {
+      name: SERVICES_TEXT.print.title,
+      description: SERVICES_TEXT.print.description,
+      icon: PrinterIcon,
+      color: "amber",
+      background: "bg-gradient-to-br from-amber-100 via-amber-50 to-white",
+      href: "#contact",
+      cta: "상담 신청하기",
+      portfolio: true,
+    },
+    {
+      name: SERVICES_TEXT.experience.title,
+      description: SERVICES_TEXT.experience.description,
+      icon: UsersRound,
+      color: "emerald",
+      background: "bg-gradient-to-br from-emerald-100 via-emerald-50 to-white",
+      href: "#contact",
+      cta: "상담 신청하기",
+    },
+  ];
+
   return (
-    <section
-      id="services"
-      className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-blue-50 via-white to-purple-50"
-    >
+    <section id="services" className="w-full py-24 bg-white">
       <div className="container px-4 md:px-6">
-        <motion.div 
-          className="flex flex-col items-center justify-center space-y-4 text-center" 
-          variants={fadeIn}
-          initial="hidden"
-          animate="visible"
-        >
-          <div className="space-y-2">
+        <div className="flex flex-col items-center justify-center text-center mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col space-y-2 text-center mb-8"
+          >
             <Badge
-              className="w-fit mx-auto bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 hover:from-blue-200 hover:to-purple-200 border-blue-200"
+              className="w-fit mx-auto"
               variant="outline"
             >
-              서비스 소개
+              {SERVICES_TEXT.title}
             </Badge>
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight bg-gradient-to-r from-blue-700 via-purple-600 to-teal-500 bg-clip-text text-transparent">
-              <span className="hidden md:inline">자영업자를 위한 통합 마케팅 솔루션</span>
-              <span className="block md:hidden">자영업자를 위한<br />통합 마케팅 솔루션</span>
+            <h2 className="text-3xl font-bold tracking-tighter text-gray-900 md:text-4xl">
+              {SERVICES_TEXT.subtitle}
             </h2>
-            <p className="mx-auto max-w-[700px] text-gray-700 md:text-xl">
-              <span className="hidden md:inline">위즈더플래닝은 자영업자를 위한 모든 마케팅 서비스를 한 곳에서 제공합니다.</span>
-              <span className="block md:hidden">위즈더플래닝은 자영업자를 위한<br />모든 마케팅 서비스를 한 곳에서 제공합니다.</span>
-            </p>
-          </div>
-        </motion.div>
-        
-        {isVisible && (
-          <motion.div
-            className="mt-12"
-            variants={fadeIn}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-          >
-            <BentoGrid>
-              {services.map((service) => (
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <BentoGrid>
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
+              >
                 <BentoCard
-                  key={service.name}
                   name={service.name}
-                  description={service.description}
                   Icon={service.icon}
+                  description={service.description}
                   background={service.background}
                   href={service.href}
+                  className=""
                   cta={service.cta}
                   portfolio={service.portfolio}
                   delivery={service.delivery}
-                  className="h-[300px]"
+                  portfolioText={SERVICES_TEXT.portfolio}
+                  introText={SERVICES_TEXT.intro}
+                  serviceInfoText={SERVICES_TEXT.service_info}
                 />
-              ))}
-            </BentoGrid>
-          </motion.div>
-        )}
+              </motion.div>
+            ))}
+          </BentoGrid>
+        </motion.div>
       </div>
     </section>
   )
 }
 
-export default memo(ServicesSection) 
+export default ServicesSection 

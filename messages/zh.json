@@ -1,0 +1,126 @@
+{
+  "common": {
+    "language": "中文",
+    "title": "Wiz The Planning | 专业营销解决方案",
+    "description": "通过Wiz The Planning提供的定制营销解决方案，体验业务增长。"
+  },
+  "header": {
+    "services": "服务",
+    "portfolio": "作品集",
+    "pricing": "价格比较",
+    "testimonials": "客户反馈",
+    "contact": "咨询",
+    "consultation": "咨询申请"
+  },
+  "hero": {
+    "badge": "自2016年以来与7,000多位客户合作",
+    "heading": {
+      "desktop": {
+        "1": "小企业营销",
+        "2": "一站式服务"
+      },
+      "mobile": {
+        "1": "小企业营销",
+        "2": "一站式服务"
+      }
+    },
+    "subheading": {
+      "desktop": "9年专业经验 高性价比解决方案",
+      "mobile": {
+        "1": "9年专业经验",
+        "2": "高性价比解决方案"
+      }
+    },
+    "titles": {
+      "desktop": {
+        "0": "餐饮，培训，美容，健身",
+        "1": "露营地，住宿，旅馆",
+        "2": "任何有实体空间的业务",
+        "3": "营销的开始与终点",
+        "4": "Wiz The Planning"
+      },
+      "mobile": {
+        "0": "餐饮 培训",
+        "1": "美容 健身",
+        "2": "露营 旅馆",
+        "3": "实体空间业务",
+        "4": "营销开始",
+        "5": "Wiz The Planning"
+      }
+    },
+    "cta": {
+      "primary": "免费咨询",
+      "secondary": "浏览服务"
+    },
+    "features": {
+      "0": {
+        "desktop": "9年专业经验",
+        "mobile": {
+          "1": "9年",
+          "2": "专业经验"
+        }
+      },
+      "1": {
+        "desktop": "7,000+客户",
+        "mobile": {
+          "1": "7,000+",
+          "2": "客户"
+        }
+      },
+      "2": {
+        "desktop": "综合解决方案",
+        "mobile": {
+          "1": "综合",
+          "2": "解决方案"
+        }
+      }
+    }
+  },
+  "services": {
+    "title": "营销服务",
+    "subtitle": "专业定制解决方案",
+    "photo": {
+      "title": "专业摄影",
+      "description": "使用专业设备和技术，提供菜单、室内装潢等高质量摄影服务"
+    },
+    "marketing": {
+      "title": "Naver营销",
+      "description": "通过Place内容营销和评论管理提高排名"
+    },
+    "video": {
+      "title": "视频内容制作",
+      "description": "为博客、社交媒体、网站等多种渠道制作定制视频内容"
+    },
+    "delivery": {
+      "title": "外卖应用管理",
+      "description": "注册并优化Baemin、Yogiyo等外卖应用，管理菜单和促销设置"
+    },
+    "print": {
+      "title": "印刷品制作",
+      "description": "设计和制作菜单、传单、名片、横幅等多种印刷品"
+    },
+    "experience": {
+      "title": "体验团队运营",
+      "description": "在Naver Place、Instagram等各种平台上有效招募和管理体验团队"
+    },
+    "portfolio": "查看作品集",
+    "intro": "查看产品介绍",
+    "service_info": "查看服务介绍"
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "有什么疑问吗？",
+    "name": "姓名",
+    "phone": "电话",
+    "email": "电子邮件",
+    "message": "留言内容",
+    "submit": "提交",
+    "success": "您的询问已成功发送。",
+    "error": "发送您的询问时出错。"
+  },
+  "NotFound": {
+    "pageNotFound": "找不到页面",
+    "description": "您查找的页面可能已被删除或移动。",
+    "backToHome": "返回首页"
+  }
+} 

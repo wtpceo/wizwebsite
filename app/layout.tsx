@@ -1,10 +1,11 @@
-import type { Metadata } from 'next'
 import './globals.css'
+import type { Metadata } from 'next'
 
 // 캐시 무효화를 위한 타임스탬프
 const timestamp = Date.now();
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://wiztheplanning.com'),
   title: '위즈더플래닝 | 전문가의 맞춤형 마케팅 솔루션',
   description: '위즈더플래닝에서 제공하는 맞춤형 마케팅 솔루션으로 비즈니스 성장을 경험하세요.',
   generator: 'Next.js',
@@ -39,12 +40,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html lang="ko">
       <body>{children}</body>
     </html>
   )
-}
+} 

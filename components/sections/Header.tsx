@@ -3,8 +3,29 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+// import { useTranslations } from 'next-intl'
+// import LanguageToggle from '@/components/LanguageToggle'
 
 export default function Header() {
+  // 번역 훅 대신 하드코딩된 텍스트 사용
+  const menuTexts: Record<string, string> = {
+    services: '서비스',
+    portfolio: '포트폴리오',
+    pricing: '가격 비교',
+    testimonials: '고객 후기',
+    contact: '문의하기',
+    consultation: '상담 문의'
+  };
+
+  // 메뉴 항목과 해당 앵커 ID
+  const menuItems = [
+    { key: 'services', anchor: 'services' },
+    { key: 'portfolio', anchor: 'portfolio' },
+    { key: 'pricing', anchor: 'pricing' },
+    { key: 'testimonials', anchor: 'testimonials' },
+    { key: 'contact', anchor: 'contact' }
+  ];
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container flex h-16 items-center justify-between">
@@ -16,18 +37,18 @@ export default function Header() {
           </motion.div>
         </Link>
         <nav className="hidden md:flex gap-6">
-          {["서비스", "포트폴리오", "가격 비교", "고객 후기", "문의하기"].map((item, i) => (
+          {menuItems.map((item, i) => (
             <motion.div
-              key={item}
+              key={item.key}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.1 * i }}
             >
               <Link
-                href={`#${item === "서비스" ? "services" : item === "포트폴리오" ? "portfolio" : item === "가격 비교" ? "pricing" : item === "고객 후기" ? "testimonials" : "contact"}`}
+                href={`#${item.anchor}`}
                 className="text-sm font-medium text-gray-800 hover:text-purple-600 transition-colors"
               >
-                {item}
+                {menuTexts[item.key]}
               </Link>
             </motion.div>
           ))}
@@ -40,9 +61,10 @@ export default function Header() {
         >
           <Link href="#contact">
             <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg shadow-purple-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/30">
-              상담 문의
+              {menuTexts.consultation}
             </Button>
           </Link>
+          {/* 언어 토글 제거 */}
           <Button variant="outline" size="icon" className="md:hidden border-purple-200 text-purple-700">
             <span className="sr-only">메뉴 열기</span>
             <svg

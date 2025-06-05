@@ -1,0 +1,126 @@
+{
+  "common": {
+    "language": "Tiếng Việt",
+    "title": "Wiz The Planning | Giải pháp tiếp thị chuyên nghiệp",
+    "description": "Trải nghiệm sự tăng trưởng kinh doanh với giải pháp tiếp thị tùy chỉnh từ Wiz The Planning."
+  },
+  "header": {
+    "services": "Dịch vụ",
+    "portfolio": "Danh mục đầu tư",
+    "pricing": "So sánh giá",
+    "testimonials": "Đánh giá",
+    "contact": "Liên hệ",
+    "consultation": "Tư vấn"
+  },
+  "hero": {
+    "badge": "Từ 2016 với hơn 7.000 khách hàng",
+    "heading": {
+      "desktop": {
+        "1": "Tiếp thị cho doanh nghiệp nhỏ",
+        "2": "DỊCH VỤ TRỌN GÓI"
+      },
+      "mobile": {
+        "1": "Tiếp thị cho doanh nghiệp nhỏ",
+        "2": "DỊCH VỤ TRỌN GÓI"
+      }
+    },
+    "subheading": {
+      "desktop": "Giải pháp tối ưu chi phí với kinh nghiệm 9 năm",
+      "mobile": {
+        "1": "Kinh nghiệm 9 năm",
+        "2": "Giải pháp tối ưu chi phí"
+      }
+    },
+    "titles": {
+      "desktop": {
+        "0": "Nhà hàng, trường học, làm đẹp, thể hình",
+        "1": "Khu cắm trại, nhà nghỉ, khách sạn",
+        "2": "Mọi không gian kinh doanh",
+        "3": "Giải pháp tiếp thị toàn diện",
+        "4": "Wiz The Planning"
+      },
+      "mobile": {
+        "0": "Nhà hàng Trường học",
+        "1": "Làm đẹp Thể hình",
+        "2": "Cắm trại Nhà nghỉ",
+        "3": "Không gian kinh doanh",
+        "4": "Giải pháp tiếp thị",
+        "5": "Wiz The Planning"
+      }
+    },
+    "cta": {
+      "primary": "Tư vấn miễn phí",
+      "secondary": "Xem dịch vụ"
+    },
+    "features": {
+      "0": {
+        "desktop": "Kinh nghiệm 9 năm",
+        "mobile": {
+          "1": "Kinh nghiệm",
+          "2": "9 năm"
+        }
+      },
+      "1": {
+        "desktop": "Hơn 7.000 khách hàng",
+        "mobile": {
+          "1": "Hơn 7.000",
+          "2": "khách hàng"
+        }
+      },
+      "2": {
+        "desktop": "Giải pháp tổng thể",
+        "mobile": {
+          "1": "Giải pháp",
+          "2": "tổng thể"
+        }
+      }
+    }
+  },
+  "services": {
+    "title": "Dịch vụ tiếp thị",
+    "subtitle": "Giải pháp chuyên nghiệp tùy chỉnh",
+    "photo": {
+      "title": "Chụp ảnh chuyên nghiệp",
+      "description": "Cung cấp dịch vụ chụp ảnh chất lượng cao cho thực đơn, nội thất với thiết bị và kinh nghiệm chuyên nghiệp"
+    },
+    "marketing": {
+      "title": "Tiếp thị Naver",
+      "description": "Cải thiện thứ hạng thông qua tiếp thị nội dung và quản lý đánh giá trên Place"
+    },
+    "video": {
+      "title": "Sản xuất nội dung video",
+      "description": "Tạo nội dung video tùy chỉnh cho blog, mạng xã hội, trang web và nhiều kênh khác"
+    },
+    "delivery": {
+      "title": "Quản lý ứng dụng giao hàng",
+      "description": "Đăng ký và tối ưu hóa trên Baemin, Yogiyo và các ứng dụng giao hàng khác, quản lý thực đơn và thiết lập khuyến mãi"
+    },
+    "print": {
+      "title": "Sản xuất ấn phẩm in",
+      "description": "Thiết kế và sản xuất thực đơn, tờ rơi, danh thiếp, banner và nhiều ấn phẩm in khác"
+    },
+    "experience": {
+      "title": "Điều hành nhóm trải nghiệm",
+      "description": "Tuyển dụng và quản lý hiệu quả các nhóm trải nghiệm trên Naver Place, Instagram và các nền tảng khác"
+    },
+    "portfolio": "Xem danh mục đầu tư",
+    "intro": "Xem giới thiệu sản phẩm",
+    "service_info": "Xem thông tin dịch vụ"
+  },
+  "contact": {
+    "title": "Liên hệ",
+    "subtitle": "Bạn có thắc mắc?",
+    "name": "Tên",
+    "phone": "Số điện thoại",
+    "email": "Email",
+    "message": "Nội dung",
+    "submit": "Gửi",
+    "success": "Yêu cầu của bạn đã được gửi thành công.",
+    "error": "Đã xảy ra lỗi khi gửi yêu cầu của bạn."
+  },
+  "NotFound": {
+    "pageNotFound": "Không tìm thấy trang",
+    "description": "Trang bạn đang tìm kiếm có thể đã bị xóa hoặc di chuyển.",
+    "backToHome": "Quay lại trang chủ"
+  }
+} 
