@@ -9,5 +9,17 @@
     "services": "Services",
     "portfolio": "Portfolio",
     "contact": "Contact"
+  },
+  "DeliveryService": {
+    "title": "Still managing delivery apps alone?",
+    "subtitle": "Exposure, photos, reviews... it's all about 'strategy'.",
+    "description": "Online marketing is no longer optional, it's essential.",
+    "cta": "Get Free Consultation",
+    "platforms": {
+      "baemin": "Baemin",
+      "yogiyo": "Yogiyo",
+      "coupang": "Coupang Eats",
+      "ddangyo": "Ddangyo"
+    }
   }
 } 
