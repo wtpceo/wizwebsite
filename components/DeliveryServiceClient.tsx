@@ -30,11 +30,9 @@ import Footer from "@/components/sections/Footer"
 import { Badge } from "@/components/ui/badge"
 import ContactSection from "@/components/sections/ContactSection"
 
-interface DeliveryServiceClientProps {
-  translations: any;
-}
+interface DeliveryServiceClientProps {}
 
-export default function DeliveryServiceClient({ translations: t }: DeliveryServiceClientProps) {
+export default function DeliveryServiceClient() {
   // ... 기존의 모든 상수와 함수들 ...
 
   return (
