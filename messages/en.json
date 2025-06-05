@@ -1,0 +1,13 @@
+{
+  "Index": {
+    "title": "Wiz The Planning",
+    "description": "Restaurant Marketing Experts"
+  },
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  }
+} 
