@@ -1,0 +1,13 @@
+{
+  "Index": {
+    "title": "위즈더플래닝",
+    "description": "음식점 마케팅 전문가"
+  },
+  "Navigation": {
+    "home": "홈",
+    "about": "소개",
+    "services": "서비스",
+    "portfolio": "포트폴리오",
+    "contact": "문의하기"
+  }
+} 
