@@ -11,6 +11,7 @@ export default function Header() {
   const menuTexts: Record<string, string> = {
     services: '서비스',
     portfolio: '포트폴리오',
+    analysis: '마케팅 분석',
     pricing: '가격 비교',
     testimonials: '고객 후기',
     contact: '문의하기',
@@ -21,6 +22,7 @@ export default function Header() {
   const menuItems = [
     { key: 'services', anchor: 'services' },
     { key: 'portfolio', anchor: 'portfolio' },
+    { key: 'analysis', href: '/marketing-analysis', isExternal: true },
     { key: 'pricing', anchor: 'pricing' },
     { key: 'testimonials', anchor: 'testimonials' },
     { key: 'contact', anchor: 'contact' }
@@ -45,7 +47,7 @@ export default function Header() {
               transition={{ duration: 0.3, delay: 0.1 * i }}
             >
               <Link
-                href={`#${item.anchor}`}
+                href={item.isExternal ? item.href : `#${item.anchor}`}
                 className="text-sm font-medium text-gray-800 hover:text-purple-600 transition-colors"
               >
                 {menuTexts[item.key]}
