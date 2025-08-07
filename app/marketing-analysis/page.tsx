@@ -334,10 +334,18 @@ export default function MarketingAnalysisPage() {
               음식점 마케팅 건강 체크
             </h1>
           </div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto mb-4">
             네이버 플레이스와 배달앱 마케팅 현황을 진단하고 개선점을 찾아보세요.
             각 항목을 체크하면 자동으로 점수가 계산됩니다.
           </p>
+          
+          {/* 주관 정보 배너 */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 rounded-full border border-purple-200">
+            <Award className="w-4 h-4 text-purple-600" />
+            <span className="text-sm font-medium text-purple-900">
+              청운대학교 정현우 교수 주관
+            </span>
+          </div>
         </motion.div>
 
         {/* 점수 카드 */}
@@ -459,6 +467,7 @@ export default function MarketingAnalysisPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            className="space-y-6"
           >
             <Card>
               <CardHeader>
@@ -513,6 +522,19 @@ export default function MarketingAnalysisPage() {
                       무료 상담 신청하기 →
                     </a>
                   </Button>
+                </div>
+              </CardContent>
+            </Card>
+            
+            {/* 주관 정보 */}
+            <Card className="bg-gradient-to-r from-purple-50 to-blue-50 border-purple-200">
+              <CardContent className="pt-6">
+                <div className="text-center">
+                  <p className="text-sm text-gray-600 mb-1">이 마케팅 건강 체크리스트는</p>
+                  <p className="text-lg font-semibold text-purple-900">
+                    청운대학교 정현우 교수
+                  </p>
+                  <p className="text-sm text-gray-600 mt-1">책임 교수 주관으로 개발되었습니다</p>
                 </div>
               </CardContent>
             </Card>
