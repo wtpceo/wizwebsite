@@ -15,7 +15,8 @@ import {
   AlertCircle, CheckCircle2, XCircle, TrendingUp, MapPin, Package, 
   ChefHat, Star, Award, Users, Building, ShoppingBag, ArrowRight,
   Store, Home, Coffee, Pizza, Globe, Smartphone, Hash, Megaphone,
-  Search, Camera, Instagram, Youtube, FileText, Lightbulb
+  Search, Camera, Instagram, Youtube, FileText, Lightbulb, Download,
+  BarChart3, Target, Sparkles, Clock, RefreshCw, ChevronDown, ChevronUp
 } from "lucide-react"
 import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
@@ -74,11 +75,11 @@ const marketingChannels = {
 // 규모별 필수 채널 매핑
 const requiredChannelsByType = {
   "소형": {
-    essential: ["naver.smart_place", "delivery.baemin", "delivery.coupang"],
-    recommended: ["google.google_business", "experience.blog_review", "delivery.yogiyo"]
+    essential: ["naver.smart_place", "delivery.baemin"],
+    recommended: ["google.google_business", "experience.blog_review"]
   },
   "중소형": {
-    essential: ["naver.smart_place", "delivery.baemin", "delivery.coupang", "experience.blog_review"],
+    essential: ["naver.smart_place", "delivery.baemin", "experience.blog_review"],
     recommended: ["naver.small_biz_ad", "sns.instagram", "google.google_business"]
   },
   "중대형": {
@@ -106,7 +107,7 @@ const channelChecklists: Record<string, any[]> = {
     { question: "체험단을 활용하여 최신 리뷰들을 쌓아 놓고 있나요?", weight: 8 },
     { question: "무료 마케팅 메세지를 활용하여 재방문 고객 유치를 하고 있나요?", weight: 9 },
     { question: "영상(클립)을 제작하여 플레이스에 등록하고 있나요?", weight: 10 },
-    { question: "네이버 지체 광고 소상공인 광고, 플레이스 노출 광고, 파워 링크를 정기적으로 하고 있나요?", weight: 10 },
+    { question: "네이버 자체 광고인 소상공인 광고, 플레이스 노출 광고, 파워 링크를 정기적으로 하고 있나요?", weight: 10 },
     { question: "매 월 플레이스 통계를 확인하여 유입 채널과 고객들을 파악하고 있나요?", weight: 9 },
     { question: "편의 시설등 상세 설명이 업체에 대한 특징을 잘 설명하고 있나요?", weight: 5 },
     { question: "대표 키워드를 잘 설정 해놓았나요?", weight: 7 }
@@ -336,10 +337,14 @@ export default function MarketingAnalysisPage() {
   const [channelScores, setChannelScores] = useState<Record<string, number>>({})
   const [totalScore, setTotalScore] = useState(0)
   const [showResults, setShowResults] = useState(false)
+  const [expandedChannels, setExpandedChannels] = useState<Set<string>>(new Set())
+  const [autoSaved, setAutoSaved] = useState(false)
+  const [lastSaveTime, setLastSaveTime] = useState<Date | null>(null)
 
   // 매장 프로필 분석
-  const analyzeStoreProfile = () => {
-    const { seats, daily_revenue, location, delivery_ratio, operation_years } = profileAnswers
+  const analyzeStoreProfile = (answers?: Record<string, string>) => {
+    const profileData = answers || profileAnswers
+    const { seats, daily_revenue, location, delivery_ratio, operation_years } = profileData
     
     let type = "소형"
     
@@ -370,15 +375,8 @@ export default function MarketingAnalysisPage() {
       }
     }
     
-    // 배달 비중에 따른 채널 조정
-    if (delivery_ratio === "over_70" || delivery_ratio === "50_70") {
-      if (!essentialChannels.includes("delivery.yogiyo")) {
-        essentialChannels.push("delivery.yogiyo")
-      }
-      if (!essentialChannels.includes("delivery.ddangyo")) {
-        recommendedChannels.push("delivery.ddangyo")
-      }
-    }
+    // 배달 비중에 따른 채널 조정 (배달앱은 baemin으로 통합 관리)
+    // 배달 비중이 높아도 배달앱은 이미 baemin으로 대표되므로 추가하지 않음
     
     // 신규 매장 추가 채널
     if (operation_years === "new") {
@@ -427,10 +425,61 @@ export default function MarketingAnalysisPage() {
   }, [checkedItems, storeProfile])
 
   const handleCheckChange = (itemId: string, checked: boolean) => {
-    setCheckedItems(prev => ({
-      ...prev,
-      [itemId]: checked
-    }))
+    setCheckedItems(prev => {
+      const newItems = {
+        ...prev,
+        [itemId]: checked
+      }
+      // 자동 저장
+      saveToLocalStorage(newItems)
+      return newItems
+    })
+  }
+
+  // localStorage에 저장
+  const saveToLocalStorage = (items: Record<string, boolean>) => {
+    try {
+      localStorage.setItem('marketingChecklist', JSON.stringify(items))
+      localStorage.setItem('marketingProfile', JSON.stringify(profileAnswers))
+      setAutoSaved(true)
+      setLastSaveTime(new Date())
+      setTimeout(() => setAutoSaved(false), 2000)
+    } catch (error) {
+      console.error('Failed to save to localStorage:', error)
+    }
+  }
+
+  // localStorage에서 불러오기
+  useEffect(() => {
+    try {
+      const savedChecklist = localStorage.getItem('marketingChecklist')
+      const savedProfile = localStorage.getItem('marketingProfile')
+      if (savedChecklist) {
+        setCheckedItems(JSON.parse(savedChecklist))
+      }
+      if (savedProfile) {
+        const profile = JSON.parse(savedProfile)
+        setProfileAnswers(profile)
+        if (Object.keys(profile).length === profilingQuestions.length) {
+          // 프로필이 완성된 경우 자동으로 분석
+          setTimeout(() => {
+            analyzeStoreProfile(profile)
+          }, 100)
+        }
+      }
+    } catch (error) {
+      console.error('Failed to load from localStorage:', error)
+    }
+  }, [])
+
+  // 체크리스트 초기화
+  const resetChecklist = () => {
+    if (confirm('모든 체크리스트를 초기화하시겠습니까? 이 작업은 되돌릴 수 없습니다.')) {
+      setCheckedItems({})
+      localStorage.removeItem('marketingChecklist')
+      setAutoSaved(true)
+      setTimeout(() => setAutoSaved(false), 2000)
+    }
   }
 
   const getScoreLevel = (score: number) => {
@@ -460,46 +509,100 @@ export default function MarketingAnalysisPage() {
   const ChannelChecklist = ({ channelKey }: { channelKey: string }) => {
     const questions = channelChecklists[channelKey] || []
     const ChannelIcon = getChannelIcon(channelKey)
+    const isExpanded = expandedChannels.has(channelKey)
+    const checkedCount = questions.filter((_, index) => checkedItems[`${channelKey}_${index}`]).length
+    const totalCount = questions.length
+    const completionRate = totalCount > 0 ? Math.round((checkedCount / totalCount) * 100) : 0
     
     return (
       <div className="space-y-4">
-        <div className="flex items-center gap-2 mb-4">
-          <ChannelIcon className="w-5 h-5 text-purple-600" />
-          <h3 className="font-semibold text-lg">{getChannelName(channelKey)}</h3>
-          {channelScores[channelKey] !== undefined && (
-            <Badge className={`ml-auto ${getScoreLevel(channelScores[channelKey]).bgColor}`}>
-              {channelScores[channelKey]}%
-            </Badge>
-          )}
+        <div className="sticky top-0 bg-white z-10 pb-2 border-b">
+          <div className="flex items-center gap-2 mb-2">
+            <ChannelIcon className="w-5 h-5 text-purple-600" />
+            <h3 className="font-semibold text-lg">{getChannelName(channelKey)}</h3>
+            <div className="ml-auto flex items-center gap-2">
+              <Badge variant="outline" className="text-xs">
+                {checkedCount}/{totalCount} 완료
+              </Badge>
+              {channelScores[channelKey] !== undefined && (
+                <Badge className={`${getScoreLevel(channelScores[channelKey]).bgColor}`}>
+                  {channelScores[channelKey]}%
+                </Badge>
+              )}
+            </div>
+          </div>
+          <Progress value={completionRate} className="h-2" />
         </div>
-        {questions.map((q, index) => {
-          const itemKey = `${channelKey}_${index}`
-          return (
-            <Card key={itemKey} className="hover:shadow-md transition-shadow">
-              <CardContent className="p-4">
-                <div className="flex items-start space-x-3">
-                  <Checkbox
-                    id={itemKey}
-                    checked={checkedItems[itemKey] || false}
-                    onCheckedChange={(checked) => handleCheckChange(itemKey, checked as boolean)}
-                    className="mt-1"
-                  />
-                  <div className="flex-1">
-                    <label
-                      htmlFor={itemKey}
-                      className="text-sm font-medium cursor-pointer select-none block"
-                    >
-                      {q.question}
-                    </label>
-                    <Badge variant="outline" className="mt-2">
-                      가중치: {q.weight}점
-                    </Badge>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          )
-        })}
+        
+        <div className="space-y-3">
+          {questions.slice(0, isExpanded ? undefined : 5).map((q, index) => {
+            const itemKey = `${channelKey}_${index}`
+            const isChecked = checkedItems[itemKey] || false
+            return (
+              <motion.div
+                key={itemKey}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05 }}
+              >
+                <Card className={`hover:shadow-md transition-all ${isChecked ? 'border-green-500 bg-green-50' : ''}`}>
+                  <CardContent className="p-4">
+                    <div className="flex items-start space-x-3">
+                      <Checkbox
+                        id={itemKey}
+                        checked={isChecked}
+                        onCheckedChange={(checked) => handleCheckChange(itemKey, checked as boolean)}
+                        className="mt-1"
+                      />
+                      <div className="flex-1">
+                        <label
+                          htmlFor={itemKey}
+                          className="text-sm font-medium cursor-pointer select-none block"
+                        >
+                          {q.question}
+                        </label>
+                        <div className="flex items-center gap-2 mt-2">
+                          <Badge variant="outline" className="text-xs">
+                            가중치: {q.weight}점
+                          </Badge>
+                          {isChecked && (
+                            <Badge className="bg-green-100 text-green-700 text-xs">
+                              <CheckCircle2 className="w-3 h-3 mr-1" />
+                              완료
+                            </Badge>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            )
+          })}
+        </div>
+        
+        {questions.length > 5 && (
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => {
+              const newExpanded = new Set(expandedChannels)
+              if (isExpanded) {
+                newExpanded.delete(channelKey)
+              } else {
+                newExpanded.add(channelKey)
+              }
+              setExpandedChannels(newExpanded)
+            }}
+            className="w-full"
+          >
+            {isExpanded ? (
+              <><ChevronUp className="w-4 h-4 mr-2" /> 접기</>
+            ) : (
+              <><ChevronDown className="w-4 h-4 mr-2" /> {questions.length - 5}개 더 보기</>
+            )}
+          </Button>
+        )}
       </div>
     )
   }
@@ -518,7 +621,7 @@ export default function MarketingAnalysisPage() {
           <div className="flex items-center justify-center gap-2 mb-4">
             <ChefHat className="w-8 h-8 text-purple-600" />
             <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-              우리 식당 'SNS마케팅 건강' 진단표_N스마트플레이스
+              우리 식당 마케팅 건강 진단표
             </h1>
           </div>
           <p className="text-gray-600 max-w-2xl mx-auto mb-4">
@@ -728,9 +831,28 @@ export default function MarketingAnalysisPage() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
             >
-              {/* 점수 카드 */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                <Card className={`${getScoreLevel(totalScore).bgColor} border-0 md:col-span-3`}>
+              {/* 자동 저장 알림 */}
+              <AnimatePresence>
+                {autoSaved && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    className="fixed top-20 right-4 z-50"
+                  >
+                    <Alert className="bg-green-50 border-green-200">
+                      <CheckCircle2 className="h-4 w-4 text-green-600" />
+                      <AlertDescription className="text-green-800">
+                        자동 저장됨
+                      </AlertDescription>
+                    </Alert>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* 점수 카드 및 빠른 통계 */}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+                <Card className={`${getScoreLevel(totalScore).bgColor} border-0 md:col-span-2`}>
                   <CardHeader className="pb-3">
                     <CardTitle className="text-xl flex items-center gap-2">
                       <Award className="w-6 h-6" />
@@ -747,33 +869,93 @@ export default function MarketingAnalysisPage() {
                     <Progress value={totalScore} className="h-3" />
                   </CardContent>
                 </Card>
+                
+                {/* 진행률 카드 */}
+                <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-sm flex items-center gap-1">
+                      <Target className="w-4 h-4" />
+                      전체 진행률
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold text-blue-700">
+                      {(() => {
+                        const totalQuestions = storeProfile?.essentialChannels.reduce((sum, channel) => 
+                          sum + (channelChecklists[channel]?.length || 0), 0) || 0
+                        const checkedCount = Object.keys(checkedItems).filter(key => checkedItems[key]).length
+                        return totalQuestions > 0 ? Math.round((checkedCount / totalQuestions) * 100) : 0
+                      })()}%
+                    </div>
+                    <p className="text-xs text-blue-600 mt-1">체크리스트 완료</p>
+                  </CardContent>
+                </Card>
+                
+                {/* 최근 저장 시간 */}
+                <Card className="bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="text-sm flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      최근 저장
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-sm font-medium text-purple-700">
+                      {lastSaveTime ? (
+                        <>
+                          {lastSaveTime.toLocaleTimeString('ko-KR', { 
+                            hour: '2-digit', 
+                            minute: '2-digit' 
+                          })}
+                        </>
+                      ) : (
+                        '저장 내역 없음'
+                      )}
+                    </div>
+                    <p className="text-xs text-purple-600 mt-1">자동 저장 중</p>
+                  </CardContent>
+                </Card>
               </div>
 
               {/* 채널별 체크리스트 탭 */}
               <Card>
                 <CardHeader>
-                  <CardTitle>채널별 마케팅 현황 체크</CardTitle>
-                  <CardDescription>
-                    각 탭을 클릭하여 채널별 마케팅 현황을 체크해주세요
-                  </CardDescription>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <CardTitle>채널별 마케팅 현황 체크</CardTitle>
+                      <CardDescription>
+                        각 탭을 클릭하여 채널별 마케팅 현황을 체크해주세요
+                      </CardDescription>
+                    </div>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={resetChecklist}
+                      className="text-red-600 hover:text-red-700"
+                    >
+                      <RefreshCw className="w-4 h-4 mr-2" />
+                      초기화
+                    </Button>
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <Tabs defaultValue={storeProfile?.essentialChannels[0]} className="w-full">
                     <TabsList className="flex flex-wrap h-auto gap-2 p-2 bg-gray-100">
                       {storeProfile?.essentialChannels.map(channelKey => {
                         const Icon = getChannelIcon(channelKey)
+                        const channelName = getChannelName(channelKey)
                         return (
                           <TabsTrigger 
                             key={channelKey} 
                             value={channelKey}
-                            className="flex items-center gap-2 data-[state=active]:bg-purple-600 data-[state=active]:text-white"
+                            className="flex items-center gap-1 sm:gap-2 data-[state=active]:bg-purple-600 data-[state=active]:text-white px-2 sm:px-3 py-2 text-xs sm:text-sm"
                           >
-                            <Icon className="w-4 h-4" />
-                            <span className="hidden sm:inline">{getChannelName(channelKey)}</span>
+                            <Icon className="w-4 h-4 flex-shrink-0" />
+                            <span className="truncate max-w-[80px] sm:max-w-none">{channelName}</span>
                             {channelScores[channelKey] !== undefined && (
                               <Badge 
                                 variant="outline" 
-                                className="ml-1 text-xs"
+                                className="ml-1 text-xs px-1 sm:px-2"
                               >
                                 {channelScores[channelKey]}%
                               </Badge>
@@ -807,6 +989,7 @@ export default function MarketingAnalysisPage() {
                   className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
                 >
                   {showResults ? "결과 숨기기" : "상세 분석 결과 보기"}
+                  <BarChart3 className="ml-2 w-4 h-4" />
                 </Button>
               </div>
 
@@ -854,13 +1037,26 @@ export default function MarketingAnalysisPage() {
 
                       {/* 종합 평가 */}
                       <div className="p-4 bg-purple-50 rounded-lg">
-                        <h4 className="font-semibold text-purple-900 mb-2">종합 평가</h4>
-                        <p className="text-sm text-purple-700">
+                        <h4 className="font-semibold text-purple-900 mb-2 flex items-center gap-2">
+                          <Sparkles className="w-4 h-4" />
+                          종합 평가
+                        </h4>
+                        <p className="text-sm text-purple-700 mb-3">
                           {totalScore >= 80 && `훌륭합니다! ${storeProfile?.type} 매장에 필요한 마케팅 채널들을 매우 잘 관리하고 있습니다.`}
                           {totalScore >= 60 && totalScore < 80 && `양호한 수준입니다. 몇 가지 채널의 개선을 통해 더 좋은 성과를 얻을 수 있습니다.`}
                           {totalScore >= 40 && totalScore < 60 && `개선이 필요합니다. 점수가 낮은 채널부터 우선적으로 개선해야 합니다.`}
                           {totalScore < 40 && `즉시 개선이 필요합니다. 기본적인 마케팅 채널 관리부터 시작해야 합니다.`}
                         </p>
+                        <div className="grid grid-cols-2 gap-2 text-xs">
+                          <div className="flex items-center gap-1">
+                            <CheckCircle2 className="w-3 h-3 text-green-600" />
+                            <span>강점 채널: {Object.entries(channelScores).filter(([_, score]) => score >= 70).length}개</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <AlertCircle className="w-3 h-3 text-yellow-600" />
+                            <span>개선 필요: {Object.entries(channelScores).filter(([_, score]) => score < 60).length}개</span>
+                          </div>
+                        </div>
                       </div>
 
                       {/* 개선 우선순위 */}
@@ -885,20 +1081,40 @@ export default function MarketingAnalysisPage() {
                         </div>
                       </div>
 
-                      <div className="mt-6 text-center">
-                        <p className="text-sm text-gray-600 mb-3">
-                          전문가의 도움이 필요하신가요?
-                        </p>
-                        <Button 
-                          variant="outline" 
+                      {/* 결과 다운로드 및 상담 버튼 */}
+                      <div className="mt-6 flex flex-col gap-3">
+                        <Button
+                          variant="outline"
                           size="lg"
-                          className="font-semibold"
-                          asChild
+                          className="w-full"
+                          onClick={() => {
+                            const report = `마케팅 건강 진단 결과\n\n매장 유형: ${storeProfile?.type}\n종합 점수: ${totalScore}%\n\n채널별 점수:\n${storeProfile?.essentialChannels.map(ch => `- ${getChannelName(ch)}: ${channelScores[ch] || 0}%`).join('\n')}\n\n생성일: ${new Date().toLocaleDateString('ko-KR')}`
+                            const blob = new Blob([report], { type: 'text/plain' })
+                            const url = URL.createObjectURL(blob)
+                            const a = document.createElement('a')
+                            a.href = url
+                            a.download = `마케팅진단_${new Date().toISOString().split('T')[0]}.txt`
+                            a.click()
+                          }}
                         >
-                          <a href="/#contact">
-                            무료 상담 신청하기 →
-                          </a>
+                          <Download className="w-4 h-4 mr-2" />
+                          진단 결과 다운로드
                         </Button>
+                        
+                        <div className="text-center">
+                          <p className="text-sm text-gray-600 mb-3">
+                            전문가의 도움이 필요하신가요?
+                          </p>
+                          <Button 
+                            size="lg"
+                            className="font-semibold bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
+                            asChild
+                          >
+                            <a href="/#contact">
+                              무료 상담 신청하기 →
+                            </a>
+                          </Button>
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
