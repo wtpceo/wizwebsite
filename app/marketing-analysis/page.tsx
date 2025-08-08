@@ -621,7 +621,7 @@ export default function MarketingAnalysisPage() {
           <div className="flex items-center justify-center gap-2 mb-4">
             <ChefHat className="w-8 h-8 text-purple-600" />
             <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-              우리 식당 마케팅 건강 진단표
+              우리 식당 'SNS마케팅 건강' 진단표_N스마트플레이스
             </h1>
           </div>
           <p className="text-gray-600 max-w-2xl mx-auto mb-4">
