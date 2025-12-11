@@ -51,6 +51,7 @@ const HERO_TEXT = {
     desktop: [
       '음식점, 학원, 뷰티, 운동',
       '캠핑장, 팬션, 숙박업',
+      '성형외과, 외과, 내과, 병원',
       '공간이 있는 곳',
       '마케팅 시작과 끝',
       '위즈더플래닝'
@@ -146,29 +147,28 @@ export default function HeroSection({ locale }: { locale?: string }) {
                 {titles.map((title, index) => (
                   <motion.span
                     key={index}
-                    className={`absolute font-semibold ${
-                      index === 0
+                    className={`absolute font-semibold ${index === 0
                         ? "bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent"
                         : index === 1
-                        ? "bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent"
-                        : index === 2
-                        ? "bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent"
-                        : index === 3
-                        ? "bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent"
-                        : "bg-gradient-to-r from-cyan-600 to-purple-600 bg-clip-text text-transparent"
-                    }`}
+                          ? "bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent"
+                          : index === 2
+                            ? "bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent"
+                            : index === 3
+                              ? "bg-gradient-to-r from-emerald-600 to-cyan-600 bg-clip-text text-transparent"
+                              : "bg-gradient-to-r from-cyan-600 to-purple-600 bg-clip-text text-transparent"
+                      }`}
                     initial={{ opacity: 0, y: "-100" }}
                     transition={{ type: "spring", stiffness: 50 }}
                     animate={
                       titleNumber === index
                         ? {
-                            y: 0,
-                            opacity: 1,
-                          }
+                          y: 0,
+                          opacity: 1,
+                        }
                         : {
-                            y: titleNumber > index ? -150 : 150,
-                            opacity: 0,
-                          }
+                          y: titleNumber > index ? -150 : 150,
+                          opacity: 0,
+                        }
                     }
                   >
                     <span className="hidden md:inline">{title}</span>
