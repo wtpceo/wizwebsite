@@ -1,6 +1,7 @@
 import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
 import HeroSection from "@/components/sections/HeroSection"
+import FocusMediaBanner from "@/components/sections/FocusMediaBanner"
 import ServicesSection from "@/components/sections/ServicesSection"
 import StrategySection from "@/components/sections/StrategySection"
 import PricingSection from "@/components/sections/PricingSection"
@@ -11,6 +12,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <HeroSection />
+      <FocusMediaBanner />
       <ServicesSection />
       <StrategySection />
       <PricingSection />
