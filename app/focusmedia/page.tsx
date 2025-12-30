@@ -15,23 +15,15 @@ import ContactSection from "@/components/sections/ContactSection"
 
 const AnimatedBackground = () => (
   <div className="absolute inset-0 overflow-hidden">
-    {/* Premium Gradient Background Base */}
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_#ff6b6b,_#ee5253,_#d63031)] opacity-90" />
+    {/* Background Image - Main Layer */}
+    <div className="absolute inset-0 bg-[url('/images/focusmedia/data-map.png')] bg-cover bg-center" />
 
-    {/* Blurred Image Overlay (Slideshow) */}
+    {/* Gradient Overlay - Subtle */}
+    <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 via-orange-500/15 to-pink-600/18" />
+
+    {/* Dynamic Orbs - More subtle */}
     <motion.div
-      className="absolute inset-0 opacity-40 mix-blend-overlay"
-      animate={{ opacity: [0.3, 0.5, 0.3] }}
-      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-    >
-      <div className="absolute inset-0 bg-[url('/images/focusmedia/data-map.png')] bg-cover bg-center filter blur-2xl scale-125 opacity-70" />
-    </motion.div>
-
-    <div className="absolute inset-0 bg-[url('/grid-pattern.png')] opacity-10" />
-
-    {/* Dynamic Orbs */}
-    <motion.div
-      className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-orange-400 rounded-full blur-[100px] opacity-40"
+      className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-orange-400 rounded-full blur-[120px] opacity-20"
       animate={{
         scale: [1, 1.2, 1],
         x: [0, 50, 0],
@@ -40,7 +32,7 @@ const AnimatedBackground = () => (
       transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
     />
     <motion.div
-      className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-pink-500 rounded-full blur-[120px] opacity-40"
+      className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-pink-500 rounded-full blur-[150px] opacity-25"
       animate={{
         scale: [1, 1.1, 1],
         x: [0, -30, 0],
