@@ -26,8 +26,9 @@ import Link from "next/link"
 
 // 한국어 서비스 텍스트 정의
 const SERVICES_TEXT = {
-  title: "마케팅 서비스",
-  subtitle: "전문가의 맞춤형 솔루션",
+  title: "SERVICES",
+  subtitle: "AI가 인용할 콘텐츠를 만드는 실행 서비스",
+  description: "GEO는 데이터와 콘텐츠가 쌓여야 작동합니다. 9년간 검증된 실행 서비스가 그 기반을 만듭니다.",
   photo: {
     title: "전문 사진 촬영",
     description: "메뉴, 인테리어등 전문 장비와 노하우로 고퀄리티 사진 촬영 서비스 제공"
@@ -117,19 +118,17 @@ const BentoCard = memo(({
     <div
       key={name}
       className={cn(
-        "group relative col-span-1 flex flex-col justify-between overflow-hidden rounded-xl",
-        "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
-        "transform-gpu dark:bg-black dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
+        "group relative col-span-1 flex flex-col justify-between overflow-hidden rounded-2xl",
+        "border border-gray-200 bg-white transition-all duration-300",
+        "hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/[0.07]",
         "p-5 sm:p-6",
         className,
       )}
     >
-      <div className={`absolute inset-0 ${background}`} />
-      
       <div className="relative z-10 flex flex-col gap-4 p-4 sm:p-6">
         <div className="flex items-center gap-3 sm:gap-4">
-          <div className="rounded-xl bg-white/90 p-2 sm:p-3 shadow-lg backdrop-blur-sm ring-1 ring-black/5">
-            <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-gray-700 transition-transform will-change-transform duration-300 group-hover:scale-110" />
+          <div className="rounded-xl bg-emerald-50 p-2 sm:p-3 ring-1 ring-emerald-100">
+            <Icon className="h-6 w-6 sm:h-7 sm:w-7 text-emerald-600 transition-transform will-change-transform duration-300 group-hover:scale-110" />
           </div>
           <h3 className="text-lg sm:text-2xl font-bold tracking-tight text-gray-900">{name}</h3>
         </div>
@@ -139,7 +138,7 @@ const BentoCard = memo(({
             <Link href="/portfolio" className="pointer-events-auto">
               <Button 
                 size="sm" 
-                className="pointer-events-auto text-sm font-medium bg-purple-100 text-purple-700 hover:bg-purple-200 hover:text-purple-800 transition-colors duration-200"
+                className="pointer-events-auto text-sm font-medium bg-gray-100 text-gray-800 hover:bg-emerald-100 hover:text-emerald-800 transition-colors duration-200"
               >
                 {portfolioText}
                 <ChevronRight className="ml-2 h-4 w-4" />
@@ -150,7 +149,7 @@ const BentoCard = memo(({
             <Link href="/naver-marketing" className="pointer-events-auto">
               <Button 
                 size="sm" 
-                className="pointer-events-auto text-sm font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 hover:text-blue-800 transition-colors duration-200"
+                className="pointer-events-auto text-sm font-medium bg-gray-100 text-gray-800 hover:bg-emerald-100 hover:text-emerald-800 transition-colors duration-200"
               >
                 {introText}
                 <ChevronRight className="ml-2 h-4 w-4" />
@@ -166,7 +165,7 @@ const BentoCard = memo(({
             >
               <Button 
                 size="sm" 
-                className="pointer-events-auto text-sm font-medium bg-amber-100 text-amber-700 hover:bg-amber-200 hover:text-amber-800 transition-colors duration-200"
+                className="pointer-events-auto text-sm font-medium bg-gray-100 text-gray-800 hover:bg-emerald-100 hover:text-emerald-800 transition-colors duration-200"
               >
                 {portfolioText}
                 <ChevronRight className="ml-2 h-4 w-4" />
@@ -177,7 +176,7 @@ const BentoCard = memo(({
             <Link href="/portfolio" className="pointer-events-auto">
               <Button 
                 size="sm" 
-                className="pointer-events-auto text-sm font-medium bg-amber-100 text-amber-700 hover:bg-amber-200 hover:text-amber-800 transition-colors duration-200"
+                className="pointer-events-auto text-sm font-medium bg-gray-100 text-gray-800 hover:bg-emerald-100 hover:text-emerald-800 transition-colors duration-200"
               >
                 {portfolioText}
                 <ChevronRight className="ml-2 h-4 w-4" />
@@ -188,7 +187,7 @@ const BentoCard = memo(({
             <Link href="/delivery-service" className="pointer-events-auto">
               <Button 
                 size="sm" 
-                className="pointer-events-auto text-sm font-medium bg-pink-100 text-pink-700 hover:bg-pink-200 hover:text-pink-800 transition-colors duration-200"
+                className="pointer-events-auto text-sm font-medium bg-gray-100 text-gray-800 hover:bg-emerald-100 hover:text-emerald-800 transition-colors duration-200"
               >
                 {serviceInfoText}
                 <ChevronRight className="ml-2 h-4 w-4" />
@@ -283,17 +282,17 @@ function ServicesSection({ locale }: { locale?: string }) {
             initial={{ opacity: 0, y: 15 }}
             animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col space-y-2 text-center mb-8"
+            className="flex flex-col space-y-3 text-center mb-8"
           >
-            <Badge
-              className="w-fit mx-auto"
-              variant="outline"
-            >
+            <span className="text-xs font-bold tracking-[0.25em] text-emerald-600">
               {SERVICES_TEXT.title}
-            </Badge>
-            <h2 className="text-3xl font-bold tracking-tighter text-gray-900 md:text-4xl">
+            </span>
+            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl">
               {SERVICES_TEXT.subtitle}
             </h2>
+            <p className="mx-auto max-w-[640px] text-gray-600 md:text-lg">
+              {SERVICES_TEXT.description}
+            </p>
           </motion.div>
         </div>
 

@@ -1,5 +1,6 @@
+"use client"
+
 import { motion } from "framer-motion"
-import { Badge } from "@/components/ui/badge"
 import TestimonialCard from "@/components/testimonial-card"
 
 const fadeIn = {
@@ -25,22 +26,25 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-amber-50 via-white to-pink-50"
+      className="w-full py-12 md:py-24 lg:py-28 bg-[#f6f8f7]"
     >
       <div className="container px-4 md:px-6">
-        <motion.div className="flex flex-col items-center justify-center space-y-4 text-center" variants={fadeIn}>
-          <div className="space-y-2">
-            <Badge
-              className="w-fit mx-auto bg-gradient-to-r from-amber-100 to-pink-100 text-amber-700 hover:from-amber-200 hover:to-pink-200 border-amber-200"
-              variant="outline"
-            >
-              고객 후기
-            </Badge>
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight bg-gradient-to-r from-amber-700 via-pink-600 to-purple-500 bg-clip-text text-transparent">
+        <motion.div
+          className="flex flex-col items-center justify-center space-y-3 text-center"
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          <div className="space-y-3">
+            <span className="text-xs font-bold tracking-[0.25em] text-emerald-600">
+              REVIEWS
+            </span>
+            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl">
               <span className="hidden md:inline">7,000여 광고주의 선택</span>
               <span className="block md:hidden">7,000여<br />광고주의 선택</span>
             </h2>
-            <p className="mx-auto max-w-[700px] text-gray-700 md:text-xl">
+            <p className="mx-auto max-w-[700px] text-gray-600 md:text-lg">
               <span className="hidden md:inline">위즈더플래닝과 함께한 고객들의 생생한 후기를 확인하세요.</span>
               <span className="block md:hidden">위즈더플래닝과 함께한<br />고객들의 생생한 후기를 확인하세요.</span>
             </p>

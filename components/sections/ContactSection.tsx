@@ -28,23 +28,24 @@ const staggerContainer = {
 export default function ContactSection({ sectionClassName = "", variant = "default" }: { sectionClassName?: string; variant?: "default" | "redOrange" }) {
   const styleMap = {
     default: {
-      iconBg: "bg-gradient-to-r from-purple-600 to-blue-600",
-      text: "text-purple-600",
-      button: "bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 shadow-purple-500/20 hover:shadow-purple-500/30",
+      iconBg: "bg-[#00e5a0]/15 text-[#00e5a0]",
+      text: "text-[#00e5a0]",
+      button: "bg-[#00e5a0] text-[#070b14] font-bold hover:bg-[#3cf0bb] shadow-[#00e5a0]/20 hover:shadow-[#00e5a0]/30",
     },
     redOrange: {
-      iconBg: "bg-gradient-to-r from-red-600 to-orange-600",
-      text: "text-red-600",
-      button: "bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 shadow-red-500/20 hover:shadow-red-500/30",
+      iconBg: "bg-orange-500/15 text-orange-400",
+      text: "text-orange-400",
+      button: "bg-orange-500 text-white font-bold hover:bg-orange-600 shadow-orange-500/20 hover:shadow-orange-500/30",
     },
   }
   const style = styleMap[variant]
   return (
     <section
       id="contact"
-      className={`w-full py-16 md:py-24 lg:py-32 bg-gradient-to-b from-white to-purple-50/30 relative overflow-hidden ${sectionClassName}`}
+      className={`w-full py-16 md:py-24 lg:py-28 bg-[#070b14] relative overflow-hidden ${sectionClassName}`}
     >
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+      <div className="geo-grid-bg absolute inset-0 opacity-60"></div>
+      <div className="absolute -top-32 left-1/2 h-[400px] w-[640px] -translate-x-1/2 rounded-full bg-[#00e5a0]/[0.06] blur-3xl"></div>
       <div className="container px-4 md:px-6 relative">
         <motion.div
           className="flex flex-col items-center justify-center space-y-8 text-center max-w-4xl mx-auto mb-16"
@@ -54,16 +55,16 @@ export default function ContactSection({ sectionClassName = "", variant = "defau
           viewport={{ once: true, amount: 0.1 }}
         >
           <motion.div className="space-y-4" variants={fadeIn}>
-            <div className="inline-block rounded-full bg-gradient-to-r from-purple-600 to-blue-600 px-4 py-1.5 text-sm text-white shadow-lg shadow-purple-500/20">
-              문의하기
-            </div>
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-blue-600 to-teal-500">
+            <span className="text-xs font-bold tracking-[0.25em] text-[#00e5a0]">
+              CONTACT
+            </span>
+            <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl lg:text-5xl text-white">
               <span className="hidden md:inline">지금 바로 상담받고<br />마케팅 고민을 해결하세요</span>
               <span className="block md:hidden">지금 바로 상담받고<br />마케팅 고민을 해결하세요</span>
             </h2>
-            <p className="max-w-[800px] mx-auto text-gray-600 md:text-xl">
-              <span className="hidden md:inline">위즈더플래닝의 전문가가 귀하의 비즈니스에 맞는 최적의 마케팅 솔루션을 제안해드립니다.</span>
-              <span className="block md:hidden">위즈더플래닝의 전문가가<br />귀하의 비즈니스에 맞는 최적의 마케팅 솔루션을 제안해드립니다.</span>
+            <p className="max-w-[800px] mx-auto text-slate-400 md:text-xl">
+              <span className="hidden md:inline">AI 검색 진단부터 실행까지, 전문 마케터가 직접 제안해드립니다.</span>
+              <span className="block md:hidden">AI 검색 진단부터 실행까지,<br />전문 마케터가 직접 제안해드립니다.</span>
             </p>
           </motion.div>
         </motion.div>
@@ -90,16 +91,16 @@ export default function ContactSection({ sectionClassName = "", variant = "defau
                   content: "wiz@wiztheplanning.com",
                 },
               ].map((item, index) => (
-                <motion.div 
-                  key={index} 
-                  className="flex items-center gap-6 rounded-2xl border bg-white/50 p-6 shadow-lg backdrop-blur-sm transition-all hover:shadow-xl" 
+                <motion.div
+                  key={index}
+                  className="flex items-center gap-6 rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-all hover:border-[#00e5a0]/30 hover:bg-white/[0.07]"
                   variants={fadeIn}
                 >
-                  <div className={`rounded-full ${style.iconBg} p-3 text-white shadow-lg`}>
+                  <div className={`rounded-full ${style.iconBg} p-3`}>
                     {item.icon}
                   </div>
                   <div>
-                    <p className="font-medium text-gray-900 text-lg">{item.title}</p>
+                    <p className="font-medium text-white text-lg">{item.title}</p>
                     <p className={`${style.text} text-lg`}>{item.content}</p>
                   </div>
                 </motion.div>
@@ -108,7 +109,7 @@ export default function ContactSection({ sectionClassName = "", variant = "defau
             <motion.div variants={fadeIn} className="pt-4">
               <Button
                 size="lg"
-                className={`w-full ${style.button} text-white transition-all duration-300 hover:shadow-xl text-lg px-8 py-6`}
+                className={`w-full ${style.button} transition-all duration-300 hover:shadow-xl text-lg px-8 py-6`}
                 onClick={() => window.open("http://pf.kakao.com/_QUTxcb", "_blank")}
               >
                 카카오톡 상담 바로가기
@@ -123,7 +124,7 @@ export default function ContactSection({ sectionClassName = "", variant = "defau
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
           >
-            <div className="w-full max-w-md mx-auto bg-white/50 backdrop-blur-sm rounded-2xl shadow-xl p-8 border">
+            <div className="w-full max-w-md mx-auto bg-white rounded-2xl shadow-2xl p-8">
               <ContactForm />
             </div>
           </motion.div>

@@ -22,25 +22,22 @@ export default function PricingComparison() {
   // 블라인드 버튼 렌더링 함수
   const BlindButton = () => (
     <motion.button
-      className="relative px-10 py-6 rounded-2xl bg-gradient-to-r from-blue-500 to-teal-400 text-white font-extrabold text-2xl shadow-2xl focus:outline-none"
+      className="relative px-10 py-6 rounded-2xl bg-[#00e5a0] text-[#070b14] font-extrabold text-2xl shadow-2xl focus:outline-none hover:bg-[#3cf0bb] transition-colors"
       animate={{
-        scale: [1, 1.12, 1, 1.12, 1],
-        rotate: [0, -6, 6, -6, 0],
+        scale: [1, 1.06, 1],
         boxShadow: [
-          "0 0 0px #00f2fe",
-          "0 0 32px #00f2fe",
-          "0 0 0px #00f2fe",
-          "0 0 32px #00f2fe",
-          "0 0 0px #00f2fe"
+          "0 0 0px rgba(0,229,160,0)",
+          "0 0 36px rgba(0,229,160,0.45)",
+          "0 0 0px rgba(0,229,160,0)"
         ]
       }}
       transition={{
-        duration: 1.1,
+        duration: 1.6,
         repeat: Infinity,
         repeatType: "loop",
         ease: "easeInOut"
       }}
-      whileHover={{ scale: 1.18, rotate: 0 }}
+      whileHover={{ scale: 1.12 }}
       whileTap={{ scale: 0.97 }}
       onClick={() => {
         document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
@@ -49,7 +46,7 @@ export default function PricingComparison() {
       style={{ minWidth: 260 }}
     >
       <span className="block">상상도 못할 가격</span>
-      <span className="block text-base mt-2 animate-pulse">궁금하면 클릭!</span>
+      <span className="block text-base mt-2 font-bold text-[#070b14]/70 animate-pulse">궁금하면 클릭!</span>
     </motion.button>
   )
 
@@ -88,7 +85,7 @@ export default function PricingComparison() {
   return (
     <div className="overflow-x-auto">
       <motion.div
-        className="rounded-xl border border-gray-200 bg-white/90 shadow-2xl min-w-[360px]"
+        className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl min-w-[360px]"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -97,10 +94,12 @@ export default function PricingComparison() {
       >
         <Table className="min-w-[700px]">
           <TableHeader>
-            <TableRow className="bg-gradient-to-r from-teal-100 via-white to-amber-100 border-b-2 border-teal-200">
-              <TableHead className="w-[220px] text-lg text-gray-900 font-bold tracking-tight py-4 px-6 border-r border-gray-200">서비스</TableHead>
-              <TableHead className="text-lg text-gray-800 font-bold py-4 px-6 border-r border-gray-200">재능마켓</TableHead>
-              <TableHead className="text-lg font-bold py-4 px-6 bg-gradient-to-r from-teal-200/40 to-amber-100/40 text-teal-900 text-center">위즈더플래닝</TableHead>
+            <TableRow className="bg-[#f6f8f7] border-b border-gray-200 hover:bg-[#f6f8f7]">
+              <TableHead className="w-[220px] text-lg text-gray-900 font-extrabold tracking-tight py-4 px-6 border-r border-gray-200">서비스</TableHead>
+              <TableHead className="text-lg text-gray-500 font-bold py-4 px-6 border-r border-gray-200">재능마켓</TableHead>
+              <TableHead className="text-lg font-extrabold py-4 px-6 bg-[#0b1220] text-white text-center">
+                위즈더플래닝<span className="text-[#00e5a0]">.</span>
+              </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -112,7 +111,7 @@ export default function PricingComparison() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className={`transition hover:bg-teal-50/40 ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
+                className={`transition hover:bg-emerald-50/40 ${i % 2 === 0 ? "bg-white" : "bg-gray-50/60"}`}
               >
                 <TableCell className="font-semibold text-gray-900 py-4 px-6 border-r border-gray-100">{row.service}</TableCell>
                 <TableCell className="py-4 px-6 border-r border-gray-100">
@@ -123,11 +122,11 @@ export default function PricingComparison() {
                 </TableCell>
                 {i === 0 && (
                   <TableCell
-                    className="py-4 px-6 text-center align-middle"
+                    className="py-4 px-6 text-center align-middle bg-[#0b1220]"
                     rowSpan={rows.length}
                     style={{ verticalAlign: "middle" }}
                   >
-                    <div className="flex flex-col items-center justify-center h-full min-h-[400px]">
+                    <div className="geo-grid-bg flex flex-col items-center justify-center h-full min-h-[400px] rounded-xl">
                       <BlindButton />
                     </div>
                   </TableCell>
@@ -137,7 +136,7 @@ export default function PricingComparison() {
           </TableBody>
         </Table>
       </motion.div>
-      <div className="block md:hidden text-sm text-blue-500 font-semibold text-center mt-3">← 옆으로 밀어보세요</div>
+      <div className="block md:hidden text-sm text-emerald-600 font-semibold text-center mt-3">← 옆으로 밀어보세요</div>
     </div>
   )
 }

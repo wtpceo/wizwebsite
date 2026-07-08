@@ -9,22 +9,19 @@ export default function StrategySection() {
   return (
     <section
       id="strategy"
-      className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-purple-50 via-white to-teal-50"
+      className="w-full py-12 md:py-24 lg:py-28 bg-[#f6f8f7]"
     >
       <div className="container px-4 md:px-6">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center animate-fade-in">
-          <div className="space-y-2">
-            <Badge
-              className="w-fit mx-auto bg-gradient-to-r from-purple-100 to-teal-100 text-purple-700 hover:from-purple-200 hover:to-teal-200 border-purple-200"
-              variant="outline"
-            >
-              업종별 전략
-            </Badge>
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight bg-gradient-to-r from-purple-700 via-blue-600 to-teal-500 bg-clip-text text-transparent">
+        <div className="flex flex-col items-center justify-center space-y-3 text-center animate-fade-in">
+          <div className="space-y-3">
+            <span className="text-xs font-bold tracking-[0.25em] text-emerald-600">
+              INDUSTRY STRATEGY
+            </span>
+            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl">
               <span className="hidden md:inline">업종별 맞춤 전략</span>
               <span className="block md:hidden">업종별<br />맞춤 전략</span>
             </h2>
-            <p className="mx-auto max-w-[700px] text-gray-700 md:text-xl">
+            <p className="mx-auto max-w-[700px] text-gray-600 md:text-lg">
               <span className="hidden md:inline">각 업종의 특성을 고려한 맞춤형 마케팅 전략을 확인하세요.</span>
               <span className="block md:hidden">각 업종의 특성을 고려한<br />맞춤형 마케팅 전략을 확인하세요.</span>
             </p>
@@ -42,7 +39,7 @@ export default function StrategySection() {
             ].map((item, index) => (
               <div key={item.id} className="animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
                 <Link href={item.link}>
-                  <Card className="overflow-hidden border-gray-100 transition-all duration-300 hover:shadow-lg hover:shadow-purple-200/50 group p-4 sm:p-6 cursor-pointer">
+                  <Card className="overflow-hidden rounded-2xl border-gray-200 transition-all duration-300 hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/[0.07] group p-4 sm:p-6 cursor-pointer">
                     <div className="aspect-video relative overflow-hidden">
                       <Image
                         src={`/images/strategy/strategy-${item.id}.jpg`}
@@ -50,18 +47,10 @@ export default function StrategySection() {
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div
-                        className={`absolute inset-0 bg-gradient-to-t ${
-                          item.id % 3 === 0
-                            ? "from-purple-900/30 to-transparent"
-                            : item.id % 3 === 1
-                              ? "from-blue-900/30 to-transparent"
-                              : "from-teal-900/30 to-transparent"
-                        } opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
-                      ></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#070b14]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     <CardContent className="p-3 sm:p-4 bg-white">
-                      <h3 className="font-bold tracking-tight text-lg sm:text-xl bg-gradient-to-r from-purple-700 via-blue-600 to-teal-500 bg-clip-text text-transparent">
+                      <h3 className="font-bold tracking-tight text-lg sm:text-xl text-gray-900 group-hover:text-emerald-700 transition-colors">
                         {item.title}
                       </h3>
                       <p className="text-sm sm:text-base text-gray-600 mt-1">

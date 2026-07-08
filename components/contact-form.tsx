@@ -114,7 +114,7 @@ export default function ContactForm() {
       // 알림창 표시 (실패)
       setAlertContent({
         title: "문의 접수 중 오류가 발생했습니다",
-        description: "죄송합니다. 전화 (010-0000-0000)로 문의해 주시면 빠르게 답변 드리겠습니다.",
+        description: "죄송합니다. 전화 (1670-0704)로 문의해 주시면 빠르게 답변 드리겠습니다.",
         isSuccess: false
       })
       setAlertOpen(true)
@@ -127,7 +127,7 @@ export default function ContactForm() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-md mx-auto bg-white rounded-3xl shadow-xl p-6 md:p-8"
+        className="w-full"
       >
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
@@ -141,7 +141,7 @@ export default function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="h-12 bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20"
+              className="h-12 bg-gray-50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500/20"
             />
           </div>
           
@@ -157,22 +157,7 @@ export default function ContactForm() {
               value={formData.phone}
               onChange={handleChange}
               required
-              className="h-12 bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20"
-            />
-          </div>
-
-          <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium text-gray-700">
-              이메일
-            </label>
-            <Input
-              id="email"
-              type="email"
-              name="email"
-              placeholder="example@email.com"
-              value={formData.email}
-              onChange={handleChange}
-              className="h-12 bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20"
+              className="h-12 bg-gray-50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500/20"
             />
           </div>
 
@@ -187,7 +172,7 @@ export default function ContactForm() {
               value={formData.storeName}
               onChange={handleChange}
               required
-              className="h-12 bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20"
+              className="h-12 bg-gray-50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500/20"
             />
           </div>
 
@@ -201,18 +186,18 @@ export default function ContactForm() {
               placeholder="문의하실 내용을 자유롭게 작성해주세요"
               value={formData.message}
               onChange={handleChange}
-              className="min-h-[120px] bg-gray-50 border-gray-200 focus:border-blue-500 focus:ring-blue-500/20"
+              className="min-h-[120px] bg-gray-50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500/20"
             />
           </div>
 
           <Button
             type="submit"
-            className="w-full h-12 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium shadow-lg shadow-blue-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/30"
+            className="w-full h-12 bg-[#00e5a0] text-[#070b14] font-bold shadow-lg shadow-[#00e5a0]/25 transition-all duration-300 hover:bg-[#3cf0bb] hover:shadow-xl hover:shadow-[#00e5a0]/35"
             disabled={isSubmitting}
           >
             {isSubmitting ? (
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                <div className="w-5 h-5 border-2 border-[#070b14] border-t-transparent rounded-full animate-spin" />
                 <span>제출 중...</span>
               </div>
             ) : (
@@ -227,7 +212,7 @@ export default function ContactForm() {
       <AlertDialog open={alertOpen} onOpenChange={setAlertOpen}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle className={alertContent.isSuccess ? "text-green-600" : "text-red-600"}>
+            <AlertDialogTitle className={alertContent.isSuccess ? "text-emerald-600" : "text-red-600"}>
               {alertContent.title}
             </AlertDialogTitle>
             <AlertDialogDescription>
@@ -236,9 +221,9 @@ export default function ContactForm() {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogAction 
-              className={alertContent.isSuccess ? 
-                "bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white" : 
-                "bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white"
+              className={alertContent.isSuccess ?
+                "bg-[#00e5a0] text-[#070b14] font-bold hover:bg-[#3cf0bb]" :
+                "bg-[#070b14] text-white font-bold hover:bg-[#101b2e]"
               }
               onClick={() => setAlertOpen(false)}
             >

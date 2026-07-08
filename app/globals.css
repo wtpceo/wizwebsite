@@ -1,6 +1,36 @@
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: 'SUIT Variable', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+}
+
+/* GEO 히어로 배경: 잉크 위 도트 그리드 */
+.geo-grid-bg {
+  background-image: radial-gradient(circle, rgba(125, 211, 252, 0.14) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.geo-glow {
+  box-shadow: 0 0 60px -12px rgba(0, 229, 160, 0.35);
+}
+
+@keyframes geo-cursor-blink {
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.geo-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  vertical-align: text-bottom;
+  background: #00e5a0;
+  animation: geo-cursor-blink 0.9s steps(1) infinite;
+}
 
 @layer base {
   :root {

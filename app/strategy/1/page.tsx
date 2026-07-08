@@ -70,55 +70,62 @@ export default function Page() {
   // 서비스 카드 데이터
   const serviceCards = [
     {
-      icon: <Camera className="h-6 w-6 text-rose-600" />, title: "전문 사진 촬영", desc: "전문 장비와 조명으로 음식의 맛이 보이는 사진을 촬영합니다",
+      icon: <Camera className="h-6 w-6 text-emerald-600" />, title: "전문 사진 촬영", desc: "전문 장비와 조명으로 음식의 맛이 보이는 사진을 촬영합니다",
     },
     {
-      icon: <Edit className="h-6 w-6 text-rose-600" />, title: "전문 사진 편집", desc: "색감과 구도를 최적화하여 음식의 매력을 극대화합니다",
+      icon: <Edit className="h-6 w-6 text-emerald-600" />, title: "전문 사진 편집", desc: "색감과 구도를 최적화하여 음식의 매력을 극대화합니다",
     },
     {
-      icon: <Globe className="h-6 w-6 text-rose-600" />, title: "온라인 플랫폼에 일괄 등록", desc: "네이버, 카카오, 구글 등 주요 플랫폼에 정보를 일괄 등록합니다",
+      icon: <Globe className="h-6 w-6 text-emerald-600" />, title: "온라인 플랫폼에 일괄 등록", desc: "네이버, 카카오, 구글 등 주요 플랫폼에 정보를 일괄 등록합니다",
     },
     {
-      icon: <Ticket className="h-6 w-6 text-rose-600" />, title: "쿠폰, 소식 발행", desc: "정기적인 쿠폰과 소식으로 고객의 재방문을 유도합니다",
+      icon: <Ticket className="h-6 w-6 text-emerald-600" />, title: "쿠폰, 소식 발행", desc: "정기적인 쿠폰과 소식으로 고객의 재방문을 유도합니다",
     },
     {
-      icon: <Key className="h-6 w-6 text-rose-600" />, title: "대표키워드 세팅", desc: "지역과 특성에 맞는 키워드로 검색 노출을 최적화합니다",
+      icon: <Key className="h-6 w-6 text-emerald-600" />, title: "대표키워드 세팅", desc: "지역과 특성에 맞는 키워드로 검색 노출을 최적화합니다",
     },
     {
-      icon: <Calendar className="h-6 w-6 text-rose-600" />, title: "예약 관리", desc: "온라인 예약 시스템 구축 및 효율적인 예약 관리를 지원합니다",
+      icon: <Calendar className="h-6 w-6 text-emerald-600" />, title: "예약 관리", desc: "온라인 예약 시스템 구축 및 효율적인 예약 관리를 지원합니다",
     },
   ]
 
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="flex-1 pt-20 md:pt-24">
+      <main className="flex-1">
         {/* 히어로 섹션 */}
-        <section className="w-full py-10 md:py-24 lg:py-32 bg-gradient-to-b from-rose-50 to-white">
-          <div className="container px-4 md:px-6">
+        <section className="relative w-full overflow-hidden bg-[#070b14] py-14 md:py-24 lg:py-28">
+          <div className="geo-grid-bg absolute inset-0" />
+          <div className="absolute -top-32 left-1/3 h-[360px] w-[560px] rounded-full bg-[#00e5a0]/[0.07] blur-3xl" />
+          <div className="container relative px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="flex flex-col justify-center space-y-4">
                 <AnimateInView animation="fadeIn" delay={0.2}>
-                  <div className="space-y-2">
-                    <h1 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl">
-                      "요즘 음식점, 맛만 좋다고 손님 오는 시대 아닙니다."
+                  <div className="space-y-3">
+                    <span className="text-xs font-bold tracking-[0.25em] text-[#00e5a0]">
+                      RESTAURANT STRATEGY
+                    </span>
+                    <h1 className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
+                      "요즘 음식점, 맛만 좋다고
+                      <br className="hidden md:block" /> 손님 오는 시대 아닙니다."
                     </h1>
-                    <h2 className="text-lg font-semibold text-rose-600 md:text-xl lg:text-2xl">
+                    <h2 className="text-lg font-bold text-[#00e5a0] md:text-xl lg:text-2xl">
                       노출, 사진, 리뷰… 전부 '전략'입니다.
                     </h2>
-                    <p className="max-w-[600px] text-gray-500 text-base md:text-lg">
-                      온라인 마케팅, 이제는 선택이 아니라 <span className="font-bold">필수입니다.</span>
+                    <p className="max-w-[600px] text-slate-400 text-base md:text-lg">
+                      온라인 마케팅, 이제는 선택이 아니라{" "}
+                      <span className="font-bold text-slate-200">필수입니다.</span>
                     </p>
                   </div>
                 </AnimateInView>
                 <AnimateInView animation="slideUp" delay={0.4}>
-                  <div className="mt-6 space-y-2">
-                    <p className="text-lg font-semibold text-rose-600 md:text-xl">이제 그만 망설이고 결정하세요.</p>
-                    <p className="text-base font-medium md:text-lg">변할것인지 방치할 것인지</p>
+                  <div className="mt-6 space-y-1">
+                    <p className="text-lg font-bold text-white md:text-xl">이제 그만 망설이고 결정하세요.</p>
+                    <p className="text-base font-medium text-slate-400 md:text-lg">변할 것인지, 방치할 것인지</p>
                   </div>
                 </AnimateInView>
                 <div className="mt-6 sm:hidden">
-                  <Button className="w-full bg-rose-600 hover:bg-rose-700">
+                  <Button className="w-full bg-[#00e5a0] font-bold text-[#070b14] hover:bg-[#3cf0bb]">
                     무료 진단 받기
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -131,7 +138,7 @@ export default function Page() {
                     width={550}
                     height={450}
                     alt="음식점 마케팅 이미지"
-                    className="rounded-lg object-cover shadow-md w-full max-w-md mx-auto"
+                    className="rounded-2xl border border-white/10 object-cover shadow-2xl w-full max-w-md mx-auto"
                     priority
                   />
                 </div>
@@ -145,9 +152,9 @@ export default function Page() {
           <div className="container px-4 md:px-6">
             <AnimateInView animation="fadeIn">
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-rose-100 px-3 py-1 text-sm text-rose-700">현실 인식</div>
-                  <h2 className="text-2xl font-bold tracking-tighter md:text-3xl lg:text-4xl">
+                <div className="space-y-3">
+                  <span className="text-xs font-bold tracking-[0.25em] text-emerald-600">현실 인식</span>
+                  <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl lg:text-4xl">
                     "맛집 찾을 때, 대부분 어디서 검색하세요?"
                   </h2>
                   <p className="max-w-[900px] text-gray-500 text-base md:text-lg">
@@ -182,7 +189,7 @@ export default function Page() {
                 </AnimateInView>
               </Timeline>
               <AnimateInView animation="fadeIn" delay={0.9}>
-                <p className="mt-8 text-center font-medium text-rose-600">
+                <p className="mt-8 text-center font-medium text-emerald-600">
                   💡 이 흐름을 <span className="font-bold">잡아야</span>, 손님이 들어옵니다.
                 </p>
               </AnimateInView>
@@ -191,13 +198,13 @@ export default function Page() {
         </section>
 
         {/* 마케팅 전략 카드 */}
-        <section id="strategy" className="w-full py-10 md:py-24 lg:py-32 bg-gray-50">
+        <section id="strategy" className="w-full py-10 md:py-24 lg:py-28 bg-[#f6f8f7]">
           <div className="container px-4 md:px-6">
             <AnimateInView animation="fadeIn">
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-rose-100 px-3 py-1 text-sm text-rose-700">핵심 전략</div>
-                  <h2 className="text-2xl font-bold tracking-tighter md:text-3xl lg:text-4xl">
+                <div className="space-y-3">
+                  <span className="text-xs font-bold tracking-[0.25em] text-emerald-600">핵심 전략</span>
+                  <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl lg:text-4xl">
                     음식점 온라인 마케팅 6가지 전략
                   </h2>
                   <p className="max-w-[900px] text-gray-500 text-base md:text-lg">
@@ -210,7 +217,7 @@ export default function Page() {
             <div className="mx-auto grid gap-4 sm:gap-6 py-8 md:py-12 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
               {strategyCards.map((card, idx) => (
                 <AnimateInView animation="fadeIn" delay={0.2 + idx * 0.1} key={card.title}>
-                  <Card className="strategy-card border-2 border-rose-100 transition-all hover:border-rose-300 hover:shadow-md h-full flex flex-col">
+                  <Card className="strategy-card rounded-2xl border border-gray-200 bg-white transition-all hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/[0.07] h-full flex flex-col">
                     <CardHeader className="pb-2 flex-shrink-0">
                       <CardTitle className="text-lg md:text-xl">{card.title}</CardTitle>
                     </CardHeader>
@@ -219,12 +226,12 @@ export default function Page() {
                       <ul className="space-y-2">
                         {card.items.map(item => (
                           <li className="flex items-start" key={item}>
-                            <Check className="mr-2 h-5 w-5 text-rose-500 flex-shrink-0" />
+                            <Check className="mr-2 h-5 w-5 text-emerald-500 flex-shrink-0" />
                             <span className="text-sm md:text-base">{item}</span>
                           </li>
                         ))}
                       </ul>
-                      {card.extra && <p className="mt-4 font-medium text-rose-600 text-sm md:text-base">{card.extra}</p>}
+                      {card.extra && <p className="mt-4 font-bold text-emerald-600 text-sm md:text-base">{card.extra}</p>}
                     </CardContent>
                   </Card>
                 </AnimateInView>
@@ -234,13 +241,13 @@ export default function Page() {
         </section>
 
         {/* 서비스 소개 카드 */}
-        <section id="services" className="w-full py-10 md:py-24 lg:py-32 bg-rose-50">
+        <section id="services" className="w-full py-10 md:py-24 lg:py-28 bg-white">
           <div className="container px-4 md:px-6">
             <AnimateInView animation="fadeIn">
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-rose-100 px-3 py-1 text-sm text-rose-700">서비스 소개</div>
-                  <h2 className="text-2xl font-bold tracking-tighter md:text-3xl lg:text-4xl">
+                <div className="space-y-3">
+                  <span className="text-xs font-bold tracking-[0.25em] text-emerald-600">서비스 소개</span>
+                  <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl lg:text-4xl">
                     음식점 마케팅의 모든 것을 제공합니다
                   </h2>
                   <p className="max-w-[900px] text-gray-500 text-sm md:text-base">
@@ -253,8 +260,8 @@ export default function Page() {
             <div className="mx-auto mt-8 md:mt-12 grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {serviceCards.map((card, idx) => (
                 <AnimateInView animation="fadeIn" delay={0.2 + idx * 0.1} key={card.title}>
-                  <div className="service-card flex flex-col items-center text-center p-4 md:p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                    <div className="h-12 w-12 rounded-full bg-rose-100 flex items-center justify-center mb-4">
+                  <div className="service-card flex flex-col items-center text-center p-4 md:p-6 bg-white rounded-2xl border border-gray-200 hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/[0.07] transition-all">
+                    <div className="h-12 w-12 rounded-full bg-emerald-50 ring-1 ring-emerald-100 flex items-center justify-center mb-4">
                       {card.icon}
                     </div>
                     <h3 className="text-base md:text-lg font-semibold mb-2">{card.title}</h3>

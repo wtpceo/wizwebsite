@@ -9,9 +9,10 @@ import { Button } from "@/components/ui/button"
 export default function Header() {
   // 번역 훅 대신 하드코딩된 텍스트 사용
   const menuTexts: Record<string, string> = {
-    services: '서비스',
+    geo: 'AI 검색 최적화',
+    services: '마케팅 서비스',
     portfolio: '포트폴리오',
-    analysis: '마케팅 분석',
+    guide: '가이드',
     pricing: '가격 비교',
     testimonials: '고객 후기',
     contact: '문의하기',
@@ -20,9 +21,10 @@ export default function Header() {
 
   // 메뉴 항목과 해당 앵커 ID
   const menuItems = [
+    { key: 'geo', anchor: 'geo' },
     { key: 'services', anchor: 'services' },
     { key: 'portfolio', anchor: 'portfolio' },
-    { key: 'analysis', href: '/marketing-analysis', isExternal: true },
+    { key: 'guide', href: '/guide', isExternal: true },
     { key: 'pricing', anchor: 'pricing' },
     { key: 'testimonials', anchor: 'testimonials' },
     { key: 'contact', anchor: 'contact' }
@@ -32,10 +34,14 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
-            <span className="text-xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-teal-500 bg-clip-text text-transparent">
-              위즈더플래닝
-            </span>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex items-baseline gap-0.5"
+          >
+            <span className="text-xl font-extrabold tracking-tight text-gray-900">위즈더플래닝</span>
+            <span className="h-2 w-2 rounded-full bg-[#00e5a0]" />
           </motion.div>
         </Link>
         <nav className="hidden md:flex gap-6">
@@ -48,7 +54,7 @@ export default function Header() {
             >
               <Link
                 href={item.isExternal ? item.href : `#${item.anchor}`}
-                className="text-sm font-medium text-gray-800 hover:text-purple-600 transition-colors"
+                className="text-sm font-medium text-gray-800 hover:text-emerald-600 transition-colors"
               >
                 {menuTexts[item.key]}
               </Link>
@@ -62,12 +68,12 @@ export default function Header() {
           className="flex items-center gap-4"
         >
           <Link href="#contact">
-            <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg shadow-purple-500/20 transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/30">
+            <Button className="bg-[#070b14] font-bold text-white transition-all duration-300 hover:bg-[#101b2e] hover:shadow-lg hover:shadow-emerald-500/15">
               {menuTexts.consultation}
             </Button>
           </Link>
           {/* 언어 토글 제거 */}
-          <Button variant="outline" size="icon" className="md:hidden border-purple-200 text-purple-700">
+          <Button variant="outline" size="icon" className="md:hidden border-gray-200 text-gray-700">
             <span className="sr-only">메뉴 열기</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"

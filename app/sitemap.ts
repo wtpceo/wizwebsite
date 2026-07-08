@@ -1,0 +1,34 @@
+import type { MetadataRoute } from "next"
+
+const BASE_URL = "https://wiztheplanning.com"
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date()
+
+  const routes: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
+    { path: "", priority: 1.0, changeFrequency: "weekly" },
+    { path: "/focusmedia", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/naver-marketing", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/delivery-service", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/portfolio", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/strategy/1", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/strategy/2", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/strategy/3", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/strategy/4", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/strategy/5", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/strategy/6", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/guide", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/guide/what-is-geo", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/guide/get-cited-by-ai", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/guide/naver-place-checklist", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/privacy", priority: 0.2, changeFrequency: "yearly" },
+    { path: "/terms", priority: 0.2, changeFrequency: "yearly" },
+  ]
+
+  return routes.map((r) => ({
+    url: `${BASE_URL}${r.path}`,
+    lastModified: now,
+    changeFrequency: r.changeFrequency,
+    priority: r.priority,
+  }))
+}

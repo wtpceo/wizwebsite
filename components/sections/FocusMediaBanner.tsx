@@ -30,20 +30,17 @@ const FOCUSMEDIA_DATA = {
 export default function FocusMediaBanner() {
   return (
     <section className="w-full relative overflow-hidden py-16 md:py-24">
-      {/* Background with Premium Gradient & Animation */}
-      <div className="absolute inset-0 bg-gray-900">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black opacity-90" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-500/30 via-red-500/20 to-transparent" />
-
-        {/* Animated Orbs */}
+      {/* Background — 브랜드 잉크 베이스 + 파트너 오렌지 포인트 */}
+      <div className="absolute inset-0 bg-[#070b14]">
+        <div className="geo-grid-bg absolute inset-0 opacity-50" />
         <motion.div
-          className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-orange-500/20 rounded-full blur-[100px]"
-          animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.3, 0.2] }}
+          className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-orange-500/10 rounded-full blur-[100px]"
+          animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
           transition={{ duration: 8, repeat: Infinity }}
         />
         <motion.div
-          className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-red-600/20 rounded-full blur-[100px]"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.3, 0.2] }}
+          className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-sky-500/[0.08] rounded-full blur-[100px]"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
           transition={{ duration: 10, repeat: Infinity, delay: 1 }}
         />
       </div>
@@ -65,8 +62,8 @@ export default function FocusMediaBanner() {
                 <span className="text-sm font-medium text-white/90">{FOCUSMEDIA_DATA.subtitle}</span>
               </div>
 
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-4">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">엘리베이터TV</span><br />
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-4">
+                <span className="text-orange-400">엘리베이터TV</span><br />
                 <span className="text-white">50.3% 장악하다</span>
               </h2>
 
