@@ -27,6 +27,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  verification: {
+    other: {
+      'naver-site-verification': '9eab0615b13363708461a16fe6a3733fe44cf0e3',
+    },
+  },
   generator: 'Next.js',
   icons: {
     icon: '/favicon.ico',
