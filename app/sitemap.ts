@@ -22,6 +22,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/guide/get-cited-by-ai", priority: 0.8, changeFrequency: "monthly" },
     { path: "/guide/naver-place-checklist", priority: 0.8, changeFrequency: "monthly" },
     { path: "/guide/medical-geo", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/guide/dental-geo", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/guide/skincare-geo", priority: 0.8, changeFrequency: "monthly" },
     { path: "/guide/ai-engines-cite-differently", priority: 0.8, changeFrequency: "monthly" },
     { path: "/privacy", priority: 0.2, changeFrequency: "yearly" },
     { path: "/terms", priority: 0.2, changeFrequency: "yearly" },
