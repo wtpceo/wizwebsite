@@ -26,8 +26,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/guide/skincare-geo", priority: 0.8, changeFrequency: "monthly" },
     { path: "/guide/ai-engines-cite-differently", priority: 0.8, changeFrequency: "monthly" },
     { path: "/guide/why-ads-stop-working", priority: 0.8, changeFrequency: "monthly" },
-    { path: "/privacy", priority: 0.2, changeFrequency: "yearly" },
-    { path: "/terms", priority: 0.2, changeFrequency: "yearly" },
   ]
 
   return routes.map((r) => ({
