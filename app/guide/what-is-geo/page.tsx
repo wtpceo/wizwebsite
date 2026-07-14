@@ -10,7 +10,8 @@ export const metadata: Metadata = {
   title: "AI 검색 최적화(GEO)란? 자영업 사장님을 위한 쉬운 설명",
   description: DESC,
   alternates: { canonical: "/guide/what-is-geo" },
-  openGraph: { title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/what-is-geo", type: "article" },
+  openGraph: {
+    images: ["/thumbnail.png"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/what-is-geo", type: "article" },
 }
 
 const jsonLd = {

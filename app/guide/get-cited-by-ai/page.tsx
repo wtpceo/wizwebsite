@@ -10,7 +10,8 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
   alternates: { canonical: "/guide/get-cited-by-ai" },
-  openGraph: { title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/get-cited-by-ai", type: "article" },
+  openGraph: {
+    images: ["/thumbnail.png"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/get-cited-by-ai", type: "article" },
 }
 
 const jsonLd = {

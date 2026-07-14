@@ -16,7 +16,7 @@ import ContactSection from "@/components/sections/ContactSection"
 const AnimatedBackground = () => (
   <div className="absolute inset-0 overflow-hidden">
     {/* 배경 사진 */}
-    <div className="absolute inset-0 bg-[url('/images/focusmedia/data-map.png')] bg-cover bg-center" />
+    <div className="absolute inset-0 bg-[url('/images/focusmedia/data-map.jpg')] bg-cover bg-center" />
 
     {/* 가독성용 잉크 오버레이 */}
     <div className="absolute inset-0 bg-[#070b14]/80" />
