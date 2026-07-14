@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/test-api", "/test-resend", "/docs"],
+        disallow: ["/docs"],
       },
       // AI 검색 엔진 크롤러 명시적 허용 (GEO)
       { userAgent: "GPTBot", allow: "/" },
