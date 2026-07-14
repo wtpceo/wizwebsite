@@ -53,7 +53,7 @@ export default function Header() {
               transition={{ duration: 0.3, delay: 0.1 * i }}
             >
               <Link
-                href={item.isExternal ? item.href : `#${item.anchor}`}
+                href={item.isExternal ? item.href : `/#${item.anchor}`}
                 className="text-sm font-medium text-gray-800 hover:text-emerald-600 transition-colors"
               >
                 {menuTexts[item.key]}
@@ -67,7 +67,7 @@ export default function Header() {
           transition={{ duration: 0.5 }}
           className="flex items-center gap-4"
         >
-          <Link href="#contact">
+          <Link href="/#contact">
             <Button className="bg-[#070b14] font-bold text-white transition-all duration-300 hover:bg-[#101b2e] hover:shadow-lg hover:shadow-emerald-500/15">
               {menuTexts.consultation}
             </Button>
