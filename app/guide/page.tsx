@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ChevronRight, BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows, Smile, Gem } from "lucide-react"
+import { ChevronRight, BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows, Smile, Gem, TrendingDown } from "lucide-react"
 import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
 
@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 
 // 카테고리 정의 (표시 순서)
 const CATEGORIES = [
+  { key: "concern", label: "이런 고민, 있으세요?" },
   { key: "basics", label: "GEO 기초" },
   { key: "playbook", label: "실전 전략" },
   { key: "industry", label: "업종별 가이드" },
@@ -26,6 +27,15 @@ const CATEGORIES = [
 ] as const
 
 const GUIDES = [
+  {
+    href: "/guide/why-ads-stop-working",
+    category: "concern",
+    icon: TrendingDown,
+    kicker: "마케팅 고민 진단",
+    title: "네이버 광고비는 오르는데 문의는 그대로일 때 — 지금 매장에 무슨 일이 일어나고 있나",
+    desc: "광고를 늘려도 문의가 안 늘어난다면 매장 문제가 아니라 고객의 검색 방식이 바뀐 것일 수 있습니다. 5분이면 직접 확인해볼 수 있어요.",
+    date: "2026. 7. 9",
+  },
   {
     href: "/guide/medical-geo",
     category: "industry",
