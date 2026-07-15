@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     siteName: '위즈더플래닝',
     images: [
       {
-        url: `/thumbnail.png?v=${timestamp}`,
+        url: `/og-image.jpg?v=${timestamp}`,
         width: 1200,
         height: 630,
         alt: '위즈더플래닝 — AI 검색 최적화(GEO) 전문 에이전시',
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '위즈더플래닝 | AI 검색 최적화(GEO) 전문 에이전시',
     description: 'AI 검색 최적화(GEO) 전문 풀서비스 에이전시. GEO·SEO·메타/구글 광고·콘텐츠 제작·홈페이지 제작을 한 팀에서. 2016년부터 7,000여 광고주와 함께.',
-    images: [`/thumbnail.png?v=${timestamp}`],
+    images: [`/og-image.jpg?v=${timestamp}`],
   },
 }
 
