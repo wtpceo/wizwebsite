@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import DiagnosisPopup from '@/components/DiagnosisPopup'
+import ChatWidget from '@/components/ChatWidget'
 
 // 캐시 무효화를 위한 타임스탬프
 const timestamp = Date.now();
@@ -165,6 +166,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <ChatWidget />
         <DiagnosisPopup />
       </body>
     </html>
