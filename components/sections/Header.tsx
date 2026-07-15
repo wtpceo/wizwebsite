@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState<string | null>(null)
   const pathname = usePathname()
 
   const menuTexts: Record<string, string> = {
@@ -43,13 +44,50 @@ export default function Header() {
     return () => { document.body.style.overflow = "" }
   }, [open])
 
+  // 스크롤 스파이 — 홈에서 현재 화면에 보이는 섹션에 해당하는 앵커 메뉴 활성화
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveSection(null)
+      return
+    }
+    const anchorIds = ["services", "team", "faq", "contact"]
+    const els = anchorIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null)
+    if (els.length === 0) return
+
+    const visible = new Set<string>()
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) visible.add(entry.target.id)
+          else visible.delete(entry.target.id)
+        })
+        // DOM 순서상 화면에 걸친 첫 섹션을 활성으로 (없으면 히어로 등 → 아무것도 활성 안 함)
+        const current = anchorIds.find((id) => visible.has(id)) ?? null
+        setActiveSection(current)
+      },
+      // 뷰포트 중앙 부근을 지나는 섹션을 현재 섹션으로 판정
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    )
+    els.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [pathname])
+
   const hrefFor = (item: (typeof menuItems)[number]) =>
     item.isExternal ? (item.href as string) : `/#${item.anchor}`
 
-  // 현재 보고 있는 페이지에 해당하는 메뉴 활성 여부 (실제 페이지 링크만; 하위 경로 포함)
+  // 현재 보고 있는 페이지/섹션에 해당하는 메뉴 활성 여부
   const isActive = (item: (typeof menuItems)[number]) => {
-    if (!item.isExternal || !item.href) return false
-    return pathname === item.href || pathname.startsWith(item.href + "/")
+    // 실제 페이지 링크 (하위 경로 포함)
+    if (item.isExternal && item.href) {
+      return pathname === item.href || pathname.startsWith(item.href + "/")
+    }
+    // 홈 내부 앵커 섹션 (스크롤 스파이)
+    if (item.anchor) {
+      return pathname === "/" && activeSection === item.anchor
+    }
+    return false
   }
 
   return (
