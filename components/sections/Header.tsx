@@ -9,24 +9,22 @@ import { Button } from "@/components/ui/button"
 export default function Header() {
   // 번역 훅 대신 하드코딩된 텍스트 사용
   const menuTexts: Record<string, string> = {
-    geo: 'AI 검색 최적화',
-    services: '마케팅 서비스',
+    services: '서비스',
+    team: '제작팀',
     portfolio: '포트폴리오',
-    guide: '가이드',
-    pricing: '가격 비교',
-    testimonials: '고객 후기',
+    guide: '인사이트',
+    faq: 'FAQ',
     contact: '문의하기',
     consultation: '상담 문의'
   };
 
   // 메뉴 항목과 해당 앵커 ID
   const menuItems = [
-    { key: 'geo', anchor: 'geo' },
     { key: 'services', anchor: 'services' },
-    { key: 'portfolio', anchor: 'portfolio' },
+    { key: 'team', anchor: 'team' },
+    { key: 'portfolio', href: '/portfolio', isExternal: true },
     { key: 'guide', href: '/guide', isExternal: true },
-    { key: 'pricing', anchor: 'pricing' },
-    { key: 'testimonials', anchor: 'testimonials' },
+    { key: 'faq', anchor: 'faq' },
     { key: 'contact', anchor: 'contact' }
   ];
 
