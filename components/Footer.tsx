@@ -3,7 +3,6 @@ import Link from "next/link"
 // 실제 존재하는 페이지들을 카테고리별로 노출 (내부 링크 → 크롤링·색인에도 도움)
 const serviceLinks = [
   { label: "병원 무료 AI 검색 진단", href: "/medical-diagnosis" },
-  { label: "네이버 마케팅", href: "/naver-marketing" },
   { label: "엘리베이터TV 광고", href: "/focusmedia" },
   { label: "포트폴리오", href: "/portfolio" },
   { label: "GEO 가이드·인사이트", href: "/guide" },
@@ -13,7 +12,6 @@ const strategyLinks = [
   { label: "음식점 마케팅 전략", href: "/strategy/1" },
   { label: "배달 플랫폼 관리 전략", href: "/strategy/2" },
   { label: "학원 마케팅 전략", href: "/strategy/3" },
-  { label: "캠핑·펜션 마케팅 전략", href: "/strategy/4" },
   { label: "뷰티 업종 마케팅 전략", href: "/strategy/5" },
   { label: "운동·피트니스 마케팅 전략", href: "/strategy/6" },
 ]
