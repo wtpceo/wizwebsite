@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/focusmedia", priority: 0.8, changeFrequency: "monthly" },
     { path: "/naver-marketing", priority: 0.8, changeFrequency: "monthly" },
     { path: "/portfolio", priority: 0.7, changeFrequency: "monthly" },
+    { path: "/medical-diagnosis", priority: 0.9, changeFrequency: "monthly" },
     { path: "/strategy/1", priority: 0.8, changeFrequency: "monthly" },
     { path: "/strategy/2", priority: 0.8, changeFrequency: "monthly" },
     { path: "/strategy/3", priority: 0.8, changeFrequency: "monthly" },
