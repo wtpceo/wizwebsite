@@ -12,6 +12,7 @@ export default function Header() {
   const menuTexts: Record<string, string> = {
     services: '서비스',
     team: '제작팀',
+    diagnosis: '병원 무료진단',
     portfolio: '포트폴리오',
     guide: '인사이트',
     faq: 'FAQ',
@@ -23,6 +24,7 @@ export default function Header() {
   const menuItems = [
     { key: 'services', anchor: 'services' },
     { key: 'team', anchor: 'team' },
+    { key: 'diagnosis', href: '/medical-diagnosis', isExternal: true, highlight: true },
     { key: 'portfolio', href: '/portfolio', isExternal: true },
     { key: 'guide', href: '/guide', isExternal: true },
     { key: 'faq', anchor: 'faq' },
@@ -67,8 +69,13 @@ export default function Header() {
             >
               <Link
                 href={hrefFor(item)}
-                className="text-sm font-medium text-gray-800 hover:text-emerald-600 transition-colors"
+                className={
+                  item.highlight
+                    ? "inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-sm font-bold text-emerald-600 transition-colors hover:bg-emerald-100"
+                    : "text-sm font-medium text-gray-800 hover:text-emerald-600 transition-colors"
+                }
               >
+                {item.highlight && <span className="h-1.5 w-1.5 rounded-full bg-[#00e5a0]" />}
                 {menuTexts[item.key]}
               </Link>
             </motion.div>
@@ -130,8 +137,13 @@ export default function Header() {
                   <Link
                     href={hrefFor(item)}
                     onClick={() => setOpen(false)}
-                    className="block border-b border-gray-50 py-3.5 text-base font-medium text-gray-800 transition-colors hover:text-emerald-600"
+                    className={
+                      item.highlight
+                        ? "flex items-center gap-2 border-b border-gray-50 py-3.5 text-base font-bold text-emerald-600 transition-colors"
+                        : "block border-b border-gray-50 py-3.5 text-base font-medium text-gray-800 transition-colors hover:text-emerald-600"
+                    }
                   >
+                    {item.highlight && <span className="h-1.5 w-1.5 rounded-full bg-[#00e5a0]" />}
                     {menuTexts[item.key]}
                   </Link>
                 </li>
