@@ -41,9 +41,13 @@ export const metadata: Metadata = {
   },
   generator: 'Next.js',
   icons: {
-    icon: '/favicon.ico',
-    apple: '/favicon.ico',
-    shortcut: '/favicon.ico'
+    icon: [
+      { url: `/favicon.ico?v=${timestamp}`, sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon.png', type: 'image/png', sizes: '512x512' },
+    ],
+    apple: '/apple-icon.png',
+    shortcut: `/favicon.ico?v=${timestamp}`,
   },
   openGraph: {
     title: '위즈더플래닝 | AI 검색 최적화(GEO) 전문 에이전시',
