@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import { X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
 
   const menuTexts: Record<string, string> = {
     services: '서비스',
@@ -44,6 +46,12 @@ export default function Header() {
   const hrefFor = (item: (typeof menuItems)[number]) =>
     item.isExternal ? (item.href as string) : `/#${item.anchor}`
 
+  // 현재 보고 있는 페이지에 해당하는 메뉴 활성 여부 (실제 페이지 링크만; 하위 경로 포함)
+  const isActive = (item: (typeof menuItems)[number]) => {
+    if (!item.isExternal || !item.href) return false
+    return pathname === item.href || pathname.startsWith(item.href + "/")
+  }
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container flex h-16 items-center justify-between">
@@ -69,13 +77,20 @@ export default function Header() {
             >
               <Link
                 href={hrefFor(item)}
+                aria-current={isActive(item) ? "page" : undefined}
                 className={
                   item.highlight
-                    ? "inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-sm font-bold text-emerald-600 transition-colors hover:bg-emerald-100"
-                    : "text-sm font-medium text-gray-800 hover:text-emerald-600 transition-colors"
+                    ? isActive(item)
+                      ? "inline-flex items-center gap-1 rounded-full bg-[#00e5a0] px-3 py-1 text-sm font-bold text-[#070b14]"
+                      : "inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-sm font-bold text-emerald-600 transition-colors hover:bg-emerald-100"
+                    : isActive(item)
+                      ? "border-b-2 border-[#00e5a0] pb-1 text-sm font-bold text-emerald-600"
+                      : "border-b-2 border-transparent pb-1 text-sm font-medium text-gray-800 transition-colors hover:text-emerald-600"
                 }
               >
-                {item.highlight && <span className="h-1.5 w-1.5 rounded-full bg-[#00e5a0]" />}
+                {item.highlight && (
+                  <span className={isActive(item) ? "h-1.5 w-1.5 rounded-full bg-[#070b14]" : "h-1.5 w-1.5 rounded-full bg-[#00e5a0]"} />
+                )}
                 {menuTexts[item.key]}
               </Link>
             </motion.div>
@@ -137,13 +152,16 @@ export default function Header() {
                   <Link
                     href={hrefFor(item)}
                     onClick={() => setOpen(false)}
+                    aria-current={isActive(item) ? "page" : undefined}
                     className={
                       item.highlight
                         ? "flex items-center gap-2 border-b border-gray-50 py-3.5 text-base font-bold text-emerald-600 transition-colors"
-                        : "block border-b border-gray-50 py-3.5 text-base font-medium text-gray-800 transition-colors hover:text-emerald-600"
+                        : isActive(item)
+                          ? "flex items-center gap-2 border-b border-gray-50 py-3.5 text-base font-bold text-emerald-600"
+                          : "block border-b border-gray-50 py-3.5 text-base font-medium text-gray-800 transition-colors hover:text-emerald-600"
                     }
                   >
-                    {item.highlight && <span className="h-1.5 w-1.5 rounded-full bg-[#00e5a0]" />}
+                    {(item.highlight || isActive(item)) && <span className="h-1.5 w-1.5 rounded-full bg-[#00e5a0]" />}
                     {menuTexts[item.key]}
                   </Link>
                 </li>
