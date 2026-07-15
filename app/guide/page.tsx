@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ChevronRight, BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows, Smile, Gem, TrendingDown } from "lucide-react"
+import { ChevronRight, BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows, Smile, Gem, TrendingDown, ShieldCheck } from "lucide-react"
 import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
 
@@ -27,6 +27,15 @@ const CATEGORIES = [
 ] as const
 
 const GUIDES = [
+  {
+    href: "/guide/is-geo-abuse",
+    category: "concern",
+    icon: ShieldCheck,
+    kicker: "오해와 진실",
+    title: "SEO·GEO는 어뷰징인가요? — 검색 마케팅에 대한 5가지 오해와 진실",
+    desc: "SEO·GEO를 편법·불법으로 오해하는 분들을 위해. 무엇이 정상적인 최적화이고 무엇이 진짜 어뷰징인지, 검색엔진과 AI가 공식 권장하는 정당한 마케팅 기술임을 정리했습니다.",
+    date: "2026. 7. 15",
+  },
   {
     href: "/guide/why-ads-stop-working",
     category: "concern",

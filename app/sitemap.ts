@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/strategy/6", priority: 0.8, changeFrequency: "monthly" },
     { path: "/guide", priority: 0.9, changeFrequency: "weekly" },
     { path: "/guide/what-is-geo", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/guide/is-geo-abuse", priority: 0.8, changeFrequency: "monthly" },
     { path: "/guide/get-cited-by-ai", priority: 0.8, changeFrequency: "monthly" },
     { path: "/guide/naver-place-checklist", priority: 0.8, changeFrequency: "monthly" },
     { path: "/guide/medical-geo", priority: 0.8, changeFrequency: "monthly" },
