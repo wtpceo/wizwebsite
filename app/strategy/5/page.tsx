@@ -46,7 +46,7 @@ export default function StrategyDetail() {
                 <div className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.06] px-4 py-1.5 text-sm font-medium text-slate-300 mb-6">
                   <span className="text-[#00e5a0] mr-1">뷰티 업종</span> 마케팅 전문가
                 </div>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6 break-keep">
+                <h1 className="text-[clamp(1.875rem,4.8vw,5rem)] font-extrabold tracking-tight text-white leading-tight mb-6 break-keep">
                   뷰티 마케팅, 아무거나 올렸다다가<br /> <span className="text-[#00e5a0]">의료법에 걸릴 수 있습니다</span>
                 </h1>
                 <p className="text-base sm:text-lg md:text-xl text-slate-400 mb-10 break-keep">

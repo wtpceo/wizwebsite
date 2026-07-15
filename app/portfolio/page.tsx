@@ -125,7 +125,7 @@ export default function PortfolioPage() {
               <div className="inline-block px-5 py-2 rounded-full bg-[#eaf6fb] text-[#2bb3ff] font-bold text-base mb-4 shadow-sm tracking-wide">
                 100% 우리가 촬영한 사진입니다
               </div>
-              <h1 className="text-3xl md:text-4xl font-extrabold mb-2 text-gray-900 leading-tight tracking-tight">
+              <h1 className="text-[clamp(1.875rem,3.4vw,3.25rem)] font-extrabold mb-2 text-gray-900 leading-tight tracking-tight">
                 포트폴리오
               </h1>
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-medium">

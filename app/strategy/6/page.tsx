@@ -31,7 +31,7 @@ export default function MarketingStrategyPage() {
               <span className="text-xs font-bold tracking-[0.25em] text-[#00e5a0]">
                 FITNESS STRATEGY
               </span>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight break-keep">
+              <h1 className="text-[clamp(1.875rem,4.8vw,5rem)] font-extrabold tracking-tight text-white leading-tight break-keep">
                 온라인 매장도,<br className="hidden sm:block" /> 인테리어가 필요합니다.
               </h1>
               <p className="mx-auto max-w-[700px] text-xl md:text-2xl font-bold text-[#00e5a0] break-keep">

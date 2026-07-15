@@ -77,7 +77,7 @@ export default function StrategyDetail() {
                     DELIVERY PLATFORM STRATEGY
                   </span>
                 </motion.div>
-                <h1 className="text-2xl sm:text-4xl md:text-6xl font-extrabold tracking-tight text-white leading-tight break-keep max-w-xs sm:max-w-lg mx-auto">
+                <h1 className="text-[clamp(1.875rem,5vw,5.25rem)] font-extrabold tracking-tight text-white leading-tight break-keep max-w-xs sm:max-w-lg mx-auto">
                   배달 플랫폼 관리의 <span className="bg-gradient-to-r from-[#00e5a0] to-sky-400 bg-clip-text text-transparent">모든 것</span>
                 </h1>
                 <p className="text-base sm:text-lg md:text-xl text-slate-400 max-w-xs sm:max-w-md md:max-w-lg mx-auto mt-2 break-keep">

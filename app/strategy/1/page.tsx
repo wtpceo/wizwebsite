@@ -105,7 +105,7 @@ export default function Page() {
                     <span className="text-xs font-bold tracking-[0.25em] text-[#00e5a0]">
                       RESTAURANT STRATEGY
                     </span>
-                    <h1 className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl md:text-4xl lg:text-5xl">
+                    <h1 className="text-[clamp(1.75rem,4.2vw,4rem)] font-extrabold tracking-tight text-white">
                       "요즘 음식점, 맛만 좋다고
                       <br className="hidden md:block" /> 손님 오는 시대 아닙니다."
                     </h1>

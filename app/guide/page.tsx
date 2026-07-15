@@ -121,7 +121,7 @@ export default function GuidePage() {
           <div className="absolute -top-32 left-1/3 h-[320px] w-[520px] rounded-full bg-[#00e5a0]/[0.07] blur-3xl" />
           <div className="container relative mx-auto max-w-4xl px-4 text-center md:px-6">
             <p className="text-xs font-bold tracking-[0.25em] text-[#00e5a0]">GUIDE</p>
-            <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
+            <h1 className="mt-3 text-[clamp(1.875rem,3.8vw,3.75rem)] font-extrabold tracking-tight text-white">
               마케팅 가이드
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">

@@ -50,7 +50,7 @@ export default function MedicalHero() {
 
           <motion.h1
             variants={fadeIn}
-            className="mt-6 text-4xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-5xl md:text-6xl"
+            className="mt-6 text-[clamp(2.25rem,5vw,5.25rem)] font-extrabold leading-[1.15] tracking-tight text-white"
           >
             원장님 병원,
             <br />

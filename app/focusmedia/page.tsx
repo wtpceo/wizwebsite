@@ -232,7 +232,7 @@ export default function FocusMediaPage() {
                 initial={{ y: 24 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="mt-8 text-4xl font-extrabold leading-[1.12] tracking-tight text-white md:text-6xl lg:text-7xl"
+                className="mt-8 text-[clamp(2.25rem,5.5vw,6rem)] font-extrabold leading-[1.12] tracking-tight text-white"
               >
                 서울 아파트 엘리베이터
                 <br className="hidden md:block" />{" "}

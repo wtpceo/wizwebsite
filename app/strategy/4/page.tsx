@@ -137,7 +137,7 @@ export default function StrategyDetail() {
                 </span>
               </motion.div>
               <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight"
+                className="text-[clamp(2.25rem,4.8vw,5rem)] font-extrabold tracking-tight text-white leading-tight"
                 variants={getAnimation(fadeInUp)}
               >
                 언제까지 수수료<br className="hidden sm:block" /> 쉐어링 하시겠습니까?

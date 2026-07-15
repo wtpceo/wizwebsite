@@ -290,7 +290,7 @@ export default function NaverMarketingPage() {
 
           <div className="container relative z-10 px-4 text-center">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
+              <h1 className="text-[clamp(2.5rem,5.5vw,6rem)] font-bold mb-6 text-white leading-tight">
                 <span className="hidden md:inline">검색에서 발견되지 않는 다면<br />존재하지 않는것과 같습니다</span>
                 <span className="block md:hidden">검색에서 발견되지 않는 다면<br />존재하지 않는것과 같습니다</span>
               </h1>

@@ -70,7 +70,7 @@ export default function StrategyDetail() {
                 </span>
               </motion.div>
               <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight"
+                className="text-[clamp(2.25rem,4.8vw,5rem)] font-extrabold tracking-tight text-white leading-tight"
                 variants={getAnimation(fadeInUp)}
               >
                 "학부모는 소개만으로<br className="hidden sm:block" /> 등록하지 않습니다."

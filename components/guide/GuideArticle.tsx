@@ -35,7 +35,7 @@ export default function GuideArticle({
               가이드 목록
             </Link>
             <p className="mt-6 text-xs font-bold tracking-[0.25em] text-[#00e5a0]">{kicker}</p>
-            <h1 className="mt-3 text-3xl font-extrabold leading-snug tracking-tight text-white md:text-4xl">
+            <h1 className="mt-3 text-[clamp(1.875rem,3.4vw,3.25rem)] font-extrabold leading-snug tracking-tight text-white">
               {title}
             </h1>
             <p className="mt-4 text-base leading-relaxed text-slate-400 md:text-lg">{description}</p>
