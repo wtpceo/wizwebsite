@@ -1,12 +1,12 @@
 import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
-import HeroSection from "@/components/sections/HeroSection"
-import GeoSection from "@/components/sections/GeoSection"
-import DiagnosisSection from "@/components/sections/DiagnosisSection"
-import FocusMediaBanner from "@/components/sections/FocusMediaBanner"
-import ServicesSection from "@/components/sections/ServicesSection"
-import StrategySection from "@/components/sections/StrategySection"
-import PricingSection from "@/components/sections/PricingSection"
+import AgencyHero from "@/components/agency/AgencyHero"
+import StatsBand from "@/components/agency/StatsBand"
+import CoreServices from "@/components/agency/CoreServices"
+import ProductionTeam from "@/components/agency/ProductionTeam"
+import PortfolioShowcase from "@/components/agency/PortfolioShowcase"
+import MatzipTown from "@/components/agency/MatzipTown"
+import GuidePreview from "@/components/agency/GuidePreview"
 import TestimonialsSection from "@/components/sections/TestimonialsSection"
 import FaqSection from "@/components/sections/FaqSection"
 import ContactSection from "@/components/sections/ContactSection"
@@ -34,15 +34,15 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <Header />
-      <HeroSection />
-      <GeoSection />
-      <DiagnosisSection />
-      <ServicesSection />
-      <StrategySection />
-      <FocusMediaBanner />
-      <PricingSection />
+      <AgencyHero />
+      <StatsBand />
+      <CoreServices />
+      <ProductionTeam />
+      <PortfolioShowcase />
+      <MatzipTown />
       <TestimonialsSection />
       <FaqSection />
+      <GuidePreview />
       <ContactSection />
       <Footer />
     </main>
