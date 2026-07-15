@@ -24,7 +24,12 @@ export default function ChatWidget() {
         </span>
       </span>
 
-      <span className="relative whitespace-nowrap text-sm">실시간 상담</span>
+      <span className="relative flex flex-col leading-tight">
+        <span className="whitespace-nowrap text-sm font-bold">실시간 상담</span>
+        <span className="whitespace-nowrap text-[10px] font-medium text-[#0a3b2c]">
+          카카오톡으로 바로 연결
+        </span>
+      </span>
     </a>
   )
 }
