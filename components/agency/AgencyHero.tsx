@@ -52,20 +52,20 @@ export default function AgencyHero() {
       <div className="container relative px-4 py-24 md:px-6 md:py-32">
         {/* 좌측 정렬 매거진 스타일 */}
         <motion.div
-          className="flex max-w-3xl flex-col items-start text-left"
+          className="flex max-w-3xl flex-col items-start text-left xl:max-w-4xl 2xl:max-w-5xl"
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
         >
           <motion.div variants={fadeIn}>
-            <span className="text-xs font-bold tracking-[0.25em] text-[#00e5a0]">
+            <span className="text-[clamp(0.7rem,0.9vw,0.95rem)] font-bold tracking-[0.25em] text-[#00e5a0]">
               GEO · SEO · PERFORMANCE ADS · CONTENT
             </span>
           </motion.div>
 
           <motion.h1
             variants={fadeIn}
-            className="mt-6 text-4xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-5xl md:text-6xl xl:text-7xl"
+            className="mt-6 text-[clamp(2.25rem,5.5vw,6rem)] font-extrabold leading-[1.12] tracking-tight text-white"
           >
             <span className="bg-gradient-to-r from-[#00e5a0] to-sky-400 bg-clip-text text-transparent">
               AI가 추천하는
@@ -76,7 +76,7 @@ export default function AgencyHero() {
 
           <motion.p
             variants={fadeIn}
-            className="mt-6 max-w-[620px] text-base leading-relaxed text-slate-400 md:text-lg"
+            className="mt-6 max-w-[620px] text-[clamp(1rem,1.5vw,1.375rem)] leading-relaxed text-slate-400 xl:max-w-[760px]"
           >
             ChatGPT·퍼플렉시티·네이버 AI가 당신의 브랜드를 인용하게 만드는 GEO부터,
             기술 SEO·메타/구글 퍼포먼스 광고·자체 제작 콘텐츠·홈페이지까지.
