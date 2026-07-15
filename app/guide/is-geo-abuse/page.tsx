@@ -104,12 +104,17 @@ export default function Page() {
         </p>
 
         <h2>자주 묻는 오해 5가지</h2>
-        {FAQ.map((item, i) => (
-          <div key={i}>
-            <h3>Q{i + 1}. {item.q}</h3>
-            <p>{item.a}</p>
-          </div>
-        ))}
+        <div className="mt-6 space-y-4">
+          {FAQ.map((item, i) => (
+            <div key={i} className="rounded-2xl border border-gray-200 bg-[#f9fafb] p-5 md:p-6">
+              <p className="flex gap-2 text-lg font-bold leading-snug text-gray-900">
+                <span className="shrink-0 text-[#00b57f]">Q{i + 1}.</span>
+                <span>{item.q}</span>
+              </p>
+              <p className="mt-3 text-base leading-[1.85] text-gray-700">{item.a}</p>
+            </div>
+          ))}
+        </div>
 
         <Callout>
           진짜 편법은 오히려 위험합니다. 가짜 후기 작성·구매는 표시·광고법 위반으로 과징금·형사처벌
