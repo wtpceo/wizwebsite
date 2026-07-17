@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ChevronRight, BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows, Smile, Gem, TrendingDown, ShieldCheck } from "lucide-react"
+import { ChevronRight, BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows, Smile, Gem, TrendingDown, ShieldCheck, Car } from "lucide-react"
 import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
 
@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 // 카테고리 정의 (표시 순서)
 const CATEGORIES = [
   { key: "concern", label: "이런 고민, 있으세요?" },
+  { key: "case", label: "실제 사례" },
   { key: "basics", label: "GEO 기초" },
   { key: "playbook", label: "실전 전략" },
   { key: "industry", label: "업종별 가이드" },
@@ -27,6 +28,15 @@ const CATEGORIES = [
 ] as const
 
 const GUIDES = [
+  {
+    href: "/guide/case-mobile-carwash",
+    category: "case",
+    icon: Car,
+    kicker: "출장세차 사례",
+    title: "네이버만으로는 한계였던 출장세차 — 2개월 만에 구글 AI 개요에 뜨기까지",
+    desc: "네이버 플레이스·카페 홍보로 성장이 멈춰 있던 신도시 출장세차. 구글·카카오맵·네이버 정보 비대칭을 맞추고 홈페이지를 스키마 구조로 정비한 뒤, 2개월 만에 구글 AI 개요에 노출되고 이어서 ChatGPT 추천을 받기 시작한 실제 사례입니다.",
+    date: "2026. 7. 17",
+  },
   {
     href: "/guide/is-geo-abuse",
     category: "concern",
