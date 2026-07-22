@@ -17,14 +17,14 @@ export const metadata: Metadata = {
   },
 }
 
-// 카테고리 정의 (표시 순서)
+// 카테고리 정의 (표시 순서 + 스캔용 짧은 라벨/색상)
 const CATEGORIES = [
-  { key: "concern", label: "이런 고민, 있으세요?" },
-  { key: "case", label: "실제 사례" },
-  { key: "basics", label: "GEO 기초" },
-  { key: "playbook", label: "실전 전략" },
-  { key: "industry", label: "업종별 가이드" },
-  { key: "naver", label: "네이버·플랫폼" },
+  { key: "concern", label: "이런 고민, 있으세요?", short: "고민 진단", tile: "bg-amber-50 text-amber-600 ring-amber-100" },
+  { key: "case", label: "실제 사례", short: "실제 사례", tile: "bg-emerald-50 text-emerald-600 ring-emerald-100" },
+  { key: "basics", label: "GEO 기초", short: "GEO 기초", tile: "bg-sky-50 text-sky-600 ring-sky-100" },
+  { key: "playbook", label: "실전 전략", short: "실전 전략", tile: "bg-violet-50 text-violet-600 ring-violet-100" },
+  { key: "industry", label: "업종별 가이드", short: "업종별", tile: "bg-rose-50 text-rose-600 ring-rose-100" },
+  { key: "naver", label: "네이버·플랫폼", short: "네이버", tile: "bg-lime-50 text-lime-700 ring-lime-100" },
 ] as const
 
 const GUIDES = [
@@ -151,38 +151,93 @@ export default function GuidePage() {
           </div>
         </section>
 
+        {/* 카테고리 바로가기 — 원하는 주제로 즉시 이동 */}
+        <nav
+          aria-label="가이드 카테고리 바로가기"
+          className="sticky top-16 z-30 border-b border-gray-100 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70"
+        >
+          <div className="container mx-auto max-w-5xl px-4 md:px-6">
+            <ul className="flex snap-x gap-2 overflow-x-auto py-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {CATEGORIES.map((cat) => {
+                const count = GUIDES.filter((g) => g.category === cat.key).length
+                if (count === 0) return null
+                return (
+                  <li key={cat.key} className="snap-start">
+                    <a
+                      href={`#${cat.key}`}
+                      className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 transition-colors hover:border-emerald-500/50 hover:bg-emerald-50 hover:text-emerald-700"
+                    >
+                      {cat.short}
+                      <span className="text-xs font-bold text-gray-400">{count}</span>
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        </nav>
+
+        {/* 최신 글 — 새로 올라온 글을 먼저 보여줌 */}
+        <section className="container mx-auto max-w-5xl px-4 pt-12 md:px-6 md:pt-16">
+          <h2 className="mb-5 flex items-center gap-3 text-lg font-extrabold tracking-tight text-gray-900">
+            <span className="h-5 w-1 rounded-full bg-[#00e5a0]" />
+            최신 글
+          </h2>
+          <div className="grid gap-4 md:grid-cols-3">
+            {GUIDES.slice(0, 3).map((g) => {
+              const cat = CATEGORIES.find((c) => c.key === g.category)
+              return (
+                <Link
+                  key={g.href}
+                  href={g.href}
+                  className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-5 transition-all hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/[0.07]"
+                >
+                  <div className={`w-fit rounded-xl p-2.5 ring-1 ${cat?.tile ?? "bg-emerald-50 text-emerald-600 ring-emerald-100"}`}>
+                    <g.icon className="h-5 w-5" />
+                  </div>
+                  <p className="mt-3 text-[11px] font-bold tracking-[0.2em] text-emerald-600">{g.kicker}</p>
+                  <h3 className="mt-1.5 line-clamp-3 text-base font-extrabold leading-snug tracking-tight text-gray-900 group-hover:text-emerald-700">
+                    {g.title}
+                  </h3>
+                  <p className="mt-auto pt-3 text-xs text-gray-400">{g.date}</p>
+                </Link>
+              )
+            })}
+          </div>
+        </section>
+
         {/* 카테고리별 아티클 목록 */}
-        <section className="container mx-auto max-w-4xl px-4 py-14 md:px-6 md:py-20">
-          <div className="space-y-14">
+        <section className="container mx-auto max-w-5xl px-4 py-12 md:px-6 md:py-16">
+          <div className="space-y-12">
             {CATEGORIES.map((cat) => {
               const items = GUIDES.filter((g) => g.category === cat.key)
               if (items.length === 0) return null
               return (
-                <div key={cat.key}>
+                <div key={cat.key} id={cat.key} className="scroll-mt-32">
                   <h2 className="mb-5 flex items-center gap-3 text-lg font-extrabold tracking-tight text-gray-900">
                     <span className="h-5 w-1 rounded-full bg-[#00e5a0]" />
                     {cat.label}
                     <span className="text-sm font-medium text-gray-400">{items.length}</span>
                   </h2>
-                  <div className="space-y-4">
+                  <div className="grid gap-4 md:grid-cols-2">
                     {items.map((g) => (
                       <Link
                         key={g.href}
                         href={g.href}
-                        className="group flex items-start gap-5 rounded-2xl border border-gray-200 bg-white p-6 transition-all hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/[0.07] md:p-7"
+                        className="group flex items-start gap-4 rounded-2xl border border-gray-200 bg-white p-5 transition-all hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/[0.07]"
                       >
-                        <div className="hidden rounded-xl bg-emerald-50 p-3 text-emerald-600 ring-1 ring-emerald-100 sm:block">
-                          <g.icon className="h-6 w-6" />
+                        <div className={`shrink-0 rounded-xl p-2.5 ring-1 ${cat.tile}`}>
+                          <g.icon className="h-5 w-5" />
                         </div>
                         <div className="min-w-0 flex-1">
                           <p className="text-[11px] font-bold tracking-[0.2em] text-emerald-600">{g.kicker}</p>
-                          <h3 className="mt-1.5 text-lg font-extrabold tracking-tight text-gray-900 group-hover:text-emerald-700 md:text-xl">
+                          <h3 className="mt-1 line-clamp-2 text-base font-extrabold leading-snug tracking-tight text-gray-900 group-hover:text-emerald-700">
                             {g.title}
                           </h3>
-                          <p className="mt-2 text-sm leading-relaxed text-gray-600 md:text-base">{g.desc}</p>
-                          <p className="mt-3 text-xs text-gray-400">{g.date}</p>
+                          <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-gray-600">{g.desc}</p>
+                          <p className="mt-2 text-xs text-gray-400">{g.date}</p>
                         </div>
-                        <ChevronRight className="mt-1 h-5 w-5 shrink-0 text-gray-300 transition-colors group-hover:text-emerald-600" />
+                        <ChevronRight className="mt-0.5 h-5 w-5 shrink-0 text-gray-300 transition-colors group-hover:text-emerald-600" />
                       </Link>
                     ))}
                   </div>
