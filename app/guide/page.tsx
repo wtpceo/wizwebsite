@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ChevronRight, BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows, Smile, Gem, TrendingDown, ShieldCheck, Car } from "lucide-react"
+import { ChevronRight, BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows, Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert } from "lucide-react"
 import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
 
@@ -28,6 +28,15 @@ const CATEGORIES = [
 ] as const
 
 const GUIDES = [
+  {
+    href: "/guide/case-urology-clinic",
+    category: "case",
+    icon: ShieldAlert,
+    kicker: "비뇨기과 사례",
+    title: "ChatGPT에 아예 안 뜨던 비뇨기과 — 원인은 홈페이지 방화벽이었습니다",
+    desc: "콘텐츠 문제가 아니었습니다. 제작사가 기본값으로 남겨둔 보안 방화벽이 AI 크롤러까지 막고 있었습니다. 차단 해제와 홈페이지 전면 개선 후 6개월, ChatGPT·구글·네이버 모두에 안정적으로 노출되기까지의 실제 사례입니다.",
+    date: "2026. 7. 17",
+  },
   {
     href: "/guide/case-mobile-carwash",
     category: "case",
