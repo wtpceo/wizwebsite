@@ -1,7 +1,7 @@
 import type { LucideIcon } from "lucide-react"
 import {
   BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows,
-  Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck,
+  Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck, FileSearch,
 } from "lucide-react"
 
 // 가이드 카테고리 (표시 순서 + 스캔용 짧은 라벨/색상)
@@ -30,6 +30,16 @@ export type GuideArticle = {
 
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
+  {
+    href: "/guide/case-blog-omission",
+    category: "case",
+    icon: FileSearch,
+    kicker: "블로그 누락 사례",
+    title: "블로그 글이 자꾸 누락된다면 — 저품질이 아니라 '키워드'가 문제였습니다",
+    desc: "5~6회 연속 누락에 플레이스 리뷰에도 반영되지 않던 블로그. 저품질을 의심했지만 단계별 테스트로 확인한 원인은 달랐습니다. 블로그의 체급에 맞는 전략으로 바꾸자 누락 없이 다시 성장하기 시작했습니다.",
+    date: "2026. 7. 19",
+    related: ["/guide/naver-place-checklist", "/guide/ai-engines-cite-differently", "/guide/case-mobile-carwash"],
+  },
   {
     href: "/guide/check-hospital-ai-visibility",
     category: "industry",
