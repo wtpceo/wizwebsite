@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ChevronRight, BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows, Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert } from "lucide-react"
+import { ChevronRight, BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows, Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck } from "lucide-react"
 import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
 
@@ -28,6 +28,15 @@ const CATEGORIES = [
 ] as const
 
 const GUIDES = [
+  {
+    href: "/guide/check-hospital-ai-visibility",
+    category: "industry",
+    icon: SearchCheck,
+    kicker: "병원 GEO 셀프 체크",
+    title: "우리 병원이 ChatGPT에 나오는지 5분 만에 확인하는 법",
+    desc: "환자는 이제 AI에게 병원을 묻습니다. 우리 병원이 그 답변에 나오는지, 정보가 틀리게 안내되진 않는지 원장님이 직접 확인하는 3단계와, 결과별로 무엇을 해야 하는지 정리했습니다.",
+    date: "2026. 7. 18",
+  },
   {
     href: "/guide/case-urology-clinic",
     category: "case",
