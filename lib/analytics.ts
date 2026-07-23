@@ -15,6 +15,8 @@ export function trackEvent(eventName: string, params: EventParams = {}) {
     window.gtag("event", eventName, {
       // 어느 페이지에서 전환됐는지 — 글별 성과 분석용
       page_path: window.location.pathname,
+      // 새 탭 이동·페이지 이탈 중에도 전송이 끊기지 않도록 beacon 사용
+      transport_type: "beacon",
       ...params,
     })
   } catch {
