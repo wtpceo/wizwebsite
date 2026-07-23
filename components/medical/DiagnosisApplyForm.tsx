@@ -16,6 +16,16 @@ const 진료과_옵션 = [
   "이비인후과", "비뇨의학과", "산부인과", "한의원", "기타",
 ]
 
+// 유입 경로 — AI 검색 유입 비중을 실제 데이터로 쌓기 위한 항목
+const 유입경로_옵션 = [
+  "ChatGPT·퍼플렉시티 등 AI 추천",
+  "구글 검색",
+  "네이버 검색",
+  "지인 소개",
+  "인스타그램·블로그",
+  "기타",
+]
+
 export default function DiagnosisApplyForm() {
   const [submitting, setSubmitting] = useState(false)
   const [done, setDone] = useState(false)
@@ -26,6 +36,7 @@ export default function DiagnosisApplyForm() {
     region: "",
     specialty: "",
     homepage: "",
+    source: "",
   })
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -50,7 +61,8 @@ export default function DiagnosisApplyForm() {
           `연락처: ${form.phone}\n` +
           `지역: ${form.region}\n` +
           `진료과: ${form.specialty}\n` +
-          `홈페이지: ${form.homepage || "없음"}`,
+          `홈페이지: ${form.homepage || "없음"}\n` +
+          `유입 경로: ${form.source || "미응답"}`,
       }
       const res = await fetch(window.location.origin + "/api/contact", {
         method: "POST",
@@ -59,7 +71,7 @@ export default function DiagnosisApplyForm() {
       })
       if (!res.ok) throw new Error("전송 실패")
       setDone(true)
-      setForm({ hospital: "", name: "", phone: "", region: "", specialty: "", homepage: "" })
+      setForm({ hospital: "", name: "", phone: "", region: "", specialty: "", homepage: "", source: "" })
     } catch {
       alert("전송 중 문제가 발생했습니다. 전화(1670-0704)로 문의해 주세요.")
     } finally {
@@ -144,6 +156,17 @@ export default function DiagnosisApplyForm() {
                 <div>
                   <label htmlFor="homepage" className="mb-1.5 block text-sm font-medium text-gray-700">홈페이지 주소 <span className="text-gray-400">(있으면)</span></label>
                   <Input id="homepage" name="homepage" value={form.homepage} onChange={onChange} placeholder="https://" className={inputCls} />
+                </div>
+                <div>
+                  <label htmlFor="source" className="mb-1.5 block text-sm font-medium text-gray-700">
+                    저희를 어떻게 알게 되셨나요? <span className="text-gray-400">(선택)</span>
+                  </label>
+                  <select id="source" name="source" value={form.source} onChange={onChange} className={inputCls}>
+                    <option value="">선택</option>
+                    {유입경로_옵션.map((s) => (
+                      <option key={s} value={s}>{s}</option>
+                    ))}
+                  </select>
                 </div>
               </div>
 

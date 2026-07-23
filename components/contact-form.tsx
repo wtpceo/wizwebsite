@@ -17,6 +17,16 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 
+// 유입 경로 — AI 검색 유입 비중을 실제 데이터로 쌓기 위한 항목
+const SOURCE_OPTIONS = [
+  "ChatGPT·퍼플렉시티 등 AI 추천",
+  "구글 검색",
+  "네이버 검색",
+  "지인 소개",
+  "인스타그램·블로그",
+  "기타",
+]
+
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
@@ -24,6 +34,7 @@ export default function ContactForm() {
     phone: "",
     email: "",
     storeName: "",
+    source: "",
     message: "",
   })
   const [alertOpen, setAlertOpen] = useState(false)
@@ -33,7 +44,9 @@ export default function ContactForm() {
     isSuccess: true
   })
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
@@ -50,12 +63,18 @@ export default function ContactForm() {
       const apiUrl = window.location.origin + '/api/contact';
       console.log('API 요청 URL:', apiUrl);
       
+      // 유입 경로는 API 스키마 변경 없이 문의내용 끝에 덧붙여 전달
+      const payload = {
+        ...formData,
+        message: `${formData.message}\n\n─────\n유입 경로: ${formData.source || "미응답"}`,
+      };
+
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
       
       // 응답 객체 로깅
@@ -101,7 +120,7 @@ export default function ContactForm() {
       setAlertOpen(true)
       
       // 폼 초기화
-      setFormData({ name: "", phone: "", email: "", storeName: "", message: "" })
+      setFormData({ name: "", phone: "", email: "", storeName: "", source: "", message: "" })
     } catch (error) {
       console.error('문의 제출 오류:', error); // 오류 로깅
       setIsSubmitting(false)
@@ -174,6 +193,24 @@ export default function ContactForm() {
               required
               className="h-12 bg-gray-50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500/20"
             />
+          </div>
+
+          <div className="space-y-2">
+            <label htmlFor="source" className="text-sm font-medium text-gray-700">
+              저희를 어떻게 알게 되셨나요? <span className="text-gray-400">(선택)</span>
+            </label>
+            <select
+              id="source"
+              name="source"
+              value={formData.source}
+              onChange={handleChange}
+              className="h-12 w-full rounded-md border border-gray-200 bg-gray-50 px-3 text-gray-900 outline-none transition-colors focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+            >
+              <option value="">선택</option>
+              {SOURCE_OPTIONS.map((s) => (
+                <option key={s} value={s}>{s}</option>
+              ))}
+            </select>
           </div>
 
           <div className="space-y-2">
