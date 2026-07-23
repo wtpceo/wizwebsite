@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
-import { X } from "lucide-react"
+import { X, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function Header() {
@@ -15,7 +15,7 @@ export default function Header() {
   const menuTexts: Record<string, string> = {
     services: '서비스',
     team: '제작팀',
-    diagnosis: '병원 무료진단',
+    medical: '병원',
     portfolio: '포트폴리오',
     guide: '인사이트',
     faq: 'FAQ',
@@ -23,11 +23,25 @@ export default function Header() {
     consultation: '상담 문의'
   };
 
+  // 병원 드롭다운 하위 항목 (앞으로 진료과별 페이지도 여기에 추가)
+  const medicalSubItems = [
+    {
+      href: '/medical-geo-agency',
+      label: '병원 GEO 대행',
+      desc: '병원·의원 AI 검색 최적화 서비스',
+    },
+    {
+      href: '/medical-diagnosis',
+      label: '무료 AI 검색 진단',
+      desc: '우리 병원 현재 상태 확인 (병원 한정 무료)',
+    },
+  ];
+
   // 메뉴 항목과 해당 앵커 ID
   const menuItems = [
     { key: 'services', anchor: 'services' },
     { key: 'team', anchor: 'team' },
-    { key: 'diagnosis', href: '/medical-diagnosis', isExternal: true, highlight: true },
+    { key: 'medical', isDropdown: true, highlight: true },
     { key: 'portfolio', href: '/portfolio', isExternal: true },
     { key: 'guide', href: '/guide', isExternal: true },
     { key: 'faq', anchor: 'faq' },
@@ -79,6 +93,12 @@ export default function Header() {
 
   // 현재 보고 있는 페이지/섹션에 해당하는 메뉴 활성 여부
   const isActive = (item: (typeof menuItems)[number]) => {
+    // 병원 드롭다운 — 하위 항목 중 하나라도 현재 경로면 활성
+    if (item.isDropdown) {
+      return medicalSubItems.some(
+        (s) => pathname === s.href || pathname.startsWith(s.href + "/")
+      )
+    }
     // 실제 페이지 링크 (하위 경로 포함)
     if (item.isExternal && item.href) {
       return pathname === item.href || pathname.startsWith(item.href + "/")
@@ -112,7 +132,55 @@ export default function Header() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.1 * i }}
+              className={item.isDropdown ? "group relative" : undefined}
             >
+              {item.isDropdown ? (
+                <>
+                  {/* 병원 메뉴 — hover/focus 시 하위 메뉴 노출 */}
+                  <button
+                    type="button"
+                    aria-haspopup="true"
+                    aria-current={isActive(item) ? "page" : undefined}
+                    className={
+                      isActive(item)
+                        ? "inline-flex items-center gap-1 rounded-full bg-[#00e5a0] px-3 py-1 text-sm font-bold text-[#070b14]"
+                        : "inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-sm font-bold text-emerald-600 transition-colors hover:bg-emerald-100"
+                    }
+                  >
+                    <span className={isActive(item) ? "h-1.5 w-1.5 rounded-full bg-[#070b14]" : "h-1.5 w-1.5 rounded-full bg-[#00e5a0]"} />
+                    {menuTexts[item.key]}
+                    <ChevronDown className="h-3.5 w-3.5" />
+                  </button>
+
+                  {/* 하위 메뉴 — 마우스가 빠져나가도 끊기지 않도록 위쪽 여백 포함 */}
+                  <div className="invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                    <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white p-2 shadow-xl">
+                      {medicalSubItems.map((sub) => {
+                        const subActive = pathname === sub.href || pathname.startsWith(sub.href + "/")
+                        return (
+                          <Link
+                            key={sub.href}
+                            href={sub.href}
+                            aria-current={subActive ? "page" : undefined}
+                            className={
+                              subActive
+                                ? "block rounded-xl bg-emerald-50 px-3 py-2.5"
+                                : "block rounded-xl px-3 py-2.5 transition-colors hover:bg-gray-50"
+                            }
+                          >
+                            <span className={subActive ? "block text-sm font-bold text-emerald-700" : "block text-sm font-bold text-gray-900"}>
+                              {sub.label}
+                            </span>
+                            <span className="mt-0.5 block text-xs leading-relaxed text-gray-500">
+                              {sub.desc}
+                            </span>
+                          </Link>
+                        )
+                      })}
+                    </div>
+                  </div>
+                </>
+              ) : (
               <Link
                 href={hrefFor(item)}
                 aria-current={isActive(item) ? "page" : undefined}
@@ -131,6 +199,7 @@ export default function Header() {
                 )}
                 {menuTexts[item.key]}
               </Link>
+              )}
             </motion.div>
           ))}
         </nav>
@@ -187,21 +256,50 @@ export default function Header() {
             <ul className="flex flex-col">
               {menuItems.map((item) => (
                 <li key={item.key}>
-                  <Link
-                    href={hrefFor(item)}
-                    onClick={() => setOpen(false)}
-                    aria-current={isActive(item) ? "page" : undefined}
-                    className={
-                      item.highlight
-                        ? "flex items-center gap-2 border-b border-gray-50 py-3.5 text-base font-bold text-emerald-600 transition-colors"
-                        : isActive(item)
+                  {item.isDropdown ? (
+                    /* 모바일에선 호버가 없으므로 하위 항목을 들여쓰기로 펼쳐 표시 */
+                    <div className="border-b border-gray-50 py-3">
+                      <span className="flex items-center gap-2 text-base font-bold text-emerald-600">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#00e5a0]" />
+                        {menuTexts[item.key]}
+                      </span>
+                      <ul className="mt-1.5 flex flex-col gap-0.5 pl-3.5">
+                        {medicalSubItems.map((sub) => {
+                          const subActive = pathname === sub.href || pathname.startsWith(sub.href + "/")
+                          return (
+                            <li key={sub.href}>
+                              <Link
+                                href={sub.href}
+                                onClick={() => setOpen(false)}
+                                aria-current={subActive ? "page" : undefined}
+                                className={
+                                  subActive
+                                    ? "block py-2 text-sm font-bold text-emerald-600"
+                                    : "block py-2 text-sm font-medium text-gray-600 transition-colors hover:text-emerald-600"
+                                }
+                              >
+                                {sub.label}
+                              </Link>
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    </div>
+                  ) : (
+                    <Link
+                      href={hrefFor(item)}
+                      onClick={() => setOpen(false)}
+                      aria-current={isActive(item) ? "page" : undefined}
+                      className={
+                        isActive(item)
                           ? "flex items-center gap-2 border-b border-gray-50 py-3.5 text-base font-bold text-emerald-600"
                           : "block border-b border-gray-50 py-3.5 text-base font-medium text-gray-800 transition-colors hover:text-emerald-600"
-                    }
-                  >
-                    {(item.highlight || isActive(item)) && <span className="h-1.5 w-1.5 rounded-full bg-[#00e5a0]" />}
-                    {menuTexts[item.key]}
-                  </Link>
+                      }
+                    >
+                      {isActive(item) && <span className="h-1.5 w-1.5 rounded-full bg-[#00e5a0]" />}
+                      {menuTexts[item.key]}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
