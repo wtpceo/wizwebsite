@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import DiagnosisPopup from '@/components/DiagnosisPopup'
 import ChatWidget from '@/components/ChatWidget'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 // 캐시 무효화를 위한 타임스탬프
 const timestamp = Date.now();
@@ -169,6 +170,7 @@ export default function RootLayout({
         <ChatWidget />
         <DiagnosisPopup />
       </body>
+      <GoogleAnalytics gaId="G-CF8977QJ2V" />
     </html>
   )
 }
