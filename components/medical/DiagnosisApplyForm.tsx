@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { CheckCircle2, ChevronRight, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { trackDiagnosisSubmit } from "@/lib/analytics"
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -70,6 +71,7 @@ export default function DiagnosisApplyForm() {
         body: JSON.stringify(payload),
       })
       if (!res.ok) throw new Error("전송 실패")
+      trackDiagnosisSubmit({ specialty: form.specialty, source: form.source })
       setDone(true)
       setForm({ hospital: "", name: "", phone: "", region: "", specialty: "", homepage: "", source: "" })
     } catch {

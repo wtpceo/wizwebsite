@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { toast } from "@/components/ui/use-toast"
 import { Toaster } from "@/components/ui/toaster"
 import { motion } from "framer-motion"
+import { trackContactSubmit } from "@/lib/analytics"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -105,6 +106,7 @@ export default function ContactForm() {
       }
 
       // 성공 메시지 표시
+      trackContactSubmit({ source: formData.source })
       setIsSubmitting(false)
       toast({
         title: "상담 신청이 완료되었습니다",
