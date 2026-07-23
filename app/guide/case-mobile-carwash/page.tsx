@@ -39,6 +39,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <GuideArticle
+        href="/guide/case-mobile-carwash"
         kicker="CASE STUDY"
         title={TITLE}
         description={DESC}

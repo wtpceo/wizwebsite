@@ -32,7 +32,7 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <GuideArticle kicker="DENTAL GEO" title={TITLE} description={DESC} date="2026년 7월 9일">
+      <GuideArticle href="/guide/dental-geo" kicker="DENTAL GEO" title={TITLE} description={DESC} date="2026년 7월 9일">
         <p>
           결론부터 말씀드리면, 치과의 AI 검색 최적화(GEO)는 <strong>"치료효과를 자랑하는 것"이 아니라
           "AI가 신뢰하고 인용할 수 있는 사실 정보를 갖추는 것"</strong>입니다. 치과는{" "}

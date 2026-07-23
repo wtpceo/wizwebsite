@@ -32,7 +32,7 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <GuideArticle kicker="마케팅 고민 진단" title={TITLE} description={DESC} date="2026년 7월 9일">
+      <GuideArticle href="/guide/why-ads-stop-working" kicker="마케팅 고민 진단" title={TITLE} description={DESC} date="2026년 7월 9일">
         <p>
           결론부터 말씀드리면, 광고비를 늘려도 문의가 안 늘어난다면 <strong>우리 매장이나 광고 소재의
           문제가 아니라, 고객이 매장을 찾는 방식 자체가 바뀌었을 가능성</strong>이 큽니다. 예전엔

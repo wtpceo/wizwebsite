@@ -32,7 +32,7 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <GuideArticle kicker="SKINCARE GEO" title={TITLE} description={DESC} date="2026년 7월 9일">
+      <GuideArticle href="/guide/skincare-geo" kicker="SKINCARE GEO" title={TITLE} description={DESC} date="2026년 7월 9일">
         <p>
           결론부터 말씀드리겠습니다. 피부관리샵·에스테틱은 <strong>AI 검색에서 "홈페이지"가 승부처</strong>인
           업종입니다. 같은 GEO(생성형 검색 최적화)라도 업종마다 AI가 근거로 삼는 출처가 다른데, 에스테틱은

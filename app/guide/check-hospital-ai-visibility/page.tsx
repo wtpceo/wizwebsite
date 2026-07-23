@@ -74,6 +74,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <GuideArticle
+        href="/guide/check-hospital-ai-visibility"
         kicker="병원 GEO 셀프 체크"
         title={TITLE}
         description={DESC}

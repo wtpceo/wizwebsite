@@ -31,7 +31,7 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <GuideArticle kicker="NAVER PLACE" title={TITLE} description={DESC} date="2026년 7월 8일">
+      <GuideArticle href="/guide/naver-place-checklist" kicker="NAVER PLACE" title={TITLE} description={DESC} date="2026년 7월 8일">
         <p>
           고객은 매장을 소개받아도 결국 네이버에 검색하고, 가장 먼저 나오는 플레이스를 보고
           첫인상을 결정합니다. 게다가 네이버 AI와 ChatGPT 같은 생성형 AI도{" "}

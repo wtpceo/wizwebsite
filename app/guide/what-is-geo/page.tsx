@@ -31,7 +31,7 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <GuideArticle kicker="GEO BASICS" title={TITLE} description={DESC} date="2026년 7월 8일">
+      <GuideArticle href="/guide/what-is-geo" kicker="GEO BASICS" title={TITLE} description={DESC} date="2026년 7월 8일">
         <p>
           결론부터 말씀드리면, AI 검색 최적화(GEO, Generative Engine Optimization)는{" "}
           <strong>ChatGPT, 퍼플렉시티, 네이버 AI 같은 생성형 AI가 답변을 만들 때 우리 매장을 인용하고

@@ -3,6 +3,7 @@ import { ChevronRight, ChevronLeft } from "lucide-react"
 import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
+import RelatedArticles from "@/components/guide/RelatedArticles"
 
 // 가이드 아티클 공용 레이아웃 (서버 컴포넌트 — 정적 렌더링이라 크롤러/AI가 그대로 읽음)
 export default function GuideArticle({
@@ -10,12 +11,15 @@ export default function GuideArticle({
   title,
   description,
   date,
+  href,
   children,
 }: {
   kicker?: string
   title: string
   description: string
   date: string
+  /** 이 글의 경로 — "이어서 읽기" 추천에 사용 */
+  href?: string
   children: React.ReactNode
 }) {
   return (
@@ -48,8 +52,11 @@ export default function GuideArticle({
           {children}
         </article>
 
+        {/* 이어서 읽기 — 관련 글로 회독 유도 + 내부 링크 강화 */}
+        {href && <RelatedArticles currentHref={href} />}
+
         {/* CTA */}
-        <section className="container mx-auto max-w-3xl px-4 pb-20 md:px-6">
+        <section className="container mx-auto max-w-3xl px-4 pb-20 pt-10 md:px-6">
           <div className="rounded-3xl bg-gradient-to-r from-[#0b1220] to-[#101b2e] px-8 py-10 text-center shadow-xl">
             <h2 className="text-xl font-extrabold text-white md:text-2xl">
               우리 가게, AI에게 물어보면 나올까요?

@@ -31,7 +31,7 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <GuideArticle kicker="GEO PLAYBOOK" title={TITLE} description={DESC} date="2026년 7월 8일">
+      <GuideArticle href="/guide/get-cited-by-ai" kicker="GEO PLAYBOOK" title={TITLE} description={DESC} date="2026년 7월 8일">
         <p>
           AI가 실제로 인용한 페이지들을 분석해 보면 공통 구조가 보입니다. 명확한 매장 식별 정보,
           실용 정보(위치·연락처·영업시간), 신뢰 요소(리뷰·평점), 구조화된 콘텐츠. 아래 7가지는 저희가

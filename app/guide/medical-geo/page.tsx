@@ -31,7 +31,7 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <GuideArticle kicker="MEDICAL GEO" title={TITLE} description={DESC} date="2026년 7월 9일">
+      <GuideArticle href="/guide/medical-geo" kicker="MEDICAL GEO" title={TITLE} description={DESC} date="2026년 7월 9일">
         <p>
           병원·의원의 AI 검색 최적화(GEO)는 일반 업종과 결정적으로 다른 점이 하나 있습니다. 바로{" "}
           <strong>의료광고법</strong>입니다. AI에 잘 인용되려고 "환자 치료후기"나 "부작용 없는 시술"

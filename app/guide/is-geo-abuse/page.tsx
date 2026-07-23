@@ -73,7 +73,7 @@ export default function Page() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
-      <GuideArticle kicker="MARKETING BASICS" title={TITLE} description={DESC} date="2026년 7월 15일">
+      <GuideArticle href="/guide/is-geo-abuse" kicker="MARKETING BASICS" title={TITLE} description={DESC} date="2026년 7월 15일">
         <p>
           "SEO나 GEO는 검색엔진을 속이는 편법 아니야?", "AI한테 우리를 추천하라고 조작하는 거 아니야?" —
           상담을 하다 보면 이런 오해를 가진 분들을 종종 만납니다. 결론부터 말씀드리면,{" "}

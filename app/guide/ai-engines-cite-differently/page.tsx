@@ -31,7 +31,7 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <GuideArticle kicker="GEO INSIGHT" title={TITLE} description={DESC} date="2026년 7월 9일">
+      <GuideArticle href="/guide/ai-engines-cite-differently" kicker="GEO INSIGHT" title={TITLE} description={DESC} date="2026년 7월 9일">
         <p>
           "우리 동네 맛집 추천해줘"라고 네이버 AI, ChatGPT, 구글에 각각 물어보면 <strong>서로 다른
           가게가 나옵니다.</strong> 겹치는 경우가 오히려 드뭅니다. 이유는 단순합니다. 엔진마다 답변의
