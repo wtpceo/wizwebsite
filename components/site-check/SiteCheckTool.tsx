@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import {
-  Search, Loader2, CheckCircle2, AlertTriangle, XCircle, ChevronRight, RotateCcw,
+  Search, Loader2, CheckCircle2, AlertTriangle, XCircle, ChevronRight, RotateCcw, Lock,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { trackEvent } from "@/lib/analytics"
@@ -183,24 +183,69 @@ export default function SiteCheckTool() {
             })}
           </div>
 
-          {/* 전환 CTA — AI 최적화는 시간이 걸리니 상담으로 */}
-          <div className="rounded-3xl bg-gradient-to-r from-[#0b1220] to-[#101b2e] px-6 py-10 text-center shadow-xl md:px-10">
-            <h2 className="text-xl font-extrabold text-white md:text-2xl">
-              기초 점검은 끝났습니다. 진짜 문제는 그다음입니다.
-            </h2>
-            <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-400 md:text-base">
-              이 진단은 홈페이지의 <strong className="text-slate-200">구조·기술 상태</strong>만 확인합니다.
-              실제로 ChatGPT·네이버 AI가 우리를 추천하는지, 채널별 정보가 어긋나 있지는 않은지는
-              사람이 직접 측정해야 합니다. AI 최적화는 하루아침에 되지 않고 몇 주~몇 개월이 걸리기 때문에,
-              현재 상태를 정확히 진단하고 순서를 잡는 것이 먼저입니다.
-            </p>
-            <Link href="/#contact" className="mt-7 inline-block">
-              <Button size="lg" className="gap-1 bg-[#00e5a0] px-8 py-6 text-base font-bold text-[#070b14] hover:bg-[#3cf0bb]">
-                전문가 AI 검색 진단 문의하기
-                <ChevronRight className="h-5 w-5" />
-              </Button>
-            </Link>
-            <p className="mt-3 text-xs text-slate-500">병원·의원은 100% 무료 진단 제공</p>
+          {/* 2단계 안내 — 방금 본 건 '홈페이지 상태'일 뿐, AI 실제 노출은 정밀 진단 필요 */}
+          <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-[#0b1220] to-[#101b2e] shadow-xl">
+            <div className="relative px-6 py-9 md:px-10">
+              <div className="geo-grid-bg absolute inset-0 opacity-40" />
+              <div className="relative">
+                {/* 단계 표시 */}
+                <div className="flex items-center gap-3 text-sm">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/5 px-3 py-1 font-semibold text-emerald-400">
+                    <CheckCircle2 className="h-4 w-4" /> 1단계 · 홈페이지 상태 확인 완료
+                  </span>
+                </div>
+                <h2 className="mt-4 text-xl font-extrabold leading-snug text-white md:text-2xl">
+                  {report.summary.fail > 0
+                    ? `취약 항목 ${report.summary.fail}개가 발견됐습니다. 그런데 이건 절반뿐입니다.`
+                    : "홈페이지 구조는 확인했습니다. 그런데 이건 절반뿐입니다."}
+                </h2>
+                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-400 md:text-base">
+                  이 진단은 홈페이지의 <strong className="text-slate-200">구조·기술 상태</strong>를 보여줍니다.
+                  하지만 <strong className="text-slate-200">실제로 ChatGPT·네이버 AI가 우리를 얼마나
+                  추천하는지</strong>는 이 화면으로 알 수 없습니다. 사람이 여러 질문을 반복 측정해야만
+                  나오는 데이터이기 때문입니다.
+                </p>
+
+                {/* 2단계에서만 알 수 있는 것 — 잠금 프리뷰 */}
+                <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+                  <p className="flex items-center gap-2 text-xs font-bold tracking-wider text-emerald-400">
+                    <Lock className="h-3.5 w-3.5" />
+                    2단계 · GEO 최적화 정밀 진단에서만 확인 가능
+                  </p>
+                  <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
+                    {[
+                      "AI 엔진별 노출 점유율 (네이버·ChatGPT·제미나이)",
+                      "우리 대신 추천되는 경쟁사 분석",
+                      "AI가 잘못 안내하는 오정보 목록",
+                      "채널 간 정보 불일치(비대칭) 점검",
+                      "인용받기 위한 개선 우선순위 로드맵",
+                    ].map((t) => (
+                      <li key={t} className="flex items-start gap-2 text-sm text-slate-300">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#00e5a0]" />
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <p className="mt-5 text-sm leading-relaxed text-slate-400">
+                  AI 최적화는 하루아침에 되지 않고 보통 <strong className="text-slate-200">몇 주~몇 개월</strong>이
+                  걸립니다. 그래서 지금 정확히 진단하고 순서를 잡는 것이 먼저입니다.
+                </p>
+
+                <div className="mt-7">
+                  <Link href="/#contact" onClick={() => trackEvent("site_check_cta", { grade: report.grade })}>
+                    <Button size="lg" className="gap-1 bg-[#00e5a0] px-8 py-6 text-base font-bold text-[#070b14] hover:bg-[#3cf0bb]">
+                      GEO 최적화 진단 요청하기
+                      <ChevronRight className="h-5 w-5" />
+                    </Button>
+                  </Link>
+                  <p className="mt-3 text-xs text-slate-500">
+                    담당 전문가가 정밀 진단 리포트를 만들어 직접 설명드립니다 · 병원·의원은 100% 무료
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div className="text-center">
