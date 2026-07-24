@@ -14,6 +14,7 @@ export default function Header() {
 
   const menuTexts: Record<string, string> = {
     services: '서비스',
+    sitecheck: '무료 진단',
     team: '제작팀',
     medical: '병원',
     portfolio: '포트폴리오',
@@ -40,6 +41,7 @@ export default function Header() {
   // 메뉴 항목과 해당 앵커 ID
   const menuItems = [
     { key: 'services', anchor: 'services' },
+    { key: 'sitecheck', href: '/site-check', isExternal: true },
     { key: 'team', anchor: 'team' },
     { key: 'medical', isDropdown: true, highlight: true },
     { key: 'portfolio', href: '/portfolio', isExternal: true },

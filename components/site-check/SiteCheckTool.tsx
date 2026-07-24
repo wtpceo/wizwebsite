@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import {
   Search, Loader2, CheckCircle2, AlertTriangle, XCircle, ChevronRight, RotateCcw,
@@ -42,6 +42,13 @@ export default function SiteCheckTool() {
   const [error, setError] = useState("")
   const [report, setReport] = useState<Report | null>(null)
 
+  // 결과가 뜬 상태에서 '뒤로가기' 하면 사이트를 떠나지 않고 입력 화면으로 돌아오게
+  useEffect(() => {
+    const onPop = () => setReport(null)
+    window.addEventListener("popstate", onPop)
+    return () => window.removeEventListener("popstate", onPop)
+  }, [])
+
   const run = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!url.trim() || loading) return
@@ -60,6 +67,8 @@ export default function SiteCheckTool() {
         setError(data?.error || "진단 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.")
       } else {
         setReport(data)
+        // 히스토리에 결과 상태를 쌓아 '뒤로가기'가 입력 화면으로 돌아오게
+        window.history.pushState({ siteCheckResult: true }, "")
         trackEvent("site_check_result", { score: data.score, grade: data.grade })
       }
     } catch {

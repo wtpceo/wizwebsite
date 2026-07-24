@@ -171,11 +171,68 @@ export async function POST(req: Request) {
     key: "schema",
     label: "구조화 데이터(Schema.org)",
     tag: "GEO",
-    weight: 3,
+    weight: 2,
     status: structured ? "pass" : "fail",
     detail: structured
-      ? "AI와 검색엔진이 업체 정보를 이해할 수 있는 구조화 데이터가 있습니다."
-      : "구조화 데이터가 없습니다. AI가 우리 업체가 '무엇을 하는 곳인지' 구조적으로 이해하기 어렵습니다. GEO의 핵심 요소입니다.",
+      ? "구조화 데이터(JSON-LD 등)가 있습니다."
+      : "구조화 데이터가 없습니다. AI가 페이지 내용을 구조적으로 이해하기 어렵습니다. GEO의 기초 요소입니다.",
+  })
+
+  // ── 6-2) 업종/사업자 스키마 (LocalBusiness·Organization 등) ─
+  // 대부분의 홈페이지가 갖추지 못한, GEO 인용의 핵심 요소
+  const hasBizSchema = has(
+    /"@type"\s*:\s*"(LocalBusiness|Organization|ProfessionalService|MedicalBusiness|MedicalOrganization|MedicalClinic|Hospital|Physician|Dentist|Restaurant|Store|HealthAndBeautyBusiness|BeautySalon|Store|EducationalOrganization)"/i
+  )
+  checks.push({
+    key: "biz_schema",
+    label: "업종·사업자 정보 구조화",
+    tag: "GEO",
+    weight: 4,
+    status: hasBizSchema ? "pass" : "fail",
+    detail: hasBizSchema
+      ? "업종·사업자 정보가 구조화되어 있어 AI가 '무엇을 하는 곳인지' 명확히 인식합니다."
+      : "업종·사업자 정보(LocalBusiness·Organization 등)가 구조화되어 있지 않습니다. AI가 우리를 하나의 명확한 실체로 인식하지 못해 추천 후보에서 밀립니다. GEO에서 가장 중요한 항목입니다.",
+  })
+
+  // ── 6-3) 본문 텍스트 충분성 ─────────────────────
+  // AI는 인용할 '텍스트'가 있어야 함. 이미지·SPA 위주 사이트는 초기 HTML에 읽을 게 거의 없음
+  const textOnly = head
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&[a-z#0-9]+;/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+  const textLen = textOnly.length
+  checks.push({
+    key: "text",
+    label: "본문 텍스트 충분성",
+    tag: "GEO",
+    weight: 2,
+    status: textLen >= 1200 ? "pass" : textLen >= 400 ? "warn" : "fail",
+    detail:
+      textLen >= 1200
+        ? "AI가 인용할 수 있는 본문 텍스트가 충분합니다."
+        : textLen >= 400
+          ? "본문 텍스트가 다소 적습니다. AI가 인용할 근거가 부족할 수 있습니다."
+          : "읽을 수 있는 본문 텍스트가 매우 적습니다. 이미지 위주이거나 자바스크립트로만 그려지는 경우, AI 크롤러가 내용을 읽지 못합니다.",
+  })
+
+  // ── 6-4) 질문형 콘텐츠 / FAQ ────────────────────
+  const hasFaqSchema = has(/"@type"\s*:\s*"FAQPage"/i)
+  const hasQuestionText = (textOnly.match(/[가-힣A-Za-z][^.?!]{4,60}\?/g) || []).length >= 3
+  const faqOk = hasFaqSchema || hasQuestionText
+  checks.push({
+    key: "faq",
+    label: "질문형 콘텐츠(FAQ)",
+    tag: "GEO",
+    weight: 2,
+    status: hasFaqSchema ? "pass" : hasQuestionText ? "warn" : "fail",
+    detail: hasFaqSchema
+      ? "FAQ 구조화 데이터가 있어 AI가 질문·답변을 그대로 인용하기 좋습니다."
+      : faqOk
+        ? "질문형 문장은 있으나 FAQ 구조화(FAQPage)는 없습니다. 구조화하면 AI 인용률이 올라갑니다."
+        : "질문·답변형 콘텐츠가 없습니다. AI는 '○○이 뭔가요' 같은 질문에 답할 콘텐츠를 특히 잘 인용합니다.",
   })
 
   // ── 7) Open Graph ──────────────────────────────
@@ -189,6 +246,19 @@ export async function POST(req: Request) {
     detail: hasOg
       ? "카카오톡·SNS 공유 시 미리보기가 표시됩니다."
       : "Open Graph 태그가 없어 공유 시 미리보기가 나오지 않을 수 있습니다.",
+  })
+
+  // ── 7-2) canonical ─────────────────────────────
+  const hasCanonical = has(/<link[^>]+rel=["']canonical["']/i)
+  checks.push({
+    key: "canonical",
+    label: "표준 URL(canonical)",
+    tag: "SEO",
+    weight: 1,
+    status: hasCanonical ? "pass" : "warn",
+    detail: hasCanonical
+      ? "표준 URL이 지정되어 중복 콘텐츠 문제를 예방합니다."
+      : "canonical 태그가 없습니다. 같은 페이지가 여러 주소로 인식되면 순위가 분산될 수 있습니다.",
   })
 
   // ── 8) viewport (모바일) ───────────────────────
@@ -301,7 +371,10 @@ export async function POST(req: Request) {
     0
   )
   const score = Math.round((gotWeight / totalWeight) * 100)
-  const grade = score >= 80 ? "양호" : score >= 55 ? "보통" : "취약"
+  // GEO 핵심(업종 스키마·크롤러)이 비면 기본기가 좋아도 '양호'로 보지 않음
+  const geoCore = checks.filter((c) => c.key === "biz_schema" || c.key === "ai_crawler")
+  const geoCoreFail = geoCore.some((c) => c.status === "fail")
+  const grade = score >= 85 && !geoCoreFail ? "양호" : score >= 60 ? "보통" : "취약"
 
   const fails = checks.filter((c) => c.status === "fail")
   const warns = checks.filter((c) => c.status === "warn")
