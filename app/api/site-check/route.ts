@@ -123,28 +123,36 @@ export async function POST(req: Request) {
 
   // ── 3) title ───────────────────────────────────
   const title = grab(/<title[^>]*>([^<]{1,300})<\/title>/i)
+  const titleStatus: CheckStatus = title ? (title.length >= 10 ? "pass" : "warn") : "fail"
   checks.push({
     key: "title",
     label: "페이지 제목(title)",
     tag: "SEO",
     weight: 2,
-    status: title ? (title.length >= 10 ? "pass" : "warn") : "fail",
-    detail: title
-      ? `제목이 있습니다: "${title.slice(0, 60)}${title.length > 60 ? "…" : ""}"`
-      : "페이지 제목(title)이 없습니다. 검색 결과에 표시되는 가장 기본 요소입니다.",
+    status: titleStatus,
+    detail:
+      titleStatus === "pass"
+        ? `제목이 있습니다: "${title.slice(0, 60)}${title.length > 60 ? "…" : ""}"`
+        : titleStatus === "warn"
+          ? `제목이 너무 짧습니다("${title}"). 무엇을 하는 곳인지 담아 10자 이상으로 작성하는 것이 좋습니다.`
+          : "페이지 제목(title)이 없습니다. 검색 결과에 표시되는 가장 기본 요소입니다.",
   })
 
   // ── 4) meta description ────────────────────────
   const desc = grab(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']{1,400})["']/i)
+  const descStatus: CheckStatus = desc ? (desc.length >= 30 ? "pass" : "warn") : "fail"
   checks.push({
     key: "description",
     label: "메타 설명(description)",
     tag: "SEO",
     weight: 1,
-    status: desc ? (desc.length >= 30 ? "pass" : "warn") : "fail",
-    detail: desc
-      ? "검색 결과에 노출되는 설명문이 설정되어 있습니다."
-      : "메타 설명이 없습니다. 검색 결과에서 클릭률에 영향을 줍니다.",
+    status: descStatus,
+    detail:
+      descStatus === "pass"
+        ? "검색 결과에 노출되는 설명문이 설정되어 있습니다."
+        : descStatus === "warn"
+          ? `메타 설명이 너무 짧습니다(${desc.length}자). 검색 결과 클릭률을 위해 50자 이상 권장합니다.`
+          : "메타 설명이 없습니다. 검색 결과에서 클릭률에 영향을 줍니다.",
   })
 
   // ── 5) H1 ──────────────────────────────────────
