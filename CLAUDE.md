@@ -87,6 +87,20 @@ React Hook Form과 Zod 스키마 사용. `ContactSection.tsx`의 문의 폼 구�
 
 ### 배포 고려사항
 한국 시장을 타겟으로 하며, `app/layout.tsx`에서 메타데이터와 OpenGraph 태그가 한국어로 설정되어 있음
+
+### 색인 자동 통보 (IndexNow) — 새 페이지 배포 후 필수 실행
+새 페이지·글을 배포하면, 검색엔진(빙·네이버·얀덱스)에 즉시 크롤을 통보하기 위해
+IndexNow 엔드포인트를 호출한다. (빙 색인 = ChatGPT 검색 소싱의 전제조건)
+
+```bash
+# 사이트맵 전체 제출
+curl -s "https://wiztheplanning.com/api/indexnow?token=6518149f0b33302fe3cbe5be"
+# 특정 URL만 제출
+curl -s "https://wiztheplanning.com/api/indexnow?token=6518149f0b33302fe3cbe5be&url=/guide/새글"
+```
+- 응답 `indexNowStatus`가 200 또는 202면 접수 성공.
+- 키 파일: `public/39f37ab7ec2c17eea0adce65d8e6720e.txt` (도메인 루트 소유 증명 — 삭제 금지).
+- 라우트: `app/api/indexnow/route.ts`. 구글은 IndexNow 미지원 → 구글은 서치콘솔에서 별도 요청.
 ## 가이드 콘텐츠 작성 원칙 (필수 준수)
 
 `app/guide/` 아래 글을 작성·수정할 때 반드시 지킬 것. GEO(AI 인용) 실측 연구
