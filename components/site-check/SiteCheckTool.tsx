@@ -40,6 +40,7 @@ export default function SiteCheckTool() {
   const [url, setUrl] = useState("")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
+  const [rateLimited, setRateLimited] = useState(false)
   const [report, setReport] = useState<Report | null>(null)
 
   // 결과가 뜬 상태에서 '뒤로가기' 하면 사이트를 떠나지 않고 입력 화면으로 돌아오게
@@ -54,6 +55,7 @@ export default function SiteCheckTool() {
     if (!url.trim() || loading) return
     setLoading(true)
     setError("")
+    setRateLimited(false)
     setReport(null)
     trackEvent("site_check_run")
     try {
@@ -65,6 +67,7 @@ export default function SiteCheckTool() {
       const data = await res.json()
       if (!res.ok) {
         setError(data?.error || "진단 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.")
+        setRateLimited(res.status === 429 || Boolean(data?.rateLimited))
       } else {
         setReport(data)
         // 히스토리에 결과 상태를 쌓아 '뒤로가기'가 입력 화면으로 돌아오게
@@ -123,8 +126,17 @@ export default function SiteCheckTool() {
       )}
 
       {error && (
-        <div className="mt-4 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700">
-          {error}
+        <div className={`mt-4 rounded-xl border px-4 py-3 text-sm ${rateLimited ? "border-amber-200 bg-amber-50 text-amber-800" : "border-rose-200 bg-rose-50 text-rose-700"}`}>
+          <p>{error}</p>
+          {rateLimited && (
+            <Link
+              href="/#contact"
+              onClick={() => trackEvent("site_check_cta", { grade: "rate_limited" })}
+              className="mt-2 inline-flex items-center gap-1 font-bold text-emerald-700 underline-offset-4 hover:underline"
+            >
+              GEO 최적화 진단 요청하기 <ChevronRight className="h-4 w-4" />
+            </Link>
+          )}
         </div>
       )}
 

@@ -43,6 +43,46 @@ function normalizeUrl(input: string): string | null {
   }
 }
 
+// ── 동일 IP 남용 방지 (간단한 슬라이딩 윈도 rate limit) ──
+// 서버리스 인스턴스 메모리 기반. 콜드스타트/다중 인스턴스에서 완벽하진 않지만
+// 한 사용자가 무한정 돌리는 것을 막는 1차 방어선이다. (정교한 제한이 필요하면 Upstash 등 외부 스토어로 교체)
+const RATE_LIMIT_MAX = 5 // 허용 횟수
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000 // 10분
+const ipHits = new Map<string, number[]>()
+
+function getClientIp(req: Request): string {
+  const xff = req.headers.get("x-forwarded-for")
+  if (xff) return xff.split(",")[0].trim()
+  return req.headers.get("x-real-ip") || "unknown"
+}
+
+// 읽기 전용 확인 — 초과 시 남은 대기 시간(초)을 반환
+function checkRateLimit(ip: string): { limited: boolean; retryAfterSec: number } {
+  const now = Date.now()
+  const hits = (ipHits.get(ip) || []).filter((t) => now - t < RATE_LIMIT_WINDOW_MS)
+  if (hits.length >= RATE_LIMIT_MAX) {
+    const retryAfterSec = Math.ceil((RATE_LIMIT_WINDOW_MS - (now - hits[0])) / 1000)
+    return { limited: true, retryAfterSec }
+  }
+  return { limited: false, retryAfterSec: 0 }
+}
+
+// 유효한 진단 1건을 기록 (오래된 항목 정리 포함)
+function recordHit(ip: string) {
+  const now = Date.now()
+  const hits = (ipHits.get(ip) || []).filter((t) => now - t < RATE_LIMIT_WINDOW_MS)
+  hits.push(now)
+  ipHits.set(ip, hits)
+  // 맵이 커지면 만료된 IP 정리 (메모리 누수 방지)
+  if (ipHits.size > 5000) {
+    for (const [k, v] of ipHits) {
+      const fresh = v.filter((t) => now - t < RATE_LIMIT_WINDOW_MS)
+      if (fresh.length === 0) ipHits.delete(k)
+      else ipHits.set(k, fresh)
+    }
+  }
+}
+
 async function fetchWithTimeout(url: string, ms: number, init?: RequestInit) {
   const controller = new AbortController()
   const id = setTimeout(() => controller.abort(), ms)
@@ -62,6 +102,20 @@ async function fetchWithTimeout(url: string, ms: number, init?: RequestInit) {
 }
 
 export async function POST(req: Request) {
+  // 남용 방지: 동일 IP가 짧은 시간에 너무 많이 돌리면 차단하고 문의로 유도
+  const ip = getClientIp(req)
+  const rl = checkRateLimit(ip)
+  if (rl.limited) {
+    const mins = Math.max(1, Math.ceil(rl.retryAfterSec / 60))
+    return NextResponse.json(
+      {
+        error: `무료 진단은 짧은 시간에 여러 번 이용할 수 없습니다. 약 ${mins}분 후 다시 시도해 주세요. 여러 사이트를 한 번에 정밀 진단받고 싶으시면 문의해 주세요.`,
+        rateLimited: true,
+      },
+      { status: 429, headers: { "Retry-After": String(rl.retryAfterSec) } }
+    )
+  }
+
   let target: string | null = null
   try {
     const body = await req.json()
@@ -75,6 +129,9 @@ export async function POST(req: Request) {
       { status: 400 }
     )
   }
+
+  // 유효한 주소로 실제 진단을 시작하는 시점에만 1건으로 집계 (오타·잘못된 주소는 미집계)
+  recordHit(ip)
 
   const origin = new URL(target).origin
   const checks: CheckResult[] = []
