@@ -35,6 +35,12 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: '/',
+    languages: {
+      ko: 'https://wiztheplanning.com/',
+      'zh-Hans': 'https://wiztheplanning.com/zh',
+      vi: 'https://wiztheplanning.com/vi',
+      'x-default': 'https://wiztheplanning.com/',
+    },
   },
   verification: {
     other: {

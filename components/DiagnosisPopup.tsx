@@ -17,6 +17,8 @@ export default function DiagnosisPopup() {
   useEffect(() => {
     // 진단 페이지 자체에서는 노출하지 않음
     if (pathname?.startsWith("/medical-diagnosis")) return
+    // 외국어(중국어/베트남어) 페이지에서는 한국어 팝업 노출 안 함
+    if (pathname?.startsWith("/zh") || pathname?.startsWith("/vi")) return
 
     // 마운트할 때마다 먼저 검사 → 7일 안 보기 상태면 절대 표시 안 함
     let hideUntil = 0

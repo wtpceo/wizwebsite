@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
-import { X, ChevronDown } from "lucide-react"
+import { X, ChevronDown, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function Header() {
@@ -212,6 +212,26 @@ export default function Header() {
           transition={{ duration: 0.5 }}
           className="flex items-center gap-2 md:gap-4"
         >
+          {/* 언어 전환 — 외국인 사장님용 중국어/베트남어 페이지 (크롤러 발견성 + 사용자 접근) */}
+          <div className="group relative hidden md:block">
+            <button
+              type="button"
+              aria-haspopup="true"
+              aria-label="언어 선택 / Language"
+              className="inline-flex items-center gap-1 rounded-full border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-600 transition-colors hover:text-emerald-600"
+            >
+              <Globe className="h-4 w-4" />
+              <ChevronDown className="h-3.5 w-3.5" />
+            </button>
+            <div className="invisible absolute right-0 top-full z-50 w-40 pt-2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+              <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white p-1.5 shadow-xl">
+                <Link href="/" hrefLang="ko" className="block rounded-xl px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50">한국어</Link>
+                <Link href="/zh" hrefLang="zh-Hans" className="block rounded-xl px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50">中文</Link>
+                <Link href="/vi" hrefLang="vi" className="block rounded-xl px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50">Tiếng Việt</Link>
+              </div>
+            </div>
+          </div>
+
           {/* 데스크톱: 상담 버튼 노출 / 모바일: 숨김(메뉴 안에 포함) */}
           <Link href="/#contact" className="hidden sm:block">
             <Button className="bg-[#070b14] font-bold text-white transition-all duration-300 hover:bg-[#101b2e] hover:shadow-lg hover:shadow-emerald-500/15">
@@ -310,6 +330,13 @@ export default function Header() {
                 무료 AI 검색 진단 받기
               </Button>
             </Link>
+
+            {/* 외국인 사장님용 언어 선택 */}
+            <div className="mt-4 flex items-center gap-2 border-t border-gray-100 pt-4 text-sm">
+              <Globe className="h-4 w-4 text-gray-400" />
+              <Link href="/zh" onClick={() => setOpen(false)} className="rounded-full bg-gray-50 px-3 py-1 font-medium text-gray-700">中文</Link>
+              <Link href="/vi" onClick={() => setOpen(false)} className="rounded-full bg-gray-50 px-3 py-1 font-medium text-gray-700">Tiếng Việt</Link>
+            </div>
           </nav>
         </div>
       )}

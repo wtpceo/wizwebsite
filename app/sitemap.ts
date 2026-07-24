@@ -7,6 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const routes: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
     { path: "", priority: 1.0, changeFrequency: "weekly" },
+    { path: "/zh", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/vi", priority: 0.9, changeFrequency: "monthly" },
     { path: "/focusmedia", priority: 0.8, changeFrequency: "monthly" },
     { path: "/naver-marketing", priority: 0.8, changeFrequency: "monthly" },
     { path: "/portfolio", priority: 0.7, changeFrequency: "monthly" },

@@ -41,7 +41,7 @@ export async function POST(req: Request) {
     // Resend 인스턴스 생성
     const resend = new Resend(apiKey);
     
-    const { name, phone, email, message, storeName } = requestData;
+    const { name, phone, email, message, storeName, language } = requestData;
 
     // 관리자 이메일을 배열로 관리 (여러 수신자 설정 가능)
     const adminEmails = [
@@ -53,6 +53,7 @@ export async function POST(req: Request) {
     const adminHtml = `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
         <h2 style="color: #4338ca;">새로운 문의가 접수되었습니다</h2>
+        ${language ? `<p style="display:inline-block;background:#00e5a0;color:#070b14;font-weight:bold;padding:4px 10px;border-radius:6px;">🌐 ${language}</p>` : ''}
         <p><strong>이름:</strong> ${name}</p>
         <p><strong>연락처:</strong> ${phone || '미입력'}</p>
         ${email ? `<p><strong>이메일:</strong> ${email}</p>` : ''}
@@ -70,7 +71,7 @@ export async function POST(req: Request) {
       const adminParams = {
         from: 'onboarding@resend.dev', // 처음엔 이 공식 주소를 사용
         to: adminEmails,
-        subject: `[위즈더플래닝] ${name}님의 문의가 접수되었습니다`,
+        subject: `[위즈더플래닝]${language ? `[${language}]` : ''} ${name}님의 문의가 접수되었습니다`,
         html: adminHtml
       };
       console.log('Resend API 파라미터:', { ...adminParams, html: '(생략)' });
