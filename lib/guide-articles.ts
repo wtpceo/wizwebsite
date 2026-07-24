@@ -1,7 +1,7 @@
 import type { LucideIcon } from "lucide-react"
 import {
   BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows,
-  Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck, FileSearch, Lock,
+  Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck, FileSearch, Lock, TrendingUp,
 } from "lucide-react"
 
 // 가이드 카테고리 (표시 순서 + 스캔용 짧은 라벨/색상)
@@ -30,6 +30,16 @@ export type GuideArticle = {
 
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
+  {
+    href: "/guide/ranked-but-not-in-chatgpt",
+    category: "case",
+    icon: TrendingUp,
+    kicker: "자체 실험",
+    title: "네이버 AI 1위·구글 2위인데 ChatGPT엔 안 나옵니다 — 우리 사이트로 직접 한 GEO 실험",
+    desc: "'병원 GEO 대행'에서 우리 페이지는 공개 2일 만에 네이버 AI 브리핑 1위·구글 2위에 올랐습니다. 그런데 ChatGPT·제미나이·퍼플렉시티엔 아직 안 나옵니다. 같은 회사가 왜 검색엔진은 상위인데 생성형 AI에선 빠질까 — 우리 사이트를 실험대에 올려 이유를 그대로 공개합니다.",
+    date: "2026. 7. 25",
+    related: ["/guide/ai-engines-cite-differently", "/guide/naver-blocks-ai-crawlers", "/guide/case-urology-clinic"],
+  },
   {
     href: "/guide/naver-blocks-ai-crawlers",
     category: "naver",
