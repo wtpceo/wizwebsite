@@ -286,9 +286,15 @@ export async function POST(req: Request) {
   })
 
   // ── 6-4) 질문형 콘텐츠 / FAQ ────────────────────
-  const hasFaqSchema = has(/"@type"\s*:\s*"FAQPage"/i)
-  const hasQuestionText = (textOnly.match(/[가-힣A-Za-z][^.?!]{4,60}\?/g) || []).length >= 3
-  const faqOk = hasFaqSchema || hasQuestionText
+  // FAQPage는 JSON-LD 또는 마이크로데이터 양쪽 다 인정
+  const hasFaqSchema =
+    has(/"@type"\s*:\s*"FAQPage"/i) || has(/itemtype=["']https?:\/\/schema\.org\/FAQPage["']/i)
+  // 아코디언(<summary>)·질문문(?)을 모두 신호로 사용 (오탐 축소)
+  const summaryCount = (head.match(/<summary[\s>]/gi) || []).length
+  const questionCount = (textOnly.match(/[가-힣A-Za-z][^.?!]{3,80}\?/g) || []).length
+  const hasQuestionText = questionCount >= 3 || summaryCount >= 3
+  // 본문 텍스트가 거의 없으면 자바스크립트 렌더(CSR) 가능성 — Framer/Wix/SPA 등
+  const likelyClientRendered = textLen < 500
   checks.push({
     key: "faq",
     label: "질문형 콘텐츠(FAQ)",
@@ -297,9 +303,11 @@ export async function POST(req: Request) {
     status: hasFaqSchema ? "pass" : hasQuestionText ? "warn" : "fail",
     detail: hasFaqSchema
       ? "FAQ 구조화 데이터가 있어 AI가 질문·답변을 그대로 인용하기 좋습니다."
-      : faqOk
+      : hasQuestionText
         ? "질문형 문장은 있으나 FAQ 구조화(FAQPage)는 없습니다. 구조화하면 AI 인용률이 올라갑니다."
-        : "질문·답변형 콘텐츠가 없습니다. AI는 '○○이 뭔가요' 같은 질문에 답할 콘텐츠를 특히 잘 인용합니다.",
+        : likelyClientRendered
+          ? "FAQ가 화면에는 보여도, 이 페이지가 자바스크립트로 그려지면 크롤러가 받는 원본 HTML에는 내용이 없습니다. 그러면 AI·검색 크롤러가 FAQ를 읽지 못합니다. (Framer·Wix 등에서 자주 발생 — 서버 렌더링/정적 출력 설정 필요)"
+          : "크롤러가 받는 HTML에서 FAQ가 감지되지 않았습니다. 화면에 FAQ가 보이는데도 이 결과라면, FAQ가 자바스크립트(아코디언 등)로 렌더되어 원본 HTML에는 없을 가능성이 큽니다. 이 경우 AI도 읽지 못하므로, FAQ 구조화 데이터(FAQPage)로 넣으면 확실하게 인용됩니다.",
   })
 
   // ── 7) Open Graph ──────────────────────────────

@@ -171,6 +171,10 @@ export default function SiteCheckTool() {
               <span className="flex items-center gap-1.5"><AlertTriangle className="h-4 w-4 text-amber-500" /> 보완 {report.summary.warn}</span>
               <span className="flex items-center gap-1.5"><XCircle className="h-4 w-4 text-rose-500" /> 취약 {report.summary.fail}</span>
             </div>
+            <p className="mt-4 rounded-lg bg-gray-50 px-3 py-2 text-xs leading-relaxed text-gray-500">
+              이 진단은 <strong className="text-gray-700">입력하신 페이지 1곳(보통 홈페이지)</strong> 기준입니다.
+              세부 페이지 전체와 실제 AI 노출까지 보는 정밀 분석은 아래 정밀 진단에서 제공됩니다.
+            </p>
           </div>
 
           {/* 항목별 결과 */}
@@ -226,6 +230,7 @@ export default function SiteCheckTool() {
                   </p>
                   <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
                     {[
+                      "홈페이지 외 세부 페이지 전체 정밀 분석",
                       "AI 엔진별 노출 점유율 (네이버·ChatGPT·제미나이)",
                       "우리 대신 추천되는 경쟁사 분석",
                       "AI가 잘못 안내하는 오정보 목록",
