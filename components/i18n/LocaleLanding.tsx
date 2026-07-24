@@ -29,11 +29,25 @@ export default function LocaleLanding({
 
       {/* 헤더 */}
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#070b14]/95 backdrop-blur">
-        <div className="container mx-auto flex items-center justify-between px-4 py-3">
-          <Link href={`/${locale}`} className="text-lg font-extrabold text-white">
+        <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3">
+          <Link href={`/${locale}`} className="shrink-0 text-lg font-extrabold text-white">
             WizThePlanning<span className="text-[#00e5a0]">.</span>
           </Link>
-          <div className="flex items-center gap-3">
+
+          {/* 페이지 내 섹션 네비게이션 (데스크톱) */}
+          <nav className="hidden flex-1 items-center justify-center gap-6 lg:flex">
+            {t.menu.map((m) => (
+              <Link
+                key={m.href}
+                href={m.href.startsWith("#") ? m.href : m.href}
+                className="whitespace-nowrap text-sm font-medium text-slate-300 transition-colors hover:text-[#00e5a0]"
+              >
+                {m.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="flex shrink-0 items-center gap-3">
             <LangSwitcher current={locale} />
             <Link href="#contact" className="hidden sm:block">
               <Button size="sm" className="bg-[#00e5a0] font-bold text-[#070b14] hover:bg-[#3cf0bb]">
@@ -42,6 +56,19 @@ export default function LocaleLanding({
             </Link>
           </div>
         </div>
+
+        {/* 모바일: 섹션 네비게이션 (가로 스크롤 칩) */}
+        <nav className="flex gap-2 overflow-x-auto border-t border-white/5 px-4 py-2 lg:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          {t.menu.map((m) => (
+            <Link
+              key={m.href}
+              href={m.href}
+              className="whitespace-nowrap rounded-full bg-white/5 px-3 py-1 text-xs font-medium text-slate-300"
+            >
+              {m.label}
+            </Link>
+          ))}
+        </nav>
       </header>
 
       <main className="flex-1">
@@ -78,7 +105,7 @@ export default function LocaleLanding({
         </section>
 
         {/* 문제 */}
-        <section className="container mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-24">
+        <section id="problem" className="container mx-auto max-w-4xl scroll-mt-28 px-4 py-16 md:px-6 md:py-24">
           <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">{t.problem.heading}</h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-gray-600 md:text-lg">{t.problem.body}</p>
           <div className="mt-8 space-y-3">
@@ -92,7 +119,7 @@ export default function LocaleLanding({
         </section>
 
         {/* 해결 */}
-        <section className="bg-[#070b14] py-16 md:py-24">
+        <section id="services" className="scroll-mt-28 bg-[#070b14] py-16 md:py-24">
           <div className="container mx-auto max-w-5xl px-4 md:px-6">
             <h2 className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">{t.solution.heading}</h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">{t.solution.body}</p>
@@ -114,7 +141,7 @@ export default function LocaleLanding({
         </section>
 
         {/* 왜 홈페이지가 중요한가 */}
-        <section className="container mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-24">
+        <section id="why" className="container mx-auto max-w-4xl scroll-mt-28 px-4 py-16 md:px-6 md:py-24">
           <div className="flex items-center gap-2 text-[#00b37e]">
             <Globe2 className="h-5 w-5" />
             <span className="text-sm font-bold tracking-wide">GEO</span>
@@ -132,7 +159,7 @@ export default function LocaleLanding({
         </section>
 
         {/* 서비스 + 신뢰 */}
-        <section className="bg-[#f9fafb] py-16 md:py-24">
+        <section id="about" className="scroll-mt-28 bg-[#f9fafb] py-16 md:py-24">
           <div className="container mx-auto max-w-5xl px-4 md:px-6">
             <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">{t.services.heading}</h2>
             <div className="mt-8 flex flex-wrap gap-2.5">
@@ -159,7 +186,7 @@ export default function LocaleLanding({
         </section>
 
         {/* 문의 */}
-        <section id="contact" className="container mx-auto max-w-2xl px-4 py-16 md:px-6 md:py-24">
+        <section id="contact" className="container mx-auto max-w-2xl scroll-mt-28 px-4 py-16 md:px-6 md:py-24">
           <h2 className="text-center text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">{t.contact.heading}</h2>
           <p className="mx-auto mt-4 max-w-xl text-center text-base leading-relaxed text-gray-600">{t.contact.body}</p>
 

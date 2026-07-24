@@ -7,6 +7,8 @@ export type LandingContent = {
   metaTitle: string
   metaDescription: string
   nav: { diagnose: string; contact: string }
+  /** 페이지 내 섹션 네비게이션 (헤더 메뉴) */
+  menu: { label: string; href: string }[]
   hero: {
     badge: string
     title: string
@@ -61,6 +63,13 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
     metaDescription:
       "在韩国做生意的华人老板必看。韩国顾客现在用Naver、ChatGPT搜索店铺，但你的店可能根本没出现在答案里。WizThePlanning自2016年起服务7,000多家广告主，用韩语帮你做好SEO与AI搜索优化(GEO)，让韩国人搜索时先找到你。支持中文咨询。",
     nav: { diagnose: "免费诊断", contact: "咨询" },
+    menu: [
+      { label: "现状", href: "#problem" },
+      { label: "服务", href: "#services" },
+      { label: "为什么需要官网", href: "#why" },
+      { label: "关于我们", href: "#about" },
+      { label: "免费诊断", href: "/site-check" },
+    ],
     hero: {
       badge: "在韩华人老板 · AI搜索营销",
       title: "韩国顾客在搜索你的行业，",
@@ -146,6 +155,13 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
     metaDescription:
       "Dành cho chủ tiệm người Việt kinh doanh tại Hàn Quốc. Khách Hàn giờ tìm quán bằng Naver, ChatGPT — nhưng tiệm của bạn có thể không hề xuất hiện. WizThePlanning hoạt động từ 2016, phục vụ hơn 7.000 khách hàng quảng cáo, làm SEO và tối ưu tìm kiếm AI (GEO) bằng tiếng Hàn để người Hàn tìm thấy bạn trước. Hỗ trợ tư vấn tiếng Việt.",
     nav: { diagnose: "Kiểm tra miễn phí", contact: "Tư vấn" },
+    menu: [
+      { label: "Hiện trạng", href: "#problem" },
+      { label: "Dịch vụ", href: "#services" },
+      { label: "Vì sao cần website", href: "#why" },
+      { label: "Về chúng tôi", href: "#about" },
+      { label: "Kiểm tra miễn phí", href: "/site-check" },
+    ],
     hero: {
       badge: "Chủ tiệm người Việt tại Hàn · Marketing tìm kiếm AI",
       title: "Khách Hàn đang tìm ngành của bạn,",
