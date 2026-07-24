@@ -2,6 +2,7 @@ import Link from "next/link"
 
 // 실제 존재하는 페이지들을 카테고리별로 노출 (내부 링크 → 크롤링·색인에도 도움)
 const serviceLinks = [
+  { label: "무료 홈페이지 진단", href: "/site-check" },
   { label: "병원 GEO 대행", href: "/medical-geo-agency" },
   { label: "병원 무료 AI 검색 진단", href: "/medical-diagnosis" },
   { label: "엘리베이터TV 광고", href: "/focusmedia" },
