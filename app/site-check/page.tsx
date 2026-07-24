@@ -60,8 +60,10 @@ export default function Page() {
           <div className="container relative mx-auto max-w-4xl px-4 md:px-6">
             <div className="mb-10 text-center">
               <span className="text-xs font-bold tracking-[0.25em] text-[#00e5a0]">FREE SITE CHECK</span>
-              <h1 className="mx-auto mt-4 max-w-3xl text-[clamp(1.9rem,4.2vw,3.5rem)] font-extrabold leading-[1.15] tracking-tight text-white">
-                우리 홈페이지, AI와 검색에 잘 보이나요?
+              <h1 className="mx-auto mt-4 max-w-3xl text-balance break-keep text-[clamp(1.9rem,4.2vw,3.5rem)] font-extrabold leading-[1.2] tracking-tight text-white">
+                우리 홈페이지,
+                <br className="hidden sm:block" />{" "}
+                AI와 검색에 잘 보이나요?
               </h1>
               <p className="mx-auto mt-5 max-w-2xl text-[clamp(1rem,1.4vw,1.25rem)] leading-relaxed text-slate-400">
                 주소만 넣으면 SEO·GEO 기초 상태를 즉시 진단해 드립니다.
