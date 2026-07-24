@@ -1,7 +1,7 @@
 import type { LucideIcon } from "lucide-react"
 import {
   BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows,
-  Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck, FileSearch,
+  Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck, FileSearch, Lock,
 } from "lucide-react"
 
 // 가이드 카테고리 (표시 순서 + 스캔용 짧은 라벨/색상)
@@ -30,6 +30,16 @@ export type GuideArticle = {
 
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
+  {
+    href: "/guide/naver-blocks-ai-crawlers",
+    category: "naver",
+    icon: Lock,
+    kicker: "네이버 · AI 검색",
+    title: "네이버가 ChatGPT·구글 AI의 접근을 막았습니다 — 그래서 홈페이지가 필수입니다",
+    desc: "블로그·카페에 리뷰를 아무리 쌓아도 ChatGPT·퍼플렉시티·구글 AI는 그 안을 못 읽습니다. 네이버가 robots.txt에 'AI 학습·RAG 목적 접근 금지'를 명시하고 GPTBot·ClaudeBot 등을 이름까지 지정해 차단했기 때문입니다. AI가 읽는 건 열린 웹, 곧 우리 홈페이지입니다.",
+    date: "2026. 7. 24",
+    related: ["/guide/ai-engines-cite-differently", "/guide/case-mobile-carwash", "/guide/case-urology-clinic"],
+  },
   {
     href: "/guide/case-blog-omission",
     category: "case",
