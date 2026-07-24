@@ -105,7 +105,9 @@ export async function POST(req: Request) {
     )
   }
 
-  const head = html.slice(0, 200000) // 과대 문서 보호
+  // 과대 문서 보호 상한. Framer·Wix 등은 인라인 스타일로 HTML이 매우 커서
+  // 200KB로는 H1·스키마가 잘림 지점 뒤로 밀려 놓치는 경우가 있어 넉넉히 잡는다.
+  const head = html.slice(0, 3000000)
   const has = (re: RegExp) => re.test(head)
   const grab = (re: RegExp) => head.match(re)?.[1]?.trim() || ""
 
