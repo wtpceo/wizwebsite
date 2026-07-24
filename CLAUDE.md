@@ -124,3 +124,18 @@ React Hook Form과 Zod 스키마 사용. `ContactSection.tsx`의 문의 폼 구�
 3. `lib/guide-articles.ts`에 항목 추가 (`related`로 연결 글 큐레이션)
 4. `app/sitemap.ts`에 경로 추가
 5. `pnpm build` 통과 확인
+
+## 다국어(i18n) 정책
+
+- **구조**: 한국어는 루트(`/`)에 그대로 둔다(기존 색인 보호). 중국어(간체)는 `/zh`,
+  베트남어는 `/vi` 하위 경로. 절대 기존 한국어 URL을 `[locale]`로 옮기지 않는다.
+- **관련 파일**: `lib/i18n/config.ts`(로케일 정의·hreflang), `lib/i18n/content.ts`(랜딩 카피),
+  `components/i18n/*`(LocaleLanding·LangSwitcher·LocaleContactForm·SetHtmlLang).
+- **대상**: 외국어 페이지는 "한국에서 장사하는 외국인 사장님"이 타깃. 한국어 직역이 아니라
+  그 타깃에 맞춘 의역(transcreation)으로 작성한다.
+- **자동 번역 안 함**: 기계번역 위젯 등은 브랜드·SEO에 해로우므로 쓰지 않는다.
+- **가이드 글 번역 기본 정책**: 새 가이드 글은 **한국어로만** 작성한다(기본값).
+  전부 번역하지 않는다. 외국인 사장님에게 실제로 도움 되는 글만 선별해 `/zh`·`/vi` 버전을
+  별도 제작한다. 번역 여부는 사용자가 글 단위로 지시할 때만 진행한다.
+- **문의 폼**: 외국어 폼은 `/api/contact`에 `language` 태그를 붙여 보내 관리자 메일 제목·본문에
+  "中文/Tiếng Việt 문의"로 표시된다(통역·번역 대응).
