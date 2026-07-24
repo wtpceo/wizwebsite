@@ -14,7 +14,7 @@ export default function Header() {
 
   const menuTexts: Record<string, string> = {
     services: '서비스',
-    sitecheck: '무료 진단',
+    sitecheck: '무료 사이트 진단',
     team: '제작팀',
     medical: '병원',
     portfolio: '포트폴리오',
