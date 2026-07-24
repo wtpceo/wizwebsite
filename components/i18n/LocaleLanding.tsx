@@ -185,6 +185,22 @@ export default function LocaleLanding({
           </div>
         </section>
 
+        {/* FAQ — 외국인 사장님이 문의 전 궁금해하는 것 (FAQPage 구조화 데이터로 AI 인용에도 유리) */}
+        <section id="faq" className="container mx-auto max-w-3xl scroll-mt-28 px-4 py-16 md:px-6 md:py-24">
+          <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">{t.faq.heading}</h2>
+          <div className="mt-8 space-y-3">
+            {t.faq.items.map((f) => (
+              <details key={f.q} className="group rounded-2xl border border-gray-200 bg-white p-5 open:shadow-sm">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-3 text-base font-bold text-gray-900">
+                  {f.q}
+                  <span className="shrink-0 text-[#00b37e] transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-gray-600 md:text-base">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
         {/* 문의 */}
         <section id="contact" className="container mx-auto max-w-2xl scroll-mt-28 px-4 py-16 md:px-6 md:py-24">
           <h2 className="text-center text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">{t.contact.heading}</h2>

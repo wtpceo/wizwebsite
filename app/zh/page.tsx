@@ -40,10 +40,22 @@ const jsonLd = {
   inLanguage: "zh-Hans",
 }
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  inLanguage: "zh-Hans",
+  mainEntity: t.faq.items.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+}
+
 export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <LocaleLanding locale="zh" t={t} />
     </>
   )

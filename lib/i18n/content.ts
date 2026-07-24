@@ -35,6 +35,7 @@ export type LandingContent = {
   }
   services: { heading: string; list: string[] }
   proof: { heading: string; body: string; stats: { value: string; label: string }[] }
+  faq: { heading: string; items: { q: string; a: string }[] }
   contact: {
     heading: string
     body: string
@@ -68,6 +69,7 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
       { label: "服务", href: "#services" },
       { label: "为什么需要官网", href: "#why" },
       { label: "关于我们", href: "#about" },
+      { label: "常见问题", href: "#faq" },
       { label: "免费诊断", href: "/site-check" },
     ],
     hero: {
@@ -128,6 +130,31 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
         { value: "中文", label: "支持咨询" },
       ],
     },
+    faq: {
+      heading: "常见问题",
+      items: [
+        {
+          q: "我韩语不好，也能合作吗？",
+          a: "可以。咨询和进度沟通都支持中文，通过翻译对接，你不用直接用韩语交流。",
+        },
+        {
+          q: "费用大概多少？",
+          a: "每家店的情况和目标不同，费用也不一样。我们会先免费诊断你的现状，再给出适合的方案和报价，之后由你决定。",
+        },
+        {
+          q: "要多久才能见效？",
+          a: "AI搜索优化不是一两天的事，通常需要几周到几个月。所以先把官网和信息基础打好、排好顺序最重要。",
+        },
+        {
+          q: "我已经有Naver博客和店铺了，还需要做吗？",
+          a: "需要。Naver用robots.txt挡住了ChatGPT、Google等外部AI爬虫，所以就算Naver上评价再多，韩国以外的AI也读不到、不会拿来推荐你。",
+        },
+        {
+          q: "我还没有官网，可以开始吗？",
+          a: "可以。我们能帮你新建一个AI和搜索引擎都读得懂的韩文官网。已有官网的话，就检查并打通被挡住的地方。",
+        },
+      ],
+    },
     contact: {
       heading: "先免费看看你的店现在的状况",
       body: "留下联系方式，我们会用你能懂的方式说明现状和该怎么做。中文咨询没问题。",
@@ -160,6 +187,7 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
       { label: "Dịch vụ", href: "#services" },
       { label: "Vì sao cần website", href: "#why" },
       { label: "Về chúng tôi", href: "#about" },
+      { label: "Câu hỏi", href: "#faq" },
       { label: "Kiểm tra miễn phí", href: "/site-check" },
     ],
     hero: {
@@ -218,6 +246,31 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
         { value: "2016", label: "Từ khi bắt đầu" },
         { value: "7.000+", label: "Khách hàng" },
         { value: "Tiếng Việt", label: "Hỗ trợ tư vấn" },
+      ],
+    },
+    faq: {
+      heading: "Câu hỏi thường gặp",
+      items: [
+        {
+          q: "Tôi không giỏi tiếng Hàn, có hợp tác được không?",
+          a: "Được. Tư vấn và trao đổi tiến độ đều hỗ trợ tiếng Việt qua phiên dịch, bạn không cần trực tiếp dùng tiếng Hàn.",
+        },
+        {
+          q: "Chi phí khoảng bao nhiêu?",
+          a: "Mỗi tiệm có tình trạng và mục tiêu khác nhau nên chi phí cũng khác. Chúng tôi kiểm tra hiện trạng miễn phí trước, rồi đưa ra phương án và báo giá phù hợp để bạn quyết định.",
+        },
+        {
+          q: "Bao lâu thì thấy hiệu quả?",
+          a: "Tối ưu tìm kiếm AI không phải chuyện một hai ngày, thường mất vài tuần đến vài tháng. Vì vậy việc quan trọng nhất là làm nền tảng website và thông tin cho chắc, đúng thứ tự.",
+        },
+        {
+          q: "Tôi đã có blog và tiệm trên Naver rồi, có cần làm không?",
+          a: "Có. Naver dùng robots.txt chặn các AI bên ngoài như ChatGPT, Google, nên dù có nhiều đánh giá trên Naver, AI ngoài Hàn Quốc cũng không đọc được và không giới thiệu bạn.",
+        },
+        {
+          q: "Tôi chưa có website, có bắt đầu được không?",
+          a: "Được. Chúng tôi có thể làm cho bạn một website tiếng Hàn mà AI và công cụ tìm kiếm đều đọc được. Nếu đã có website thì kiểm tra và mở những chỗ đang bị chặn.",
+        },
       ],
     },
     contact: {
