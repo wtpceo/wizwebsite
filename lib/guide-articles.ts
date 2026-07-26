@@ -31,6 +31,16 @@ export type GuideArticle = {
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
   {
+    href: "/guide/case-third-party-citation",
+    category: "case",
+    icon: TrendingUp,
+    kicker: "실제 사례 · 자체 실험",
+    title: "홈페이지를 만들었더니 AI가 추천하기 시작했습니다 — 정작 인용한 건 우리 홈페이지가 아니었습니다",
+    desc: "웹 존재감 0이던 지방 중식당. 플레이스와 상세 홈페이지를 만들고 색인했더니 AI가 이 식당을 4순위로 추천하기 시작했습니다. 그런데 AI가 인용한 출처는 우리 홈페이지가 아니라 다이닝코드였습니다. 홈페이지는 인용되지 않아도 인용을 만들어낸다 — 그 이유를 실측으로 공개합니다.",
+    date: "2026. 7. 26",
+    related: ["/guide/ranked-but-not-in-chatgpt", "/guide/ai-engines-cite-differently", "/guide/naver-blocks-ai-crawlers"],
+  },
+  {
     href: "/guide/ranked-but-not-in-chatgpt",
     category: "case",
     icon: TrendingUp,

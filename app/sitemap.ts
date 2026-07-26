@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/strategy/5", priority: 0.8, changeFrequency: "monthly" },
     { path: "/strategy/6", priority: 0.8, changeFrequency: "monthly" },
     { path: "/guide", priority: 0.9, changeFrequency: "weekly" },
+    { path: "/guide/case-third-party-citation", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/what-is-geo", priority: 0.8, changeFrequency: "monthly" },
     { path: "/guide/is-geo-abuse", priority: 0.8, changeFrequency: "monthly" },
     { path: "/guide/case-mobile-carwash", priority: 0.8, changeFrequency: "monthly" },
