@@ -10,6 +10,10 @@ const serviceLinks = [
   { label: "GEO 가이드·인사이트", href: "/guide" },
 ]
 
+// 공정위 사업자정보확인은 하이픈 없는 10자리를 받으므로 표기용 번호에서 숫자만 추출한다
+const bizNo = "668-81-00391"
+const bizInfoUrl = `https://www.ftc.go.kr/bizCommPop.do?wrkr_no=${bizNo.replace(/-/g, "")}`
+
 const strategyLinks = [
   { label: "음식점 마케팅 전략", href: "/strategy/1" },
   { label: "배달 플랫폼 관리 전략", href: "/strategy/2" },
@@ -29,7 +33,7 @@ export default function Footer() {
               위즈더플래닝<span className="text-[#00e5a0]">.</span>
             </h3>
             <p>대표: 정현우</p>
-            <p>사업자등록번호: 668-81-00391</p>
+            <p>사업자등록번호: {bizNo}</p>
             <p>주소: 서울시 금천구 가산디지털로 178 2518,2519호</p>
             <p>대표전화: 1670-0704</p>
             <p>이메일: wiz@wiztheplanning.com</p>
@@ -75,7 +79,7 @@ export default function Footer() {
 
             <div className="flex flex-col space-y-2 pt-2">
               <Link
-                href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=1234567890"
+                href={bizInfoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-[#00e5a0] hover:underline"
