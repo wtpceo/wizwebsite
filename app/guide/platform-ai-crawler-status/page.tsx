@@ -86,7 +86,7 @@ const ROWS: Row[] = [
   { platform: "캐치테이블", train: "block", search: "block", note: "허용 목록 방식 — AI봇은 목록에 없음" },
   { platform: "배달의민족", train: "block", search: "block", note: "구글봇·네이버봇만 허용, 나머지 전면 차단" },
   { platform: "요기요", train: "allow", search: "allow", note: "AI봇 제한 없음 — 결제 경로 등만 차단" },
-  { platform: "당근", train: "block", search: "block", note: "국내 콘텐츠(/kr/)에서 AI봇 47종 차단 — 가장 광범위" },
+  { platform: "당근", train: "block", search: "block", note: "국내 콘텐츠(/kr/)에서 AI·수집 봇 46종 차단 — 가장 광범위" },
   { platform: "인스타그램", train: "block", search: "block", note: "AI봇 지정 차단 + 자동 수집 전면 금지 고지" },
   { platform: "유튜브", train: "allow", search: "allow", note: "시청 페이지 개방 — 단 읽히는 건 제목·설명 등 텍스트" },
 ]
@@ -133,7 +133,11 @@ export default function Page() {
         <p>
           이 구분이 중요한 이유: 아래에서 보듯, 어떤 플랫폼은 <strong>둘 다 차단</strong>하고, 어떤
           플랫폼은 <strong>학습만 차단하고 검색은 열어두는</strong> 정교한 선택을 하고 있기
-          때문입니다.
+          때문입니다. 각 봇의 역할 구분은{" "}
+          <a href="https://platform.openai.com/docs/bots" target="_blank" rel="noopener noreferrer">OpenAI 공식 봇 문서</a>,{" "}
+          <a href="https://support.anthropic.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler" target="_blank" rel="noopener noreferrer">Anthropic 크롤러 안내</a>,{" "}
+          <a href="https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers" target="_blank" rel="noopener noreferrer">구글 크롤러 문서</a>에
+          각사가 직접 공개한 내용을 따랐습니다.
         </p>
 
         <h2>실측 결과 한눈에 (2026년 7월 27일 기준)</h2>
@@ -214,7 +218,8 @@ export default function Page() {
         <Callout>
           &ldquo;AI 모델 무단 학습 차단 (검색 인덱싱/트래픽 유입은 유지)&rdquo; — GPTBot·ClaudeBot
           등 학습봇은 차단하되, ChatGPT 검색이 쓰는 OAI-SearchBot과 ChatGPT-User는 차단 목록에
-          없습니다. 즉 <strong>데이터는 안 뺏기면서, AI 답변에는 인용되는</strong> 구조입니다.
+          없습니다. 즉 <strong>데이터는 안 뺏기면서, AI 답변에는 인용되는</strong> 구조입니다. (단,
+          리뷰 페이지(/review)는 모든 봇에게 차단돼 있어, AI가 읽는 것은 매장 정보 페이지입니다.)
         </Callout>
         <p>
           이 발견은 저희의 앞선 실험과 정확히 맞물립니다.{" "}
@@ -237,8 +242,9 @@ export default function Page() {
             배민에 쌓인 리뷰·가게 정보는 AI가 못 읽습니다.
           </CheckItem>
           <CheckItem>
-            <strong>당근</strong> — 국내 콘텐츠(/kr/) 전체에서 AI 관련 봇 <strong>47종</strong>을
-            이름으로 지정해 차단. 이번 실측에서 가장 광범위한 차단 목록이었습니다(
+            <strong>당근</strong> — 국내 콘텐츠(/kr/) 전체에서 AI·데이터 수집 봇{" "}
+            <strong>46종</strong>을 이름으로 지정해 차단. 이번 실측에서 가장 광범위한 차단
+            목록이었습니다(
             <a href="https://www.daangn.com/robots.txt" target="_blank" rel="noopener noreferrer">원문</a>).
           </CheckItem>
           <CheckItem>
