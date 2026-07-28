@@ -86,6 +86,18 @@ const FAQ = [
     q: "어떤 진료과가 대상인가요?",
     a: "안과, 치과, 피부과, 성형외과, 정형외과, 내과, 이비인후과, 비뇨의학과, 산부인과, 한의원 등 진료과 제한 없이 진행합니다. 특히 의료광고 규제가 강하고 입소문이 잘 돌지 않는 진료과일수록 검색과 AI 답변이 사실상 유일한 유입 통로이기 때문에 효과가 큽니다.",
   },
+  {
+    q: "AI 노출을 보장해 주나요?",
+    a: "보장하지 않습니다. AI 답변은 엔진과 시점, 질문 방식에 따라 매번 달라지기 때문에 누구도 노출을 보장할 수 없습니다. '노출 100% 보장' 같은 약속을 내거는 업체는 오히려 주의가 필요합니다. 위즈더플래닝은 보장 대신 측정을 약속합니다 — 시작 전 현재 상태를 실측하고, 매월 같은 기준으로 재측정해 변화를 숫자로 보고합니다. 우리 회사 자신의 실험에서 잘된 결과와 아직 안 된 결과까지 홈페이지에 그대로 공개하는 이유이기도 합니다.",
+  },
+  {
+    q: "네이버 블로그 마케팅과는 어떻게 다른가요? 병행해야 하나요?",
+    a: "역할이 다릅니다. 네이버 블로그는 네이버 검색 안에서 작동하지만, 네이버는 robots.txt로 ChatGPT 등 AI 크롤러의 접근을 차단하고 있어 블로그에 쌓은 콘텐츠를 생성형 AI가 읽지 못합니다. 그래서 AI 답변 노출은 AI가 읽을 수 있는 열린 웹, 즉 병원 홈페이지를 중심으로 만들어야 합니다. 네이버 검색 수요가 큰 진료과라면 병행하는 것이 좋고, 두 채널의 역할을 나눠 설계해 드립니다.",
+  },
+  {
+    q: "병원이 직접 해야 할 일이 있나요?",
+    a: "많지 않습니다. 진료 정보와 병원 정보가 정확한지 확인해 주시는 것, 그리고 콘텐츠 발행 전에 내용을 검토·승인해 주시는 것 두 가지입니다. 의료 콘텐츠 특성상 원장님 확인 절차는 생략하지 않습니다. 크롤러 점검, 정보 정합성 정리, 콘텐츠 제작, 구조화, 측정과 리포트는 전부 저희가 수행합니다.",
+  },
 ]
 
 const serviceJsonLd = {
@@ -94,13 +106,18 @@ const serviceJsonLd = {
   name: "병원 GEO 대행 (병원·의원 AI 검색 최적화)",
   serviceType: "병원·의원 AI 검색 최적화(GEO) 대행",
   url: URL,
-  provider: { "@type": "ProfessionalService", name: "위즈더플래닝", url: "https://wiztheplanning.com" },
+  provider: {
+    "@type": "ProfessionalService",
+    name: "위즈더플래닝",
+    url: "https://wiztheplanning.com",
+    telephone: "+82-1670-0704",
+  },
   areaServed: { "@type": "Country", name: "대한민국" },
   audience: { "@type": "Audience", audienceType: "병원·의원" },
   description: DESC,
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "병원 GEO 대행 범위",
+    name: "위플 5단계 프로세스 — 진단·기술·정합·콘텐츠·검증",
     itemListElement: SCOPE.map((s) => ({
       "@type": "Offer",
       itemOffered: { "@type": "Service", name: s.title, description: s.desc },
@@ -159,18 +176,25 @@ export default function Page() {
                   <ChevronRight className="h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="#scope">
-                <Button size="lg" variant="outline" className="border-slate-700 bg-transparent px-8 py-6 text-base text-slate-300 hover:border-slate-500 hover:bg-white/5 hover:text-white">
-                  대행 범위 보기
+              <a href="tel:1670-0704">
+                <Button size="lg" variant="outline" className="w-full border-slate-700 bg-transparent px-8 py-6 text-base text-slate-300 hover:border-slate-500 hover:bg-white/5 hover:text-white min-[400px]:w-auto">
+                  전화 상담 1670-0704
                 </Button>
-              </Link>
+              </a>
             </div>
-            <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-500">
-              <span>2016년부터 7,000여 광고주</span>
-              <span className="h-1 w-1 rounded-full bg-slate-700" />
-              <span>의료광고 기준 반영</span>
-              <span className="h-1 w-1 rounded-full bg-slate-700" />
-              <span className="text-[#00e5a0]/80">홈페이지 제작까지 자체 수행</span>
+            {/* 숫자 스트립 — 전부 사이트에서 검증 가능한 수치만 */}
+            <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 text-sm sm:grid-cols-4">
+              {[
+                { n: "2016~", d: "7,000여 광고주" },
+                { n: "3개", d: "AI 엔진 실측 진단" },
+                { n: "월 1회", d: "재측정 리포트" },
+                { n: "17편", d: "실측 가이드 공개" },
+              ].map((s) => (
+                <div key={s.d}>
+                  <p className="text-xl font-extrabold text-[#00e5a0]">{s.n}</p>
+                  <p className="mt-0.5 text-slate-500">{s.d}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -214,13 +238,13 @@ export default function Page() {
         {/* 대행 범위 */}
         <section id="scope" className="scroll-mt-24 bg-[#f6f8f7] py-16 md:py-20">
           <div className="container mx-auto max-w-4xl px-4 md:px-6">
-            <p className="text-xs font-bold tracking-[0.25em] text-emerald-600">SCOPE</p>
+            <p className="text-xs font-bold tracking-[0.25em] text-emerald-600">PROCESS</p>
             <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
-              무엇을 대행하나
+              위플 5단계 프로세스 — 진단에서 검증까지
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-gray-600">
               순서가 중요합니다. 홈페이지가 막혀 있는 상태에서 콘텐츠부터 늘리는 것이 가장 흔한
-              실수입니다. 아래 순서대로 진행합니다.
+              실수입니다. 진단 → 기술 → 정합 → 콘텐츠 → 검증, 이 순서대로만 진행합니다.
             </p>
 
             <div className="mt-8 space-y-4">
@@ -277,20 +301,60 @@ export default function Page() {
           </div>
         </section>
 
-        {/* 관련 자료 */}
+        {/* 정직성 — 보장 대신 측정 */}
+        <section className="bg-[#070b14] py-16 md:py-20">
+          <div className="container mx-auto max-w-4xl px-4 md:px-6">
+            <p className="text-xs font-bold tracking-[0.25em] text-[#00e5a0]">HONEST</p>
+            <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-white md:text-3xl">
+              과장에 지친 원장님께 — 우리가 하지 않는 것부터 말씀드립니다
+            </h2>
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
+              {[
+                {
+                  title: "노출을 '보장'하지 않습니다",
+                  desc: "AI 답변은 엔진·시점·질문에 따라 매번 다릅니다. 보장은 누구도 할 수 없기에, 우리는 보장 대신 매월 같은 기준의 측정 수치로 보고합니다.",
+                },
+                {
+                  title: "자작 추천 글을 만들지 않습니다",
+                  desc: "자기 회사를 남의 업체처럼 소개하는 'TOP3 추천' 류의 위장 콘텐츠는 기만 광고 소지가 있고, 그 리스크는 결국 병원이 집니다. 우리는 하지 않습니다.",
+                },
+                {
+                  title: "안 된 것도 공개합니다",
+                  desc: "우리 사이트를 실험대에 올려, 검색 상위에 오른 결과와 생성형 AI에 아직 안 나오는 결과까지 그대로 글로 공개하고 있습니다.",
+                },
+              ].map((h) => (
+                <div key={h.title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+                  <h3 className="text-lg font-extrabold tracking-tight text-white">{h.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-400">{h.desc}</p>
+                </div>
+              ))}
+            </div>
+            <Link
+              href="/guide/ranked-but-not-in-chatgpt"
+              className="mt-6 inline-flex items-center gap-1 text-sm font-bold text-[#00e5a0] underline-offset-4 hover:underline"
+            >
+              우리 자신의 미노출까지 공개한 실험 글 읽어보기
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </section>
+
+        {/* 관련 자료 — 실측 자산 */}
         <section className="bg-[#f6f8f7] py-16 md:py-20">
           <div className="container mx-auto max-w-4xl px-4 md:px-6">
             <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
-              먼저 읽어보셔도 좋습니다
+              우리는 실험 결과를 공개하는 회사입니다
             </h2>
             <p className="mt-3 text-base text-gray-600">
-              맡기기 전에 직접 확인하고 판단하실 수 있도록 정리한 자료입니다.
+              말 대신 실측으로 판단하실 수 있도록, 직접 실험하고 확인한 자료를 공개합니다. 맡기기
+              전에 읽어보세요.
             </p>
-            <div className="mt-6 grid gap-4 md:grid-cols-3">
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
               {[
-                { href: "/guide/check-hospital-ai-visibility", label: "셀프 체크", title: "우리 병원이 ChatGPT에 나오는지 5분 만에 확인하는 법" },
-                { href: "/guide/medical-geo", label: "의료광고법", title: "병원·의원 GEO 가이드 — 의료광고법 지키면서 인용받는 법" },
                 { href: "/guide/case-urology-clinic", label: "실제 사례", title: "ChatGPT에 아예 안 뜨던 비뇨기과 — 원인은 홈페이지 방화벽이었습니다" },
+                { href: "/guide/platform-ai-crawler-status", label: "자체 실측", title: "한국 플랫폼 15곳, AI가 읽을 수 있는 곳은 어디인가 — robots.txt 전수 실측" },
+                { href: "/guide/ranked-but-not-in-chatgpt", label: "자체 실험", title: "네이버 AI 1위·구글 2위인데 ChatGPT엔 안 나옵니다 — 우리 사이트 실험" },
+                { href: "/guide/check-hospital-ai-visibility", label: "셀프 체크", title: "우리 병원이 ChatGPT에 나오는지 5분 만에 확인하는 법" },
               ].map((l) => (
                 <Link
                   key={l.href}
@@ -353,6 +417,13 @@ export default function Page() {
                 <ChevronRight className="h-5 w-5" />
               </Button>
             </Link>
+            <p className="mt-5 text-sm text-slate-400">
+              전화가 편하시면{" "}
+              <a href="tel:1670-0704" className="font-bold text-[#00e5a0] underline-offset-4 hover:underline">
+                1670-0704
+              </a>
+              로 바로 상담하실 수 있습니다.
+            </p>
           </div>
         </section>
       </main>

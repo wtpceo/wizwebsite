@@ -19,13 +19,13 @@ const STATS = [
     accent: true,
   },
   {
-    value: "수천 건",
+    value: "1,000+",
     label: "메타 광고 캠페인",
     desc: "인스타그램·페이스북 퍼포먼스 집행",
     accent: false,
   },
   {
-    value: "수천 건",
+    value: "1,000+",
     label: "구글 광고 운영",
     desc: "검색·PMAX 세팅과 운영",
     accent: false,

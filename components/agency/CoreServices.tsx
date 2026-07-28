@@ -34,13 +34,13 @@ const SERVICES = [
     icon: Megaphone,
     title: "메타 광고",
     desc: "인스타그램·페이스북 퍼포먼스 광고. 크리에이티브 테스트와 데이터 기반 운영으로 전환을 만드는 캠페인을 설계합니다.",
-    tag: "캠페인 수천 건 집행",
+    tag: "캠페인 1,000+ 집행",
   },
   {
     icon: MousePointerClick,
     title: "구글 광고",
     desc: "구글 검색·PMAX 캠페인의 세팅과 운영. 키워드 설계부터 전환 추적, 예산 최적화까지 담당 마케터가 직접 관리합니다.",
-    tag: "세팅 · 운영 수천 건",
+    tag: "세팅 · 운영 1,000+",
   },
   {
     icon: Clapperboard,
