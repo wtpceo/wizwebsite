@@ -31,6 +31,16 @@ export type GuideArticle = {
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
   {
+    href: "/guide/how-to-choose-geo-agency",
+    category: "playbook",
+    icon: ShieldCheck,
+    kicker: "실전 전략 · 계약 가이드",
+    title: "GEO 대행사 고르는 법 — 계약 전에 물어봐야 할 7가지 질문 (그리고 'TOP3 추천 글' 판별법)",
+    desc: "'AI 노출 보장', '업체 추천 TOP3' — 어디까지 믿어야 할까요. 견적 단계에서 업체 수준이 드러나는 7가지 질문과, 검색에서 만나는 '추천 글'이 제3자 비교인지 업체의 자기 광고인지 10초 만에 확인하는 도메인 판별법까지 정리했습니다.",
+    date: "2026. 7. 28",
+    related: ["/guide/is-geo-abuse", "/guide/ranked-but-not-in-chatgpt", "/guide/platform-ai-crawler-status"],
+  },
+  {
     href: "/guide/platform-ai-crawler-status",
     category: "naver",
     icon: SearchCheck,
