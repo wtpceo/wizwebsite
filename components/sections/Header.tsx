@@ -19,6 +19,7 @@ export default function Header() {
     medical: '병원',
     portfolio: '포트폴리오',
     guide: '인사이트',
+    theater: '위즈 극장',
     faq: 'FAQ',
     contact: '문의하기',
     consultation: '상담 문의'
@@ -46,6 +47,7 @@ export default function Header() {
     { key: 'medical', isDropdown: true, highlight: true },
     { key: 'portfolio', href: '/portfolio', isExternal: true },
     { key: 'guide', href: '/guide', isExternal: true },
+    { key: 'theater', href: '/theater', isExternal: true },
     { key: 'faq', anchor: 'faq' },
     { key: 'contact', anchor: 'contact' }
   ];
