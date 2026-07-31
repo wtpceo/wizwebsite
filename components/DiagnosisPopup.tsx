@@ -17,6 +17,8 @@ export default function DiagnosisPopup() {
   useEffect(() => {
     // 진단 페이지 자체에서는 노출하지 않음
     if (pathname?.startsWith("/medical-diagnosis")) return
+    // 제휴 전용 랜딩(/luke)은 자체 CTA로 완결 — 전역 팝업이 유입 추적을 깨뜨리지 않게 제외
+    if (pathname?.startsWith("/luke")) return
     // 외국어(중국어/베트남어) 페이지에서는 한국어 팝업 노출 안 함
     if (pathname?.startsWith("/zh") || pathname?.startsWith("/vi")) return
 

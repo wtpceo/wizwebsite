@@ -16,6 +16,8 @@ const CHAT_LABELS = {
 
 export default function ChatWidget() {
   const pathname = usePathname()
+  // 제휴사 명의 랜딩(/luke)에서는 위즈 카카오채널 위젯 숨김 — 명의 일관성 + 유입 추적 보호
+  if (pathname?.startsWith("/luke")) return null
   const locale = pathname?.startsWith("/zh") ? "zh" : pathname?.startsWith("/vi") ? "vi" : "ko"
   const label = CHAT_LABELS[locale]
 
