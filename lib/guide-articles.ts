@@ -68,7 +68,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "네이버 AI 1위·구글 2위인데 ChatGPT엔 안 나옵니다 — 우리 사이트로 직접 한 GEO 실험",
     desc: "'병원 GEO 대행'에서 우리 페이지는 공개 2일 만에 네이버 AI 브리핑 1위·구글 2위에 올랐습니다. 그런데 ChatGPT·제미나이·퍼플렉시티엔 아직 안 나옵니다. 같은 회사가 왜 검색엔진은 상위인데 생성형 AI에선 빠질까 — 우리 사이트를 실험대에 올려 이유를 그대로 공개합니다.",
     date: "2026. 7. 25",
-    related: ["/guide/ai-engines-cite-differently", "/guide/naver-blocks-ai-crawlers", "/guide/case-urology-clinic"],
+    related: ["/guide/how-to-choose-geo-agency", "/guide/ai-engines-cite-differently", "/guide/naver-blocks-ai-crawlers"],
   },
   {
     href: "/guide/naver-blocks-ai-crawlers",
@@ -128,7 +128,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "SEO·GEO는 어뷰징인가요? — 검색 마케팅에 대한 5가지 오해와 진실",
     desc: "SEO·GEO를 편법·불법으로 오해하는 분들을 위해. 무엇이 정상적인 최적화이고 무엇이 진짜 어뷰징인지, 검색엔진과 AI가 공식 권장하는 정당한 마케팅 기술임을 정리했습니다.",
     date: "2026. 7. 15",
-    related: ["/guide/what-is-geo", "/guide/get-cited-by-ai", "/guide/why-ads-stop-working"],
+    related: ["/guide/how-to-choose-geo-agency", "/guide/what-is-geo", "/guide/get-cited-by-ai"],
   },
   {
     href: "/guide/why-ads-stop-working",
@@ -138,7 +138,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "네이버 광고비는 오르는데 문의는 그대로일 때 — 지금 매장에 무슨 일이 일어나고 있나",
     desc: "광고를 늘려도 문의가 안 늘어난다면 매장 문제가 아니라 고객의 검색 방식이 바뀐 것일 수 있습니다. 5분이면 직접 확인해볼 수 있어요.",
     date: "2026. 7. 9",
-    related: ["/guide/what-is-geo", "/guide/case-mobile-carwash", "/guide/ai-engines-cite-differently"],
+    related: ["/guide/what-is-geo", "/guide/how-to-choose-geo-agency", "/guide/case-mobile-carwash"],
   },
   {
     href: "/guide/medical-geo",
@@ -188,7 +188,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "AI 검색 최적화(GEO)란? 자영업 사장님을 위한 쉬운 설명",
     desc: "SEO와 뭐가 다른지, AI는 어떤 매장을 추천하는지, 왜 지금 시작해야 하는지 — GEO의 기본을 정리했습니다.",
     date: "2026. 7. 8",
-    related: ["/guide/get-cited-by-ai", "/guide/ai-engines-cite-differently", "/guide/is-geo-abuse"],
+    related: ["/guide/how-to-choose-geo-agency", "/guide/get-cited-by-ai", "/guide/ai-engines-cite-differently"],
   },
   {
     href: "/guide/get-cited-by-ai",

@@ -380,6 +380,13 @@ export default function Page() {
           <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
             자주 묻는 질문
           </h2>
+          <p className="mt-3 text-base text-gray-600">
+            여러 업체를 비교 중이시라면{" "}
+            <Link href="/guide/how-to-choose-geo-agency" className="font-bold text-emerald-600 underline-offset-4 hover:underline">
+              GEO 대행사 고르는 법 — 계약 전에 물어봐야 할 7가지 질문
+            </Link>
+            을 먼저 읽어보세요. 저희를 포함해 어느 업체든 같은 기준으로 검증하실 수 있습니다.
+          </p>
           <div className="mt-8 space-y-4">
             {FAQ.map((item, i) => (
               <div key={i} className="rounded-2xl border border-gray-200 bg-[#f9fafb] p-5 md:p-6">

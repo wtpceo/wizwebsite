@@ -100,7 +100,11 @@ export default function Page() {
           <Link href="/guide/what-is-geo" className="font-bold text-emerald-600 underline-offset-4 hover:underline">
             AI 검색 최적화(GEO)란 무엇인가
           </Link>
-          부터 보시면 그림이 잡힙니다. 우리 업종이 병원·치과·피부라면 업종별 가이드도 준비되어 있습니다.
+          부터 보시면 그림이 잡힙니다. 대행사를 알아보는 중이라면{" "}
+          <Link href="/guide/how-to-choose-geo-agency" className="font-bold text-emerald-600 underline-offset-4 hover:underline">
+            GEO 대행사 고르는 법 — 계약 전 7가지 질문
+          </Link>
+          도 함께 보세요. 우리 업종이 병원·치과·피부라면 업종별 가이드도 준비되어 있습니다.
         </p>
 
         <Callout>

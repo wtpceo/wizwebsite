@@ -92,6 +92,12 @@ export default function Page() {
           </CheckItem>
         </ol>
 
+        <p>
+          이 과정을 직접 하기 어려워 대행을 검토하고 있다면, 계약 전에 확인할 기준을{" "}
+          <a href="/guide/how-to-choose-geo-agency">GEO 대행사 고르는 법 — 계약 전에 물어봐야 할
+          7가지 질문</a>에 정리해 두었습니다.
+        </p>
+
         <h2>왜 지금 시작해야 하나요?</h2>
         <p>
           국내 자영업 시장에서 GEO는 이제 시작 단계입니다. AI는 한 번 신뢰한 출처를 반복해서 인용하는
