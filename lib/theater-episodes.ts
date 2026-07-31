@@ -31,11 +31,24 @@ export const EPISODES: TheaterEpisode[] = [
   {
     slug: "ep2-half-open-door",
     ep: 2,
-    title: "반쪽 문 — 다이닝코드의 영리한 선택 (예고)",
-    logline: "“학습은 안 돼. 하지만 읽고 추천하는 건 환영이야.” 위즈가 만난 이상한 문.",
+    title: "반쪽 문 — 다이닝코드의 영리한 선택",
+    logline: "“학습은 안 돼. 하지만 읽고 추천하는 건 환영이야.” 위즈가 식당 골목에서 만난 이상한 문.",
+    date: "2026-07-31",
+    poster: "/theater/ep2-poster1.png",
+    basedOn: [
+      { href: "/guide/case-third-party-citation", label: "다이닝코드 인용 사례 (중식당 GEO 실험)" },
+      { href: "/guide/platform-ai-crawler-status", label: "한국 플랫폼 15곳 크롤러 실측 현황판" },
+    ],
+    status: "published",
+  },
+  {
+    slug: "ep3-invisible-wall",
+    ep: 3,
+    title: "보이지 않는 벽 — 문은 열려 있는데 위즈만 튕겨 나간다 (예고)",
+    logline: "ChatGPT에 아예 안 뜨던 병원. 원인은 홈페이지 방화벽이었습니다.",
     date: "",
-    poster: "/theater/ep1-poster2.png",
-    basedOn: [{ href: "/guide/case-third-party-citation", label: "다이닝코드 인용 사례" }],
+    poster: "/theater/ep2-poster2.png",
+    basedOn: [{ href: "/guide/case-urology-clinic", label: "비뇨기과 6개월 GEO 사례" }],
     status: "coming",
   },
 ]
