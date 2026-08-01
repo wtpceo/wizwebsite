@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server"
 import { Resend } from "resend"
+import { MAIL_FROM, ADMIN_EMAILS } from "@/lib/email"
 
 // 전체 사례(유료분) 열람 신청 API
 // - 사업자등록증 파일을 첨부받아 관리자 메일로 전달한다.
 // - 대행사 차단을 위해 "사업자 본인" 여부를 사람이 수동 심사하는 것이 목적.
 // - 문의 폼(/api/contact)과 달리 multipart/form-data + 파일 첨부를 처리한다.
 
-const ADMIN_EMAILS = ["ceo@wiztheplanning.com"]
 const MAX_FILE_BYTES = 8 * 1024 * 1024 // 8MB (Resend 첨부 여유 한도 내)
 const ALLOWED_MIME = ["image/png", "image/jpeg", "image/jpg", "image/webp", "application/pdf"]
 
@@ -81,7 +81,7 @@ export async function POST(req: Request) {
 
     try {
       await resend.emails.send({
-        from: "onboarding@resend.dev",
+        from: MAIL_FROM,
         to: ADMIN_EMAILS,
         subject: `[위즈더플래닝][열람신청] ${businessName} · ${name}님`,
         html: adminHtml,
@@ -108,7 +108,7 @@ export async function POST(req: Request) {
       const target = process.env.NODE_ENV === "production" ? email : "ceo@wiztheplanning.com"
       try {
         await resend.emails.send({
-          from: "onboarding@resend.dev",
+          from: MAIL_FROM,
           to: target,
           subject: "[위즈더플래닝] 전체 사례 열람 신청이 접수되었습니다",
           html: userHtml,

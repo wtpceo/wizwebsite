@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { MAIL_FROM, ADMIN_EMAILS } from '@/lib/email'
 
 // API 키 디버깅을 위한 함수
 function maskApiKey(key: string | undefined) {
@@ -43,11 +44,8 @@ export async function POST(req: Request) {
     
     const { name, phone, email, message, storeName, language } = requestData;
 
-    // 관리자 이메일을 배열로 관리 (여러 수신자 설정 가능)
-    const adminEmails = [
-      'ceo@wiztheplanning.com', // Resend 테스트 모드에서는 이 주소로만 전송 가능
-      // 추가 수신자 이메일을 여기에 작성
-    ]
+    // 관리자 이메일 (수신자 추가는 lib/email.ts에서)
+    const adminEmails = ADMIN_EMAILS
     
     // HTML 템플릿 생성
     const adminHtml = `
@@ -69,8 +67,10 @@ export async function POST(req: Request) {
     try {
       console.log('Resend API 호출 시작: 관리자 이메일');
       const adminParams = {
-        from: 'onboarding@resend.dev', // 처음엔 이 공식 주소를 사용
+        from: MAIL_FROM,
         to: adminEmails,
+        // 답장 시 문의자에게 바로 회신되도록 (이메일 미입력 시 생략)
+        replyTo: email || undefined,
         subject: `[위즈더플래닝]${language ? `[${language}]` : ''} ${name}님의 문의가 접수되었습니다`,
         html: adminHtml
       };
@@ -109,7 +109,7 @@ export async function POST(req: Request) {
         const userEmailTarget = process.env.NODE_ENV === 'production' ? email : 'ceo@wiztheplanning.com';
         
         await resend.emails.send({
-          from: 'onboarding@resend.dev', // 공식 샘플 주소 사용
+          from: MAIL_FROM,
           to: userEmailTarget,
           subject: '[위즈더플래닝] 문의가 접수되었습니다',
           html: userHtml
