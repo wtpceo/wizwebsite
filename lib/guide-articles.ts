@@ -31,6 +31,16 @@ export type GuideArticle = {
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
   {
+    href: "/guide/bing-index-bottleneck",
+    category: "case",
+    icon: SearchCheck,
+    kicker: "자체 실측 · 8일간의 기록",
+    title: "IndexNow로 통보하고 8일 — 빙은 아직 우리 글을 읽지 않았습니다 (ChatGPT 노출의 진짜 병목)",
+    desc: "같은 글을 같은 날 올렸는데 구글은 3일 만에 크롤·색인했고, 빙은 8일이 지나도록 읽으러 오지 않았습니다. robots.txt·빙봇 접속·IndexNow·수동 제출 전부 정상인데도요. ChatGPT 검색이 빙 색인을 참고하는 이상 이건 곧 AI 노출의 병목입니다.",
+    date: "2026. 8. 4",
+    related: ["/guide/ranked-but-not-in-chatgpt", "/guide/platform-ai-crawler-status", "/guide/case-urology-clinic"],
+  },
+  {
     href: "/guide/how-to-choose-geo-agency",
     category: "playbook",
     icon: ShieldCheck,

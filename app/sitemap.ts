@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/guide/case-third-party-citation", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/platform-ai-crawler-status", priority: 0.9, changeFrequency: "weekly" },
     { path: "/guide/how-to-choose-geo-agency", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/guide/bing-index-bottleneck", priority: 0.9, changeFrequency: "weekly" },
     { path: "/theater", priority: 0.8, changeFrequency: "weekly" },
     { path: "/theater/ep1-closed-door", priority: 0.8, changeFrequency: "monthly" },
     { path: "/theater/ep2-half-open-door", priority: 0.8, changeFrequency: "monthly" },
