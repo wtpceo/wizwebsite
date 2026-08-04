@@ -44,11 +44,25 @@ export const EPISODES: TheaterEpisode[] = [
   {
     slug: "ep3-invisible-wall",
     ep: 3,
-    title: "보이지 않는 벽 — 문은 열려 있는데 위즈만 튕겨 나간다 (예고)",
-    logline: "ChatGPT에 아예 안 뜨던 병원. 원인은 홈페이지 방화벽이었습니다.",
+    title: "보이지 않는 벽 — 문은 열려 있는데 위즈만 튕겨 나간다",
+    logline:
+      "ChatGPT에 아예 안 뜨던 병원. 원인은 나도 모르게 켜져 있던 홈페이지 방화벽이었습니다.",
+    date: "2026-08-04",
+    poster: "/theater/ep3-poster1.png",
+    basedOn: [
+      { href: "/guide/case-urology-clinic", label: "비뇨기과 6개월 GEO 사례" },
+      { href: "/guide/check-hospital-ai-visibility", label: "우리 병원 ChatGPT 노출 셀프 체크" },
+    ],
+    status: "published",
+  },
+  {
+    slug: "ep4-doorless-shop",
+    ep: 4,
+    title: "문이 없는 가게 — 출장세차의 역전 (예고)",
+    logline: "찾아갈 문이 아예 없는 출장 서비스. 위즈는 이 가게를 어떻게 찾았을까요?",
     date: "",
-    poster: "/theater/ep2-poster2.png",
-    basedOn: [{ href: "/guide/case-urology-clinic", label: "비뇨기과 6개월 GEO 사례" }],
+    poster: "/theater/ep3-poster2.png",
+    basedOn: [{ href: "/guide/case-mobile-carwash", label: "출장세차 2개월 GEO 사례" }],
     status: "coming",
   },
 ]
