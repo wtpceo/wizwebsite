@@ -7,9 +7,9 @@ import { EPISODES } from "@/lib/theater-episodes"
 
 const ep = EPISODES.find((e) => e.slug === "ep1-closed-door")!
 
-const TITLE = "위즈 극장 EP.1 닫힌 문 — 네이버에 쌓은 글을 AI는 읽지 못합니다"
+const TITLE = "네이버 블로그에 쓴 글, ChatGPT는 왜 못 읽을까 — 30초 애니메이션으로 보는 AI 차단 (위즈 극장 EP.1 닫힌 문)"
 const DESC =
-  "밤마다 웹을 읽으러 다니는 AI 부엉이 위즈. 오늘 밤 위즈는 사장님이 열심히 글을 쌓아 둔 초록색 대문 앞에 도착했지만, 문에는 '출입금지 — AI 학습·검색 접근 금지'가 붙어 있었습니다. 네이버 robots.txt 실측 사실을 원작으로 한 30초 애니메이션과 전체 해설."
+  "네이버 블로그·카페에 아무리 글을 쌓아도 ChatGPT·퍼플렉시티는 그 안을 읽지 못합니다. 네이버 robots.txt가 AI 학습봇·검색봇을 모두 차단하고 있기 때문입니다(2026년 7월 실측). 이 사실을 AI 부엉이 위즈가 초록 대문 앞에서 겪는 30초 애니메이션으로 풀었습니다. 전체 해설 포함."
 const URL = "https://wiztheplanning.com/theater/ep1-closed-door"
 
 export const metadata: Metadata = {

@@ -7,9 +7,9 @@ import { EPISODES } from "@/lib/theater-episodes"
 
 const ep = EPISODES.find((e) => e.slug === "ep3-invisible-wall")!
 
-const TITLE = "위즈 극장 EP.3 보이지 않는 벽 — 문은 열려 있는데 위즈만 튕겨 나간다"
+const TITLE = "홈페이지가 ChatGPT에 안 나온다면 방화벽부터 확인하세요 — 병원 실제 사례 (위즈 극장 EP.3 보이지 않는 벽)"
 const DESC =
-  "밤마다 웹을 읽으러 다니는 AI 부엉이 위즈. 오늘 밤 위즈는 활짝 열린 병원 문 앞에서 보이지 않는 벽에 튕겨 나왔습니다. 사람은 드나드는데 AI만 막는 벽 — ChatGPT에 아예 안 뜨던 병원의 원인이 홈페이지 방화벽이었던 실제 사례를 원작으로 한 애니메이션과 전체 해설."
+  "홈페이지가 있는데도 ChatGPT에서 검색되지 않는다면, 제작사가 기본값으로 켜 둔 보안 방화벽이 AI 크롤러를 막고 있을 수 있습니다. 실제로 한 비뇨의학과가 그랬고, 차단 해제 후 6개월 만에 ChatGPT·구글·네이버에 안정 노출됐습니다. 이 사례를 AI 부엉이 위즈가 열린 문 앞에서 튕겨 나가는 애니메이션으로 풀었습니다."
 const URL = "https://wiztheplanning.com/theater/ep3-invisible-wall"
 
 export const metadata: Metadata = {

@@ -5,7 +5,7 @@ import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
 import { EPISODES, SERIES_NAME, SERIES_DESC } from "@/lib/theater-episodes"
 
-const TITLE = "위즈 극장 — AI 부엉이 위즈가 보여주는 GEO 이야기"
+const TITLE = "위즈 극장 — GEO(AI 검색 최적화)를 30초 애니메이션으로 배우는 시리즈"
 const URL = "https://wiztheplanning.com/theater"
 
 export const metadata: Metadata = {
