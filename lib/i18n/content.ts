@@ -178,7 +178,7 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
 
   // ── Tiếng Việt ──────────────────────────────
   vi: {
-    metaTitle: "Đối tác marketing cho chủ tiệm người Việt tại Hàn — Tối ưu tìm kiếm AI (GEO)｜WizThePlanning",
+    metaTitle: "Marketing cho chủ tiệm Việt tại Hàn — Tối ưu AI (GEO)｜WizThePlanning",
     metaDescription:
       "Dành cho chủ tiệm người Việt kinh doanh tại Hàn Quốc. Khách Hàn giờ tìm quán bằng Naver, ChatGPT — nhưng tiệm của bạn có thể không hề xuất hiện. WizThePlanning hoạt động từ 2016, phục vụ hơn 7.000 khách hàng quảng cáo, làm SEO và tối ưu tìm kiếm AI (GEO) bằng tiếng Hàn để người Hàn tìm thấy bạn trước. Hỗ trợ tư vấn tiếng Việt.",
     nav: { diagnose: "Kiểm tra miễn phí", contact: "Tư vấn" },
