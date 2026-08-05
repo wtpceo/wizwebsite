@@ -31,6 +31,16 @@ export type GuideArticle = {
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
   {
+    href: "/guide/geo",
+    category: "basics",
+    icon: BookOpen,
+    kicker: "GEO 완전 정리",
+    title: "GEO란? 뜻부터 GEO 최적화 방법·업체 선택까지 총정리",
+    desc: "GEO는 ChatGPT·제미나이·네이버 AI가 답변에서 우리 브랜드를 인용·추천하게 만드는 작업입니다. 정확한 뜻, SEO와의 차이, 최적화 5단계, 진단법, 대행 판단 기준까지 — 저희가 직접 실측하며 정리한 내용을 한 페이지에 모았습니다.",
+    date: "2026. 8. 5",
+    related: ["/guide/what-is-geo", "/guide/get-cited-by-ai", "/guide/how-to-choose-geo-agency"],
+  },
+  {
     href: "/guide/bing-index-bottleneck",
     category: "case",
     icon: SearchCheck,
