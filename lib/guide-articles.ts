@@ -31,6 +31,16 @@ export type GuideArticle = {
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
   {
+    href: "/guide/geo-vs-seo",
+    category: "basics",
+    icon: GitCompareArrows,
+    kicker: "GEO 기초 · 자체 실측",
+    title: "GEO와 SEO 차이 — 검색 1위인데 ChatGPT엔 안 나온 이유",
+    desc: "SEO는 목록에서 위로 올라가는 일, GEO는 AI 답변 안에 들어가는 일입니다. 저희 페이지는 네이버 AI 1위·구글 2위였는데도 ChatGPT엔 나오지 않았습니다. 목표·신호·측정이 어떻게 다른지, 왜 검색 상위가 AI 추천을 보장하지 못하는지 실측으로 정리했습니다.",
+    date: "2026. 8. 6",
+    related: ["/guide/geo", "/guide/ranked-but-not-in-chatgpt", "/guide/bing-index-bottleneck"],
+  },
+  {
     href: "/guide/geo",
     category: "basics",
     icon: BookOpen,

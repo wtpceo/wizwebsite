@@ -154,6 +154,9 @@ export default function Page() {
           <a href="/guide/ranked-but-not-in-chatgpt">우리 사이트를 실험대에 올린 기록</a>에 그대로
           공개했습니다. 엔진마다 답을 만드는 출처가 다르기 때문인데, 그 구조는{" "}
           <a href="/guide/ai-engines-cite-differently">엔진별 인용 출처의 차이</a>에 정리했습니다.
+          두 개념의 차이만 더 자세히 보고 싶다면{" "}
+          <a href="/guide/geo-vs-seo">GEO와 SEO 차이 — 검색 1위인데 ChatGPT엔 안 나온 이유</a>에
+          실측 사례와 함께 정리해 두었습니다.
         </p>
 
         <h2>GEO 최적화 방법 — 5단계</h2>
