@@ -58,11 +58,25 @@ export const EPISODES: TheaterEpisode[] = [
   {
     slug: "ep4-doorless-shop",
     ep: 4,
-    title: "문이 없는 가게 — 출장세차의 역전 (예고)",
-    logline: "찾아갈 문이 아예 없는 출장 서비스. 위즈는 이 가게를 어떻게 찾았을까요?",
+    title: "문이 없는 가게 — 출장세차의 역전",
+    logline:
+      "찾아갈 문이 아예 없는 출장 서비스. 홈페이지가 생기자 허공에 문이 나타났습니다.",
+    date: "2026-08-06",
+    poster: "/theater/ep4-poster1.png",
+    basedOn: [
+      { href: "/guide/case-mobile-carwash", label: "출장세차 2개월 GEO 사례" },
+      { href: "/guide/get-cited-by-ai", label: "AI 답변에 나오는 7가지 방법" },
+    ],
+    status: "published",
+  },
+  {
+    slug: "ep5-unread-invitation",
+    ep: 5,
+    title: "읽지 않는 초대장 — ChatGPT의 느린 관문, 빙 (예고)",
+    logline: "초대장을 보낸 지 8일, 아직 읽지 않은 손님이 있습니다. 위즈의 친구, 빙 이야기.",
     date: "",
-    poster: "/theater/ep3-poster2.png",
-    basedOn: [{ href: "/guide/case-mobile-carwash", label: "출장세차 2개월 GEO 사례" }],
+    poster: "/theater/ep4-poster2.png",
+    basedOn: [{ href: "/guide/bing-index-bottleneck", label: "IndexNow 통보 8일 실측 기록" }],
     status: "coming",
   },
 ]

@@ -32,6 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/theater/ep1-closed-door", priority: 0.8, changeFrequency: "monthly" },
     { path: "/theater/ep2-half-open-door", priority: 0.8, changeFrequency: "monthly" },
     { path: "/theater/ep3-invisible-wall", priority: 0.8, changeFrequency: "monthly" },
+    { path: "/theater/ep4-doorless-shop", priority: 0.8, changeFrequency: "monthly" },
     { path: "/guide/what-is-geo", priority: 0.8, changeFrequency: "monthly" },
     { path: "/guide/is-geo-abuse", priority: 0.8, changeFrequency: "monthly" },
     { path: "/guide/case-mobile-carwash", priority: 0.8, changeFrequency: "monthly" },
