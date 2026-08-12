@@ -2,6 +2,7 @@ import type { LucideIcon } from "lucide-react"
 import {
   BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows,
   Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck, FileSearch, Lock, TrendingUp,
+  Wallet,
 } from "lucide-react"
 
 // 가이드 카테고리 (표시 순서 + 스캔용 짧은 라벨/색상)
@@ -30,6 +31,16 @@ export type GuideArticle = {
 
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
+  {
+    href: "/guide/case-pension-direct-booking",
+    category: "case",
+    icon: Wallet,
+    kicker: "실제 사례 · 자체 실측",
+    title: "펜션 예약 수수료 10.45% — 자체 사이트로 만실 채운 8일 광고비 18만원",
+    desc: "네이버 펜션예약은 부가세 포함 10.45%, 야놀자·여기어때 중개수수료는 10%(공정위 자율규제 기준). 이 돈은 '손님을 데려다주는 값'이라, 예약 시스템만 자체로 바꾸면 수수료는 줄어도 예약이 같이 줄어듭니다. 수도권 근교 펜션 한 곳의 랜딩·소재·광고를 한 묶음으로 만든 8일치 실측을 공개합니다.",
+    date: "2026. 8. 12",
+    related: ["/guide/case-third-party-citation", "/guide/geo", "/guide/naver-place-checklist"],
+  },
   {
     href: "/guide/geo-vs-seo",
     category: "basics",
