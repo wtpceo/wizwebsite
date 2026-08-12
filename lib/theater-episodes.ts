@@ -72,11 +72,25 @@ export const EPISODES: TheaterEpisode[] = [
   {
     slug: "ep5-unread-invitation",
     ep: 5,
-    title: "읽지 않는 초대장 — ChatGPT의 느린 관문, 빙 (예고)",
-    logline: "초대장을 보낸 지 8일, 아직 읽지 않은 손님이 있습니다. 위즈의 친구, 빙 이야기.",
+    title: "읽지 않는 초대장 — ChatGPT의 느린 관문, 빙",
+    logline:
+      "초대장을 보낸 지 8일, 아직 읽지 않은 서고가 있습니다. 줄을 앞당기는 건 반복 제출이 아니라 추천 도장입니다.",
+    date: "2026-08-12",
+    poster: "/theater/ep5-poster1.png",
+    basedOn: [
+      { href: "/guide/bing-index-bottleneck", label: "IndexNow 통보 8일 실측 기록" },
+      { href: "/guide/ranked-but-not-in-chatgpt", label: "검색 1위인데 ChatGPT엔 안 나온 실험" },
+    ],
+    status: "published",
+  },
+  {
+    slug: "ep6-picky-guests",
+    ep: 6,
+    title: "입맛이 다른 손님들 — AI마다 인용하는 곳이 다르다 (예고)",
+    logline: "같은 질문에 ChatGPT·제미나이·퍼플렉시티가 서로 다른 답을 내놓는 이유.",
     date: "",
-    poster: "/theater/ep4-poster2.png",
-    basedOn: [{ href: "/guide/bing-index-bottleneck", label: "IndexNow 통보 8일 실측 기록" }],
+    poster: "/theater/ep5-poster2.png",
+    basedOn: [{ href: "/guide/ai-engines-cite-differently", label: "엔진별 인용 출처 실측 비교" }],
     status: "coming",
   },
 ]
