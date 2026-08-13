@@ -48,40 +48,34 @@ const PROOF_ROWS = [
   },
 ]
 
-/** 히어로 우측 — 위즈 극장 클립으로 만든 GEO 소개 루프 (무음·자동재생) */
-function WizFilmCard() {
+/**
+ * 히어로 전면 배경 — 위즈 극장 클립으로 만든 GEO 루프 (무음·자동재생).
+ * 클립마다 명도 차가 커서(어두운 골목 ↔ 밝은 문) 카피 가독성을 위해 스크림을 3겹으로 깐다.
+ */
+function WizBackdrop() {
   return (
-    <div className="w-full max-w-xl overflow-hidden rounded-lg border border-white/10 bg-[#0d1424]">
-      <div className="flex items-center justify-between border-b border-white/10 px-5 py-3">
-        <span className="flex items-center gap-2 text-xs font-semibold tracking-wide text-slate-300">
-          <Film className="h-3.5 w-3.5 text-[#00e5a0]" />
-          위즈 극장
-        </span>
-        <span className="text-[11px] text-slate-500">AI가 문 앞에서 겪는 일 · 20초</span>
-      </div>
-
+    <div className="relative w-full lg:absolute lg:inset-0 lg:h-full">
       <video
-        src="/videos/wiz-hero-loop.mp4"
+        src="/videos/wiz-hero-bg.mp4"
         poster="/videos/wiz-hero-poster.jpg"
         autoPlay
         muted
         loop
         playsInline
         preload="metadata"
-        aria-label="AI 부엉이 위즈가 닫힌 문 앞에서 튕겨 나갔다가, 문이 열린 뒤 추천을 남기는 20초 영상"
-        className="aspect-video w-full bg-black object-cover"
+        aria-hidden="true"
+        className="aspect-video w-full object-cover lg:h-full lg:aspect-auto"
       />
 
-      <Link
-        href="/theater"
-        className="group flex items-center justify-between gap-4 border-t border-white/10 px-5 py-3.5 transition-colors hover:bg-white/[0.03]"
-      >
-        <p className="text-xs leading-relaxed text-slate-400">
-          <span className="font-semibold text-slate-200">AI에게 우리 가게는 어떻게 보일까.</span>{" "}
-          닫힌 문·보이지 않는 벽·읽지 않는 초대장 — 5편 전체 보기
-        </p>
-        <ArrowUpRight className="h-4 w-4 shrink-0 text-slate-600 transition-colors group-hover:text-[#00e5a0]" />
-      </Link>
+      {/* 모바일: 영상을 온전히 보여주고 아래쪽만 배경색으로 흡수 */}
+      <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#070b14] to-transparent lg:hidden" />
+
+      {/* 데스크톱: 카피가 영상 위에 올라가므로 가독성 스크림 3겹 */}
+      <div className="hidden lg:block">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#070b14] via-[#070b14]/85 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070b14] via-transparent to-[#070b14]/60" />
+        <div className="absolute inset-0 bg-[#070b14]/25" />
+      </div>
     </div>
   )
 }
@@ -89,7 +83,7 @@ function WizFilmCard() {
 /** 히어로 하단 — 실측 3건 가로 스트립 */
 function ProofStrip() {
   return (
-    <div className="mt-14 border-t border-white/[0.08] pt-8">
+    <div className="mt-10 border-t border-white/[0.08] pt-8 lg:mt-14">
       <div className="mb-5 flex flex-wrap items-baseline justify-between gap-2">
         <span className="text-xs font-semibold tracking-wide text-slate-300">실측 기록</span>
         <span className="text-[11px] text-slate-500">
@@ -120,10 +114,12 @@ export default function AgencyHero() {
   return (
     <section
       id="agency-hero"
-      className="relative w-full overflow-hidden border-b border-white/[0.06] bg-[#070b14]"
+      className="relative flex w-full flex-col justify-center overflow-hidden border-b border-white/[0.06] bg-[#070b14] lg:min-h-[92vh]"
     >
-      <div className="container relative px-4 py-20 md:px-6 md:py-28">
-        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
+      <WizBackdrop />
+
+      <div className="container relative z-10 px-4 py-12 md:px-6 md:py-16 lg:py-24">
+        <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
           {/* 좌측: 카피 */}
           <motion.div
             className="flex flex-col items-start text-left"
@@ -139,7 +135,7 @@ export default function AgencyHero() {
 
             <motion.h1
               variants={fadeIn}
-              className="mt-6 text-[clamp(2.25rem,4.6vw,4.5rem)] font-extrabold leading-[1.12] tracking-tight text-white"
+              className="mt-4 text-[clamp(2.25rem,4.6vw,4.5rem)] md:mt-6 font-extrabold leading-[1.12] tracking-tight text-white"
             >
               AI가 추천하는
               <br />
@@ -148,7 +144,7 @@ export default function AgencyHero() {
 
             <motion.p
               variants={fadeIn}
-              className="mt-6 max-w-[600px] text-[clamp(1rem,1.3vw,1.25rem)] leading-relaxed text-slate-400"
+              className="mt-5 max-w-[600px] text-[clamp(1rem,1.3vw,1.25rem)] leading-relaxed text-slate-400"
             >
               ChatGPT·퍼플렉시티·네이버 AI가 당신의 브랜드를 인용하게 만드는 GEO부터, 기술 SEO·메타/구글
               퍼포먼스 광고·자체 제작 콘텐츠·홈페이지까지.{" "}
@@ -158,7 +154,7 @@ export default function AgencyHero() {
               , 위즈더플래닝입니다.
             </motion.p>
 
-            <motion.div variants={fadeIn} className="mt-9 flex flex-col gap-3 min-[400px]:flex-row">
+            <motion.div variants={fadeIn} className="mt-7 flex flex-col gap-3 min-[400px]:flex-row md:mt-9">
               <Link href="/#contact">
                 <Button
                   size="lg"
@@ -182,7 +178,7 @@ export default function AgencyHero() {
             {/* 신뢰 라인 */}
             <motion.div
               variants={fadeIn}
-              className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-500"
+              className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-500 md:mt-12"
             >
               <span>2016년부터</span>
               <span className="h-1 w-1 rounded-full bg-slate-700" />
@@ -192,14 +188,30 @@ export default function AgencyHero() {
             </motion.div>
           </motion.div>
 
-          {/* 우측: 위즈 극장 영상 */}
+          {/* 우측: 배경 영상이 무엇인지 알려주는 캡션 (영상 자체는 섹션 배경) */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.25 }}
-            className="flex justify-center lg:justify-end"
+            transition={{ duration: 0.7, delay: 0.35 }}
+            className="flex justify-start lg:justify-end"
           >
-            <WizFilmCard />
+            <Link
+              href="/theater"
+              className="group max-w-sm rounded-lg border border-white/15 bg-[#070b14]/70 p-5 backdrop-blur-sm transition-colors hover:border-[#00e5a0]/40 hover:bg-[#070b14]/85"
+            >
+              <span className="flex items-center gap-2 text-xs font-semibold tracking-wide text-[#00e5a0]">
+                <Film className="h-3.5 w-3.5" />
+                위즈 극장
+              </span>
+              <p className="mt-2 text-sm leading-relaxed text-slate-300">
+                문 앞을 서성이는 저 부엉이가 <strong className="text-white">위즈</strong>입니다. AI가
+                웹을 읽으러 다닐 때 실제로 겪는 일을 20초로 담았습니다.
+              </p>
+              <span className="mt-3 flex items-center gap-1 text-xs font-semibold text-slate-400 transition-colors group-hover:text-[#00e5a0]">
+                5편 전체 보기
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </span>
+            </Link>
           </motion.div>
         </div>
 
