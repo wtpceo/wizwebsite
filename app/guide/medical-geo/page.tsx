@@ -1,7 +1,8 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
-const TITLE = "병원·의원 AI 검색 최적화(GEO) 가이드 — 의료광고법 지키면서 인용받는 법"
+// 8.0위인데 CTR 2.0% → 규제 대신 결과를 앞세움
+const TITLE = "병원 AI 검색 최적화(GEO) — ChatGPT가 우리 병원을 추천하게 하려면"
 const DESC =
   "ChatGPT·네이버 AI가 병원을 추천할 때 무엇을 근거로 삼는지, 그리고 의료광고법에 걸리지 않으면서 AI에 인용되는 콘텐츠를 만드는 방법을 정리했습니다. 치료후기와 방문후기의 차이, 금지 표현까지 실무 기준으로 안내합니다."
 const DATE = "2026-07-09"
@@ -158,6 +159,10 @@ export default function Page() {
           AI가 인용하게 만드는 것"</strong>입니다. 이 방향이 의료법에 안전하면서 AI 인용에도 가장 유리합니다.
           위즈더플래닝은 의료광고 기준을 반영해 병원 전용 GEO를 진행합니다.
         </Callout>
+        <p>
+          병원에 국한하지 않은 GEO의 정의와 최적화 순서, 대행 판단 기준까지는{" "}
+          <a href="/guide/geo">GEO란? 뜻부터 최적화 방법까지 총정리</a>에 모아 두었습니다.
+        </p>
       </GuideArticle>
     </>
   )

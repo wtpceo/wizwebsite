@@ -198,6 +198,10 @@ export default function Page() {
           함께 확인해 드립니다.{" "}
           <a href="/#contact">무료 AI 검색 진단</a>으로 현재 상태를 먼저 파악해 보세요.
         </p>
+        <p>
+          블로그 너머로 시야를 넓히면 결국 AI가 무엇을 읽고 인용하는지의 문제입니다. 그 전체 구조는{" "}
+          <a href="/guide/geo">GEO란? 뜻부터 최적화 방법까지 총정리</a>에 정리해 두었습니다.
+        </p>
       </GuideArticle>
     </>
   )

@@ -248,6 +248,11 @@ export default function Page() {
           때입니다. 네이버가 담장을 높일수록, <strong>담장 밖에 열려 있는 우리 홈페이지의 가치는
           더 커집니다.</strong>
         </p>
+        <p>
+          담장 밖에서 무엇을 어떻게 쌓아야 하는지 — GEO의 정의부터 최적화 5단계, 진단법까지는{" "}
+          <a href="/guide/geo">GEO란? 뜻부터 최적화 방법까지 총정리</a>에 한 페이지로 모아
+          두었습니다.
+        </p>
       </GuideArticle>
     </>
   )

@@ -2,7 +2,8 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
-const TITLE = "치과 AI 검색 최적화(GEO) 가이드 — 의료광고법 지키면서 인용받는 치과의 조건"
+// 5.9위인데 CTR 3.3% → 규제 대신 결과를 앞세움
+const TITLE = "치과 AI 검색 최적화(GEO) — ChatGPT가 우리 치과를 추천하게 하려면"
 const DESC =
   "네이버 AI·ChatGPT·구글이 치과를 추천할 때 무엇을 근거로 삼는지, 그리고 의료광고법에 걸리지 않으면서 AI에 인용되는 치과를 만드는 방법을 정리했습니다. 치과 특유의 실행(시술별 페이지·질문형 콘텐츠·방문후기·NAP)에 집중했습니다."
 const DATE = "2026-07-09"
@@ -194,6 +195,10 @@ export default function Page() {
           가장 유리합니다. 우리 치과가 지금 AI 검색에 어떻게 뜨는지 궁금하시면, 위즈더플래닝의{" "}
           <strong>무료 진단 리포트</strong>로 현황부터 확인해 보세요.
         </Callout>
+        <p>
+          치과에 국한하지 않고 GEO 자체가 무엇인지, 어떤 순서로 진행하는지 먼저 보고 싶으시면{" "}
+          <a href="/guide/geo">GEO란? 뜻부터 최적화 방법까지 총정리</a>부터 읽어보세요.
+        </p>
       </GuideArticle>
     </>
   )
