@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import DiagnosisPopup from '@/components/DiagnosisPopup'
 import ChatWidget from '@/components/ChatWidget'
+import MetaPixel from '@/components/MetaPixel'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 // 캐시 무효화를 위한 타임스탬프
@@ -177,6 +178,8 @@ export default function RootLayout({
         <DiagnosisPopup />
       </body>
       <GoogleAnalytics gaId="G-CF8977QJ2V" />
+      {/* 픽셀 ID가 없으면 렌더되지 않는다 → 환경변수 미설정 시 조용히 비활성 */}
+      <MetaPixel pixelId={process.env.NEXT_PUBLIC_META_PIXEL_ID} />
     </html>
   )
 }
