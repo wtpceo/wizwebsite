@@ -2,7 +2,7 @@ import type { LucideIcon } from "lucide-react"
 import {
   BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows,
   Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck, FileSearch, Lock, TrendingUp,
-  Wallet,
+  Wallet, Receipt,
 } from "lucide-react"
 
 // 가이드 카테고리 (표시 순서 + 스캔용 짧은 라벨/색상)
@@ -31,6 +31,20 @@ export type GuideArticle = {
 
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
+  {
+    href: "/guide/geo-cost",
+    category: "playbook",
+    icon: Receipt,
+    kicker: "실전 전략 · 자체 실측",
+    title: "GEO 비용 — 견적서 뜯어보는 법과, 지금이 가장 쌀 때인 이유",
+    desc: "GEO 비용은 구축비·운영비·콘텐츠비 세 갈래로 나뉩니다. 견적서에서 확인할 5가지와, 지금 드는 비용이 왜 나중보다 싼지를 저희 실측으로 정리했습니다. 외부 링크가 1곳뿐인 신생 도메인이 네이버 AI 브리핑 1위를 찍는 지금의 경쟁 밀도는 오래가지 않습니다.",
+    date: "2026. 8. 14",
+    related: [
+      "/guide/how-to-choose-geo-agency",
+      "/guide/case-pension-direct-booking",
+      "/guide/ranked-but-not-in-chatgpt",
+    ],
+  },
   {
     href: "/guide/case-pension-direct-booking",
     category: "case",
