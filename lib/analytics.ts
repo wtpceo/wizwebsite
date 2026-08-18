@@ -81,3 +81,24 @@ export function trackChatClick() {
   gaEvent("chat_click", { channel: "kakao" })
   fbEvent("Contact", { content_name: "카카오톡 상담" }, true)
 }
+
+/** 업종 무관 무료 AI 검색 진단 신청 완료 → Meta `Lead` ★ 주 전환
+ *  병원판(trackDiagnosisSubmit)과 같은 `Lead` 표준 이벤트를 쓴다.
+ *  광고세트(병원 / 업종무관) 구분은 Meta 쪽 adset 단위로 이미 갈리므로
+ *  전환 이벤트를 쪼개지 않는다 — 쪼개면 CPA 분모가 흩어진다.
+ *  GA4에서만 별도 이름으로 구분한다. */
+export function trackGeneralDiagnosisSubmit(params: { industry?: string; source?: string } = {}) {
+  gaEvent("diagnosis_submit", {
+    form_type: "general_diagnosis",
+    industry: params.industry || "미선택",
+    lead_source: params.source || "미응답",
+  })
+  fbEvent(
+    "Lead",
+    {
+      content_name: "무료 AI 검색 진단",
+      content_category: params.industry || "미선택",
+    },
+    true,
+  )
+}

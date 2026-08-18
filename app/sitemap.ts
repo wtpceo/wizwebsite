@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/naver-marketing", priority: 0.8, changeFrequency: "monthly" },
     { path: "/portfolio", priority: 0.7, changeFrequency: "monthly" },
     { path: "/medical-diagnosis", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/diagnosis", priority: 0.9, changeFrequency: "monthly" },
     { path: "/medical-geo-agency", priority: 0.9, changeFrequency: "monthly" },
     { path: "/site-check", priority: 0.9, changeFrequency: "monthly" },
     { path: "/strategy/1", priority: 0.8, changeFrequency: "monthly" },

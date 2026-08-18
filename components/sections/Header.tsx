@@ -35,7 +35,7 @@ export default function Header() {
     {
       href: '/medical-diagnosis',
       label: '무료 AI 검색 진단',
-      desc: '우리 병원 현재 상태 확인 (병원 한정 무료)',
+      desc: '우리 병원 현재 상태 확인 (진단 무료)',
     },
   ];
 
