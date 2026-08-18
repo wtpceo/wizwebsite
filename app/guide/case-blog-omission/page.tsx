@@ -202,6 +202,11 @@ export default function Page() {
           블로그 너머로 시야를 넓히면 결국 AI가 무엇을 읽고 인용하는지의 문제입니다. 그 전체 구조는{" "}
           <a href="/guide/geo">GEO란? 뜻부터 최적화 방법까지 총정리</a>에 정리해 두었습니다.
         </p>
+        <p>
+          같은 블로그에서 <strong>글의 구조만 바꿔</strong> 누락을 벗어나고 네이버 AI 브리핑 인용까지
+          이어진 사례도 있습니다 —{" "}
+          <a href="/guide/naver-ai-briefing">네이버 AI 브리핑 노출 방법 — 누락되던 블로그를 1위로 바꾼 글 구조</a>.
+        </p>
       </GuideArticle>
     </>
   )

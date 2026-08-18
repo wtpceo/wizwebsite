@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/guide", priority: 0.9, changeFrequency: "weekly" },
     { path: "/guide/geo", priority: 1.0, changeFrequency: "weekly" },
     { path: "/guide/geo-vs-seo", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/guide/naver-ai-briefing", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/geo-cost", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/case-pension-direct-booking", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/case-third-party-citation", priority: 0.9, changeFrequency: "monthly" },
