@@ -2,7 +2,7 @@ import type { LucideIcon } from "lucide-react"
 import {
   BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows,
   Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck, FileSearch, Lock, TrendingUp,
-  Wallet, Receipt,
+  Wallet, Receipt, MessageSquareQuote,
 } from "lucide-react"
 
 // 가이드 카테고리 (표시 순서 + 스캔용 짧은 라벨/색상)
@@ -31,6 +31,16 @@ export type GuideArticle = {
 
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
+  {
+    href: "/guide/naver-ai-briefing",
+    category: "case",
+    icon: MessageSquareQuote,
+    kicker: "실제 사례 · 자체 실측",
+    title: "네이버 AI 브리핑 노출 방법 — 누락되던 블로그를 1위로 바꾼 글 구조",
+    desc: "글이 누락되기 시작하면 대부분 저품질이나 지수 하락을 의심합니다. 6년째 운영 중인 매장의 사례에서 원인은 글 구조였습니다. 키워드 반복형을 경험형으로 바꾸자 '지역명+업종' 키워드 블로그 1위, 네이버 AI 브리핑 2순위 인용으로 이어졌습니다. 광고비는 쓰지 않았습니다.",
+    date: "2026. 8. 15",
+    related: ["/guide/case-blog-omission", "/guide/naver-place-checklist", "/guide/naver-blocks-ai-crawlers"],
+  },
   {
     href: "/guide/geo-cost",
     category: "playbook",
