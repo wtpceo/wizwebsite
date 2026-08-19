@@ -86,11 +86,25 @@ export const EPISODES: TheaterEpisode[] = [
   {
     slug: "ep6-picky-guests",
     ep: 6,
-    title: "입맛이 다른 손님들 — AI마다 인용하는 곳이 다르다 (예고)",
-    logline: "같은 질문에 ChatGPT·제미나이·퍼플렉시티가 서로 다른 답을 내놓는 이유.",
+    title: "입맛이 다른 손님들 — AI마다 인용하는 곳이 다르다",
+    logline:
+      "같은 질문 카드를 든 세 손님이 서로 다른 곳을 가리켰습니다. 네이버 AI는 리뷰를, ChatGPT는 홈페이지를 읽습니다.",
+    date: "2026-08-19",
+    poster: "/theater/ep6-poster1.png",
+    basedOn: [
+      { href: "/guide/ai-engines-cite-differently", label: "엔진별 인용 출처의 차이" },
+      { href: "/guide/naver-blocks-ai-crawlers", label: "네이버가 AI 접근을 막은 이유" },
+    ],
+    status: "published",
+  },
+  {
+    slug: "ep7-toll-gate",
+    ep: 7,
+    title: "통행료 받는 문 — 수수료 10.45%와 펜션의 선택 (예고)",
+    logline: "플랫폼 문으로 들어온 예약은 통행료를 뗍니다. 자기 문을 만든 펜션 이야기.",
     date: "",
-    poster: "/theater/ep5-poster2.png",
-    basedOn: [{ href: "/guide/ai-engines-cite-differently", label: "엔진별 인용 출처 실측 비교" }],
+    poster: "/theater/ep6-poster2.png",
+    basedOn: [{ href: "/guide/case-pension-direct-booking", label: "펜션 직접 예약 8일 사례" }],
     status: "coming",
   },
 ]
