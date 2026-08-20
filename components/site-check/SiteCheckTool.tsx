@@ -15,6 +15,7 @@ type CheckResult = {
   status: CheckStatus
   detail: string
   tag: "GEO" | "SEO" | "기술"
+  weight?: number
 }
 type Report = {
   url: string
@@ -30,6 +31,15 @@ const STATUS_UI: Record<CheckStatus, { icon: typeof CheckCircle2; cls: string; r
   fail: { icon: XCircle, cls: "text-rose-500", ring: "bg-rose-50 ring-rose-100" },
 }
 
+// 이게 막히면 나머지를 다 갖춰도 노출이 0이 되는 항목. 맨 위로 올린다.
+const CRITICAL_KEYS = new Set(["indexable", "ai_crawler", "biz_schema"])
+
+// 심각도 → 비중 순으로 정렬. 사장님이 위에서부터 순서대로 고치면 되게.
+function byPriority(a: CheckResult, b: CheckResult) {
+  const crit = (c: CheckResult) => (CRITICAL_KEYS.has(c.key) ? 1 : 0)
+  return crit(b) - crit(a) || (b.weight ?? 1) - (a.weight ?? 1)
+}
+
 const GRADE_UI: Record<Report["grade"], string> = {
   양호: "text-emerald-600",
   보통: "text-amber-500",
@@ -38,6 +48,7 @@ const GRADE_UI: Record<Report["grade"], string> = {
 
 export default function SiteCheckTool() {
   const [url, setUrl] = useState("")
+  const [showPasses, setShowPasses] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
   const [rateLimited, setRateLimited] = useState(false)
@@ -177,27 +188,99 @@ export default function SiteCheckTool() {
             </p>
           </div>
 
-          {/* 항목별 결과 */}
-          <div className="space-y-3">
-            {report.checks.map((c) => {
+          {/* 항목별 결과 — 심각도 순으로 묶어서, 위에서부터 고치면 되게 */}
+          {(() => {
+            const fails = report.checks.filter((c) => c.status === "fail").sort(byPriority)
+            const warns = report.checks.filter((c) => c.status === "warn").sort(byPriority)
+            const passes = report.checks.filter((c) => c.status === "pass").sort(byPriority)
+
+            const Row = ({ c, n }: { c: CheckResult; n?: number }) => {
               const ui = STATUS_UI[c.status]
               const Icon = ui.icon
+              const isCrit = CRITICAL_KEYS.has(c.key) && c.status === "fail"
               return (
-                <div key={c.key} className="flex items-start gap-3 rounded-2xl border border-gray-200 bg-white p-4 md:p-5">
-                  <span className={`mt-0.5 shrink-0 rounded-lg p-1.5 ring-1 ${ui.ring}`}>
-                    <Icon className={`h-5 w-5 ${ui.cls}`} />
-                  </span>
+                <div
+                  className={`flex items-start gap-3 rounded-2xl border bg-white p-4 md:p-5 ${
+                    isCrit ? "border-rose-300 ring-1 ring-rose-100" : "border-gray-200"
+                  }`}
+                >
+                  {n ? (
+                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gray-900 text-sm font-bold text-white">
+                      {n}
+                    </span>
+                  ) : (
+                    <span className={`mt-0.5 shrink-0 rounded-lg p-1.5 ring-1 ${ui.ring}`}>
+                      <Icon className={`h-5 w-5 ${ui.cls}`} />
+                    </span>
+                  )}
                   <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                       <h3 className="text-base font-bold text-gray-900">{c.label}</h3>
+                      {isCrit && (
+                        <span className="rounded-full bg-rose-100 px-2 py-0.5 text-[10px] font-bold text-rose-700">
+                          이것부터
+                        </span>
+                      )}
                       <span className="rounded-full bg-gray-100 px-2 py-0.5 text-[10px] font-bold text-gray-500">{c.tag}</span>
                     </div>
                     <p className="mt-1 text-sm leading-relaxed text-gray-600">{c.detail}</p>
                   </div>
                 </div>
               )
-            })}
-          </div>
+            }
+
+            return (
+              <div className="space-y-8">
+                {fails.length > 0 && (
+                  <div>
+                    <h2 className="flex items-center gap-2 text-lg font-extrabold text-gray-900">
+                      <XCircle className="h-5 w-5 text-rose-500" />
+                      지금 고쳐야 합니다
+                      <span className="rounded-full bg-rose-100 px-2 py-0.5 text-xs font-bold text-rose-700">{fails.length}</span>
+                    </h2>
+                    <p className="mb-3 mt-1 text-sm text-gray-500">번호 순서대로 고치시면 됩니다. 위쪽일수록 노출에 미치는 영향이 큽니다.</p>
+                    <div className="space-y-3">
+                      {fails.map((c, i) => <Row key={c.key} c={c} n={i + 1} />)}
+                    </div>
+                  </div>
+                )}
+
+                {warns.length > 0 && (
+                  <div>
+                    <h2 className="flex items-center gap-2 text-lg font-extrabold text-gray-900">
+                      <AlertTriangle className="h-5 w-5 text-amber-500" />
+                      고치면 좋아집니다
+                      <span className="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-700">{warns.length}</span>
+                    </h2>
+                    <p className="mb-3 mt-1 text-sm text-gray-500">당장 노출을 막지는 않지만, 손보면 검색·AI가 읽기 쉬워집니다.</p>
+                    <div className="space-y-3">
+                      {warns.map((c) => <Row key={c.key} c={c} />)}
+                    </div>
+                  </div>
+                )}
+
+                {passes.length > 0 && (
+                  <div>
+                    <button
+                      type="button"
+                      onClick={() => setShowPasses((v) => !v)}
+                      className="flex w-full items-center gap-2 rounded-2xl border border-gray-200 bg-white px-4 py-3 text-left hover:bg-gray-50"
+                    >
+                      <CheckCircle2 className="h-5 w-5 shrink-0 text-emerald-600" />
+                      <span className="text-base font-bold text-gray-900">이미 잘 되어 있습니다</span>
+                      <span className="rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-700">{passes.length}</span>
+                      <ChevronRight className={`ml-auto h-5 w-5 shrink-0 text-gray-400 transition-transform ${showPasses ? "rotate-90" : ""}`} />
+                    </button>
+                    {showPasses && (
+                      <div className="mt-3 space-y-3">
+                        {passes.map((c) => <Row key={c.key} c={c} />)}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            )
+          })()}
 
           {/* 2단계 안내 — 방금 본 건 '홈페이지 상태'일 뿐, AI 실제 노출은 정밀 진단 필요 */}
           <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-[#0b1220] to-[#101b2e] shadow-xl">
