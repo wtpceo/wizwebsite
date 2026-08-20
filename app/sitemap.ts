@@ -1,11 +1,30 @@
 import type { MetadataRoute } from "next"
+import { GUIDE_ARTICLES } from "@/lib/guide-articles"
 
 const BASE_URL = "https://wiztheplanning.com"
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date()
+// lastmod는 "실제로 고친 날"이어야 한다. 전부 빌드 시각으로 내보내면
+// 검색엔진이 매 배포마다 전 페이지가 바뀐 걸로 읽고, 어느 게 새 글인지 구분하지 못한다.
+// (구글은 lastmod가 반복적으로 부정확하면 무시한다고 명시. 빙은 크롤 예산까지 깎인다)
+// 가이드 글은 lib/guide-articles.ts의 발행일을, 나머지는 아래 상수를 쓴다.
+const SITE_UPDATED = "2026-08-20"
 
-  const routes: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
+// "2026. 8. 20" → "2026-08-20"
+function parseKoDate(d: string): string | null {
+  const m = d.match(/(\d{4})\D+(\d{1,2})\D+(\d{1,2})/)
+  if (!m) return null
+  return `${m[1]}-${m[2].padStart(2, "0")}-${m[3].padStart(2, "0")}`
+}
+
+const GUIDE_DATES = new Map<string, string>(
+  GUIDE_ARTICLES.flatMap((a) => {
+    const d = parseKoDate(a.date)
+    return d ? ([[a.href, d]] as [string, string][]) : []
+  })
+)
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const routes: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; lastmod?: string }[] = [
     { path: "", priority: 1.0, changeFrequency: "weekly" },
     { path: "/zh", priority: 0.9, changeFrequency: "monthly" },
     { path: "/vi", priority: 0.9, changeFrequency: "monthly" },
@@ -59,7 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return routes.map((r) => ({
     url: `${BASE_URL}${r.path}`,
-    lastModified: now,
+    lastModified: r.lastmod ?? GUIDE_DATES.get(r.path) ?? SITE_UPDATED,
     changeFrequency: r.changeFrequency,
     priority: r.priority,
   }))
