@@ -7,6 +7,7 @@ import GeneralReportPreview from "@/components/general/GeneralReportPreview"
 import WhyFreeGeneral from "@/components/general/WhyFreeGeneral"
 import GeneralApplyForm from "@/components/general/GeneralApplyForm"
 import GeneralFaq from "@/components/general/GeneralFaq"
+import ForceTopOnLoad from "@/components/ForceTopOnLoad"
 import { GENERAL_FAQ } from "@/lib/general-faq-data"
 
 // 업종 무관 무료 AI 검색 진단 — 병원판(/medical-diagnosis)의 짝 페이지.
@@ -96,6 +97,7 @@ export default function DiagnosisPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <ForceTopOnLoad />
       <Header />
       <GeneralHero />
       <WhyLocal />
