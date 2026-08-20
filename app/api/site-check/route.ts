@@ -142,12 +142,14 @@ export async function POST(req: Request) {
   let loadMs = 0
   let finalUrl = target
   let isHttps = target.startsWith("https://")
+  let xRobotsTag = ""
   try {
     started = Date.now()
     const res = await fetchWithTimeout(target, 8000)
     loadMs = Date.now() - started
     finalUrl = res.url || target
     isHttps = finalUrl.startsWith("https://")
+    xRobotsTag = res.headers.get("x-robots-tag") || ""
     if (!res.ok && res.status >= 400) {
       return NextResponse.json(
         { error: `사이트에 접속할 수 없습니다. (응답 코드 ${res.status})` },
@@ -572,6 +574,67 @@ export async function POST(req: Request) {
       : "페이지 언어가 지정되지 않았습니다. html 태그에 lang=\"ko\"를 넣으면 국내 검색·AI 처리에 유리합니다.",
   })
 
+
+  // ── 색인 허용 여부 (noindex 사고 검출) ─────────
+  // 개발 중에 넣은 noindex를 오픈 후 지우지 않는 사고가 흔하다.
+  // 이 경우 다른 걸 아무리 잘해도 검색·AI 노출이 통째로 0이 된다.
+  // 속성 순서(name/content)가 뒤집힌 CMS 출력도 잡는다. googlebot 전용 지시도 포함.
+  const metaRobots = Array.from(head.matchAll(/<meta\b[^>]*>/gi))
+    .map((m) => m[0])
+    .filter((t) => /\bname\s*=\s*["'](robots|googlebot)["']/i.test(t))
+    .map((t) => t.match(/\bcontent\s*=\s*["']([^"']*)["']/i)?.[1] || "")
+    .join(" ")
+  const combined = `${metaRobots} ${xRobotsTag}`.toLowerCase()
+  const isNoindex = /\bnoindex\b/.test(combined)
+  const isNofollow = /\bnofollow\b/.test(combined)
+  checks.push({
+    key: "indexable",
+    label: "검색 색인 허용(noindex 여부)",
+    tag: "SEO",
+    weight: 3,
+    status: isNoindex ? "fail" : isNofollow ? "warn" : "pass",
+    detail: isNoindex
+      ? `이 페이지에 색인 금지(noindex)가 걸려 있습니다${xRobotsTag && /noindex/i.test(xRobotsTag) ? " (서버 헤더 X-Robots-Tag)" : ""}. 검색엔진과 AI가 아예 수집하지 않으므로 다른 항목을 아무리 손봐도 노출이 생기지 않습니다. 가장 먼저 지워야 할 설정입니다.`
+      : isNofollow
+        ? "링크 추적 금지(nofollow)가 걸려 있습니다. 이 페이지에서 나가는 링크를 검색엔진이 따라가지 않아 다른 페이지 발견이 늦어집니다."
+        : "색인을 막는 설정이 없습니다. 검색엔진과 AI가 이 페이지를 수집할 수 있습니다.",
+  })
+
+  // ── 트위터 카드 ────────────────────────────────
+  const hasTwitter = has(/<meta[^>]+name=["']twitter:(card|title|image)["']/i)
+  const hasOgImage = has(/<meta[^>]+property=["']og:image["']/i)
+  checks.push({
+    key: "twitter",
+    label: "SNS 공유 카드(Twitter Card)",
+    tag: "기술",
+    weight: 1,
+    status: hasTwitter ? "pass" : hasOgImage ? "warn" : "fail",
+    detail: hasTwitter
+      ? "카카오톡·X 등에 링크를 붙였을 때 제목과 이미지가 카드로 표시됩니다."
+      : hasOgImage
+        ? "Open Graph는 있지만 Twitter Card 설정이 없습니다. 일부 앱에서 미리보기가 밋밋하게 나올 수 있습니다."
+        : "공유 카드 설정이 없습니다. 링크를 보냈을 때 이미지 없이 주소만 떠서 클릭률이 떨어집니다.",
+  })
+
+  // ── 다국어 hreflang ────────────────────────────
+  const hreflangs = Array.from(
+    head.matchAll(/<link[^>]+rel=["']alternate["'][^>]*hreflang=["']([^"']+)["']/gi)
+  ).map((m) => m[1].toLowerCase())
+  const uniqLang = Array.from(new Set(hreflangs))
+  if (uniqLang.length > 0) {
+    const hasDefault = uniqLang.includes("x-default")
+    checks.push({
+      key: "hreflang",
+      label: "다국어 언어 지정(hreflang)",
+      tag: "SEO",
+      weight: 1,
+      status: hasDefault ? "pass" : "warn",
+      detail: hasDefault
+        ? `언어 ${uniqLang.length}종(${uniqLang.slice(0, 4).join(", ")})이 선언돼 있고 기본 언어(x-default)도 지정됐습니다.`
+        : `언어 ${uniqLang.length}종이 선언돼 있지만 기본 언어(x-default)가 없습니다. 지정하지 않은 국가에서 어떤 페이지를 보여줄지 검색엔진이 임의로 고릅니다.`,
+    })
+  }
+
   // ── 점수 계산 ──────────────────────────────────
   const totalWeight = checks.reduce((s, c) => s + c.weight, 0)
   const gotWeight = checks.reduce(
@@ -580,7 +643,9 @@ export async function POST(req: Request) {
   )
   const score = Math.round((gotWeight / totalWeight) * 100)
   // GEO 핵심(업종 스키마·크롤러)이 비면 기본기가 좋아도 '양호'로 보지 않음
-  const geoCore = checks.filter((c) => c.key === "biz_schema" || c.key === "ai_crawler")
+  const geoCore = checks.filter(
+    (c) => c.key === "biz_schema" || c.key === "ai_crawler" || c.key === "indexable"
+  )
   const geoCoreFail = geoCore.some((c) => c.status === "fail")
   const grade = score >= 85 && !geoCoreFail ? "양호" : score >= 60 ? "보통" : "취약"
 
