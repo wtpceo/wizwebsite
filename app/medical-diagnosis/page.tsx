@@ -7,6 +7,7 @@ import ReportPreview from "@/components/medical/ReportPreview"
 import WhyFree from "@/components/medical/WhyFree"
 import DiagnosisApplyForm from "@/components/medical/DiagnosisApplyForm"
 import MedicalFaq from "@/components/medical/MedicalFaq"
+import ForceTopOnLoad from "@/components/ForceTopOnLoad"
 import { MEDICAL_FAQ } from "@/lib/medical-faq-data"
 
 const BASE_URL = "https://wiztheplanning.com"
@@ -91,6 +92,7 @@ export default function MedicalDiagnosisPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <ForceTopOnLoad />
       <Header />
       <MedicalHero />
       <WhyMedical />
