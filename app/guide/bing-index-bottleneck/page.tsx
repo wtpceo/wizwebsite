@@ -253,6 +253,11 @@ export default function Page() {
           <a href="/guide/how-to-choose-geo-agency">GEO 대행사 고르는 법 — 계약 전 7가지 질문</a>도
           함께 보세요.
         </p>
+        <p>
+          성과를 어느 층에서 확인해야 하는지는{" "}
+          <a href="/guide/measure-ai-traffic">AI 검색 유입 측정 방법 — 4단계로 나눠 세기</a>에
+          따로 정리했습니다. 빙 색인을 직접 확인하는 방법도 여기에 있습니다.
+        </p>
       </GuideArticle>
     </>
   )

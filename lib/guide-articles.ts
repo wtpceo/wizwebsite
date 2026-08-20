@@ -2,7 +2,7 @@ import type { LucideIcon } from "lucide-react"
 import {
   BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows,
   Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck, FileSearch, Lock, TrendingUp,
-  Wallet, Receipt, MessageSquareQuote,
+  Wallet, Receipt, MessageSquareQuote, Gauge,
 } from "lucide-react"
 
 // 가이드 카테고리 (표시 순서 + 스캔용 짧은 라벨/색상)
@@ -32,13 +32,23 @@ export type GuideArticle = {
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
   {
+    href: "/guide/measure-ai-traffic",
+    category: "playbook",
+    icon: Gauge,
+    kicker: "실전 전략 · 자체 실측",
+    title: "AI 검색 유입 측정 방법 — 4단계로 나눠 세기, 구글 76 vs 빙 32 실측",
+    desc: "AI 검색 성과를 GA4 하나로 보면 틀립니다. 색인·노출·인용·유입은 서로 다른 층이고 앞 단계가 막히면 뒤 단계는 아예 생기지 않습니다. 2026년 8월 20일 저희 사이트를 재보니 같은 사이트맵을 냈는데 구글 약 76개, 빙 약 32개였습니다. 4단계 측정법과 저희 숫자를 그대로 공개합니다.",
+    date: "2026. 8. 20",
+    related: ["/guide/bing-index-bottleneck", "/guide/how-to-choose-geo-agency", "/guide/ranked-but-not-in-chatgpt"],
+  },
+  {
     href: "/guide/naver-ai-briefing",
     category: "case",
     icon: MessageSquareQuote,
     kicker: "실제 사례 · 자체 실측",
     title: "네이버 AI 브리핑 노출 방법 — 누락되던 블로그를 1위로 바꾼 글 구조",
     desc: "글이 누락되기 시작하면 대부분 저품질이나 지수 하락을 의심합니다. 6년째 운영 중인 매장의 사례에서 원인은 글 구조였습니다. 키워드 반복형을 경험형으로 바꾸자 '지역명+업종' 키워드 블로그 1위, 네이버 AI 브리핑 2순위 인용으로 이어졌습니다. 광고비는 쓰지 않았습니다.",
-    date: "2026. 8. 15",
+    date: "2026. 8. 20",
     related: ["/guide/case-blog-omission", "/guide/naver-place-checklist", "/guide/naver-blocks-ai-crawlers"],
   },
   {

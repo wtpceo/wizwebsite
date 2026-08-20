@@ -5,7 +5,7 @@ import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticl
 const TITLE = "네이버 AI 브리핑 노출 방법 — 누락되던 블로그를 1위로 바꾼 글 구조"
 const DESC =
   "블로그 글이 누락되기 시작하면 대부분 '저품질'이나 '지수 하락'을 의심합니다. 6년째 운영 중인 한 매장의 사례에서 원인은 달랐습니다. 글 구조였습니다. 키워드 반복형을 경험형으로 바꾸자 '지역명+업종' 키워드에서 브랜드 블로그가 1위로 올라섰고, 네이버 AI 브리핑에도 2순위로 인용되기 시작했습니다. 무엇을 어떻게 바꿨는지 그대로 적었습니다."
-const DATE = "2026-08-15"
+const DATE = "2026-08-20"
 const URL = "https://wiztheplanning.com/guide/naver-ai-briefing"
 
 export const metadata: Metadata = {
@@ -84,7 +84,7 @@ export default function Page() {
         kicker="실제 사례 · 자체 실측"
         title={TITLE}
         description={DESC}
-        date="2026년 8월 15일"
+        date="2026년 8월 20일"
       >
         {/* 결론 우선 — 상단 150자 이내 */}
         <p>

@@ -186,6 +186,11 @@ export default function Page() {
           끝났을 때 무엇이 남는지는{" "}
           <a href="/guide/geo-cost">GEO 비용 — 견적서 뜯어보는 법</a>에 이어서 정리했습니다.
         </p>
+        <p>
+          성과를 어느 층에서 확인해야 하는지는{" "}
+          <a href="/guide/measure-ai-traffic">AI 검색 유입 측정 방법 — 4단계로 나눠 세기</a>에
+          따로 정리했습니다. 빙 색인을 직접 확인하는 방법도 여기에 있습니다.
+        </p>
       </GuideArticle>
     </>
   )
