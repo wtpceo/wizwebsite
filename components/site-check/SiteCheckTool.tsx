@@ -23,6 +23,12 @@ type Report = {
   grade: "양호" | "보통" | "취약"
   summary: { pass: number; warn: number; fail: number; total: number }
   checks: CheckResult[]
+  scan?: {
+    checked: number
+    withIssues: number
+    noindexPages: string[]
+    sampledFrom: number
+  } | null
 }
 
 const STATUS_UI: Record<CheckStatus, { icon: typeof CheckCircle2; cls: string; ring: string }> = {
@@ -300,6 +306,67 @@ export default function SiteCheckTool() {
               </div>
             )
           })()}
+
+          {/* 다른 페이지 표본 점검 — 숫자만 공개하고 상세는 정밀 진단 영역 */}
+          {report.scan && report.scan.checked > 0 && (
+            <div
+              className={`rounded-2xl border p-5 md:p-6 ${
+                report.scan.noindexPages.length > 0
+                  ? "border-rose-300 bg-rose-50/60"
+                  : report.scan.withIssues > 0
+                    ? "border-amber-200 bg-amber-50/60"
+                    : "border-emerald-200 bg-emerald-50/60"
+              }`}
+            >
+              <h2 className="flex items-center gap-2 text-lg font-extrabold text-gray-900">
+                {report.scan.withIssues > 0 ? (
+                  <AlertTriangle className="h-5 w-5 text-amber-500" />
+                ) : (
+                  <CheckCircle2 className="h-5 w-5 text-emerald-600" />
+                )}
+                다른 페이지 {report.scan.checked}장도 함께 확인했습니다
+              </h2>
+
+              {report.scan.withIssues > 0 ? (
+                <p className="mt-2 text-sm leading-relaxed text-gray-700">
+                  사이트맵에 등록된 {report.scan.sampledFrom}개 중 {report.scan.checked}장을 표본으로
+                  열어봤고, 그중{" "}
+                  <strong className="text-gray-900">{report.scan.withIssues}장에서 문제가 발견</strong>
+                  됐습니다. 제목·설명·대표 제목(H1)·구조화 데이터 중 빠진 것이 있다는 뜻입니다.
+                </p>
+              ) : (
+                <p className="mt-2 text-sm leading-relaxed text-gray-700">
+                  사이트맵에 등록된 {report.scan.sampledFrom}개 중 {report.scan.checked}장을 표본으로
+                  열어봤고, 기본 항목이 빠진 페이지는 없었습니다.
+                </p>
+              )}
+
+              {report.scan.noindexPages.length > 0 && (
+                <div className="mt-4 rounded-xl border border-rose-200 bg-white p-4">
+                  <p className="text-sm font-bold text-rose-700">
+                    색인이 막힌 페이지가 {report.scan.noindexPages.length}장 있습니다
+                  </p>
+                  <ul className="mt-2 space-y-1">
+                    {report.scan.noindexPages.map((pth) => (
+                      <li key={pth} className="break-all font-mono text-xs text-gray-700">{pth}</li>
+                    ))}
+                  </ul>
+                  <p className="mt-2 text-xs leading-relaxed text-gray-500">
+                    이 페이지들은 검색과 AI에서 통째로 빠집니다. 알려드리는 편이 맞다고 판단해
+                    주소를 공개합니다.
+                  </p>
+                </div>
+              )}
+
+              {report.scan.withIssues > 0 && (
+                <p className="mt-3 flex items-start gap-1.5 text-xs leading-relaxed text-gray-500">
+                  <Lock className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                  어느 페이지의 무슨 문제인지, 나머지 {Math.max(0, report.scan.sampledFrom - report.scan.checked)}개
+                  페이지는 어떤지는 아래 정밀 진단에서 확인하실 수 있습니다.
+                </p>
+              )}
+            </div>
+          )}
 
           {/* 2단계 안내 — 방금 본 건 '홈페이지 상태'일 뿐, AI 실제 노출은 정밀 진단 필요 */}
           <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-[#0b1220] to-[#101b2e] shadow-xl">

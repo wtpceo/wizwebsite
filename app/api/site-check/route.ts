@@ -635,6 +635,70 @@ export async function POST(req: Request) {
     })
   }
 
+
+  // ── 다른 페이지 표본 점검 ──────────────────────
+  // 무료 진단은 입력한 1곳이 기준이지만, 사이트맵에서 몇 장을 더 뽑아
+  // "다른 데도 문제가 있는가"만 숫자로 알려준다.
+  // 어느 페이지의 무슨 문제인지는 정밀 진단 영역. 단, 색인 차단(noindex)은
+  // 방치하면 그 페이지가 통째로 사라지므로 주소를 밝힌다.
+  type ScanResult = {
+    checked: number
+    withIssues: number
+    noindexPages: string[]
+    sampledFrom: number
+  }
+  let scan: ScanResult | null = null
+
+  if (sitemapXml && !/<sitemapindex/i.test(sitemapXml)) {
+    const targetHost = new URL(origin).host
+    const locs = Array.from(sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g))
+      .map((m) => m[1].trim())
+      .filter((u) => {
+        try {
+          // 악의적 사이트맵으로 외부 주소를 찌르게 하지 않는다(SSRF 방지)
+          return new URL(u).host === targetHost && u.replace(/\/$/, "") !== finalUrl.replace(/\/$/, "")
+        } catch {
+          return false
+        }
+      })
+
+    // 앞쪽만 뽑으면 비슷한 페이지에 몰리므로 전체에서 고르게 표본을 뜬다
+    const MAX = 6
+    const step = Math.max(1, Math.floor(locs.length / MAX))
+    const sample = Array.from({ length: Math.min(MAX, locs.length) }, (_, i) => locs[i * step]).filter(Boolean)
+
+    if (sample.length > 0) {
+      const results = await Promise.allSettled(
+        sample.map(async (u) => {
+          const r = await fetchWithTimeout(u, 5000)
+          if (!r.ok) throw new Error("bad status")
+          const h = (await r.text()).slice(0, 600000)
+          const xr = r.headers.get("x-robots-tag") || ""
+          const mr = Array.from(h.matchAll(/<meta\b[^>]*>/gi))
+            .map((m) => m[0])
+            .filter((t) => /\bname\s*=\s*["'](robots|googlebot)["']/i.test(t))
+            .map((t) => t.match(/\bcontent\s*=\s*["']([^"']*)["']/i)?.[1] || "")
+            .join(" ")
+          const noindex = /\bnoindex\b/.test(`${mr} ${xr}`.toLowerCase())
+          const title = h.match(/<title[^>]*>([^<]*)<\/title>/i)?.[1]?.trim() || ""
+          const desc = /<meta[^>]+name=["']description["']/i.test(h)
+          const h1 = (h.match(/<h1[\s>]/gi) || []).length
+          const schema = /application\/ld\+json/i.test(h)
+          return { url: u, noindex, issue: noindex || !title || !desc || h1 !== 1 || !schema }
+        })
+      )
+      const ok = results.filter((r) => r.status === "fulfilled").map((r) => (r as PromiseFulfilledResult<any>).value)
+      if (ok.length > 0) {
+        scan = {
+          checked: ok.length,
+          withIssues: ok.filter((r) => r.issue).length,
+          noindexPages: ok.filter((r) => r.noindex).map((r) => new URL(r.url).pathname),
+          sampledFrom: locs.length,
+        }
+      }
+    }
+  }
+
   // ── 점수 계산 ──────────────────────────────────
   const totalWeight = checks.reduce((s, c) => s + c.weight, 0)
   const gotWeight = checks.reduce(
@@ -663,5 +727,6 @@ export async function POST(req: Request) {
       total: checks.length,
     },
     checks,
+    scan,
   })
 }
