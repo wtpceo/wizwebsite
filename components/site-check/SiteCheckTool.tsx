@@ -81,6 +81,10 @@ export default function SiteCheckTool() {
         setRateLimited(res.status === 429 || Boolean(data?.rateLimited))
       } else {
         setReport(data)
+        // 취약·보완이 하나도 없으면 볼 게 통과 목록뿐이라 기본으로 펼쳐 둔다
+        setShowPasses(
+          !(data.checks || []).some((c: CheckResult) => c.status === "fail" || c.status === "warn")
+        )
         // 히스토리에 결과 상태를 쌓아 '뒤로가기'가 입력 화면으로 돌아오게
         window.history.pushState({ siteCheckResult: true }, "")
         trackEvent("site_check_result", { score: data.score, grade: data.grade })
@@ -256,6 +260,21 @@ export default function SiteCheckTool() {
                     <div className="space-y-3">
                       {warns.map((c) => <Row key={c.key} c={c} />)}
                     </div>
+                  </div>
+                )}
+
+                {/* 전부 통과한 경우 — 접힌 바 하나만 남아 화면이 비어 보이지 않게 */}
+                {fails.length === 0 && warns.length === 0 && (
+                  <div className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-5 md:p-6">
+                    <h2 className="flex items-center gap-2 text-lg font-extrabold text-gray-900">
+                      <CheckCircle2 className="h-5 w-5 text-emerald-600" />
+                      기초 항목 {passes.length}개를 모두 통과했습니다
+                    </h2>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                      색인 허용, 구조화 데이터, AI 크롤러 접근, 사이트맵까지 검색·AI가 읽는 데 필요한
+                      기초는 갖춰져 있습니다. <strong className="text-gray-800">여기서부터는 기초를
+                      고치는 문제가 아니라, 실제로 AI 답변에 인용되느냐의 문제</strong>입니다.
+                    </p>
                   </div>
                 )}
 
