@@ -158,7 +158,7 @@ export default function Page() {
         </p>
         <p>
           저희가 관찰한 한 식당 사례에서도 AI는 그 가게를 추천하며 홈페이지가 아니라 제3자
-          플랫폼을 인용했습니다 —{" "}
+          플랫폼을 인용했습니다.{" "}
           <a href="/guide/case-third-party-citation">홈페이지는 인용되지 않아도 인용을 만들어낸다</a>.
         </p>
 

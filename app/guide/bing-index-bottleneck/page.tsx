@@ -4,7 +4,7 @@ import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticl
 const TITLE =
   "IndexNow로 통보하고 8일 — 빙은 아직 우리 글을 읽지 않았습니다 (ChatGPT 노출의 진짜 병목)"
 const DESC =
-  "같은 글 하나를 같은 날 올렸습니다. 구글은 3일 만에 크롤하고 색인해 검색 결과에 띄웠습니다. 빙은 발행 당일 URL을 '발견'했지만 8일이 지나도록 읽으러 오지 않았습니다. robots.txt 허용도, 빙봇 접속도, IndexNow 통보도, 수동 제출도 전부 정상인데 말입니다. ChatGPT 검색이 빙 색인을 참고하는 이상 이건 곧 AI 노출의 병목입니다 — 우리 사이트에서 실측한 8일간의 기록을 그대로 공개합니다."
+  "같은 글 하나를 같은 날 올렸습니다. 구글은 3일 만에 크롤하고 색인해 검색 결과에 띄웠습니다. 빙은 발행 당일 URL을 '발견'했지만 8일이 지나도록 읽으러 오지 않았습니다. robots.txt 허용도, 빙봇 접속도, IndexNow 통보도, 수동 제출도 전부 정상인데 말입니다. ChatGPT 검색이 빙 색인을 참고하는 이상 이건 곧 AI 노출의 병목입니다. 우리 사이트에서 실측한 8일간의 기록을 그대로 공개합니다."
 const DATE = "2026-08-04"
 const URL = "https://wiztheplanning.com/guide/bing-index-bottleneck"
 
@@ -202,11 +202,11 @@ export default function Page() {
           </a>
           는 실험을 공개한 적이 있습니다. 그때는 원인을 &lsquo;제3자 교차 근거 부족&rsquo;과
           &lsquo;학습 데이터 시차&rsquo;로 해석했는데, 이번 관찰로{" "}
-          <strong>더 앞단의 물리적 병목</strong>이 하나 더 확인된 셈입니다 — 빙이 아직 우리를 읽지도
+          <strong>더 앞단의 물리적 병목</strong>이 하나 더 확인된 셈입니다. 빙이 아직 우리를 읽지도
           않았다는 것.
         </p>
         <Callout>
-          경로를 정리하면 이렇습니다 —{" "}
+          경로를 정리하면 이렇습니다.{" "}
           <strong>발행 → 빙이 발견 → 빙이 크롤 → 빙이 색인 → 빙 순위 확보 → ChatGPT 검색이 인용
           가능</strong>. 우리는 지금 두 번째와 세 번째 사이에 멈춰 있습니다. 구글·네이버 최적화가
           아무리 잘 돼도 이 줄은 따로 서야 합니다.

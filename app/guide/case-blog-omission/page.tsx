@@ -204,7 +204,7 @@ export default function Page() {
         </p>
         <p>
           같은 블로그에서 <strong>글의 구조만 바꿔</strong> 누락을 벗어나고 네이버 AI 브리핑 인용까지
-          이어진 사례도 있습니다 —{" "}
+          이어진 사례도 있습니다.{" "}
           <a href="/guide/naver-ai-briefing">네이버 AI 브리핑 노출 방법 — 누락되던 블로그를 1위로 바꾼 글 구조</a>.
         </p>
       </GuideArticle>

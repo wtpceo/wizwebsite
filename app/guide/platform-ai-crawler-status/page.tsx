@@ -276,7 +276,7 @@ export default function Page() {
           </CheckItem>
           <CheckItem>
             <strong>플랫폼 정책은 언제든 바뀝니다.</strong> 브런치 robots.txt의 갱신 주석은
-            2026년 4월 22일입니다 — 최근에도 정책이 조정됐다는 뜻입니다. 오늘 열려 있는 플랫폼이
+            2026년 4월 22일입니다. 최근에도 정책이 조정됐다는 뜻입니다. 오늘 열려 있는 플랫폼이
             내일 닫힐 수 있습니다. <strong>차단 걱정이 없는 유일한 곳은 자기 소유의
             홈페이지</strong>입니다. 이 원리는{" "}
             <a href="/guide/naver-blocks-ai-crawlers">네이버 차단 분석 글</a>에서 자세히 다뤘습니다.

@@ -187,7 +187,7 @@ export default function Page() {
         <p>
           홈페이지도 플레이스도 없던 지방 중식당 한 곳에 웹 자산을 만들었더니, 두 달 뒤 AI가 그 가게를{" "}
           <strong>추천 4위</strong>로 올렸습니다. 다만 인용한 출처는 홈페이지가 아니라 제3자
-          플랫폼이었습니다 —{" "}
+          플랫폼이었습니다.{" "}
           <a href="/guide/case-third-party-citation">홈페이지는 인용되지 않아도 인용을 만들어낸다</a>.
           출장세차 사례에서도 2개월 만에 구글 AI 개요에 올랐습니다(
           <a href="/guide/case-mobile-carwash">기록 보기</a>).

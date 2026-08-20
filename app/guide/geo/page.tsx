@@ -203,7 +203,7 @@ export default function Page() {
         <p>
           저희는 2026년 7월 한국 주요 플랫폼 15곳의 robots.txt를 전수 확인해{" "}
           <a href="/guide/platform-ai-crawler-status">어디가 열려 있고 어디가 닫혀 있는지 현황판</a>
-          으로 공개했습니다. 결론은 명확합니다 — <strong>정책이 바뀔 걱정이 없는 곳은 자기 소유의
+          으로 공개했습니다. 결론은 명확합니다. <strong>정책이 바뀔 걱정이 없는 곳은 자기 소유의
           홈페이지뿐</strong>입니다.
         </p>
         <p>
@@ -296,7 +296,7 @@ export default function Page() {
 
         <h2>지금 시작한다면</h2>
         <p>
-          순서는 하나입니다 — <strong>진단 먼저, 실행은 그다음.</strong> 우리 홈페이지가 AI에게
+          순서는 하나입니다. <strong>진단 먼저, 실행은 그다음.</strong> 우리 홈페이지가 AI에게
           열려 있는지, 지금 AI가 우리를 어떻게 답하는지 확인하는 데는 비용이 들지 않습니다.{" "}
           <a href="/site-check">무료 사이트 진단</a>으로 기술 상태를 먼저 확인하고, 병원이라면{" "}
           <a href="/medical-geo-agency">병원 GEO 대행</a>에서 진행 방식을 보실 수 있습니다.
