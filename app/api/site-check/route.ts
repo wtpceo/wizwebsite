@@ -418,14 +418,20 @@ export async function POST(req: Request) {
 
   // ── 11) sitemap ────────────────────────────────
   let sitemapOk = false
-  if (/sitemap:\s*http/i.test(robotsTxt)) {
-    sitemapOk = true
-  } else {
+  let sitemapXml = ""
+  // robots.txt에 선언돼 있어도 실제로 받아본다. 선언만 있고 깨진 사이트맵을
+  // 통과시키면 안 되고, 수정일(lastmod) 점검에도 본문이 필요하다.
+  const declared = robotsTxt.match(/sitemap:\s*(https?:\/\/\S+)/i)?.[1]?.trim()
+  for (const candidate of [declared, origin + "/sitemap.xml"].filter(Boolean) as string[]) {
     try {
-      const s = await fetchWithTimeout(origin + "/sitemap.xml", 5000, { method: "GET" })
-      sitemapOk = s.ok
+      const s = await fetchWithTimeout(candidate, 5000, { method: "GET" })
+      if (s.ok) {
+        sitemapOk = true
+        sitemapXml = (await s.text()).slice(0, 400000)
+        break
+      }
     } catch {
-      /* 없음 */
+      /* 다음 후보 시도 */
     }
   }
   checks.push({
@@ -437,6 +443,133 @@ export async function POST(req: Request) {
     detail: sitemapOk
       ? "사이트맵이 있어 검색엔진이 페이지를 빠짐없이 발견할 수 있습니다."
       : "사이트맵을 찾지 못했습니다. 페이지가 많다면 크롤러 발견성이 떨어질 수 있습니다.",
+  })
+
+
+  // ── 사이트맵 lastmod 신선도 ────────────────────
+  // 전 URL이 같은 lastmod면 배포할 때마다 "전 페이지가 바뀌었다"고 통보하는 셈이라
+  // 검색엔진이 새 글을 구분하지 못한다. 구글은 부정확한 lastmod를 무시하고,
+  // 빙은 크롤 예산을 줄인다. (2026-08-20 자사 실측으로 발견한 항목)
+  if (sitemapOk && sitemapXml) {
+    const mods = Array.from(sitemapXml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)).map((m) =>
+      m[1].trim().slice(0, 10)
+    )
+    const locs = (sitemapXml.match(/<loc>/g) || []).length
+    const uniq = new Set(mods).size
+    const isIndex = /<sitemapindex/i.test(sitemapXml)
+    let st: CheckStatus = "pass"
+    let detail = ""
+    if (isIndex) {
+      st = "pass"
+      detail = `사이트맵 색인 파일입니다. 하위 사이트맵 ${locs}개를 묶어 관리하고 있습니다.`
+    } else if (mods.length === 0) {
+      st = "warn"
+      detail = `URL ${locs}개에 수정일(lastmod)이 없습니다. 검색엔진이 어떤 글이 새로 올라왔는지 판단할 단서가 줄어듭니다.`
+    } else if (locs >= 5 && uniq === 1) {
+      st = "fail"
+      detail = `URL ${locs}개가 전부 같은 수정일(${mods[0]})입니다. 배포할 때마다 "모든 페이지가 방금 바뀌었다"고 알리는 셈이라, 검색엔진이 새 글을 구분하지 못합니다. 특히 빙에서 새 글 색인이 늦어지는 흔한 원인입니다.`
+    } else {
+      st = "pass"
+      detail = `URL ${locs}개가 ${uniq}종의 실제 수정일을 갖고 있습니다. 검색엔진이 새 글을 우선 크롤할 수 있는 상태입니다.`
+    }
+    checks.push({ key: "sitemap_lastmod", label: "사이트맵 수정일 정확성", tag: "SEO", weight: 1, status: st, detail })
+  }
+
+  // ── 파비콘 ─────────────────────────────────────
+  const hasFavicon = has(/<link[^>]+rel=["'][^"']*icon[^"']*["']/i)
+  checks.push({
+    key: "favicon",
+    label: "파비콘(브라우저 탭 아이콘)",
+    tag: "기술",
+    weight: 1,
+    status: hasFavicon ? "pass" : "warn",
+    detail: hasFavicon
+      ? "탭과 즐겨찾기에 표시될 아이콘이 지정되어 있습니다."
+      : "파비콘이 지정되지 않았습니다. 탭에 빈 문서 아이콘이 떠서 방문자가 받는 첫인상이 나빠집니다.",
+  })
+
+  // ── 제목 태그 위계 (H1~H6) ─────────────────────
+  const hseq = Array.from(head.matchAll(/<h([1-6])[\s>]/gi)).map((m) => Number(m[1]))
+  const skips: string[] = []
+  let prevH = 0
+  for (const n of hseq) {
+    if (prevH && n > prevH + 1) skips.push(`H${prevH}→H${n}`)
+    prevH = n
+  }
+  const hCount = hseq.length
+  checks.push({
+    key: "heading_structure",
+    label: "제목 태그 위계(H1~H6)",
+    tag: "SEO",
+    weight: 1,
+    status: hCount === 0 ? "fail" : skips.length ? "warn" : "pass",
+    detail:
+      hCount === 0
+        ? "제목 태그가 하나도 없습니다. 검색엔진과 AI가 글의 구조를 읽을 단서가 없습니다."
+        : skips.length
+          ? `제목 단계를 건너뛴 곳이 ${skips.length}군데 있습니다(${skips.slice(0, 3).join(", ")}). 대제목·중제목·소제목 순서를 지키면 AI가 어느 대목을 발췌할지 판단하기 쉬워집니다.`
+          : `제목 태그 ${hCount}개가 단계를 건너뛰지 않고 정리돼 있습니다. AI가 문서 구조를 그대로 읽을 수 있습니다.`,
+  })
+
+  // ── 이미지 대체 텍스트(alt) ────────────────────
+  const imgs = Array.from(head.matchAll(/<img\b[^>]*>/gi))
+    .map((m) => m[0])
+    .filter((t) => !/facebook\.com\/tr|google-analytics|width=["']?1["']?\s/i.test(t))
+  const noAlt = imgs.filter((t) => !/\balt\s*=/i.test(t)).length
+  checks.push({
+    key: "img_alt",
+    label: "이미지 대체 텍스트(alt)",
+    tag: "GEO",
+    weight: 1,
+    status: imgs.length === 0 ? "warn" : noAlt === 0 ? "pass" : noAlt / imgs.length > 0.3 ? "fail" : "warn",
+    detail:
+      imgs.length === 0
+        ? "본문 이미지를 찾지 못했습니다. 매장·시술·제품 사진은 신뢰를 만드는 근거라 있는 편이 좋습니다."
+        : noAlt === 0
+          ? `이미지 ${imgs.length}개 모두 설명(alt)이 있습니다. AI는 사진을 못 보므로 이 문장으로 내용을 파악합니다.`
+          : `이미지 ${imgs.length}개 중 ${noAlt}개에 설명(alt)이 없습니다. 브랜드명을 넣어 "위즈더플래닝 매장 내부"처럼 적으면 원하는 검색어 노출에 유리합니다.`,
+  })
+
+  // ── 내부·외부 링크 ─────────────────────────────
+  const hrefs = Array.from(head.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>/gi))
+  let internal = 0
+  let external = 0
+  for (const m of hrefs) {
+    const h = m[1]
+    if (/^(#|mailto:|tel:|javascript:)/i.test(h)) continue
+    if (/^https?:\/\//i.test(h)) {
+      try {
+        new URL(h).host === new URL(origin).host ? internal++ : external++
+      } catch {
+        /* 무시 */
+      }
+    } else internal++
+  }
+  checks.push({
+    key: "links",
+    label: "내부 링크 연결",
+    tag: "SEO",
+    weight: 1,
+    status: internal >= 8 ? "pass" : internal >= 3 ? "warn" : "fail",
+    detail:
+      internal >= 8
+        ? `내부 링크 ${internal}개, 외부 링크 ${external}개입니다. 페이지들이 서로 연결돼 크롤러가 사이트 전체를 돌 수 있습니다.`
+        : `내부 링크가 ${internal}개뿐입니다. 관련 페이지끼리 본문 안에서 연결해야 검색엔진이 나머지 페이지를 발견하고, 어느 페이지가 중요한지 판단합니다.`,
+  })
+
+  // ── 언어 설정 ──────────────────────────────────
+  const lang = grab(/<html[^>]*\blang=["']([^"']+)["']/i)
+  checks.push({
+    key: "lang",
+    label: "페이지 언어(lang) 지정",
+    tag: "기술",
+    weight: 1,
+    status: lang ? (/^ko/i.test(lang) ? "pass" : "warn") : "warn",
+    detail: lang
+      ? /^ko/i.test(lang)
+        ? `한국어(${lang})로 지정돼 있습니다. 검색엔진이 국내 검색 결과에 올바르게 배치합니다.`
+        : `언어가 "${lang}"으로 지정돼 있습니다. 한국어 사이트라면 ko로 바꿔야 국내 검색에서 제대로 잡힙니다.`
+      : "페이지 언어가 지정되지 않았습니다. html 태그에 lang=\"ko\"를 넣으면 국내 검색·AI 처리에 유리합니다.",
   })
 
   // ── 점수 계산 ──────────────────────────────────
