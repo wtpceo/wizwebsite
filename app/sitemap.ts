@@ -18,7 +18,8 @@ function parseKoDate(d: string): string | null {
 
 const GUIDE_DATES = new Map<string, string>(
   GUIDE_ARTICLES.flatMap((a) => {
-    const d = parseKoDate(a.date)
+    // 제목·본문을 고친 날이 있으면 그날이 lastmod다. 발행일이 아니다.
+    const d = parseKoDate(a.updated ?? a.date)
     return d ? ([[a.href, d]] as [string, string][]) : []
   })
 )
