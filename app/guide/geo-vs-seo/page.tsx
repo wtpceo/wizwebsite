@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 유지 → 현재 47자
-const TITLE = "GEO와 SEO 차이 — 검색 1위인데 ChatGPT엔 안 나온 이유"
+const TITLE = "GEO와 SEO 차이: 검색 1위인데 ChatGPT엔 안 나온 이유"
 const DESC =
   "SEO는 검색 결과 목록에서 위로 올라가는 일이고, GEO는 AI가 만든 답변 안에 들어가는 일입니다. 둘은 겹치지만 같지 않습니다. 저희 페이지는 네이버 AI 브리핑 1위, 구글 2위였는데도 ChatGPT에는 나오지 않았습니다. 목표·신호·측정·기간이 어떻게 다른지, 왜 검색 상위가 AI 추천을 보장하지 못하는지 실측 사례로 정리했습니다."
 const DATE = "2026-08-06"
@@ -130,8 +130,8 @@ export default function Page() {
 
         <h3>검색엔진 성적: 상위권</h3>
         <ul>
-          <CheckItem><strong>네이버 AI 브리핑 1위</strong> — 답변 카드 최상단 인용</CheckItem>
-          <CheckItem><strong>구글 검색 2위</strong> — 광고 제외 자연 검색 상단</CheckItem>
+          <CheckItem><strong>네이버 AI 브리핑 1위</strong>: 답변 카드 최상단 인용</CheckItem>
+          <CheckItem><strong>구글 검색 2위</strong>: 광고 제외 자연 검색 상단</CheckItem>
           <CheckItem><strong>네이버 통합검색 4위</strong></CheckItem>
         </ul>
 
@@ -147,7 +147,7 @@ export default function Page() {
           검색엔진 최적화는 필수 기반이지만, 그 자체로 생성형 AI의 추천을 보장하지 않습니다.
         </Callout>
 
-        <h2>왜 갈릴까 — 세 가지 이유</h2>
+        <h2>왜 갈릴까: 세 가지 이유</h2>
 
         <h3>1. AI는 &lsquo;남이 말해주는 것&rsquo;을 더 믿는다</h3>
         <p>

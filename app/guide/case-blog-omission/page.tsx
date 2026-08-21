@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
-const TITLE = "블로그 글이 자꾸 누락된다면 — 저품질이 아니라 '키워드'가 문제였습니다 (실제 사례)"
+const TITLE = "블로그 글이 자꾸 누락된다면: 저품질이 아니라 '키워드'가 문제였습니다 (실제 사례)"
 const DESC =
   "네이버 블로그 글이 5~6회 연속 검색에서 누락되고 플레이스 리뷰에도 반영되지 않던 광고주. 저품질을 의심했지만, 단계별 테스트로 확인한 원인은 달랐습니다. 같은 지역+업종 키워드를 오래 공략해 온 것이 문제였고, 블로그의 체급에 맞는 전략으로 바꾸자 누락 없이 다시 성장하기 시작했습니다."
 const DATE = "2026-07-19"
@@ -73,10 +73,10 @@ export default function Page() {
         </p>
         <ul>
           <CheckItem>
-            <strong>가능성 A — 블로그 자체에 문제가 생겼다</strong> (흔히 말하는 저품질)
+            <strong>가능성 A: 블로그 자체에 문제가 생겼다</strong> (흔히 말하는 저품질)
           </CheckItem>
           <CheckItem>
-            <strong>가능성 B — 블로그는 멀쩡한데, 글이 문제였다</strong> (키워드를 무리하게 공략한 글)
+            <strong>가능성 B: 블로그는 멀쩡한데, 글이 문제였다</strong> (키워드를 무리하게 공략한 글)
           </CheckItem>
         </ul>
         <p>
@@ -87,7 +87,7 @@ export default function Page() {
 
         <h2>단계별로 원인을 좁혀갔습니다</h2>
 
-        <h3>테스트 1 — 키워드를 완전히 빼고 써보기</h3>
+        <h3>테스트 1: 키워드를 완전히 빼고 써보기</h3>
         <p>
           먼저 <strong>100% 정보성 글</strong>을 제안드렸습니다. 키워드 공략을 아예 하지 않고, 순수하게
           독자에게 도움이 되는 내용만 담은 글입니다.
@@ -101,7 +101,7 @@ export default function Page() {
           글을 올려도 누락됐을 테니까요. 문제는 블로그가 아니라 <strong>글</strong>이었습니다.
         </Callout>
 
-        <h3>테스트 2 — 키워드를 아주 조심스럽게 하나만</h3>
+        <h3>테스트 2: 키워드를 아주 조심스럽게 하나만</h3>
         <p>
           이제 반대 방향을 확인할 차례였습니다. 정보성 글의 성격은 유지하되{" "}
           <strong>키워드를 딱 하나만 조심스럽게</strong> 넣어 작성했습니다.
@@ -111,7 +111,7 @@ export default function Page() {
           순위까지 잡힌 겁니다.
         </p>
 
-        <h3>테스트 3·4 — 체급의 한계선 찾기</h3>
+        <h3>테스트 3·4: 체급의 한계선 찾기</h3>
         <p>
           여기서 멈추지 않고, 이 블로그가 <strong>어디까지 감당할 수 있는지</strong>를 확인했습니다.
         </p>
@@ -132,7 +132,7 @@ export default function Page() {
           때문입니다.
         </p>
 
-        <h2>결론 — 저품질이 아니라 '체급'의 문제였습니다</h2>
+        <h2>결론: 저품질이 아니라 '체급'의 문제였습니다</h2>
         <p>
           정리하면 이렇습니다. 블로그는 멀쩡했습니다. 다만{" "}
           <strong>블로그의 현재 체급보다 훨씬 큰 키워드를, 그것도 같은 키워드로 오래 반복해서
@@ -205,7 +205,7 @@ export default function Page() {
         <p>
           같은 블로그에서 <strong>글의 구조만 바꿔</strong> 누락을 벗어나고 네이버 AI 브리핑 인용까지
           이어진 사례도 있습니다.{" "}
-          <a href="/guide/naver-ai-briefing">네이버 AI 브리핑 노출 방법 — 누락되던 블로그를 1위로 바꾼 글 구조</a>.
+          <a href="/guide/naver-ai-briefing">네이버 AI 브리핑 노출 방법: 누락되던 블로그를 1위로 바꾼 글 구조</a>.
         </p>
       </GuideArticle>
     </>

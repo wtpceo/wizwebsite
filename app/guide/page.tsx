@@ -6,7 +6,7 @@ import Footer from "@/components/Footer"
 import { CATEGORIES, GUIDE_ARTICLES as GUIDES } from "@/lib/guide-articles"
 
 export const metadata: Metadata = {
-  title: "마케팅 가이드 — AI 검색 최적화·플레이스 실전 노하우",
+  title: "마케팅 가이드: AI 검색 최적화·플레이스 실전 노하우",
   description:
     "AI 검색 최적화(GEO), 네이버 플레이스, 업종별 마케팅 실전 가이드. 위즈더플래닝이 7,000여 광고주와 쌓은 노하우를 사장님 눈높이로 정리했습니다.",
   alternates: { canonical: "/guide" },
@@ -33,7 +33,7 @@ export default function GuidePage() {
               마케팅 가이드
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">
-              AI 검색 최적화(GEO)부터 네이버 플레이스, 업종별 전략까지 —
+              AI 검색 최적화(GEO)부터 네이버 플레이스, 업종별 전략까지, 
               <br className="hidden md:block" />
               7,000여 광고주와 쌓은 노하우를 사장님 눈높이로 정리했습니다.
             </p>

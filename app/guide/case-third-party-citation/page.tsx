@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
 const TITLE =
-  "홈페이지를 만들었더니 AI가 추천하기 시작했습니다 — 정작 인용한 건 우리 홈페이지가 아니었습니다"
+  "홈페이지를 만들었더니 AI가 추천하기 시작했습니다. 정작 인용한 건 우리 홈페이지가 아니었습니다"
 const DESC =
-  "웹 존재감이 0이던 지방 중소도시의 한 중식당. 플레이스와 상세 홈페이지를 만들고 색인했더니 AI가 이 식당을 4순위로 추천하기 시작했습니다. 그런데 AI가 인용한 출처는 우리 홈페이지가 아니라 다이닝코드였습니다. 왜 홈페이지는 인용되지 않는데 홈페이지 덕분에 추천이 생겼을까요 — 우리가 직접 한 실험 결과를 공개합니다."
+  "웹 존재감이 0이던 지방 중소도시의 한 중식당. 플레이스와 상세 홈페이지를 만들고 색인했더니 AI가 이 식당을 4순위로 추천하기 시작했습니다. 그런데 AI가 인용한 출처는 우리 홈페이지가 아니라 다이닝코드였습니다. 왜 홈페이지는 인용되지 않는데 홈페이지 덕분에 추천이 생겼을까요: 우리가 직접 한 실험 결과를 공개합니다."
 const DATE = "2026-07-26"
 const URL = "https://wiztheplanning.com/guide/case-third-party-citation"
 
@@ -91,13 +91,13 @@ export default function Page() {
         </p>
         <ul>
           <CheckItem>
-            <strong>플레이스 정비</strong> — 구글·네이버에 상호·주소·전화·메뉴를 일관되게 세팅
+            <strong>플레이스 정비</strong>: 구글·네이버에 상호·주소·전화·메뉴를 일관되게 세팅
           </CheckItem>
           <CheckItem>
-            <strong>상세 홈페이지 제작</strong> — 실제 매장 사진을 곁들여 상세하게, 쇼츠 영상까지 붙여서
+            <strong>상세 홈페이지 제작</strong>: 실제 매장 사진을 곁들여 상세하게, 쇼츠 영상까지 붙여서
           </CheckItem>
           <CheckItem>
-            <strong>색인</strong> — 빙·구글·네이버에 크롤을 통보해 검색·AI가 읽을 수 있게
+            <strong>색인</strong>: 빙·구글·네이버에 크롤을 통보해 검색·AI가 읽을 수 있게
           </CheckItem>
         </ul>
         <p>
@@ -136,7 +136,7 @@ export default function Page() {
           입장권을 만든 셈이죠.
         </p>
 
-        <h3>② 인용은 제3자에서 나옵니다 — 홈페이지는 그 인용을 &lsquo;가능하게&rsquo; 합니다</h3>
+        <h3>② 인용은 제3자에서 나옵니다: 홈페이지는 그 인용을 &lsquo;가능하게&rsquo; 합니다</h3>
         <p>
           생성형 AI는 <strong>&lsquo;자기가 자기를 추천하는&rsquo; 1차 출처(홈페이지)를 근거로 약하게
           봅니다.</strong> 대신 &ldquo;여러 독립 출처가 공통으로 인정하는가&rdquo;라는 제3자 교차 근거를
@@ -160,7 +160,7 @@ export default function Page() {
           <strong>제3자가 나를 실을 수 있게 하고 AI가 나를 신뢰하게 만드는 기반 인프라</strong>입니다.
         </Callout>
 
-        <h2>홈페이지가 AI 검색 노출에 필요한 이유 — 이 사례가 주는 교훈</h2>
+        <h2>홈페이지가 AI 검색 노출에 필요한 이유: 이 사례가 주는 교훈</h2>
         <ul>
           <CheckItem>
             <strong>&ldquo;홈페이지가 직접 인용돼야 의미 있다&rdquo;는 오해를 깹니다.</strong> 인용되지
@@ -178,7 +178,7 @@ export default function Page() {
           </CheckItem>
         </ul>
 
-        <h2>정직하게 — 이 사례의 한계</h2>
+        <h2>정직하게: 이 사례의 한계</h2>
         <p>
           이건 <strong>특정 시점의 단일 사례(n=1)</strong>입니다. 상관관계일 뿐 인과를 확정한 건
           아닙니다. 홈페이지 없이도 다이닝코드가 이 식당을 실었을 가능성을 완전히 배제할 수 없고,
@@ -190,7 +190,7 @@ export default function Page() {
         <h2>우리 가게도 이렇게 될 수 있을까요?</h2>
         <p>
           업종·지역·현재 웹 존재감에 따라 순서와 걸리는 시간이 다릅니다. 우리 가게가 지금 AI에게
-          어떻게 보이는지 — 아예 &lsquo;없는 가게&rsquo;인지, 있는데 신뢰 근거가 얇은 건지 — 부터
+          어떻게 보이는지: 아예 &lsquo;없는 가게&rsquo;인지, 있는데 신뢰 근거가 얇은 건지: 부터
           확인하는 게 먼저입니다. <a href="/site-check">무료 사이트 진단</a>으로 홈페이지의 구조·기술
           상태를 확인하고, AI 실제 노출까지 보는 정밀 진단이 필요하면 이어서 요청하실 수 있습니다.
           이 실험도 진단에서 시작했습니다.

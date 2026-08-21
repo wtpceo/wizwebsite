@@ -42,19 +42,19 @@ export default function Page() {
         <h2>기본 정보 (1~4)</h2>
         <ol>
           <CheckItem>
-            <strong>영업시간·휴무일이 실제와 일치하는가</strong> — 휴게시간, 라스트오더, 임시휴무까지.
+            <strong>영업시간·휴무일이 실제와 일치하는가</strong>: 휴게시간, 라스트오더, 임시휴무까지.
             "영업 중"으로 떠 있는데 문이 닫혀 있으면 리뷰 테러로 돌아옵니다.
           </CheckItem>
           <CheckItem>
-            <strong>전화번호가 최신인가</strong> — 스마트콜(0507) 번호와 실제 번호가 채널마다 다르지
+            <strong>전화번호가 최신인가</strong>: 스마트콜(0507) 번호와 실제 번호가 채널마다 다르지
             않은지 확인하세요. AI가 옛 번호를 안내하는 사례가 실제로 많습니다.
           </CheckItem>
           <CheckItem>
-            <strong>주소·찾아오는 길이 정확한가</strong> — 건물명, 층, 출입구 안내까지. 지번/도로명
+            <strong>주소·찾아오는 길이 정확한가</strong>: 건물명, 층, 출입구 안내까지. 지번/도로명
             주소가 다른 채널과 일치해야 합니다.
           </CheckItem>
           <CheckItem>
-            <strong>대표 키워드가 업종과 지역을 담고 있는가</strong> — "○○동 파스타", "○○역 필라테스"처럼
+            <strong>대표 키워드가 업종과 지역을 담고 있는가</strong>: "○○동 파스타", "○○역 필라테스"처럼
             고객이 검색하는 형태로 설정돼 있는지 확인하세요.
           </CheckItem>
         </ol>
@@ -62,15 +62,15 @@ export default function Page() {
         <h2>콘텐츠 (5~7)</h2>
         <ol start={5}>
           <CheckItem>
-            <strong>사진이 최근 3개월 안에 올라갔는가</strong> — 메뉴·내부·외관 사진을 계절감 있게
+            <strong>사진이 최근 3개월 안에 올라갔는가</strong>: 메뉴·내부·외관 사진을 계절감 있게
             갱신하세요. 오래된 사진만 있으면 "지금도 이런가?" 하는 의심이 생깁니다.
           </CheckItem>
           <CheckItem>
-            <strong>소식(새소식)을 주기적으로 발행하는가</strong> — 이벤트, 신메뉴, 휴무 안내를 월 2회
+            <strong>소식(새소식)을 주기적으로 발행하는가</strong>: 이벤트, 신메뉴, 휴무 안내를 월 2회
             이상. 소식이 살아 있는 플레이스는 '운영 중인 살아있는 매장'으로 평가됩니다.
           </CheckItem>
           <CheckItem>
-            <strong>가격 정보가 공개돼 있는가</strong> — 메뉴판·가격표를 등록하세요. "가격 얼마예요?"
+            <strong>가격 정보가 공개돼 있는가</strong>: 메뉴판·가격표를 등록하세요. "가격 얼마예요?"
             질문에 AI가 답할 수 있는 근거가 됩니다.
           </CheckItem>
         </ol>
@@ -78,15 +78,15 @@ export default function Page() {
         <h2>신뢰 요소 (8~10)</h2>
         <ol start={8}>
           <CheckItem>
-            <strong>방문자 리뷰가 이번 달에도 쌓이고 있는가</strong> — 리뷰 수보다 최신성이 중요합니다.
+            <strong>방문자 리뷰가 이번 달에도 쌓이고 있는가</strong>: 리뷰 수보다 최신성이 중요합니다.
             방문 고객에게 자연스럽게 리뷰를 요청하는 루틴을 만드세요.
           </CheckItem>
           <CheckItem>
-            <strong>리뷰에 답변을 남기고 있는가</strong> — 특히 낮은 평점 리뷰일수록 정중한 답변이
+            <strong>리뷰에 답변을 남기고 있는가</strong>: 특히 낮은 평점 리뷰일수록 정중한 답변이
             다음 손님에게 신뢰를 줍니다.
           </CheckItem>
           <CheckItem>
-            <strong>예약·주문 기능을 연결했는가</strong> — 네이버 예약·톡톡을 열어두면 노출 지면이
+            <strong>예약·주문 기능을 연결했는가</strong>: 네이버 예약·톡톡을 열어두면 노출 지면이
             넓어지고, "예약 되나요?" 질문에 대한 답도 생깁니다.
           </CheckItem>
         </ol>

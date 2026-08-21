@@ -7,7 +7,7 @@ import { EPISODES } from "@/lib/theater-episodes"
 
 const ep = EPISODES.find((e) => e.slug === "ep1-closed-door")!
 
-const TITLE = "네이버 블로그에 쓴 글, ChatGPT는 왜 못 읽을까 — 30초 애니메이션으로 보는 AI 차단 (위즈 극장 EP.1 닫힌 문)"
+const TITLE = "네이버 블로그에 쓴 글, ChatGPT는 왜 못 읽을까: 30초 애니메이션으로 보는 AI 차단 (위즈 극장 EP.1 닫힌 문)"
 const DESC =
   "네이버 블로그·카페에 아무리 글을 쌓아도 ChatGPT·퍼플렉시티는 그 안을 읽지 못합니다. 네이버 robots.txt가 AI 학습봇·검색봇을 모두 차단하고 있기 때문입니다(2026년 7월 실측). 이 사실을 AI 부엉이 위즈가 초록 대문 앞에서 겪는 30초 애니메이션으로 풀었습니다. 전체 해설 포함."
 const URL = "https://wiztheplanning.com/theater/ep1-closed-door"
@@ -27,7 +27,7 @@ const videoJsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    name: "위즈 극장 EP.1 — 닫힌 문 (1부: 문전박대)",
+    name: "위즈 극장 EP.1: 닫힌 문 (1부: 문전박대)",
     description:
       "AI 부엉이 위즈가 네이버를 상징하는 초록 대문에 도착해 노크하지만, 빨간 X와 함께 거절당하는 장면. 네이버 robots.txt의 AI 크롤러 차단을 형상화했습니다.",
     thumbnailUrl: "https://wiztheplanning.com/theater/ep1-poster1.png",
@@ -39,7 +39,7 @@ const videoJsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    name: "위즈 극장 EP.1 — 닫힌 문 (2부: 열린 문)",
+    name: "위즈 극장 EP.1: 닫힌 문 (2부: 열린 문)",
     description:
       "거절당한 위즈가 활짝 열린 홈페이지 문에서 환영받는 장면. AI 크롤러에게 열린 자기 소유의 홈페이지를 형상화했습니다.",
     thumbnailUrl: "https://wiztheplanning.com/theater/ep1-poster2.png",
@@ -98,7 +98,7 @@ export default function Page() {
               <source src="/theater/ep1-clip1.mp4" type="video/mp4" />
             </video>
             <Caption>
-              문에는 이렇게 적혀 있었습니다 — <strong className="text-white">&ldquo;출입금지.&rdquo;</strong>{" "}
+              문에는 이렇게 적혀 있었습니다. <strong className="text-white">&ldquo;출입금지.&rdquo;</strong>{" "}
               노크를 해도 돌아온 것은 빨간 불빛뿐. 이 초록 대문 안의 글은,{" "}
               <strong className="text-white">위즈가 영원히 읽을 수 없습니다.</strong>
             </Caption>
@@ -130,7 +130,7 @@ export default function Page() {
             <Caption>
               그런데 골목 건너편, <strong className="text-white">활짝 열린 문</strong>이 하나
               있었습니다. 사장님이 직접 만든 <strong className="text-[#00e5a0]">홈페이지</strong>입니다.
-              위즈는 이 안의 글을 전부 읽었고 — 다음 날 누군가 &ldquo;추천해줘&rdquo;라고 물었을 때,
+              위즈는 이 안의 글을 전부 읽었고: 다음 날 누군가 &ldquo;추천해줘&rdquo;라고 물었을 때,
               이 가게를 답했습니다.
             </Caption>
           </div>
@@ -139,8 +139,8 @@ export default function Page() {
           <div className="mt-14 border-l-2 border-[#00e5a0]/40 pl-5">
             <p className="text-base leading-[1.9] text-slate-300">
               콘텐츠를 <strong className="text-white">어디에 쌓느냐</strong>가 AI 추천을 가릅니다.
-              닫힌 문 안에 쌓은 글은 존재하지 않는 글과 같습니다. AI가 읽을 수 있는 곳 —{" "}
-              <strong className="text-white">자기 소유의 홈페이지</strong> — 에 거점을 두세요.
+              닫힌 문 안에 쌓은 글은 존재하지 않는 글과 같습니다. AI가 읽을 수 있는 곳 :{" "}
+              <strong className="text-white">자기 소유의 홈페이지</strong>: 에 거점을 두세요.
               그것이 GEO(AI 검색 최적화)의 첫걸음입니다.
             </p>
           </div>

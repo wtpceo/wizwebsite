@@ -5,7 +5,7 @@ import LukeApplyForm from "@/components/partners/LukeApplyForm"
 // 루크코리아 제휴 병원 전용 랜딩 — 문자(SMS) 유입 전용.
 // 비공개 페이지: noindex + 사이트맵 미등록 + 사이트 내 링크 없음. robots.txt에는 넣지 않는다(경로 노출 방지).
 
-const TITLE = "루크코리아 제휴 병원 — 무료 AI 진단서"
+const TITLE = "루크코리아 제휴 병원: 무료 AI 진단서"
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -16,7 +16,7 @@ const ZEROCLICK = [
   {
     icon: Search,
     t: "환자가 검색창에 묻습니다",
-    d: "“○○ 잘하는 병원 어디야?” — 네이버에도, 구글에도, 이제는 ChatGPT에도 묻습니다.",
+    d: "“○○ 잘하는 병원 어디야?”: 네이버에도, 구글에도, 이제는 ChatGPT에도 묻습니다.",
   },
   {
     icon: MessageSquareText,
@@ -73,7 +73,7 @@ export default function Page() {
               <strong className="text-white">AI의 답변에 떠야</strong> 환자가 옵니다.
             </p>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-400">
-              루크코리아 제휴 병원을 위해 특별히 준비했습니다 —{" "}
+              루크코리아 제휴 병원을 위해 특별히 준비했습니다. {" "}
               <strong className="text-[#00e5a0]">우리 병원이 지금 AI에 어떻게 나오는지, 무료
               진단서로 먼저 확인하세요.</strong> 비용 없이, 계약 없이.
             </p>
@@ -129,7 +129,7 @@ export default function Page() {
           </div>
           <div className="mt-6 rounded-2xl bg-[#0b1220] px-6 py-5">
             <p className="text-base font-bold leading-relaxed text-white md:text-lg">
-              문제는 하나입니다 — <span className="text-[#00e5a0]">우리 병원이 그 답변에 있는가?</span>
+              문제는 하나입니다. <span className="text-[#00e5a0]">우리 병원이 그 답변에 있는가?</span>
               <span className="ml-2 font-normal text-slate-400">확인하는 데 1분이면 됩니다. 아래에서 무료 진단서를 신청하세요.</span>
             </p>
           </div>

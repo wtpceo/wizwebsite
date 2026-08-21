@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     default: '위즈더플래닝 | AI 검색 최적화(GEO) 전문 에이전시',
     template: '%s | 위즈더플래닝',
   },
-  description: '위즈더플래닝은 AI 검색 최적화(GEO) 전문 풀서비스 에이전시입니다. ChatGPT·퍼플렉시티·네이버 AI가 당신의 브랜드를 추천하게 만드는 GEO부터 SEO, 메타·구글 퍼포먼스 광고 1,000건 이상, 자체 촬영·편집 제작팀, 홈페이지 제작까지 — 2016년부터 7,000여 광고주와 함께합니다.',
+  description: 'ChatGPT·퍼플렉시티·네이버 AI가 우리 브랜드를 추천하게 만드는 AI 검색 최적화(GEO) 전문 에이전시. SEO·메타/구글 광고·홈페이지 제작을 한 팀에서. 2016년부터 7,000여 광고주와 함께합니다.',
   keywords: [
     'AI 검색 최적화',
     'GEO',
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: '위즈더플래닝 | AI 검색 최적화(GEO) 전문 에이전시',
-    description: 'AI 검색 최적화(GEO) 전문 풀서비스 에이전시. ChatGPT·퍼플렉시티·네이버 AI가 브랜드를 추천하게 만드는 GEO부터 SEO, 메타·구글 광고, 자체 촬영·편집 제작팀, 홈페이지 제작까지 — 2016년부터 7,000여 광고주와 함께.',
+    description: 'AI 검색 최적화(GEO) 전문 풀서비스 에이전시. ChatGPT·퍼플렉시티·네이버 AI가 브랜드를 추천하게 만드는 GEO부터 SEO, 메타·구글 광고, 자체 촬영·편집 제작팀, 홈페이지 제작까지, 2016년부터 7,000여 광고주와 함께.',
     url: 'https://wiztheplanning.com',
     siteName: '위즈더플래닝',
     images: [
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
         url: `/og-image.jpg?v=${timestamp}`,
         width: 1200,
         height: 630,
-        alt: '위즈더플래닝 — AI 검색 최적화(GEO) 전문 에이전시',
+        alt: '위즈더플래닝: AI 검색 최적화(GEO) 전문 에이전시',
       }
     ],
     locale: 'ko_KR',

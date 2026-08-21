@@ -8,7 +8,7 @@ import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
 
-const TITLE = "병원 GEO 대행 — 병원·의원 AI 검색 최적화 전문"
+const TITLE = "병원 GEO 대행: 병원·의원 AI 검색 최적화 전문"
 const DESC =
   "환자가 ChatGPT·네이버 AI에게 병원을 묻는 시대. 위즈더플래닝은 병원·의원 전용 AI 검색 최적화(GEO)를 대행합니다. 크롤러 접근 점검부터 채널 정보 정합성, 홈페이지 구조화, 의료광고 기준을 반영한 콘텐츠까지. 무료 진단으로 현재 상태를 먼저 확인하고 시작합니다."
 const URL = "https://wiztheplanning.com/medical-geo-agency"
@@ -88,7 +88,7 @@ const FAQ = [
   },
   {
     q: "AI 노출을 보장해 주나요?",
-    a: "보장하지 않습니다. AI 답변은 엔진과 시점, 질문 방식에 따라 매번 달라지기 때문에 누구도 노출을 보장할 수 없습니다. '노출 100% 보장' 같은 약속을 내거는 업체는 오히려 주의가 필요합니다. 위즈더플래닝은 보장 대신 측정을 약속합니다 — 시작 전 현재 상태를 실측하고, 매월 같은 기준으로 재측정해 변화를 숫자로 보고합니다. 우리 회사 자신의 실험에서 잘된 결과와 아직 안 된 결과까지 홈페이지에 그대로 공개하는 이유이기도 합니다.",
+    a: "보장하지 않습니다. AI 답변은 엔진과 시점, 질문 방식에 따라 매번 달라지기 때문에 누구도 노출을 보장할 수 없습니다. '노출 100% 보장' 같은 약속을 내거는 업체는 오히려 주의가 필요합니다. 위즈더플래닝은 보장 대신 측정을 약속합니다. 시작 전 현재 상태를 실측하고, 매월 같은 기준으로 재측정해 변화를 숫자로 보고합니다. 우리 회사 자신의 실험에서 잘된 결과와 아직 안 된 결과까지 홈페이지에 그대로 공개하는 이유이기도 합니다.",
   },
   {
     q: "네이버 블로그 마케팅과는 어떻게 다른가요? 병행해야 하나요?",
@@ -117,7 +117,7 @@ const serviceJsonLd = {
   description: DESC,
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "위플 5단계 프로세스 — 진단·기술·정합·콘텐츠·검증",
+    name: "위플 5단계 프로세스: 진단·기술·정합·콘텐츠·검증",
     itemListElement: SCOPE.map((s) => ({
       "@type": "Offer",
       itemOffered: { "@type": "Service", name: s.title, description: s.desc },
@@ -240,7 +240,7 @@ export default function Page() {
           <div className="container mx-auto max-w-4xl px-4 md:px-6">
             <p className="text-xs font-bold tracking-[0.25em] text-emerald-600">PROCESS</p>
             <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
-              위플 5단계 프로세스 — 진단에서 검증까지
+              위플 5단계 프로세스: 진단에서 검증까지
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-gray-600">
               순서가 중요합니다. 홈페이지가 막혀 있는 상태에서 콘텐츠부터 늘리는 것이 가장 흔한
@@ -306,7 +306,7 @@ export default function Page() {
           <div className="container mx-auto max-w-4xl px-4 md:px-6">
             <p className="text-xs font-bold tracking-[0.25em] text-[#00e5a0]">HONEST</p>
             <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-white md:text-3xl">
-              과장에 지친 원장님께 — 우리가 하지 않는 것부터 말씀드립니다
+              과장에 지친 원장님께: 우리가 하지 않는 것부터 말씀드립니다
             </h2>
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               {[
@@ -351,9 +351,9 @@ export default function Page() {
             </p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               {[
-                { href: "/guide/case-urology-clinic", label: "실제 사례", title: "ChatGPT에 아예 안 뜨던 비뇨기과 — 원인은 홈페이지 방화벽이었습니다" },
-                { href: "/guide/platform-ai-crawler-status", label: "자체 실측", title: "한국 플랫폼 15곳, AI가 읽을 수 있는 곳은 어디인가 — robots.txt 전수 실측" },
-                { href: "/guide/ranked-but-not-in-chatgpt", label: "자체 실험", title: "네이버 AI 1위·구글 2위인데 ChatGPT엔 안 나옵니다 — 우리 사이트 실험" },
+                { href: "/guide/case-urology-clinic", label: "실제 사례", title: "ChatGPT에 아예 안 뜨던 비뇨기과: 원인은 홈페이지 방화벽이었습니다" },
+                { href: "/guide/platform-ai-crawler-status", label: "자체 실측", title: "한국 플랫폼 15곳, AI가 읽을 수 있는 곳은 어디인가: robots.txt 전수 실측" },
+                { href: "/guide/ranked-but-not-in-chatgpt", label: "자체 실험", title: "네이버 AI 1위·구글 2위인데 ChatGPT엔 안 나옵니다: 우리 사이트 실험" },
                 { href: "/guide/check-hospital-ai-visibility", label: "셀프 체크", title: "우리 병원이 ChatGPT에 나오는지 5분 만에 확인하는 법" },
               ].map((l) => (
                 <Link
@@ -383,7 +383,7 @@ export default function Page() {
           <p className="mt-3 text-base text-gray-600">
             여러 업체를 비교 중이시라면{" "}
             <Link href="/guide/how-to-choose-geo-agency" className="font-bold text-emerald-600 underline-offset-4 hover:underline">
-              GEO 대행사 고르는 법 — 계약 전에 물어봐야 할 7가지 질문
+              GEO 대행사 고르는 법: 계약 전에 물어봐야 할 7가지 질문
             </Link>
             을 먼저 읽어보세요. 저희를 포함해 어느 업체든 같은 기준으로 검증하실 수 있습니다.
           </p>

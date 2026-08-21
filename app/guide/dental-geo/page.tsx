@@ -3,7 +3,7 @@ import Link from "next/link"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
 // 5.9위인데 CTR 3.3% → 규제 대신 결과를 앞세움
-const TITLE = "치과 AI 검색 최적화(GEO) — ChatGPT가 우리 치과를 추천하게 하려면"
+const TITLE = "치과 AI 검색 최적화(GEO): ChatGPT가 우리 치과를 추천하게 하려면"
 const DESC =
   "네이버 AI·ChatGPT·구글이 치과를 추천할 때 무엇을 근거로 삼는지, 그리고 의료광고법에 걸리지 않으면서 AI에 인용되는 치과를 만드는 방법을 정리했습니다. 치과 특유의 실행(시술별 페이지·질문형 콘텐츠·방문후기·NAP)에 집중했습니다."
 const DATE = "2026-07-09"
@@ -75,7 +75,7 @@ export default function Page() {
         <h2>치과는 왜 일반 업종과 다르게 접근해야 하나요?</h2>
         <p>
           치과는 <strong>의료광고법 적용 대상</strong>이기 때문입니다. 일반 음식점이나 미용실에서 흔히
-          쓰는 GEO 전술 — 후기에 강점을 심고, 전후사진을 올리고, "최고·무통" 같은 카피를 쓰는 것 —
+          쓰는 GEO 전술: 후기에 강점을 심고, 전후사진을 올리고, "최고·무통" 같은 카피를 쓰는 것:
           을 치과에 그대로 적용하면 위반이 됩니다. 특히 아래 두 가지가 핵심 리스크입니다.
         </p>
         <ul>
@@ -106,10 +106,10 @@ export default function Page() {
         </p>
         <ul>
           <CheckItem>
-            ❌ 위험: "임플란트 하나도 안 아프고 결과가 완벽했어요" — 치료효과·예후를 다룬 치료경험담
+            ❌ 위험: "임플란트 하나도 안 아프고 결과가 완벽했어요": 치료효과·예후를 다룬 치료경험담
           </CheckItem>
           <CheckItem>
-            ✅ 안전: "예약 시간에 맞춰 진료해주고, 치료 과정을 이해하기 쉽게 설명해주셨어요" —
+            ✅ 안전: "예약 시간에 맞춰 진료해주고, 치료 과정을 이해하기 쉽게 설명해주셨어요":
             친절·설명·대기·예약 편의 같은 <strong>단순 방문후기</strong>
           </CheckItem>
           <CheckItem>

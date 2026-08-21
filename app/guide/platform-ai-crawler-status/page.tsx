@@ -3,9 +3,9 @@ import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticl
 
 // 타이틀은 접미사(" | 위즈더플래닝") 포함 70자 이내로 유지 — 초과 시 검색 결과에서 잘림
 const TITLE =
-  "한국 플랫폼 15곳 중 AI가 읽을 수 있는 곳 — robots.txt 전수 실측 (2026.7)"
+  "한국 플랫폼 15곳 중 AI가 읽을 수 있는 곳: robots.txt 전수 실측 (2026.7)"
 const DESC =
-  "네이버 블로그·카페, 카카오맵, 브런치, 티스토리, 다이닝코드, 식신, 배민, 당근, 인스타그램, 유튜브까지 — 한국 사장님들이 콘텐츠를 쌓는 플랫폼 15곳의 robots.txt를 2026년 7월 27일 직접 전수 확인했습니다. 결과는 극명하게 갈립니다. 네이버 계열은 AI 학습·검색 봇을 전부 차단했고, 브런치·다이닝코드는 '학습은 차단, AI 검색은 허용'이라는 정교한 선택을 했으며, 식신·티스토리는 완전 개방입니다. 어디에 쌓은 콘텐츠가 AI 답변에 인용될 수 있는지, 원문 인용과 출처를 그대로 공개합니다."
+  "네이버 블로그·카페, 카카오맵, 브런치, 티스토리, 다이닝코드, 식신, 배민, 당근, 인스타그램, 유튜브까지, 한국 사장님들이 콘텐츠를 쌓는 플랫폼 15곳의 robots.txt를 2026년 7월 27일 직접 전수 확인했습니다. 결과는 극명하게 갈립니다. 네이버 계열은 AI 학습·검색 봇을 전부 차단했고, 브런치·다이닝코드는 '학습은 차단, AI 검색은 허용'이라는 정교한 선택을 했으며, 식신·티스토리는 완전 개방입니다. 어디에 쌓은 콘텐츠가 AI 답변에 인용될 수 있는지, 원문 인용과 출처를 그대로 공개합니다."
 const DATE = "2026-07-27"
 const URL = "https://wiztheplanning.com/guide/platform-ai-crawler-status"
 
@@ -81,15 +81,15 @@ const ROWS: Row[] = [
   { platform: "네이버 메인", train: "block", search: "block", note: "첫 화면 외 전체 차단" },
   { platform: "카카오맵", train: "block", search: "block", note: "네이버와 동일한 RAG 금지 경고문 채택" },
   { platform: "브런치 (카카오)", train: "block", search: "allow", note: "학습봇 차단, AI 검색봇은 일반 검색과 동급 허용" },
-  { platform: "티스토리 (카카오)", train: "allow", search: "allow", note: "AI봇 제한 없음 — 관리 경로만 차단" },
+  { platform: "티스토리 (카카오)", train: "allow", search: "allow", note: "AI봇 제한 없음: 관리 경로만 차단" },
   { platform: "다이닝코드", train: "block", search: "partial", note: "학습봇 차단, ChatGPT 검색봇 허용 (퍼플렉시티는 차단)" },
   { platform: "식신", train: "allow", search: "allow", note: "AI봇 제한 없음" },
-  { platform: "캐치테이블", train: "block", search: "block", note: "허용 목록 방식 — AI봇은 목록에 없음" },
+  { platform: "캐치테이블", train: "block", search: "block", note: "허용 목록 방식: AI봇은 목록에 없음" },
   { platform: "배달의민족", train: "block", search: "block", note: "구글봇·네이버봇만 허용, 나머지 전면 차단" },
-  { platform: "요기요", train: "allow", search: "allow", note: "AI봇 제한 없음 — 결제 경로 등만 차단" },
-  { platform: "당근", train: "block", search: "block", note: "국내 콘텐츠(/kr/)에서 AI·수집 봇 46종 차단 — 가장 광범위" },
+  { platform: "요기요", train: "allow", search: "allow", note: "AI봇 제한 없음: 결제 경로 등만 차단" },
+  { platform: "당근", train: "block", search: "block", note: "국내 콘텐츠(/kr/)에서 AI·수집 봇 46종 차단: 가장 광범위" },
   { platform: "인스타그램", train: "block", search: "block", note: "AI봇 지정 차단 + 자동 수집 전면 금지 고지" },
-  { platform: "유튜브", train: "allow", search: "allow", note: "시청 페이지 개방 — 단 읽히는 건 제목·설명 등 텍스트" },
+  { platform: "유튜브", train: "allow", search: "allow", note: "시청 페이지 개방: 단 읽히는 건 제목·설명 등 텍스트" },
 ]
 
 function Mark({ v }: { v: Row["train"] }) {
@@ -111,7 +111,7 @@ export default function Page() {
         date="2026년 7월 27일"
       >
         <p>
-          &ldquo;블로그에 열심히 쓰면 AI도 언젠가 읽지 않을까요?&rdquo; — 이 질문에 추측으로 답하는
+          &ldquo;블로그에 열심히 쓰면 AI도 언젠가 읽지 않을까요?&rdquo;: 이 질문에 추측으로 답하는
           글은 많지만, <strong>실제로 확인한 자료는 찾기 어렵습니다.</strong> 그래서 저희가 직접
           했습니다. <strong>2026년 7월 27일</strong>, 한국 사장님들이 콘텐츠를 쌓는 주요 플랫폼{" "}
           <strong>15곳의 robots.txt를 전수 확인</strong>했습니다. robots.txt는 각 사이트가
@@ -119,15 +119,15 @@ export default function Page() {
           내용은 전부 원문에서 확인한 사실이며, 출처(각 플랫폼의 robots.txt 주소)를 함께 남깁니다.
         </p>
 
-        <h2>먼저 알아야 할 것 — AI 봇은 두 종류입니다</h2>
+        <h2>먼저 알아야 할 것: AI 봇은 두 종류입니다</h2>
         <ul>
           <CheckItem>
-            <strong>학습봇</strong> (GPTBot, ClaudeBot, Google-Extended, CCBot 등) — AI 모델을
+            <strong>학습봇</strong> (GPTBot, ClaudeBot, Google-Extended, CCBot 등): AI 모델을
             훈련시킬 데이터를 수집합니다. 차단해도 AI 답변 인용에 주는 영향은 제한적입니다.
           </CheckItem>
           <CheckItem>
             <strong>AI 검색봇</strong> (OAI-SearchBot, ChatGPT-User, Claude-SearchBot,
-            PerplexityBot 등) — 사용자가 질문한 순간 <strong>실시간으로 페이지를 읽어 답변에
+            PerplexityBot 등): 사용자가 질문한 순간 <strong>실시간으로 페이지를 읽어 답변에
             인용</strong>합니다. <strong>이게 차단되면 AI 답변에 인용될 수 없습니다.</strong>
           </CheckItem>
         </ul>
@@ -169,14 +169,14 @@ export default function Page() {
           제외했습니다. robots.txt는 언제든 변경될 수 있어 위 표는 확인 시점의 스냅샷입니다.
         </p>
 
-        <h2>발견 ① 네이버 계열 — 학습도, AI 검색도 전부 닫았다</h2>
+        <h2>발견 ① 네이버 계열: 학습도, AI 검색도 전부 닫았다</h2>
         <p>
           네이버 블로그 robots.txt 최상단에는 이렇게 적혀 있습니다(
           <a href="https://blog.naver.com/robots.txt" target="_blank" rel="noopener noreferrer">원문 보기</a>).
         </p>
         <Callout>
           &ldquo;BOT ACCESS FOR THE PURPOSES OF AI TRAINING AND RETRIEVAL-AUGMENTED GENERATION
-          (RAG) IS STRICTLY PROHIBITED.&rdquo; — AI 학습 및 검색 증강 생성(RAG) 목적의 봇 접근을
+          (RAG) IS STRICTLY PROHIBITED.&rdquo;: AI 학습 및 검색 증강 생성(RAG) 목적의 봇 접근을
           엄격히 금지한다는 뜻입니다.
         </Callout>
         <p>
@@ -193,7 +193,7 @@ export default function Page() {
           다뤘습니다.
         </p>
 
-        <h2>발견 ② 카카오 계열 — 같은 회사인데 서비스마다 다르다</h2>
+        <h2>발견 ② 카카오 계열: 같은 회사인데 서비스마다 다르다</h2>
         <p>
           흥미로운 건 카카오입니다. <strong>카카오맵</strong>은 네이버와 똑같은 영문 경고문까지
           채택하며 전부 차단했지만(
@@ -204,20 +204,20 @@ export default function Page() {
         <p>
           브런치 robots.txt는 봇을 세 등급으로 나눕니다. 학습봇(GPTBot·ClaudeBot 등)은 전면
           차단하되, 주석에 &ldquo;Other search engines and AI search assistants&rdquo;라고 적힌
-          그룹 — <strong>OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User,
-          PerplexityBot</strong> — 은 빙봇과 같은 등급으로 <strong>허용</strong>합니다. 즉{" "}
+          그룹: <strong>OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User,
+          PerplexityBot</strong>: 은 빙봇과 같은 등급으로 <strong>허용</strong>합니다. 즉{" "}
           <strong>브런치에 쓴 글은 ChatGPT·클로드·퍼플렉시티 검색이 읽고 인용할 수
           있습니다.</strong> <strong>티스토리</strong>는 아예 AI봇 제한 자체가 없어 완전
           개방입니다(<a href="https://notice.tistory.com/robots.txt" target="_blank" rel="noopener noreferrer">원문</a>).
         </p>
 
-        <h2>발견 ③ 다이닝코드 — &lsquo;학습은 차단, 인용은 유지&rsquo;라는 정교한 수</h2>
+        <h2>발견 ③ 다이닝코드: &lsquo;학습은 차단, 인용은 유지&rsquo;라는 정교한 수</h2>
         <p>
           다이닝코드 robots.txt에는 한국어 주석이 그대로 적혀 있습니다(
           <a href="https://www.diningcode.com/robots.txt" target="_blank" rel="noopener noreferrer">원문</a>).
         </p>
         <Callout>
-          &ldquo;AI 모델 무단 학습 차단 (검색 인덱싱/트래픽 유입은 유지)&rdquo; — GPTBot·ClaudeBot
+          &ldquo;AI 모델 무단 학습 차단 (검색 인덱싱/트래픽 유입은 유지)&rdquo;: GPTBot·ClaudeBot
           등 학습봇은 차단하되, ChatGPT 검색이 쓰는 OAI-SearchBot과 ChatGPT-User는 차단 목록에
           없습니다. 즉 <strong>데이터는 안 뺏기면서, AI 답변에는 인용되는</strong> 구조입니다. (단,
           리뷰 페이지(/review)는 모든 봇에게 차단돼 있어, AI가 읽는 것은 매장 정보 페이지입니다.)
@@ -225,7 +225,7 @@ export default function Page() {
         <p>
           이 발견은 저희의 앞선 실험과 정확히 맞물립니다.{" "}
           <a href="/guide/case-third-party-citation">한 중식당의 GEO 실험</a>에서 AI가 식당을
-          추천하며 인용한 출처는 홈페이지가 아니라 다이닝코드였는데 — <strong>다이닝코드가 AI
+          추천하며 인용한 출처는 홈페이지가 아니라 다이닝코드였는데: <strong>다이닝코드가 AI
           검색봇에게 열려 있었기 때문에 가능했던 일</strong>입니다. 반면 경쟁 서비스인{" "}
           <strong>식신은 AI봇 제한이 아예 없고</strong>(
           <a href="https://www.siksinhot.com/robots.txt" target="_blank" rel="noopener noreferrer">원문</a>),{" "}
@@ -235,33 +235,33 @@ export default function Page() {
           갈립니다.</strong>
         </p>
 
-        <h2>발견 ④ 나머지 — 배민·당근·인스타는 닫혔고, 유튜브는 열려 있다</h2>
+        <h2>발견 ④ 나머지: 배민·당근·인스타는 닫혔고, 유튜브는 열려 있다</h2>
         <ul>
           <CheckItem>
-            <strong>배달의민족</strong> — 구글봇·네이버봇(Yeti)만 허용, 나머지 전면 차단(
+            <strong>배달의민족</strong>: 구글봇·네이버봇(Yeti)만 허용, 나머지 전면 차단(
             <a href="https://www.baemin.com/robots.txt" target="_blank" rel="noopener noreferrer">원문</a>).
             배민에 쌓인 리뷰·가게 정보는 AI가 못 읽습니다.
           </CheckItem>
           <CheckItem>
-            <strong>당근</strong> — 국내 콘텐츠(/kr/) 전체에서 AI·데이터 수집 봇{" "}
+            <strong>당근</strong>: 국내 콘텐츠(/kr/) 전체에서 AI·데이터 수집 봇{" "}
             <strong>46종</strong>을 이름으로 지정해 차단. 이번 실측에서 가장 광범위한 차단
             목록이었습니다(
             <a href="https://www.daangn.com/robots.txt" target="_blank" rel="noopener noreferrer">원문</a>).
           </CheckItem>
           <CheckItem>
-            <strong>인스타그램</strong> — AI봇 지정 차단 + &ldquo;서면 허가 없는 자동 수집
+            <strong>인스타그램</strong>: AI봇 지정 차단 + &ldquo;서면 허가 없는 자동 수집
             금지&rdquo; 고지(
             <a href="https://www.instagram.com/robots.txt" target="_blank" rel="noopener noreferrer">원문</a>).
             인스타에 아무리 쌓아도 AI 검색은 못 읽습니다.
           </CheckItem>
           <CheckItem>
-            <strong>유튜브</strong> — 시청 페이지에 봇 차단이 없습니다(
+            <strong>유튜브</strong>: 시청 페이지에 봇 차단이 없습니다(
             <a href="https://www.youtube.com/robots.txt" target="_blank" rel="noopener noreferrer">원문</a>).
             단, AI가 읽는 건 제목·설명·자막 같은 <strong>텍스트 영역</strong>입니다. 쇼츠를 올릴 때
             제목과 설명을 공들여야 하는 이유입니다.
           </CheckItem>
           <CheckItem>
-            <strong>요기요</strong> — AI봇 제한 없음. 결제·관리 경로만 차단돼 있습니다(
+            <strong>요기요</strong>: AI봇 제한 없음. 결제·관리 경로만 차단돼 있습니다(
             <a href="https://www.yogiyo.co.kr/robots.txt" target="_blank" rel="noopener noreferrer">원문</a>).
           </CheckItem>
         </ul>
@@ -271,7 +271,7 @@ export default function Page() {
           <CheckItem>
             <strong>콘텐츠를 어디에 쌓느냐가 곧 AI 노출 전략입니다.</strong> 같은 노력으로 글을
             써도 네이버 블로그에만 쓰면 AI 답변에서는 존재하지 않는 콘텐츠가 됩니다. AI가 읽을 수
-            있는 곳 — 자기 홈페이지, 브런치, 티스토리, (맛집이라면) 다이닝코드·식신 — 에 콘텐츠의
+            있는 곳: 자기 홈페이지, 브런치, 티스토리, (맛집이라면) 다이닝코드·식신: 에 콘텐츠의
             거점을 두어야 합니다.
           </CheckItem>
           <CheckItem>

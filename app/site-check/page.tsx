@@ -5,7 +5,7 @@ import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
 import SiteCheckTool from "@/components/site-check/SiteCheckTool"
 
-const TITLE = "무료 홈페이지 SEO·GEO 진단 — 주소만 넣으면 즉시 확인"
+const TITLE = "무료 홈페이지 SEO·GEO 진단: 주소만 넣으면 즉시 확인"
 const DESC =
   "우리 홈페이지가 검색과 AI에 잘 노출되는 구조인지 주소만 입력하면 즉시 진단해 드립니다. AI 크롤러 접근 여부, 구조화 데이터(Schema.org), 제목·모바일 대응 등 SEO·GEO 기초 요소를 실제로 검사하고 부족한 부분을 알려드립니다."
 const URL = "https://wiztheplanning.com/site-check"

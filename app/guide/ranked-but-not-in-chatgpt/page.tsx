@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
 const TITLE =
-  "네이버 AI 1위·구글 2위인데 ChatGPT엔 안 나옵니다 — 우리 사이트로 직접 한 GEO 실험"
+  "네이버 AI 1위·구글 2위인데 ChatGPT엔 안 나옵니다: 우리 사이트로 직접 한 GEO 실험"
 const DESC =
   "'병원 GEO 대행' 키워드에서 우리 페이지는 공개 2일 만에 네이버 AI 브리핑 1위, 구글 2위, 네이버 통합검색 4위에 올랐습니다. 그런데 ChatGPT·제미나이·퍼플렉시티에 '추천해줘'라고 물으면 아직 나오지 않습니다. 왜 같은 회사가 검색엔진에서는 상위인데 생성형 AI에서는 빠질까요? 우리 사이트를 실험대에 올려 그 이유를 그대로 공개합니다."
 const DATE = "2026-07-25"
@@ -79,7 +79,7 @@ export default function Page() {
         date="2026년 7월 25일"
       >
         <p>
-          GEO를 대행하는 회사가 정작 자기 사이트는 어떤지 — 그걸 우리 사이트로 직접 실험대에
+          GEO를 대행하는 회사가 정작 자기 사이트는 어떤지: 그걸 우리 사이트로 직접 실험대에
           올려봤습니다. 결과가 흥미로워서, 잘된 것과 <strong>아직 안 된 것을 있는 그대로</strong>
           공개합니다.
         </p>
@@ -88,8 +88,8 @@ export default function Page() {
         <p>
           <strong>2026년 7월 23일</strong>, &lsquo;병원 GEO 대행&rsquo; 키워드를 겨냥한{" "}
           <a href="/medical-geo-agency">병원 GEO 대행 서비스 페이지</a>를 새로 공개했습니다. 우리가
-          고객에게 적용하는 기준 — AI가 읽을 수 있는 구조, 구조화 데이터, 명확한 서비스 정보, 질문형
-          콘텐츠 — 을 그대로 넣었습니다. (구체적인 실행 방식은 우리 노하우라 공개하지 않습니다.)
+          고객에게 적용하는 기준: AI가 읽을 수 있는 구조, 구조화 데이터, 명확한 서비스 정보, 질문형
+          콘텐츠: 을 그대로 넣었습니다. (구체적인 실행 방식은 우리 노하우라 공개하지 않습니다.)
         </p>
 
         <h2>결과: 이틀 만에 검색엔진 상위</h2>
@@ -99,13 +99,13 @@ export default function Page() {
         </p>
         <ul>
           <CheckItem>
-            <strong>네이버 AI 브리핑 1위</strong> — AI 답변 카드 최상단에 우리 페이지가 인용됨
+            <strong>네이버 AI 브리핑 1위</strong>: AI 답변 카드 최상단에 우리 페이지가 인용됨
           </CheckItem>
           <CheckItem>
-            <strong>구글 검색 결과 2위</strong> — 광고를 제외한 자연 검색 결과 상단
+            <strong>구글 검색 결과 2위</strong>: 광고를 제외한 자연 검색 결과 상단
           </CheckItem>
           <CheckItem>
-            <strong>네이버 통합검색 4위</strong> — 웹사이트 영역 상위권
+            <strong>네이버 통합검색 4위</strong>: 웹사이트 영역 상위권
           </CheckItem>
         </ul>
         <p>
@@ -113,20 +113,20 @@ export default function Page() {
           시점과 지역·기기에 따라 달라질 수 있어, 위 숫자는 해당 시점의 스냅샷입니다.)
         </p>
 
-        <h2>그런데 — ChatGPT·제미나이·퍼플렉시티엔 아직 안 나옵니다</h2>
+        <h2>그런데: ChatGPT·제미나이·퍼플렉시티엔 아직 안 나옵니다</h2>
         <p>
           같은 키워드로 <strong>ChatGPT·제미나이·퍼플렉시티</strong>에 &ldquo;병원 GEO 대행
           추천해줘&rdquo;라고 물으면, <strong>우리 회사는 아직 나오지 않습니다.</strong> 네이버 AI
           1위, 구글 2위인 회사가 말이죠. 왜 이런 일이 생길까요?
         </p>
         <Callout>
-          핵심은 이겁니다 — <strong>&ldquo;검색엔진 상위 노출&rdquo;과 &ldquo;생성형 AI 추천&rdquo;은
+          핵심은 이겁니다: <strong>&ldquo;검색엔진 상위 노출&rdquo;과 &ldquo;생성형 AI 추천&rdquo;은
           다른 게임입니다.</strong> 엔진마다 답을 만드는 출처가 다르기 때문입니다. 자세한 구조는{" "}
           <a href="/guide/ai-engines-cite-differently">엔진별 인용 출처의 차이</a>에 정리해
           두었습니다.
         </Callout>
 
-        <h2>왜 검색은 되는데 AI 추천은 안 될까 — 3가지 이유</h2>
+        <h2>왜 검색은 되는데 AI 추천은 안 될까: 3가지 이유</h2>
         <ol>
           <CheckItem>
             <strong>생성형 AI는 &lsquo;제3자 교차 언급&rsquo;을 봅니다.</strong> ChatGPT·퍼플렉시티는

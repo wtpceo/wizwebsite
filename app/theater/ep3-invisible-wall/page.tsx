@@ -7,7 +7,7 @@ import { EPISODES } from "@/lib/theater-episodes"
 
 const ep = EPISODES.find((e) => e.slug === "ep3-invisible-wall")!
 
-const TITLE = "홈페이지가 ChatGPT에 안 나온다면 방화벽부터 확인하세요 — 병원 실제 사례 (위즈 극장 EP.3 보이지 않는 벽)"
+const TITLE = "홈페이지가 ChatGPT에 안 나온다면 방화벽부터 확인하세요: 병원 실제 사례 (위즈 극장 EP.3 보이지 않는 벽)"
 const DESC =
   "홈페이지가 있는데도 ChatGPT에서 검색되지 않는다면, 제작사가 기본값으로 켜 둔 보안 방화벽이 AI 크롤러를 막고 있을 수 있습니다. 실제로 한 비뇨의학과가 그랬고, 차단 해제 후 6개월 만에 ChatGPT·구글·네이버에 안정 노출됐습니다. 이 사례를 AI 부엉이 위즈가 열린 문 앞에서 튕겨 나가는 애니메이션으로 풀었습니다."
 const URL = "https://wiztheplanning.com/theater/ep3-invisible-wall"
@@ -27,7 +27,7 @@ const videoJsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    name: "위즈 극장 EP.3 — 보이지 않는 벽 (1부: 튕겨 나온 위즈)",
+    name: "위즈 극장 EP.3: 보이지 않는 벽 (1부: 튕겨 나온 위즈)",
     description:
       "AI 부엉이 위즈가 활짝 열린 병원 문으로 들어가려다 보이지 않는 벽에 튕겨 나오는 장면. 사람은 그대로 드나드는데 위즈만 막힙니다. 홈페이지 보안 방화벽이 AI 크롤러를 차단하던 실제 사례를 형상화했습니다.",
     thumbnailUrl: "https://wiztheplanning.com/theater/ep3-poster1.png",
@@ -39,7 +39,7 @@ const videoJsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    name: "위즈 극장 EP.3 — 보이지 않는 벽 (2부: 벽이 걷힌 날)",
+    name: "위즈 극장 EP.3: 보이지 않는 벽 (2부: 벽이 걷힌 날)",
     description:
       "붉은 방화벽이 걷히고 위즈가 드디어 병원 안으로 들어가 진료 안내를 읽는 장면. 차단 해제 후 AI가 병원 정보를 읽을 수 있게 된 순간을 형상화했습니다.",
     thumbnailUrl: "https://wiztheplanning.com/theater/ep3-poster2.png",
@@ -83,7 +83,7 @@ export default function Page() {
               <Link href="/theater/ep2-half-open-door" className="font-bold text-[#00e5a0] hover:underline">반쪽 문</Link>도
               지나온 AI 부엉이 <strong className="text-[#00e5a0]">위즈</strong>. 오늘 밤 도착한 곳은
               불이 환하게 켜진 <strong className="text-white">병원</strong>입니다. 문은 활짝 열려
-              있고, 사람들은 자유롭게 드나듭니다. 위즈는 안심하고 날아 들어갔습니다 — 그런데.
+              있고, 사람들은 자유롭게 드나듭니다. 위즈는 안심하고 날아 들어갔습니다. 그런데.
             </p>
           </div>
 
@@ -99,7 +99,7 @@ export default function Page() {
               <source src="/theater/ep3-clip1.mp4" type="video/mp4" />
             </video>
             <Caption>
-              <strong className="text-white">퉁 —.</strong> 열린 문 앞에서 위즈만 튕겨 나왔습니다.
+              <strong className="text-white">퉁!</strong> 열린 문 앞에서 위즈만 튕겨 나왔습니다.
               부딪힌 자리에 붉은 무늬가 일렁입니다. 사람들에게는 없는 벽이,{" "}
               <strong className="text-white">위즈에게만 있습니다.</strong>
             </Caption>
@@ -133,7 +133,7 @@ export default function Page() {
             <Caption>
               벽이 걷히자 위즈는 드디어 안으로 들어가{" "}
               <strong className="text-white">진료 안내를 읽었습니다.</strong> 그리고 얼마 뒤,
-              누군가 AI에게 병원을 물었을 때 — <strong className="text-white">이 병원이 답에
+              누군가 AI에게 병원을 물었을 때: <strong className="text-white">이 병원이 답에
               나오기 시작했습니다.</strong>
             </Caption>
           </div>
@@ -143,7 +143,7 @@ export default function Page() {
             <p className="text-base leading-[1.9] text-slate-300">
               차단은 네이버처럼 <strong className="text-white">정책으로 막는 경우</strong>(EP.1)도,
               다이닝코드처럼 <strong className="text-white">영리하게 골라 막는 경우</strong>(EP.2)도
-              있지만 — 가장 안타까운 것은{" "}
+              있지만: 가장 안타까운 것은{" "}
               <strong className="text-white">나도 모르게 막고 있는 경우</strong>입니다. 홈페이지를
               잘 만들어 두고도 방화벽·보안 설정이 AI를 막고 있다면, 쌓은 콘텐츠는 AI에게 존재하지
               않는 글과 같습니다. 우리 홈페이지의 문이 정말 열려 있는지, 확인이 먼저입니다.

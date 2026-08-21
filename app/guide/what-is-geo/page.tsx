@@ -75,26 +75,26 @@ export default function Page() {
         <h2>GEO는 어떤 순서로 진행되나요?</h2>
         <ol>
           <CheckItem>
-            <strong>AI 검색 진단</strong> — 네이버 AI·ChatGPT·제미나이에 실제 고객 질문을 던져 우리
+            <strong>AI 검색 진단</strong>: 네이버 AI·ChatGPT·제미나이에 실제 고객 질문을 던져 우리
             매장의 언급 점유율과 오정보를 측정합니다.
           </CheckItem>
           <CheckItem>
-            <strong>매장 데이터 구조화</strong> — 플레이스·웹사이트·메뉴·가격 정보를 AI가 읽고 신뢰할
+            <strong>매장 데이터 구조화</strong>: 플레이스·웹사이트·메뉴·가격 정보를 AI가 읽고 신뢰할
             수 있는 형태로 정리하고 일치시킵니다.
           </CheckItem>
           <CheckItem>
-            <strong>인용되는 콘텐츠 제작</strong> — AI가 답변에 인용하는 리뷰·블로그·미디어 콘텐츠를
+            <strong>인용되는 콘텐츠 제작</strong>: AI가 답변에 인용하는 리뷰·블로그·미디어 콘텐츠를
             만듭니다.
           </CheckItem>
           <CheckItem>
-            <strong>AI 노출 모니터링</strong> — 질문별 AI 답변 노출을 주기적으로 추적하고 매월
+            <strong>AI 노출 모니터링</strong>: 질문별 AI 답변 노출을 주기적으로 추적하고 매월
             리포트로 보고합니다.
           </CheckItem>
         </ol>
 
         <p>
           이 과정을 직접 하기 어려워 대행을 검토하고 있다면, 계약 전에 확인할 기준을{" "}
-          <a href="/guide/how-to-choose-geo-agency">GEO 대행사 고르는 법 — 계약 전에 물어봐야 할
+          <a href="/guide/how-to-choose-geo-agency">GEO 대행사 고르는 법: 계약 전에 물어봐야 할
           7가지 질문</a>에 정리해 두었습니다.
         </p>
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 유지 → 현재 53자
-const TITLE = "펜션 예약 수수료 10.45% — 자체 사이트로 만실 채운 8일 광고비 18만원"
+const TITLE = "펜션 예약 수수료 10.45%: 자체 사이트로 만실 채운 8일 광고비 18만원"
 const DESC =
   "네이버 펜션 실시간예약은 매출연동수수료 6.6% + 네이버페이 2.9%로 부가세 포함 10.45%, 야놀자·여기어때 중개수수료는 10%입니다(공정위 자율규제 기준, 하위 40%는 9%). 사장님들이 못 끊는 이유는 수수료가 아까운 걸 몰라서가 아니라 플랫폼을 끊으면 예약이 끊길까 봐입니다. 수도권 근교 펜션 한 곳의 8일치 실측: 지출 18만 563원, 랜딩페이지 조회 2,890건, 조회당 62원."
 const DATE = "2026-08-12"
@@ -110,7 +110,7 @@ export default function Page() {
           해본 8일치 숫자를 그대로 공개합니다.
         </p>
 
-        <h2>먼저 수수료부터 — 공식 출처로 확인한 숫자</h2>
+        <h2>먼저 수수료부터: 공식 출처로 확인한 숫자</h2>
         <p>
           업계에서 &ldquo;13%다, 15%다&rdquo; 하는 말이 돌지만, 공식 안내와 규제 발표 자료를 확인하면
           숫자가 다릅니다. 인용 가능한 출처가 있는 것만 적습니다.
@@ -156,10 +156,10 @@ export default function Page() {
         <h3>야놀자·여기어때 중개수수료</h3>
         <ul>
           <CheckItem>
-            <strong>10%</strong> — 2024년 9월 공정거래위원회 숙박플랫폼 자율규제 방안 발표 기준
+            <strong>10%</strong>: 2024년 9월 공정거래위원회 숙박플랫폼 자율규제 방안 발표 기준
           </CheckItem>
           <CheckItem>
-            <strong>9%</strong> — 거래액 <strong>하위 40% 제휴점</strong>에 한해 1%포인트 인하.
+            <strong>9%</strong>: 거래액 <strong>하위 40% 제휴점</strong>에 한해 1%포인트 인하.
             여기어때는 2024년 11월부터 1년간, 야놀자는 2025년 1월부터 1년 6개월간 한시 적용
           </CheckItem>
           <CheckItem>
@@ -206,7 +206,7 @@ export default function Page() {
                 ["조회당 비용", "62원", "사이트 방문 1건을 만든 값"],
                 ["도달", "27,110명", "광고를 본 사람 수"],
                 ["노출", "30,163회", "광고가 보인 총 횟수"],
-                ["빈도", "1.11회", "1인당 평균 노출 — 같은 사람에게 반복되지 않음"],
+                ["빈도", "1.11회", "1인당 평균 노출: 같은 사람에게 반복되지 않음"],
               ].map((r) => (
                 <tr key={r[0]} className="border-t border-slate-100">
                   <td className="px-4 py-2.5 font-semibold text-gray-800">{r[0]}</td>
@@ -251,11 +251,11 @@ export default function Page() {
           만들었습니다.
         </p>
         <ul>
-          <CheckItem><strong>랜딩페이지 구축</strong> — 객실·요금·예약이 한 화면에서 끝나는 구조</CheckItem>
-          <CheckItem><strong>네이버 쇼핑 등재</strong> — 검색으로 들어오는 경로 확보</CheckItem>
-          <CheckItem><strong>현장 촬영</strong> — 스톡 이미지가 아닌 실제 객실·전경</CheckItem>
-          <CheckItem><strong>광고 소재 제작</strong> — 촬영본으로 릴스 영상 소재 구성</CheckItem>
-          <CheckItem><strong>메타 광고 집행</strong> — 수도권 30~45세 캠핑·가족여행 관심층 타깃</CheckItem>
+          <CheckItem><strong>랜딩페이지 구축</strong>: 객실·요금·예약이 한 화면에서 끝나는 구조</CheckItem>
+          <CheckItem><strong>네이버 쇼핑 등재</strong>: 검색으로 들어오는 경로 확보</CheckItem>
+          <CheckItem><strong>현장 촬영</strong>: 스톡 이미지가 아닌 실제 객실·전경</CheckItem>
+          <CheckItem><strong>광고 소재 제작</strong>: 촬영본으로 릴스 영상 소재 구성</CheckItem>
+          <CheckItem><strong>메타 광고 집행</strong>: 수도권 30~45세 캠핑·가족여행 관심층 타깃</CheckItem>
         </ul>
         <p>
           순서가 중요합니다. <strong>그릇을 먼저 만들고 물을 부었습니다.</strong> 랜딩페이지가 없는
@@ -341,7 +341,7 @@ export default function Page() {
           예약이 끊길 위험을 감수하지 않고도 수수료 비중을 낮출 수 있습니다.
         </Callout>
 
-        <h2>수수료만의 문제가 아닙니다 — 인용도 넘어갑니다</h2>
+        <h2>수수료만의 문제가 아닙니다: 인용도 넘어갑니다</h2>
         <p>
           여기서부터가 저희가 이 사례를 굳이 정리한 이유입니다.{" "}
           <strong>플랫폼에만 얹혀 있으면 넘어가는 건 수수료만이 아닙니다.</strong>

@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 유지 → 현재 54자
-const TITLE = "AI 검색 유입 측정 방법 — 4단계로 나눠 세기, 구글 76 vs 빙 32 실측"
+const TITLE = "AI 검색 유입 측정 방법: 4단계로 나눠 세기, 구글 76 vs 빙 32 실측"
 const DESC =
   "AI 검색 성과를 GA4 하나로 보면 틀립니다. 색인·노출·인용·유입은 서로 다른 층이고, 앞 단계가 막히면 뒤 단계는 아예 생기지 않습니다. 2026년 8월 20일 저희 사이트를 직접 재보니 같은 사이트맵을 냈는데도 구글 약 76개, 빙 약 32개였습니다. 4단계로 나눠 세는 법과 저희 숫자를 그대로 공개합니다."
 const DATE = "2026-08-20"
@@ -134,7 +134,7 @@ export default function Page() {
           4층(방문자 수)부터 보고 &ldquo;효과가 없네&rdquo;라고 결론 냅니다. 원인은 보통 1층에 있습니다.
         </p>
 
-        <h2>1층 — 색인부터 30초 만에 확인하는 법</h2>
+        <h2>1층: 색인부터 30초 만에 확인하는 법</h2>
         <p>
           검색창에 <strong><code>site:내도메인.com</code></strong>을 그대로 칩니다. 구글과 빙에서 각각
           해보고 <strong>두 숫자를 나란히 놓는 게 핵심</strong>입니다. 한쪽만 보면 격차가 안 보입니다.
@@ -190,7 +190,7 @@ export default function Page() {
           들어가 있어도 빙에 없으면 그 답변에서 빠질 수 있습니다.
         </p>
 
-        <h2>2층 — 노출과 순위는 분리해서 봅니다</h2>
+        <h2>2층: 노출과 순위는 분리해서 봅니다</h2>
         <p>
           서치콘솔 실적 화면에서 <strong>노출수·클릭수·CTR·평균 게재순위를 한 화면에 켜는 것</strong>이
           출발점입니다. 여기서 문제는 두 종류로 갈립니다.
@@ -209,7 +209,7 @@ export default function Page() {
           같은 &ldquo;클릭이 없다&rdquo;도 원인이 정반대라, 이걸 안 나누면 엉뚱한 데를 고치게 됩니다.
         </p>
 
-        <h2>3층 — AI가 실제로 인용했는지는 직접 물어봐야 합니다</h2>
+        <h2>3층: AI가 실제로 인용했는지는 직접 물어봐야 합니다</h2>
         <p>
           여기가 GEO의 본 목적인데, <strong>자동으로 재는 방법이 마땅치 않습니다.</strong> AI 답변은
           같은 질문에도 매번 달라지고 사용자·지역·시점에 따라 바뀝니다.
@@ -217,7 +217,7 @@ export default function Page() {
         <p>저희가 쓰는 방식은 단순합니다.</p>
         <ul>
           <CheckItem>
-            <strong>고객이 실제로 쓸 법한 질문을 목록으로 고정합니다</strong> — &ldquo;OO동 OO 잘하는
+            <strong>고객이 실제로 쓸 법한 질문을 목록으로 고정합니다</strong>: &ldquo;OO동 OO 잘하는
             곳 추천해줘&rdquo; 같은 실제 말투로
           </CheckItem>
           <CheckItem>
@@ -238,7 +238,7 @@ export default function Page() {
           그대로 남겨두었습니다.
         </p>
 
-        <h2>4층 — GA4에서 AI 유입 보는 법</h2>
+        <h2>4층: GA4에서 AI 유입 보는 법</h2>
         <p>
           <strong>보고서 → 획득 → 트래픽 획득</strong>으로 들어가서 측정기준을{" "}
           <strong>&lsquo;세션 소스/매체&rsquo;</strong>로 바꿉니다. 그리고 아래 값을 찾습니다.
@@ -266,19 +266,19 @@ export default function Page() {
         </p>
         <ul>
           <CheckItem>
-            <strong>&ldquo;이건 몇 층 숫자입니까&rdquo;</strong> — 색인 개수와 노출수만 크게 적혀 있고
+            <strong>&ldquo;이건 몇 층 숫자입니까&rdquo;</strong>: 색인 개수와 노출수만 크게 적혀 있고
             인용·유입이 빠져 있으면 물어봐야 합니다
           </CheckItem>
           <CheckItem>
-            <strong>&ldquo;어떻게 쟀습니까&rdquo;</strong> — <code>site:</code> 추정치를 확정 수치처럼
+            <strong>&ldquo;어떻게 쟀습니까&rdquo;</strong>: <code>site:</code> 추정치를 확정 수치처럼
             적었는지 확인합니다
           </CheckItem>
           <CheckItem>
-            <strong>&ldquo;원본 화면을 볼 수 있습니까&rdquo;</strong> — 서치콘솔·GA4 화면은 계정만
+            <strong>&ldquo;원본 화면을 볼 수 있습니까&rdquo;</strong>: 서치콘솔·GA4 화면은 계정만
             열어주면 사장님이 직접 볼 수 있습니다
           </CheckItem>
           <CheckItem>
-            <strong>&ldquo;빙은 어떻습니까&rdquo;</strong> — ChatGPT 노출을 약속하면서 빙 색인을 한
+            <strong>&ldquo;빙은 어떻습니까&rdquo;</strong>: ChatGPT 노출을 약속하면서 빙 색인을 한
             번도 안 봤다면 앞뒤가 안 맞습니다
           </CheckItem>
         </ul>
@@ -301,7 +301,7 @@ export default function Page() {
         </p>
         <p>
           점유율 조사마다 숫자가 크게 갈리는 이유와, 매장 운영자가 실제로 봐야 할 지표는{" "}
-          <a href="/guide/naver-google-share">구글 네이버 검색 점유율 — 왜 출처마다 다른가</a>에
+          <a href="/guide/naver-google-share">구글 네이버 검색 점유율: 왜 출처마다 다른가</a>에
           따로 정리했습니다.
         </p>
       </GuideArticle>

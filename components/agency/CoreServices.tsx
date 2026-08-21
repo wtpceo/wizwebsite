@@ -26,7 +26,7 @@ const fadeUp = {
 const SERVICES = [
   {
     icon: Search,
-    title: "SEO — 기술 검색엔진 최적화",
+    title: "SEO: 기술 검색엔진 최적화",
     desc: "검색엔진과 AI가 함께 읽는 기술 SEO. 스키마 마크업·엔터티 설계부터 SSR 렌더링 구조까지, 코드 레벨에서 최적화합니다.",
     tag: "스키마 · 엔터티 · SSR까지",
   },
@@ -74,7 +74,7 @@ export default function CoreServices() {
             <br className="sm:hidden" /> 한 팀이 해냅니다
           </h2>
           <p className="mt-5 text-base leading-relaxed text-gray-600 md:text-lg">
-            AI 검색 진단부터 광고 운영, 콘텐츠 제작, 웹사이트 구축까지 —
+            AI 검색 진단부터 광고 운영, 콘텐츠 제작, 웹사이트 구축까지, 
             <br className="hidden md:block" />
             흩어진 외주 대신 <strong className="text-gray-900">하나의 팀, 하나의 전략</strong>으로 움직입니다.
           </p>
@@ -108,7 +108,7 @@ export default function CoreServices() {
               </div>
 
               <h3 className="mt-5 text-2xl font-extrabold tracking-tight text-white md:text-3xl">
-                GEO — AI 검색 최적화
+                GEO: AI 검색 최적화
               </h3>
               <p className="mt-3 max-w-lg text-sm leading-relaxed text-slate-400 md:text-base">
                 고객은 이제 검색창이 아니라 AI에게 묻습니다. ChatGPT·퍼플렉시티·네이버 AI가

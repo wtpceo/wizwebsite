@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
 const TITLE =
-  "IndexNow로 통보하고 8일 — 빙은 아직 우리 글을 읽지 않았습니다 (ChatGPT 노출의 진짜 병목)"
+  "IndexNow로 통보하고 8일: 빙은 아직 우리 글을 읽지 않았습니다 (ChatGPT 노출의 진짜 병목)"
 const DESC =
   "같은 글 하나를 같은 날 올렸습니다. 구글은 3일 만에 크롤하고 색인해 검색 결과에 띄웠습니다. 빙은 발행 당일 URL을 '발견'했지만 8일이 지나도록 읽으러 오지 않았습니다. robots.txt 허용도, 빙봇 접속도, IndexNow 통보도, 수동 제출도 전부 정상인데 말입니다. ChatGPT 검색이 빙 색인을 참고하는 이상 이건 곧 AI 노출의 병목입니다. 우리 사이트에서 실측한 8일간의 기록을 그대로 공개합니다."
 const DATE = "2026-08-04"
@@ -79,7 +79,7 @@ const ROWS: Row[] = [
   { label: "발행", google: "2026. 7. 27", bing: "2026. 7. 27", gOk: true, bOk: true },
   { label: "URL 발견", google: "사이트맵·내부링크로 발견", bing: "7. 27 (IndexNow 당일)", gOk: true, bOk: true },
   { label: "실제 크롤", google: "7. 30 오후 2:33 (Googlebot 스마트폰)", bing: "8일째 없음", gOk: true, bOk: false },
-  { label: "색인", google: "완료 — 검색 결과 노출 가능", bing: "미도달", gOk: true, bOk: false },
+  { label: "색인", google: "완료: 검색 결과 노출 가능", bing: "미도달", gOk: true, bOk: false },
 ]
 
 export default function Page() {
@@ -95,7 +95,7 @@ export default function Page() {
         date="2026년 8월 4일"
       >
         <p>
-          &ldquo;홈페이지도 만들고 색인도 신청했는데, 왜 ChatGPT엔 안 나오죠?&rdquo; — 저희가 가장
+          &ldquo;홈페이지도 만들고 색인도 신청했는데, 왜 ChatGPT엔 안 나오죠?&rdquo;: 저희가 가장
           많이 받는 질문입니다. 이번엔 답을 말로 하지 않고,{" "}
           <strong>우리 글 하나를 실험대에 올려 8일간 관찰</strong>했습니다. 같은 글, 같은 날, 같은
           조건. 구글과 빙이 어떻게 다르게 반응했는지 그대로 공개합니다.
@@ -136,7 +136,7 @@ export default function Page() {
         </p>
 
         <Callout>
-          한 줄로 요약하면 — <strong>빙은 우리 글이 존재한다는 걸 발행 당일부터 알고 있었습니다.
+          한 줄로 요약하면: <strong>빙은 우리 글이 존재한다는 걸 발행 당일부터 알고 있었습니다.
           그런데 8일이 지나도록 읽으러 오지 않았습니다.</strong> 순위가 낮은 게 아니라, 애초에 목록에
           들어가지 못한 상태입니다.
         </Callout>
@@ -148,21 +148,21 @@ export default function Page() {
         </p>
         <ul>
           <CheckItem>
-            <strong>robots.txt에서 빙봇을 막지 않음</strong> — 우리 robots.txt는{" "}
+            <strong>robots.txt에서 빙봇을 막지 않음</strong>: 우리 robots.txt는{" "}
             <code>User-Agent: *</code> / <code>Allow: /</code> 로 전체 허용입니다.
           </CheckItem>
           <CheckItem>
-            <strong>빙봇으로 접속해도 정상 응답</strong> — bingbot의 User-Agent로 해당 페이지를
+            <strong>빙봇으로 접속해도 정상 응답</strong>: bingbot의 User-Agent로 해당 페이지를
             직접 요청해 <strong>HTTP 200</strong>을 확인했습니다. 방화벽이 차단하는 상황이 아닙니다.
             (<a href="/guide/case-urology-clinic">방화벽이 크롤러를 막고 있던 병원 사례</a>와는
             다른 경우입니다.)
           </CheckItem>
           <CheckItem>
-            <strong>IndexNow 통보 접수 완료</strong> — 발행 당일 통보했고 응답 코드 200으로
+            <strong>IndexNow 통보 접수 완료</strong>: 발행 당일 통보했고 응답 코드 200으로
             접수됐습니다. 실제로 빙이 <strong>같은 날 URL을 발견</strong>한 것이 그 증거입니다.
           </CheckItem>
           <CheckItem>
-            <strong>수동 URL 제출과 사이트맵 등록까지 완료</strong> — 빙 웹마스터도구에서 URL을
+            <strong>수동 URL 제출과 사이트맵 등록까지 완료</strong>: 빙 웹마스터도구에서 URL을
             직접 제출했고(&ldquo;Success&rdquo; 확인), 사이트맵도 등록된 상태입니다.
           </CheckItem>
         </ul>
@@ -171,7 +171,7 @@ export default function Page() {
           <strong>원인은 우리 쪽이 아니라 빙의 판단에 있습니다.</strong>
         </p>
 
-        <h2>그럼 왜 안 읽을까 — 크롤 예산</h2>
+        <h2>그럼 왜 안 읽을까: 크롤 예산</h2>
         <p>
           검색엔진은 모든 페이지를 무한정 읽지 않습니다. 도메인마다{" "}
           <strong>&lsquo;이 사이트를 얼마나 자주, 얼마나 많이 읽을지&rsquo;</strong> 예산을
@@ -184,12 +184,12 @@ export default function Page() {
           크게 보고 신생 도메인에 보수적이라는 점이 이 차이로 나타납니다.
         </p>
         <p>
-          중요한 오해 하나 — <strong>같은 URL을 반복해서 제출해도 순서는 바뀌지 않습니다.</strong>{" "}
+          중요한 오해 하나: <strong>같은 URL을 반복해서 제출해도 순서는 바뀌지 않습니다.</strong>{" "}
           구글 서치콘솔도 &ldquo;여러 번 제출해도 대기열 위치나 우선순위가 변경되지 않는다&rdquo;고
           명시합니다. 기다리거나, 신뢰도를 올리거나 둘 중 하나입니다.
         </p>
 
-        <h2>이게 왜 중요한가 — ChatGPT로 가는 길목</h2>
+        <h2>이게 왜 중요한가: ChatGPT로 가는 길목</h2>
         <p>
           단순한 검색엔진 하나의 문제가 아닙니다. <strong>ChatGPT 검색은 빙 색인을 주요 소스로
           참고합니다.</strong> 빙이 읽지 않은 페이지는 ChatGPT가 실시간으로 인용할 근거 자체가 없다는
@@ -232,7 +232,7 @@ export default function Page() {
           </CheckItem>
         </ul>
 
-        <h2>정직하게 — 이 기록의 한계</h2>
+        <h2>정직하게: 이 기록의 한계</h2>
         <p>
           이건 <strong>도메인 한 개, 페이지 한 개, 8일간의 관찰</strong>입니다. 모든 신생 사이트가
           이렇다는 일반화는 할 수 없고, 빙 내부의 판단 기준을 저희가 확인할 방법도 없습니다. 위 표는
@@ -250,12 +250,12 @@ export default function Page() {
           방화벽이나 설정 때문에 아예 막혀 있다면 기다림의 문제가 아니라 고쳐야 할 문제이기
           때문입니다. <a href="/site-check">무료 사이트 진단</a>으로 1분이면 확인됩니다. 업체를
           알아보는 중이시라면{" "}
-          <a href="/guide/how-to-choose-geo-agency">GEO 대행사 고르는 법 — 계약 전 7가지 질문</a>도
+          <a href="/guide/how-to-choose-geo-agency">GEO 대행사 고르는 법: 계약 전 7가지 질문</a>도
           함께 보세요.
         </p>
         <p>
           성과를 어느 층에서 확인해야 하는지는{" "}
-          <a href="/guide/measure-ai-traffic">AI 검색 유입 측정 방법 — 4단계로 나눠 세기</a>에
+          <a href="/guide/measure-ai-traffic">AI 검색 유입 측정 방법: 4단계로 나눠 세기</a>에
           따로 정리했습니다. 빙 색인을 직접 확인하는 방법도 여기에 있습니다.
         </p>
       </GuideArticle>

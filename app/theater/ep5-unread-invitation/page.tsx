@@ -7,9 +7,9 @@ import { EPISODES } from "@/lib/theater-episodes"
 
 const ep = EPISODES.find((e) => e.slug === "ep5-unread-invitation")!
 
-const TITLE = "IndexNow 제출해도 빙 색인이 안 될 때 — 같은 글, 구글 3일 vs 빙 8일 (위즈 극장 EP.5 읽지 않는 초대장)"
+const TITLE = "IndexNow 제출해도 빙 색인이 안 될 때: 같은 글, 구글 3일 vs 빙 8일 (위즈 극장 EP.5 읽지 않는 초대장)"
 const DESC =
-  "빙 색인이 안 되는 건 설정 문제가 아니라 크롤 예산 때문일 수 있습니다. 같은 글을 같은 날 올렸는데 구글은 3일 만에 색인했고, 빙은 8일이 지나도 읽지 않았습니다 — robots.txt·빙봇 접속·IndexNow·수동 제출 전부 정상(2026년 8월 실측). ChatGPT 검색은 빙 색인을 참고하므로 이 줄은 AI 노출의 병목입니다. 이 기록을 위즈의 애니메이션으로 풀었습니다."
+  "빙 색인이 안 되는 건 설정 문제가 아니라 크롤 예산 때문일 수 있습니다. 같은 글을 같은 날 올렸는데 구글은 3일 만에 색인했고, 빙은 8일이 지나도 읽지 않았습니다. robots.txt·빙봇 접속·IndexNow·수동 제출 전부 정상(2026년 8월 실측). ChatGPT 검색은 빙 색인을 참고하므로 이 줄은 AI 노출의 병목입니다. 이 기록을 위즈의 애니메이션으로 풀었습니다."
 const URL = "https://wiztheplanning.com/theater/ep5-unread-invitation"
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ const videoJsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    name: "위즈 극장 EP.5 — 읽지 않는 초대장 (1부: 긴 줄)",
+    name: "위즈 극장 EP.5: 읽지 않는 초대장 (1부: 긴 줄)",
     description:
       "AI 부엉이 위즈가 빛나는 초대장(새 글 발행 통보)을 들고 거대한 서고 문 앞에 도착하지만, 초대장 대기줄이 아득히 길어 접수만 된 채 읽히지 않는 장면. 빙의 'Discovered but not crawled' 상태를 형상화했습니다.",
     thumbnailUrl: "https://wiztheplanning.com/theater/ep5-poster1.png",
@@ -39,7 +39,7 @@ const videoJsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    name: "위즈 극장 EP.5 — 읽지 않는 초대장 (2부: 추천 도장)",
+    name: "위즈 극장 EP.5: 읽지 않는 초대장 (2부: 추천 도장)",
     description:
       "초대장에 이웃들의 금색 추천 도장(외부 링크·제3자 언급)이 찍히자 대기줄을 지나 서고 문이 열리는 장면. 반복 제출이 아니라 도메인 신뢰가 크롤 순서를 앞당긴다는 사실을 형상화했습니다.",
     thumbnailUrl: "https://wiztheplanning.com/theater/ep5-poster2.png",
@@ -81,9 +81,9 @@ export default function Page() {
             <p className="text-base leading-[1.9] text-slate-300">
               사장님이 새 글을 발행하면, 검색엔진들의 서고로{" "}
               <strong className="text-white">빛나는 초대장</strong>이 날아갑니다.
-              &ldquo;새 글이 나왔어요 — 읽으러 오세요.&rdquo; 어떤 서고는 사흘 만에 문을 열고
+              &ldquo;새 글이 나왔어요: 읽으러 오세요.&rdquo; 어떤 서고는 사흘 만에 문을 열고
               읽어 갔습니다. 그런데 AI 부엉이 <strong className="text-[#00e5a0]">위즈</strong>가
-              지켜보던 또 하나의 거대한 서고는 —{" "}
+              지켜보던 또 하나의 거대한 서고는 :{" "}
               <strong className="text-white">초대장을 받고도 열어보지 않았습니다.</strong>
             </p>
           </div>
@@ -113,7 +113,7 @@ export default function Page() {
               같은 글을 같은 날 올렸습니다. <strong className="text-white">구글은 3일 만에 크롤하고
               색인해 검색 결과에 띄웠지만, 빙은 발행 당일 URL을 &lsquo;발견&rsquo;하고도 8일이
               지나도록 읽으러 오지 않았습니다</strong>(2026년 8월, 저희 사이트 실측). robots.txt
-              허용, 빙봇 접속, IndexNow 통보, 수동 제출 — 전부 정상이었습니다. 원인은 설정이 아니라{" "}
+              허용, 빙봇 접속, IndexNow 통보, 수동 제출: 전부 정상이었습니다. 원인은 설정이 아니라{" "}
               <strong className="text-white">크롤 예산</strong>: 빙은 신생 도메인에 보수적이라
               &ldquo;존재는 알겠는데 지금 읽을 우선순위는 아니다&rdquo;라고 판단한 것입니다. 같은
               URL을 반복 제출해도 대기열 순서는 바뀌지 않습니다.
@@ -133,7 +133,7 @@ export default function Page() {
             </video>
             <Caption>
               줄을 앞당기는 건 <strong className="text-white">더 많은 초대장이 아니라, 초대장에
-              찍히는 이웃들의 추천 도장</strong>(외부 링크·제3자 언급)입니다. 도장이 쌓이는 날 —
+              찍히는 이웃들의 추천 도장</strong>(외부 링크·제3자 언급)입니다. 도장이 쌓이는 날:
               서고의 문은 이렇게 열릴 것입니다.
             </Caption>
           </div>
@@ -141,7 +141,7 @@ export default function Page() {
           {/* 에필로그 */}
           <div className="mt-14 border-l-2 border-[#00e5a0]/40 pl-5">
             <p className="text-base leading-[1.9] text-slate-300">
-              이 줄이 중요한 이유는 하나입니다 —{" "}
+              이 줄이 중요한 이유는 하나입니다. {" "}
               <strong className="text-white">ChatGPT 검색은 빙 색인을 주요 소스로
               참고합니다.</strong> 빙이 읽지 않은 페이지는 ChatGPT가 인용할 근거 자체가 없습니다.
               경로는 이렇습니다: 발행 → 빙이 발견 → <strong className="text-white">빙이 크롤</strong> →

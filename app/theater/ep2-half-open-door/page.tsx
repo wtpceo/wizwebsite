@@ -7,9 +7,9 @@ import { EPISODES } from "@/lib/theater-episodes"
 
 const ep = EPISODES.find((e) => e.slug === "ep2-half-open-door")!
 
-const TITLE = "AI가 맛집을 추천할 때 다이닝코드를 인용하는 이유 — 학습봇만 막은 robots.txt (위즈 극장 EP.2 반쪽 문)"
+const TITLE = "AI가 맛집을 추천할 때 다이닝코드를 인용하는 이유: 학습봇만 막은 robots.txt (위즈 극장 EP.2 반쪽 문)"
 const DESC =
-  "ChatGPT가 맛집을 추천할 때 다이닝코드를 자주 인용하는 데는 이유가 있습니다. 다이닝코드 robots.txt는 'AI 모델 무단 학습 차단(검색 인덱싱/트래픽 유입은 유지)' — 학습봇만 막고 AI 검색봇은 허용합니다(2026년 7월 27일 실측). 이 영리한 선택을 AI 부엉이 위즈가 만난 '반쪽만 열린 문' 애니메이션으로 풀었습니다."
+  "ChatGPT가 맛집을 추천할 때 다이닝코드를 자주 인용하는 데는 이유가 있습니다. 다이닝코드 robots.txt는 'AI 모델 무단 학습 차단(검색 인덱싱/트래픽 유입은 유지)': 학습봇만 막고 AI 검색봇은 허용합니다(2026년 7월 27일 실측). 이 영리한 선택을 AI 부엉이 위즈가 만난 '반쪽만 열린 문' 애니메이션으로 풀었습니다."
 const URL = "https://wiztheplanning.com/theater/ep2-half-open-door"
 
 export const metadata: Metadata = {
@@ -27,7 +27,7 @@ const videoJsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    name: "위즈 극장 EP.2 — 반쪽 문 (1부: 이상한 문)",
+    name: "위즈 극장 EP.2: 반쪽 문 (1부: 이상한 문)",
     description:
       "AI 부엉이 위즈가 따뜻한 식당 골목에서 반쪽만 열린 문을 발견하는 장면. '학습 금지 / 읽기 허용'이라는 반반 표지판 앞에서 위즈가 갸우뚱합니다. 다이닝코드 robots.txt의 선택적 차단 정책을 형상화했습니다.",
     thumbnailUrl: "https://wiztheplanning.com/theater/ep2-poster1.png",
@@ -39,7 +39,7 @@ const videoJsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    name: "위즈 극장 EP.2 — 반쪽 문 (2부: 읽기만 하는 위즈)",
+    name: "위즈 극장 EP.2: 반쪽 문 (2부: 읽기만 하는 위즈)",
     description:
       "위즈가 반쪽 문으로 머리만 들이밀어 안의 맛집 정보를 읽고, 수첩에 적듯 기억한 뒤 빈손으로 나오는 장면. 데이터는 가져가지 못하지만 읽고 인용할 수는 있는 AI 검색봇의 동작을 형상화했습니다.",
     thumbnailUrl: "https://wiztheplanning.com/theater/ep2-poster2.png",
@@ -82,7 +82,7 @@ export default function Page() {
               지난 밤, <Link href="/theater/ep1-closed-door" className="font-bold text-[#00e5a0] hover:underline">굳게 닫힌 초록 대문</Link> 앞에서
               돌아서야 했던 AI 부엉이 <strong className="text-[#00e5a0]">위즈</strong>.
               오늘 밤은 따뜻한 불빛이 새어 나오는 <strong className="text-white">식당 골목</strong>에
-              도착했습니다. 그런데 이 골목의 문은 어딘가 이상합니다 —{" "}
+              도착했습니다. 그런데 이 골목의 문은 어딘가 이상합니다. {" "}
               <strong className="text-white">반쪽만 열려 있습니다.</strong>
             </p>
           </div>
@@ -99,7 +99,7 @@ export default function Page() {
               <source src="/theater/ep2-clip1.mp4" type="video/mp4" />
             </video>
             <Caption>
-              문에 붙은 표지판은 반반이었습니다 — 한쪽엔{" "}
+              문에 붙은 표지판은 반반이었습니다. 한쪽엔{" "}
               <strong className="text-white">&ldquo;학습 금지&rdquo;</strong>, 다른 쪽엔{" "}
               <strong className="text-white">&ldquo;읽기 허용.&rdquo;</strong>{" "}
               닫힌 문도, 열린 문도 아닌 문 앞에서 위즈는 고개를 갸우뚱했습니다.
@@ -111,13 +111,13 @@ export default function Page() {
             <p className="text-xs font-bold tracking-[0.2em] text-[#00e5a0]">이 장면은 실화입니다</p>
             <p className="mt-3 text-base leading-[1.9] text-slate-300">
               맛집 플랫폼 <strong className="text-white">다이닝코드</strong>의 robots.txt에는
-              한국어 주석이 그대로 적혀 있습니다 —{" "}
+              한국어 주석이 그대로 적혀 있습니다. {" "}
               <em className="not-italic text-white">&ldquo;AI 모델 무단 학습 차단 (검색 인덱싱/트래픽 유입은
               유지)&rdquo;</em> (2026년 7월 27일 실측,{" "}
               <a href="https://www.diningcode.com/robots.txt" target="_blank" rel="noopener noreferrer" className="text-[#00e5a0] hover:underline">원문</a>).
               GPTBot·ClaudeBot 같은 <strong className="text-white">학습봇은 차단</strong>하되,
               ChatGPT 검색이 쓰는 OAI-SearchBot·ChatGPT-User는 차단 목록에 없습니다.
-              데이터는 안 내주면서, <strong className="text-white">AI 답변에는 인용되는</strong> 구조 —
+              데이터는 안 내주면서, <strong className="text-white">AI 답변에는 인용되는</strong> 구조:
               반쪽 문은 실수가 아니라 영리한 설계입니다.
             </p>
           </div>
@@ -135,7 +135,7 @@ export default function Page() {
             </video>
             <Caption>
               위즈는 반쪽 문 안으로 <strong className="text-white">머리만 들이밀어</strong> 맛집
-              정보를 읽고, 수첩에 적듯 기억하고 나왔습니다. 아무것도 가져가진 못했지만 —{" "}
+              정보를 읽고, 수첩에 적듯 기억하고 나왔습니다. 아무것도 가져가진 못했지만 :{" "}
               <strong className="text-white">읽은 것은 기억합니다.</strong>
             </Caption>
           </div>

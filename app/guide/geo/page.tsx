@@ -3,7 +3,7 @@ import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticl
 
 const TITLE = "GEO란? 뜻부터 GEO 최적화 방법·업체 선택까지 총정리"
 const DESC =
-  "GEO(Generative Engine Optimization)는 ChatGPT·제미나이·네이버 AI 같은 생성형 AI가 답변에서 우리 브랜드를 인용·추천하게 만드는 작업입니다. GEO의 정확한 뜻, SEO와의 차이, 실제 최적화 방법 5단계, 우리 상태를 확인하는 진단법, 직접 할지 대행을 맡길지 판단하는 기준까지 — 저희가 직접 실측하며 정리한 내용을 한 페이지에 모았습니다."
+  "GEO(Generative Engine Optimization)는 ChatGPT·제미나이·네이버 AI 같은 생성형 AI가 답변에서 우리 브랜드를 인용·추천하게 만드는 작업입니다. GEO의 정확한 뜻, SEO와의 차이, 실제 최적화 방법 5단계, 우리 상태를 확인하는 진단법, 직접 할지 대행을 맡길지 판단하는 기준까지, 저희가 직접 실측하며 정리한 내용을 한 페이지에 모았습니다."
 const DATE = "2026-08-05"
 const URL = "https://wiztheplanning.com/guide/geo"
 
@@ -105,21 +105,21 @@ export default function Page() {
           부분만 골라 보셔도 됩니다.
         </p>
 
-        <h2>GEO가 필요해진 이유 — 답변이 검색을 대신합니다</h2>
+        <h2>GEO가 필요해진 이유: 답변이 검색을 대신합니다</h2>
         <p>
           예전에는 &ldquo;강남 치과&rdquo;를 검색하면 목록이 나왔고, 사람이 그 목록을 눌러가며
           비교했습니다. 지금은 <strong>AI가 몇 곳을 골라 바로 답합니다.</strong> 사용자는 더 이상
           목록을 훑지 않고, AI가 고른 답 안에서 선택을 끝냅니다.
         </p>
         <Callout>
-          그래서 문제는 하나로 좁혀집니다 — <strong>AI가 만든 그 답변 안에 우리가 있는가.</strong>{" "}
+          그래서 문제는 하나로 좁혀집니다: <strong>AI가 만든 그 답변 안에 우리가 있는가.</strong>{" "}
           없으면 순위가 낮은 게 아니라, 고객의 선택지에 <strong>아예 존재하지 않는</strong> 것과
           같습니다.
         </Callout>
 
         <h2>GEO와 SEO는 무엇이 다른가</h2>
         <p>
-          한 줄로 정리하면 — <strong>SEO는 목록에서 위로 올라가는 일, GEO는 답변 안에 들어가는
+          한 줄로 정리하면: <strong>SEO는 목록에서 위로 올라가는 일, GEO는 답변 안에 들어가는
           일</strong>입니다. 겹치는 부분이 있지만 같은 게임은 아닙니다.
         </p>
         <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200">
@@ -155,39 +155,39 @@ export default function Page() {
           공개했습니다. 엔진마다 답을 만드는 출처가 다르기 때문인데, 그 구조는{" "}
           <a href="/guide/ai-engines-cite-differently">엔진별 인용 출처의 차이</a>에 정리했습니다.
           두 개념의 차이만 더 자세히 보고 싶다면{" "}
-          <a href="/guide/geo-vs-seo">GEO와 SEO 차이 — 검색 1위인데 ChatGPT엔 안 나온 이유</a>에
+          <a href="/guide/geo-vs-seo">GEO와 SEO 차이: 검색 1위인데 ChatGPT엔 안 나온 이유</a>에
           실측 사례와 함께 정리해 두었습니다.
         </p>
 
-        <h2>GEO 최적화 방법 — 5단계</h2>
+        <h2>GEO 최적화 방법: 5단계</h2>
         <p>
           방법 자체보다 <strong>순서가 중요합니다.</strong> 홈페이지가 막혀 있는 상태에서 콘텐츠부터
           늘리는 것이 가장 흔하고 비싼 실수입니다.
         </p>
         <ol>
           <CheckItem>
-            <strong>1단계 · 현재 상태 실측</strong> — 고객이 쓸 법한 질문을 AI에 넣어 우리가
+            <strong>1단계 · 현재 상태 실측</strong>: 고객이 쓸 법한 질문을 AI에 넣어 우리가
             언급되는지, 정보가 틀리게 안내되지는 않는지, 경쟁사는 어떻게 나오는지 확인합니다.
             출발점을 재지 않으면 나중에 성과를 증명할 수 없습니다.
           </CheckItem>
           <CheckItem>
-            <strong>2단계 · AI 크롤러 접근 점검</strong> — AI가 홈페이지를 읽을 수 있는 상태인지
+            <strong>2단계 · AI 크롤러 접근 점검</strong>: AI가 홈페이지를 읽을 수 있는 상태인지
             확인합니다. 보안 설정이 크롤러까지 막고 있는 경우가 실제로 있습니다(
             <a href="/guide/case-urology-clinic">방화벽에 막혀 있던 병원 사례</a>).
           </CheckItem>
           <CheckItem>
-            <strong>3단계 · 정보 정합성 통일</strong> — 홈페이지·지도 서비스·디렉토리에 흩어진
+            <strong>3단계 · 정보 정합성 통일</strong>: 홈페이지·지도 서비스·디렉토리에 흩어진
             상호·주소·연락처·영업시간을 하나의 기준으로 맞춥니다. AI는 여러 출처를 대조해 신뢰도를
             판단합니다.
           </CheckItem>
           <CheckItem>
-            <strong>4단계 · 콘텐츠 제작과 구조화</strong> — 고객의 실제 질문을 그대로 제목으로 쓰고,
+            <strong>4단계 · 콘텐츠 제작과 구조화</strong>: 고객의 실제 질문을 그대로 제목으로 쓰고,
             첫 문단에서 결론부터 말하며, 기계가 읽을 수 있는 구조화 데이터(Schema.org)를 함께
             설계합니다. 구체적인 방법은{" "}
             <a href="/guide/get-cited-by-ai">AI 답변에 나오게 하는 7가지 방법</a>에 정리했습니다.
           </CheckItem>
           <CheckItem>
-            <strong>5단계 · 재측정과 반복</strong> — 매월 같은 기준으로 다시 재서 변화를 숫자로
+            <strong>5단계 · 재측정과 반복</strong>: 매월 같은 기준으로 다시 재서 변화를 숫자로
             확인합니다. AI 답변은 매번 달라지므로 단발 확인이 아니라 추이로 봐야 합니다.
           </CheckItem>
         </ol>
@@ -213,19 +213,19 @@ export default function Page() {
           만들어낸다</a>에서 다뤘습니다.
         </p>
 
-        <h2>GEO 진단 — 우리 브랜드는 지금 어떤 상태인가</h2>
+        <h2>GEO 진단: 우리 브랜드는 지금 어떤 상태인가</h2>
         <p>
           시작 전에 현재 위치부터 확인하는 것이 순서입니다. 직접 해볼 수 있는 것은 두 가지입니다.
         </p>
         <ul>
           <CheckItem>
-            <strong>AI에 직접 물어보기</strong> — 고객이 쓸 법한 질문을 ChatGPT·제미나이·네이버
+            <strong>AI에 직접 물어보기</strong>: 고객이 쓸 법한 질문을 ChatGPT·제미나이·네이버
             AI에 그대로 넣고, 우리가 나오는지·정보가 정확한지 확인합니다. 답이 매번 다르므로 여러 번
             반복해 경향을 봐야 합니다. 병원이라면{" "}
             <a href="/guide/check-hospital-ai-visibility">5분 만에 확인하는 법</a>을 참고하세요.
           </CheckItem>
           <CheckItem>
-            <strong>홈페이지가 읽히는 상태인지 확인</strong> — 크롤러 접근이 막혀 있으면 콘텐츠를
+            <strong>홈페이지가 읽히는 상태인지 확인</strong>: 크롤러 접근이 막혀 있으면 콘텐츠를
             아무리 만들어도 소용없습니다. <a href="/site-check">무료 사이트 진단</a>으로 기술
             상태를 1분 만에 확인할 수 있습니다.
           </CheckItem>
@@ -243,8 +243,8 @@ export default function Page() {
         </p>
         <p>
           대행을 검토 중이라면 계약 전에 확인할 기준을{" "}
-          <a href="/guide/how-to-choose-geo-agency">GEO 대행사 고르는 법 — 7가지 질문</a>에
-          정리했습니다. 핵심만 미리 말씀드리면 — <strong>계약 전 진단을 주는가, 노출을
+          <a href="/guide/how-to-choose-geo-agency">GEO 대행사 고르는 법: 7가지 질문</a>에
+          정리했습니다. 핵심만 미리 말씀드리면: <strong>계약 전 진단을 주는가, 노출을
           &lsquo;보장&rsquo;한다고 하지 않는가, 계약이 끝나면 홈페이지와 콘텐츠가 내 것으로
           남는가.</strong>
         </p>
@@ -264,17 +264,17 @@ export default function Page() {
         </p>
         <ul>
           <CheckItem>
-            <a href="/guide/medical-geo">병원·의원</a> — 의료광고법 안에서 인용받는 법
+            <a href="/guide/medical-geo">병원·의원</a>: 의료광고법 안에서 인용받는 법
           </CheckItem>
           <CheckItem>
-            <a href="/guide/dental-geo">치과</a> · <a href="/guide/skincare-geo">피부·에스테틱</a> —
+            <a href="/guide/dental-geo">치과</a> · <a href="/guide/skincare-geo">피부·에스테틱</a>:
             경쟁이 치열한 진료과의 질문망 설계
           </CheckItem>
           <CheckItem>
-            <a href="/guide/naver-place-checklist">지역 매장</a> — 네이버 플레이스 기본 정비
+            <a href="/guide/naver-place-checklist">지역 매장</a>: 네이버 플레이스 기본 정비
           </CheckItem>
           <CheckItem>
-            <a href="/guide/case-mobile-carwash">지역 서비스업 사례</a> — 2개월 만에 구글 AI 개요에
+            <a href="/guide/case-mobile-carwash">지역 서비스업 사례</a>: 2개월 만에 구글 AI 개요에
             노출되기까지
           </CheckItem>
         </ul>

@@ -49,7 +49,7 @@ export default function CaseAccessRequest() {
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-400 md:text-base">
             왜 인용은 하필 제3자에서 나왔는지(핵심 해석), 홈페이지가 정확히 무슨 역할을 했는지,
             정확한 업종·지역, 며칠 만에 몇 순위였는지, 홈페이지·플레이스·쇼츠를 어떤 순서로
-            구성했는지 — 재현 가능한 분석과 실행 세부는 공개하지 않습니다.
+            구성했는지: 재현 가능한 분석과 실행 세부는 공개하지 않습니다.
             <strong className="text-slate-200"> 대행사가 그대로 따라 할 수 있는 정보이기 때문입니다.</strong>
           </p>
         </div>

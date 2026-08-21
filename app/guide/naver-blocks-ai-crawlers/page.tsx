@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
 const TITLE =
-  "네이버가 ChatGPT·구글 AI의 접근을 막았습니다 — 그래서 홈페이지가 필수입니다"
+  "네이버가 ChatGPT·구글 AI의 접근을 막았습니다. 그래서 홈페이지가 필수입니다"
 const DESC =
   "블로그·카페에 아무리 리뷰를 쌓아도 ChatGPT·퍼플렉시티·구글 AI는 그 안을 읽지 못합니다. 네이버가 robots.txt에 'AI 학습·RAG 목적의 접근을 금지한다'고 명시하며 GPTBot·ClaudeBot 등을 이름까지 지정해 차단했기 때문입니다. AI가 읽을 수 있는 건 열린 웹, 곧 우리 홈페이지입니다. 왜 지금 홈페이지가 필수인지, 우리 홈페이지가 AI에 열려 있는지 확인하는 법까지 정리했습니다."
 const DATE = "2026-07-24"
@@ -140,7 +140,7 @@ export default function Page() {
         </p>
         <ul>
           <CheckItem>
-            <strong>GPTBot</strong> — OpenAI가{" "}
+            <strong>GPTBot</strong>: OpenAI가{" "}
             <a
               href="https://developers.openai.com/api/docs/bots"
               target="_blank"
@@ -153,16 +153,16 @@ export default function Page() {
             설명하는 학습용 봇
           </CheckItem>
           <CheckItem>
-            <strong>OAI-SearchBot</strong> — ChatGPT의 검색 답변을 만드는 봇
+            <strong>OAI-SearchBot</strong>: ChatGPT의 검색 답변을 만드는 봇
           </CheckItem>
           <CheckItem>
-            <strong>Google-Extended</strong> — 구글 제미나이 등 학습용 접근 토큰
+            <strong>Google-Extended</strong>: 구글 제미나이 등 학습용 접근 토큰
           </CheckItem>
           <CheckItem>
-            <strong>ClaudeBot · Claude-SearchBot</strong> — 앤트로픽(클로드)의 크롤러
+            <strong>ClaudeBot · Claude-SearchBot</strong>: 앤트로픽(클로드)의 크롤러
           </CheckItem>
           <CheckItem>
-            <strong>PerplexityBot · CCBot</strong> — 퍼플렉시티, 그리고 다수 AI의 학습 데이터로 쓰이는
+            <strong>PerplexityBot · CCBot</strong>: 퍼플렉시티, 그리고 다수 AI의 학습 데이터로 쓰이는
             Common Crawl의 봇
           </CheckItem>
         </ul>
@@ -249,13 +249,13 @@ export default function Page() {
           더 커집니다.</strong>
         </p>
         <p>
-          담장 밖에서 무엇을 어떻게 쌓아야 하는지 — GEO의 정의부터 최적화 5단계, 진단법까지는{" "}
+          담장 밖에서 무엇을 어떻게 쌓아야 하는지: GEO의 정의부터 최적화 5단계, 진단법까지는{" "}
           <a href="/guide/geo">GEO란? 뜻부터 최적화 방법까지 총정리</a>에 한 페이지로 모아
           두었습니다.
         </p>
         <p>
           점유율 조사마다 숫자가 크게 갈리는 이유와, 매장 운영자가 실제로 봐야 할 지표는{" "}
-          <a href="/guide/naver-google-share">구글 네이버 검색 점유율 — 왜 출처마다 다른가</a>에
+          <a href="/guide/naver-google-share">구글 네이버 검색 점유율: 왜 출처마다 다른가</a>에
           따로 정리했습니다.
         </p>
       </GuideArticle>

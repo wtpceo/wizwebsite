@@ -3,9 +3,9 @@ import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticl
 
 // 76자 → 53자 (검색결과 잘림 해소. 노출 315·CTR 1.6%였음)
 const TITLE =
-  "GEO 대행사 고르는 법 — 계약 전 7가지 질문과 'TOP3 추천 글' 판별법"
+  "GEO 대행사 고르는 법: 계약 전 7가지 질문과 'TOP3 추천 글' 판별법"
 const DESC =
-  "GEO 대행을 알아보면 'AI 노출 보장', '업체 추천 TOP3' 같은 말들이 쏟아집니다. 어디까지 믿어야 할까요. 견적 단계에서 업체의 수준이 그대로 드러나는 7가지 질문과, 검색에서 만나는 '추천 글'이 진짜 제3자의 비교인지 업체의 자기 광고인지 10초 만에 확인하는 방법까지 — GEO를 직접 실측하며 일하는 회사의 기준으로 정리했습니다."
+  "GEO 대행을 알아보면 'AI 노출 보장', '업체 추천 TOP3' 같은 말들이 쏟아집니다. 어디까지 믿어야 할까요. 견적 단계에서 업체의 수준이 그대로 드러나는 7가지 질문과, 검색에서 만나는 '추천 글'이 진짜 제3자의 비교인지 업체의 자기 광고인지 10초 만에 확인하는 방법까지, GEO를 직접 실측하며 일하는 회사의 기준으로 정리했습니다."
 const DATE = "2026-07-28"
 const URL = "https://wiztheplanning.com/guide/how-to-choose-geo-agency"
 
@@ -95,7 +95,7 @@ export default function Page() {
           <strong>나중에 성과를 증명할 방법도 없습니다.</strong>
         </p>
 
-        <h2>질문 ② &ldquo;노출을 보장하시나요?&rdquo; — &lsquo;네&rsquo;라고 하면 위험 신호</h2>
+        <h2>질문 ② &ldquo;노출을 보장하시나요?&rdquo;: &lsquo;네&rsquo;라고 하면 위험 신호</h2>
         <p>
           역설적이지만 이 질문에는 <strong>&ldquo;보장할 수 없다&rdquo;고 답하는 업체가 정직한
           업체</strong>입니다. AI 답변은 엔진·시점·질문 방식에 따라 매번 달라서, 노출 보장은 구조적으로
@@ -113,7 +113,7 @@ export default function Page() {
           아니라 표와 수치가 나오는지 물어보세요.
         </p>
 
-        <h2>질문 ④ &ldquo;계약이 끝나면 뭐가 남나요?&rdquo; — 소유권 확인</h2>
+        <h2>질문 ④ &ldquo;계약이 끝나면 뭐가 남나요?&rdquo;: 소유권 확인</h2>
         <p>
           의외로 가장 많이 놓치는 부분입니다. 홈페이지, 콘텐츠, 블로그 계정의 <strong>소유권이 계약
           종료 후 누구에게 남는지</strong> 계약서에서 확인하세요. 대행사 소유의 채널에만 콘텐츠를
@@ -139,14 +139,14 @@ export default function Page() {
           <a href="/guide/medical-geo">병원·의원 GEO 가이드</a>에 정리해 두었습니다.
         </p>
 
-        <h2>질문 ⑦ &ldquo;이 업체를 추천한 글, 누가 쓴 거지?&rdquo; — 10초 판별법</h2>
+        <h2>질문 ⑦ &ldquo;이 업체를 추천한 글, 누가 쓴 거지?&rdquo;: 10초 판별법</h2>
         <p>
           업체를 검색하다 보면 &ldquo;OO 업체 추천 TOP3&rdquo;, &ldquo;대행사 비교&rdquo; 같은 글을
           만나게 됩니다. 그 글을 믿기 전에 딱 하나만 확인하세요.
         </p>
         <Callout>
           <strong>주소창의 도메인을 보세요.</strong> 글이 올라간 도메인이 그 글에서 1위로 추천된
-          업체의 도메인과 같다면 — 그건 제3자의 비교가 아니라 <strong>업체가 자기 사이트에 올린 자기
+          업체의 도메인과 같다면: 그건 제3자의 비교가 아니라 <strong>업체가 자기 사이트에 올린 자기
           광고</strong>입니다. 작성자가 &ldquo;OO 리서치팀&rdquo;처럼 적혀 있어도, 경쟁사를 2·3위에
           구색으로 실어놨어도, 도메인이 진실을 말해줍니다.
         </Callout>
@@ -155,20 +155,20 @@ export default function Page() {
           인용하는 성질을 노린 겁니다. 실제로 <strong>2026년 7월 저희가 확인했을 때, GEO 대행 관련
           검색 상위에는 업체가 자기 도메인에 올린 자기 추천 글이 다수</strong>였습니다. 문제는 두
           가지입니다. 첫째, 자기 광고를 객관적 비교처럼 위장하는 건 기만 광고 소지가 있고 그 리스크는
-          결국 광고주에게 번집니다. 둘째, 더 실용적인 판단 기준 — <strong>영업을 그런 방식으로 하는
+          결국 광고주에게 번집니다. 둘째, 더 실용적인 판단 기준: <strong>영업을 그런 방식으로 하는
           업체가, 당신의 마케팅은 정직하게 해줄까요?</strong> 정상적인 방법과 어뷰징의 경계는{" "}
           <a href="/guide/is-geo-abuse">SEO·GEO는 어뷰징인가</a>에서 자세히 다뤘습니다.
         </p>
 
         <h2>7가지 질문 요약 체크리스트</h2>
         <ul>
-          <CheckItem><strong>계약 전 진단</strong> — 현재 상태를 숫자로 먼저 보여주는가</CheckItem>
-          <CheckItem><strong>보장 여부</strong> — &ldquo;보장&rdquo;을 약속하면 위험 신호, &ldquo;측정&rdquo;을 제시하면 신뢰 신호</CheckItem>
-          <CheckItem><strong>월간 리포트</strong> — 질문별·엔진별 언급 여부가 숫자로 담기는가</CheckItem>
-          <CheckItem><strong>소유권</strong> — 계약 종료 후 홈페이지·콘텐츠가 내 것으로 남는가</CheckItem>
-          <CheckItem><strong>기술 역량</strong> — 크롤러·구조화 데이터를 직접 다루는가</CheckItem>
-          <CheckItem><strong>의료광고법</strong> — (병원) 검수 프로세스가 구체적으로 나오는가</CheckItem>
-          <CheckItem><strong>추천 글 도메인</strong> — 그 업체 추천 글이 자기 도메인 자기 광고는 아닌가</CheckItem>
+          <CheckItem><strong>계약 전 진단</strong>: 현재 상태를 숫자로 먼저 보여주는가</CheckItem>
+          <CheckItem><strong>보장 여부</strong>: &ldquo;보장&rdquo;을 약속하면 위험 신호, &ldquo;측정&rdquo;을 제시하면 신뢰 신호</CheckItem>
+          <CheckItem><strong>월간 리포트</strong>: 질문별·엔진별 언급 여부가 숫자로 담기는가</CheckItem>
+          <CheckItem><strong>소유권</strong>: 계약 종료 후 홈페이지·콘텐츠가 내 것으로 남는가</CheckItem>
+          <CheckItem><strong>기술 역량</strong>: 크롤러·구조화 데이터를 직접 다루는가</CheckItem>
+          <CheckItem><strong>의료광고법</strong>: (병원) 검수 프로세스가 구체적으로 나오는가</CheckItem>
+          <CheckItem><strong>추천 글 도메인</strong>: 그 업체 추천 글이 자기 도메인 자기 광고는 아닌가</CheckItem>
         </ul>
 
         <h2>이 기준으로 저희도 비교해 보세요</h2>
@@ -184,11 +184,11 @@ export default function Page() {
         <p>
           업체를 좁힌 뒤에는 견적서를 봐야 합니다. 구축비와 운영비가 왜 나뉘어 있어야 하는지, 계약이
           끝났을 때 무엇이 남는지는{" "}
-          <a href="/guide/geo-cost">GEO 비용 — 견적서 뜯어보는 법</a>에 이어서 정리했습니다.
+          <a href="/guide/geo-cost">GEO 비용: 견적서 뜯어보는 법</a>에 이어서 정리했습니다.
         </p>
         <p>
           성과를 어느 층에서 확인해야 하는지는{" "}
-          <a href="/guide/measure-ai-traffic">AI 검색 유입 측정 방법 — 4단계로 나눠 세기</a>에
+          <a href="/guide/measure-ai-traffic">AI 검색 유입 측정 방법: 4단계로 나눠 세기</a>에
           따로 정리했습니다. 빙 색인을 직접 확인하는 방법도 여기에 있습니다.
         </p>
       </GuideArticle>

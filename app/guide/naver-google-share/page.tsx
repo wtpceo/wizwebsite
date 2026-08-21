@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 유지 → 현재 48자
-const TITLE = "구글 네이버 검색 점유율 — 28%부터 65%까지, 왜 출처마다 다른가"
+const TITLE = "구글 네이버 검색 점유율: 28%부터 65%까지, 왜 출처마다 다른가"
 const DESC =
   "2026년 8월, 구글 앱이 국내 MAU에서 처음으로 네이버를 넘어섰습니다. 그런데 같은 시기 다른 조사에서는 네이버가 64%로 압도합니다. 네이버 점유율이 출처에 따라 28%부터 65%까지 벌어지는 이유를 측정 기준별로 정리하고, 매장을 운영하는 분이 실제로 봐야 할 지표가 무엇인지 저희 실측과 함께 적었습니다."
 const DATE = "2026-08-21"
@@ -127,9 +127,9 @@ export default function Page() {
           표에 적힌 조사 기관이며, 일부는 언론·블로그를 통해 인용된 값입니다.
         </p>
 
-        <h2>왜 이렇게 다른가 — 세 가지 자를 쓰고 있습니다</h2>
+        <h2>왜 이렇게 다른가: 세 가지 자를 쓰고 있습니다</h2>
 
-        <h3>1. 앱 MAU — &ldquo;한 달에 한 번이라도 열었나&rdquo;</h3>
+        <h3>1. 앱 MAU: &ldquo;한 달에 한 번이라도 열었나&rdquo;</h3>
         <p>
           <a
             href="https://www.chosun.com/economy/tech_it/2026/08/13/PSQUGWHAHRBVDKEFWSDINDGDWA/"
@@ -145,23 +145,23 @@ export default function Page() {
           단말에 기본으로 깔려 있습니다. 같은 보도가 짚은 다른 숫자를 보면 성격이 분명해집니다.
         </p>
         <ul>
-          <CheckItem><strong>일간 이용자(DAU)</strong> — 네이버 2,600만~2,700만 대 구글 1,600만~1,700만</CheckItem>
-          <CheckItem><strong>1인당 하루 사용 시간</strong> — 네이버 21~24분 대 구글 6분</CheckItem>
-          <CheckItem><strong>하루 총 사용 시간</strong> — 네이버 900만~1,000만 시간 대 구글 160만~170만 시간</CheckItem>
+          <CheckItem><strong>일간 이용자(DAU)</strong>: 네이버 2,600만~2,700만 대 구글 1,600만~1,700만</CheckItem>
+          <CheckItem><strong>1인당 하루 사용 시간</strong>: 네이버 21~24분 대 구글 6분</CheckItem>
+          <CheckItem><strong>하루 총 사용 시간</strong>: 네이버 900만~1,000만 시간 대 구글 160만~170만 시간</CheckItem>
         </ul>
         <p>
           <strong>월 단위로는 구글이 앞섰는데, 하루 단위로는 네이버가 서너 배 앞섭니다.</strong> 두 숫자
           모두 사실이고, 서로 다른 질문에 답하고 있을 뿐입니다.
         </p>
 
-        <h3>2. 웹 트래픽 — &ldquo;어느 검색에서 넘어왔나&rdquo;</h3>
+        <h3>2. 웹 트래픽: &ldquo;어느 검색에서 넘어왔나&rdquo;</h3>
         <p>
           StatCounter류는 <strong>자사 태그가 심긴 웹사이트에 들어온 방문자가 어디서 왔는지</strong>를
           셉니다. 그래서 태그를 단 사이트의 성격에 결과가 좌우됩니다. 국내에서 구글 쪽 수치가 높게
           잡히는 경향이 여기서 나옵니다.
         </p>
 
-        <h3>3. 국내 패널 — &ldquo;표본 집단이 실제로 어디서 검색했나&rdquo;</h3>
+        <h3>3. 국내 패널: &ldquo;표본 집단이 실제로 어디서 검색했나&rdquo;</h3>
         <p>
           인터넷트렌드 같은 국내 조사는 표본의 실제 검색 행동을 봅니다. 이 기준에서는 네이버가 60%대를
           유지합니다. <strong>같은 달에도 웹 트래픽 기준과 30%포인트 이상 벌어집니다.</strong>
@@ -172,7 +172,7 @@ export default function Page() {
           단어 아래 서로 다른 세 가지를 재고 있을 뿐입니다. 그래서 기사 제목만 보고 판단하면 매번 결론이
           뒤집힙니다. <strong>숫자를 볼 때 항상 &lsquo;무엇을 셌는지&rsquo;를 먼저 확인해야 합니다.</strong>
           같은 원리를 AI 노출 측정에 적용한 방법은{" "}
-          <a href="/guide/measure-ai-traffic">AI 검색 유입 측정 — 4단계로 나눠 세기</a>에 정리했습니다.
+          <a href="/guide/measure-ai-traffic">AI 검색 유입 측정: 4단계로 나눠 세기</a>에 정리했습니다.
         </Callout>
 
         <h2>매장을 운영한다면 이 논쟁은 건너뛰어도 됩니다</h2>
@@ -181,11 +181,11 @@ export default function Page() {
         </p>
         <ul>
           <CheckItem>
-            <strong>지역에서 바로 찾는 업종</strong>(음식점·미용·병의원·펜션) — 네이버 플레이스와 AI
+            <strong>지역에서 바로 찾는 업종</strong>(음식점·미용·병의원·펜션): 네이버 플레이스와 AI
             브리핑의 비중이 여전히 큽니다
           </CheckItem>
           <CheckItem>
-            <strong>비교하고 조사한 뒤 고르는 업종</strong>(시술·전문 서비스·B2B) — 구글과 ChatGPT에서
+            <strong>비교하고 조사한 뒤 고르는 업종</strong>(시술·전문 서비스·B2B): 구글과 ChatGPT에서
             먼저 정보를 모으는 경우가 늘고 있습니다
           </CheckItem>
         </ul>

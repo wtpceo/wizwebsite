@@ -26,7 +26,7 @@ const CAPABILITIES = [
   {
     icon: MonitorSmartphone,
     title: "채널 맞춤 포맷",
-    desc: "릴스·쇼츠·플레이스·블로그 — 같은 촬영본도 채널의 문법에 맞게 다시 설계해 발행합니다.",
+    desc: "릴스·쇼츠·플레이스·블로그: 같은 촬영본도 채널의 문법에 맞게 다시 설계해 발행합니다.",
   },
 ]
 
@@ -120,7 +120,7 @@ export default function ProductionTeam() {
           className="mx-auto mt-16 max-w-3xl border-t border-white/10 pt-8 text-center"
         >
           <p className="text-base font-semibold text-slate-300 md:text-lg">
-            촬영·편집·제작 전 과정 내재화 —{" "}
+            촬영·편집·제작 전 과정 내재화 :{" "}
             <span className="text-[#00e5a0]">외주 마진 없이, 우리 손으로 만듭니다.</span>
           </p>
         </motion.div>

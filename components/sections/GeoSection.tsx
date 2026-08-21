@@ -26,7 +26,7 @@ const fadeUp = {
 
 const PARADIGM = {
   old: {
-    label: "어제까지의 검색 — SEO",
+    label: "어제까지의 검색: SEO",
     icon: Search,
     points: [
       "고객이 키워드를 검색하고 목록을 훑어봄",
@@ -35,7 +35,7 @@ const PARADIGM = {
     ],
   },
   new: {
-    label: "오늘의 검색 — GEO (AI 검색 최적화)",
+    label: "오늘의 검색: GEO (AI 검색 최적화)",
     icon: MessageSquareText,
     points: [
       "고객이 AI에게 질문하고 '답 하나'를 받음",

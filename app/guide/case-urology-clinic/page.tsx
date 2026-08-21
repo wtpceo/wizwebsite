@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
-const TITLE = "ChatGPT에 아예 안 뜨던 비뇨기과 — 원인은 홈페이지 방화벽이었습니다 (6개월 GEO 사례)"
+const TITLE = "ChatGPT에 아예 안 뜨던 비뇨기과: 원인은 홈페이지 방화벽이었습니다 (6개월 GEO 사례)"
 const DESC =
   "광고 규제가 많아 홈페이지와 콘텐츠가 특히 중요한 비뇨기과. 그런데 ChatGPT에서는 아예 검색되지 않았습니다. 원인은 콘텐츠가 아니라 제작사가 기본값으로 남겨둔 보안 방화벽이 AI 크롤러까지 막고 있던 것이었습니다. 차단 해제와 홈페이지 전면 개선 후 6개월, ChatGPT·구글·네이버 모두에 안정적으로 노출되기까지의 실제 사례입니다."
 const DATE = "2026-07-17"
@@ -87,17 +87,17 @@ export default function Page() {
         <h2>무엇을 했나</h2>
         <ol>
           <CheckItem>
-            <strong>크롤러 차단을 해제했습니다</strong> — 보안은 유지하면서 검색엔진과 AI 크롤러는
+            <strong>크롤러 차단을 해제했습니다</strong>: 보안은 유지하면서 검색엔진과 AI 크롤러는
             정상적으로 접근할 수 있도록 설정을 바로잡았습니다. 이것이 모든 작업의 출발점이었습니다.
           </CheckItem>
           <CheckItem>
-            <strong>홈페이지를 전면 개선했습니다 (약 2개월)</strong> — 오래된 홈페이지를 GEO 기준에 맞는
+            <strong>홈페이지를 전면 개선했습니다 (약 2개월)</strong>: 오래된 홈페이지를 GEO 기준에 맞는
             구조로 다시 만들었습니다. 기계가 읽을 수 있는 스키마와 글 구조를 정비하고, 진료과목 정보를
             환자 눈높이에서 충분히 풀어 썼으며, <strong>FAQ 형태의 콘텐츠를 여러 편</strong>
             확보했습니다. AI는 질문과 답변이 명확한 콘텐츠를 특히 잘 인용합니다.
           </CheckItem>
           <CheckItem>
-            <strong>흩어진 정보를 일치시켰습니다</strong> — 채널마다 어긋나 있던 병원 정보를 하나의
+            <strong>흩어진 정보를 일치시켰습니다</strong>: 채널마다 어긋나 있던 병원 정보를 하나의
             기준으로 통일했습니다. 플랫폼 검수 절차가 있어 이 작업에는 생각보다 시간이 걸렸습니다.
           </CheckItem>
         </ol>

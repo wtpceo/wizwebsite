@@ -14,12 +14,12 @@ const fadeUp: Variants = {
 
 // 맛집타운 피드 그리드 — 자체 촬영 음식 사진 재활용
 const FEED = [
-  { src: "/portfolio/DSC_5278.jpg", alt: "맛집타운 피드 — 뚝배기 갈비찜 촬영 컷" },
-  { src: "/portfolio/DSC_3462.jpg", alt: "맛집타운 피드 — 곱창 모둠 플레이팅 촬영 컷" },
-  { src: "/portfolio/DSC_5390.jpg", alt: "맛집타운 피드 — 숯불 닭갈비 촬영 컷" },
-  { src: "/portfolio/DSC_3467.jpg", alt: "맛집타운 피드 — 배달 한상 세트 촬영 컷" },
-  { src: "/portfolio/DSC_3443.jpg", alt: "맛집타운 피드 — 매콤 곱창볶음 촬영 컷" },
-  { src: "/portfolio/DSC_5399.jpg", alt: "맛집타운 피드 — 고깃집 한상차림 촬영 컷" },
+  { src: "/portfolio/DSC_5278.jpg", alt: "맛집타운 피드: 뚝배기 갈비찜 촬영 컷" },
+  { src: "/portfolio/DSC_3462.jpg", alt: "맛집타운 피드: 곱창 모둠 플레이팅 촬영 컷" },
+  { src: "/portfolio/DSC_5390.jpg", alt: "맛집타운 피드: 숯불 닭갈비 촬영 컷" },
+  { src: "/portfolio/DSC_3467.jpg", alt: "맛집타운 피드: 배달 한상 세트 촬영 컷" },
+  { src: "/portfolio/DSC_3443.jpg", alt: "맛집타운 피드: 매콤 곱창볶음 촬영 컷" },
+  { src: "/portfolio/DSC_5399.jpg", alt: "맛집타운 피드: 고깃집 한상차림 촬영 컷" },
 ]
 
 const POINTS = [

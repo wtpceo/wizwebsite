@@ -90,13 +90,13 @@ export default function Page() {
 
         <p>
           이 일곱 가지가 GEO 전체에서 어느 단계에 해당하는지는{" "}
-          <a href="/guide/geo">GEO 총정리 — 뜻·최적화 방법·업체 선택</a>에서 확인할 수 있습니다.
+          <a href="/guide/geo">GEO 총정리: 뜻·최적화 방법·업체 선택</a>에서 확인할 수 있습니다.
         </p>
 
         <p>
           일곱 가지를 직접 하기 어려워 대행을 검토하고 있다면, 계약 전에 업체 수준을 가려내는
           기준을{" "}
-          <a href="/guide/how-to-choose-geo-agency">GEO 대행사 고르는 법 — 계약 전에 물어봐야 할
+          <a href="/guide/how-to-choose-geo-agency">GEO 대행사 고르는 법: 계약 전에 물어봐야 할
           7가지 질문</a>에 정리해 두었습니다.
         </p>
 

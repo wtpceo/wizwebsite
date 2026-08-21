@@ -291,7 +291,7 @@ export default function GeneralReportPreview() {
               </div>
             </div>
             <p className="mt-4 text-xs leading-relaxed text-slate-500">
-              리뷰 격차 약 2.9배 — AI가 신뢰하는 &lsquo;누적 근거&rsquo;에서 밀리고 있습니다.
+              리뷰 격차 약 2.9배: AI가 신뢰하는 &lsquo;누적 근거&rsquo;에서 밀리고 있습니다.
             </p>
           </GlassCard>
 

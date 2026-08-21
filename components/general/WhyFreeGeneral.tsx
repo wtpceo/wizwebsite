@@ -59,7 +59,7 @@ export default function WhyFreeGeneral() {
               업종은 가리지 않습니다.
             </span>
           </h2>
-          {/* 🚨 정책 확인 필요 — 병원판(WhyFree.tsx)은 "병원·의원에 한해 조건 없이 무료"라고
+          {/* 🚨 정책 확인 필요: 병원판(WhyFree.tsx)은 "병원·의원에 한해 조건 없이 무료"라고
               명시돼 있다. 일반 업종의 무료 범위가 병원과 다르다면 아래 문구를 반드시 고칠 것.
               (04_brief/2026-08-18_local-geo_brief_v1.md §9-2) */}
           <p className="mt-5 text-base leading-relaxed text-slate-400 md:text-lg">
@@ -68,7 +68,7 @@ export default function WhyFreeGeneral() {
               &lsquo;보여드리는 것&rsquo;까지 무료
             </span>
             입니다. 실제 개선(콘텐츠·홈페이지·플레이스 정비)은 유료지만, 진단 없이 시작하지
-            않습니다. 식당·카페·펜션·학원·헬스장·미용실 — 손님이 검색해서 찾아오는 곳이라면
+            않습니다. 식당·카페·펜션·학원·헬스장·미용실: 손님이 검색해서 찾아오는 곳이라면
             방식은 같습니다.
           </p>
         </motion.div>

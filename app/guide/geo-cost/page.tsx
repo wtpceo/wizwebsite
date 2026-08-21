@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 유지 → 현재 45자
-const TITLE = "GEO 비용 — 견적서 뜯어보는 법과, 지금이 가장 쌀 때인 이유"
+const TITLE = "GEO 비용: 견적서 뜯어보는 법과, 지금이 가장 쌀 때인 이유"
 const DESC =
   "GEO 비용은 구축비(1회성)·운영비(월)·콘텐츠 제작비 세 갈래로 나뉩니다. 견적서에서 확인할 5가지와, 지금 시작하는 비용이 왜 나중보다 싼지를 저희 실측으로 정리했습니다. 백링크 1개짜리 신생 도메인이 네이버 AI 브리핑 1위를 찍는 지금의 경쟁 밀도는 오래가지 않습니다."
 const DATE = "2026-08-14"
@@ -160,7 +160,7 @@ export default function Page() {
         </ul>
         <p>
           이 다섯 가지를 포함한 계약 전 질문은{" "}
-          <a href="/guide/how-to-choose-geo-agency">GEO 대행사 고르는 법 — 계약 전 7가지 질문</a>에 더
+          <a href="/guide/how-to-choose-geo-agency">GEO 대행사 고르는 법: 계약 전 7가지 질문</a>에 더
           자세히 정리해 두었습니다.
         </p>
 
@@ -193,7 +193,7 @@ export default function Page() {
           <a href="/guide/case-mobile-carwash">기록 보기</a>).
         </p>
 
-        <h3>정직하게 — 반대 증거도 있습니다</h3>
+        <h3>정직하게: 반대 증거도 있습니다</h3>
         <p>
           같은 사이트가 <strong>빙에서는 8일이 지나도 크롤되지 않았습니다.</strong> 구글은 3일 만에
           읽었는데 말이죠(<a href="/guide/bing-index-bottleneck">실측 기록</a>). 링크가 1개뿐인 것이

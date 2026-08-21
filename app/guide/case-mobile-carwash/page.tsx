@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
-const TITLE = "네이버만으로는 한계였던 출장세차 — 2개월 만에 구글 AI 개요에 뜨기까지 (실제 GEO 사례)"
+const TITLE = "네이버만으로는 한계였던 출장세차: 2개월 만에 구글 AI 개요에 뜨기까지 (실제 GEO 사례)"
 const DESC =
   "네이버 플레이스와 카페 홍보에 집중했지만 성장이 멈춰 있던 신도시 출장세차 광고주. 구글·카카오맵·네이버에 흩어진 정보를 일치시키고, 홈페이지를 AI가 읽는 스키마 구조로 정비하고, 실제 작업 사례를 쌓았습니다. 2개월 만에 구글 AI 개요에 노출되기 시작했고, 이어서 ChatGPT 추천을 받기 시작한 실제 사례입니다."
 const DATE = "2026-07-17"
@@ -69,12 +69,12 @@ export default function Page() {
         </p>
         <ul>
           <CheckItem>
-            <strong>채널마다 정보가 달랐습니다</strong> — 구글, 카카오맵, 네이버에 등록된 정보가 서로
+            <strong>채널마다 정보가 달랐습니다</strong>: 구글, 카카오맵, 네이버에 등록된 정보가 서로
             일치하지 않는 <strong>정보 비대칭</strong> 상태였습니다. AI는 여러 출처를 대조해 신뢰도를
             판단하는데, 출처마다 말이 다르면 그 업체를 확신 있게 추천하지 못합니다.
           </CheckItem>
           <CheckItem>
-            <strong>홈페이지를 AI가 제대로 읽지 못했습니다</strong> — 사람 눈에는 멀쩡해 보여도, 기계가
+            <strong>홈페이지를 AI가 제대로 읽지 못했습니다</strong>: 사람 눈에는 멀쩡해 보여도, 기계가
             "이 업체가 무엇을 하는 곳이고 어디서 어떤 서비스를 제공하는지" 구조적으로 이해할 수 있는
             형태가 아니었습니다.
           </CheckItem>
@@ -90,17 +90,17 @@ export default function Page() {
         <p>화려한 기법은 없었습니다. 순서대로 기본을 채웠습니다.</p>
         <ol>
           <CheckItem>
-            <strong>흩어진 정보를 전부 일치시켰습니다</strong> — 구글, 카카오맵, 네이버에 등록된 업체명,
+            <strong>흩어진 정보를 전부 일치시켰습니다</strong>: 구글, 카카오맵, 네이버에 등록된 업체명,
             지역·서비스 범위, 연락처, 영업시간, 제공 서비스를 하나의 기준으로 통일했습니다. AI가 어느
             출처를 보든 같은 답이 나오게 만드는 작업입니다.
           </CheckItem>
           <CheckItem>
-            <strong>홈페이지를 스키마 구조로 정확하게 정비했습니다</strong> — 업종·서비스·지역·연락 정보를
+            <strong>홈페이지를 스키마 구조로 정확하게 정비했습니다</strong>: 업종·서비스·지역·연락 정보를
             구조화 데이터(Schema.org)로 명시해서, 검색엔진과 AI가 이 업체를 하나의 명확한 실체로 인식할 수
             있게 만들었습니다. GEO에서 홈페이지가 중요한 이유는 디자인이 아니라 이 구조 때문입니다.
           </CheckItem>
           <CheckItem>
-            <strong>실제 작업 사례를 쌓았습니다</strong> — AI는 근거 없이 추천하지 않습니다. 실제로 어떤
+            <strong>실제 작업 사례를 쌓았습니다</strong>: AI는 근거 없이 추천하지 않습니다. 실제로 어떤
             차량에 어떤 작업을 했는지가 축적되면서, AI가 인용할 수 있는 근거가 생겼습니다.
           </CheckItem>
         </ol>

@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 유지 → 현재 49자
-const TITLE = "네이버 AI 브리핑 노출 방법 — 누락되던 블로그를 1위로 바꾼 글 구조"
+const TITLE = "네이버 AI 브리핑 노출 방법: 누락되던 블로그를 1위로 바꾼 글 구조"
 const DESC =
   "블로그 글이 누락되기 시작하면 대부분 '저품질'이나 '지수 하락'을 의심합니다. 6년째 운영 중인 한 매장의 사례에서 원인은 달랐습니다. 글 구조였습니다. 키워드 반복형을 경험형으로 바꾸자 '지역명+업종' 키워드에서 브랜드 블로그가 1위로 올라섰고, 네이버 AI 브리핑에도 2순위로 인용되기 시작했습니다. 무엇을 어떻게 바꿨는지 그대로 적었습니다."
 const DATE = "2026-08-20"
@@ -108,7 +108,7 @@ export default function Page() {
           이해하는 데 중요합니다.
         </p>
 
-        <h2>문제 — 잘 되던 블로그가 누락되기 시작했다</h2>
+        <h2>문제: 잘 되던 블로그가 누락되기 시작했다</h2>
         <p>
           네이버 검색 로직이 바뀌면서 <strong>기존에 쓰던 키워드 반복형 글이 검색 결과에서 빠지기
           시작</strong>했습니다. 6년간 같은 방식으로 써왔는데 어느 시점부터 안 걸리는 겁니다.
@@ -123,7 +123,7 @@ export default function Page() {
           구조만 바꿨더니 다시 노출됐습니다. 블로그를 버렸다면 6년치 자산을 날릴 뻔한 일입니다.
         </Callout>
 
-        <h2>무엇을 바꿨나 — 글 구조 4가지</h2>
+        <h2>무엇을 바꿨나: 글 구조 4가지</h2>
 
         <h3>1. 키워드 반복형 → 경험형</h3>
         <p>
@@ -179,7 +179,7 @@ export default function Page() {
         </blockquote>
         <p>
           <strong>AI 브리핑만 노리는 별도의 기술이 있는 게 아니라는 뜻입니다.</strong> 검색에서 먼저
-          인정받은 글이 인용 후보가 되는 구조입니다. 저희가 현장에서 확인한 순서도 정확히 같았습니다 —
+          인정받은 글이 인용 후보가 되는 구조입니다. 저희가 현장에서 확인한 순서도 정확히 같았습니다:
           블로그 순위가 먼저 올라갔고, AI 브리핑 인용은 그 뒤에 따라왔습니다.
         </p>
 
@@ -212,15 +212,15 @@ export default function Page() {
           바꿔 여러 차례 반복했습니다.
         </p>
 
-        <h2>정직하게 — 글만으로 된 게 아닙니다</h2>
+        <h2>정직하게: 글만으로 된 게 아닙니다</h2>
         <p>
           이 결과를 &ldquo;글 구조 바꾸면 AI 브리핑 뜬다&rdquo;로 요약하면 틀립니다. 이 매장에는 이미
           아래가 갖춰져 있었습니다.
         </p>
         <ul>
-          <CheckItem><strong>6년치 운영 이력</strong> — 하루아침에 만들 수 없는 부분입니다</CheckItem>
+          <CheckItem><strong>6년치 운영 이력</strong>: 하루아침에 만들 수 없는 부분입니다</CheckItem>
           <CheckItem><strong>정확하게 관리된 플레이스 정보</strong>와 꾸준히 쌓인 방문자 리뷰</CheckItem>
-          <CheckItem><strong>사장님의 응대와 전문성</strong> — 리뷰에 그대로 남아 있던 부분입니다</CheckItem>
+          <CheckItem><strong>사장님의 응대와 전문성</strong>: 리뷰에 그대로 남아 있던 부분입니다</CheckItem>
         </ul>
         <p>
           글 구조 변경은 <strong>이미 쌓인 기반 위에서 마지막 단추</strong> 역할을 했습니다. 플레이스가

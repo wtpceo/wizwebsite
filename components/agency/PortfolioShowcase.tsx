@@ -18,42 +18,42 @@ const fadeUp: Variants = {
 const PHOTOS = [
   {
     src: "/portfolio/DSC02970.jpg",
-    alt: "위즈더플래닝 매장 촬영 포트폴리오 1 — 바 인테리어",
+    alt: "위즈더플래닝 매장 촬영 포트폴리오 1: 바 인테리어",
     h: "h-72 md:h-80",
   },
   {
     src: "/portfolio/DSC_5278.jpg",
-    alt: "위즈더플래닝 매장 촬영 포트폴리오 2 — 한식 요리 클로즈업",
+    alt: "위즈더플래닝 매장 촬영 포트폴리오 2: 한식 요리 클로즈업",
     h: "h-52 md:h-60",
   },
   {
     src: "/portfolio/DSC02974.jpg",
-    alt: "위즈더플래닝 매장 촬영 포트폴리오 3 — LP 바 공간",
+    alt: "위즈더플래닝 매장 촬영 포트폴리오 3: LP 바 공간",
     h: "h-60 md:h-72",
   },
   {
     src: "/portfolio/DSC_2576.jpg",
-    alt: "위즈더플래닝 매장 촬영 포트폴리오 4 — 순대 요리 플레이팅",
+    alt: "위즈더플래닝 매장 촬영 포트폴리오 4: 순대 요리 플레이팅",
     h: "h-52 md:h-56",
   },
   {
     src: "/portfolio/DSC02980.jpg",
-    alt: "위즈더플래닝 매장 촬영 포트폴리오 5 — 칵테일 제조 장면",
+    alt: "위즈더플래닝 매장 촬영 포트폴리오 5: 칵테일 제조 장면",
     h: "h-56 md:h-64",
   },
   {
     src: "/portfolio/DSC01335.jpg",
-    alt: "위즈더플래닝 매장 촬영 포트폴리오 6 — 필라테스 스튜디오",
+    alt: "위즈더플래닝 매장 촬영 포트폴리오 6: 필라테스 스튜디오",
     h: "h-72 md:h-80",
   },
   {
     src: "/portfolio/DSC_5390.jpg",
-    alt: "위즈더플래닝 매장 촬영 포트폴리오 7 — 닭갈비 상차림",
+    alt: "위즈더플래닝 매장 촬영 포트폴리오 7: 닭갈비 상차림",
     h: "h-52 md:h-60",
   },
   {
     src: "/portfolio/DSC_5399.jpg",
-    alt: "위즈더플래닝 매장 촬영 포트폴리오 8 — 고깃집 한상차림",
+    alt: "위즈더플래닝 매장 촬영 포트폴리오 8: 고깃집 한상차림",
     h: "h-60 md:h-64",
   },
 ]
@@ -75,7 +75,7 @@ export default function PortfolioShowcase() {
             우리 손으로 찍고, 만들고, 띄운 것들
           </h2>
           <p className="mt-5 text-base leading-relaxed text-gray-600 md:text-lg">
-            매장 사진·영상·콘텐츠 — 전부 자체 제작팀의 결과물입니다.
+            매장 사진·영상·콘텐츠: 전부 자체 제작팀의 결과물입니다.
             <br className="hidden md:block" />
             외주 없이, 촬영감독 출신 팀이 직접 매장을 찾아가 만듭니다.
           </p>

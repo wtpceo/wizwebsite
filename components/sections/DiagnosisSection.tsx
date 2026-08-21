@@ -45,7 +45,7 @@ const SLIDES = [
   {
     src: "/images/report/report-1.jpg",
     tab: "AI 점유율 진단",
-    caption: "네이버 AI · ChatGPT · 제미나이 — 엔진별로 우리 매장이 얼마나 언급되는지 점유율(SoV)을 측정합니다",
+    caption: "네이버 AI · ChatGPT · 제미나이: 엔진별로 우리 매장이 얼마나 언급되는지 점유율(SoV)을 측정합니다",
   },
   {
     src: "/images/report/report-2.jpg",
@@ -55,12 +55,12 @@ const SLIDES = [
   {
     src: "/images/report/report-3.jpg",
     tab: "경쟁사 비교",
-    caption: "AI가 추천하는 경쟁사들의 공통점을 뽑아 우리 매장과 대조합니다 — 메워야 할 격차가 보입니다",
+    caption: "AI가 추천하는 경쟁사들의 공통점을 뽑아 우리 매장과 대조합니다. 메워야 할 격차가 보입니다",
   },
   {
     src: "/images/report/report-4.jpg",
     tab: "격차 분석",
-    caption: "인용되는 곳엔 있고 우리에겐 없는 것 — 항목별로 격차를 정리합니다",
+    caption: "인용되는 곳엔 있고 우리에겐 없는 것: 항목별로 격차를 정리합니다",
   },
   {
     src: "/images/report/report-5.jpg",
@@ -80,7 +80,7 @@ const SLIDES = [
   {
     src: "/images/report/report-8.jpg",
     tab: "실행 체크리스트",
-    caption: "분석에서 끝나지 않습니다 — 인용되기 위해 해야 할 일을 우선순위로 정리해 실행합니다",
+    caption: "분석에서 끝나지 않습니다. 인용되기 위해 해야 할 일을 우선순위로 정리해 실행합니다",
   },
   {
     src: "/images/report/report-9.jpg",
@@ -131,7 +131,7 @@ function ReportViewer() {
         <motion.img
           key={slide.src}
           src={slide.src}
-          alt={`위즈더플래닝 진단 리포트 — ${slide.tab}`}
+          alt={`위즈더플래닝 진단 리포트: ${slide.tab}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.25 }}

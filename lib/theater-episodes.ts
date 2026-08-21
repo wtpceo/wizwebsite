@@ -17,7 +17,7 @@ export const EPISODES: TheaterEpisode[] = [
   {
     slug: "ep1-closed-door",
     ep: 1,
-    title: "닫힌 문 — 네이버에 쌓은 글을 AI는 읽지 못합니다",
+    title: "닫힌 문: 네이버에 쌓은 글을 AI는 읽지 못합니다",
     logline:
       "밤마다 웹을 읽으러 다니는 AI 부엉이 '위즈'. 오늘 밤 위즈가 초록색 대문 앞에서 겪은 일.",
     date: "2026-07-30",
@@ -31,7 +31,7 @@ export const EPISODES: TheaterEpisode[] = [
   {
     slug: "ep2-half-open-door",
     ep: 2,
-    title: "반쪽 문 — 다이닝코드의 영리한 선택",
+    title: "반쪽 문: 다이닝코드의 영리한 선택",
     logline: "“학습은 안 돼. 하지만 읽고 추천하는 건 환영이야.” 위즈가 식당 골목에서 만난 이상한 문.",
     date: "2026-07-31",
     poster: "/theater/ep2-poster1.png",
@@ -44,7 +44,7 @@ export const EPISODES: TheaterEpisode[] = [
   {
     slug: "ep3-invisible-wall",
     ep: 3,
-    title: "보이지 않는 벽 — 문은 열려 있는데 위즈만 튕겨 나간다",
+    title: "보이지 않는 벽: 문은 열려 있는데 위즈만 튕겨 나간다",
     logline:
       "ChatGPT에 아예 안 뜨던 병원. 원인은 나도 모르게 켜져 있던 홈페이지 방화벽이었습니다.",
     date: "2026-08-04",
@@ -58,7 +58,7 @@ export const EPISODES: TheaterEpisode[] = [
   {
     slug: "ep4-doorless-shop",
     ep: 4,
-    title: "문이 없는 가게 — 출장세차의 역전",
+    title: "문이 없는 가게: 출장세차의 역전",
     logline:
       "찾아갈 문이 아예 없는 출장 서비스. 홈페이지가 생기자 허공에 문이 나타났습니다.",
     date: "2026-08-06",
@@ -72,7 +72,7 @@ export const EPISODES: TheaterEpisode[] = [
   {
     slug: "ep5-unread-invitation",
     ep: 5,
-    title: "읽지 않는 초대장 — ChatGPT의 느린 관문, 빙",
+    title: "읽지 않는 초대장: ChatGPT의 느린 관문, 빙",
     logline:
       "초대장을 보낸 지 8일, 아직 읽지 않은 서고가 있습니다. 줄을 앞당기는 건 반복 제출이 아니라 추천 도장입니다.",
     date: "2026-08-12",
@@ -86,7 +86,7 @@ export const EPISODES: TheaterEpisode[] = [
   {
     slug: "ep6-picky-guests",
     ep: 6,
-    title: "입맛이 다른 손님들 — AI마다 인용하는 곳이 다르다",
+    title: "입맛이 다른 손님들: AI마다 인용하는 곳이 다르다",
     logline:
       "같은 질문 카드를 든 세 손님이 서로 다른 곳을 가리켰습니다. 네이버 AI는 리뷰를, ChatGPT는 홈페이지를 읽습니다.",
     date: "2026-08-19",
@@ -100,7 +100,7 @@ export const EPISODES: TheaterEpisode[] = [
   {
     slug: "ep7-toll-gate",
     ep: 7,
-    title: "통행료 받는 문 — 수수료 10.45%와 펜션의 선택 (예고)",
+    title: "통행료 받는 문: 수수료 10.45%와 펜션의 선택 (예고)",
     logline: "플랫폼 문으로 들어온 예약은 통행료를 뗍니다. 자기 문을 만든 펜션 이야기.",
     date: "",
     poster: "/theater/ep6-poster2.png",

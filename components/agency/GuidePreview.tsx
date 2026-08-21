@@ -19,7 +19,7 @@ const GUIDES = [
     icon: Sparkles,
     kicker: "GEO BASICS",
     title: "AI 검색 최적화(GEO)란?",
-    desc: "SEO와 뭐가 다른지, AI는 어떤 매장을 추천하는지, 왜 지금 시작해야 하는지 — GEO의 기본을 사장님 눈높이로 정리했습니다.",
+    desc: "SEO와 뭐가 다른지, AI는 어떤 매장을 추천하는지, 왜 지금 시작해야 하는지: GEO의 기본을 사장님 눈높이로 정리했습니다.",
   },
   {
     href: "/guide/get-cited-by-ai",

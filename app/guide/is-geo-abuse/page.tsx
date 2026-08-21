@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
-const TITLE = "SEO·GEO는 어뷰징인가요? — 검색 마케팅에 대한 5가지 오해와 진실"
+const TITLE = "SEO·GEO는 어뷰징인가요? 검색 마케팅에 대한 5가지 오해와 진실"
 const DESC =
   "SEO와 GEO(AI 검색 최적화)를 검색엔진을 속이는 편법·불법으로 오해하는 분들이 있습니다. 하지만 이것은 검색엔진과 AI가 공식적으로 권장하는 정당한 마케팅 기술입니다. 무엇이 정상적인 최적화이고 무엇이 진짜 어뷰징인지, 그 경계를 명확히 정리했습니다."
 const DATE = "2026-07-15"
@@ -75,7 +75,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <GuideArticle href="/guide/is-geo-abuse" kicker="MARKETING BASICS" title={TITLE} description={DESC} date="2026년 7월 15일">
         <p>
-          "SEO나 GEO는 검색엔진을 속이는 편법 아니야?", "AI한테 우리를 추천하라고 조작하는 거 아니야?" —
+          "SEO나 GEO는 검색엔진을 속이는 편법 아니야?", "AI한테 우리를 추천하라고 조작하는 거 아니야?":
           상담을 하다 보면 이런 오해를 가진 분들을 종종 만납니다. 결론부터 말씀드리면,{" "}
           <strong>SEO와 GEO는 어뷰징도, 불법도, 편법도 아닙니다.</strong> 검색엔진과 AI가 공식적으로
           권장하는, 엄연한 마케팅의 한 분야이자 기술입니다.
@@ -90,11 +90,11 @@ export default function Page() {
         </p>
         <ul>
           <CheckItem>
-            <strong>정상적인 최적화(화이트햇)</strong> — 정확한 정보 정리, 유용한 콘텐츠 제작,
+            <strong>정상적인 최적화(화이트햇)</strong>: 정확한 정보 정리, 유용한 콘텐츠 제작,
             검색봇·AI가 읽을 수 있는 구조 설계
           </CheckItem>
           <CheckItem>
-            <strong>어뷰징(블랙햇)</strong> — 가짜 리뷰, 키워드 스터핑, 클로킹, 매크로 순위 조작 등
+            <strong>어뷰징(블랙햇)</strong>: 가짜 리뷰, 키워드 스터핑, 클로킹, 매크로 순위 조작 등
             사용자를 속이는 행위
           </CheckItem>
         </ul>
@@ -138,7 +138,7 @@ export default function Page() {
           구글과 네이버가 공식 가이드라인으로 권장하고, AI 역시 신뢰할 수 있는 데이터를 선호합니다.
           편법은 짧고 위험하지만, 정직한 최적화는 오래가고 안전합니다. 정직한 업체와 편법 업체를
           견적 단계에서 가려내는 방법은{" "}
-          <a href="/guide/how-to-choose-geo-agency">GEO 대행사 고르는 법 — 계약 전 7가지 질문</a>에
+          <a href="/guide/how-to-choose-geo-agency">GEO 대행사 고르는 법: 계약 전 7가지 질문</a>에
           정리했습니다.
         </p>
         <p>

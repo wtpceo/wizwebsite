@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
-const TITLE = "네이버 광고비는 오르는데 문의는 그대로일 때 — 지금 매장에 무슨 일이 일어나고 있나"
+const TITLE = "네이버 광고비는 오르는데 문의는 그대로일 때: 지금 매장에 무슨 일이 일어나고 있나"
 const DESC =
   "광고 예산을 늘려도 예전만큼 문의가 안 늘어난다면, 매장 문제가 아니라 고객의 검색 방식이 바뀐 것일 수 있습니다. 광고 효율이 떨어지는 진짜 이유와, 지금 확인해야 할 것을 정리했습니다."
 const DATE = "2026-07-09"
@@ -83,7 +83,7 @@ export default function Page() {
             영업시간·위치를 <strong>정확히</strong> 답하나요? 틀린 정보를 말하지는 않나요?
           </CheckItem>
           <CheckItem>
-            카테고리 추천("○○ 추천")엔 안 나오는데 상호로는 나온다면 — <strong>AI가 우리를 알지만
+            카테고리 추천("○○ 추천")엔 안 나오는데 상호로는 나온다면: <strong>AI가 우리를 알지만
             추천 목록엔 못 넣고 있다</strong>는 신호입니다.
           </CheckItem>
         </ul>
@@ -102,7 +102,7 @@ export default function Page() {
           </Link>
           부터 보시면 그림이 잡힙니다. 대행사를 알아보는 중이라면{" "}
           <Link href="/guide/how-to-choose-geo-agency" className="font-bold text-emerald-600 underline-offset-4 hover:underline">
-            GEO 대행사 고르는 법 — 계약 전 7가지 질문
+            GEO 대행사 고르는 법: 계약 전 7가지 질문
           </Link>
           도 함께 보세요. 우리 업종이 병원·치과·피부라면 업종별 가이드도 준비되어 있습니다.
         </p>

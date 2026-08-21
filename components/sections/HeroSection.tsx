@@ -209,7 +209,7 @@ function AiChatDemo() {
 
       {/* 하단 캡션 */}
       <div className="border-t border-white/10 px-5 py-3 text-center text-[11px] tracking-wide text-slate-500">
-        AI에게 인용되는 매장만이 추천됩니다 — 그 자리를 만드는 것이 GEO입니다
+        AI에게 인용되는 매장만이 추천됩니다. 그 자리를 만드는 것이 GEO입니다
       </div>
     </div>
   )

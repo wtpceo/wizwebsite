@@ -27,7 +27,7 @@ const videoJsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    name: "위즈 극장 EP.6 — 입맛이 다른 손님들 (1부: 같은 질문, 다른 손가락)",
+    name: "위즈 극장 EP.6: 입맛이 다른 손님들 (1부: 같은 질문, 다른 손가락)",
     description:
       "AI 부엉이 위즈의 식탁에 세 로봇 새 손님이 같은 질문 카드('맛집 추천')를 들고 찾아왔지만, 각자 서로 다른 방향을 가리키는 장면. AI 엔진마다 인용하는 출처가 다르다는 사실을 형상화했습니다.",
     thumbnailUrl: "https://wiztheplanning.com/theater/ep6-poster1.png",
@@ -39,9 +39,9 @@ const videoJsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    name: "위즈 극장 EP.6 — 입맛이 다른 손님들 (2부: 손님마다 다른 메뉴)",
+    name: "위즈 극장 EP.6: 입맛이 다른 손님들 (2부: 손님마다 다른 메뉴)",
     description:
-      "위즈가 세 손님에게 서로 다른 자료를 배달하는 장면 — 초록 손님에게는 리뷰 두루마리, 하늘색 손님에게는 홈페이지 책, 노란 손님에게는 질문형 정보 문서. 엔진별로 준비할 것이 다르다는 결론을 형상화했습니다.",
+      "위즈가 세 손님에게 서로 다른 자료를 배달하는 장면: 초록 손님에게는 리뷰 두루마리, 하늘색 손님에게는 홈페이지 책, 노란 손님에게는 질문형 정보 문서. 엔진별로 준비할 것이 다르다는 결론을 형상화했습니다.",
     thumbnailUrl: "https://wiztheplanning.com/theater/ep6-poster2.png",
     contentUrl: "https://wiztheplanning.com/theater/ep6-clip2.mp4",
     uploadDate: "2026-08-19T13:00:00+09:00",
@@ -80,7 +80,7 @@ export default function Page() {
           <div className="mt-12 border-l-2 border-[#00e5a0]/40 pl-5">
             <p className="text-base leading-[1.9] text-slate-300">
               오늘 밤 AI 부엉이 <strong className="text-[#00e5a0]">위즈</strong>의 식탁에
-              세 손님이 찾아왔습니다. 셋 다 손에 든 질문 카드는 똑같았습니다 —{" "}
+              세 손님이 찾아왔습니다. 셋 다 손에 든 질문 카드는 똑같았습니다. {" "}
               <strong className="text-white">&ldquo;맛집 추천해줘.&rdquo;</strong> 그런데 답을
               찾으러 가는 곳은, 셋 다 달랐습니다.
             </p>
@@ -109,13 +109,13 @@ export default function Page() {
             <p className="text-xs font-bold tracking-[0.2em] text-[#00e5a0]">이 장면은 실화입니다</p>
             <p className="mt-3 text-base leading-[1.9] text-slate-300">
               <strong className="text-white">네이버 AI는 플레이스 리뷰와 후기 블로그</strong>를
-              근거로 추천합니다 — 리뷰의 양, 반복되는 속성어, 최신성이 신호입니다. 반면{" "}
+              근거로 추천합니다. 리뷰의 양, 반복되는 속성어, 최신성이 신호입니다. 반면{" "}
               <strong className="text-white">ChatGPT·구글 AI는 업체 홈페이지와 디렉토리</strong>를
-              인용합니다. 이유는 <Link href="/theater/ep1-closed-door" className="text-[#00e5a0] hover:underline">EP.1의 닫힌 문</Link> 그대로 —
+              인용합니다. 이유는 <Link href="/theater/ep1-closed-door" className="text-[#00e5a0] hover:underline">EP.1의 닫힌 문</Link> 그대로:
               네이버가 외부 AI 크롤러를 차단하고 있어, ChatGPT는 네이버 안의 리뷰·블로그를
               아예 읽지 못하기 때문입니다. 그리고 어느 AI든{" "}
               <strong className="text-white">가게 이름을 직접 물으면 잘 알지만, &ldquo;○○
-              추천&rdquo;처럼 카테고리로 물으면 얘기가 달라집니다</strong> — 진짜 경쟁은 카테고리
+              추천&rdquo;처럼 카테고리로 물으면 얘기가 달라집니다</strong>: 진짜 경쟁은 카테고리
               질문에서 호명되는 것입니다.
             </p>
           </div>
@@ -133,7 +133,7 @@ export default function Page() {
             </video>
             <Caption>
               그래서 위즈는 <strong className="text-white">손님마다 다른 메뉴</strong>를
-              내놓았습니다 — 초록 손님에겐 리뷰 두루마리, 하늘색 손님에겐 홈페이지 책, 노란
+              내놓았습니다. 초록 손님에겐 리뷰 두루마리, 하늘색 손님에겐 홈페이지 책, 노란
               손님에겐 질문형 정보 문서. <strong className="text-white">한 가지만 준비하면
               반쪽</strong>입니다.
             </Caption>

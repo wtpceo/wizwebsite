@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
 // 8.0위인데 CTR 2.0% → 규제 대신 결과를 앞세움
-const TITLE = "병원 AI 검색 최적화(GEO) — ChatGPT가 우리 병원을 추천하게 하려면"
+const TITLE = "병원 AI 검색 최적화(GEO): ChatGPT가 우리 병원을 추천하게 하려면"
 const DESC =
   "ChatGPT·네이버 AI가 병원을 추천할 때 무엇을 근거로 삼는지, 그리고 의료광고법에 걸리지 않으면서 AI에 인용되는 콘텐츠를 만드는 방법을 정리했습니다. 치료후기와 방문후기의 차이, 금지 표현까지 실무 기준으로 안내합니다."
 const DATE = "2026-07-09"
@@ -72,13 +72,13 @@ export default function Page() {
         </p>
         <ul>
           <CheckItem>
-            ❌ 위험: "임플란트 하나도 안 아프고 결과가 완벽했어요" — 치료효과·예후를 다룬 치료경험담
+            ❌ 위험: "임플란트 하나도 안 아프고 결과가 완벽했어요": 치료효과·예후를 다룬 치료경험담
           </CheckItem>
           <CheckItem>
             ❌ 위험: 시술 전후 사진을 나열해 치료과정·결과를 보여주는 것
           </CheckItem>
           <CheckItem>
-            ✅ 안전: "예약 시간에 맞춰 진료해줬고, 설명을 이해하기 쉽게 해주셨어요" — 친절·시설·상담
+            ✅ 안전: "예약 시간에 맞춰 진료해줬고, 설명을 이해하기 쉽게 해주셨어요": 친절·시설·상담
             만족 같은 <strong>단순 방문후기</strong>
           </CheckItem>
         </ul>
@@ -96,7 +96,7 @@ export default function Page() {
           자발적으로 남기도록 유도하는 선에서만 관리합니다.
         </p>
 
-        <h2>피해야 할 표현 — 이 단어들은 근거를 붙여도 위험</h2>
+        <h2>피해야 할 표현: 이 단어들은 근거를 붙여도 위험</h2>
         <p>
           홈페이지·플레이스 소개·블로그에서 아래 유형의 표현은 피하세요. 객관적 근거를 붙여도 위반
           소지가 있습니다.
