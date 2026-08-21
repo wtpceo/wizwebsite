@@ -253,6 +253,11 @@ export default function Page() {
           <a href="/guide/geo">GEO란? 뜻부터 최적화 방법까지 총정리</a>에 한 페이지로 모아
           두었습니다.
         </p>
+        <p>
+          점유율 조사마다 숫자가 크게 갈리는 이유와, 매장 운영자가 실제로 봐야 할 지표는{" "}
+          <a href="/guide/naver-google-share">구글 네이버 검색 점유율 — 왜 출처마다 다른가</a>에
+          따로 정리했습니다.
+        </p>
       </GuideArticle>
     </>
   )

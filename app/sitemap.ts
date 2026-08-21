@@ -44,6 +44,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/guide", priority: 0.9, changeFrequency: "weekly" },
     { path: "/guide/geo", priority: 1.0, changeFrequency: "weekly" },
     { path: "/guide/geo-vs-seo", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/guide/naver-google-share", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/measure-ai-traffic", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/naver-ai-briefing", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/geo-cost", priority: 0.9, changeFrequency: "monthly" },

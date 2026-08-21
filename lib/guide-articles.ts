@@ -2,7 +2,7 @@ import type { LucideIcon } from "lucide-react"
 import {
   BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows,
   Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck, FileSearch, Lock, TrendingUp,
-  Wallet, Receipt, MessageSquareQuote, Gauge,
+  Wallet, Receipt, MessageSquareQuote, Gauge, Scale,
 } from "lucide-react"
 
 // 가이드 카테고리 (표시 순서 + 스캔용 짧은 라벨/색상)
@@ -31,6 +31,16 @@ export type GuideArticle = {
 
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
+  {
+    href: "/guide/naver-google-share",
+    category: "naver",
+    icon: Scale,
+    kicker: "시장 데이터 · 자체 정리",
+    title: "구글 네이버 검색 점유율 — 28%부터 65%까지, 왜 출처마다 다른가",
+    desc: "구글 앱이 국내 MAU에서 처음 네이버를 넘어섰습니다. 그런데 같은 시기 다른 조사에선 네이버가 64%로 압도합니다. 네이버 점유율이 출처에 따라 28%~65%로 벌어지는 이유를 측정 기준별로 정리하고, 매장을 운영하는 분이 실제로 봐야 할 지표를 저희 실측과 함께 적었습니다.",
+    date: "2026. 8. 21",
+    related: ["/guide/measure-ai-traffic", "/guide/naver-blocks-ai-crawlers", "/guide/ranked-but-not-in-chatgpt"],
+  },
   {
     href: "/guide/measure-ai-traffic",
     category: "playbook",
