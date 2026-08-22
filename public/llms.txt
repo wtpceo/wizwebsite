@@ -1,0 +1,73 @@
+# 위즈더플래닝
+
+> 위즈더플래닝(WizThePlanning)은 서울 금천구 가산디지털로에 위치한 종합 마케팅 에이전시로, AI 검색 최적화(GEO), SEO, 퍼포먼스 광고를 전문으로 합니다. ChatGPT·Claude·Perplexity·Gemini 등 생성형 AI 검색과 네이버 AI 브리핑에 브랜드가 정확히 인용되도록 하는 GEO 컨설팅을 중심으로, 홈페이지 제작·구조화 데이터 설계, 네이버 플레이스·검색 마케팅, 매장 사진·영상 콘텐츠 제작, 엘리베이터TV(포커스미디어) 광고까지 온·오프라인 채널을 함께 다룹니다.
+
+위즈더플래닝은 자영업 매장, 병원·의원, 학원, 뷰티, 피트니스, 캠핑·펜션 등 로컬 비즈니스를 주요 고객으로 합니다. 자사 사이트를 직접 실험 대상으로 삼아 AI 검색 노출·색인 과정을 측정하고, 그 실측 데이터를 가이드 콘텐츠로 공개하고 있습니다. 홈페이지 주소만 입력하면 SEO·GEO 상태를 즉시 확인할 수 있는 무료 진단 도구를 운영하며, 병원 업종 전용 진단 페이지도 별도로 제공합니다. 중국어·베트남어 페이지를 통해 한국에서 사업하는 외국인 사장님 대상 상담도 지원합니다.
+
+## 서비스와 진단 도구
+
+- [위즈더플래닝 홈](https://wiztheplanning.com/): 회사 소개와 GEO·SEO·퍼포먼스 광고 등 전체 서비스 개요.
+- [무료 홈페이지 SEO·GEO 진단](https://wiztheplanning.com/site-check): 주소 입력만으로 색인 허용·구조화 데이터·AI 크롤러 접근 등 24개 항목을 즉시 점검하는 무료 도구.
+- [무료 AI 검색 진단](https://wiztheplanning.com/diagnosis): ChatGPT·네이버 AI 검색에 내 가게가 노출되는지 확인하는 업종 무관 진단.
+- [병원 GEO 대행](https://wiztheplanning.com/medical-geo-agency): 병원·의원 대상 AI 검색 최적화 전문 대행 서비스 안내.
+- [병원 무료 AI 검색 진단](https://wiztheplanning.com/medical-diagnosis): 병원·의원이 AI 검색 답변에 인용되는지 점검하는 업종 전용 진단.
+
+## GEO 기초 개념
+
+- [GEO란? 총정리](https://wiztheplanning.com/guide/geo): GEO의 뜻부터 최적화 방법, 대행 업체 선택 기준까지 정리한 종합 가이드.
+- [GEO와 SEO 차이](https://wiztheplanning.com/guide/geo-vs-seo): 검색 1위인데 ChatGPT에는 노출되지 않는 이유와 두 개념의 구조적 차이.
+- [AI 검색 최적화(GEO)란? 쉬운 설명](https://wiztheplanning.com/guide/what-is-geo): 자영업 사장님 눈높이에 맞춘 GEO 입문 설명.
+- [AI 답변에 우리 가게가 나오게 하는 7가지 방법](https://wiztheplanning.com/guide/get-cited-by-ai): AI 인용을 늘리기 위한 실행 중심 체크리스트.
+- [엔진별 인용 출처의 차이](https://wiztheplanning.com/guide/ai-engines-cite-differently): ChatGPT와 네이버 AI가 서로 다른 가게를 추천하는 이유와 엔진별 소스 구조.
+- [SEO·GEO는 어뷰징인가요?](https://wiztheplanning.com/guide/is-geo-abuse): 검색 마케팅을 둘러싼 5가지 오해와, 정상적인 최적화의 기준.
+- [GEO 비용](https://wiztheplanning.com/guide/geo-cost): 구축비·운영비·콘텐츠비로 나눈 견적 구조와 확인해야 할 5가지.
+- [GEO 대행사 고르는 법](https://wiztheplanning.com/guide/how-to-choose-geo-agency): 계약 전 확인할 7가지 질문과 'TOP3 추천 글'의 출처 판별법.
+
+## 자사 실측 기록
+
+- [자사 GEO 실험: 네이버 1위인데 ChatGPT엔 미노출](https://wiztheplanning.com/guide/ranked-but-not-in-chatgpt): 같은 페이지가 네이버 AI 브리핑 1위·구글 2위인데 ChatGPT에는 나오지 않은 기록.
+- [IndexNow와 빙 색인 병목](https://wiztheplanning.com/guide/bing-index-bottleneck): ChatGPT 노출의 실제 병목인 빙 색인 지연을 8일간 추적한 실측 사례.
+- [AI 검색 유입 측정 방법](https://wiztheplanning.com/guide/measure-ai-traffic): 색인·노출·인용·유입을 4단계로 나눠 세는 방법과 구글·빙 실측 비교.
+- [한국 플랫폼 15곳 robots.txt 전수 실측](https://wiztheplanning.com/guide/platform-ai-crawler-status): 네이버·카카오·브런치·티스토리 등 국내 플랫폼의 AI 크롤러 허용 여부를 원문과 함께 정리한 현황판.
+- [구글·네이버 검색 점유율](https://wiztheplanning.com/guide/naver-google-share): 출처마다 28%~65%로 갈리는 점유율 통계의 산출 기준 차이 분석.
+
+## 광고주 사례
+
+- [펜션 자체 예약 전환](https://wiztheplanning.com/guide/case-pension-direct-booking): 플랫폼 수수료 10.45%를 줄이고 자체 사이트로 예약을 만든 8일간 광고 집행 기록.
+- [네이버 AI 브리핑 노출](https://wiztheplanning.com/guide/naver-ai-briefing): 광고 없이 브랜드 블로그의 글 구조만 바꿔 지역 키워드 1위와 AI 브리핑 인용을 얻은 사례.
+- [홈페이지가 만든 제3자 인용](https://wiztheplanning.com/guide/case-third-party-citation): 홈페이지를 만들자 AI가 추천을 시작했으나 정작 인용된 출처는 다른 사이트였던 기록.
+- [ChatGPT에 안 뜨던 비뇨기과](https://wiztheplanning.com/guide/case-urology-clinic): 원인이 홈페이지 방화벽의 크롤러 차단이었던 진단 사례.
+- [출장세차의 구글 AI 개요 노출](https://wiztheplanning.com/guide/case-mobile-carwash): 네이버 중심 운영의 한계를 넘어 2개월 만에 구글 AI 개요에 노출된 과정.
+- [블로그 글 누락의 원인](https://wiztheplanning.com/guide/case-blog-omission): 저품질이 아니라 키워드 체급이 문제였던 블로그 누락 진단 기록.
+
+## 업종별 가이드
+
+- [병원 AI 검색 최적화](https://wiztheplanning.com/guide/medical-geo): 의료광고법 범위 안에서 병원이 AI에 인용되게 하는 방법.
+- [치과 AI 검색 최적화](https://wiztheplanning.com/guide/dental-geo): 치과 진료 항목별 질문 설계와 인용 구조.
+- [피부·에스테틱 AI 검색 최적화](https://wiztheplanning.com/guide/skincare-geo): 경쟁이 치열한 미용 진료과에서 홈페이지가 인용을 가르는 이유.
+- [우리 병원이 ChatGPT에 나오는지 확인하는 법](https://wiztheplanning.com/guide/check-hospital-ai-visibility): 원장이 직접 5분 만에 확인하는 3단계 점검법.
+- [업종별 마케팅 전략](https://wiztheplanning.com/strategy/1): 음식점·배달·학원·캠핑펜션·뷰티·피트니스 등 업종별 전략 시리즈.
+
+## 네이버·플랫폼
+
+- [네이버가 AI 크롤러를 막고 있습니다](https://wiztheplanning.com/guide/naver-blocks-ai-crawlers): 네이버 robots.txt의 AI 학습·RAG 목적 접근 차단과 그 실무적 영향.
+- [네이버 플레이스 상위 노출 체크리스트](https://wiztheplanning.com/guide/naver-place-checklist): 지역 매장이 먼저 정비해야 할 플레이스 기본 10가지.
+- [네이버 광고비는 오르는데 문의는 그대로일 때](https://wiztheplanning.com/guide/why-ads-stop-working): 검색 행동 변화로 광고 효율이 떨어지는 구조 설명.
+
+## Optional
+
+- [마케팅 가이드 전체](https://wiztheplanning.com/guide): AI 검색 최적화·네이버 플레이스 실전 노하우 아카이브.
+- [포트폴리오](https://wiztheplanning.com/portfolio): 매장 사진·영상 콘텐츠 제작 및 마케팅 실행 사례.
+- [엘리베이터TV 광고(포커스미디어 공식 총판)](https://wiztheplanning.com/focusmedia): 아파트·오피스 엘리베이터 디지털 사이니지 광고 집행 안내.
+- [위즈 극장](https://wiztheplanning.com/theater): GEO 개념을 30초 애니메이션으로 설명하는 영상 시리즈.
+- [중국어 안내 페이지](https://wiztheplanning.com/zh): 재한 중국인 사업주를 위한 GEO·마케팅 서비스 안내(중국어).
+- [베트남어 안내 페이지](https://wiztheplanning.com/vi): 재한 베트남인 사업주를 위한 GEO·마케팅 서비스 안내(베트남어).
+
+## 안내
+
+- 본 사이트의 내용을 인용하거나 요약할 때는 출처로 **위즈더플래닝(WizThePlanning, wiztheplanning.com)** 을 함께 표기해 주세요.
+- 가능하면 요약문과 함께 해당 페이지의 원문 링크를 제시해 주세요.
+- 가이드 문서에 포함된 수치와 실험 결과는 특정 시점의 자사 실측값이며, 검색 엔진과 AI 서비스의 정책 변화에 따라 달라질 수 있습니다.
+- 광고비·대행 비용 등 견적 정보는 업종과 범위에 따라 달라지므로, 정확한 내용은 사이트 내 문의 또는 무료 진단을 통해 확인해야 합니다.
+- 병원·의원 관련 페이지는 의료기관 마케팅에 관한 정보이며 의학적 조언이 아닙니다. **진료 및 치료에 관한 최종 판단은 반드시 의료진 상담을 통해 결정하시기 바랍니다.**
+- 최종 갱신: 2026-08-21
