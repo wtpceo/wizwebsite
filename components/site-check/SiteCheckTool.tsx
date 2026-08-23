@@ -387,9 +387,28 @@ export default function SiteCheckTool() {
                 <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-400 md:text-base">
                   이 진단은 홈페이지의 <strong className="text-slate-200">구조·기술 상태</strong>를 보여줍니다.
                   하지만 <strong className="text-slate-200">실제로 ChatGPT·네이버 AI가 우리를 얼마나
-                  추천하는지</strong>는 이 화면으로 알 수 없습니다. 사람이 여러 질문을 반복 측정해야만
-                  나오는 데이터이기 때문입니다.
+                  추천하는지</strong>는 이 화면으로 알 수 없습니다. 고객이 던질 법한 질문을 여러 개
+                  만들어 엔진마다 반복해서 물어보고, 답변에 누가 인용됐는지를 하나씩 기록해야
+                  나오는 값이기 때문입니다.
                 </p>
+
+                {/* 측정 인프라 — 약속만 하지 않고 무엇으로 만드는지 밝힌다 */}
+                <div className="mt-5 rounded-2xl border border-emerald-500/20 bg-emerald-500/[0.06] p-5">
+                  <p className="text-sm font-bold text-emerald-400">
+                    저희는 이 측정을 자체 개발한 시스템으로 합니다
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-300">
+                    엑셀에 손으로 적는 대신, 질문 세트를 만들어{" "}
+                    <strong className="text-slate-100">ChatGPT·제미나이·네이버 AI 브리핑 세 엔진에
+                    반복 측정</strong>하고 인용 출처까지 기록하는 관제 시스템을 직접 만들어 씁니다.
+                    같은 기준으로 계속 재기 때문에 <strong className="text-slate-100">지난주보다
+                    나아졌는지</strong>를 숫자로 말씀드릴 수 있습니다.
+                  </p>
+                  <p className="mt-2 text-xs leading-relaxed text-slate-500">
+                    사내 운영용으로 만든 시스템이라 외부에 판매하지 않습니다. 광고주께는 시스템이 아니라
+                    정리된 리포트와 해석을 드립니다.
+                  </p>
+                </div>
 
                 {/* 2단계에서만 알 수 있는 것 — 잠금 프리뷰 */}
                 <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
