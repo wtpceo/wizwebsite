@@ -121,6 +121,22 @@ export default function HowWeReport() {
               loading="lazy"
             />
           </div>
+          {/* 리포트 마지막 장의 담당자 코멘트. 실명·메일은 싣지 않는다 */}
+          <div className="mt-6 rounded-xl border border-gray-200 bg-slate-50 p-5">
+            <p className="text-xs font-bold tracking-wider text-gray-500">
+              보고서 마지막 장 · 담당자 코멘트
+            </p>
+            <blockquote className="mt-3 border-l-2 border-emerald-500 pl-4 text-sm leading-relaxed text-gray-800">
+              &ldquo;이번 주는 제미나이에서 우리 사이트가 인용되기 시작했습니다. 차주는 지피티와 네이버
+              브리핑 인용 쪽을 공략하겠습니다.&rdquo;
+              <span className="mt-2 block text-xs text-gray-500">담당 매니저 드림</span>
+            </blockquote>
+            <p className="mt-3 text-xs leading-relaxed text-gray-500">
+              숫자만 보내지 않습니다. <strong className="text-gray-700">이번 주에 무엇이 달라졌고 다음
+              주에 무엇을 하겠다</strong>는 판단을 담당자가 직접 적어 함께 드립니다.
+            </p>
+          </div>
+
           <p className="mt-4 text-xs leading-relaxed text-gray-500">
             질문 50개를 세 엔진에 던져 측정한 결과입니다. 업종·지역에 따라 질문 세트와 항목은 달라집니다.
           </p>
