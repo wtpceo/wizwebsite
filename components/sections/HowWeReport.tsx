@@ -96,6 +96,36 @@ export default function HowWeReport() {
           </div>
         </div>
 
+        {/* 증거 — 말로만 하지 않고 실제 발행본을 보여준다 */}
+        <div className="mt-8 rounded-2xl border border-gray-200 bg-white p-6 md:p-8">
+          <h3 className="text-lg font-extrabold text-gray-900">
+            저희 회사 것도 똑같이 만듭니다
+          </h3>
+          <p className="mt-3 text-sm leading-relaxed text-gray-600">
+            아래는 <strong className="text-gray-900">위즈더플래닝이 저희 자신에게 발행한 실제 주간
+            보고서</strong>입니다(2026년 8월 3주차). 광고주께 드리는 것과 같은 양식이고, 숫자도 손대지
+            않았습니다. <strong className="text-gray-900">AI 검색을 통한 방문은 3명</strong>이었습니다.
+            작다고 빼지 않습니다. 그래야 다음 주에 늘었는지 줄었는지를 말할 수 있습니다.
+          </p>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            <img
+              src="/report/weekly-report-1.jpg"
+              alt="위즈더플래닝 AI 검색 노출 주간 보고서 1면: 멘션 노출률 20%, 출처 인용률 22%, 엔진별 상세와 AI 실제 답변"
+              className="w-full rounded-xl border border-gray-200"
+              loading="lazy"
+            />
+            <img
+              src="/report/weekly-report-2.jpg"
+              alt="위즈더플래닝 AI 검색 노출 주간 보고서 2면: 구글 검색 순위 변화, 사이트 진단 점수, 이번 주 작업과 다음 주 계획"
+              className="w-full rounded-xl border border-gray-200"
+              loading="lazy"
+            />
+          </div>
+          <p className="mt-4 text-xs leading-relaxed text-gray-500">
+            질문 50개를 세 엔진에 던져 측정한 결과입니다. 업종·지역에 따라 질문 세트와 항목은 달라집니다.
+          </p>
+        </div>
+
         <p className="mt-6 text-sm leading-relaxed text-gray-500">
           AI 답변은 같은 질문에도 매번 달라집니다. 그래서 한 번 잘 나온 화면을 캡처해 보내는 대신,
           반복 측정한 값의 변화를 보여드립니다. 측정 방법은{" "}
