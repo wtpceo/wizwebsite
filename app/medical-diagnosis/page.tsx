@@ -6,6 +6,7 @@ import WhyMedical from "@/components/medical/WhyMedical"
 import ReportPreview from "@/components/medical/ReportPreview"
 import WhyFree from "@/components/medical/WhyFree"
 import DiagnosisApplyForm from "@/components/medical/DiagnosisApplyForm"
+import HowWeReport from "@/components/sections/HowWeReport"
 import MedicalFaq from "@/components/medical/MedicalFaq"
 import ForceTopOnLoad from "@/components/ForceTopOnLoad"
 import { MEDICAL_FAQ } from "@/lib/medical-faq-data"
@@ -98,6 +99,7 @@ export default function MedicalDiagnosisPage() {
       <WhyMedical />
       <ReportPreview />
       <WhyFree />
+      <HowWeReport />
       <DiagnosisApplyForm />
       <MedicalFaq />
       <Footer />

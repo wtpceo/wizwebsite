@@ -10,6 +10,7 @@ import GuidePreview from "@/components/agency/GuidePreview"
 import TestimonialsSection from "@/components/sections/TestimonialsSection"
 import FaqSection from "@/components/sections/FaqSection"
 import ContactSection from "@/components/sections/ContactSection"
+import HowWeReport from "@/components/sections/HowWeReport"
 import { FAQ_ITEMS } from "@/lib/faq-data"
 
 // FAQPage 구조화 데이터 — 검색엔진·AI가 질문/답변을 그대로 인용할 수 있게 서버 렌더링으로 주입
@@ -43,6 +44,7 @@ export default function Home() {
       <TestimonialsSection />
       <FaqSection />
       <GuidePreview />
+      <HowWeReport />
       <ContactSection />
       <Footer />
     </main>

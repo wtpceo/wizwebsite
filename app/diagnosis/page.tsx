@@ -6,6 +6,7 @@ import WhyLocal from "@/components/general/WhyLocal"
 import GeneralReportPreview from "@/components/general/GeneralReportPreview"
 import WhyFreeGeneral from "@/components/general/WhyFreeGeneral"
 import GeneralApplyForm from "@/components/general/GeneralApplyForm"
+import HowWeReport from "@/components/sections/HowWeReport"
 import GeneralFaq from "@/components/general/GeneralFaq"
 import ForceTopOnLoad from "@/components/ForceTopOnLoad"
 import { GENERAL_FAQ } from "@/lib/general-faq-data"
@@ -103,6 +104,7 @@ export default function DiagnosisPage() {
       <WhyLocal />
       <GeneralReportPreview />
       <WhyFreeGeneral />
+      <HowWeReport />
       <GeneralApplyForm />
       <GeneralFaq />
       <Footer />
