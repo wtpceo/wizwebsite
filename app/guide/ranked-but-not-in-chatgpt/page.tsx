@@ -192,6 +192,10 @@ export default function Page() {
           노출까지 보는 정밀 진단이 필요하면 이어서 요청하실 수 있습니다. 이 실험도 진단에서
           시작했습니다.
         </p>
+        <p>
+          측정 도구를 고르는 기준과 저희가 직접 만들며 확인한 것은{" "}
+          <a href="/guide/geo-measurement-tools">GEO 측정 도구 고르는 법</a>에 따로 정리했습니다.
+        </p>
       </GuideArticle>
     </>
   )

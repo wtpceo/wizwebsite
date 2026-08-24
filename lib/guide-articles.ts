@@ -2,7 +2,7 @@ import type { LucideIcon } from "lucide-react"
 import {
   BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows,
   Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck, FileSearch, Lock, TrendingUp,
-  Wallet, Receipt, MessageSquareQuote, Gauge, Scale,
+  Wallet, Receipt, MessageSquareQuote, Gauge, Scale, Ruler,
 } from "lucide-react"
 
 // 가이드 카테고리 (표시 순서 + 스캔용 짧은 라벨/색상)
@@ -33,6 +33,16 @@ export type GuideArticle = {
 
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
+  {
+    href: "/guide/geo-measurement-tools",
+    category: "playbook",
+    icon: Ruler,
+    kicker: "실전 전략 · 자체 구축 기록",
+    title: "GEO 측정 도구 고르는 법: 직접 만들어 돌려보고 알게 된 5가지",
+    desc: "도구를 비교하기 전에 질문 세트, 엔진 범위, 언급과 인용의 구분을 먼저 정해야 합니다. 이 셋이 없으면 어떤 도구를 써도 매주 다른 숫자가 나옵니다. 손으로 재다 포기하고 사내 측정 시스템을 만들며 확인한 5가지와, 실제 발행한 주간 보고서를 공개합니다.",
+    date: "2026. 8. 24",
+    related: ["/guide/measure-ai-traffic", "/guide/ranked-but-not-in-chatgpt", "/guide/naver-blocks-ai-crawlers"],
+  },
   {
     href: "/guide/naver-google-share",
     category: "naver",

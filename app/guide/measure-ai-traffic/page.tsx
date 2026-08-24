@@ -304,6 +304,10 @@ export default function Page() {
           <a href="/guide/naver-google-share">구글 네이버 검색 점유율: 왜 출처마다 다른가</a>에
           따로 정리했습니다.
         </p>
+        <p>
+          측정 도구를 고르는 기준과 저희가 직접 만들며 확인한 것은{" "}
+          <a href="/guide/geo-measurement-tools">GEO 측정 도구 고르는 법</a>에 따로 정리했습니다.
+        </p>
       </GuideArticle>
     </>
   )
