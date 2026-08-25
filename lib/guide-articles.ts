@@ -2,7 +2,7 @@ import type { LucideIcon } from "lucide-react"
 import {
   BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows,
   Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck, FileSearch, Lock, TrendingUp,
-  Wallet, Receipt, MessageSquareQuote, Gauge, Scale, Ruler,
+  Wallet, Receipt, MessageSquareQuote, Gauge, Scale, Ruler, Braces,
 } from "lucide-react"
 
 // 가이드 카테고리 (표시 순서 + 스캔용 짧은 라벨/색상)
@@ -33,6 +33,16 @@ export type GuideArticle = {
 
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
+  {
+    href: "/guide/structured-data-not-working",
+    category: "playbook",
+    icon: Braces,
+    kicker: "실전 전략 · 점검 절차",
+    title: "구조화 데이터 넣었는데 AI 검색에 안 잡히는 7가지 이유",
+    desc: "제작사가 구조화 데이터를 넣어줬는데 검색에도 AI 답변에도 안 나온다면 원인은 대개 7가지입니다. 색인 차단, 사이트맵 누락, 중복 URL, 문법 오류, 스키마 중복, 본문 근거 부재, FAQPage 남용. 점검은 색인부터 시작해야 하며 순서를 바꾸면 2~3주를 낭비합니다.",
+    date: "2026. 8. 25",
+    related: ["/guide/measure-ai-traffic", "/guide/geo-measurement-tools", "/guide/get-cited-by-ai"],
+  },
   {
     href: "/guide/geo-measurement-tools",
     category: "playbook",

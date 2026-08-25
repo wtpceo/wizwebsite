@@ -104,6 +104,11 @@ export default function Page() {
           이 7가지 중 우리 매장이 몇 개나 갖춰져 있는지 궁금하다면, 무료 AI 검색 진단으로 항목별
           채점 결과를 받아보실 수 있습니다. 인용된 경쟁 페이지들과의 격차도 함께 보여드립니다.
         </Callout>
+        <p>
+          구조화 데이터를 넣었는데도 노출이 없다면 원인 7가지를{" "}
+          <a href="/guide/structured-data-not-working">구조화 데이터 넣었는데 AI 검색에 안 잡히는 7가지 이유</a>에
+          점검 순서와 함께 정리했습니다.
+        </p>
       </GuideArticle>
     </>
   )

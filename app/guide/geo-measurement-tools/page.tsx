@@ -248,6 +248,11 @@ export default function Page() {
           우리 홈페이지가 AI에게 어떻게 보이는지는 <a href="/site-check">무료 사이트 진단</a>으로 바로
           확인하실 수 있습니다.
         </p>
+        <p>
+          구조화 데이터를 넣었는데도 노출이 없다면 원인 7가지를{" "}
+          <a href="/guide/structured-data-not-working">구조화 데이터 넣었는데 AI 검색에 안 잡히는 7가지 이유</a>에
+          점검 순서와 함께 정리했습니다.
+        </p>
       </GuideArticle>
     </>
   )
