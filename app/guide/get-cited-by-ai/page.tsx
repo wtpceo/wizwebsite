@@ -106,8 +106,8 @@ export default function Page() {
         </Callout>
         <p>
           구조화 데이터를 넣었는데도 노출이 없다면 원인 7가지를{" "}
-          <a href="/guide/structured-data-not-working">구조화 데이터 넣었는데 AI 검색에 안 잡히는 7가지 이유</a>에
-          점검 순서와 함께 정리했습니다.
+          <a href="/guide/structured-data-not-working">색인부터 확인하는 점검 순서</a>에
+          정리했습니다.
         </p>
       </GuideArticle>
     </>

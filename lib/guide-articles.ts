@@ -51,6 +51,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "구조화 데이터 넣었는데 AI 검색에 안 잡히는 7가지 이유",
     desc: "제작사가 구조화 데이터를 넣어줬는데 검색에도 AI 답변에도 안 나온다면 원인은 대개 7가지입니다. 색인 차단, 사이트맵 누락, 중복 URL, 문법 오류, 스키마 중복, 본문 근거 부재, FAQPage 남용. 점검은 색인부터 시작해야 하며 순서를 바꾸면 2~3주를 낭비합니다.",
     date: "2026. 8. 25",
+    updated: "2026. 8. 26",
     related: ["/guide/measure-ai-traffic", "/guide/geo-measurement-tools", "/guide/get-cited-by-ai"],
   },
   {
@@ -61,6 +62,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "GEO 측정 도구 고르는 법: 직접 만들어 돌려보고 알게 된 5가지",
     desc: "도구를 비교하기 전에 질문 세트, 엔진 범위, 언급과 인용의 구분을 먼저 정해야 합니다. 이 셋이 없으면 어떤 도구를 써도 매주 다른 숫자가 나옵니다. 손으로 재다 포기하고 사내 측정 시스템을 만들며 확인한 5가지와, 실제 발행한 주간 보고서를 공개합니다.",
     date: "2026. 8. 24",
+    updated: "2026. 8. 26",
     related: ["/guide/measure-ai-traffic", "/guide/ranked-but-not-in-chatgpt", "/guide/naver-blocks-ai-crawlers"],
   },
   {
@@ -338,7 +340,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "우리 가게가 AI 답변에 나오게 하는 7가지 방법",
     desc: "실제 진단 데이터에서 확인된, AI에게 추천받는 매장들의 공통점 7가지를 실행 순서대로 담았습니다.",
     date: "2026. 7. 8",
-    updated: "2026. 8. 21",
+    updated: "2026. 8. 26",
     related: ["/guide/what-is-geo", "/guide/naver-place-checklist", "/guide/ai-engines-cite-differently"],
   },
   {

@@ -251,12 +251,9 @@ export default function Page() {
           묶이는 것이 타입 두세 개를 더 얹는 것보다 인용에 크게 작용합니다.
         </p>
         <p>
-          <strong>이미 넣었는데 검색에도 AI에도 안 나온다면 문제는 타입이 아닙니다.</strong> 원인 7가지와
-          점검 순서는{" "}
-          <a href="/guide/structured-data-not-working">
-            구조화 데이터 넣었는데 AI 검색에 안 잡히는 7가지 이유
-          </a>
-          에 따로 정리했습니다. 우리 사이트의 현재 상태는{" "}
+          <strong>이미 넣었는데 검색에도 AI에도 안 나온다면 문제는 타입이 아닙니다.</strong> 그때는{" "}
+          <a href="/guide/structured-data-not-working">원인 7가지와 점검 순서</a>를 따라
+          색인부터 확인해야 합니다. 우리 사이트의 현재 상태는{" "}
           <a href="/site-check">무료 사이트 진단</a>에서 주소만 넣으면 바로 확인됩니다.
         </p>
       </GuideArticle>
