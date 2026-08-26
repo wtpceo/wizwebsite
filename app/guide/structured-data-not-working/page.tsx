@@ -329,6 +329,11 @@ export default function Page() {
           <a href="/guide/measure-ai-traffic">AI 검색 유입 측정: 4단계로 나눠 세기</a>에 정리해
           두었습니다.
         </p>
+        <p>
+          아직 넣기 전이라면 어떤 타입을 어느 페이지에 둘지부터 정해야 합니다.{" "}
+          <a href="/guide/structured-data-types">구조화 데이터 종류와 페이지별 배치</a>에
+          배치표와 JSON-LD 예시를 정리했습니다.
+        </p>
       </GuideArticle>
     </>
   )

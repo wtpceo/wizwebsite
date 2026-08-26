@@ -2,7 +2,7 @@ import type { LucideIcon } from "lucide-react"
 import {
   BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows,
   Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck, FileSearch, Lock, TrendingUp,
-  Wallet, Receipt, MessageSquareQuote, Gauge, Scale, Ruler, Braces,
+  Wallet, Receipt, MessageSquareQuote, Gauge, Scale, Ruler, Braces, LayoutList,
 } from "lucide-react"
 
 // 가이드 카테고리 (표시 순서 + 스캔용 짧은 라벨/색상)
@@ -33,6 +33,16 @@ export type GuideArticle = {
 
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
+  {
+    href: "/guide/structured-data-types",
+    category: "playbook",
+    icon: LayoutList,
+    kicker: "실전 전략 · 설계 가이드",
+    title: "구조화 데이터 종류와 페이지별 배치: 공통 3개 + 유형 1개",
+    desc: "타입을 많이 넣는 작업이 아닙니다. 전 페이지에 Organization·WebSite·BreadcrumbList를 깔고 페이지 성격에 맞는 타입 하나만 더하면 됩니다. 페이지별 배치표와 JSON-LD 예시, 제작 과정 어느 시점에 넣어야 재작업이 없는지 정리했습니다.",
+    date: "2026. 8. 26",
+    related: ["/guide/structured-data-not-working", "/guide/get-cited-by-ai", "/guide/measure-ai-traffic"],
+  },
   {
     href: "/guide/structured-data-not-working",
     category: "playbook",

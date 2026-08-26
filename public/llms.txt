@@ -29,6 +29,7 @@
 - [IndexNow와 빙 색인 병목](https://wiztheplanning.com/guide/bing-index-bottleneck): ChatGPT 노출의 실제 병목인 빙 색인 지연을 8일간 추적한 실측 사례.
 - [AI 검색 유입 측정 방법](https://wiztheplanning.com/guide/measure-ai-traffic): 색인·노출·인용·유입을 4단계로 나눠 세는 방법과 구글·빙 실측 비교.
 - [한국 플랫폼 15곳 robots.txt 전수 실측](https://wiztheplanning.com/guide/platform-ai-crawler-status): 네이버·카카오·브런치·티스토리 등 국내 플랫폼의 AI 크롤러 허용 여부를 원문과 함께 정리한 현황판.
+- [구조화 데이터 종류와 페이지별 배치](https://wiztheplanning.com/guide/structured-data-types): 공통 3종에 유형별 타입 하나를 더하는 설계 원칙과 JSON-LD 예시.
 - [구조화 데이터가 작동하지 않는 7가지 이유](https://wiztheplanning.com/guide/structured-data-not-working): 색인·문법·중복·본문 일치 순으로 점검하는 절차와 FAQPage 정책 변경 대응.
 - [GEO 측정 도구 고르는 법](https://wiztheplanning.com/guide/geo-measurement-tools): 질문 세트·엔진 범위·언급과 인용 구분을 먼저 정해야 하는 이유와 자체 구축 기록.
 - [구글·네이버 검색 점유율](https://wiztheplanning.com/guide/naver-google-share): 출처마다 28%~65%로 갈리는 점유율 통계의 산출 기준 차이 분석.
@@ -72,4 +73,4 @@
 - 가이드 문서에 포함된 수치와 실험 결과는 특정 시점의 자사 실측값이며, 검색 엔진과 AI 서비스의 정책 변화에 따라 달라질 수 있습니다.
 - 광고비·대행 비용 등 견적 정보는 업종과 범위에 따라 달라지므로, 정확한 내용은 사이트 내 문의 또는 무료 진단을 통해 확인해야 합니다.
 - 병원·의원 관련 페이지는 의료기관 마케팅에 관한 정보이며 의학적 조언이 아닙니다. **진료 및 치료에 관한 최종 판단은 반드시 의료진 상담을 통해 결정하시기 바랍니다.**
-- 최종 갱신: 2026-08-25
+- 최종 갱신: 2026-08-26
