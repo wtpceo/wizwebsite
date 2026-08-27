@@ -2,7 +2,7 @@ import type { LucideIcon } from "lucide-react"
 import {
   BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows,
   Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck, FileSearch, Lock, TrendingUp,
-  Wallet, Receipt, MessageSquareQuote, Gauge, Scale, Ruler, Braces, LayoutList,
+  Wallet, Receipt, MessageSquareQuote, Gauge, Scale, Ruler, Braces, LayoutList, GitFork,
 } from "lucide-react"
 
 // 가이드 카테고리 (표시 순서 + 스캔용 짧은 라벨/색상)
@@ -33,6 +33,16 @@ export type GuideArticle = {
 
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
+  {
+    href: "/guide/geo-diy-or-agency",
+    category: "playbook",
+    icon: GitFork,
+    kicker: "실전 전략 · 판단 기준",
+    title: "GEO 직접 할까 대행 맡길까: 시간과 비용으로 갈리는 지점",
+    desc: "갈리는 기준은 예산이 아니라 매주 반복할 수 있느냐입니다. 세팅은 한 번이고 측정은 계속이기 때문입니다. 직접과 위탁의 실제 차이, 대행 유형 3가지, 직접 하다 전환할 때 무엇이 남는지를 정리했습니다.",
+    date: "2026. 8. 27",
+    related: ["/guide/how-to-choose-geo-agency", "/guide/measure-ai-traffic", "/guide/get-cited-by-ai"],
+  },
   {
     href: "/guide/structured-data-types",
     category: "playbook",

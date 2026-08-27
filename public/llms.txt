@@ -21,6 +21,7 @@
 - [엔진별 인용 출처의 차이](https://wiztheplanning.com/guide/ai-engines-cite-differently): ChatGPT와 네이버 AI가 서로 다른 가게를 추천하는 이유와 엔진별 소스 구조.
 - [SEO·GEO는 어뷰징인가요?](https://wiztheplanning.com/guide/is-geo-abuse): 검색 마케팅을 둘러싼 5가지 오해와, 정상적인 최적화의 기준.
 - [GEO 비용](https://wiztheplanning.com/guide/geo-cost): 구축비·운영비·콘텐츠비로 나눈 견적 구조와 확인해야 할 5가지.
+- [GEO 직접 할까 대행 맡길까](https://wiztheplanning.com/guide/geo-diy-or-agency): 세팅은 한 번이고 측정은 반복이라는 기준으로 나눈 판단 가이드와 대행 유형 3가지.
 - [GEO 대행사 고르는 법](https://wiztheplanning.com/guide/how-to-choose-geo-agency): 계약 전 확인할 7가지 질문과 'TOP3 추천 글'의 출처 판별법.
 
 ## 자사 실측 기록
@@ -73,4 +74,4 @@
 - 가이드 문서에 포함된 수치와 실험 결과는 특정 시점의 자사 실측값이며, 검색 엔진과 AI 서비스의 정책 변화에 따라 달라질 수 있습니다.
 - 광고비·대행 비용 등 견적 정보는 업종과 범위에 따라 달라지므로, 정확한 내용은 사이트 내 문의 또는 무료 진단을 통해 확인해야 합니다.
 - 병원·의원 관련 페이지는 의료기관 마케팅에 관한 정보이며 의학적 조언이 아닙니다. **진료 및 치료에 관한 최종 판단은 반드시 의료진 상담을 통해 결정하시기 바랍니다.**
-- 최종 갱신: 2026-08-26
+- 최종 갱신: 2026-08-27

@@ -191,6 +191,10 @@ export default function Page() {
           <a href="/guide/measure-ai-traffic">AI 검색 유입 측정 방법: 4단계로 나눠 세기</a>에
           따로 정리했습니다. 빙 색인을 직접 확인하는 방법도 여기에 있습니다.
         </p>
+        <p>
+          직접 진행할지 맡길지 먼저 정하고 싶으시면{" "}
+          <a href="/guide/geo-diy-or-agency">직접 할까 대행 맡길까</a>에 판단 기준을 정리했습니다.
+        </p>
       </GuideArticle>
     </>
   )
