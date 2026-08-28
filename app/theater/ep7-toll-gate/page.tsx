@@ -175,16 +175,17 @@ export default function Page() {
           {/* CTA */}
           <div className="mt-14 rounded-3xl bg-gradient-to-r from-[#0b1220] to-[#101b2e] px-8 py-10 text-center">
             <h2 className="text-xl font-extrabold text-white md:text-2xl">
-              우리 가게에도 통행료 없는 문이 있나요?
+              우리 펜션에도 통행료 없는 문, 만들 수 있습니다
             </h2>
             <p className="mt-2 text-sm text-slate-400 md:text-base">
-              무료 사이트 진단으로 AI 크롤러가 우리 홈페이지를 읽을 수 있는지 1분 만에 확인하세요.
+              자체 예약 사이트 구축부터 메타 광고 운영까지, 이 사례 그대로 진행해 드립니다.
+              수수료 얼마나 아낄 수 있는지 부담 없이 물어보세요.
             </p>
             <Link
-              href="/site-check"
+              href="/#contact"
               className="mt-6 inline-flex items-center gap-1 rounded-xl bg-[#00e5a0] px-8 py-3.5 font-bold text-[#070b14] transition-colors hover:bg-[#3cf0bb]"
             >
-              무료 사이트 진단 <ArrowRight className="h-4 w-4" />
+              문의하기 <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </section>

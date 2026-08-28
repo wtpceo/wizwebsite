@@ -170,16 +170,17 @@ export default function Page() {
           {/* CTA */}
           <div className="mt-14 rounded-3xl bg-gradient-to-r from-[#0b1220] to-[#101b2e] px-8 py-10 text-center">
             <h2 className="text-xl font-extrabold text-white md:text-2xl">
-              우리 가게의 문은 위즈에게 보이고 있을까요?
+              매장이 없어도, 문(홈페이지)은 만들 수 있습니다
             </h2>
             <p className="mt-2 text-sm text-slate-400 md:text-base">
-              무료 사이트 진단으로 AI 크롤러가 우리 홈페이지를 읽을 수 있는지 1분 만에 확인하세요.
+              출장 서비스·무점포 사업도 AI가 읽는 홈페이지로 문을 만들 수 있습니다.
+              이 출장세차 사례 그대로 상담해 드립니다.
             </p>
             <Link
-              href="/site-check"
+              href="/#contact"
               className="mt-6 inline-flex items-center gap-1 rounded-xl bg-[#00e5a0] px-8 py-3.5 font-bold text-[#070b14] transition-colors hover:bg-[#3cf0bb]"
             >
-              무료 사이트 진단 <ArrowRight className="h-4 w-4" />
+              문의하기 <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </section>
