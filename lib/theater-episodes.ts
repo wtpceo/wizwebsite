@@ -100,11 +100,25 @@ export const EPISODES: TheaterEpisode[] = [
   {
     slug: "ep7-toll-gate",
     ep: 7,
-    title: "통행료 받는 문: 수수료 10.45%와 펜션의 선택 (예고)",
-    logline: "플랫폼 문으로 들어온 예약은 통행료를 뗍니다. 자기 문을 만든 펜션 이야기.",
+    title: "통행료 받는 문: 수수료 10.45%와 펜션의 선택",
+    logline:
+      "플랫폼 문으로 들어온 예약은 통행료를 뗍니다. 자기 문을 만든 펜션의 8일 실측 기록.",
+    date: "2026-08-28",
+    poster: "/theater/ep7-poster1.png",
+    basedOn: [
+      { href: "/guide/case-pension-direct-booking", label: "펜션 직접 예약 8일 실측" },
+      { href: "/guide/case-third-party-citation", label: "홈페이지가 인용을 만들어낸 실험" },
+    ],
+    status: "published",
+  },
+  {
+    slug: "ep8-green-broadcast",
+    ep: 8,
+    title: "초록 나라의 방송: 네이버 AI 브리핑에 뽑히는 글 (예고)",
+    logline: "위즈가 못 들어가는 초록 나라에도 방송이 있습니다. 거기 뽑히는 글은 따로 있습니다.",
     date: "",
-    poster: "/theater/ep6-poster2.png",
-    basedOn: [{ href: "/guide/case-pension-direct-booking", label: "펜션 직접 예약 8일 사례" }],
+    poster: "/theater/ep7-poster2.png",
+    basedOn: [{ href: "/guide/naver-ai-briefing", label: "누락되던 블로그를 1위로 바꾼 글 구조" }],
     status: "coming",
   },
 ]
