@@ -186,7 +186,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "한국 플랫폼 15곳, AI가 읽을 수 있는 곳은 어디인가: robots.txt 전수 실측 현황판 (2026.7)",
     desc: "네이버 블로그·카카오맵·브런치·티스토리·다이닝코드·식신·배민·당근·인스타·유튜브까지 15곳의 robots.txt를 직접 전수 확인했습니다. 네이버 계열은 전부 차단, 브런치·다이닝코드는 '학습만 차단·AI 검색 허용', 식신·티스토리는 완전 개방: 원문 인용과 출처를 그대로 공개합니다.",
     date: "2026. 7. 27",
-    updated: "2026. 8. 21",
+    updated: "2026. 8. 27",
     related: ["/guide/naver-blocks-ai-crawlers", "/guide/case-third-party-citation", "/guide/ai-engines-cite-differently"],
   },
   {

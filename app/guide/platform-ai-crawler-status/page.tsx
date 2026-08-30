@@ -5,7 +5,7 @@ import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticl
 const TITLE =
   "한국 플랫폼 15곳 중 AI가 읽을 수 있는 곳: robots.txt 전수 실측 (2026.7)"
 const DESC =
-  "네이버 블로그·카페, 카카오맵, 브런치, 티스토리, 다이닝코드, 식신, 배민, 당근, 인스타그램, 유튜브까지, 한국 사장님들이 콘텐츠를 쌓는 플랫폼 15곳의 robots.txt를 2026년 7월 27일 직접 전수 확인했습니다. 결과는 극명하게 갈립니다. 네이버 계열은 AI 학습·검색 봇을 전부 차단했고, 브런치·다이닝코드는 '학습은 차단, AI 검색은 허용'이라는 정교한 선택을 했으며, 식신·티스토리는 완전 개방입니다. 어디에 쌓은 콘텐츠가 AI 답변에 인용될 수 있는지, 원문 인용과 출처를 그대로 공개합니다."
+  "네이버 블로그·카페, 카카오맵, 브런치, 티스토리, 다이닝코드, 식신, 배민, 당근, 인스타그램, 유튜브까지, 한국 사장님들이 콘텐츠를 쌓는 플랫폼 15곳의 robots.txt를 2026년 7월 27일 직접 전수 확인하고, 2026년 8월 27일에 15곳 전부를 봇 이름 단위로 재확인했습니다. 결과는 극명하게 갈립니다. 네이버 계열은 AI 학습·검색 봇을 전부 차단했고, 브런치·다이닝코드는 '학습은 차단, AI 검색은 허용'이라는 정교한 선택을 했으며, 식신·티스토리는 완전 개방입니다. 어디에 쌓은 콘텐츠가 AI 답변에 인용될 수 있는지, 원문 인용과 출처를 그대로 공개합니다."
 const DATE = "2026-07-27"
 const URL = "https://wiztheplanning.com/guide/platform-ai-crawler-status"
 
@@ -61,7 +61,7 @@ const faqJsonLd = {
       name: "그럼 어디에 콘텐츠를 쌓아야 AI가 인용하나요?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "2026년 7월 27일 실측 기준으로 AI 검색봇이 읽을 수 있는 곳은 자기 소유의 홈페이지, 브런치, 티스토리, 다이닝코드(맛집), 식신(맛집), 요기요, 유튜브(제목·설명 등 텍스트 영역)입니다. 반대로 네이버 블로그·카페·스마트스토어, 카카오맵, 배민, 당근, 캐치테이블, 인스타그램은 차단 상태입니다. 가장 확실한 것은 차단 정책이 언제 바뀔지 걱정할 필요가 없는 자기 홈페이지입니다.",
+        text: "2026년 7월 27일 실측 기준으로 AI 검색봇이 읽을 수 있는 곳은 자기 소유의 홈페이지, 브런치, 티스토리, 다이닝코드(맛집), 식신(맛집), 요기요, 유튜브(제목·설명 등 텍스트 영역)입니다. 반대로 네이버 블로그·카페·스마트스토어, 카카오맵, 배민, 당근, 캐치테이블은 차단 상태입니다. 인스타그램은 학습봇과 PerplexityBot을 차단하되 다른 AI 검색봇은 언급하지 않았으나, 자동 수집 금지를 명시하고 있어 거점으로 삼기는 어렵습니다. 가장 확실한 것은 차단 정책이 언제 바뀔지 걱정할 필요가 없는 자기 홈페이지입니다.",
       },
     },
   ],
@@ -88,7 +88,7 @@ const ROWS: Row[] = [
   { platform: "배달의민족", train: "block", search: "block", note: "구글봇·네이버봇만 허용, 나머지 전면 차단" },
   { platform: "요기요", train: "allow", search: "allow", note: "AI봇 제한 없음: 결제 경로 등만 차단" },
   { platform: "당근", train: "block", search: "block", note: "국내 콘텐츠(/kr/)에서 AI·수집 봇 46종 차단: 가장 광범위" },
-  { platform: "인스타그램", train: "block", search: "block", note: "AI봇 지정 차단 + 자동 수집 전면 금지 고지" },
+  { platform: "인스타그램", train: "block", search: "partial", note: "학습봇 차단 + PerplexityBot 차단, 다른 AI 검색봇은 미언급" },
   { platform: "유튜브", train: "allow", search: "allow", note: "시청 페이지 개방: 단 읽히는 건 제목·설명 등 텍스트" },
 ]
 
@@ -249,10 +249,13 @@ export default function Page() {
             <a href="https://www.daangn.com/robots.txt" target="_blank" rel="noopener noreferrer">원문</a>).
           </CheckItem>
           <CheckItem>
-            <strong>인스타그램</strong>: AI봇 지정 차단 + &ldquo;서면 허가 없는 자동 수집
-            금지&rdquo; 고지(
+            <strong>인스타그램</strong>: 학습봇(GPTBot·ClaudeBot·Google-Extended)을 이름까지
+            지정해 차단하고, &ldquo;서면 허가 없는 자동 수집 금지&rdquo;를 robots.txt 상단에
+            고지해 두었습니다(
             <a href="https://www.instagram.com/robots.txt" target="_blank" rel="noopener noreferrer">원문</a>).
-            인스타에 아무리 쌓아도 AI 검색은 못 읽습니다.
+            AI 검색봇 중에서는 <strong>PerplexityBot만 차단</strong>돼 있고 OAI-SearchBot·
+            Claude-SearchBot은 언급이 없어, 엄밀히는 다이닝코드와 같은 부분 허용입니다. 다만 자동
+            수집 자체를 금지한다고 명시한 곳이라 콘텐츠 거점으로 삼기는 어렵습니다.
           </CheckItem>
           <CheckItem>
             <strong>유튜브</strong>: 시청 페이지에 봇 차단이 없습니다(
