@@ -275,6 +275,10 @@ export default function Page() {
           직접 진행할지 맡길지 먼저 정하고 싶으시면{" "}
           <a href="/guide/geo-diy-or-agency">직접 할까 대행 맡길까</a>에 판단 기준을 정리했습니다.
         </p>
+        <p>
+          무엇에 돈을 쓰는 것인지부터 보시려면{" "}
+          <a href="/guide/what-is-geo">AI 검색 최적화 기본 설명</a>에 정리해 두었습니다.
+        </p>
       </GuideArticle>
     </>
   )

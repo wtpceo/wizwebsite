@@ -103,6 +103,75 @@ export default function Page() {
           <a href="/guide/geo">GEO 총정리</a>도 함께 보시면 전체 그림이 잡힙니다.
         </p>
 
+        <h2>말이 아니라 숫자로 보면 이렇습니다</h2>
+        <p>
+          &ldquo;AI 검색 최적화가 중요하다&rdquo;는 글은 이미 많습니다. 그런데{" "}
+          <strong>자기 회사를 직접 재본 숫자를 공개한 곳은 드뭅니다.</strong> 저희 것부터 공개합니다.
+          2026년 8월 3주차, 질문 50개를 세 엔진에 던져 측정한 결과입니다.
+        </p>
+        <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200">
+          <table className="w-full min-w-[560px] text-sm">
+            <thead>
+              <tr className="bg-slate-50 text-left">
+                <th className="px-4 py-3 font-bold text-gray-900">엔진</th>
+                <th className="px-4 py-3 font-bold text-gray-900">브랜드 언급</th>
+                <th className="px-4 py-3 font-bold text-gray-900">출처 인용</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ["Gemini", "10 / 50", "10 / 50"],
+                ["ChatGPT", "9 / 50", "5 / 50"],
+                ["네이버 AI 브리핑", "7 / 39", "5 / 39"],
+              ].map((r) => (
+                <tr key={r[0]} className="border-t border-slate-100">
+                  <td className="px-4 py-2.5 font-semibold text-gray-800">{r[0]}</td>
+                  <td className="px-4 py-2.5 text-gray-700">{r[1]}</td>
+                  <td className="px-4 py-2.5 text-gray-700">{r[2]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p>
+          <strong>같은 노력을 해도 엔진마다 결과가 다릅니다.</strong> Gemini는 언급한 10건을 전부
+          출처로도 달아줬지만, ChatGPT는 9건 중 5건만 달았습니다. 그래서{" "}
+          <a href="/guide/ai-engines-cite-differently">엔진별로 인용하는 곳이 다르다</a>는 점을 먼저
+          알고 시작해야 합니다.
+        </p>
+        <Callout>
+          같은 기간 <strong>AI 검색을 통한 실제 방문은 3명</strong>이었습니다. 전체 방문 598명 중
+          0.5%입니다. 작다고 빼지 않습니다. <strong>기준선을 남겨야 다음 주에 늘었는지 줄었는지를
+          말할 수 있기 때문</strong>입니다. 재는 방법은{" "}
+          <a href="/guide/measure-ai-traffic">AI 검색 유입 측정: 4단계로 나눠 세기</a>에
+          정리했습니다.
+        </Callout>
+
+        <h2>먼저 확인할 것: AI가 우리 글을 읽을 수 있나</h2>
+        <p>
+          콘텐츠를 아무리 쌓아도 <strong>AI가 접근할 수 없는 곳에 쌓으면 없는 것과 같습니다.</strong>{" "}
+          저희가 국내 플랫폼 15곳의 robots.txt를 직접 확인해보니 결과가 갈렸습니다.
+        </p>
+        <ul>
+          <CheckItem>
+            <strong>네이버 블로그·카페, 카카오맵</strong>: AI 학습·검색 봇을 전면 차단(
+            <a href="/guide/naver-blocks-ai-crawlers">실측 기록</a>)
+          </CheckItem>
+          <CheckItem>
+            <strong>브런치·티스토리</strong>: AI 검색봇 접근 가능(
+            <a href="/guide/platform-ai-crawler-status">플랫폼 15곳 현황판</a>)
+          </CheckItem>
+          <CheckItem>
+            <strong>자기 홈페이지</strong>: 정책이 바뀔 걱정이 없는 유일한 곳
+          </CheckItem>
+        </ul>
+        <p>
+          우리 홈페이지가 지금 AI에게 어떻게 보이는지는{" "}
+          <a href="/site-check">무료 사이트 진단</a>에서 주소만 넣으면 24개 항목으로 바로 확인됩니다.
+          이미 구조화 데이터를 넣었는데 노출이 없다면{" "}
+          <a href="/guide/structured-data-not-working">색인부터 확인하는 점검 순서</a>를 따라가 보세요.
+        </p>
+
         <h2>왜 지금 시작해야 하나요?</h2>
         <p>
           국내 자영업 시장에서 GEO는 이제 시작 단계입니다. AI는 한 번 신뢰한 출처를 반복해서 인용하는

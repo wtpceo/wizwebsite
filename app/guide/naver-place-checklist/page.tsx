@@ -108,6 +108,10 @@ export default function Page() {
           플레이스 다음 단계인 홈페이지·콘텐츠 구조화까지 포함한 전체 그림은{" "}
           <a href="/guide/geo">GEO란? 뜻부터 최적화 방법까지 총정리</a>에서 확인하실 수 있습니다.
         </p>
+        <p>
+          플레이스 정비가 왜 AI 노출로 이어지는지는{" "}
+          <a href="/guide/what-is-geo">AI 검색 최적화 기본</a>에 정리해 두었습니다.
+        </p>
       </GuideArticle>
     </>
   )

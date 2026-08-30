@@ -41,6 +41,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "GEO 직접 할까 대행 맡길까: 시간과 비용으로 갈리는 지점",
     desc: "갈리는 기준은 예산이 아니라 매주 반복할 수 있느냐입니다. 세팅은 한 번이고 측정은 계속이기 때문입니다. 직접과 위탁의 실제 차이, 대행 유형 3가지, 직접 하다 전환할 때 무엇이 남는지를 정리했습니다.",
     date: "2026. 8. 27",
+    updated: "2026. 8. 27",
     related: ["/guide/how-to-choose-geo-agency", "/guide/measure-ai-traffic", "/guide/get-cited-by-ai"],
   },
   {
@@ -72,7 +73,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "GEO 측정 도구 고르는 법: 직접 만들어 돌려보고 알게 된 5가지",
     desc: "도구를 비교하기 전에 질문 세트, 엔진 범위, 언급과 인용의 구분을 먼저 정해야 합니다. 이 셋이 없으면 어떤 도구를 써도 매주 다른 숫자가 나옵니다. 손으로 재다 포기하고 사내 측정 시스템을 만들며 확인한 5가지와, 실제 발행한 주간 보고서를 공개합니다.",
     date: "2026. 8. 24",
-    updated: "2026. 8. 26",
+    updated: "2026. 8. 27",
     related: ["/guide/measure-ai-traffic", "/guide/ranked-but-not-in-chatgpt", "/guide/naver-blocks-ai-crawlers"],
   },
   {
@@ -93,7 +94,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "AI 검색 유입 측정 방법: 4단계로 나눠 세기, 구글 76 vs 빙 32 실측",
     desc: "AI 검색 성과를 GA4 하나로 보면 틀립니다. 색인·노출·인용·유입은 서로 다른 층이고 앞 단계가 막히면 뒤 단계는 아예 생기지 않습니다. 2026년 8월 20일 저희 사이트를 재보니 같은 사이트맵을 냈는데 구글 약 76개, 빙 약 32개였습니다. 4단계 측정법과 저희 숫자를 그대로 공개합니다.",
     date: "2026. 8. 20",
-    updated: "2026. 8. 21",
+    updated: "2026. 8. 27",
     related: ["/guide/bing-index-bottleneck", "/guide/how-to-choose-geo-agency", "/guide/ranked-but-not-in-chatgpt"],
   },
   {
@@ -115,7 +116,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "GEO 비용: 견적서 뜯어보는 법과, 지금이 가장 쌀 때인 이유",
     desc: "GEO 비용은 구축비·운영비·콘텐츠비 세 갈래로 나뉩니다. 견적서에서 확인할 5가지와, 지금 드는 비용이 왜 나중보다 싼지를 저희 실측으로 정리했습니다. 외부 링크가 1곳뿐인 신생 도메인이 네이버 AI 브리핑 1위를 찍는 지금의 경쟁 밀도는 오래가지 않습니다.",
     date: "2026. 8. 14",
-    updated: "2026. 8. 21",
+    updated: "2026. 8. 27",
     related: [
       "/guide/how-to-choose-geo-agency",
       "/guide/case-pension-direct-booking",
@@ -141,7 +142,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "GEO와 SEO 차이: 검색 1위인데 ChatGPT엔 안 나온 이유",
     desc: "SEO는 목록에서 위로 올라가는 일, GEO는 AI 답변 안에 들어가는 일입니다. 저희 페이지는 네이버 AI 1위·구글 2위였는데도 ChatGPT엔 나오지 않았습니다. 목표·신호·측정이 어떻게 다른지, 왜 검색 상위가 AI 추천을 보장하지 못하는지 실측으로 정리했습니다.",
     date: "2026. 8. 6",
-    updated: "2026. 8. 21",
+    updated: "2026. 8. 27",
     related: ["/guide/geo", "/guide/ranked-but-not-in-chatgpt", "/guide/bing-index-bottleneck"],
   },
   {
@@ -284,7 +285,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "네이버 광고비는 오르는데 문의는 그대로일 때: 지금 매장에 무슨 일이 일어나고 있나",
     desc: "광고를 늘려도 문의가 안 늘어난다면 매장 문제가 아니라 고객의 검색 방식이 바뀐 것일 수 있습니다. 5분이면 직접 확인해볼 수 있어요.",
     date: "2026. 7. 9",
-    updated: "2026. 8. 21",
+    updated: "2026. 8. 27",
     related: ["/guide/what-is-geo", "/guide/how-to-choose-geo-agency", "/guide/case-mobile-carwash"],
   },
   {
@@ -339,7 +340,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "AI 검색 최적화(GEO)란? 자영업 사장님을 위한 쉬운 설명",
     desc: "SEO와 뭐가 다른지, AI는 어떤 매장을 추천하는지, 왜 지금 시작해야 하는지: GEO의 기본을 정리했습니다.",
     date: "2026. 7. 8",
-    updated: "2026. 8. 21",
+    updated: "2026. 8. 27",
     related: ["/guide/how-to-choose-geo-agency", "/guide/get-cited-by-ai", "/guide/ai-engines-cite-differently"],
   },
   {
@@ -350,7 +351,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "우리 가게가 AI 답변에 나오게 하는 7가지 방법",
     desc: "실제 진단 데이터에서 확인된, AI에게 추천받는 매장들의 공통점 7가지를 실행 순서대로 담았습니다.",
     date: "2026. 7. 8",
-    updated: "2026. 8. 26",
+    updated: "2026. 8. 27",
     related: ["/guide/what-is-geo", "/guide/naver-place-checklist", "/guide/ai-engines-cite-differently"],
   },
   {
@@ -361,7 +362,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "네이버 플레이스 상위 노출 체크리스트 10가지",
     desc: "오늘 바로 점검할 수 있는 플레이스 관리 체크리스트. 지역 검색과 AI 인용의 공통 기반입니다.",
     date: "2026. 7. 8",
-    updated: "2026. 8. 21",
+    updated: "2026. 8. 27",
     related: ["/guide/get-cited-by-ai", "/guide/ai-engines-cite-differently", "/guide/why-ads-stop-working"],
   },
 ]

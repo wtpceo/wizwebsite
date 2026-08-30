@@ -253,6 +253,10 @@ export default function Page() {
           <a href="/guide/structured-data-not-working">색인부터 확인하는 점검 순서</a>에
           정리했습니다.
         </p>
+        <p>
+          GEO의 기본 개념은{" "}
+          <a href="/guide/what-is-geo">AI 검색 최적화 쉬운 설명</a>에 정리해 두었습니다.
+        </p>
       </GuideArticle>
     </>
   )

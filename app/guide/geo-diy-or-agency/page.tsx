@@ -230,6 +230,10 @@ export default function Page() {
           <a href="/site-check">무료 진단 결과 화면 아래</a>에 4단계로 적어두었습니다. 질문 세트를
           만들고, 세 엔진에 반복 측정하고, 주 1회 리포트를 드리고, 우선순위대로 고칩니다.
         </p>
+        <p>
+          아직 GEO가 뭔지 감이 안 오시면{" "}
+          <a href="/guide/what-is-geo">AI 검색 최적화 쉬운 설명</a>에 정리해 두었습니다.
+        </p>
       </GuideArticle>
     </>
   )

@@ -238,6 +238,10 @@ export default function Page() {
           AI 크롤러에게 열려 있는지는 <a href="/site-check">무료 사이트 진단</a>으로 1분이면
           확인됩니다.
         </p>
+        <p>
+          GEO가 처음이시라면{" "}
+          <a href="/guide/what-is-geo">AI 검색 최적화가 무엇인지부터</a>에 정리해 두었습니다.
+        </p>
       </GuideArticle>
     </>
   )

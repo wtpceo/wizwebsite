@@ -308,6 +308,10 @@ export default function Page() {
           측정 도구를 고르는 기준과 저희가 직접 만들며 확인한 것은{" "}
           <a href="/guide/geo-measurement-tools">GEO 측정 도구 고르는 법</a>에 따로 정리했습니다.
         </p>
+        <p>
+          GEO 자체가 생소하시면{" "}
+          <a href="/guide/what-is-geo">자영업 사장님을 위한 쉬운 설명</a>에 정리해 두었습니다.
+        </p>
       </GuideArticle>
     </>
   )
