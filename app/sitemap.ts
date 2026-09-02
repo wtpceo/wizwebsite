@@ -45,6 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/guide", priority: 0.9, changeFrequency: "weekly" },
     { path: "/guide/geo", priority: 1.0, changeFrequency: "weekly" },
     { path: "/guide/geo-vs-seo", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/guide/geo-agency-recommendation-check", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/geo-diy-or-agency", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/structured-data-types", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/structured-data-not-working", priority: 0.9, changeFrequency: "monthly" },

@@ -234,6 +234,10 @@ export default function Page() {
           아직 GEO가 뭔지 감이 안 오시면{" "}
           <a href="/guide/what-is-geo">AI 검색 최적화 쉬운 설명</a>에 정리해 두었습니다.
         </p>
+        <p>
+          대행사를 고를 때 추천 순위를 믿어도 되는지는{" "}
+          <a href="/guide/geo-agency-recommendation-check">검색 상위 추천 글 검증</a>에 정리했습니다.
+        </p>
       </GuideArticle>
     </>
   )

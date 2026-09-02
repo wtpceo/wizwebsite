@@ -34,6 +34,16 @@ export type GuideArticle = {
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
   {
+    href: "/guide/geo-agency-recommendation-check",
+    category: "case",
+    icon: SearchCheck,
+    kicker: "실제 사례 · 자체 실측",
+    title: "GEO 대행사 추천 TOP5, 누가 쓴 글인지 확인해봤습니다",
+    desc: "'GEO 대행사 추천' 검색 상위 글 9개를 전부 열어 누가 썼는지, 1위가 누구인지, 도메인 등록 정보는 어떤지 확인했습니다. 8개가 대행사 본인 글이었고 전부 자기 회사가 1위였습니다. 연구소 명칭 도메인 두 곳은 같은 날 같은 등록인이 만들었습니다. 저희도 이 검색어에는 없습니다.",
+    date: "2026. 9. 2",
+    related: ["/guide/how-to-choose-geo-agency", "/guide/geo-diy-or-agency", "/guide/bing-index-bottleneck"],
+  },
+  {
     href: "/guide/geo-diy-or-agency",
     category: "playbook",
     icon: GitFork,
