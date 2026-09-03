@@ -103,7 +103,8 @@ export default function DiagnosisApplyForm() {
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-400 md:text-lg">
             아래 정보를 남겨주시면 담당 마케터가 네이버 AI·ChatGPT·제미나이 진단 리포트를 만들어
-            직접 설명해 드립니다. 병원·의원에 한해 조건 없이 무료입니다.
+            직접 설명해 드립니다. <strong className="font-semibold text-white">영업시간 내 신청하시면 5분 안에</strong> 보내드립니다.
+            병원·의원에 한해 조건 없이 무료입니다.
           </p>
         </motion.div>
 
@@ -119,7 +120,7 @@ export default function DiagnosisApplyForm() {
               <CheckCircle2 className="mx-auto h-12 w-12 text-[#00e5a0]" />
               <h3 className="mt-4 text-xl font-bold text-white">진단 신청이 접수되었습니다</h3>
               <p className="mt-2 text-slate-400">
-                담당 마케터가 진단 리포트를 준비해 빠른 시일 내에 연락드리겠습니다.
+                담당 마케터가 지금 리포트를 만들고 있습니다. 영업시간 내 신청이면 5분 안에 연락드립니다.
                 (영업사원이 아닌 전문 마케터가 직접 설명드립니다.)
               </p>
             </div>
@@ -184,7 +185,7 @@ export default function DiagnosisApplyForm() {
                 )}
               </Button>
               <p className="mt-3 text-center text-xs text-gray-400">
-                신청 후 담당 마케터가 진단 리포트를 준비해 연락드립니다 · 100% 무료
+                영업시간 내 신청 시 5분 안에 리포트를 보내드립니다 · 100% 무료
               </p>
             </form>
           )}
