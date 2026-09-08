@@ -251,7 +251,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "우리 병원이 ChatGPT에 나오는지 5분 만에 확인하는 법",
     desc: "환자는 이제 AI에게 병원을 묻습니다. 우리 병원이 그 답변에 나오는지, 정보가 틀리게 안내되진 않는지 원장님이 직접 확인하는 3단계와, 결과별로 무엇을 해야 하는지 정리했습니다.",
     date: "2026. 7. 18",
-    updated: "2026. 8. 21",
+    updated: "2026. 9. 8",
     related: ["/guide/medical-geo", "/guide/case-urology-clinic", "/guide/ai-engines-cite-differently"],
   },
   {
@@ -306,7 +306,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "병원 AI 검색 최적화(GEO): ChatGPT가 우리 병원을 추천하게 하려면",
     desc: "AI에 인용되려다 의료법에 걸리지 않도록. 치료후기와 방문후기의 차이, 피해야 할 표현, 안전한 콘텐츠 전략을 정리했습니다.",
     date: "2026. 7. 9",
-    updated: "2026. 8. 21",
+    updated: "2026. 9. 8",
     related: ["/guide/check-hospital-ai-visibility", "/guide/case-urology-clinic", "/guide/dental-geo"],
   },
   {
@@ -317,7 +317,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "치과 AI 검색 최적화(GEO): ChatGPT가 우리 치과를 추천하게 하려면",
     desc: "치과 특유의 GEO 실행 포인트. 시술별 페이지, 질문형 콘텐츠, 방문후기 설계까지 의료광고법 안에서 AI에 인용받는 법.",
     date: "2026. 7. 9",
-    updated: "2026. 8. 21",
+    updated: "2026. 9. 8",
     related: ["/guide/medical-geo", "/guide/check-hospital-ai-visibility", "/guide/skincare-geo"],
   },
   {
@@ -328,7 +328,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "피부·에스테틱 AI 검색 최적화(GEO) 가이드: 홈페이지가 인용을 가른다",
     desc: "에스테틱은 홈페이지 인용 의존도가 가장 큰 업종. AI가 읽을 수 있는 홈페이지를 만드는 것이 이 업종 GEO의 핵심입니다.",
     date: "2026. 7. 9",
-    updated: "2026. 8. 21",
+    updated: "2026. 9. 8",
     related: ["/guide/medical-geo", "/guide/ai-engines-cite-differently", "/guide/dental-geo"],
   },
   {

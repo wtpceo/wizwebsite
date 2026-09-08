@@ -5,6 +5,7 @@ const TITLE = "우리 병원이 ChatGPT에 나오는지 5분 만에 확인하는
 const DESC =
   "AI에게 환자가 병원을 물어보는 시대입니다. 우리 병원이 그 답변에 나오는지, 혹시 잘못된 정보가 안내되고 있지는 않은지 원장님이 직접 5분 만에 확인하는 방법을 단계별로 정리했습니다. 결과별로 무엇을 해야 하는지까지 담았습니다."
 const DATE = "2026-07-18"
+const UPDATED = "2026-09-08"
 const URL = "https://wiztheplanning.com/guide/check-hospital-ai-visibility"
 
 export const metadata: Metadata = {
@@ -51,7 +52,7 @@ const articleJsonLd = {
   headline: TITLE,
   description: DESC,
   datePublished: DATE,
-  dateModified: DATE,
+  dateModified: UPDATED,
   inLanguage: "ko",
   author: { "@id": "https://wiztheplanning.com/#organization" },
   publisher: { "@id": "https://wiztheplanning.com/#organization" },
@@ -78,7 +79,7 @@ export default function Page() {
         kicker="병원 GEO 셀프 체크"
         title={TITLE}
         description={DESC}
-        date="2026년 7월 18일"
+        date="2026년 7월 18일 발행 · 2026년 9월 8일 갱신"
       >
         <p>
           요즘 환자들은 병원을 찾을 때 검색창에 키워드를 넣는 대신{" "}
@@ -145,6 +146,13 @@ export default function Page() {
           </CheckItem>
         </ul>
         <p>
+          네이버에서 확인하실 때 한 가지 주의점이 있습니다. 통합검색 상단의 <strong>AI 브리핑 블록</strong>과
+          아래쪽 <strong>웹문서 탭</strong>은 결과가 다릅니다. 2026년 9월 8일 저희 사이트로 직접 확인한
+          결과, 같은 검색어에서 AI 브리핑에는 첫 번째 출처로 인용되는데 웹문서 탭에는 아예 나오지
+          않았습니다. 그러니 웹문서 탭에 없다고 &ldquo;네이버 AI에 안 나온다&rdquo;고 판단하지 마시고,
+          AI 브리핑 블록의 출처 목록을 펼쳐서 확인하세요.
+        </p>
+        <p>
           엔진마다 왜 다른 병원을 추천하는지는{" "}
           <a href="/guide/ai-engines-cite-differently">엔진별 인용 출처의 차이</a>에서 자세히
           정리했습니다.
@@ -203,7 +211,9 @@ export default function Page() {
           위즈더플래닝은 병원·의원에 한해 이 진단을 <strong>무료로</strong> 해드립니다. 네이버 AI·ChatGPT·
           제미나이에 실제 환자 질문을 반복해 던져 언급 점유율과 오정보를 측정하고, 경쟁 병원과의 격차까지
           리포트로 정리해 드립니다.{" "}
-          <a href="/medical-diagnosis">병원 전용 무료 AI 검색 진단</a>에서 신청하실 수 있습니다.
+          <a href="/medical-diagnosis">병원 전용 무료 AI 검색 진단</a>에서 신청하실 수 있습니다. 진단
+          이후 대행으로 이어질 때 어떤 순서로 진행하고 주 1회 무엇을 보고받는지는{" "}
+          <a href="/medical-geo-agency">병원 GEO 대행 안내</a>에 적어 두었습니다.
         </p>
       </GuideArticle>
     </>

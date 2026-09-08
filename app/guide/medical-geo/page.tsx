@@ -6,6 +6,7 @@ const TITLE = "병원 AI 검색 최적화(GEO): ChatGPT가 우리 병원을 추�
 const DESC =
   "ChatGPT·네이버 AI가 병원을 추천할 때 무엇을 근거로 삼는지, 그리고 의료광고법에 걸리지 않으면서 AI에 인용되는 콘텐츠를 만드는 방법을 정리했습니다. 치료후기와 방문후기의 차이, 금지 표현까지 실무 기준으로 안내합니다."
 const DATE = "2026-07-09"
+const UPDATED = "2026-09-08"
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -21,7 +22,7 @@ const jsonLd = {
   headline: TITLE,
   description: DESC,
   datePublished: DATE,
-  dateModified: DATE,
+  dateModified: UPDATED,
   inLanguage: "ko",
   author: { "@id": "https://wiztheplanning.com/#organization" },
   publisher: { "@id": "https://wiztheplanning.com/#organization" },
@@ -32,7 +33,7 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <GuideArticle href="/guide/medical-geo" kicker="MEDICAL GEO" title={TITLE} description={DESC} date="2026년 7월 9일">
+      <GuideArticle href="/guide/medical-geo" kicker="MEDICAL GEO" title={TITLE} description={DESC} date="2026년 7월 9일 발행 · 2026년 9월 8일 갱신">
         <p>
           병원·의원의 AI 검색 최적화(GEO)는 일반 업종과 결정적으로 다른 점이 하나 있습니다. 바로{" "}
           <strong>의료광고법</strong>입니다. AI에 잘 인용되려고 "환자 치료후기"나 "부작용 없는 시술"
@@ -54,6 +55,10 @@ export default function Page() {
           <CheckItem>
             <strong>네이버 AI</strong>는 네이버 플레이스 리뷰와 후기 블로그를 주로 인용합니다. 리뷰
             속 구체적 표현("설명을 자세히 해줬다", "대기가 짧았다")을 추천 근거로 뽑습니다.
+            {" "}다만 리뷰·블로그만 읽는 것은 아닙니다. 네이버 색인에 잡힌{" "}
+            <strong>홈페이지 본문도 AI 브리핑 출처로 인용</strong>됩니다. 2026년 9월 8일 저희가 직접
+            확인한 &ldquo;병원 GEO 대행&rdquo; 검색에서는 저희 홈페이지가 AI 브리핑의 첫 번째 출처로 잡혔습니다.
+            네이버 쪽도 홈페이지가 무의미하지 않다는 뜻입니다.
           </CheckItem>
           <CheckItem>
             <strong>ChatGPT·구글 AI</strong>는 병원 자체 웹사이트와 의료 정보 디렉토리(모두닥 등)를
@@ -149,8 +154,12 @@ export default function Page() {
             신뢰 신호가 됩니다. (단, 근거 없는 "전문" 표기 주의)
           </CheckItem>
           <CheckItem>
-            <strong>FAQ 페이지</strong>: 자주 묻는 질문을 Q&A로 정리하고 FAQ 스키마를 적용하면 AI가
-            그대로 인용하기 쉬워집니다.
+            <strong>FAQ 페이지</strong>: 자주 묻는 질문을 Q&A로 정리해 두면 AI가 질문과 답을 그대로
+            발췌하기 쉬워집니다. 단, FAQPage 구조화 데이터는 넣어도 구글 검색결과에 아코디언으로 펼쳐지지
+            않습니다. 구글은 2023년 8월부터 FAQ 리치 결과를 정부·보건 기관 사이트로 제한했습니다. 효과는
+            본문 Q&A 자체에서 나옵니다. 자세한 기준은{" "}
+            <a href="/guide/structured-data-not-working">구조화 데이터를 넣었는데 안 잡히는 7가지 이유</a>에
+            정리했습니다.
           </CheckItem>
         </ul>
 
@@ -159,6 +168,13 @@ export default function Page() {
           AI가 인용하게 만드는 것"</strong>입니다. 이 방향이 의료법에 안전하면서 AI 인용에도 가장 유리합니다.
           위즈더플래닝은 의료광고 기준을 반영해 병원 전용 GEO를 진행합니다.
         </Callout>
+        <p>
+          우리 병원이 지금 AI 답변에 나오는지는{" "}
+          <a href="/guide/check-hospital-ai-visibility">원장님이 5분 만에 직접 확인하는 법</a>으로 먼저
+          보시고, 맡기는 쪽을 검토하신다면{" "}
+          <a href="/medical-geo-agency">병원 GEO 대행 안내</a>에서 진행 순서와 주간 보고 방식을
+          확인하세요.
+        </p>
         <p>
           병원에 국한하지 않은 GEO의 정의와 최적화 순서, 대행 판단 기준까지는{" "}
           <a href="/guide/geo">GEO란? 뜻부터 최적화 방법까지 총정리</a>에 모아 두었습니다.

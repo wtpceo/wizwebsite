@@ -34,7 +34,7 @@ const STEPS = [
   { icon: BarChart3, t: "AI 검색 진단", d: "네이버 AI·ChatGPT·제미나이에 실제 환자 질문을 넣어 우리 병원 언급 여부를 실측합니다." },
   { icon: Code2, t: "홈페이지 기술 점검", d: "AI 크롤러가 홈페이지를 읽을 수 있는지부터 확인합니다. 막혀 있으면 콘텐츠를 아무리 만들어도 소용없습니다." },
   { icon: ShieldCheck, t: "의료광고법 안에서 콘텐츠 구조화", d: "환자 언어 Q&A와 구조화 데이터를 설계하되, 의료광고 기준을 지키는 범위 안에서만 진행합니다." },
-  { icon: BarChart3, t: "월 1회 재측정 리포트", d: "엔진별 노출 변화를 매월 같은 기준으로 재측정해 숫자로 보고합니다." },
+  { icon: BarChart3, t: "주 1회 측정 리포트", d: "엔진별 노출 변화를 매주 같은 기준으로 재측정해 숫자로 보고합니다." },
 ]
 
 export default function Page() {
@@ -94,7 +94,7 @@ export default function Page() {
             <div className="mt-9 grid grid-cols-2 gap-x-6 gap-y-3 text-sm sm:grid-cols-4">
               {[
                 { n: "3개", d: "AI 엔진 실측" },
-                { n: "월 1회", d: "재측정 리포트" },
+                { n: "주 1회", d: "측정 리포트" },
                 { n: "0원", d: "계약 전 진단" },
                 { n: "1일 내", d: "우선 상담 연락" },
               ].map((s) => (
@@ -195,7 +195,7 @@ export default function Page() {
           <div className="mt-8 rounded-2xl border-l-4 border-[#00b37f] bg-emerald-50 px-5 py-4">
             <p className="text-sm leading-relaxed text-gray-800">
               <strong>노출을 &lsquo;보장&rsquo;하지 않습니다.</strong> AI 답변은 엔진·시점마다 달라
-              누구도 보장할 수 없습니다. 대신 시작 전 실측하고, 매월 같은 기준으로 재측정해{" "}
+              누구도 보장할 수 없습니다. 대신 시작 전 실측하고, 매주 같은 기준으로 재측정해{" "}
               <strong>변화를 숫자로 보고</strong>합니다. &lsquo;보장&rsquo;을 약속하는 곳을 오히려
               조심하세요.
             </p>

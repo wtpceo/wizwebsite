@@ -6,6 +6,7 @@ const TITLE = "피부·에스테틱 AI 검색 최적화(GEO) 가이드: 홈페�
 const DESC =
   "피부관리샵·에스테틱은 AI 검색에서 '홈페이지 인용' 의존도가 특히 큰 업종입니다. AI가 읽을 수 있는 홈페이지를 중심으로, 네이버 리뷰·인스타까지 어떻게 준비해야 ChatGPT·네이버 AI·구글이 우리 샵을 추천하는지 정리했습니다."
 const DATE = "2026-07-09"
+const UPDATED = "2026-09-08"
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -21,7 +22,7 @@ const jsonLd = {
   headline: TITLE,
   description: DESC,
   datePublished: DATE,
-  dateModified: DATE,
+  dateModified: UPDATED,
   inLanguage: "ko",
   author: { "@id": "https://wiztheplanning.com/#organization" },
   publisher: { "@id": "https://wiztheplanning.com/#organization" },
@@ -32,7 +33,7 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <GuideArticle href="/guide/skincare-geo" kicker="SKINCARE GEO" title={TITLE} description={DESC} date="2026년 7월 9일">
+      <GuideArticle href="/guide/skincare-geo" kicker="SKINCARE GEO" title={TITLE} description={DESC} date="2026년 7월 9일 발행 · 2026년 9월 8일 갱신">
         <p>
           결론부터 말씀드리겠습니다. 피부관리샵·에스테틱은 <strong>AI 검색에서 "홈페이지"가 승부처</strong>인
           업종입니다. 같은 GEO(생성형 검색 최적화)라도 업종마다 AI가 근거로 삼는 출처가 다른데, 에스테틱은
@@ -103,8 +104,10 @@ export default function Page() {
             가격대라도 텍스트로 적어두는 편이 "가격은 전화 문의"보다 인용에 유리합니다.
           </CheckItem>
           <CheckItem>
-            <strong>FAQ 섹션 + FAQ 스키마</strong>: 자주 묻는 질문 5~10개를 질문·답 형태로 정리하고, 구조화
-            데이터(FAQPage 스키마)로 한 번 더 명시하면 AI가 가장 즐겨 인용하는 형태가 됩니다.
+            <strong>FAQ 섹션</strong>: 자주 묻는 질문 5~10개를 질문·답 형태로 본문에 정리하면 AI가 가장
+            즐겨 발췌하는 형태가 됩니다. FAQPage 구조화 데이터는 넣어도 되지만 구글 검색결과에 아코디언으로
+            펼쳐지지는 않습니다(구글이 2023년 8월부터 정부·보건 기관 사이트로 제한). 효과는 본문 Q&A
+            자체에서 나옵니다.
           </CheckItem>
           <CheckItem>
             <strong>기본정보(NAP) 일관성</strong>: 상호·주소·전화·영업시간을 홈페이지·네이버·인스타에서
@@ -116,6 +119,15 @@ export default function Page() {
         <p>
           홈페이지가 외부 AI(ChatGPT·구글) 축이라면, 국내 고객이 실제로 많이 쓰는 <strong>네이버 AI는
           플레이스 리뷰와 후기</strong>를 근거로 답합니다. 두 축을 함께 관리해야 반쪽이 안 됩니다.
+        </p>
+        <p>
+          다만 네이버 AI 브리핑이 리뷰와 블로그만 읽는 것은 아닙니다. 뷰티 업종의 실제 사례로, 6년째
+          운영 중인 한 매장은 글 구조를 바꾼 뒤 브랜드 블로그가 1위로 올라섰고 그 뒤에 AI 브리핑 인용이
+          따라왔습니다. 네이버 색인에 잡힌 홈페이지 본문도 출처로 인용됩니다. 순서와 조건은{" "}
+          <Link href="/guide/naver-ai-briefing" className="font-bold text-emerald-600 underline-offset-4 hover:underline">
+            네이버 AI 브리핑에 인용되기까지의 실제 과정
+          </Link>
+          에 정리했습니다.
         </p>
         <ul>
           <CheckItem>
@@ -158,7 +170,7 @@ export default function Page() {
             텍스트 기반 HTML로 개편.
           </CheckItem>
           <CheckItem>
-            <strong>2순위: 콘텐츠 구조화</strong>: 시술별 개별 페이지 + 질문형 정보 콘텐츠 + 가격 + FAQ 스키마.
+            <strong>2순위: 콘텐츠 구조화</strong>: 시술별 개별 페이지 + 질문형 정보 콘텐츠 + 가격 + 본문 FAQ.
           </CheckItem>
           <CheckItem>
             <strong>3순위: 네이버·인스타</strong>: 플레이스 완비 + 자연스러운 리뷰의 양·최신성 + 인스타 연결.

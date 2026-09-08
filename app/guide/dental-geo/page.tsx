@@ -7,6 +7,7 @@ const TITLE = "치과 AI 검색 최적화(GEO): ChatGPT가 우리 치과를 추�
 const DESC =
   "네이버 AI·ChatGPT·구글이 치과를 추천할 때 무엇을 근거로 삼는지, 그리고 의료광고법에 걸리지 않으면서 AI에 인용되는 치과를 만드는 방법을 정리했습니다. 치과 특유의 실행(시술별 페이지·질문형 콘텐츠·방문후기·NAP)에 집중했습니다."
 const DATE = "2026-07-09"
+const UPDATED = "2026-09-08"
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -22,7 +23,7 @@ const jsonLd = {
   headline: TITLE,
   description: DESC,
   datePublished: DATE,
-  dateModified: DATE,
+  dateModified: UPDATED,
   inLanguage: "ko",
   author: { "@id": "https://wiztheplanning.com/#organization" },
   publisher: { "@id": "https://wiztheplanning.com/#organization" },
@@ -33,7 +34,7 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <GuideArticle href="/guide/dental-geo" kicker="DENTAL GEO" title={TITLE} description={DESC} date="2026년 7월 9일">
+      <GuideArticle href="/guide/dental-geo" kicker="DENTAL GEO" title={TITLE} description={DESC} date="2026년 7월 9일 발행 · 2026년 9월 8일 갱신">
         <p>
           결론부터 말씀드리면, 치과의 AI 검색 최적화(GEO)는 <strong>"치료효과를 자랑하는 것"이 아니라
           "AI가 신뢰하고 인용할 수 있는 사실 정보를 갖추는 것"</strong>입니다. 치과는{" "}
@@ -59,6 +60,10 @@ export default function Page() {
             <strong>네이버 AI</strong>는 네이버 플레이스 리뷰·소식과 후기 블로그를 주로 읽습니다. 리뷰
             속 구체적인 방문경험 표현("설명을 자세히 해줬다", "공포증을 배려해줬다", "대기가 짧았다")을
             추천 근거로 뽑습니다.
+            {" "}다만 리뷰·블로그만 읽는 것은 아닙니다. 네이버 색인에 잡힌{" "}
+            <strong>홈페이지 본문도 AI 브리핑 출처로 인용</strong>됩니다. 2026년 9월 8일 저희가 직접
+            확인한 &ldquo;병원 GEO 대행&rdquo; 검색에서는 저희 홈페이지가 AI 브리핑의 첫 번째 출처로 잡혔습니다.
+            네이버 쪽도 홈페이지가 무의미하지 않다는 뜻입니다.
           </CheckItem>
           <CheckItem>
             <strong>ChatGPT·구글 AI</strong>는 <strong>치과 자체 홈페이지</strong>와 의료 정보
@@ -143,8 +148,15 @@ export default function Page() {
             답을 배치하세요.
           </CheckItem>
           <CheckItem>
-            <strong>FAQ 페이지 + FAQ 스키마</strong>: 자주 묻는 질문을 Q&A로 정리하고 FAQPage
-            구조화 데이터를 적용하면 AI가 질문-답을 그대로 인용하기 쉬워집니다.
+            <strong>FAQ 페이지</strong>: 자주 묻는 질문을 Q&A로 정리해 두면 AI가 질문과 답을 그대로
+            발췌하기 쉬워집니다. FAQPage 구조화 데이터는 넣어도 되지만, 구글 검색결과에 아코디언으로
+            펼쳐지지는 않습니다. 구글이 2023년 8월부터 FAQ 리치 결과를 정부·보건 기관 사이트로
+            제한했기 때문입니다. 효과는 본문 Q&A 자체에서 나옵니다. 어떤 구조화 데이터가 실제로 의미
+            있는지는{" "}
+            <Link href="/guide/structured-data-types" className="font-bold text-emerald-600 underline-offset-4 hover:underline">
+              업종별 구조화 데이터 선택 기준
+            </Link>
+            에 정리했습니다.
           </CheckItem>
           <CheckItem>
             <strong>의료진 정보</strong>: 원장·의료진의 진료 분야, 경력, 학회 활동을 사실대로
@@ -195,6 +207,17 @@ export default function Page() {
           가장 유리합니다. 우리 치과가 지금 AI 검색에 어떻게 뜨는지 궁금하시면, 위즈더플래닝의{" "}
           <strong>무료 진단 리포트</strong>로 현황부터 확인해 보세요.
         </Callout>
+        <p>
+          우리 치과가 지금 AI 답변에 나오는지는{" "}
+          <Link href="/guide/check-hospital-ai-visibility" className="font-bold text-emerald-600 underline-offset-4 hover:underline">
+            5분 셀프 체크
+          </Link>
+          로 먼저 확인해 보세요. 맡기는 쪽을 검토하신다면{" "}
+          <Link href="/medical-geo-agency" className="font-bold text-emerald-600 underline-offset-4 hover:underline">
+            병원 GEO 대행 안내
+          </Link>
+          에 진행 순서와 주간 보고 방식을 적어 두었습니다.
+        </p>
         <p>
           치과에 국한하지 않고 GEO 자체가 무엇인지, 어떤 순서로 진행하는지 먼저 보고 싶으시면{" "}
           <a href="/guide/geo">GEO란? 뜻부터 최적화 방법까지 총정리</a>부터 읽어보세요.

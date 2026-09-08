@@ -7,6 +7,11 @@ import {
 import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
+import HowWeReport from "@/components/sections/HowWeReport"
+import { GUIDE_ARTICLES } from "@/lib/guide-articles"
+
+const PUBLISHED = "2026-07-23"
+const UPDATED = "2026-09-08"
 
 const TITLE = "병원 GEO 대행: 병원·의원 AI 검색 최적화 전문"
 const DESC =
@@ -56,15 +61,15 @@ const SCOPE = [
   {
     icon: BarChart3,
     step: "05",
-    title: "월간 재측정·리포트",
-    desc: "엔진별 노출 변화를 매월 다시 측정해 보고합니다. 담당 마케터가 직접 설명드립니다.",
+    title: "주간 리포트·재측정",
+    desc: "엔진별 노출 변화를 매주 같은 기준으로 다시 측정해 주 1회 보고합니다. 자체 개발한 GEO 관제 시스템으로 측정하고, 담당 매니저가 직접 설명드립니다.",
   },
 ] as const
 
 const FAQ = [
   {
     q: "병원 GEO 대행은 무엇을 해주는 건가요?",
-    a: "환자가 ChatGPT·네이버 AI 등에 '○○ 잘하는 병원 추천해줘'라고 물었을 때 우리 병원이 답변에 포함되도록 만드는 작업 전체를 대행합니다. AI 검색 진단, 홈페이지 크롤러 접근 점검, 채널별 병원 정보 정합성 정리, 환자 언어 기반 콘텐츠 제작과 구조화 데이터 설계, 월간 재측정 리포트까지 포함합니다.",
+    a: "환자가 ChatGPT·네이버 AI 등에 '○○ 잘하는 병원 추천해줘'라고 물었을 때 우리 병원이 답변에 포함되도록 만드는 작업 전체를 대행합니다. AI 검색 진단, 홈페이지 크롤러 접근 점검, 채널별 병원 정보 정합성 정리, 환자 언어 기반 콘텐츠 제작과 구조화 데이터 설계, 주 1회 재측정 리포트까지 포함합니다.",
   },
   {
     q: "비용은 얼마인가요?",
@@ -88,7 +93,7 @@ const FAQ = [
   },
   {
     q: "AI 노출을 보장해 주나요?",
-    a: "보장하지 않습니다. AI 답변은 엔진과 시점, 질문 방식에 따라 매번 달라지기 때문에 누구도 노출을 보장할 수 없습니다. '노출 100% 보장' 같은 약속을 내거는 업체는 오히려 주의가 필요합니다. 위즈더플래닝은 보장 대신 측정을 약속합니다. 시작 전 현재 상태를 실측하고, 매월 같은 기준으로 재측정해 변화를 숫자로 보고합니다. 우리 회사 자신의 실험에서 잘된 결과와 아직 안 된 결과까지 홈페이지에 그대로 공개하는 이유이기도 합니다.",
+    a: "보장하지 않습니다. AI 답변은 엔진과 시점, 질문 방식에 따라 매번 달라지기 때문에 누구도 노출을 보장할 수 없습니다. '노출 100% 보장' 같은 약속을 내거는 업체는 오히려 주의가 필요합니다. 위즈더플래닝은 보장 대신 측정을 약속합니다. 시작 전 현재 상태를 실측하고, 매주 같은 기준으로 재측정해 변화를 숫자로 보고합니다. 우리 회사 자신의 실험에서 잘된 결과와 아직 안 된 결과까지 홈페이지에 그대로 공개하는 이유이기도 합니다.",
   },
   {
     q: "네이버 블로그 마케팅과는 어떻게 다른가요? 병행해야 하나요?",
@@ -135,6 +140,18 @@ const faqJsonLd = {
   })),
 }
 
+const webPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: TITLE,
+  url: URL,
+  description: DESC,
+  datePublished: PUBLISHED,
+  dateModified: UPDATED,
+  inLanguage: "ko-KR",
+  publisher: { "@type": "Organization", name: "위즈더플래닝", url: "https://wiztheplanning.com" },
+}
+
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -150,6 +167,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
       <Header />
 
       <main className="flex-1">
@@ -187,8 +205,8 @@ export default function Page() {
               {[
                 { n: "2016~", d: "7,000여 광고주" },
                 { n: "3개", d: "AI 엔진 실측 진단" },
-                { n: "월 1회", d: "재측정 리포트" },
-                { n: "17편", d: "실측 가이드 공개" },
+                { n: "주 1회", d: "측정 리포트" },
+                { n: `${GUIDE_ARTICLES.length}편`, d: "실측 가이드 공개" },
               ].map((s) => (
                 <div key={s.d}>
                   <p className="text-xl font-extrabold text-[#00e5a0]">{s.n}</p>
@@ -287,7 +305,7 @@ export default function Page() {
               {
                 icon: BarChart3,
                 title: "감이 아니라 측정입니다",
-                desc: "진단으로 시작하고 매월 재측정합니다. 언급 점유율과 오정보를 숫자로 확인하며 진행합니다.",
+                desc: "진단으로 시작하고 매주 재측정합니다. 언급 점유율과 오정보를 숫자로 확인하며 진행합니다.",
               },
             ].map((d) => (
               <div key={d.title} className="rounded-2xl border border-gray-200 bg-white p-6">
@@ -301,6 +319,8 @@ export default function Page() {
           </div>
         </section>
 
+        <HowWeReport />
+
         {/* 정직성 — 보장 대신 측정 */}
         <section className="bg-[#070b14] py-16 md:py-20">
           <div className="container mx-auto max-w-4xl px-4 md:px-6">
@@ -312,7 +332,7 @@ export default function Page() {
               {[
                 {
                   title: "노출을 '보장'하지 않습니다",
-                  desc: "AI 답변은 엔진·시점·질문에 따라 매번 다릅니다. 보장은 누구도 할 수 없기에, 우리는 보장 대신 매월 같은 기준의 측정 수치로 보고합니다.",
+                  desc: "AI 답변은 엔진·시점·질문에 따라 매번 다릅니다. 보장은 누구도 할 수 없기에, 우리는 보장 대신 매주 같은 기준의 측정 수치로 보고합니다.",
                 },
                 {
                   title: "자작 추천 글을 만들지 않습니다",
@@ -398,6 +418,9 @@ export default function Page() {
               </div>
             ))}
           </div>
+          <p className="mt-6 text-xs text-gray-400">
+            2026년 9월 8일 갱신: 보고 주기를 월 1회에서 주 1회로 바꾸고, 실제 주간 보고서 양식과 공개 가이드 수를 반영했습니다.
+          </p>
         </section>
 
         {/* CTA */}
