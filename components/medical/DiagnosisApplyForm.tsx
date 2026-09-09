@@ -6,6 +6,7 @@ import { CheckCircle2, ChevronRight, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { trackDiagnosisSubmit } from "@/lib/analytics"
+import { readAttribution } from "@/lib/attribution"
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -51,6 +52,7 @@ export default function DiagnosisApplyForm() {
     try {
       // 기존 /api/contact 재활용 — 병원 특화 정보는 message로 조합
       const payload = {
+        attribution: readAttribution(),
         name: form.name,
         phone: form.phone,
         email: "",

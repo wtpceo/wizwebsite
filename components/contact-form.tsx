@@ -17,6 +17,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
+import { readAttribution } from "@/lib/attribution"
 
 // 유입 경로 — AI 검색 유입 비중을 실제 데이터로 쌓기 위한 항목
 const SOURCE_OPTIONS = [
@@ -67,6 +68,7 @@ export default function ContactForm() {
       // 유입 경로는 API 스키마 변경 없이 문의내용 끝에 덧붙여 전달
       const payload = {
         ...formData,
+        attribution: readAttribution(),
         message: `${formData.message}\n\n─────\n유입 경로: ${formData.source || "미응답"}`,
       };
 

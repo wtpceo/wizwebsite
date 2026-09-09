@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { formatAttribution, type Attribution } from '@/lib/attribution'
 import { MAIL_FROM, ADMIN_EMAILS } from '@/lib/email'
 
 // API 키 디버깅을 위한 함수
@@ -7,6 +8,15 @@ function maskApiKey(key: string | undefined) {
   if (!key) return 'undefined';
   if (key.length < 8) return 'too_short_to_be_valid';
   return `${key.substring(0, 3)}...${key.substring(key.length - 3)}`;
+}
+
+
+/** UTM 값은 주소창으로 조작할 수 있다. 메일 HTML에 그대로 넣지 않는다. */
+function esc(v: unknown): string {
+  return String(v ?? '')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;')
+    .slice(0, 300);
 }
 
 export async function POST(req: Request) {
@@ -43,6 +53,7 @@ export async function POST(req: Request) {
     const resend = new Resend(apiKey);
     
     const { name, phone, email, message, storeName, language } = requestData;
+    const attribution: Attribution = requestData.attribution ?? {};
 
     // 관리자 이메일 (수신자 추가는 lib/email.ts에서)
     const adminEmails = ADMIN_EMAILS
@@ -56,6 +67,13 @@ export async function POST(req: Request) {
         <p><strong>연락처:</strong> ${phone || '미입력'}</p>
         ${email ? `<p><strong>이메일:</strong> ${email}</p>` : ''}
         ${storeName ? `<p><strong>가게명:</strong> ${storeName}</p>` : ''}
+        <div style="margin:16px 0;padding:12px;border-left:3px solid #4338ca;background:#f8f8ff;">
+          <p style="margin:0 0 6px;font-weight:bold;">📊 유입 경로</p>
+          <p style="margin:0;font-size:15px;">${esc(formatAttribution(attribution))}</p>
+          ${attribution.landing ? `<p style="margin:6px 0 0;color:#666;font-size:13px;">도착 페이지: ${esc(attribution.landing)}</p>` : ''}
+          ${attribution.first_seen ? `<p style="margin:2px 0 0;color:#666;font-size:13px;">첫 방문: ${esc(attribution.first_seen)}</p>` : ''}
+          ${attribution.referrer ? `<p style="margin:2px 0 0;color:#666;font-size:13px;">referrer: ${esc(attribution.referrer)}</p>` : ''}
+        </div>
         <p><strong>문의내용:</strong></p>
         <div style="background-color: #f5f5f5; padding: 12px; border-radius: 4px;">
           <p>${message}</p>
