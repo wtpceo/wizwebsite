@@ -36,6 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/diagnosis", priority: 0.9, changeFrequency: "monthly" },
     { path: "/medical-geo-agency", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-09-08" },
     { path: "/site-check", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/how-we-measure", priority: 0.8, changeFrequency: "monthly", lastmod: "2026-09-09" },
     { path: "/strategy/1", priority: 0.8, changeFrequency: "monthly" },
     { path: "/strategy/2", priority: 0.8, changeFrequency: "monthly" },
     { path: "/strategy/3", priority: 0.8, changeFrequency: "monthly" },

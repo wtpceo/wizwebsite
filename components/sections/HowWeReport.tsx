@@ -93,6 +93,9 @@ export default function HowWeReport() {
               <strong className="text-gray-700">정리된 리포트와 해석</strong>을 드립니다. 도구를 배우실
               필요가 없습니다.
             </p>
+            <a href="/how-we-measure" className="mt-3 inline-block text-sm font-bold text-emerald-700 underline-offset-4 hover:underline">
+              관제 화면 6장 직접 보기 →
+            </a>
           </div>
         </div>
 

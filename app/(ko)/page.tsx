@@ -2,6 +2,7 @@ import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
 import AgencyHero from "@/components/agency/AgencyHero"
 import StatsBand from "@/components/agency/StatsBand"
+import MeasureShowcase from "@/components/agency/MeasureShowcase"
 import CoreServices from "@/components/agency/CoreServices"
 import ProductionTeam from "@/components/agency/ProductionTeam"
 import PortfolioShowcase from "@/components/agency/PortfolioShowcase"
@@ -37,6 +38,7 @@ export default function Home() {
       <Header />
       <AgencyHero />
       <StatsBand />
+      <MeasureShowcase />
       <CoreServices />
       <ProductionTeam />
       <PortfolioShowcase />

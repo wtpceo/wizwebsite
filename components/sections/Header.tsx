@@ -15,6 +15,7 @@ export default function Header() {
   const menuTexts: Record<string, string> = {
     services: '서비스',
     sitecheck: '무료 사이트 진단',
+    measure: '측정 방식',
     team: '제작팀',
     medical: '병원',
     portfolio: '포트폴리오',
@@ -43,6 +44,7 @@ export default function Header() {
   const menuItems = [
     { key: 'services', anchor: 'services' },
     { key: 'sitecheck', href: '/site-check', isExternal: true },
+    { key: 'measure', href: '/how-we-measure', isExternal: true },
     { key: 'team', anchor: 'team' },
     { key: 'medical', isDropdown: true, highlight: true },
     { key: 'portfolio', href: '/portfolio', isExternal: true },

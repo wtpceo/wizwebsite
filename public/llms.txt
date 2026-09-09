@@ -8,6 +8,7 @@
 
 - [위즈더플래닝 홈](https://wiztheplanning.com/): 회사 소개와 GEO·SEO·퍼포먼스 광고 등 전체 서비스 개요.
 - [무료 홈페이지 SEO·GEO 진단](https://wiztheplanning.com/site-check): 주소 입력만으로 색인 허용·구조화 데이터·AI 크롤러 접근 등 24개 항목을 즉시 점검하는 무료 도구.
+- [측정 방식: 자체 개발 GEO 관제 시스템](https://wiztheplanning.com/how-we-measure): 네 엔진 주간 반복 측정, 멘션·인용 분리, 사이트 진단, 실제 유입 확인까지 관제 화면 6장과 지표 정의. 외부 판매 없음.
 - [무료 AI 검색 진단](https://wiztheplanning.com/diagnosis): ChatGPT·네이버 AI 검색에 내 가게가 노출되는지 확인하는 업종 무관 진단.
 - [병원 GEO 대행](https://wiztheplanning.com/medical-geo-agency): 병원·의원 대상 AI 검색 최적화 전문 대행 서비스 안내.
 - [병원 무료 AI 검색 진단](https://wiztheplanning.com/medical-diagnosis): 병원·의원이 AI 검색 답변에 인용되는지 점검하는 업종 전용 진단.

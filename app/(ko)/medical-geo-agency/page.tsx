@@ -317,6 +317,13 @@ export default function Page() {
               </div>
             ))}
           </div>
+          <p className="mt-6 text-sm text-gray-600">
+            측정에 쓰는 자체 개발 관제 시스템의 화면은{" "}
+            <Link href="/how-we-measure" className="font-bold text-emerald-600 underline-offset-4 hover:underline">
+              측정 방식 페이지
+            </Link>
+            에 우리 회사 점수까지 그대로 공개해 두었습니다.
+          </p>
         </section>
 
         <HowWeReport />
