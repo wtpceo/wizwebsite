@@ -270,6 +270,12 @@ export default function Page() {
           <a href="/site-check">무료 사이트 진단</a>으로 확인하실 수 있고, GEO 전체 그림은{" "}
           <a href="/guide/geo">GEO 총정리</a>에 모아 두었습니다.
         </p>
+        <p>
+          블로그가 아니라 홈페이지가 인용된 사례도 있습니다. 웹문서 탭에는 없는데 AI 브리핑에는 첫
+          출처로 잡힌 저희 페이지 기록은{" "}
+          <a href="/guide/naver-ai-briefing-vs-web-tab">웹문서 탭과 AI 브리핑이 갈리는 이유</a>에
+          정리했습니다.
+        </p>
       </GuideArticle>
     </>
   )

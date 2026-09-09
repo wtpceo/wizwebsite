@@ -405,7 +405,12 @@ export default function Page() {
             <Link href="/guide/how-to-choose-geo-agency" className="font-bold text-emerald-600 underline-offset-4 hover:underline">
               GEO 대행사 고르는 법: 계약 전에 물어봐야 할 7가지 질문
             </Link>
-            을 먼저 읽어보세요. 저희를 포함해 어느 업체든 같은 기준으로 검증하실 수 있습니다.
+            을 먼저 읽어보세요. 저희를 포함해 어느 업체든 같은 기준으로 검증하실 수 있습니다. 이 페이지가
+            네이버 AI 브리핑에 어떻게 인용되는지는{" "}
+            <Link href="/guide/naver-ai-briefing-vs-web-tab" className="font-bold text-emerald-600 underline-offset-4 hover:underline">
+              2026년 9월 실측 기록
+            </Link>
+            에 그대로 공개해 두었습니다.
           </p>
           <div className="mt-8 space-y-4">
             {FAQ.map((item, i) => (

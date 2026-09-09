@@ -26,6 +26,7 @@
 
 ## 자사 실측 기록
 
+- [네이버 웹문서 탭과 AI 브리핑이 갈리는 이유](https://wiztheplanning.com/guide/naver-ai-briefing-vs-web-tab): 같은 검색어에서 웹문서 탭에는 없고 AI 브리핑에는 첫 출처로 인용된 자사 사례와, 순위 하락 시 확인 순서 4단계.
 - [자사 GEO 실험: 네이버 1위인데 ChatGPT엔 미노출](https://wiztheplanning.com/guide/ranked-but-not-in-chatgpt): 같은 페이지가 네이버 AI 브리핑 1위·구글 2위인데 ChatGPT에는 나오지 않은 기록.
 - [IndexNow와 빙 색인 병목](https://wiztheplanning.com/guide/bing-index-bottleneck): ChatGPT 노출의 실제 병목인 빙 색인 지연을 8일간 추적한 실측 사례.
 - [AI 검색 유입 측정 방법](https://wiztheplanning.com/guide/measure-ai-traffic): 색인·노출·인용·유입을 4단계로 나눠 세는 방법과 구글·빙 실측 비교.
@@ -75,4 +76,4 @@
 - 가이드 문서에 포함된 수치와 실험 결과는 특정 시점의 자사 실측값이며, 검색 엔진과 AI 서비스의 정책 변화에 따라 달라질 수 있습니다.
 - 광고비·대행 비용 등 견적 정보는 업종과 범위에 따라 달라지므로, 정확한 내용은 사이트 내 문의 또는 무료 진단을 통해 확인해야 합니다.
 - 병원·의원 관련 페이지는 의료기관 마케팅에 관한 정보이며 의학적 조언이 아닙니다. **진료 및 치료에 관한 최종 판단은 반드시 의료진 상담을 통해 결정하시기 바랍니다.**
-- 최종 갱신: 2026-09-02
+- 최종 갱신: 2026-09-09

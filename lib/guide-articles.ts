@@ -34,6 +34,16 @@ export type GuideArticle = {
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
   {
+    href: "/guide/naver-ai-briefing-vs-web-tab",
+    category: "case",
+    icon: GitCompareArrows,
+    kicker: "실제 사례 · 자체 실측",
+    title: "네이버 웹문서엔 없는데 AI 브리핑엔 첫 출처: 같은 검색어 결과가 갈리는 이유",
+    desc: "'병원 GEO 대행'으로 네이버에서 검색하면 저희 페이지는 웹문서 탭에 없습니다. 그런데 같은 검색어의 AI 브리핑에서는 첫 번째 출처로 본문에 3번 인용됩니다. 두 결과가 왜 따로 움직이는지, 순위가 떨어졌다 싶을 때 무엇부터 확인해야 하는지 저희 사례로 정리했습니다.",
+    date: "2026. 9. 9",
+    related: ["/guide/naver-ai-briefing", "/guide/check-hospital-ai-visibility", "/guide/ranked-but-not-in-chatgpt"],
+  },
+  {
     href: "/guide/geo-agency-recommendation-check",
     category: "case",
     icon: SearchCheck,
