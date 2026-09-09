@@ -1,6 +1,7 @@
 import DiagnosisPopup from "@/components/DiagnosisPopup"
 import ChatWidget from "@/components/ChatWidget"
 import MetaPixel from "@/components/MetaPixel"
+import AttributionCapture from "@/components/AttributionCapture"
 import { GoogleAnalytics } from "@next/third-parties/google"
 
 // 언어별 루트 레이아웃이 공유하는 껍데기.
@@ -21,6 +22,7 @@ export default function RootShell({
         {jsonLd && (
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         )}
+        <AttributionCapture />
         {children}
         <ChatWidget />
         <DiagnosisPopup />

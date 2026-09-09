@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Loader2, CheckCircle2, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { trackContactSubmit } from "@/lib/analytics"
+import { readAttribution } from "@/lib/attribution"
 
 // 루크코리아 제휴 병원 신청 폼 — 기존 /api/contact 재사용, 관리자 메일에 [루크코리아 제휴] 태그로 도착
 export default function LukeApplyForm() {
@@ -22,6 +23,7 @@ export default function LukeApplyForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          attribution: readAttribution(),
           name: String(fd.get("name") || ""),
           phone: String(fd.get("phone") || ""),
           storeName: String(fd.get("hospital") || ""),

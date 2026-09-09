@@ -5,6 +5,7 @@ import { Loader2, CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { LandingContent } from "@/lib/i18n/content"
 import type { Locale } from "@/lib/i18n/config"
+import { readAttribution } from "@/lib/attribution"
 
 // 외국어 로케일용 문의 폼. 기존 /api/contact 로 전송하되 언어 태그를 붙여
 // 통역·번역 담당자가 어느 언어로 온 문의인지 바로 알 수 있게 한다.
@@ -38,6 +39,7 @@ export default function LocaleContactForm({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          attribution: readAttribution(),
           name,
           phone,
           storeName: store,
