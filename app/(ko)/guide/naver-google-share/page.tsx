@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "검색 점유율 2026", "네이버 AI 브리핑", "AI 검색 점유율",
   ],
   alternates: { canonical: "/guide/naver-google-share" },
-  openGraph: { images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
+  openGraph: { images: ["/covers/naver-google-share.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
 }
 
 const jsonLd = {

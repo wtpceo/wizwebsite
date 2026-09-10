@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/guide/platform-ai-crawler-status" },
   openGraph: {
-    images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
+    images: ["/covers/platform-ai-crawler-status.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
 }
 

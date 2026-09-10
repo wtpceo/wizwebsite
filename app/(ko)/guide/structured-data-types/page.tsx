@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "BreadcrumbList", "sameAs", "홈페이지 제작 SEO",
   ],
   alternates: { canonical: "/guide/structured-data-types" },
-  openGraph: { images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
+  openGraph: { images: ["/covers/structured-data-types.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
 }
 
 const jsonLd = {

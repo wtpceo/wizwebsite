@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/guide/geo-vs-seo" },
   openGraph: {
-    images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
+    images: ["/covers/geo-vs-seo.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
 }
 

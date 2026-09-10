@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/guide/case-blog-omission" },
   openGraph: {
-    images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
+    images: ["/covers/case-blog-omission.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
 }
 

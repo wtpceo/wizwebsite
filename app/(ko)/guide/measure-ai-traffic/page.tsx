@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "AI 트래픽 GA4", "색인 확인 방법", "빙 색인", "GEO 측정 지표",
   ],
   alternates: { canonical: "/guide/measure-ai-traffic" },
-  openGraph: { images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
+  openGraph: { images: ["/covers/measure-ai-traffic.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
 }
 
 const jsonLd = {

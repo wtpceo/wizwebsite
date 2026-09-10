@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/guide/is-geo-abuse" },
   openGraph: {
-    images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
+    images: ["/covers/is-geo-abuse.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
 }
 

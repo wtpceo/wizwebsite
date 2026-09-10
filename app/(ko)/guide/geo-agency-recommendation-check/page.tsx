@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "GEO 대행사 고르는 법", "추천 글 검증",
   ],
   alternates: { canonical: "/guide/geo-agency-recommendation-check" },
-  openGraph: { images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
+  openGraph: { images: ["/covers/geo-agency-recommendation-check.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
 }
 
 const jsonLd = {

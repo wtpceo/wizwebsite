@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/guide/ranked-but-not-in-chatgpt" },
   openGraph: {
-    images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
+    images: ["/covers/ranked-but-not-in-chatgpt.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
 }
 

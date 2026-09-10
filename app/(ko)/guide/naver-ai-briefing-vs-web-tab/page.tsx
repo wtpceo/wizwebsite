@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "병원 GEO 대행", "AI 검색 노출 확인", "네이버 통합검색 AI",
   ],
   alternates: { canonical: "/guide/naver-ai-briefing-vs-web-tab" },
-  openGraph: { images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
+  openGraph: { images: ["/covers/naver-ai-briefing-vs-web-tab.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
 }
 
 const jsonLd = {

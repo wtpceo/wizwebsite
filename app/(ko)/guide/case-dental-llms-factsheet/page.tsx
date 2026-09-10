@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "생성형 AI 인용", "병원 홈페이지 GEO", "AI 크롤러 허용",
   ],
   alternates: { canonical: "/guide/case-dental-llms-factsheet" },
-  openGraph: { images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
+  openGraph: { images: ["/covers/case-dental-llms-factsheet.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
 }
 
 const jsonLd = {

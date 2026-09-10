@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "AI 노출 측정", "브랜드 언급 추적", "GEO 도구 비교",
   ],
   alternates: { canonical: "/guide/geo-measurement-tools" },
-  openGraph: { images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
+  openGraph: { images: ["/covers/geo-measurement-tools.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
 }
 
 const jsonLd = {

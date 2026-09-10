@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/guide/check-hospital-ai-visibility" },
   openGraph: {
-    images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
+    images: ["/covers/check-hospital-ai-visibility.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
 }
 

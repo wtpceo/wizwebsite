@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/guide/case-pension-direct-booking" },
   openGraph: {
-    images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
+    images: ["/covers/case-pension-direct-booking.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
 }
 

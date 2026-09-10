@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: DESC,
   alternates: { canonical: "/guide/skincare-geo" },
   openGraph: {
-    images: ["/thumbnail.png"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/skincare-geo", type: "article" },
+    images: ["/covers/skincare-geo.jpg"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/skincare-geo", type: "article" },
 }
 
 const jsonLd = {

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/guide/bing-index-bottleneck" },
   openGraph: {
-    images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
+    images: ["/covers/bing-index-bottleneck.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
 }
 

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: DESC,
   alternates: { canonical: "/guide/naver-place-checklist" },
   openGraph: {
-    images: ["/thumbnail.png"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/naver-place-checklist", type: "article" },
+    images: ["/covers/naver-place-checklist.jpg"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/naver-place-checklist", type: "article" },
 }
 
 const jsonLd = {

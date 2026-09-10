@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: DESC,
   alternates: { canonical: "/guide/medical-geo" },
   openGraph: {
-    images: ["/thumbnail.png"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/medical-geo", type: "article" },
+    images: ["/covers/medical-geo.jpg"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/medical-geo", type: "article" },
 }
 
 const jsonLd = {

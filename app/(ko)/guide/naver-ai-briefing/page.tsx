@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/guide/naver-ai-briefing" },
   openGraph: {
-    images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
+    images: ["/covers/naver-ai-briefing.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
 }
 

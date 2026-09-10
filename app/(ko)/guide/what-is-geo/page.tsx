@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: DESC,
   alternates: { canonical: "/guide/what-is-geo" },
   openGraph: {
-    images: ["/thumbnail.png"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/what-is-geo", type: "article" },
+    images: ["/covers/what-is-geo.jpg"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/what-is-geo", type: "article" },
 }
 
 const jsonLd = {

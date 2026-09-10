@@ -3,19 +3,7 @@
 import { useState } from "react"
 import Link from "next/link"
 import { CATEGORIES, GUIDE_ARTICLES, type CategoryKey } from "@/lib/guide-articles"
-
-// 표지 이미지: 기본은 /covers/<slug>.jpg (자동 생성 타이포 표지), 실물 화면이 있는 글은 여기서 덮어쓴다
-const COVER_OVERRIDES: Record<string, string> = {
-  "/guide/case-pension-direct-booking": "/blog/pension-hero.jpg",
-  "/guide/naver-ai-briefing": "/blog/owner-blog-hero.jpg",
-  "/guide/geo-measurement-tools": "/tools/realgeo-prompts.jpg",
-  "/guide/measure-ai-traffic": "/tools/realgeo-monitoring.jpg",
-  "/guide/ranked-but-not-in-chatgpt": "/tools/realgeo-dashboard.jpg",
-}
-
-export function coverFor(href: string) {
-  return COVER_OVERRIDES[href] ?? `/covers/${href.replace("/guide/", "")}.jpg`
-}
+import { coverFor } from "@/lib/guide-cover"
 
 const CAT_TEXT: Record<CategoryKey, string> = {
   concern: "text-amber-600",

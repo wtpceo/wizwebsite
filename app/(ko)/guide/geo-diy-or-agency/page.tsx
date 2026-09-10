@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "AI 노출 셀프", "GEO 업체 유형",
   ],
   alternates: { canonical: "/guide/geo-diy-or-agency" },
-  openGraph: { images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
+  openGraph: { images: ["/covers/geo-diy-or-agency.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
 }
 
 const jsonLd = {

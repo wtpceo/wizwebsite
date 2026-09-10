@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/guide/case-mobile-carwash" },
   openGraph: {
-    images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
+    images: ["/covers/case-mobile-carwash.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
 }
 

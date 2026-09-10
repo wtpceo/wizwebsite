@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: DESC,
   alternates: { canonical: "/guide/why-ads-stop-working" },
   openGraph: {
-    images: ["/thumbnail.png"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/why-ads-stop-working", type: "article" },
+    images: ["/covers/why-ads-stop-working.jpg"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/why-ads-stop-working", type: "article" },
 }
 
 const jsonLd = {

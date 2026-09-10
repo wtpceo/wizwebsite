@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   description: DESC,
   alternates: { canonical: "/guide/dental-geo" },
   openGraph: {
-    images: ["/thumbnail.png"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/dental-geo", type: "article" },
+    images: ["/covers/dental-geo.jpg"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/dental-geo", type: "article" },
 }
 
 const jsonLd = {

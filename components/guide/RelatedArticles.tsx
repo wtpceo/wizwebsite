@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { getRelatedArticles, getCategory } from "@/lib/guide-articles"
+import { coverFor } from "@/lib/guide-cover"
 
 // 글 끝 "이어서 읽기" — 서버 컴포넌트라 링크가 HTML에 그대로 남아 크롤러도 따라간다
 export default function RelatedArticles({ currentHref }: { currentHref: string }) {
@@ -25,20 +26,29 @@ export default function RelatedArticles({ currentHref }: { currentHref: string }
               <Link
                 key={a.href}
                 href={a.href}
-                className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-4 transition-all hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/[0.07]"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/[0.07]"
               >
-                <span className={`w-fit rounded-lg p-2 ring-1 ${cat?.tile ?? "bg-emerald-50 text-emerald-600 ring-emerald-100"}`}>
-                  <a.icon className="h-4 w-4" />
+                <span className="block aspect-[16/9] overflow-hidden bg-slate-100">
+                  <img
+                    src={coverFor(a.href)}
+                    alt=""
+                    width={1200}
+                    height={675}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
                 </span>
-                <span className="mt-3 text-[10px] font-bold tracking-[0.18em] text-emerald-600">
-                  {a.kicker}
-                </span>
-                <span className="mt-1 line-clamp-3 text-sm font-bold leading-snug text-gray-900 group-hover:text-emerald-700">
-                  {a.title}
-                </span>
-                <span className="mt-auto pt-3 inline-flex items-center gap-1 text-xs font-semibold text-gray-400 transition-colors group-hover:text-emerald-600">
-                  읽기
-                  <ArrowRight className="h-3.5 w-3.5" />
+                <span className="flex flex-1 flex-col p-4">
+                  <span className={`text-[10px] font-bold tracking-[0.18em] ${cat ? "text-emerald-600" : "text-emerald-600"}`}>
+                    {a.kicker}
+                  </span>
+                  <span className="mt-1 line-clamp-3 text-sm font-bold leading-snug text-gray-900 group-hover:text-emerald-700">
+                    {a.title}
+                  </span>
+                  <span className="mt-auto pt-3 inline-flex items-center gap-1 text-xs font-semibold text-gray-400 transition-colors group-hover:text-emerald-600">
+                    읽기
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
                 </span>
               </Link>
             )

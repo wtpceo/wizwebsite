@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/guide/case-urology-clinic" },
   openGraph: {
-    images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
+    images: ["/covers/case-urology-clinic.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
 }
 

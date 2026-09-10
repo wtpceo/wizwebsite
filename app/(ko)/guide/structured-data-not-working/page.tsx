@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "구조화 데이터 오류", "FAQPage", "색인 안됨", "홈페이지 SEO",
   ],
   alternates: { canonical: "/guide/structured-data-not-working" },
-  openGraph: { images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
+  openGraph: { images: ["/covers/structured-data-not-working.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
 }
 
 const jsonLd = {
