@@ -30,6 +30,7 @@ export async function POST(req: Request) {
     const email = String(form.get("email") || "").trim()
     const bizNumber = String(form.get("bizNumber") || "").trim()
     const message = String(form.get("message") || "").trim()
+    const caseKey = String(form.get("caseKey") || "").trim().slice(0, 80)
     const file = form.get("file")
 
     // 필수값 검증
@@ -67,6 +68,7 @@ export async function POST(req: Request) {
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
         <h2 style="color:#070b14;">📄 전체 사례 열람 신청 (사업자 인증)</h2>
         <p style="display:inline-block;background:#00e5a0;color:#070b14;font-weight:bold;padding:4px 10px;border-radius:6px;">열람신청 · 수동 심사 필요</p>
+        ${caseKey ? `<p><strong>신청 사례:</strong> ${escapeHtml(caseKey)}</p>` : ""}
         <p><strong>신청자:</strong> ${escapeHtml(name)}</p>
         <p><strong>업체명:</strong> ${escapeHtml(businessName)}</p>
         <p><strong>연락처:</strong> ${escapeHtml(phone)}</p>
@@ -83,7 +85,7 @@ export async function POST(req: Request) {
       await resend.emails.send({
         from: MAIL_FROM,
         to: ADMIN_EMAILS,
-        subject: `[위즈더플래닝][열람신청] ${businessName} · ${name}님`,
+        subject: `[위즈더플래닝][열람신청${caseKey ? " · " + caseKey : ""}] ${businessName} · ${name}님`,
         html: adminHtml,
         replyTo: email || undefined,
         attachments: attachments.length ? attachments : undefined,

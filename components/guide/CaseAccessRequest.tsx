@@ -8,7 +8,21 @@ import { Button } from "@/components/ui/button"
 // - 공개 티저 아래에 붙는 "잠금 → 신청" 블록.
 // - 사업자등록증 첨부 + 정보를 /api/case-access 로 전송(수동 심사).
 // - 서버 컴포넌트(GuideArticle) 안에 children으로 꽂아 쓰는 클라이언트 컴포넌트.
-export default function CaseAccessRequest() {
+export default function CaseAccessRequest({
+  caseKey = "case-third-party-citation",
+  heading = "전체 사례",
+  intro = "왜 인용은 하필 제3자에서 나왔는지(핵심 해석), 홈페이지가 정확히 무슨 역할을 했는지, 정확한 업종·지역, 며칠 만에 몇 순위였는지, 홈페이지·플레이스·쇼츠를 어떤 순서로 구성했는지: 재현 가능한 분석과 실행 세부는 공개하지 않습니다.",
+  includes,
+  buttonLabel = "전체 사례 열람 신청",
+}: {
+  /** 관리자 메일에 어떤 사례 신청인지 표시 */
+  caseKey?: string
+  heading?: string
+  intro?: string
+  /** 열람 자료에 담긴 것 (목록) */
+  includes?: string[]
+  buttonLabel?: string
+}) {
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle")
   const [error, setError] = useState<string | null>(null)
   const [fileName, setFileName] = useState<string>("")
@@ -44,14 +58,22 @@ export default function CaseAccessRequest() {
             사업자 인증 후 열람
           </div>
           <h2 className="mt-4 text-2xl font-extrabold tracking-tight text-white md:text-3xl">
-            여기부터는 <span className="text-[#00e5a0]">전체 사례</span>입니다
+            여기부터는 <span className="text-[#00e5a0]">{heading}</span>입니다
           </h2>
           <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-400 md:text-base">
-            왜 인용은 하필 제3자에서 나왔는지(핵심 해석), 홈페이지가 정확히 무슨 역할을 했는지,
-            정확한 업종·지역, 며칠 만에 몇 순위였는지, 홈페이지·플레이스·쇼츠를 어떤 순서로
-            구성했는지: 재현 가능한 분석과 실행 세부는 공개하지 않습니다.
+            {intro}
             <strong className="text-slate-200"> 대행사가 그대로 따라 할 수 있는 정보이기 때문입니다.</strong>
           </p>
+          {includes && includes.length > 0 && (
+            <ul className="mt-5 grid gap-2 text-sm text-slate-300 sm:grid-cols-2">
+              {includes.map((t) => (
+                <li key={t} className="flex items-start gap-2">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#00e5a0]" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
 
@@ -85,9 +107,10 @@ export default function CaseAccessRequest() {
             </ul>
 
             <form onSubmit={onSubmit} className="grid gap-4">
+              <input type="hidden" name="caseKey" value={caseKey} />
               <div className="grid gap-4 sm:grid-cols-2">
                 <Field name="name" label="이름" required placeholder="홍길동" />
-                <Field name="businessName" label="업체명(상호)" required placeholder="○○식당" />
+                <Field name="businessName" label="업체명(상호)" required placeholder="○○치과의원 / ○○식당" />
                 <Field name="phone" label="연락처" required placeholder="010-0000-0000" />
                 <Field name="email" label="이메일" type="email" placeholder="회신받을 이메일" />
               </div>
@@ -144,7 +167,7 @@ export default function CaseAccessRequest() {
                   </>
                 ) : (
                   <>
-                    <Lock className="h-4 w-4" /> 전체 사례 열람 신청
+                    <Lock className="h-4 w-4" /> {buttonLabel}
                   </>
                 )}
               </Button>
