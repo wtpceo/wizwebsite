@@ -210,12 +210,17 @@ export default function Page() {
         </Callout>
 
         <h2>자주 묻는 질문</h2>
-        {FAQ.map((f) => (
-          <div key={f.q}>
-            <h3>{f.q}</h3>
-            <p>{f.a}</p>
-          </div>
-        ))}
+        <div className="mt-6 space-y-4">
+          {FAQ.map((f, i) => (
+            <div key={f.q} className="rounded-2xl border border-gray-200 bg-[#f9fafb] p-5 md:p-6">
+              <p className="flex gap-2 text-lg font-bold leading-snug text-gray-900">
+                <span className="shrink-0 text-[#00b57f]">Q{i + 1}.</span>
+                <span>{f.q}</span>
+              </p>
+              <p className="mt-3 text-base leading-[1.85] text-gray-700">{f.a}</p>
+            </div>
+          ))}
+        </div>
       </GuideArticle>
     </>
   )
