@@ -34,6 +34,16 @@ export type GuideArticle = {
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
   {
+    href: "/guide/case-dental-llms-factsheet",
+    category: "case",
+    icon: FileSearch,
+    kicker: "치과 사례 · 홈페이지 제작 + GEO",
+    title: "3쪽짜리 사이트가 167쪽보다 먼저 인용됐습니다: 치과 홈페이지 GEO 51일",
+    desc: "167쪽에 블로그 51건, FAQ 22문항을 갖추고도 ChatGPT에 인용되지 않았는데, 같은 지역의 3쪽짜리 사이트는 인용되고 있었습니다. 차이는 AI 안내 파일의 성격이었습니다. 목차를 팩트시트로 바꾼 뒤 ChatGPT 답변에 병원이 등장했고, 답변 속 한 문장으로 출처를 역추적했습니다.",
+    date: "2026. 9. 10",
+    related: ["/guide/dental-geo", "/guide/case-urology-clinic", "/guide/naver-blocks-ai-crawlers"],
+  },
+  {
     href: "/guide/naver-ai-briefing-vs-web-tab",
     category: "case",
     icon: GitCompareArrows,

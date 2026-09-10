@@ -46,6 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/guide", priority: 0.9, changeFrequency: "weekly" },
     { path: "/guide/geo", priority: 1.0, changeFrequency: "weekly" },
     { path: "/guide/geo-vs-seo", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/guide/case-dental-llms-factsheet", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/naver-ai-briefing-vs-web-tab", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/geo-agency-recommendation-check", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/geo-diy-or-agency", priority: 0.9, changeFrequency: "monthly" },

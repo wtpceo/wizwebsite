@@ -379,7 +379,7 @@ export default function Page() {
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               {[
                 { href: "/guide/case-urology-clinic", label: "실제 사례", title: "ChatGPT에 아예 안 뜨던 비뇨기과: 원인은 홈페이지 방화벽이었습니다" },
-                { href: "/guide/platform-ai-crawler-status", label: "자체 실측", title: "한국 플랫폼 15곳, AI가 읽을 수 있는 곳은 어디인가: robots.txt 전수 실측" },
+                { href: "/guide/case-dental-llms-factsheet", label: "실제 사례", title: "3쪽짜리 사이트가 167쪽보다 먼저 인용됐습니다: 치과 홈페이지 GEO 51일" },
                 { href: "/guide/ranked-but-not-in-chatgpt", label: "자체 실험", title: "네이버 AI 1위·구글 2위인데 ChatGPT엔 안 나옵니다: 우리 사이트 실험" },
                 { href: "/guide/check-hospital-ai-visibility", label: "셀프 체크", title: "우리 병원이 ChatGPT에 나오는지 5분 만에 확인하는 법" },
               ].map((l) => (

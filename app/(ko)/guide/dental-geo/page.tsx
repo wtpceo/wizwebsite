@@ -208,6 +208,13 @@ export default function Page() {
           <strong>무료 진단 리포트</strong>로 현황부터 확인해 보세요.
         </Callout>
         <p>
+          이 글의 원칙을 실제 치과 홈페이지 제작에 적용한 51일 기록은{" "}
+          <Link href="/guide/case-dental-llms-factsheet" className="font-bold text-emerald-600 underline-offset-4 hover:underline">
+            3쪽짜리 사이트가 167쪽보다 먼저 인용된 이유
+          </Link>
+          에 있습니다. 콘텐츠 양보다 AI 안내 파일의 형태가 더 컸습니다.
+        </p>
+        <p>
           우리 치과가 지금 AI 답변에 나오는지는{" "}
           <Link href="/guide/check-hospital-ai-visibility" className="font-bold text-emerald-600 underline-offset-4 hover:underline">
             5분 셀프 체크
