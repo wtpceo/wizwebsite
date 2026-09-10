@@ -6,6 +6,7 @@ const TITLE = "네이버 웹문서엔 없는데 AI 브리핑엔 첫 출처: 같�
 const DESC =
   "'병원 GEO 대행'으로 네이버에서 검색하면 저희 페이지는 웹문서 탭에 없습니다. 그런데 같은 검색어의 AI 브리핑에서는 첫 번째 출처로 본문에 3번 인용됩니다. 같은 날, 같은 페이지입니다. 웹문서 순위와 AI 브리핑 인용이 왜 따로 움직이는지, 순위가 떨어졌다 싶을 때 무엇부터 확인해야 하는지 저희 사례로 정리했습니다."
 const DATE = "2026-09-09"
+const UPDATED = "2026-09-10"
 const URL = "https://wiztheplanning.com/guide/naver-ai-briefing-vs-web-tab"
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ const jsonLd = {
   headline: TITLE,
   description: DESC,
   datePublished: DATE,
-  dateModified: DATE,
+  dateModified: UPDATED,
   inLanguage: "ko",
   author: { "@id": "https://wiztheplanning.com/#organization" },
   publisher: { "@id": "https://wiztheplanning.com/#organization" },
@@ -71,7 +72,7 @@ export default function Page() {
         kicker="실제 사례 · 자체 실측"
         title={TITLE}
         description={DESC}
-        date="2026년 9월 9일"
+        date="2026년 9월 9일 발행 · 2026년 9월 10일 후속 추가"
       >
         {/* 결론 우선 */}
         <p>
@@ -208,6 +209,35 @@ export default function Page() {
           먼저 보시고, 진단이 필요하시면{" "}
           <a href="/medical-diagnosis">병원 전용 무료 AI 검색 진단</a>에서 신청하실 수 있습니다.
         </Callout>
+
+        <h2>후속 (9월 10일): 같은 날, 같은 검색어, 다른 답</h2>
+        <p>
+          발행 다음 날 두 가지 관찰이 동시에 들어왔습니다. 하나는 저희 대표가 자기 계정으로 본 네이버 AI 탭
+          &lsquo;병원 GEO 대행사 추천&rsquo; 답변입니다. 대행사 비교 표에 위즈더플래닝이 &ldquo;자체 GEO 관제
+          시스템으로 AI 엔진별 인용 점유율 측정 및 리포트 제공&rdquo;으로 실렸고, 고려사항에도 &ldquo;매주
+          같은 기준의 측정 수치로 변화를 보고&rdquo;라는 문장이 저희 사이트 출처로 붙었습니다.{" "}
+          <strong>두 문장 모두 9월 8일과 9일에 새로 쓴 문장</strong>입니다. 옛 본문이 아니라 갱신한 본문을 읽고
+          만든 답이라는 뜻입니다.
+        </p>
+        <p>
+          다른 하나는 같은 날 저희가 로그아웃 상태의 별도 브라우저에서 같은 검색어를 네 번 새로 생성한
+          결과입니다. <strong>네 번 모두 위즈더플래닝이 없었습니다.</strong> 답변 내용과 출처 도메인이 네 번
+          다 같았습니다. 계정이나 세션에 따라 저장된 답이 다르게 붙는 것으로 보입니다.
+        </p>
+        <ul>
+          <CheckItem>
+            그래서 &ldquo;인용이 돌아왔다&rdquo;고 쓰지 않습니다. 한 화면에서는 돌아왔고, 다른 화면에서는
+            아직입니다. 어느 쪽이 대표값인지는 한 번 보기로는 알 수 없습니다.
+          </CheckItem>
+          <CheckItem>
+            판단은 9월 14일 월요일 자동 측정으로 합니다. 같은 질문을 여러 번 새로 물어 인용 비율로 내는
+            방식이라, 한 화면의 우연이 걸러집니다. 그 수치를 여기 추가하겠습니다.
+          </CheckItem>
+          <CheckItem>
+            원장님이 직접 확인하실 때도 같습니다. 한 번 나왔다고 안심하거나 한 번 안 나왔다고 실망하지
+            마시고, 새 대화창에서 여러 번 물어 몇 번 나오는지를 세어 보세요.
+          </CheckItem>
+        </ul>
 
         <h2>자주 묻는 질문</h2>
         <div className="mt-6 space-y-4">
