@@ -3,6 +3,7 @@ import Link from "next/link"
 import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
 import GuideGrid from "@/components/guide/GuideGrid"
+import FeaturedBanner from "@/components/guide/FeaturedBanner"
 
 export const metadata: Metadata = {
   title: "마케팅 가이드: AI 검색 최적화·플레이스 실전 노하우",
@@ -38,6 +39,8 @@ export default function GuidePage() {
             </p>
           </div>
         </section>
+
+        <FeaturedBanner />
 
         <GuideGrid />
 
