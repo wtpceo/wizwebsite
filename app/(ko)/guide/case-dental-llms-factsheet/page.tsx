@@ -183,7 +183,7 @@ export default function Page() {
           </table>
         </div>
         <p>
-          앞서 본 &ldquo;목요일 오후 8시까지&rdquo;가 바로 이 전환으로 들어간 문장입니다. 목차를 팩트시트로 바꾼 것이
+          llms.txt가 무엇이고 무엇이 아닌지, 어떤 항목을 넣어야 하는지는{" "}<a href="/guide/what-is-llms-txt">llms.txt 기초 정리</a>에 따로 적었습니다. 앞서 본 &ldquo;목요일 오후 8시까지&rdquo;가 바로 이 전환으로 들어간 문장입니다. 목차를 팩트시트로 바꾼 것이
           이 프로젝트에서 가장 효율이 높았던 작업이었습니다. 저희 사이트의 llms.txt도 같은 원칙으로 다시 썼습니다.
         </p>
 

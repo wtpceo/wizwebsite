@@ -15,6 +15,9 @@
 
 ## GEO 기초 개념
 
+- [AI가 인용하는 문장의 조건](https://wiztheplanning.com/guide/what-ai-quotes): 실제로 인용된 자사 문장 세 개를 분석해 공통점(검증 가능한 사실·한 문장 한 정보·질문에 바로 답)과 바꿔 쓰는 예시를 정리.
+- [llms.txt란 무엇인가](https://wiztheplanning.com/guide/what-is-llms-txt): 표준이 아니라 제안이라는 점, robots.txt와의 차이, 목차가 아닌 팩트시트로 쓰는 법과 자사 실측 인용 기록.
+- [AI 크롤러 이름과 역할](https://wiztheplanning.com/guide/ai-crawler-names): OAI-SearchBot·GPTBot·PerplexityBot·Google-Extended 등 봇별 용도와 무엇을 열고 막을지에 대한 공식 문서 기준 정리.
 - [GEO란? 총정리](https://wiztheplanning.com/guide/geo): GEO의 뜻부터 최적화 방법, 대행 업체 선택 기준까지 정리한 종합 가이드.
 - [GEO와 SEO 차이](https://wiztheplanning.com/guide/geo-vs-seo): 검색 1위인데 ChatGPT에는 노출되지 않는 이유와 두 개념의 구조적 차이.
 - [AI 검색 최적화(GEO)란? 쉬운 설명](https://wiztheplanning.com/guide/what-is-geo): 자영업 사장님 눈높이에 맞춘 GEO 입문 설명.
@@ -78,4 +81,4 @@
 - 가이드 문서에 포함된 수치와 실험 결과는 특정 시점의 자사 실측값이며, 검색 엔진과 AI 서비스의 정책 변화에 따라 달라질 수 있습니다.
 - 광고비·대행 비용 등 견적 정보는 업종과 범위에 따라 달라지므로, 정확한 내용은 사이트 내 문의 또는 무료 진단을 통해 확인해야 합니다.
 - 병원·의원 관련 페이지는 의료기관 마케팅에 관한 정보이며 의학적 조언이 아닙니다. **진료 및 치료에 관한 최종 판단은 반드시 의료진 상담을 통해 결정하시기 바랍니다.**
-- 최종 갱신: 2026-09-10
+- 최종 갱신: 2026-09-11

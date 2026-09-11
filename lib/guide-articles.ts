@@ -34,6 +34,36 @@ export type GuideArticle = {
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
   {
+    href: "/guide/what-ai-quotes",
+    category: "basics",
+    icon: MessageSquareQuote,
+    kicker: "GEO 기초",
+    title: "AI가 인용하는 문장은 따로 있습니다: 실제로 인용된 문장 분석",
+    desc: "저희가 실제로 인용된 문장 세 개를 열어보니 공통점이 분명했습니다. 슬로건은 한 번도 인용되지 않았고, 검증 가능한 사실을 담은 짧은 문장만 그대로 발췌됐습니다. 무엇을 어떻게 바꿔야 하는지 예시로 정리했습니다.",
+    date: "2026. 9. 11",
+    related: ["/guide/what-is-llms-txt", "/guide/naver-ai-briefing", "/guide/case-dental-llms-factsheet"],
+  },
+  {
+    href: "/guide/what-is-llms-txt",
+    category: "basics",
+    icon: Braces,
+    kicker: "GEO 기초",
+    title: "llms.txt란? AI에게 사이트를 안내하는 파일과 실제 인용 기록",
+    desc: "검색엔진이 공식 지원을 발표한 표준이 아니라 2024년에 나온 제안입니다. 넣는다고 순위가 오르지도 않습니다. 그런데 저희 실측에서는 ChatGPT 답변 문장이 이 파일의 한 줄과 정확히 일치했습니다.",
+    date: "2026. 9. 11",
+    related: ["/guide/ai-crawler-names", "/guide/case-dental-llms-factsheet", "/guide/what-ai-quotes"],
+  },
+  {
+    href: "/guide/ai-crawler-names",
+    category: "basics",
+    icon: SearchCheck,
+    kicker: "GEO 기초",
+    title: "AI 크롤러 이름과 역할: 무엇을 열고 무엇을 막아야 하나",
+    desc: "답변에 우리를 띄우는 검색봇과 모델 학습에 쓰는 학습봇은 이름이 다르고 따로 설정합니다. 공식 문서 기준으로 봇 이름과 역할, 무엇을 열고 무엇을 막을지, 우리 사이트 상태를 확인하는 법을 정리했습니다.",
+    date: "2026. 9. 11",
+    related: ["/guide/what-is-llms-txt", "/guide/platform-ai-crawler-status", "/guide/naver-blocks-ai-crawlers"],
+  },
+  {
     href: "/guide/case-dental-llms-factsheet",
     category: "case",
     icon: FileSearch,
