@@ -34,6 +34,16 @@ export type GuideArticle = {
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
   {
+    href: "/guide/naver-blog-rank-compare",
+    category: "naver",
+    icon: Scale,
+    kicker: "네이버 블로그 · 실측 비교",
+    title: "네이버 블로그 상위노출, 1위 글은 뭐가 달랐나: 2위 글과 나란히 비교",
+    desc: "발행 3일째인 저희 글이 5월 말 글에 밀려 2위입니다. 나란히 뜯어보니 1위 글은 네이버가 읽는 신호를 더 깔아 둔 쪽이었습니다. 다만 일부는 과하면 누락을 부르는 양날의 검이라, 시도해 볼 만한 것들로 정리했습니다.",
+    date: "2026. 9. 14",
+    related: ["/guide/case-blog-omission", "/guide/what-ai-quotes", "/guide/naver-place-checklist"],
+  },
+  {
     href: "/guide/what-ai-quotes",
     category: "basics",
     icon: MessageSquareQuote,
