@@ -249,6 +249,11 @@ export default function Page() {
           제작부터 맡기는 쪽을 검토하신다면 <a href="/medical-geo-agency">병원 GEO 대행 안내</a>를 보세요.
         </Callout>
 
+        <p>
+          치과가 아닌 다른 진료과에서 같은 원칙이 어떻게 작용했는지는{" "}
+          <a href="/guide/case-orthopedic-chatgpt">ChatGPT만 모르던 정형외과 사례</a>에서 전후 측정 수치와 함께 볼 수 있습니다.
+        </p>
+
         <CaseAccessRequest
           caseKey="case-dental-llms-factsheet"
           heading="작업 기록 전문"

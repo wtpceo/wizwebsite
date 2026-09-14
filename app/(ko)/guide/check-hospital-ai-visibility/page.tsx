@@ -134,7 +134,8 @@ export default function Page() {
         <ul>
           <CheckItem>
             <strong>네이버는 나오는데 ChatGPT는 안 나온다</strong> → 플레이스·리뷰는 되어 있으나
-            홈페이지가 AI에 읽히지 않을 가능성이 큽니다.
+            홈페이지가 AI에 읽히지 않을 가능성이 큽니다. 실제로 이 상태였던 정형외과가 어떻게 바뀌었는지는{" "}
+            <a href="/guide/case-orthopedic-chatgpt">ChatGPT만 모르던 정형외과 사례</a>에 적었습니다.
           </CheckItem>
           <CheckItem>
             <strong>어디에도 안 나온다</strong> → 정보가 채널마다 흩어져 있거나, 홈페이지 자체가 크롤러에
