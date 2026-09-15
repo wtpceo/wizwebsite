@@ -217,7 +217,7 @@ export default function GeneralApplyForm() {
                 )}
               </Button>
               <p className="mt-3 text-center text-xs text-gray-400">
-                영업시간 내 신청 시 5분 안에 리포트 · 진단 무료 · 개선 작업은 월 30만원부터
+                영업시간 내 신청 시 5분 안에 리포트 · 진단 무료 · 개선 작업은 월 30만원부터 (VAT 별도)
               </p>
             </form>
           )}
