@@ -71,6 +71,12 @@ export default function WhyFreeGeneral() {
             않습니다. 식당·카페·펜션·학원·헬스장·미용실: 손님이 검색해서 찾아오는 곳이라면
             방식은 같습니다.
           </p>
+          {/* 가격 기준점 — 제안서에서 처음 가격을 보고 이탈하는 걸 줄인다 (2026-09-15, 정현우 확인)
+              ⚠️ VAT 포함/별도 미확인 — 확정되면 문구에 붙일 것 */}
+          <p className="mx-auto mt-6 inline-flex flex-wrap items-center justify-center gap-x-2 rounded-full border border-[#00e5a0]/30 bg-[#00e5a0]/10 px-5 py-2 text-sm text-slate-200">
+            <span className="font-bold text-[#00e5a0]">개선 작업 비용</span>
+            <span>가게 규모에 따라 월 30만원부터 · 진단 후 설명 듣고 결정</span>
+          </p>
         </motion.div>
 
         <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-3">

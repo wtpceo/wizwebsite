@@ -52,7 +52,7 @@ export async function POST(req: Request) {
     // Resend 인스턴스 생성
     const resend = new Resend(apiKey);
     
-    const { name, phone, email, message, storeName, language } = requestData;
+    const { name, phone, email, message, storeName, language, budget } = requestData;
     const attribution: Attribution = requestData.attribution ?? {};
 
     // 관리자 이메일 (수신자 추가는 lib/email.ts에서)
@@ -62,6 +62,7 @@ export async function POST(req: Request) {
     const adminHtml = `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
         <h2 style="color: #4338ca;">새로운 문의가 접수되었습니다</h2>
+        ${budget ? `<p style="display:inline-block;background:#fef3c7;color:#92400e;font-weight:bold;padding:6px 12px;border-radius:6px;margin:0 0 8px;">💰 월 예산: ${esc(budget)}</p>` : ''}
         ${language ? `<p style="display:inline-block;background:#00e5a0;color:#070b14;font-weight:bold;padding:4px 10px;border-radius:6px;">🌐 ${language}</p>` : ''}
         <p><strong>이름:</strong> ${name}</p>
         <p><strong>연락처:</strong> ${phone || '미입력'}</p>
@@ -89,7 +90,7 @@ export async function POST(req: Request) {
         to: adminEmails,
         // 답장 시 문의자에게 바로 회신되도록 (이메일 미입력 시 생략)
         replyTo: email || undefined,
-        subject: `[위즈더플래닝]${language ? `[${language}]` : ''} ${name}님의 문의가 접수되었습니다`,
+        subject: `[위즈더플래닝]${budget ? `[${String(budget).slice(0, 20)}]` : ''}${language ? `[${language}]` : ''} ${name}님의 문의가 접수되었습니다`,
         html: adminHtml
       };
       console.log('Resend API 파라미터:', { ...adminParams, html: '(생략)' });
