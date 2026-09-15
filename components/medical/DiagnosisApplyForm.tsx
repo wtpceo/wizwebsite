@@ -215,7 +215,7 @@ export default function DiagnosisApplyForm() {
                 )}
               </Button>
               <p className="mt-3 text-center text-xs text-gray-400">
-                영업시간 내 신청 시 5분 안에 리포트 · 진단 무료 · 병원 대행은 월 80만원
+                영업시간 내 신청 시 5분 안에 리포트 · 진단 무료 · 병원 대행은 월 80만원 (VAT 별도)
               </p>
             </form>
           )}
