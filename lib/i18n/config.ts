@@ -22,6 +22,9 @@ export const LOCALES: {
 
 export const BASE_URL = "https://wiztheplanning.com"
 
+/** 한국에서 사업하는 영어권 사업주용 영어 랜딩 (2026-09-15 /en에서 이동) */
+export const EN_LOCAL_BUSINESS_PATH = "/en/business-owners-in-korea"
+
 export function getLocale(code: Locale) {
   return LOCALES.find((l) => l.code === code)!
 }
@@ -33,6 +36,8 @@ export function hreflangAlternates(path = ""): Record<string, string> {
   for (const l of LOCALES) {
     out[l.htmlLang] = `${BASE_URL}${l.prefix}${path}`
   }
+  // 영어 홈(/en)은 해외 기업용 허브라서, 국문·중국어·베트남어 랜딩(한국 내 사업주 대상)의 대응 영어판은 따로 있다.
+  if (path === "") out.en = `${BASE_URL}${EN_LOCAL_BUSINESS_PATH}`
   out["x-default"] = `${BASE_URL}${path}`
   return out
 }

@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     canonical: '/',
     languages: {
       ko: 'https://wiztheplanning.com/',
-      en: 'https://wiztheplanning.com/en',
+      en: 'https://wiztheplanning.com/en/business-owners-in-korea',
       'zh-Hans': 'https://wiztheplanning.com/zh',
       vi: 'https://wiztheplanning.com/vi',
       'x-default': 'https://wiztheplanning.com/',

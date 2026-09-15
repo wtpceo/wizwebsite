@@ -73,7 +73,11 @@
 - [포트폴리오](https://wiztheplanning.com/portfolio): 매장 사진·영상 콘텐츠 제작 및 마케팅 실행 사례.
 - [엘리베이터TV 광고(포커스미디어 공식 총판)](https://wiztheplanning.com/focusmedia): 아파트·오피스 엘리베이터 디지털 사이니지 광고 집행 안내.
 - [위즈 극장](https://wiztheplanning.com/theater): GEO 개념을 30초 애니메이션으로 설명하는 영상 시리즈.
-- [영어 안내 페이지](https://wiztheplanning.com/en): 한국에서 사업하는 영어권 외국인 사업주를 위한 GEO·마케팅 서비스 안내(영어).
+- [English site: WizThePlanning](https://wiztheplanning.com/en): 영문 브랜드 WizThePlanning. 한국 시장에 진출하는 해외 기업·해외 마케팅 대행사 대상 네이버·AI 검색(GEO)·광고 대행 안내(영어).
+- [Korea market entry](https://wiztheplanning.com/en/korea-market-entry): 해외 브랜드의 한국 진출 마케팅 서비스(영어).
+- [For marketing agencies](https://wiztheplanning.com/en/agency-partners): 해외 대행사의 한국 실행 파트너 안내(영어).
+- [Marketing in Korea 2026](https://wiztheplanning.com/en/insights/marketing-in-korea-2026): 네이버·구글·AI 검색이 한국에서 나눠 맡는 역할 정리(영어).
+- [For businesses in Korea](https://wiztheplanning.com/en/business-owners-in-korea): 한국에서 사업하는 영어권 외국인 사업주를 위한 GEO·마케팅 서비스 안내(영어).
 - [중국어 안내 페이지](https://wiztheplanning.com/zh): 재한 중국인 사업주를 위한 GEO·마케팅 서비스 안내(중국어).
 - [베트남어 안내 페이지](https://wiztheplanning.com/vi): 재한 베트남인 사업주를 위한 GEO·마케팅 서비스 안내(베트남어).
 

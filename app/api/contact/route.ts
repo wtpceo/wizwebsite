@@ -111,7 +111,18 @@ export async function POST(req: Request) {
       try {
         console.log('Resend API 호출 시작: 사용자 응답 이메일');
         
-        const userHtml = `
+        // 영문 사이트 문의는 영어로 접수 확인을 보낸다(국문 메일을 받으면 해외 담당자는 스팸으로 오해한다).
+        const isEnglish = typeof language === 'string' && language.startsWith('English');
+        const userHtml = isEnglish ? `
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #0f766e;">We received your message</h2>
+            <p>Hi ${esc(name)}, thank you for contacting WizThePlanning.</p>
+            <p>Our team in Seoul will reply by email in English.</p>
+            <p><strong>Your message:</strong></p>
+            <div style="background-color: #f5f5f5; padding: 12px; border-radius: 4px; white-space: pre-wrap;">${String(message ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</div>
+            <p style="color:#6b7280;font-size:12px;margin-top:16px;">WizThePlanning (위즈더플래닝) · Seoul, Republic of Korea · wiz@wiztheplanning.com</p>
+          </div>
+        ` : `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
             <h2 style="color: #4338ca;">문의 접수 확인</h2>
             <p>${name}님, 문의해 주셔서 감사합니다.</p>
@@ -129,7 +140,7 @@ export async function POST(req: Request) {
         await resend.emails.send({
           from: MAIL_FROM,
           to: userEmailTarget,
-          subject: '[위즈더플래닝] 문의가 접수되었습니다',
+          subject: isEnglish ? 'WizThePlanning: we received your message' : '[위즈더플래닝] 문의가 접수되었습니다',
           html: userHtml
         });
         

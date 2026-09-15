@@ -282,7 +282,12 @@ AI는 글 서두를 통째로 발췌하는 경향이 있어, 여기에 답이 �
   중국어(간체)는 `/zh`, 베트남어는 `/vi` 하위 경로. 절대 기존 한국어 URL을 `[locale]`로 옮기지 않는다.
 - **관련 파일**: `lib/i18n/config.ts`(로케일 정의·hreflang), `lib/i18n/content.ts`(랜딩 카피),
   `components/i18n/*`(LocaleLanding·LangSwitcher·LocaleContactForm·SetHtmlLang).
-- **대상**: 외국어 페이지는 "한국에서 장사하는 외국인 사장님"이 타깃. 한국어 직역이 아니라
+- **영문 사이트(2026-09-15 개편)**: 대외 영문 브랜드는 **WizThePlanning**으로 통일한다. `/en`은 해외 기업·해외 대행사 대상 B2B 허브,
+  기존 외국인 사장님 랜딩은 `/en/business-owners-in-korea`로 옮겼다. 공통 부품은 `components/en/*`(EnHeader·EnFooter·EnArticle·EnSections·EnContactForm),
+  회사 정보는 `lib/en/site.ts`, 영문 글 목록은 `lib/en/insights.ts`. 영문 글은 국문 글의 의역이며 사례 글 하이브리드 규칙(실행 세부 비공개)을 그대로 따른다.
+- **영문 법무 대기 사항**: 해외 영업 법무 검토(`02.비즈니스/22.해외영업/01_법무검토_요청서.md`)가 끝나기 전에는 영문 개인정보처리방침·약관을 게시하지 않고,
+  영문 폼에서 마케팅 활용 동의를 받지 않으며, 가격·결과 보장 문구를 쓰지 않는다. 외국인 환자 유치와 연결되는 성과보수형 병원 상품은 올리지 않는다.
+- **대상**: 중국어·베트남어 페이지와 `/en/business-owners-in-korea`는 "한국에서 장사하는 외국인 사장님"이 타깃. 한국어 직역이 아니라
   그 타깃에 맞춘 의역(transcreation)으로 작성한다.
 - **자동 번역 안 함**: 기계번역 위젯 등은 브랜드·SEO에 해로우므로 쓰지 않는다.
 - **가이드 글 번역 기본 정책**: 새 가이드 글은 **한국어로만** 작성한다(기본값).
