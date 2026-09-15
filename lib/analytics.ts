@@ -51,29 +51,35 @@ export function trackEvent(eventName: string, params: EventParams = {}) {
 }
 
 /** 병원 무료 진단 신청 완료 → Meta `Lead` ★ 주 전환 */
-export function trackDiagnosisSubmit(params: { specialty?: string; source?: string } = {}) {
+export function trackDiagnosisSubmit(
+  params: { specialty?: string; source?: string; budget?: string } = {},
+) {
   gaEvent("diagnosis_submit", {
     form_type: "medical_diagnosis",
     specialty: params.specialty || "미선택",
     lead_source: params.source || "미응답",
+    lead_budget: params.budget || "미응답",
   })
   fbEvent(
     "Lead",
     {
       content_name: "병원 무료 AI 검색 진단",
       content_category: params.specialty || "미선택",
+      // 예산 구간 — 이벤트는 Lead 하나로 두고, 광고관리자 맞춤 전환에서 이 값으로 걸러 본다
+      lead_budget: params.budget || "미응답",
     },
     true,
   )
 }
 
 /** 일반 문의 폼 제출 완료 → Meta `Lead` ★ 주 전환 */
-export function trackContactSubmit(params: { source?: string } = {}) {
+export function trackContactSubmit(params: { source?: string; budget?: string } = {}) {
   gaEvent("contact_submit", {
     form_type: "general_contact",
     lead_source: params.source || "미응답",
+    lead_budget: params.budget || "미응답",
   })
-  fbEvent("Lead", { content_name: "무료 상담 신청" }, true)
+  fbEvent("Lead", { content_name: "무료 상담 신청", lead_budget: params.budget || "미응답" }, true)
 }
 
 /** 카카오톡 상담 위젯 클릭 → Meta `Contact` (보조 지표 — CPA 분모에 넣지 않는다) */
@@ -87,17 +93,21 @@ export function trackChatClick() {
  *  광고세트(병원 / 업종무관) 구분은 Meta 쪽 adset 단위로 이미 갈리므로
  *  전환 이벤트를 쪼개지 않는다 — 쪼개면 CPA 분모가 흩어진다.
  *  GA4에서만 별도 이름으로 구분한다. */
-export function trackGeneralDiagnosisSubmit(params: { industry?: string; source?: string } = {}) {
+export function trackGeneralDiagnosisSubmit(
+  params: { industry?: string; source?: string; budget?: string } = {},
+) {
   gaEvent("diagnosis_submit", {
     form_type: "general_diagnosis",
     industry: params.industry || "미선택",
     lead_source: params.source || "미응답",
+    lead_budget: params.budget || "미응답",
   })
   fbEvent(
     "Lead",
     {
       content_name: "무료 AI 검색 진단",
       content_category: params.industry || "미선택",
+      lead_budget: params.budget || "미응답",
     },
     true,
   )
