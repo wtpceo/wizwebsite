@@ -27,6 +27,7 @@ const GUIDE_DATES = new Map<string, string>(
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; lastmod?: string }[] = [
     { path: "", priority: 1.0, changeFrequency: "weekly" },
+    { path: "/en", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-09-15" },
     { path: "/zh", priority: 0.9, changeFrequency: "monthly" },
     { path: "/vi", priority: 0.9, changeFrequency: "monthly" },
     { path: "/focusmedia", priority: 0.8, changeFrequency: "monthly" },

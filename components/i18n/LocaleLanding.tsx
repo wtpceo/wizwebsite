@@ -30,7 +30,7 @@ export default function LocaleLanding({
       {/* 헤더 */}
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#070b14]/95 backdrop-blur">
         <div className="container mx-auto flex items-center justify-between gap-4 px-4 py-3">
-          <Link href={`/${locale}`} className="shrink-0 text-lg font-extrabold text-white">
+          <Link href={`/${locale}`} className="shrink-0 text-base font-extrabold text-white sm:text-lg">
             WizThePlanning<span className="text-[#00e5a0]">.</span>
           </Link>
 

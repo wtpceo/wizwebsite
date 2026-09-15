@@ -12,13 +12,14 @@ const CHAT_LABELS = {
   ko: { title: "실시간 상담", sub: "카카오톡으로 바로 연결", aria: "카카오톡 실시간 상담 열기" },
   zh: { title: "在线咨询", sub: "通过KakaoTalk联系", aria: "打开KakaoTalk在线咨询" },
   vi: { title: "Tư vấn trực tiếp", sub: "Kết nối qua KakaoTalk", aria: "Mở tư vấn qua KakaoTalk" },
+  en: { title: "Live chat", sub: "Connect on KakaoTalk", aria: "Open KakaoTalk live chat" },
 }
 
 export default function ChatWidget() {
   const pathname = usePathname()
   // 제휴사 명의 랜딩(/luke)에서는 위즈 카카오채널 위젯 숨김 — 명의 일관성 + 유입 추적 보호
   if (pathname?.startsWith("/luke")) return null
-  const locale = pathname?.startsWith("/zh") ? "zh" : pathname?.startsWith("/vi") ? "vi" : "ko"
+  const locale = pathname?.startsWith("/zh") ? "zh" : pathname?.startsWith("/vi") ? "vi" : pathname === "/en" || pathname?.startsWith("/en/") ? "en" : "ko"
   const label = CHAT_LABELS[locale]
 
   return (

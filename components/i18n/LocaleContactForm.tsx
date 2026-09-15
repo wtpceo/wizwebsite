@@ -23,7 +23,7 @@ export default function LocaleContactForm({
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle")
   const [err, setErr] = useState("")
 
-  const langTag = locale === "zh" ? "中文 문의" : "Tiếng Việt 문의"
+  const langTag = locale === "zh" ? "中文 문의" : locale === "en" ? "English 문의" : "Tiếng Việt 문의"
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()

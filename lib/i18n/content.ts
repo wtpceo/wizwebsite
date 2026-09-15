@@ -58,6 +58,124 @@ export type LandingContent = {
 }
 
 export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
+  // ── English ──────────────────────────────
+  en: {
+    metaTitle: "AI Search Marketing for Business Owners in Korea | WizThePlanning",
+    metaDescription:
+      "Running a business in Korea? Korean customers now search on Naver and ask ChatGPT, and your shop may not appear in either. Since 2016, WizThePlanning has served 7,000+ advertisers with Korean-language SEO and AI search optimization (GEO) so Korean customers find you first. Enquiries in English welcome.",
+    nav: { diagnose: "Free check", contact: "Contact" },
+    menu: [
+      { label: "The problem", href: "#problem" },
+      { label: "Services", href: "#services" },
+      { label: "Why a website", href: "#why" },
+      { label: "About us", href: "#about" },
+      { label: "FAQ", href: "#faq" },
+      { label: "Free check", href: "/site-check" },
+    ],
+    hero: {
+      badge: "Business owners in Korea · AI search marketing",
+      title: "Korean customers are searching for what you sell,",
+      highlight: "but they can't find your shop.",
+      sub: "Koreans no longer just search on Naver. They ask ChatGPT and Perplexity which place nearby is good. Not speaking Korean, or not knowing how marketing works here, shouldn't mean handing those customers to someone else. We put your business into search results and AI answers, in Korean.",
+      ctaPrimary: "Check my website for free",
+      ctaSecondary: "Contact us in English",
+      trust: "Since 2016 · 7,000+ advertisers · English enquiries welcome",
+    },
+    problem: {
+      heading: "Working hard, but invisible online?",
+      body: "Many foreign-owned businesses in Korea are genuinely good, yet they get stuck in the same place: when Korean customers search, other shops show up. Usually the problem isn't your business. It's that search engines and AI can't read it.",
+      points: [
+        "No Korean website, or a website AI can't read, so search engines treat you as if you don't exist.",
+        "Your details on Naver, Google and Kakao Map don't match, so AI isn't confident enough to recommend you.",
+        "The language barrier makes it hard to know where and how to show up so that Koreans can find you.",
+      ],
+    },
+    solution: {
+      heading: "What we do is simple: make sure Koreans see you first",
+      body: "You run the business. We handle the Korean and the technical side.",
+      items: [
+        { title: "AI search optimization (GEO)", desc: "So ChatGPT, Perplexity and Naver AI recommend your business in their answers, not your competitor's." },
+        { title: "Website build and repair", desc: "A Korean website that both AI and search engines can read. If you already have one, we find and remove whatever is blocking it." },
+        { title: "Consistent business details", desc: "We align your information across Naver, Google and Kakao Map so AI can cite you with confidence." },
+        { title: "Communication in English", desc: "Consultations and progress updates can be handled in English through translation, so language never gets in the way." },
+      ],
+    },
+    why: {
+      heading: "Why a website matters even more for foreign business owners",
+      body: "Naver keeps outside AI out. ChatGPT and Google's AI can't read posts on Naver Blog or Naver Cafe. What they can read is the open web, which means your own website.",
+      points: [
+        "Naver's robots.txt explicitly blocks AI crawlers such as GPTBot and ClaudeBot from blog and cafe content.",
+        "So even with plenty of reviews on Naver, AI outside Naver won't use them to recommend you.",
+        "A website that AI can read is how you get recommended by ChatGPT and Google's AI.",
+      ],
+    },
+    services: {
+      heading: "One team, everything covered",
+      list: [
+        "AI search optimization (GEO)",
+        "Search engine optimization (SEO)",
+        "Websites and landing pages",
+        "Naver Place and map marketing",
+        "Meta ads (Instagram, Facebook)",
+        "Google Ads",
+        "Photo, video and content production",
+      ],
+    },
+    proof: {
+      heading: "Not a team that just started",
+      body: "Since 2016, WizThePlanning has worked with more than 7,000 advertisers, focusing on local storefront businesses such as restaurants, clinics, academies and beauty.",
+      stats: [
+        { value: "2016", label: "In business since" },
+        { value: "7,000+", label: "Advertisers served" },
+        { value: "English", label: "Enquiries welcome" },
+      ],
+    },
+    faq: {
+      heading: "Frequently asked questions",
+      items: [
+        {
+          q: "I don't speak Korean. Can we still work together?",
+          a: "Yes. Consultations and progress updates can be handled in English through translation, so you won't need to communicate in Korean yourself.",
+        },
+        {
+          q: "How much does it cost?",
+          a: "It depends on your current situation and goals. We start with a free check of where your business stands, then suggest a plan and a quote. The decision is yours.",
+        },
+        {
+          q: "How long until I see results?",
+          a: "AI search optimization isn't done in a day or two. It usually takes a few weeks to a few months, which is why getting your website and business information right, in the right order, matters most.",
+        },
+        {
+          q: "I already have a Naver Blog and a Naver Place listing. Do I still need this?",
+          a: "Yes. Naver uses robots.txt to block outside AI crawlers such as those from ChatGPT and Google, so however many reviews you have on Naver, AI outside Naver can't read them or recommend you.",
+        },
+        {
+          q: "I don't have a website yet. Can I still start?",
+          a: "Yes. We can build a Korean website that both AI and search engines can read. If you already have one, we check it and unblock whatever is in the way.",
+        },
+      ],
+    },
+    contact: {
+      heading: "First, a free look at where your business stands",
+      body: "Leave your details and we'll explain your current situation and what to do next, in a way that makes sense to you. English is fine.",
+      langNote: "Feel free to write in English. We'll reply through translation.",
+      kakao: "Chat with us on KakaoTalk",
+      form: {
+        name: "Your name",
+        phone: "Phone number",
+        store: "Business name (optional)",
+        message: "What would you like to ask?",
+        messagePlaceholder: "e.g. I run a shop in ○○ and want Korean customers to find me when they search.",
+        submit: "Get a free consultation",
+        sending: "Sending…",
+        success: "Received! We'll be in touch in English shortly.",
+        error: "Something went wrong. Please try again later or reach us on KakaoTalk.",
+        required: "Please enter your name and phone number.",
+      },
+    },
+    footer: { company: "WizThePlanning (위즈더플래닝)", rights: "All rights reserved", langLabel: "Language" },
+  },
+
   // ── 中文(简体) ──────────────────────────────
   zh: {
     metaTitle: "在韩华人老板的营销伙伴 — AI搜索优化(GEO)｜WizThePlanning",

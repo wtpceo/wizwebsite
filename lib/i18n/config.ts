@@ -1,7 +1,7 @@
 // 다국어(i18n) 설정 — 한국어는 루트(/)에 그대로 두고(기존 색인 보호),
-// 중국어(간체)·베트남어를 하위 경로(/zh, /vi)로 추가한다.
+// 영어·중국어(간체)·베트남어를 하위 경로(/en, /zh, /vi)로 추가한다. 영어는 2026-09-15 추가.
 
-export type Locale = "ko" | "zh" | "vi"
+export type Locale = "ko" | "en" | "zh" | "vi"
 
 export const LOCALES: {
   code: Locale
@@ -15,6 +15,7 @@ export const LOCALES: {
   ogLocale: string
 }[] = [
   { code: "ko", prefix: "", htmlLang: "ko", label: "한국어", ogLocale: "ko_KR" },
+  { code: "en", prefix: "/en", htmlLang: "en", label: "English", ogLocale: "en_US" },
   { code: "zh", prefix: "/zh", htmlLang: "zh-Hans", label: "中文", ogLocale: "zh_CN" },
   { code: "vi", prefix: "/vi", htmlLang: "vi", label: "Tiếng Việt", ogLocale: "vi_VN" },
 ]
