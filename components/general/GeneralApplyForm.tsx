@@ -88,7 +88,7 @@ export default function GeneralApplyForm() {
         body: JSON.stringify(payload),
       })
       if (!res.ok) throw new Error("전송 실패")
-      trackGeneralDiagnosisSubmit({ industry: form.industry, source: form.source })
+      trackGeneralDiagnosisSubmit({ industry: form.industry, source: form.source, budget: form.budget })
       setDone(true)
       setForm({ store: "", name: "", phone: "", region: "", industry: "", homepage: "", budget: "", source: "" })
     } catch {

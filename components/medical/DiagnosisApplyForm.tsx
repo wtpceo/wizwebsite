@@ -85,7 +85,7 @@ export default function DiagnosisApplyForm() {
         body: JSON.stringify(payload),
       })
       if (!res.ok) throw new Error("전송 실패")
-      trackDiagnosisSubmit({ specialty: form.specialty, source: form.source })
+      trackDiagnosisSubmit({ specialty: form.specialty, source: form.source, budget: form.budget })
       setDone(true)
       setForm({ hospital: "", name: "", phone: "", region: "", specialty: "", homepage: "", budget: "", source: "" })
     } catch {

@@ -29,6 +29,16 @@ const SOURCE_OPTIONS = [
   "기타",
 ]
 
+// 월 예산 — 누구에게 먼저 전화할지 정하는 항목 (2026-09-15)
+// 진단 폼과 달리 선택 항목이다: 메인 상담은 문의 성격이 넓어 필수로 두면 문의 자체가 줄 수 있다
+const BUDGET_OPTIONS = [
+  "월 30만원 미만",
+  "월 30~50만원",
+  "월 50~100만원",
+  "월 100만원 이상",
+  "아직 정하지 않았어요",
+]
+
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
@@ -36,6 +46,7 @@ export default function ContactForm() {
     phone: "",
     email: "",
     storeName: "",
+    budget: "",
     source: "",
     message: "",
   })
@@ -69,7 +80,7 @@ export default function ContactForm() {
       const payload = {
         ...formData,
         attribution: readAttribution(),
-        message: `${formData.message}\n\n─────\n유입 경로: ${formData.source || "미응답"}`,
+        message: `${formData.message}\n\n─────\n월 예산: ${formData.budget || "미응답"}\n유입 경로: ${formData.source || "미응답"}`,
       };
 
       const response = await fetch(apiUrl, {
@@ -108,7 +119,7 @@ export default function ContactForm() {
       }
 
       // 성공 메시지 표시
-      trackContactSubmit({ source: formData.source })
+      trackContactSubmit({ source: formData.source, budget: formData.budget })
       setIsSubmitting(false)
       toast({
         title: "상담 신청이 완료되었습니다",
@@ -124,7 +135,7 @@ export default function ContactForm() {
       setAlertOpen(true)
       
       // 폼 초기화
-      setFormData({ name: "", phone: "", email: "", storeName: "", source: "", message: "" })
+      setFormData({ name: "", phone: "", email: "", storeName: "", budget: "", source: "", message: "" })
     } catch (error) {
       console.error('문의 제출 오류:', error); // 오류 로깅
       setIsSubmitting(false)
@@ -197,6 +208,24 @@ export default function ContactForm() {
               required
               className="h-12 bg-gray-50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500/20"
             />
+          </div>
+
+          <div className="space-y-2">
+            <label htmlFor="budget" className="text-sm font-medium text-gray-700">
+              월 마케팅 예산 <span className="text-gray-400">(선택 · 대략이면 됩니다)</span>
+            </label>
+            <select
+              id="budget"
+              name="budget"
+              value={formData.budget}
+              onChange={handleChange}
+              className="h-12 w-full rounded-md border border-gray-200 bg-gray-50 px-3 text-gray-900 outline-none transition-colors focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+            >
+              <option value="">선택</option>
+              {BUDGET_OPTIONS.map((b) => (
+                <option key={b} value={b}>{b}</option>
+              ))}
+            </select>
           </div>
 
           <div className="space-y-2">
