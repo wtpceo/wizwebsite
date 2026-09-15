@@ -12,6 +12,7 @@ import {
   X,
   Check,
   ChevronRight,
+  Lock,
 } from "lucide-react"
 
 const fadeUp: Variants = {
@@ -301,8 +302,10 @@ export default function GeneralReportPreview() {
             eyebrow="05 · 액션 플랜"
             title="AI에 인용되려면 무엇을 해야 하나 (10)"
           >
+            {/* 10개를 다 보여주면 진단서만 받고 직접 해보겠다는 이탈이 생긴다 (2026-09-15)
+                → 상위 3개만 공개하고, 나머지는 담당 마케터가 통화로 우선순위와 함께 설명 */}
             <ol className="grid gap-3 sm:grid-cols-2">
-              {ACTIONS.map((a, i) => (
+              {ACTIONS.slice(0, 3).map((a, i) => (
                 <li key={a} className="flex items-start gap-3">
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#00e5a0]/15 text-xs font-bold text-[#00e5a0]">
                     {i + 1}
@@ -310,6 +313,18 @@ export default function GeneralReportPreview() {
                   <span className="text-sm leading-relaxed text-slate-300">{a}</span>
                 </li>
               ))}
+              <li className="flex items-start gap-3 sm:col-span-2">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/10 text-slate-400">
+                  <Lock className="h-3.5 w-3.5" />
+                </span>
+                <span className="text-sm leading-relaxed text-slate-400">
+                  나머지 {ACTIONS.length - 3}개 항목은{" "}
+                  <strong className="font-semibold text-slate-200">
+                    담당 마케터가 우리 가게 상황에 맞춰 우선순위와 함께 직접 설명
+                  </strong>
+                  해 드립니다
+                </span>
+              </li>
             </ol>
           </GlassCard>
         </div>

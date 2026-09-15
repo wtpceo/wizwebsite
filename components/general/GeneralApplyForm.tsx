@@ -30,6 +30,16 @@ const 유입경로_옵션 = [
   "기타",
 ]
 
+// 월 예산 — 신청 직후 누구에게 먼저 전화할지 정하기 위한 항목 (2026-09-15)
+// 문의→계약이 10% 수준이라, 대행 가능 예산(월 30만원부터)이 있는 신청부터 연락한다
+const 예산_옵션 = [
+  "월 30만원 미만",
+  "월 30~50만원",
+  "월 50~100만원",
+  "월 100만원 이상",
+  "아직 정하지 않았어요",
+]
+
 export default function GeneralApplyForm() {
   const [submitting, setSubmitting] = useState(false)
   const [done, setDone] = useState(false)
@@ -40,6 +50,7 @@ export default function GeneralApplyForm() {
     region: "",
     industry: "",
     homepage: "",
+    budget: "",
     source: "",
   })
 
@@ -59,6 +70,7 @@ export default function GeneralApplyForm() {
         phone: form.phone,
         email: "",
         storeName: form.store,
+        budget: form.budget,
         message:
           `[무료 AI 검색 진단 신청 · 업종무관]\n` +
           `상호: ${form.store}\n` +
@@ -67,6 +79,7 @@ export default function GeneralApplyForm() {
           `지역: ${form.region}\n` +
           `업종: ${form.industry}\n` +
           `홈페이지: ${form.homepage || "없음"}\n` +
+          `월 예산: ${form.budget || "미응답"}\n` +
           `유입 경로: ${form.source || "미응답"}`,
       }
       const res = await fetch(window.location.origin + "/api/contact", {
@@ -77,7 +90,7 @@ export default function GeneralApplyForm() {
       if (!res.ok) throw new Error("전송 실패")
       trackGeneralDiagnosisSubmit({ industry: form.industry, source: form.source })
       setDone(true)
-      setForm({ store: "", name: "", phone: "", region: "", industry: "", homepage: "", source: "" })
+      setForm({ store: "", name: "", phone: "", region: "", industry: "", homepage: "", budget: "", source: "" })
     } catch {
       alert("전송 중 문제가 발생했습니다. 전화(1670-0704)로 문의해 주세요.")
     } finally {
@@ -107,7 +120,7 @@ export default function GeneralApplyForm() {
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-400 md:text-lg">
             아래 정보를 남겨주시면 담당 마케터가 네이버 AI·ChatGPT·제미나이 진단 리포트를 만들어
-            직접 설명해 드립니다. <strong className="font-semibold text-white">영업시간 내 신청하시면 5분 안에</strong> 보내드립니다.
+            직접 설명해 드립니다. <strong className="font-semibold text-white">영업시간 내 신청하시면 5분 안에</strong> 결과가 준비되고, 담당 마케터가 연락드립니다.
           </p>
         </motion.div>
 
@@ -123,8 +136,12 @@ export default function GeneralApplyForm() {
               <CheckCircle2 className="mx-auto h-12 w-12 text-[#00e5a0]" />
               <h3 className="mt-4 text-xl font-bold text-white">진단 신청이 접수되었습니다</h3>
               <p className="mt-2 text-slate-400">
-                담당 마케터가 지금 리포트를 만들고 있습니다. 영업시간 내 신청이면 5분 안에 연락드립니다.
-                (영업사원이 아닌 전문 마케터가 직접 설명드립니다.)
+                담당 마케터가 결과를 정리해 <strong className="font-semibold text-white">직접 연락드리고 설명</strong>해 드립니다.
+                영업시간 내 신청이면 5분 안에 연락드립니다. (영업사원이 아닌 전문 마케터가 설명드립니다.)
+              </p>
+              {/* 신청하고도 연결이 안 되는 경우가 많았다 — 모르는 번호를 안 받는 게 흔한 원인이다 */}
+              <p className="mt-4 rounded-xl bg-white/[0.06] px-4 py-3 text-sm font-medium text-slate-200">
+                처음 보는 번호로 연락이 가도 꼭 받아주세요
               </p>
             </div>
           ) : (
@@ -164,6 +181,18 @@ export default function GeneralApplyForm() {
                   <Input id="homepage" name="homepage" value={form.homepage} onChange={onChange} placeholder="https://" className={inputCls} />
                 </div>
                 <div>
+                  <label htmlFor="budget" className="mb-1.5 block text-sm font-medium text-gray-700">
+                    월 마케팅 예산 <span className="text-emerald-600">*</span>
+                    <span className="ml-1 font-normal text-gray-400">(대략이면 됩니다)</span>
+                  </label>
+                  <select id="budget" name="budget" value={form.budget} onChange={onChange} required className={inputCls}>
+                    <option value="">선택</option>
+                    {예산_옵션.map((s) => (
+                      <option key={s} value={s}>{s}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
                   <label htmlFor="source" className="mb-1.5 block text-sm font-medium text-gray-700">
                     저희를 어떻게 알게 되셨나요? <span className="text-gray-400">(선택)</span>
                   </label>
@@ -188,7 +217,7 @@ export default function GeneralApplyForm() {
                 )}
               </Button>
               <p className="mt-3 text-center text-xs text-gray-400">
-                영업시간 내 신청 시 5분 안에 리포트를 보내드립니다 · 진단 100% 무료
+                영업시간 내 신청 시 5분 안에 리포트 · 진단 무료 · 개선 작업은 월 30만원부터
               </p>
             </form>
           )}
