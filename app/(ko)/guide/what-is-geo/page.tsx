@@ -87,7 +87,7 @@ export default function Page() {
             만듭니다.
           </CheckItem>
           <CheckItem>
-            <strong>AI 노출 모니터링</strong>: 질문별 AI 답변 노출을 주기적으로 추적하고 매월
+            <strong>AI 노출 모니터링</strong>: 질문별 AI 답변 노출을 주기적으로 추적하고 매주
             리포트로 보고합니다.
           </CheckItem>
         </ol>
