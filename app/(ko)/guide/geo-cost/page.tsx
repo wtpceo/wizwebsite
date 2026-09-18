@@ -279,7 +279,11 @@ export default function Page() {
           무엇에 돈을 쓰는 것인지부터 보시려면{" "}
           <a href="/guide/what-is-geo">AI 검색 최적화 기본 설명</a>에 정리해 두었습니다.
         </p>
-      </GuideArticle>
+              <p>
+          병원·의원이라면 의료광고 심의까지 포함해 견적을 나눠 보는 순서를{" "}
+          <a href="/guide/hospital-marketing-cost">병원 마케팅 비용</a> 글에 따로 정리했습니다.
+        </p>
+</GuideArticle>
     </>
   )
 }

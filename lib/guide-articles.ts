@@ -2,7 +2,7 @@ import type { LucideIcon } from "lucide-react"
 import {
   BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows,
   Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck, FileSearch, Lock, TrendingUp,
-  Wallet, Receipt, MessageSquareQuote, Gauge, Scale, Ruler, Braces, LayoutList, GitFork,
+  Wallet, Receipt, Calculator, MessageSquareQuote, Gauge, Scale, Ruler, Braces, LayoutList, GitFork,
 } from "lucide-react"
 
 // 가이드 카테고리 (표시 순서 + 스캔용 짧은 라벨/색상)
@@ -33,6 +33,16 @@ export type GuideArticle = {
 
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
+  {
+    href: "/guide/hospital-marketing-cost",
+    category: "concern",
+    icon: Calculator,
+    kicker: "마케팅 고민 진단 · 병원·의원",
+    title: "병원 마케팅 비용: 견적서를 광고비·대행료·제작비로 나눠 보는 법",
+    desc: "매달 나가는 병원 마케팅비가 적정한지 보려면 견적서부터 나눠야 합니다. 광고비·대행료·제작비가 한 줄로 묶인 견적서에서 확인할 6가지, 병원이라 더 헷갈리는 성과 측정 4단계, 의료광고 심의가 비용에 붙는 지점을 정리했습니다.",
+    date: "2026. 9. 18",
+    related: ["/guide/case-orthopedic-chatgpt", "/guide/check-hospital-ai-visibility", "/guide/medical-geo"],
+  },
   {
     href: "/guide/case-orthopedic-chatgpt",
     category: "case",

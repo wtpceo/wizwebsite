@@ -176,6 +176,11 @@ export default function Page() {
           확인하세요.
         </p>
         <p>
+          대행을 검토하며 받은 견적서를 뜯어보는 순서는{" "}
+          <a href="/guide/hospital-marketing-cost">병원 마케팅 비용: 견적서를 광고비·대행료·제작비로 나눠 보는 법</a>에
+          정리했습니다.
+        </p>
+        <p>
           병원에 국한하지 않은 GEO의 정의와 최적화 순서, 대행 판단 기준까지는{" "}
           <a href="/guide/geo">GEO란? 뜻부터 최적화 방법까지 총정리</a>에 모아 두었습니다.
         </p>
