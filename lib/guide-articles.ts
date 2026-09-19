@@ -2,7 +2,7 @@ import type { LucideIcon } from "lucide-react"
 import {
   BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows,
   Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck, FileSearch, Lock, TrendingUp,
-  Wallet, Receipt, Calculator, MessageSquareQuote, Gauge, Scale, Ruler, Braces, LayoutList, GitFork,
+  Wallet, Receipt, Calculator, ListChecks, MessageSquareQuote, Gauge, Scale, Ruler, Braces, LayoutList, GitFork,
 } from "lucide-react"
 
 // 가이드 카테고리 (표시 순서 + 스캔용 짧은 라벨/색상)
@@ -33,6 +33,16 @@ export type GuideArticle = {
 
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
+  {
+    href: "/guide/slow-business-checks",
+    category: "concern",
+    icon: ListChecks,
+    kicker: "마케팅 고민 진단 · 로컬 매장",
+    title: "장사 안될 때 광고비부터 늘리면 안 되는 이유: 먼저 셀 숫자 3가지",
+    desc: "광고를 올리기 전에 노출·유입·연락 세 숫자를 30분이면 확인할 수 있습니다. 광고를 늘려도 문의가 안 느는 세 가지 경우와, 돈 들이지 않고 오늘 할 수 있는 순서를 실제 사례로 정리했습니다.",
+    date: "2026. 9. 19",
+    related: ["/guide/why-ads-stop-working", "/guide/naver-place-checklist", "/guide/case-mobile-carwash"],
+  },
   {
     href: "/guide/hospital-marketing-cost",
     category: "concern",

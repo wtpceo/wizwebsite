@@ -112,7 +112,12 @@ export default function Page() {
           무료 AI 검색 진단으로 네이버 AI·ChatGPT·제미나이 세 엔진의 노출 현황을 리포트로 받아보실
           수 있습니다.
         </Callout>
-      </GuideArticle>
+              <p>
+          지금 무엇부터 확인할지 순서가 필요하시면{" "}
+          <a href="/guide/slow-business-checks">장사 안될 때 먼저 셀 숫자 3가지</a>에 노출·유입·연락을
+          나눠 세는 방법을 정리해 두었습니다.
+        </p>
+</GuideArticle>
     </>
   )
 }
