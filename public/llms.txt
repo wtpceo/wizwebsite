@@ -16,6 +16,7 @@
 ## GEO 기초 개념
 
 - [기업 마케팅 대행 안내](https://wiztheplanning.com/business): 마케팅 담당자가 있는 조직 대상 대행 서비스. AI 검색 가시성 측정·웹사이트·SEO·콘텐츠·광고 운영과 주간 리포트. 대행료 월 300만원부터, 최소 3개월, 온보딩 기준선 측정 별도.
+- [마케팅 대행사 RFP에 넣어야 할 12가지](https://wiztheplanning.com/business/insights/marketing-agency-rfp): 제안을 받는 대행사 관점에서 정리한 RFP 항목 12개, 성과 정의 4단계, 평가 배점 축 6개, 제안서에서 걸러야 할 5가지.
 - [기업 제안 요청](https://wiztheplanning.com/business/contact): 기업 대행 제안 요청 폼. 회사·예산 구간·시작 시기를 받아 회사 메일로 회신.
 - [장사 안될 때 먼저 셀 숫자 3가지](https://wiztheplanning.com/guide/slow-business-checks): 광고비를 올리기 전에 노출·유입·연락을 나눠 세는 법, 광고를 늘려도 문의가 안 느는 세 가지 경우(검색 방식 변화·정보 불일치·플랫폼 수수료), 비용 0원 점검 순서.
 - [병원 마케팅 비용 뜯어보기](https://wiztheplanning.com/guide/hospital-marketing-cost): 병원 견적서를 광고비·대행료·제작비·심의 대응으로 나눠 보는 법, 확인할 6가지, 성과 측정 4단계, 의료광고 사전심의 대상 기준.

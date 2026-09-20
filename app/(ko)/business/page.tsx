@@ -291,6 +291,19 @@ export default function Page() {
           </div>
         </section>
 
+        {/* 인사이트 */}
+        <section className="bg-[#f6f8f7] py-14 md:py-16">
+          <div className="container mx-auto max-w-4xl px-4 text-center md:px-6">
+            <h2 className="text-xl font-extrabold tracking-tight text-gray-900 md:text-2xl">담당자를 위한 글</h2>
+            <p className="mt-3 text-sm leading-relaxed text-gray-600 md:text-base">
+              대행사 선정과 RFP, 예산과 성과 측정처럼 사내에서 결정해야 하는 문제를 정리합니다.
+            </p>
+            <Link href="/business/insights" className="mt-5 inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-bold text-gray-900 hover:border-gray-400">
+              기업 마케팅 인사이트 보기 <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </section>
+
         {/* CTA */}
         <section className="container mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-20">
           <div className="rounded-3xl bg-gradient-to-r from-[#0b1220] to-[#101b2e] px-6 py-12 text-center md:px-12">
