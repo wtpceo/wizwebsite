@@ -3,9 +3,9 @@ import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticl
 
 // 76자 → 53자 (검색결과 잘림 해소. 노출 315·CTR 1.6%였음)
 const TITLE =
-  "GEO 대행사 고르는 법: 계약 전 7가지 질문과 'TOP3 추천 글' 판별법"
+  "GEO 대행사 추천을 믿기 전에: 업체 고르는 법과 계약 전 7가지 질문"
 const DESC =
-  "GEO 대행을 알아보면 'AI 노출 보장', '업체 추천 TOP3' 같은 말들이 쏟아집니다. 어디까지 믿어야 할까요. 견적 단계에서 업체의 수준이 그대로 드러나는 7가지 질문과, 검색에서 만나는 '추천 글'이 진짜 제3자의 비교인지 업체의 자기 광고인지 10초 만에 확인하는 방법까지, GEO를 직접 실측하며 일하는 회사의 기준으로 정리했습니다."
+  "검색에 나오는 GEO 대행사 추천 글은 대부분 업체가 직접 쓴 글입니다. 10초 만에 판별하는 법과, 견적 단계에서 업체 수준이 드러나는 7가지 질문을 GEO를 직접 측정하며 일하는 회사 기준으로 정리했습니다."
 const DATE = "2026-07-28"
 const URL = "https://wiztheplanning.com/guide/how-to-choose-geo-agency"
 

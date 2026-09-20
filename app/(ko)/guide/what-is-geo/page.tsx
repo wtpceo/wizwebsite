@@ -3,7 +3,7 @@ import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticl
 
 const TITLE = "AI 검색 최적화(GEO)란? 자영업 사장님을 위한 쉬운 설명"
 const DESC =
-  "GEO(Generative Engine Optimization)는 ChatGPT·퍼플렉시티·네이버 AI가 답변할 때 우리 매장을 인용하고 추천하게 만드는 마케팅입니다. SEO와의 차이, 작동 원리, 지금 시작해야 하는 이유를 정리했습니다."
+  "GEO 뜻은 생성형 엔진 최적화입니다. ChatGPT·퍼플렉시티·네이버 AI가 답변할 때 우리 가게를 인용하게 만드는 작업이고, SEO와는 목표가 다릅니다. 뜻과 작동 원리, 시작 순서를 사장님 눈높이로 정리했습니다."
 const DATE = "2026-07-08"
 
 export const metadata: Metadata = {

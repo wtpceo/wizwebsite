@@ -13,9 +13,9 @@ import { GUIDE_ARTICLES } from "@/lib/guide-articles"
 const PUBLISHED = "2026-07-23"
 const UPDATED = "2026-09-08"
 
-const TITLE = "병원 GEO 대행: 병원·의원 AI 검색 최적화 전문"
+const TITLE = "병원 GEO 대행사: 병원·의원 AI 검색 최적화 전문"
 const DESC =
-  "환자가 ChatGPT·네이버 AI에게 병원을 묻는 시대. 위즈더플래닝은 병원·의원 전용 AI 검색 최적화(GEO)를 대행합니다. 크롤러 접근 점검부터 채널 정보 정합성, 홈페이지 구조화, 의료광고 기준을 반영한 콘텐츠까지. 무료 진단으로 현재 상태를 먼저 확인하고 시작합니다."
+  "환자가 ChatGPT·네이버 AI에 병원을 물었을 때 우리 병원이 언급되게 만듭니다. 진단은 병원·의원에 한해 무료이고, 주 1회 같은 기준으로 다시 측정해 보고합니다. 실측 사례: 언급률 17%에서 93%."
 const URL = "https://wiztheplanning.com/medical-geo-agency"
 
 export const metadata: Metadata = {

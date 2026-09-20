@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
-const TITLE = "GEO란? 뜻부터 GEO 최적화 방법·업체 선택까지 총정리"
+const TITLE = "GEO란? 뜻부터 GEO 최적화 방법과 대행사·업체 선택까지"
 const DESC =
   "GEO(Generative Engine Optimization)는 ChatGPT·제미나이·네이버 AI 같은 생성형 AI가 답변에서 우리 브랜드를 인용·추천하게 만드는 작업입니다. GEO의 정확한 뜻, SEO와의 차이, 실제 최적화 방법 5단계, 우리 상태를 확인하는 진단법, 직접 할지 대행을 맡길지 판단하는 기준까지, 저희가 직접 실측하며 정리한 내용을 한 페이지에 모았습니다."
 const DATE = "2026-08-05"
