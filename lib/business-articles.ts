@@ -18,6 +18,7 @@ export const BUSINESS_ARTICLES: BizArticle[] = [
     title: "마케팅 대행사 RFP에 넣어야 할 12가지: 제안을 받는 쪽에서 본 기준",
     desc: "RFP가 비어 있으면 제안서도 비어서 돌아옵니다. 비교 가능한 제안을 받으려면 과제 정의부터 계정 소유권, 보고 체계, 평가 배점까지 적혀 있어야 합니다. 제안을 받는 대행사 입장에서 무엇이 있으면 정확한 견적이 나오는지 정리했습니다.",
     date: "2026. 9. 20",
+    updated: "2026. 9. 20",
     cover: "/covers/business-rfp.jpg",
   },
 ]

@@ -41,6 +41,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "장사 안될 때 광고비부터 늘리면 안 되는 이유: 먼저 셀 숫자 3가지",
     desc: "광고를 올리기 전에 노출·유입·연락 세 숫자를 30분이면 확인할 수 있습니다. 광고를 늘려도 문의가 안 느는 세 가지 경우와, 돈 들이지 않고 오늘 할 수 있는 순서를 실제 사례로 정리했습니다.",
     date: "2026. 9. 19",
+    updated: "2026. 9. 20",
     related: ["/guide/why-ads-stop-working", "/guide/naver-place-checklist", "/guide/case-mobile-carwash"],
   },
   {
@@ -51,6 +52,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "병원 마케팅 비용: 견적서를 광고비·대행료·제작비로 나눠 보는 법",
     desc: "매달 나가는 병원 마케팅비가 적정한지 보려면 견적서부터 나눠야 합니다. 광고비·대행료·제작비가 한 줄로 묶인 견적서에서 확인할 6가지, 병원이라 더 헷갈리는 성과 측정 4단계, 의료광고 심의가 비용에 붙는 지점을 정리했습니다.",
     date: "2026. 9. 18",
+    updated: "2026. 9. 20",
     related: ["/guide/case-orthopedic-chatgpt", "/guide/check-hospital-ai-visibility", "/guide/medical-geo"],
   },
   {
