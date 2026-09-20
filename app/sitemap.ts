@@ -64,6 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/guide/geo-vs-seo", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/hospital-marketing-cost", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/slow-business-checks", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/guide/elevator-tv-ad-cost", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/case-orthopedic-chatgpt", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/naver-blog-rank-compare", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/what-ai-quotes", priority: 0.9, changeFrequency: "monthly" },

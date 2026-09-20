@@ -2,7 +2,7 @@ import type { LucideIcon } from "lucide-react"
 import {
   BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows,
   Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck, FileSearch, Lock, TrendingUp,
-  Wallet, Receipt, Calculator, ListChecks, MessageSquareQuote, Gauge, Scale, Ruler, Braces, LayoutList, GitFork,
+  Wallet, Receipt, Calculator, ListChecks, MonitorSmartphone, MessageSquareQuote, Gauge, Scale, Ruler, Braces, LayoutList, GitFork,
 } from "lucide-react"
 
 // 가이드 카테고리 (표시 순서 + 스캔용 짧은 라벨/색상)
@@ -33,6 +33,16 @@ export type GuideArticle = {
 
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
+  {
+    href: "/guide/elevator-tv-ad-cost",
+    category: "playbook",
+    icon: MonitorSmartphone,
+    kicker: "실전 전략 · 오프라인 매체",
+    title: "아파트 엘리베이터 광고 비용은 무엇으로 정해지나: 엘리베이터TV 집행 기준",
+    desc: "엘리베이터 광고 비용은 단가표가 아니라 단지 수·기간·소재로 정해집니다. 클릭이 없는 매체의 효과를 재는 4가지, 업체를 고를 때 확인할 것, 병원이라면 걸리는 의료광고 심의까지 정리했습니다.",
+    date: "2026. 9. 20",
+    related: ["/guide/slow-business-checks", "/guide/naver-place-checklist", "/guide/hospital-marketing-cost"],
+  },
   {
     href: "/guide/slow-business-checks",
     category: "concern",

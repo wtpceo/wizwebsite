@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
+import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import {
   Tv, Building2, Users, TrendingUp, ChevronRight, ArrowRight,
@@ -620,6 +621,13 @@ export default function FocusMediaPage() {
                   </Button>
                   <p className="mt-5 text-sm text-slate-500">
                     * 상담 신청 시 100% 무료로 예상 견적서를 보내드립니다
+                  </p>
+                  <p className="mt-6 text-sm text-slate-400">
+                    견적을 받기 전에 기준부터 보고 싶으시면{" "}
+                    <Link href="/guide/elevator-tv-ad-cost" className="font-semibold text-[#00e5a0] underline underline-offset-4">
+                      아파트 엘리베이터 광고 비용은 무엇으로 정해지나
+                    </Link>
+                    를 먼저 읽어 보세요.
                   </p>
                 </div>
               </div>
