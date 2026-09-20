@@ -240,7 +240,7 @@ export default function Page() {
         </p>
         <p>
           GEO가 처음이시라면{" "}
-          <a href="/guide/what-is-geo">AI 검색 최적화가 무엇인지부터</a>에 정리해 두었습니다.
+          <a href="/guide/what-is-geo">가게 눈높이로 쓴 AI 검색 최적화 입문부터</a>에 정리해 두었습니다.
         </p>
       </GuideArticle>
     </>

@@ -1,13 +1,13 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
-const TITLE = "AI 검색 최적화(GEO)란? 자영업 사장님을 위한 쉬운 설명"
+const TITLE = "자영업 AI 검색 최적화 입문: 우리 가게를 AI가 추천하게 만드는 법"
 const DESC =
-  "GEO 뜻은 생성형 엔진 최적화입니다. ChatGPT·퍼플렉시티·네이버 AI가 답변할 때 우리 가게를 인용하게 만드는 작업이고, SEO와는 목표가 다릅니다. 뜻과 작동 원리, 시작 순서를 사장님 눈높이로 정리했습니다."
+  "손님이 ChatGPT·네이버 AI에게 가게를 물어보는 시대입니다. AI가 어떤 가게를 고르는지, 우리 가게가 그 답에 들어가려면 무엇부터 해야 하는지 자영업 사장님 눈높이로 정리했습니다. 용어 정의와 대행 판단 기준은 GEO 총정리에 있습니다."
 const DATE = "2026-07-08"
 
 export const metadata: Metadata = {
-  title: "AI 검색 최적화(GEO)란? 자영업 사장님을 위한 쉬운 설명",
+  title: TITLE,
   description: DESC,
   alternates: { canonical: "/guide/what-is-geo" },
   openGraph: {
@@ -39,6 +39,12 @@ export default function Page() {
           AI에게 물었을 때, AI의 답변 속에 우리 가게 이름이 나오게 하는 작업이라고 이해하시면 됩니다.
         </p>
 
+        <p>
+          용어 정의와 최적화 5단계, 대행사 선택 기준까지 한 번에 보시려면{" "}
+          <a href="/guide/geo">GEO란? 뜻부터 최적화 방법과 대행사 선택까지 총정리</a>를 보시면
+          됩니다. 이 글은 가게를 운영하는 분이 처음 읽기 좋게 쉬운 말로 다시 쓴 것입니다.
+        </p>
+
         <h2>검색의 방식이 바뀌고 있습니다</h2>
         <p>
           지금까지 고객은 네이버나 구글에 키워드를 검색하고, 나온 목록을 하나씩 훑어보며 가게를
@@ -47,7 +53,7 @@ export default function Page() {
           결론을 말하기 때문에, AI의 답변에 포함되지 못한 매장은 고객의 선택지에서 아예 사라집니다.
         </p>
 
-        <h2>SEO와 GEO, 무엇이 다른가요?</h2>
+        <h2>가게 입장에서 SEO와 GEO는 무엇이 다른가요?</h2>
         <p>
           SEO(검색엔진 최적화)는 검색 결과 <strong>목록의 상위</strong>에 노출되는 것이 목표입니다.
           반면 GEO는 AI가 만드는 <strong>답변의 내용</strong>에 인용되는 것이 목표입니다. 구체적으로

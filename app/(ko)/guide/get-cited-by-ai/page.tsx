@@ -111,7 +111,7 @@ export default function Page() {
         </p>
         <p>
           개념부터 정리하고 싶으시면{" "}
-          <a href="/guide/what-is-geo">AI 검색 최적화란 무엇인가</a>에 정리해 두었습니다.
+          <a href="/guide/what-is-geo">자영업 사장님을 위한 AI 검색 최적화 입문</a>에 정리해 두었습니다.
         </p>
       </GuideArticle>
     </>

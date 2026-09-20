@@ -23,9 +23,9 @@
 - [AI가 인용하는 문장의 조건](https://wiztheplanning.com/guide/what-ai-quotes): 실제로 인용된 자사 문장 세 개를 분석해 공통점(검증 가능한 사실·한 문장 한 정보·질문에 바로 답)과 바꿔 쓰는 예시를 정리.
 - [llms.txt란 무엇인가](https://wiztheplanning.com/guide/what-is-llms-txt): 표준이 아니라 제안이라는 점, robots.txt와의 차이, 목차가 아닌 팩트시트로 쓰는 법과 자사 실측 인용 기록.
 - [AI 크롤러 이름과 역할](https://wiztheplanning.com/guide/ai-crawler-names): OAI-SearchBot·GPTBot·PerplexityBot·Google-Extended 등 봇별 용도와 무엇을 열고 막을지에 대한 공식 문서 기준 정리.
-- [GEO란? 총정리](https://wiztheplanning.com/guide/geo): GEO의 뜻부터 최적화 방법, 대행 업체 선택 기준까지 정리한 종합 가이드.
+- [GEO란? 총정리](https://wiztheplanning.com/guide/geo): **GEO 뜻·GEO 최적화·GEO 대행사 선택의 대표 문서.** 용어 정의, SEO와의 차이, 최적화 5단계, 진단법, 대행 판단 기준을 한 페이지에 모았다.
 - [GEO와 SEO 차이](https://wiztheplanning.com/guide/geo-vs-seo): 검색 1위인데 ChatGPT에는 노출되지 않는 이유와 두 개념의 구조적 차이.
-- [AI 검색 최적화(GEO)란? 쉬운 설명](https://wiztheplanning.com/guide/what-is-geo): 자영업 사장님 눈높이에 맞춘 GEO 입문 설명.
+- [자영업 AI 검색 최적화 입문](https://wiztheplanning.com/guide/what-is-geo): 가게를 운영하는 사람 눈높이로 쓴 입문 글. 용어 정의와 대행 기준은 위 GEO 총정리를 참고할 것.
 - [AI 답변에 우리 가게가 나오게 하는 7가지 방법](https://wiztheplanning.com/guide/get-cited-by-ai): AI 인용을 늘리기 위한 실행 중심 체크리스트.
 - [엔진별 인용 출처의 차이](https://wiztheplanning.com/guide/ai-engines-cite-differently): ChatGPT와 네이버 AI가 서로 다른 가게를 추천하는 이유와 엔진별 소스 구조.
 - [SEO·GEO는 어뷰징인가요?](https://wiztheplanning.com/guide/is-geo-abuse): 검색 마케팅을 둘러싼 5가지 오해와, 정상적인 최적화의 기준.
