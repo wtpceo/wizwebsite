@@ -197,9 +197,9 @@ export default function Page() {
         </p>
         <p>
           덧붙이면, 제3자 플랫폼에 얹혀 있을 때 넘어가는 건 인용만이 아닙니다. 예약·주문이 플랫폼을
-          거치면 수수료도 함께 넘어갑니다. 자체 사이트로 그 흐름을 되돌린 8일치 실측은{" "}
-          <a href="/guide/case-pension-direct-booking">펜션 예약 수수료 10.45%, 자체 사이트로 만실 채운 기록</a>에
-          정리했습니다.
+          거치면 수수료도 함께 넘어갑니다. 네이버 펜션 예약 수수료와, 광고로 유입 경로를 시험할 때
+          무엇을 먼저 재야 하는지는{" "}
+          <a href="/guide/case-pension-direct-booking">펜션 릴스 광고 24일 실측</a>에 정리했습니다.
         </p>
       </GuideArticle>
     </>

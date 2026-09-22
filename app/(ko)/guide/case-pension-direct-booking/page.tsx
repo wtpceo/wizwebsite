@@ -1,20 +1,24 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
-// 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 유지 → 현재 53자
-const TITLE = "펜션 예약 수수료 10.45%: 자체 사이트로 만실 채운 8일 광고비 18만원"
+// 주 키워드: 펜션 광고 (펜션 광고 방법)
+// 연관 검색어(2026-09-22 자동완성): 펜션 마케팅 / 인스타 릴스 광고 / 릴스 광고 비용·단가 / 네이버 펜션 예약 수수료
+// 원자료: 02.비즈니스/24.메타광고/레퍼런스/2026-08_하얀돔펜션_릴스광고 (광고 관리자 최종 집계, 08.28 종료)
+// 업소명·시군 단위 지역은 쓰지 않는다. 내부 해석 문서의 품질 순위·오터치 추정은 광고주 보고서에 없던 내용이라 싣지 않는다.
+// 2026-09-22 전면 수정: 8일차 중간 수치와 확인되지 않은 표현(수도권 근교, 자체 사이트, 만실, 예산 700만원)을 최종 기록으로 바로잡음.
+const TITLE = "펜션 릴스 광고 24일 실측: 클릭당 50원이 말해주지 않는 것"
 const DESC =
-  "네이버 펜션 실시간예약은 매출연동수수료 6.6% + 네이버페이 2.9%로 부가세 포함 10.45%, 야놀자·여기어때 중개수수료는 10%입니다(공정위 자율규제 기준, 하위 40%는 9%). 사장님들이 못 끊는 이유는 수수료가 아까운 걸 몰라서가 아니라 플랫폼을 끊으면 예약이 끊길까 봐입니다. 수도권 근교 펜션 한 곳의 8일치 실측: 지출 18만 563원, 랜딩페이지 조회 2,890건, 조회당 62원."
+  "강원도 계곡 펜션의 메타 릴스 광고 24일 최종 기록입니다. 광고비 131만 3,861원, 링크 클릭 2만 6,456회, 클릭당 50원. 숫자는 좋았지만 예약으로 몇 건이 됐는지는 광고 데이터만으로 알 수 없었습니다. 펜션 광고 방법과 네이버 펜션 예약 수수료까지 정리했습니다."
 const DATE = "2026-08-12"
+const MODIFIED = "2026-09-22"
 const URL = "https://wiztheplanning.com/guide/case-pension-direct-booking"
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESC,
   keywords: [
-    "펜션 예약 수수료", "네이버 예약 수수료", "네이버 펜션예약 수수료",
-    "매출연동수수료", "펜션 자체 예약시스템", "펜션 홈페이지 제작",
-    "야놀자 여기어때 수수료", "펜션 마케팅",
+    "펜션 광고", "펜션 광고 방법", "펜션 마케팅", "인스타 릴스 광고", "릴스 광고 비용",
+    "네이버 펜션 예약 수수료", "펜션 인스타그램 광고",
   ],
   alternates: { canonical: "/guide/case-pension-direct-booking" },
   openGraph: {
@@ -28,67 +32,74 @@ const jsonLd = {
   headline: TITLE,
   description: DESC,
   datePublished: DATE,
-  dateModified: DATE,
+  dateModified: MODIFIED,
   inLanguage: "ko",
   author: { "@id": "https://wiztheplanning.com/#organization" },
   publisher: { "@id": "https://wiztheplanning.com/#organization" },
   mainEntityOfPage: URL,
 }
 
+const FAQ = [
+  {
+    q: "펜션 광고 방법, 무엇부터 해야 하나요?",
+    a: "광고를 켜기 전에 세 가지를 먼저 준비하는 편이 낫습니다. 첫째 광고 직전 한 달의 예약·문의 건수를 적어 두는 것, 둘째 예약 페이지의 실제 주소를 확인하고 가능하면 메타 픽셀을 설치하는 것, 셋째 인스타그램 계정에 게시물을 채워 두는 것입니다. 이 세 가지가 없으면 광고 지표는 좋아도 예약에 얼마나 기여했는지 판정할 수 없습니다.",
+  },
+  {
+    q: "인스타 릴스 광고 비용은 얼마나 드나요?",
+    a: "저희가 진행한 강원도 계곡 펜션 한 곳의 24일 기록으로는 광고비 131만 3,861원에 노출 23만 9,459회, 링크 클릭 2만 6,456회였습니다. 1,000회 노출당 5,487원, 클릭당 50원입니다. 한 업소·한 시즌·한 소재 조합에서 나온 숫자라 다른 펜션에 그대로 적용되지는 않습니다.",
+  },
+  {
+    q: "클릭률이 높으면 예약도 많이 들어오나요?",
+    a: "꼭 그렇지 않습니다. 이 캠페인은 클릭률이 11.05%였지만 좋아요는 99개, 저장 20개, 공유 12개였습니다. 클릭 267회에 좋아요 1개꼴입니다. 클릭은 예약 페이지를 여는 동작까지만 세기 때문에, 실제 예약 증감과 대조하기 전에는 성공이라고 말할 수 없습니다.",
+  },
+  {
+    q: "네이버 펜션 예약 수수료는 얼마인가요?",
+    a: "네이버 고객센터 안내 기준으로 '네이버 펜션예약(펜션 실시간 예약)' 검색결과를 통해 들어와 네이버페이로 결제된 예약이 확정되면 매출연동수수료 6.6%와 네이버페이 예약주문관리 수수료 2.9%가 부과되어 합계 9.5%(모두 부가세 별도), 부가세를 포함하면 10.45%입니다. 요율과 부과 조건은 네이버 정책에 따라 바뀔 수 있으므로 본인 정산 내역으로 확인해야 합니다.",
+  },
+  {
+    q: "야놀자·여기어때 중개수수료는 몇 퍼센트인가요?",
+    a: "2024년 9월 공정거래위원회 숙박플랫폼 자율규제 방안 발표 기준으로 10%입니다. 거래액 하위 40% 제휴점에 한해 9%를 한시 적용하기로 했고, 광고비와 쿠폰비는 별도입니다.",
+  },
+  {
+    q: "펜션 광고에서 쓰면 안 되는 표현이 있나요?",
+    a: "사실로 확인되지 않는 표현은 빼는 편이 안전합니다. 최저가·1위 같은 최상급 표현, '아이들도 안전' 같은 안전 보장, 소유나 관리 주체가 분명하지 않은 '전용 계곡' 같은 표현, 촬영하지 못한 시설을 앞세우는 것이 대표적입니다. 사진도 실제 객실로만 씁니다. 실제와 다르면 광고비를 들여 불만 리뷰를 사는 셈이 됩니다.",
+  },
+]
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "네이버 펜션 예약 수수료는 얼마인가요?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "네이버 고객센터 안내 기준으로 '네이버 펜션예약(펜션 실시간 예약)' 검색결과를 통해 들어와 네이버페이로 결제된 예약이 확정되면 매출연동수수료 6.6%와 네이버페이 예약주문관리 수수료 2.9%가 부과되어 합계 9.5%(모두 부가세 별도), 부가세를 포함하면 10.45%입니다. 요율과 부과 조건은 네이버 정책에 따라 변경될 수 있으므로 계약 시점의 공식 안내와 본인 정산 내역을 확인해야 합니다.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "야놀자·여기어때 중개수수료는 몇 퍼센트인가요?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "2024년 9월 공정거래위원회 숙박플랫폼 자율규제 방안 발표 기준으로 야놀자와 여기어때의 중개수수료는 10%입니다. 두 회사는 거래액 하위 40% 제휴점에 한해 1%포인트 인하해 9%를 적용하기로 했고, 여기어때는 2024년 11월부터 1년간, 야놀자는 2025년 1월부터 1년 6개월간 한시 적용하기로 했습니다. 광고비와 쿠폰비는 이 중개수수료와 별개로 발생합니다.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "자체 예약 시스템을 만들면 수수료를 아낄 수 있나요?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "예약 건당 매출연동수수료나 중개수수료는 줄고 결제대행(PG) 수수료만 남습니다. 다만 수수료를 아끼는 것과 객실을 채우는 것은 다른 문제입니다. 플랫폼이 가져가던 10% 안팎은 '손님을 데려다주는 값'이기 때문에, 자체 사이트로 전환하려면 그 손님을 대신 데려올 유입 경로를 함께 만들어야 합니다. 유입 없이 시스템만 바꾸면 수수료는 줄어도 예약이 같이 줄어듭니다.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "자체 사이트로 예약을 채우는 데 광고비가 얼마나 드나요?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "저희가 진행한 수도권 근교 펜션 한 곳의 실측 기준으로, 8일간 메타 광고 지출은 18만 563원이었고 랜딩페이지 조회는 2,890건, 조회당 비용은 62원이었습니다. 같은 기간 도달 27,110명, 노출 30,163회, 빈도 1.11회였습니다. 이 수치는 특정 업소·시즌·상품 조건에서 나온 것이므로 모든 펜션에 그대로 적용되지는 않습니다.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "펜션 자체 사이트 구축에 비용이 얼마나 드나요?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "저희가 진행한 수도권 근교 펜션 사례에서는 현장 촬영, 광고 소재 제작, 랜딩페이지 제작, 메타 광고비를 전부 합쳐 700만원을 예산으로 잡았고 그 절반도 쓰지 않았습니다. 비교 기준은 '0원'이 아니라 지금 내고 있는 수수료입니다. 네이버 펜션예약 10.45% 기준으로 연 6,700만원어치를 팔면 수수료로만 약 700만원이 나가므로, 1년치 수수료 정도의 금액으로 자체 채널을 만들 수 있다는 계산이 나옵니다. 다만 업소 규모와 필요한 기능에 따라 비용은 달라집니다.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "플랫폼에만 있으면 AI 추천에는 어떤 영향이 있나요?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "AI가 숙소를 추천할 때 인용하는 것은 정보가 실려 있는 곳입니다. 자기 사이트 없이 플랫폼에만 정보가 있으면 AI 답변에 인용되는 주체는 업소가 아니라 플랫폼이 됩니다. 저희가 관찰한 한 음식점 사례에서도 AI는 그 가게를 추천하면서 홈페이지가 아니라 제3자 플랫폼을 출처로 달았습니다. 수수료뿐 아니라 '누가 인용되는가'도 플랫폼에 넘어가는 구조입니다.",
-      },
-    },
-  ],
+  mainEntity: FAQ.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
 }
+
+const RESULT_ROWS: [string, string, string][] = [
+  ["집행액", "1,313,861원", "약정 160만원 중 82.1%"],
+  ["노출", "239,459회", "광고가 화면에 뜬 횟수"],
+  ["도달", "188,461명", "광고를 본 사람 수"],
+  ["빈도", "1.27회", "1인당 평균 노출 (목표 2회 이하)"],
+  ["링크 클릭", "26,456회", "클릭률 11.05% (목표 1% 이상)"],
+  ["클릭당 비용", "50원", "사전 목표 300~800원"],
+  ["1,000회 노출당 비용", "5,487원", "사전 목표 3,000~6,000원"],
+  ["예약 페이지 도달", "24,465회", "조회당 54원, 인앱 브라우저 로딩 기준"],
+]
+
+const CREATIVE_ROWS: [string, string, string, string, string][] = [
+  ["15초 · 첫 1초 계곡", "1,228,166원 (93.5%)", "11.21%", "48원", "5,356원"],
+  ["30초 · 롱폼", "85,818원 (6.5%)", "7.34%", "115원", "8,434원"],
+]
+
+const REACTION_ROWS: [string, string][] = [
+  ["링크 클릭", "26,456"],
+  ["좋아요", "99"],
+  ["저장", "20"],
+  ["공유", "12"],
+  ["댓글", "1"],
+  ["인스타그램 팔로우", "3"],
+]
 
 export default function Page() {
   return (
@@ -97,28 +108,159 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <GuideArticle
         href="/guide/case-pension-direct-booking"
-        kicker="실제 사례 · 자체 실측"
+        kicker="실제 사례 · 메타 광고 실측"
         title={TITLE}
         description={DESC}
-        date="2026년 8월 12일"
+        date="2026년 8월 12일 (9월 22일 최종 기록으로 수정)"
       >
-        {/* 결론 우선 — 상단 150자 이내 */}
         <p>
-          <strong>플랫폼 수수료 10% 안팎은 &lsquo;손님을 데려다주는 값&rsquo;입니다. 그래서 예약
-          시스템만 바꾸면 수수료는 줄어도 예약이 같이 줄어듭니다.</strong> 자체 사이트로 옮기려면
-          손님을 대신 데려올 경로를 함께 만들어야 합니다. 저희가 수도권 근교 펜션 한 곳에서 그걸
-          해본 8일치 숫자를 그대로 공개합니다.
+          <strong>강원도 계곡 펜션의 메타 릴스 광고를 24일 동안 돌려 131만 3,861원을 썼고, 링크 클릭
+          2만 6,456회, 클릭당 50원이 나왔습니다.</strong> 사전 목표를 모든 지표에서 넘겼습니다. 그런데
+          이 광고로 예약이 몇 건 늘었는지는 광고 데이터만으로는 알 수 없었습니다. 이 글은 숫자가
+          어디까지 말해주고 어디서 멈추는지에 대한 기록입니다.
         </p>
 
-        <h2>먼저 수수료부터: 공식 출처로 확인한 숫자</h2>
-        <p>
-          업계에서 &ldquo;13%다, 15%다&rdquo; 하는 말이 돌지만, 공식 안내와 규제 발표 자료를 확인하면
-          숫자가 다릅니다. 인용 가능한 출처가 있는 것만 적습니다.
-        </p>
+        <Callout>
+          <strong>정정합니다.</strong> 8월 12일에 이 글을 처음 쓸 때는 집행 8일차 중간 수치(광고비
+          18만 563원, 랜딩 조회 2,890건)를 썼고, &lsquo;수도권 근교 펜션&rsquo;, &lsquo;자체 사이트로
+          만실&rsquo;, &lsquo;예산 700만원&rsquo;이라는 표현을 썼습니다. 캠페인이 끝난 뒤 최종 기록과
+          대조해 보니 펜션은 강원도에 있었고, 광고는 네이버 예약 페이지로 연결했으며, 예약 결과는 아직
+          확인되지 않았습니다. 광고 약정 금액은 160만원이었습니다. 확인된 기록으로 다시 씁니다.
+        </Callout>
 
-        <h3>네이버 펜션 실시간예약</h3>
+        <h2>펜션 릴스 광고 24일 최종 수치</h2>
+        <p>
+          2026년 8월 5일부터 28일까지, 인스타그램 릴스 중심으로 집행한 결과입니다. 메타 광고
+          관리자 최종 집계 기준입니다.
+        </p>
         <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200">
           <table className="w-full min-w-[520px] text-sm">
+            <thead>
+              <tr className="bg-slate-50 text-left">
+                <th className="px-4 py-3 font-bold text-gray-900">지표</th>
+                <th className="px-4 py-3 font-bold text-gray-900">값</th>
+                <th className="px-4 py-3 font-bold text-gray-900">참고</th>
+              </tr>
+            </thead>
+            <tbody>
+              {RESULT_ROWS.map(([a, b, c]) => (
+                <tr key={a} className="border-t border-slate-100">
+                  <td className="px-4 py-2.5 font-semibold text-gray-800">{a}</td>
+                  <td className="px-4 py-2.5 font-bold text-gray-900">{b}</td>
+                  <td className="px-4 py-2.5 text-gray-600">{c}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p>
+          계곡을 내세운 소재의 유효 기간이 8월 말에 끝나서, 예정보다 사흘 이른 8월 28일에 멈췄습니다.
+          남은 28만 6,139원은 억지로 쓰지 않고 다음 시즌으로 넘겼습니다.
+        </p>
+
+        <h2>릴스 광고 비용을 가른 건 첫 1초였습니다</h2>
+        <p>
+          15초와 30초 소재 두 편을 같이 올리고 메타가 예산을 나누도록 뒀습니다. 개입하지 않았는데
+          15초 한 편이 예산의 93.5%를 가져갔습니다.
+        </p>
+        <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200">
+          <table className="w-full min-w-[560px] text-sm">
+            <thead>
+              <tr className="bg-slate-50 text-left">
+                <th className="px-4 py-3 font-bold text-gray-900">소재</th>
+                <th className="px-4 py-3 font-bold text-gray-900">지출</th>
+                <th className="px-4 py-3 font-bold text-gray-900">클릭률</th>
+                <th className="px-4 py-3 font-bold text-gray-900">클릭당</th>
+                <th className="px-4 py-3 font-bold text-gray-900">1,000회 노출당</th>
+              </tr>
+            </thead>
+            <tbody>
+              {CREATIVE_ROWS.map((r) => (
+                <tr key={r[0]} className="border-t border-slate-100">
+                  {r.map((c, i) => (
+                    <td key={i} className={`px-4 py-2.5 ${i === 0 ? "font-semibold text-gray-800" : "text-gray-700"}`}>{c}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p>
+          차이는 편집이었습니다. 15초는 <strong>첫 1초에 계곡</strong>을 넣었고, 30초는 시설을 차례로
+          보여주는 구성이었습니다. 클릭당 비용이 절반 이하로 벌어졌습니다. 광고주도 &ldquo;시설 컷보다
+          체험 장면&rdquo;을 원했는데, 숫자가 같은 답을 냈습니다. 롱폼은 광고보다 계정 게시물에 맞습니다.
+        </p>
+
+        <h2>펜션 광고 방법: 타겟은 펜션 주변이 아닙니다</h2>
+        <ul>
+          <CheckItem>
+            <strong>손님이 출발하는 곳을 겨눕니다.</strong> 펜션이 강원도에 있어도 손님은
+            수도권에서 옵니다. 위치를 펜션 주변으로 잡으면 여행을 떠날 사람이 아니라 동네 주민에게
+            광고비를 씁니다.
+          </CheckItem>
+          <CheckItem>
+            <strong>노출 위치를 직접 고릅니다.</strong> 릴스와 스토리로 지정했고, 실제로 예산의
+            98.6%가 인스타그램 릴스에 쓰였습니다. 자동 배치로 두면 효율이 낮은 지면으로 예산이 샐 수
+            있습니다.
+          </CheckItem>
+          <CheckItem>
+            <strong>지출 한도를 약정 금액으로 걸어 둡니다.</strong> 일 예산을 올려도 약정을 넘지
+            않게 하는 안전장치입니다. 예산을 늘릴 때는 한 번에 3배 이내로 올리고, 그 이상이 필요하면
+            기간을 늘리는 편이 학습이 덜 흔들립니다.
+          </CheckItem>
+        </ul>
+
+        <h2>클릭 2만 6천 회, 좋아요 99개</h2>
+        <p>
+          이 캠페인에서 가장 많이 배운 대목입니다. 광고 목표를 &lsquo;예약 페이지 방문&rsquo;으로
+          잡으면 메타는 누를 사람에게 노출을 몰아줍니다. 그래서 클릭은 폭발했는데 다른 반응은
+          조용했습니다.
+        </p>
+        <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200">
+          <table className="w-full min-w-[320px] text-sm">
+            <thead>
+              <tr className="bg-slate-50 text-left">
+                <th className="px-4 py-3 font-bold text-gray-900">반응</th>
+                <th className="px-4 py-3 font-bold text-gray-900">수</th>
+              </tr>
+            </thead>
+            <tbody>
+              {REACTION_ROWS.map(([a, b]) => (
+                <tr key={a} className="border-t border-slate-100">
+                  <td className="px-4 py-2.5 text-gray-800">{a}</td>
+                  <td className="px-4 py-2.5 font-bold text-gray-900">{b}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p>
+          클릭 267회에 좋아요 1개꼴입니다. 관심이 있어 누른 클릭만으로는 설명하기 어려운 비율이라,
+          클릭당 50원만 보고 &ldquo;성공&rdquo;이라고 말하지 않기로 했습니다. 팔로우가 3명에 그친 건
+          계정 탓이 큽니다. 집행 기간 대부분 인스타그램 계정에 게시물이 없어서, 광고를 보고 프로필로
+          넘어와도 볼 것이 없었습니다.
+        </p>
+
+        <h2>측정하지 못한 것: 예약</h2>
+        <p>
+          광고는 네이버 예약 페이지로 연결했습니다. 그 페이지에 메타 픽셀이 없어서, 광고를 보고 들어온
+          사람이 실제로 예약을 마쳤는지는 매체 데이터로 셀 수 없었습니다. &lsquo;예약 페이지 도달
+          2만 4,465회&rsquo;는 인스타그램 앱 안 브라우저에서 페이지가 열린 횟수이지 예약 완료가
+          아닙니다.
+        </p>
+        <Callout>
+          최종 판정은 <strong>광고 전 7월과 광고 중 8월의 예약·문의 건수를 비교</strong>해야 나옵니다.
+          그 자료를 받는 대로 이 글에 덧붙이겠습니다. 다음 집행부터는 광고 시작 전에 직전 한 달 예약
+          건수를 먼저 받아 두고, 예약 페이지에 픽셀을 설치하는 것을 조건으로 두기로 했습니다.
+        </Callout>
+
+        <h2>네이버 펜션 예약 수수료는 그대로 나갑니다</h2>
+        <p>
+          이번 광고는 예약을 네이버 예약으로 받았습니다. 그래서 광고로 데려온 손님의 예약에도 플랫폼
+          정산 구조가 그대로 적용됩니다. 공식 안내로 확인되는 요율은 다음과 같습니다.
+        </p>
+        <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200">
+          <table className="w-full min-w-[480px] text-sm">
             <thead>
               <tr className="bg-slate-50 text-left">
                 <th className="px-4 py-3 font-bold text-gray-900">항목</th>
@@ -128,10 +270,10 @@ export default function Page() {
             </thead>
             <tbody>
               {[
-                ["매출연동수수료", "6.6%", "부가세 별도"],
+                ["네이버 매출연동수수료", "6.6%", "부가세 별도"],
                 ["네이버페이 예약주문관리 수수료", "2.9%", "부가세 별도"],
-                ["합계", "9.5%", "부가세 별도"],
-                ["합계 (부가세 포함)", "10.45%", "실제 부담액"],
+                ["네이버 합계 (부가세 포함)", "10.45%", "펜션예약 검색결과로 들어온 예약 기준"],
+                ["야놀자·여기어때 중개수수료", "10%", "하위 40% 제휴점 9% 한시 적용, 광고비·쿠폰비 별도"],
               ].map((r) => (
                 <tr key={r[0]} className="border-t border-slate-100">
                   <td className="px-4 py-2.5 font-semibold text-gray-800">{r[0]}</td>
@@ -147,251 +289,61 @@ export default function Page() {
           <a href="https://help.naver.com/alias/booking" target="_blank" rel="noopener noreferrer">
             네이버 스마트플레이스 사업주 고객센터의 펜션 실시간 예약 수수료 안내
           </a>
-          입니다. 중요한 건 <strong>부과 조건</strong>입니다. 이 수수료는{" "}
-          <strong>&lsquo;네이버 펜션예약&rsquo; 검색결과를 통해 들어온 예약</strong>에 붙습니다. 네이버는
-          해당 영역에서의 노출·정보 제공이라는 혜택이 발생한 것으로 보고 과금한다고 안내하고
-          있습니다. 즉 <strong>유입 경로가 요금을 결정합니다.</strong>
-        </p>
-
-        <h3>야놀자·여기어때 중개수수료</h3>
-        <ul>
-          <CheckItem>
-            <strong>10%</strong>: 2024년 9월 공정거래위원회 숙박플랫폼 자율규제 방안 발표 기준
-          </CheckItem>
-          <CheckItem>
-            <strong>9%</strong>: 거래액 <strong>하위 40% 제휴점</strong>에 한해 1%포인트 인하.
-            여기어때는 2024년 11월부터 1년간, 야놀자는 2025년 1월부터 1년 6개월간 한시 적용
-          </CheckItem>
-          <CheckItem>
-            <strong>광고비·쿠폰비는 별도</strong>입니다. 중개수수료만 보면 실제 부담을 과소평가하게
-            됩니다
-          </CheckItem>
-        </ul>
-        <p>
-          출처는{" "}
-          <a
-            href="https://www.khan.co.kr/article/202409051600001"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          와{" "}
+          <a href="https://www.khan.co.kr/article/202409051600001" target="_blank" rel="noopener noreferrer">
             경향신문 &lsquo;야놀자·여기어때, 거래액 적은 업체에 중개수수료 10% 한시 인하&rsquo;(2024.9.5)
           </a>
-          입니다.
+          입니다. 네이버 수수료는 <strong>어느 경로로 들어온 예약이냐</strong>에 따라 부과 여부가
+          갈리므로, 광고로 들어온 예약에 무엇이 붙었는지는 본인 정산 내역에서 확인하셔야 합니다.
         </p>
-        <Callout>
-          <strong>요율은 정책·계약 조건에 따라 변동됩니다.</strong> 위 숫자는 각 시점의 공식 안내와
-          규제 발표 기준이며, 프로모션 참여 여부·제휴사 계약·유입 경로에 따라 실제 부담은
-          달라집니다. <strong>정확한 숫자는 남의 글이 아니라 본인 계약서와 정산 내역에서 확인</strong>
-          하셔야 합니다.
-        </Callout>
-
-        <h2>이번 실측 수치</h2>
         <p>
-          2026년 8월 5일부터 12일까지 <strong>8일간</strong>, 메타(페이스북·인스타그램) 광고 하나만
-          돌린 결과입니다. 광고 관리자 화면에 찍힌 숫자 그대로입니다.
+          수수료를 줄이는 길은 예약을 자기 채널로 받는 것이지만, 이번 캠페인은 거기까지 가지
+          않았습니다. 예약 창구를 바꾸면 손님을 데려오던 경로도 함께 새로 만들어야 하고, 그 경로가
+          얼마나 예약을 만드는지부터 재야 합니다. 이번 광고가 그 첫 번째 측정이 되려면 앞에서 말한
+          예약 비교가 먼저입니다.
         </p>
-        <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200">
-          <table className="w-full min-w-[480px] text-sm">
-            <thead>
-              <tr className="bg-slate-50 text-left">
-                <th className="px-4 py-3 font-bold text-gray-900">지표</th>
-                <th className="px-4 py-3 font-bold text-gray-900">값</th>
-                <th className="px-4 py-3 font-bold text-gray-900">의미</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[
-                ["지출 금액", "180,563원", "8일 총 광고비"],
-                ["랜딩페이지 조회", "2,890건", "실제로 사이트를 연 횟수"],
-                ["조회당 비용", "62원", "사이트 방문 1건을 만든 값"],
-                ["도달", "27,110명", "광고를 본 사람 수"],
-                ["노출", "30,163회", "광고가 보인 총 횟수"],
-                ["빈도", "1.11회", "1인당 평균 노출: 같은 사람에게 반복되지 않음"],
-              ].map((r) => (
-                <tr key={r[0]} className="border-t border-slate-100">
-                  <td className="px-4 py-2.5 font-semibold text-gray-800">{r[0]}</td>
-                  <td className="px-4 py-2.5 font-bold text-gray-900">{r[1]}</td>
-                  <td className="px-4 py-2.5 text-gray-600">{r[2]}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+
+        <h2>광고보다 오래 걸린 것: 계정 명의</h2>
+        <p>
+          이 펜션은 시작 시점에 인스타그램·페이스북 계정이 없어서 대행사 쪽에서 대신 만들었습니다.
+          나중에 광고주에게 넘기는 과정이 광고 운영보다 오래 걸렸습니다. 결론은 단순합니다.{" "}
+          <strong>계정은 처음부터 광고주 명의로, 광고주 휴대폰과 이메일로 만들고, 대행사는 운영 권한만
+          받습니다.</strong> 계약이 끝나면 권한만 회수하면 되고, 그동안 쌓인 게시물과 팔로워는
+          광고주에게 남습니다.
+        </p>
+
+        <h2>다음 펜션 광고에서 바꾸는 것</h2>
+        <ul>
+          <CheckItem>광고 직전 한 달의 예약·문의 건수를 먼저 받아 둡니다. 이게 없으면 효과를 판정할 기준이 없습니다.</CheckItem>
+          <CheckItem>예약 페이지의 실제 주소를 확인하고, 가능하면 픽셀을 설치합니다. 단축링크는 지도로 떨어지기도 합니다.</CheckItem>
+          <CheckItem>광고를 켜기 전에 인스타그램 게시물을 최소 한 화면(9개) 채워 둡니다.</CheckItem>
+          <CheckItem>소재는 첫 1초에 가장 강한 장면을 넣고, 길이가 다른 두 편 이상을 같이 올립니다.</CheckItem>
+          <CheckItem>클릭률만 보지 않고 좋아요·저장·공유를 같이 봅니다. 클릭만 좋으면 품질부터 의심합니다.</CheckItem>
+          <CheckItem>사진으로 확인되는 것만 말합니다. 실제 객실이 아닌 이미지는 쓰지 않습니다.</CheckItem>
+        </ul>
+
+        <h2>AI 추천까지 생각하면</h2>
+        <p>
+          손님이 ChatGPT나 네이버 AI에 &ldquo;계곡 가까운 가족 펜션 추천해줘&rdquo;라고 묻기
+          시작했습니다. AI가 답에 다는 출처는 정보가 실려 있는 곳입니다. 자기 사이트 없이 플랫폼에만
+          정보가 있으면 인용되는 주체도 플랫폼이 됩니다. 한 음식점에서 실제로 관찰한 내용은{" "}
+          <a href="/guide/case-third-party-citation">홈페이지는 인용되지 않아도 인용을 만들어낸다</a>에
+          정리했습니다. 지금 우리 가게가 AI에 읽히는 상태인지는{" "}
+          <a href="/site-check">무료 사이트 진단</a>으로 확인하실 수 있습니다.
+        </p>
+
+        <h2>자주 묻는 질문</h2>
+        <div className="mt-6 space-y-4">
+          {FAQ.map((f, i) => (
+            <div key={f.q} className="rounded-2xl border border-gray-200 bg-[#f9fafb] p-5 md:p-6">
+              <p className="flex gap-2 text-lg font-bold leading-snug text-gray-900">
+                <span className="shrink-0 text-[#00b57f]">Q{i + 1}.</span>
+                <span>{f.q}</span>
+              </p>
+              <p className="mt-3 text-base leading-[1.85] text-gray-700">{f.a}</p>
+            </div>
+          ))}
         </div>
-
-        <Callout>
-          <strong>여기서 정직하게 선을 긋겠습니다.</strong> 위 6개는 메타 광고 관리자에 찍힌
-          측정값입니다. 하지만 <strong>&lsquo;객실이 다 찼다&rsquo;는 광고 지표가 아닙니다.</strong>{" "}
-          메타가 셀 수 있는 건 랜딩페이지 조회까지고, 그 뒤 예약이 몇 건 들어왔는지는 업소 측
-          예약 현황 확인 기준입니다. 광고 성과와 예약 결과를 같은 줄에 놓고 &ldquo;광고로
-          만실&rdquo;이라고 쓰는 게 흔한 과장이라서, 저희는 두 숫자를 분리해서 적습니다.
-        </Callout>
-
-        <h2>왜 사장님들은 수수료를 알면서도 못 끊나</h2>
-        <p>
-          펜션 사장님 중에 수수료가 아까운 줄 모르는 분은 없습니다. 알면서도 못 끊습니다. 이유는
-          하나입니다. <strong>플랫폼을 끊으면 예약이 끊길까 봐서입니다.</strong>
-        </p>
-
-        <h3>수수료는 &lsquo;시스템 이용료&rsquo;가 아니라 &lsquo;손님 값&rsquo;이다</h3>
-        <p>
-          플랫폼이 가져가는 10% 안팎은 예약 버튼을 빌려주는 값이 아닙니다. <strong>손님을 데려다주는
-          값</strong>입니다. 네이버가 &ldquo;검색결과를 통한 예약&rdquo;에만 매출연동수수료를 붙이는
-          것도 같은 논리입니다. <strong>데려다준 만큼 받겠다</strong>는 구조입니다.
-        </p>
-        <p>
-          이 구분이 중요한 이유는, 예약 시스템만 자체로 바꿔놓고 유입 경로를 안 만들면{" "}
-          <strong>수수료는 0이 되지만 예약도 같이 0에 가까워지기</strong> 때문입니다. 시중의
-          &ldquo;자체 예약시스템으로 수수료 절감&rdquo; 이야기가 자주 빠뜨리는 대목이 여기입니다.
-          시스템은 절반이고, 나머지 절반은 손님을 데려오는 일입니다.
-        </p>
-
-        <h2>이번에 실제로 한 것</h2>
-        <p>
-          이 펜션은 시작 시점에 자체 예약 채널이 없었습니다. 그래서 예약을 받을 그릇부터
-          만들었습니다.
-        </p>
-        <ul>
-          <CheckItem><strong>랜딩페이지 구축</strong>: 객실·요금·예약이 한 화면에서 끝나는 구조</CheckItem>
-          <CheckItem><strong>네이버 쇼핑 등재</strong>: 검색으로 들어오는 경로 확보</CheckItem>
-          <CheckItem><strong>현장 촬영</strong>: 스톡 이미지가 아닌 실제 객실·전경</CheckItem>
-          <CheckItem><strong>광고 소재 제작</strong>: 촬영본으로 릴스 영상 소재 구성</CheckItem>
-          <CheckItem><strong>메타 광고 집행</strong>: 수도권 30~45세 캠핑·가족여행 관심층 타깃</CheckItem>
-        </ul>
-        <p>
-          순서가 중요합니다. <strong>그릇을 먼저 만들고 물을 부었습니다.</strong> 랜딩페이지가 없는
-          상태에서 광고부터 돌리면, 62원을 주고 데려온 방문자가 도착할 곳이 플랫폼 상세페이지밖에
-          없습니다. 그러면 광고비는 우리가 쓰고 수수료는 플랫폼이 가져갑니다.
-        </p>
-
-        <h3>빈도 1.11이 말해주는 것</h3>
-        <p>
-          위 표에서 눈여겨볼 숫자는 <strong>빈도 1.11회</strong>입니다. 도달한 27,110명에게 평균 1.11번
-          보였다는 뜻으로, <strong>같은 사람에게 광고를 반복해 태우지 않았다</strong>는 의미입니다.
-          아직 안 본 사람이 남아 있다는 뜻이기도 합니다. 소진을 걱정할 단계가 아니었습니다.
-        </p>
-
-        <h2>수수료 계산: 언제 자체 사이트가 이기나</h2>
-        <p>
-          자체 사이트가 유리해지는 지점은 간단한 산수로 확인됩니다. 아래는 <strong>요율만 넣어 계산한
-          예시</strong>이며, 특정 업소의 실제 매출이 아닙니다.
-        </p>
-        <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200">
-          <table className="w-full min-w-[520px] text-sm">
-            <thead>
-              <tr className="bg-slate-50 text-left">
-                <th className="px-4 py-3 font-bold text-gray-900">경로</th>
-                <th className="px-4 py-3 font-bold text-gray-900">예약 1건당 비용</th>
-                <th className="px-4 py-3 font-bold text-gray-900">성격</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[
-                ["네이버 펜션예약 (10.45%)", "20만원 예약 → 20,900원", "매출에 비례해 계속 늘어남"],
-                ["OTA 중개 (10%)", "20만원 예약 → 20,000원 + 광고비 별도", "매출에 비례해 계속 늘어남"],
-                ["자체 사이트 + 광고", "고정 광고비 ÷ 예약 수", "예약이 늘수록 1건당 비용은 내려감"],
-              ].map((r) => (
-                <tr key={r[0]} className="border-t border-slate-100">
-                  <td className="px-4 py-2.5 font-semibold text-gray-800">{r[0]}</td>
-                  <td className="px-4 py-2.5 text-gray-600">{r[1]}</td>
-                  <td className="px-4 py-2.5 text-gray-600">{r[2]}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <p>
-          핵심은 <strong>비용의 성격이 다르다</strong>는 것입니다. 플랫폼 수수료는 매출이 늘면 같이
-          늘어나는 <strong>변동비</strong>입니다. 자체 사이트 구축비는 한 번 쓰고 끝나는{" "}
-          <strong>고정비</strong>이고, 광고비는 우리가 조절할 수 있는 변동비입니다. 그래서 초기에는
-          자체 사이트가 불리해 보이고, <strong>운영 기간이 길어질수록 역전됩니다.</strong>
-        </p>
-        <h3>이번 건의 예산은 700만원이었습니다</h3>
-        <p>
-          촬영·소재 제작·랜딩페이지 제작·메타 광고비를 <strong>전부 합쳐 700만원</strong>을 잡고
-          시작했습니다. 실제로는 <strong>그 절반도 쓰지 않고</strong> 객실이 찼습니다(예약 현황은
-          업소 확인 기준). 8일간 광고비 18만 563원은 그 안에 포함된 금액입니다.
-        </p>
-        <p>
-          이 700만원이 큰지 작은지는 <strong>플랫폼 수수료와 비교하면</strong> 바로 보입니다. 아래는
-          요율만 넣은 산수이며, 특정 업소의 매출이 아닙니다.
-        </p>
-        <ul>
-          <CheckItem>
-            네이버 펜션예약(10.45%)으로 <strong>연 6,700만원</strong>어치를 팔면, 수수료로만{" "}
-            <strong>약 700만원</strong>이 나갑니다
-          </CheckItem>
-          <CheckItem>
-            OTA 중개(10%)라면 <strong>연 7,000만원</strong>에서 같은 700만원이 나갑니다. 여기에
-            광고비·쿠폰비는 별도입니다
-          </CheckItem>
-          <CheckItem>
-            즉 <strong>1년치 수수료 정도의 돈이면</strong> 촬영·소재·랜딩·광고를 한 번에 새로 만들
-            수 있다는 뜻입니다. 그리고 그렇게 만든 자산은 <strong>이듬해에도 남습니다</strong>
-          </CheckItem>
-        </ul>
-        <p>
-          제작 견적으로 수천만원을 부르는 곳이 많아서 대부분 여기서 포기합니다. 하지만 비교 대상은{" "}
-          <strong>&lsquo;0원&rsquo;이 아니라 &lsquo;지금 내고 있는 수수료&rsquo;</strong>입니다. 이미
-          매년 나가고 있는 돈이라는 걸 계산에 넣어야 판단이 달라집니다.
-        </p>
-
-        <Callout>
-          그래서 &ldquo;플랫폼을 다 끊으세요&rdquo;가 답이 아닙니다. 현실적인 순서는{" "}
-          <strong>플랫폼은 그대로 두고, 자체 채널을 병행해서 키운 뒤, 비중을 옮기는 것</strong>입니다.
-          예약이 끊길 위험을 감수하지 않고도 수수료 비중을 낮출 수 있습니다.
-        </Callout>
-
-        <h2>수수료만의 문제가 아닙니다: 인용도 넘어갑니다</h2>
-        <p>
-          여기서부터가 저희가 이 사례를 굳이 정리한 이유입니다.{" "}
-          <strong>플랫폼에만 얹혀 있으면 넘어가는 건 수수료만이 아닙니다.</strong>
-        </p>
-        <p>
-          손님이 요즘 숙소를 찾는 경로 하나가 늘었습니다. ChatGPT나 네이버 AI에 &ldquo;가평 근처 가족
-          펜션 추천해줘&rdquo;라고 묻는 방식입니다. 이때 <strong>AI가 인용하는 건 정보가 실려 있는
-          곳</strong>입니다. 자기 사이트가 없으면 AI가 답변에 다는 출처는 업소가 아니라 플랫폼이
-          됩니다.
-        </p>
-        <p>
-          저희가 관찰한 한 음식점 사례가 정확히 그랬습니다. AI는 그 가게를 추천 4위로 올려주면서,
-          출처로 홈페이지가 아니라 제3자 플랫폼을 달았습니다.{" "}
-          <a href="/guide/case-third-party-citation">홈페이지는 인용되지 않아도 인용을 만들어낸다</a>.
-        </p>
-        <p>
-          <strong>수수료 10%는 눈에 보이는 비용이고, 인용을 뺏기는 건 눈에 안 보이는 비용입니다.</strong>{" "}
-          자체 사이트는 예약을 받는 그릇인 동시에, AI가 우리 업소를 읽어갈 수 있는 유일한 원본입니다.
-          이 구조 전체는 <a href="/guide/geo">GEO 총정리</a>에 정리해 두었습니다.
-        </p>
-
-        <h2>다른 업종에도 그대로 적용되는 구조</h2>
-        <p>
-          펜션 이야기로 썼지만 병목은 업종을 가리지 않습니다. 배달앱을 쓰는 식당, 예약앱을 쓰는
-          미용실, 플랫폼에 등록된 병원 모두 같은 구조입니다.
-        </p>
-        <ul>
-          <CheckItem><strong>플랫폼이 손님을 데려온다</strong> → 수수료를 낸다</CheckItem>
-          <CheckItem><strong>자기 채널이 없다</strong> → 플랫폼을 못 끊는다</CheckItem>
-          <CheckItem><strong>정보가 플랫폼에만 있다</strong> → AI도 플랫폼을 인용한다</CheckItem>
-        </ul>
-        <p>
-          끊는 게 답이 아니라, <strong>병행할 자기 채널을 하나 갖는 것</strong>이 답입니다. 네이버
-          플레이스부터 점검하시려면{" "}
-          <a href="/guide/naver-place-checklist">네이버 플레이스 체크리스트</a>를 참고하세요.
-        </p>
-
-        <h2>정리</h2>
-        <p>
-          <strong>수수료를 아끼는 일과 객실을 채우는 일은 다른 문제입니다.</strong> 자체 예약
-          시스템만 만들면 전자는 해결되지만 후자가 무너집니다. 둘을 같이 풀어야 하고, 그래서
-          랜딩페이지·소재·광고가 한 묶음으로 들어갔습니다. 8일간 18만 563원으로 랜딩 조회 2,890건,
-          조회당 62원이 그 결과이고, 촬영부터 광고까지 잡아둔 예산 700만원의 절반도 쓰지
-          않았습니다.
-        </p>
-        <p>
-          그리고 그렇게 만든 자체 사이트는 수수료를 줄이는 데서 끝나지 않습니다.{" "}
-          <strong>AI가 우리 가게를 읽어갈 수 있는 원본</strong>이 됩니다. 지금 우리 사이트가 AI
-          크롤러에게 열려 있는지는 <a href="/site-check">무료 사이트 진단</a>으로 1분이면 확인됩니다.
-        </p>
       </GuideArticle>
     </>
   )

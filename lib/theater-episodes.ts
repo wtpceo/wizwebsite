@@ -102,11 +102,11 @@ export const EPISODES: TheaterEpisode[] = [
     ep: 7,
     title: "통행료 받는 문: 수수료 10.45%와 펜션의 선택",
     logline:
-      "플랫폼 문으로 들어온 예약은 통행료를 뗍니다. 자기 문을 만든 펜션의 8일 실측 기록.",
+      "플랫폼 문으로 들어온 예약은 통행료를 뗍니다. 자기 문을 만들기 전에 먼저 재야 할 것.",
     date: "2026-08-28",
     poster: "/theater/ep7-poster1.jpg",
     basedOn: [
-      { href: "/guide/case-pension-direct-booking", label: "펜션 직접 예약 8일 실측" },
+      { href: "/guide/case-pension-direct-booking", label: "펜션 릴스 광고 24일 실측" },
       { href: "/guide/case-third-party-citation", label: "홈페이지가 인용을 만들어낸 실험" },
     ],
     status: "published",

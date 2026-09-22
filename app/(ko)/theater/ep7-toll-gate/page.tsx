@@ -7,9 +7,9 @@ import { EPISODES } from "@/lib/theater-episodes"
 
 const ep = EPISODES.find((e) => e.slug === "ep7-toll-gate")!
 
-const TITLE = "펜션 예약 수수료 10.45% 아끼는 법: 자체 사이트 직접 예약 실측 (위즈 극장 EP.7 통행료 받는 문)"
+const TITLE = "펜션 예약 수수료 10.45%와 자기 문: 위즈 극장 EP.7 통행료 받는 문"
 const DESC =
-  "네이버 펜션 실시간예약 수수료는 부가세 포함 10.45%, 야놀자·여기어때 중개수수료는 10%입니다(공정위 자율규제 기준). 수도권 근교 펜션이 자체 예약 사이트를 만들고 8일간 광고비 18만 563원으로 랜딩 조회 2,890건(조회당 62원)을 만든 실측 기록을 위즈의 애니메이션으로 풀었습니다. 수수료보다 큰 문제는 AI 인용까지 플랫폼에 넘어간다는 것입니다."
+  "네이버 펜션 실시간예약 수수료는 부가세 포함 10.45%, 야놀자·여기어때 중개수수료는 10%입니다(공정위 자율규제 기준). 플랫폼 문으로 들어온 예약이 통행료를 떼는 구조와, 자기 문을 만들 때 먼저 재야 할 것을 위즈의 애니메이션으로 풀었습니다. 수수료보다 큰 문제는 AI 인용까지 플랫폼에 넘어간다는 것입니다."
 const URL = "https://wiztheplanning.com/theater/ep7-toll-gate"
 
 export const metadata: Metadata = {
@@ -107,16 +107,16 @@ export default function Page() {
 
           {/* 막간 해설 */}
           <div className="mt-14 rounded-2xl border border-white/10 bg-white/[0.04] p-6 md:p-8">
-            <p className="text-xs font-bold tracking-[0.2em] text-[#00e5a0]">이 장면은 실화입니다</p>
+            <p className="text-xs font-bold tracking-[0.2em] text-[#00e5a0]">실제 기록은 이렇습니다</p>
             <p className="mt-3 text-base leading-[1.9] text-slate-300">
               네이버 펜션 실시간예약은 매출연동수수료 6.6%에 네이버페이 결제수수료 2.9%를 더해{" "}
               <strong className="text-white">부가세 포함 10.45%</strong>, 야놀자·여기어때
               중개수수료는 <strong className="text-white">10%</strong>입니다(공정위 자율규제 기준).
-              저희는 수도권 근교의 한 펜션과 자체 예약 사이트를 만들고 메타 광고 하나만 8일간
-              돌렸습니다 — <strong className="text-white">지출 18만 563원, 랜딩페이지 조회
-              2,890건, 조회당 62원</strong>(2026년 8월 5~12일, 광고 관리자 실측). 예약은 광고
-              지표가 아니라 업소 예약 현황으로 따로 확인했고, 그 8일 동안 객실이 채워졌습니다 —
-              저희는 이 두 숫자를 한 줄에 놓고 과장하지 않습니다.
+              저희가 맡은 강원도의 한 펜션은 메타 릴스 광고를 24일 돌려{" "}
+              <strong className="text-white">지출 131만 3,861원, 링크 클릭 2만 6,456회, 클릭당
+              50원</strong>을 기록했습니다(2026년 8월 5~28일, 광고 관리자 최종 집계). 다만 예약은
+              네이버 예약으로 받았고 픽셀이 없어, 광고가 예약을 몇 건 만들었는지는 아직 확인 중입니다.
+              저희는 광고 지표와 예약 결과를 한 줄에 놓고 과장하지 않습니다.
             </p>
           </div>
 

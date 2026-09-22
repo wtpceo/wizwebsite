@@ -51,7 +51,7 @@
 - [ChatGPT만 모르던 정형외과](https://wiztheplanning.com/guide/case-orthopedic-chatgpt): 네이버 AI·제미나이 10/10인데 ChatGPT 4/10이던 병원. ChatGPT가 사실은 알았지만 이름과 잇지 못했던 원인과, 같은 방법 재측정에서 언급률 17%→93%, 병원 사이트 인용 0→16/30으로 바뀐 기록.
 - [치과 홈페이지 GEO 51일 기록](https://wiztheplanning.com/guide/case-dental-llms-factsheet): 167쪽 사이트가 인용되지 않고 3쪽 사이트가 인용된 이유. llms.txt를 목차에서 팩트시트로 바꿔 ChatGPT 답변에 등장하고 출처를 역추적한 사례.
 - [GEO 대행사 추천 글 검증](https://wiztheplanning.com/guide/geo-agency-recommendation-check): 검색 상위 추천 글 9개의 작성 주체, 1위, 도메인 등록 정보를 확인한 기록. 8개가 자기 추천이었다.
-- [펜션 자체 예약 전환](https://wiztheplanning.com/guide/case-pension-direct-booking): 플랫폼 수수료 10.45%를 줄이고 자체 사이트로 예약을 만든 8일간 광고 집행 기록.
+- [펜션 릴스 광고 24일 실측](https://wiztheplanning.com/guide/case-pension-direct-booking): 강원도 계곡 펜션 메타 릴스 광고 최종 기록(광고비 1,313,861원, 링크 클릭 26,456회, 클릭당 50원, 좋아요 99개). 예약 기여는 픽셀이 없어 광고 데이터로 측정 불가. 네이버 펜션 예약 수수료 10.45%(공식 안내) 포함. 2026-09-22 최종 기록으로 정정.
 - [네이버 AI 브리핑 노출](https://wiztheplanning.com/guide/naver-ai-briefing): 광고 없이 브랜드 블로그의 글 구조만 바꿔 지역 키워드 1위와 AI 브리핑 인용을 얻은 사례.
 - [홈페이지가 만든 제3자 인용](https://wiztheplanning.com/guide/case-third-party-citation): 홈페이지를 만들자 AI가 추천을 시작했으나 정작 인용된 출처는 다른 사이트였던 기록.
 - [ChatGPT에 안 뜨던 비뇨기과](https://wiztheplanning.com/guide/case-urology-clinic): 원인이 홈페이지 방화벽의 크롤러 차단이었던 진단 사례.
@@ -94,4 +94,4 @@
 - 가이드 문서에 포함된 수치와 실험 결과는 특정 시점의 자사 실측값이며, 검색 엔진과 AI 서비스의 정책 변화에 따라 달라질 수 있습니다.
 - 광고비·대행 비용 등 견적 정보는 업종과 범위에 따라 달라지므로, 정확한 내용은 사이트 내 문의 또는 무료 진단을 통해 확인해야 합니다.
 - 병원·의원 관련 페이지는 의료기관 마케팅에 관한 정보이며 의학적 조언이 아닙니다. **진료 및 치료에 관한 최종 판단은 반드시 의료진 상담을 통해 결정하시기 바랍니다.**
-- 최종 갱신: 2026-09-20
+- 최종 갱신: 2026-09-22

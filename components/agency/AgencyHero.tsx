@@ -29,9 +29,9 @@ const staggerContainer = {
  */
 const PROOF_ROWS = [
   {
-    label: "펜션 · 메타 광고 8일",
-    metric: "랜딩 조회 2,890건",
-    detail: "지출 180,563원 · 조회당 62원",
+    label: "펜션 · 메타 릴스 광고 24일",
+    metric: "링크 클릭 26,456회",
+    detail: "지출 1,313,861원 · 클릭당 50원",
     href: "/guide/case-pension-direct-booking",
   },
   {
