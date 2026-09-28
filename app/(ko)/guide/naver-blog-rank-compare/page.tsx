@@ -7,6 +7,7 @@ const TITLE = "네이버 블로그 상위노출, 1위 글은 뭐가 달랐나: 2
 const DESC =
   "발행 3일째인 저희 글이 5월 말에 올라온 글에 밀려 네이버 블로그 탭 2위에 있습니다. 두 글을 나란히 뜯어보니 1위 글이 더 좋은 글이라기보다 네이버가 읽는 신호를 더 많이 깔아 둔 쪽에 가까웠습니다. 다만 그 신호 중 일부는 과하면 누락을 부르는 양날의 검입니다. 확정이 아니라 시도해 볼 만한 것들로 정리했습니다."
 const DATE = "2026-09-14"
+const MODIFIED = "2026-09-28"
 const URL = "https://wiztheplanning.com/guide/naver-blog-rank-compare"
 
 export const metadata: Metadata = {
@@ -26,7 +27,7 @@ const jsonLd = {
   headline: TITLE,
   description: DESC,
   datePublished: DATE,
-  dateModified: DATE,
+  dateModified: MODIFIED,
   inLanguage: "ko",
   author: { "@id": "https://wiztheplanning.com/#organization" },
   publisher: { "@id": "https://wiztheplanning.com/#organization" },
@@ -103,7 +104,7 @@ export default function Page() {
         kicker="네이버 블로그 · 실측 비교"
         title={TITLE}
         description={DESC}
-        date="2026년 9월 14일"
+        date="2026년 9월 14일 (9월 28일 재측정 추가)"
       >
         <p>
           <strong>발행 3일째인 저희 글이 5월 말에 올라온 글에 밀려 네이버 블로그 탭 2위에 있습니다.</strong>{" "}
@@ -264,6 +265,63 @@ export default function Page() {
         <Callout>
           <strong>2주 뒤 다시 잽니다.</strong> 사진 설명을 채운 뒤 같은 키워드, 같은 조건으로 순위를 다시
           확인해 이 글에 추가하겠습니다. 올라가면 올라간 대로, 그대로면 그대로인 대로 적습니다.
+        </Callout>
+
+        <h2>2주 뒤 재측정: 2026년 9월 28일</h2>
+        <p>
+          약속한 날짜에 같은 키워드, 네이버 블로그 탭 관련도순으로 다시 확인했습니다. 로그아웃 상태의
+          PC와 모바일에서 각각 봤고, 두 화면의 상위 순서는 같았습니다.
+        </p>
+        <p>
+          <strong>먼저 밝힐 것이 있습니다. 사진 설명은 아직 채워지지 않았습니다.</strong> 2주 전
+          &lsquo;가장 먼저 시도할 것&rsquo;으로 꼽았던 작업이 실행되지 않았고, 그래서 이번
+          재측정으로는 사진 설명의 효과를 확인하지 못했습니다. 검증하지 못한 것을 검증한 것처럼 쓸 수
+          없어 그대로 적습니다.
+        </p>
+        <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200">
+          <table className="w-full min-w-[560px] text-sm">
+            <thead>
+              <tr className="bg-slate-50 text-left">
+                <th className="px-4 py-3 font-bold text-gray-900">글</th>
+                <th className="px-4 py-3 font-bold text-gray-900">9월 14일</th>
+                <th className="px-4 py-3 font-bold text-gray-900">9월 28일</th>
+                <th className="px-4 py-3 font-bold text-gray-900">사진 설명</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ["1위 글 (5월 말 발행)", "1위", "1위", "8개"],
+                ["저희 글 (9월 11일 발행)", "2위", "75위 안에 없음", "0개"],
+                ["저희 새 글 (9월 18일 발행)", "없음", "2위", "0개"],
+                ["저희 7월 글", "측정 안 함", "9위", "4개"],
+              ].map((r) => (
+                <tr key={r[0]} className="border-t border-slate-100">
+                  <td className="px-4 py-2.5 font-semibold text-gray-800">{r[0]}</td>
+                  <td className="px-4 py-2.5 text-gray-600">{r[1]}</td>
+                  <td className="px-4 py-2.5 font-bold text-gray-900">{r[2]}</td>
+                  <td className="px-4 py-2.5 text-gray-600">{r[3]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p>
+          숫자가 말해주는 것은 두 가지입니다. 첫째, <strong>1위는 넉 달째 그대로입니다.</strong> 5월
+          말에 올라온 글이 9월 말까지 자리를 지키고 있고, 같은 블로그의 다른 글이 6위와 7위에도 함께
+          올라와 상위 12개 중 3개를 차지하고 있습니다.
+        </p>
+        <p>
+          둘째, <strong>2위 자리는 글이 바뀌었습니다.</strong> 2주 전 2위였던 저희 글은 상위 75개
+          밖으로 밀렸고, 그 사이 새로 올린 글이 같은 2위에 들어왔습니다. 두 글 모두 사진 설명이
+          없습니다. 이 구간은 한 편의 글이 오래 버티는 자리가 아니라{" "}
+          <strong>최신 글이 교대로 들어오는 자리</strong>일 수 있다는 뜻입니다. 다만 표본이 두 편이라
+          단정하지 않습니다.
+        </p>
+        <Callout>
+          <strong>그래서 다음 재측정은 조건을 바꿉니다.</strong> 사진 설명을 채운 뒤에 재는 것이
+          원래 계획이었으니, 기존 글에 설명을 넣고 <strong>새 글을 올리지 않은 상태로</strong> 2주를
+          둡니다. 새 글이 계속 올라가면 무엇 때문에 순위가 움직였는지 영영 알 수 없습니다. 다음
+          기록은 10월 중순에 이 자리에 덧붙입니다.
         </Callout>
 
         <CaseAccessRequest

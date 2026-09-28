@@ -68,7 +68,7 @@
 
 ## 네이버·플랫폼
 
-- [네이버 블로그 1위 글과 2위 글 비교](https://wiztheplanning.com/guide/naver-blog-rank-compare): 같은 지역 키워드에서 5월 글이 3일 된 글을 이긴 차이를 사진 설명·파일명·블로그 이름·경험·분량으로 대조하고, 키워드 반복의 위험과 시도해 볼 항목을 정리한 실측 비교.
+- [네이버 블로그 1위 글과 2위 글 비교](https://wiztheplanning.com/guide/naver-blog-rank-compare): 같은 지역 키워드에서 5월 글이 3일 된 글을 이긴 차이를 사진 설명·파일명·블로그 이름·경험·분량으로 대조하고, 키워드 반복의 위험과 시도해 볼 항목을 정리한 실측 비교 2026-09-28 재측정 추가: 1위 글은 넉 달째 유지, 2주 전 2위였던 글은 75위 밖, 새로 올린 글이 2위. 사진 설명은 아직 미적용이라 효과는 미검증.
 - [네이버가 AI 크롤러를 막고 있습니다](https://wiztheplanning.com/guide/naver-blocks-ai-crawlers): 네이버 robots.txt의 AI 학습·RAG 목적 접근 차단과 그 실무적 영향.
 - [네이버 플레이스 상위 노출 체크리스트](https://wiztheplanning.com/guide/naver-place-checklist): 지역 매장이 먼저 정비해야 할 플레이스 기본 10가지.
 - [네이버 광고비는 오르는데 문의는 그대로일 때](https://wiztheplanning.com/guide/why-ads-stop-working): 검색 행동 변화로 광고 효율이 떨어지는 구조 설명.
