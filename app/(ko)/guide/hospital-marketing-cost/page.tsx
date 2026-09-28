@@ -281,6 +281,12 @@ export default function Page() {
           다시 사지 않아도 됩니다.
         </p>
 
+        <p>
+          아직 개원 전이라면 순서가 다릅니다. 무엇을 언제 해야 하는지는{" "}
+          <a href="/guide/clinic-opening-marketing">병원 개원 준비: 개원 90일 전부터 첫 달까지</a>에
+          역산해 두었습니다.
+        </p>
+
         <h2>병원 광고 대행사와 계약 전에 물어볼 질문</h2>
         <ul>
           <CheckItem>이 금액에서 광고비와 대행료는 각각 얼마인가요?</CheckItem>

@@ -2,7 +2,7 @@ import type { LucideIcon } from "lucide-react"
 import {
   BookOpen, Sparkles, MapPin, Stethoscope, GitCompareArrows,
   Smile, Gem, TrendingDown, ShieldCheck, Car, ShieldAlert, SearchCheck, FileSearch, Lock, TrendingUp,
-  Wallet, Receipt, Calculator, ListChecks, MonitorSmartphone, MessageSquareQuote, Gauge, Scale, Ruler, Braces, LayoutList, GitFork,
+  Wallet, Receipt, Calculator, ListChecks, MonitorSmartphone, CalendarClock, MessageSquareQuote, Gauge, Scale, Ruler, Braces, LayoutList, GitFork,
 } from "lucide-react"
 
 // 가이드 카테고리 (표시 순서 + 스캔용 짧은 라벨/색상)
@@ -33,6 +33,16 @@ export type GuideArticle = {
 
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
+  {
+    href: "/guide/clinic-opening-marketing",
+    category: "industry",
+    icon: CalendarClock,
+    kicker: "업종별 가이드 · 병원·의원",
+    title: "병원 개원 준비, 마케팅은 언제부터: 개원 90일 전부터 첫 달까지",
+    desc: "개원일에 맞춰 마케팅을 시작하면 늦습니다. 홈페이지가 검색과 AI에 반영되는 데 시간이 걸리기 때문입니다. 90일 전 이름·도메인부터 60일 전 홈페이지, 심의 일정, 개원 첫 달 기준선 측정까지 역산해 정리했습니다.",
+    date: "2026. 9. 28",
+    related: ["/guide/hospital-marketing-cost", "/guide/check-hospital-ai-visibility", "/guide/medical-geo"],
+  },
   {
     href: "/guide/elevator-tv-ad-cost",
     category: "playbook",
