@@ -4,6 +4,7 @@ import Link from "next/link"
 import { motion, type Variants } from "framer-motion"
 import { ChevronRight, ArrowUpRight, Film } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import BrandAskBox from "@/components/agency/BrandAskBox"
 
 const fadeIn: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -29,22 +30,22 @@ const staggerContainer = {
  */
 const PROOF_ROWS = [
   {
+    label: "정형외과 · ChatGPT 언급률",
+    metric: "17% → 93% → 83%",
+    detail: "계약 전 · 39일 뒤 · 2주 뒤 재측정",
+    href: "/guide/case-orthopedic-chatgpt",
+  },
+  {
     label: "펜션 · 메타 릴스 광고 24일",
-    metric: "링크 클릭 26,456회",
-    detail: "지출 1,313,861원 · 클릭당 50원",
+    metric: "클릭당 50원",
+    detail: "링크 클릭 26,456회 · 지출 1,313,861원",
     href: "/guide/case-pension-direct-booking",
   },
   {
-    label: "자사 페이지 · '병원 GEO 대행'",
-    metric: "네이버 AI 브리핑 1위",
-    detail: "구글 검색 2위 · ChatGPT는 미노출",
-    href: "/guide/ranked-but-not-in-chatgpt",
-  },
-  {
-    label: "같은 글, 엔진별 크롤 시점",
-    metric: "구글 3일 / 빙 8일",
-    detail: "IndexNow 통보 후 실측",
-    href: "/guide/bing-index-bottleneck",
+    label: "치과 홈페이지 · 3쪽 vs 167쪽",
+    metric: "3쪽이 이겼습니다",
+    detail: "분량이 아니라 구조의 문제였습니다",
+    href: "/guide/case-dental-llms-factsheet",
   },
 ]
 
@@ -85,10 +86,17 @@ function ProofStrip() {
   return (
     <div className="mt-10 border-t border-white/[0.08] pt-8 lg:mt-14">
       <div className="mb-5 flex flex-wrap items-baseline justify-between gap-2">
-        <span className="text-xs font-semibold tracking-wide text-slate-300">실측 기록</span>
-        <span className="text-[11px] text-slate-500">
-          보정·반올림하지 않은 원본 화면 값입니다 · 2026.08
+        <span className="text-xs font-semibold tracking-wide text-slate-300">
+          실측 기록: 내려간 숫자도 그대로 적습니다
         </span>
+        <Link
+          href="/theater"
+          className="group flex items-center gap-1.5 text-[11px] text-slate-500 transition-colors hover:text-[#00e5a0]"
+        >
+          <Film className="h-3 w-3" />
+          배경 영상은 위즈 극장 5편입니다
+          <ArrowUpRight className="h-3 w-3 transition-colors group-hover:text-[#00e5a0]" />
+        </Link>
       </div>
       <div className="grid gap-px overflow-hidden rounded-lg border border-white/10 bg-white/10 sm:grid-cols-3">
         {PROOF_ROWS.map((row) => (
@@ -129,7 +137,7 @@ export default function AgencyHero() {
           >
             <motion.div variants={fadeIn}>
               <span className="text-[clamp(0.7rem,0.85vw,0.9rem)] font-bold tracking-[0.25em] text-[#00e5a0]">
-                GEO · SEO · PERFORMANCE ADS · CONTENT
+                검색 · AI · 콘텐츠 · 광고를 한 팀에서
               </span>
             </motion.div>
 
@@ -137,40 +145,37 @@ export default function AgencyHero() {
               variants={fadeIn}
               className="mt-4 text-[clamp(2.25rem,4.6vw,4.5rem)] md:mt-6 font-extrabold leading-[1.12] tracking-tight text-white"
             >
-              AI가 추천하는
+              제안서보다
               <br />
-              브랜드를 만듭니다
+              질문이 먼저입니다
             </motion.h1>
 
             <motion.p
               variants={fadeIn}
               className="mt-5 max-w-[600px] text-[clamp(1rem,1.3vw,1.25rem)] leading-relaxed text-slate-400"
             >
-              ChatGPT·퍼플렉시티·네이버 AI가 당신의 브랜드를 인용하게 만드는 GEO부터, 기술 SEO·메타/구글
-              퍼포먼스 광고·자체 제작 콘텐츠·홈페이지까지.{" "}
-              <span className="font-semibold text-slate-200">
-                2016년부터 7,000여 광고주와 함께한 풀서비스 에이전시
-              </span>
-              , 위즈더플래닝입니다.
+              위즈더플래닝은 브랜드가 검색과 AI에서 지금 어떻게 불리는지 먼저 재고,{" "}
+              <span className="font-semibold text-slate-200">같은 질문으로 매주 다시 잽니다.</span>{" "}
+              기획·촬영·편집·개발·광고를 외주 없이 안에서 하기 때문에 고칠 곳은 그날 고칩니다.
             </motion.p>
 
             <motion.div variants={fadeIn} className="mt-7 flex flex-col gap-3 min-[400px]:flex-row md:mt-9">
-              <Link href="/#contact">
+              <Link href="/diagnosis">
                 <Button
                   size="lg"
                   className="gap-1 rounded-md bg-[#00e5a0] px-8 py-6 text-lg font-bold text-[#070b14] transition-colors duration-200 hover:bg-[#3cf0bb]"
                 >
-                  무료 AI 검색 진단
+                  우리가 물어볼 질문 보기
                   <ChevronRight className="h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="/portfolio">
+              <Link href="/how-we-measure">
                 <Button
                   size="lg"
                   variant="outline"
                   className="rounded-md border-slate-700 bg-transparent px-8 py-6 text-lg text-slate-300 transition-colors duration-200 hover:border-slate-500 hover:bg-white/5 hover:text-white"
                 >
-                  포트폴리오 보기
+                  측정 기록 전체
                 </Button>
               </Link>
             </motion.div>
@@ -184,34 +189,18 @@ export default function AgencyHero() {
               <span className="h-1 w-1 rounded-full bg-slate-700" />
               <span>7,000+ 광고주</span>
               <span className="h-1 w-1 rounded-full bg-slate-700" />
-              <span className="text-[#00e5a0]/80">외주 없는 자체 제작팀</span>
+              <span className="text-[#00e5a0]/80">기획·촬영·편집·개발 전부 사내</span>
             </motion.div>
           </motion.div>
 
-          {/* 우측: 배경 영상이 무엇인지 알려주는 캡션 (영상 자체는 섹션 배경) */}
+          {/* 우측: 상담 첫 5분 재현 — 브랜드 이름으로 측정 질문을 즉석 생성 */}
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
             className="flex justify-start lg:justify-end"
           >
-            <Link
-              href="/theater"
-              className="group max-w-sm rounded-lg border border-white/15 bg-[#070b14]/70 p-5 backdrop-blur-sm transition-colors hover:border-[#00e5a0]/40 hover:bg-[#070b14]/85"
-            >
-              <span className="flex items-center gap-2 text-xs font-semibold tracking-wide text-[#00e5a0]">
-                <Film className="h-3.5 w-3.5" />
-                위즈 극장
-              </span>
-              <p className="mt-2 text-sm leading-relaxed text-slate-300">
-                문 앞을 서성이는 저 부엉이가 <strong className="text-white">위즈</strong>입니다. AI가
-                웹을 읽으러 다닐 때 실제로 겪는 일을 20초로 담았습니다.
-              </p>
-              <span className="mt-3 flex items-center gap-1 text-xs font-semibold text-slate-400 transition-colors group-hover:text-[#00e5a0]">
-                5편 전체 보기
-                <ArrowUpRight className="h-3.5 w-3.5" />
-              </span>
-            </Link>
+            <BrandAskBox />
           </motion.div>
         </div>
 

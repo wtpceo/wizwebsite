@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { motion, type Variants } from "framer-motion"
 import { CheckCircle2, ChevronRight, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -53,6 +53,13 @@ export default function GeneralApplyForm() {
     budget: "",
     source: "",
   })
+
+  // 히어로 입력창(BrandAskBox)에서 ?brand=로 넘어온 상호를 채운다.
+  // useSearchParams 대신 마운트 후 location을 읽어 정적 렌더링을 유지한다.
+  useEffect(() => {
+    const brand = new URLSearchParams(window.location.search).get("brand")?.trim()
+    if (brand) setForm((p) => (p.store ? p : { ...p, store: brand.slice(0, 30) }))
+  }, [])
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target

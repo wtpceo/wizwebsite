@@ -6,10 +6,10 @@ import { BASE_METADATA, OG_TIMESTAMP as timestamp } from '@/lib/site-metadata'
 export const metadata: Metadata = {
   ...BASE_METADATA,
   title: {
-    default: '위즈더플래닝 | AI 검색 최적화(GEO) 전문 에이전시',
+    default: '위즈더플래닝 | 검색·AI 마케팅 에이전시 (GEO·SEO·광고·제작)',
     template: '%s | 위즈더플래닝',
   },
-  description: 'ChatGPT·퍼플렉시티·네이버 AI가 우리 브랜드를 추천하게 만드는 AI 검색 최적화(GEO) 전문 에이전시. SEO·메타/구글 광고·홈페이지 제작을 한 팀에서. 2016년부터 7,000여 광고주와 함께합니다.',
+  description: '검색과 AI에서 브랜드가 찾아지게 만듭니다. ChatGPT·퍼플렉시티·네이버 AI 노출을 매주 같은 기준으로 측정하고, 홈페이지·콘텐츠·광고를 외주 없이 한 팀에서 만듭니다. 2016년부터 7,000여 광고주와 함께합니다.',
   keywords: [
     'AI 검색 최적화',
     'GEO',
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: '위즈더플래닝 | AI 검색 최적화(GEO) 전문 에이전시',
-    description: 'AI 검색 최적화(GEO) 전문 풀서비스 에이전시. ChatGPT·퍼플렉시티·네이버 AI가 브랜드를 추천하게 만드는 GEO부터 SEO, 메타·구글 광고, 자체 촬영·편집 제작팀, 홈페이지 제작까지, 2016년부터 7,000여 광고주와 함께.',
+    title: '위즈더플래닝 | 검색·AI 마케팅 에이전시 (GEO·SEO·광고·제작)',
+    description: '검색·AI 마케팅 에이전시. AI 검색 최적화(GEO)·SEO·메타/구글 광고·자체 촬영 제작·홈페이지 제작을 외주 없이 한 팀에서. 매주 같은 기준으로 다시 재고 기록을 공개합니다.',
     url: 'https://wiztheplanning.com',
     siteName: '위즈더플래닝',
     images: [
@@ -57,8 +57,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '위즈더플래닝 | AI 검색 최적화(GEO) 전문 에이전시',
-    description: 'AI 검색 최적화(GEO) 전문 풀서비스 에이전시. GEO·SEO·메타/구글 광고·콘텐츠 제작·홈페이지 제작을 한 팀에서. 2016년부터 7,000여 광고주와 함께.',
+    title: '위즈더플래닝 | 검색·AI 마케팅 에이전시 (GEO·SEO·광고·제작)',
+    description: '검색·AI 마케팅 에이전시. AI 검색 최적화(GEO)·SEO·메타/구글 광고·자체 촬영 제작·홈페이지 제작을 외주 없이 한 팀에서. 매주 같은 기준으로 다시 재고 기록을 공개합니다.',
     images: [`/og-image.jpg?v=${timestamp}`],
   },
 }
