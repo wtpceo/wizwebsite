@@ -83,6 +83,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "네이버·제미나이엔 뜨는데 ChatGPT만 모르던 정형외과: 언급률 17%에서 93%까지",
     desc: "계약 전 네이버 AI·제미나이 질문 10개 모두에 나왔지만 ChatGPT는 4개뿐이었습니다. ChatGPT는 병원의 사실을 알면서 이름과 잇지 못하고 있었습니다. 39일 뒤 같은 방법으로 30번 다시 재자 언급률이 17%에서 93%로, 병원 사이트 인용이 0에서 16번으로 늘었습니다.",
     date: "2026. 9. 14",
+    updated: "2026. 9. 29",
     related: ["/guide/case-dental-llms-factsheet", "/guide/ai-engines-cite-differently", "/guide/check-hospital-ai-visibility"],
   },
   {

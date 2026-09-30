@@ -53,6 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/business/contact", priority: 0.7, changeFrequency: "monthly", lastmod: "2026-09-20" },
     { path: "/business/insights", priority: 0.8, changeFrequency: "weekly", lastmod: "2026-09-20" },
     { path: "/business/insights/marketing-agency-rfp", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-09-20" },
+    { path: "/business/insights/agency-selection-criteria", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-09-30" },
     { path: "/strategy/1", priority: 0.8, changeFrequency: "monthly" },
     { path: "/strategy/2", priority: 0.8, changeFrequency: "monthly" },
     { path: "/strategy/3", priority: 0.8, changeFrequency: "monthly" },

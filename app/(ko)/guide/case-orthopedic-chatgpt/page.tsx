@@ -26,7 +26,7 @@ const jsonLd = {
   headline: TITLE,
   description: DESC,
   datePublished: DATE,
-  dateModified: DATE,
+  dateModified: "2026-09-29",
   inLanguage: "ko",
   author: { "@id": "https://wiztheplanning.com/#organization" },
   publisher: { "@id": "https://wiztheplanning.com/#organization" },
@@ -110,7 +110,7 @@ export default function Page() {
         kicker="정형외과 사례 · 자체 실측"
         title={TITLE}
         description={DESC}
-        date="2026년 9월 14일"
+        date="2026년 9월 14일 (9월 29일 재측정 추가)"
       >
         <p>
           <strong>
@@ -257,6 +257,54 @@ export default function Page() {
         <p>
           인용이 늘어나면 다음 일은 오정보 관리입니다. 저희는 <M /> 순서로 대응합니다. 병원이 직접 확인하는 방법은{" "}
           <a href="/guide/check-hospital-ai-visibility">우리 병원이 ChatGPT에 나오는지 5분 만에 확인하는 법</a>에 있습니다.
+        </p>
+
+        <h2>2주 뒤 다시 쟀습니다: 9월 28일</h2>
+        <p>
+          &ldquo;유지되는지는 매주 같은 기준으로 계속 잰다&rdquo;고 적었으니 결과도 적습니다. 9월
+          28일에 같은 모델, 같은 질문 10개, 같은 3회 반복으로 다시 쟀습니다.
+        </p>
+        <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200">
+          <table className="w-full min-w-[560px] text-sm">
+            <thead>
+              <tr className="bg-slate-50 text-left">
+                <th className="px-4 py-3 font-bold text-gray-900">ChatGPT</th>
+                <th className="px-4 py-3 font-bold text-gray-900">8월 6일 (계약 전)</th>
+                <th className="px-4 py-3 font-bold text-gray-900">9월 14일</th>
+                <th className="px-4 py-3 font-bold text-gray-900">9월 28일</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ["언급된 질문", "4/10", "10/10", "9/10"],
+                ["언급률", "17% (5/30)", "93% (28/30)", "83% (25/30)"],
+                ["병원 사이트 인용", "0/30", "16/30", "21/30"],
+              ].map((r) => (
+                <tr key={r[0]} className="border-t border-slate-100">
+                  <td className="px-4 py-2.5 font-semibold text-gray-800">{r[0]}</td>
+                  <td className="px-4 py-2.5 text-gray-600">{r[1]}</td>
+                  <td className="px-4 py-2.5 text-gray-600">{r[2]}</td>
+                  <td className="px-4 py-2.5 font-bold text-gray-900">{r[3]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p>
+          언급률은 <strong>93%에서 83%로 10%p 내렸습니다.</strong> 좋아진 숫자만 적을 생각이었으면
+          이 회차는 빼면 그만이지만, 그러면 앞의 93%도 믿을 수 없는 숫자가 됩니다. 같은 방법으로
+          반복해 재는 것이 이 기록의 전부입니다.
+        </p>
+        <p>
+          대신 <strong>병원 사이트가 출처로 달린 답변은 16번에서 21번으로 늘었습니다.</strong> AI가
+          병원을 말할 때 근거로 병원 홈페이지를 더 자주 든다는 뜻이라, 저희는 이 숫자를 언급률보다
+          중요하게 봅니다.
+        </p>
+        <p>
+          떨어진 질문은 하나입니다. <strong>물리치료 비용을 묻는 질문에서는 3회 모두 나오지
+          않았습니다.</strong> 병원 사이트에 비용 정보가 없기 때문입니다. 의료광고 기준을 생각하면
+          가격을 적지 않는 선택이 타당하므로, 이 질문은 고칠 대상이라기보다 우리 자리가 아니라고
+          보는 편이 맞습니다. 진료시간이 여전히 엇갈려 답변되는 것은 남은 숙제입니다.
         </p>
 
         <h2>이 사례의 한계</h2>

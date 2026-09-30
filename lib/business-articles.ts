@@ -13,6 +13,14 @@ export type BizArticle = {
 
 export const BUSINESS_ARTICLES: BizArticle[] = [
   {
+    href: "/business/insights/agency-selection-criteria",
+    kicker: "대행사 선정",
+    title: "광고대행사 선정 기준 6가지와 평가표: 계약서에서 확인할 것까지",
+    desc: "제안서를 점수로 바꾸는 여섯 축과 배점 예시, 레퍼런스를 재현 가능성으로 확인하는 법, 계약서에서 확인할 여섯 가지, 대행사를 바꿀 때 챙길 것까지 제안을 받는 쪽에서 정리했습니다.",
+    date: "2026. 9. 30",
+    cover: "/covers/business-agency-selection.jpg",
+  },
+  {
     href: "/business/insights/marketing-agency-rfp",
     kicker: "대행사 선정",
     title: "마케팅 대행사 RFP에 넣어야 할 12가지: 제안을 받는 쪽에서 본 기준",
