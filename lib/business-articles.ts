@@ -13,6 +13,14 @@ export type BizArticle = {
 
 export const BUSINESS_ARTICLES: BizArticle[] = [
   {
+    href: "/business/insights/marketing-agency-fee",
+    kicker: "비용 구조",
+    title: "마케팅 대행사 수수료 구조 3가지: 어디서 손해가 나는가",
+    desc: "정액·광고비 연동·성과형 셋의 차이와 구조마다 광고주가 손해 보는 지점, 계약서에서 확인할 여섯 가지, 그리고 저희가 받는 방식과 온보딩비를 따로 두는 이유를 공개합니다.",
+    date: "2026. 10. 10",
+    cover: "/covers/business-fee.jpg",
+  },
+  {
     href: "/business/insights/agency-selection-criteria",
     kicker: "대행사 선정",
     title: "광고대행사 선정 기준 6가지와 평가표: 계약서에서 확인할 것까지",
