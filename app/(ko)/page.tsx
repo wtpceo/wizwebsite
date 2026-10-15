@@ -1,20 +1,21 @@
-import Header from "@/components/sections/Header"
-import Footer from "@/components/Footer"
-import AgencyHero from "@/components/agency/AgencyHero"
-import StatsBand from "@/components/agency/StatsBand"
-import MeasureShowcase from "@/components/agency/MeasureShowcase"
-import CoreServices from "@/components/agency/CoreServices"
-import ProductionTeam from "@/components/agency/ProductionTeam"
-import PortfolioShowcase from "@/components/agency/PortfolioShowcase"
-import MatzipTown from "@/components/agency/MatzipTown"
-import GuidePreview from "@/components/agency/GuidePreview"
-import TestimonialsSection from "@/components/sections/TestimonialsSection"
-import FaqSection from "@/components/sections/FaqSection"
-import ContactSection from "@/components/sections/ContactSection"
-import HowWeReport from "@/components/sections/HowWeReport"
+import "@/styles/rebrand.css"
+import SiteHeader from "@/components/rebrand/SiteHeader"
+import {
+  Hero,
+  Stage,
+  Report,
+  Runs,
+  Clients,
+  Work,
+  Ax,
+  Family,
+  Faq,
+  Close,
+  SiteFooter,
+} from "@/components/rebrand/HomeSections"
 import { FAQ_ITEMS } from "@/lib/faq-data"
 
-// FAQPage 구조화 데이터 — 검색엔진·AI가 질문/답변을 그대로 인용할 수 있게 서버 렌더링으로 주입
+// FAQPage 구조화 데이터. 화면의 '자주 받는 질문'과 같은 내용을 서버 렌더링으로 넣는다
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -28,27 +29,28 @@ const faqJsonLd = {
   })),
 }
 
+// 2026-10 리브랜딩 홈. 컨셉: 매체가 아니라 지금 퍼널 단계에서 시작한다
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <div className="rb">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <Header />
-      <AgencyHero />
-      <StatsBand />
-      <MeasureShowcase />
-      <CoreServices />
-      <ProductionTeam />
-      <PortfolioShowcase />
-      <MatzipTown />
-      <TestimonialsSection />
-      <FaqSection />
-      <GuidePreview />
-      <HowWeReport />
-      <ContactSection />
-      <Footer />
-    </main>
+      <SiteHeader />
+      <main>
+        <Hero />
+        <Stage />
+        <Report />
+        <Runs />
+        <Work />
+        <Clients />
+        <Ax />
+        <Family />
+        <Faq />
+        <Close />
+      </main>
+      <SiteFooter />
+    </div>
   )
 }

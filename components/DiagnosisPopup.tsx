@@ -23,6 +23,8 @@ export default function DiagnosisPopup() {
     if (pathname?.startsWith("/diagnosis")) return
     // 제휴 전용 랜딩(/luke)은 자체 CTA로 완결 — 전역 팝업이 유입 추적을 깨뜨리지 않게 제외
     if (pathname?.startsWith("/luke")) return
+    // 리브랜딩 홈(2026-10)과 관계사 페이지는 첫 화면이 단계 진단이라 팝업이 같은 일을 두 번 한다. 대표 검토 사항
+    if (pathname === "/" || pathname?.startsWith("/family")) return
     // 외국어(중국어/베트남어) 페이지에서는 한국어 팝업 노출 안 함
     if (pathname?.startsWith("/zh") || pathname?.startsWith("/vi") || pathname === "/en" || pathname?.startsWith("/en/")) return
 

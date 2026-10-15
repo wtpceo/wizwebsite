@@ -49,6 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/medical-geo-agency", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-09-08" },
     { path: "/site-check", priority: 0.9, changeFrequency: "monthly" },
     { path: "/how-we-measure", priority: 0.8, changeFrequency: "monthly", lastmod: "2026-09-09" },
+    { path: "/family", priority: 0.5, changeFrequency: "monthly", lastmod: "2026-10-16" },
     { path: "/business", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-09-20" },
     { path: "/business/contact", priority: 0.7, changeFrequency: "monthly", lastmod: "2026-09-20" },
     { path: "/business/insights", priority: 0.8, changeFrequency: "weekly", lastmod: "2026-09-20" },

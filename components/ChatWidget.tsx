@@ -22,6 +22,24 @@ export default function ChatWidget() {
   const locale = pathname?.startsWith("/zh") ? "zh" : pathname?.startsWith("/vi") ? "vi" : pathname === "/en" || pathname?.startsWith("/en/") ? "en" : "ko"
   const label = CHAT_LABELS[locale]
 
+  // 리브랜딩 페이지(2026-10)에서는 새 색 체계에 맞춘 조용한 버튼. 펄스 없음
+  if (pathname === "/" || pathname?.startsWith("/family")) {
+    return (
+      <a
+        href={KAKAO_CHAT_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => trackChatClick()}
+        aria-label={label.aria}
+        className="fixed bottom-5 right-5 z-40 flex items-center gap-2 bg-[#111214] px-4 py-3 text-sm font-medium text-[#f2f3f1] transition-colors hover:bg-[#0055ff] sm:bottom-6 sm:right-6"
+        style={{ fontFamily: "SUIT, sans-serif", borderRadius: 2 }}
+      >
+        <MessageCircle className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
+        카카오톡 상담
+      </a>
+    )
+  }
+
   return (
     <a
       href={KAKAO_CHAT_URL}
