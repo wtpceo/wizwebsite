@@ -3,10 +3,10 @@ import SiteHeader from "@/components/rebrand/SiteHeader"
 import {
   Hero,
   Stage,
-  Report,
-  Runs,
-  Clients,
+  Proof,
+  Case,
   Work,
+  Who,
   Ax,
   Family,
   Faq,
@@ -37,14 +37,14 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
-      <SiteHeader />
+      <SiteHeader tone="blue" />
       <main>
         <Hero />
         <Stage />
-        <Report />
-        <Runs />
+        <Proof />
+        <Case />
         <Work />
-        <Clients />
+        <Who />
         <Ax />
         <Family />
         <Faq />

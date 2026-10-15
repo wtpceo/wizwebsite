@@ -23,7 +23,7 @@ export default function FamilyPage() {
       <main>
         <section className="rb-page-hero">
           <div className="rb-wrap">
-            <p className="rb-name">관계사 플랫폼</p>
+            <p className="rb-small">관계사 플랫폼</p>
             <h1>대행으로 배운 일을 소프트웨어로 만들었습니다</h1>
             <p className="rb-lead">
               매장마다 같은 일을 사람이 반복하던 부분을 서비스로 옮겼습니다. 두 서비스는 관계사 (주)위플이 운영합니다.
