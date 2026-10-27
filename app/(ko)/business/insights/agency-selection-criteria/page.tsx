@@ -127,7 +127,9 @@ export default function Page() {
         <p>
           요청서에 무엇을 적어야 하는지는{" "}
           <a href="/business/insights/marketing-agency-rfp">마케팅 대행사 RFP에 넣어야 할 12가지</a>에
-          정리했습니다. 이 글은 그다음 단계, 받은 제안서를 어떻게 점수로 바꾸는지입니다.
+          정리했습니다. 이 글은 그다음 단계, 받은 제안서를 어떻게 점수로 바꾸는지입니다. 대행사를 쓸지
+          담당자를 뽑을지 아직 정하지 않았다면{" "}
+          <a href="/business/insights/inhouse-vs-agency">인하우스 vs 대행사 손익 계산</a>부터 보시는 편이 낫습니다.
         </p>
 
         <h2>대행사 평가표: 여섯 축과 배점 예시</h2>

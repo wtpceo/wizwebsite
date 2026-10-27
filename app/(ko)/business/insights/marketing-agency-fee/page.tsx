@@ -228,6 +228,11 @@ export default function Page() {
           <a href="/business/insights/marketing-agency-rfp">마케팅 대행사 RFP에 넣어야 할 12가지</a>를 먼저
           보시는 편이 낫습니다.
         </p>
+        <p>
+          대행을 쓸지 담당자를 뽑을지부터 정하는 단계라면{" "}
+          <a href="/business/insights/inhouse-vs-agency">인하우스 vs 대행사 비용 계산과 업무 나누는 기준</a>을 먼저
+          보세요.
+        </p>
 
         <h2>자주 받는 질문</h2>
         <dl className="mt-6 divide-y divide-slate-200 rounded-xl border border-slate-200">

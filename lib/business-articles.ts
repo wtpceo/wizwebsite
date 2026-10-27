@@ -13,6 +13,14 @@ export type BizArticle = {
 
 export const BUSINESS_ARTICLES: BizArticle[] = [
   {
+    href: "/business/insights/inhouse-vs-agency",
+    kicker: "조직 구성",
+    title: "인하우스 vs 대행사: 마케터 1명 실제 비용과 업무를 나누는 기준",
+    desc: "마케터 한 명을 뽑으면 회사가 실제로 내는 돈을 2026년 4대보험 요율로 계산하고, 안에 둘 일과 밖에 맡길 일을 업무별로 나눴습니다. 첫 담당자를 누구로 뽑을지와 대행사를 써도 회사가 쥐고 있어야 할 것까지 정리했습니다.",
+    date: "2026. 10. 27",
+    cover: "/covers/business-inhouse.jpg",
+  },
+  {
     href: "/business/insights/marketing-agency-fee",
     kicker: "비용 구조",
     title: "마케팅 대행사 수수료 구조 3가지: 어디서 손해가 나는가",

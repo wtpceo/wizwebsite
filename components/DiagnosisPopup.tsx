@@ -23,6 +23,8 @@ export default function DiagnosisPopup() {
     if (pathname?.startsWith("/diagnosis")) return
     // 제휴 전용 랜딩(/luke)은 자체 CTA로 완결 — 전역 팝업이 유입 추적을 깨뜨리지 않게 제외
     if (pathname?.startsWith("/luke")) return
+    // 기업 경로(/business)는 자영업·병원 홍보를 띄우지 않는다 (CLAUDE.md 기업 경로 정책: 교차 홍보 금지)
+    if (pathname?.startsWith("/business")) return
     // 외국어(중국어/베트남어) 페이지에서는 한국어 팝업 노출 안 함
     if (pathname?.startsWith("/zh") || pathname?.startsWith("/vi") || pathname === "/en" || pathname?.startsWith("/en/")) return
 
