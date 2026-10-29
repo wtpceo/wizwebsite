@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import GuideArticle, { CheckItem, Callout, MEDICAL_CTA } from "@/components/guide/GuideArticle"
 
 const TITLE = "우리 병원이 ChatGPT에 나오는지 5분 만에 확인하는 법 (원장님 셀프 체크)"
 const DESC =
@@ -76,6 +76,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <GuideArticle
         href="/guide/check-hospital-ai-visibility"
+        cta={MEDICAL_CTA}
         kicker="병원 GEO 셀프 체크"
         title={TITLE}
         description={DESC}

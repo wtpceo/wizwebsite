@@ -33,7 +33,14 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <GuideArticle href="/guide/skincare-geo" kicker="SKINCARE GEO" title={TITLE} description={DESC} date="2026년 7월 9일 발행 · 2026년 9월 8일 갱신">
+      <GuideArticle href="/guide/skincare-geo"
+        cta={{
+          title: "우리 매장, AI에게 물어보면 나올까요?",
+          body: "피부관리·에스테틱 매장은 업종 무관 무료 진단으로, 피부과 같은 의원은 병원 전용 무료 진단으로 신청해 주세요. 두 진단 모두 조건 없이 무료입니다.",
+          href: "/diagnosis",
+          label: "무료 AI 검색 진단 신청",
+          sub: { href: "/medical-diagnosis", label: "병원·의원은 병원 전용 진단으로" },
+        }} kicker="SKINCARE GEO" title={TITLE} description={DESC} date="2026년 7월 9일 발행 · 2026년 9월 8일 갱신">
         <p>
           결론부터 말씀드리겠습니다. 피부관리샵·에스테틱은 <strong>AI 검색에서 "홈페이지"가 승부처</strong>인
           업종입니다. 같은 GEO(생성형 검색 최적화)라도 업종마다 AI가 근거로 삼는 출처가 다른데, 에스테틱은
@@ -83,6 +90,10 @@ export default function Page() {
           그래서 홈페이지는 <strong>서버에서 완성된 HTML을 내려주는 방식(SSR/SSG)</strong>으로 만들고, 시술
           설명·가격·FAQ 같은 핵심 콘텐츠는 <strong>실제 텍스트로</strong> 배치해야 합니다. 새로 제작하거나
           개편할 때 제작사에 "본문이 view-source에 텍스트로 보이게 해달라"고 못 박는 것만으로도 절반은 해결됩니다.
+        </p>
+
+        <p>
+          우리 매장 홈페이지가 AI에게 읽히고 있는지는 <a href="/diagnosis">무료 AI 검색 진단</a>으로 확인할 수 있습니다. ChatGPT·네이버 AI·제미나이가 우리 매장을 추천하는지, 잘못 안내하는 정보는 없는지 리포트로 보내 드립니다. 피부과처럼 의료기관이라면 <a href="/medical-diagnosis">병원 무료 AI 검색 진단</a>으로 신청해 주세요.
         </p>
 
         <h2>그럼 홈페이지를 어떻게 구성해야 하나요?</h2>
@@ -185,6 +196,9 @@ export default function Page() {
           상태인지 궁금하시다면: 위즈더플래닝의 <strong>무료 AI 검색 진단</strong>으로 엔진별 노출 현황과
           홈페이지 인용 준비 상태를 함께 확인해 보세요.
         </Callout>
+        <p>
+          어디서부터 손댈지 모르겠다면 지금 상태부터 재 보는 게 빠릅니다. 피부관리·에스테틱 매장은 <a href="/diagnosis">무료 AI 검색 진단</a>에서, 피부과 같은 의원은 <a href="/medical-diagnosis">병원 무료 AI 검색 진단</a>에서 신청하시면 됩니다.
+        </p>
       </GuideArticle>
     </>
   )

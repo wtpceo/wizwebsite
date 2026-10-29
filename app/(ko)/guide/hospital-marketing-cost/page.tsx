@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import GuideArticle, { CheckItem, Callout, MEDICAL_CTA } from "@/components/guide/GuideArticle"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 → 현재 35자
 const TITLE = "병원 마케팅 비용: 견적서를 광고비·대행료·제작비로 나눠 보는 법"
@@ -98,6 +98,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <GuideArticle
         href="/guide/hospital-marketing-cost"
+        cta={MEDICAL_CTA}
         kicker="마케팅 고민 진단 · 병원·의원"
         title={TITLE}
         description={DESC}
@@ -231,6 +232,10 @@ export default function Page() {
           적어 두었습니다.
         </p>
 
+        <p>
+          성과를 세려면 시작 숫자가 먼저 있어야 합니다. <a href="/medical-diagnosis">병원 무료 AI 검색 진단</a>을 받아 두시면 지금 AI 답변에서 우리 병원 이름이 얼마나 불리는지가 기준선으로 남습니다. 대행사 견적을 비교하실 때도 이 숫자를 옆에 두고 보시면 됩니다.
+        </p>
+
         <h2>의료광고 심의는 비용이 아니라 일정입니다</h2>
         <p>
           병원 견적서에 잘 안 적히지만 실제로는 돈이 되는 항목입니다. 의료법 제57조와 시행령 제24조에
@@ -300,8 +305,9 @@ export default function Page() {
         <p>
           마지막 질문에 자료로 답하는 곳이 많지 않습니다. 저희는 병원·의원에 한해 조건 없이 무료로
           진단해 드립니다. 네이버 AI·ChatGPT·제미나이에 환자 질문을 반복해 물어 언급 비율과 잘못된
-          정보를 정리해 보내드리고, 진단만 받고 마치셔도 됩니다.{" "}
-          <a href="/medical-geo-agency">병원 GEO 대행 페이지</a>에서 무엇을 하는지 먼저 보셔도 좋습니다.
+          정보를 정리해 보내드리고, 진단만 받고 마치셔도 됩니다. 신청은{" "}
+          <a href="/medical-diagnosis">병원 무료 AI 검색 진단</a>에서 하시면 되고, 대행으로 이어지면 무엇을 하는지는{" "}
+          <a href="/medical-geo-agency">병원 GEO 대행 안내</a>에 적어 두었습니다.
         </p>
 
         <h2>자주 묻는 질문</h2>

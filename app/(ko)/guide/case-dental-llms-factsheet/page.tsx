@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import GuideArticle, { CheckItem, Callout, MEDICAL_CTA } from "@/components/guide/GuideArticle"
 import CaseAccessRequest from "@/components/guide/CaseAccessRequest"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 유지 → 현재 43자
@@ -76,6 +76,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <GuideArticle
         href="/guide/case-dental-llms-factsheet"
+        cta={MEDICAL_CTA}
         kicker="치과 사례 · 홈페이지 제작 + GEO"
         title={TITLE}
         description={DESC}

@@ -184,6 +184,10 @@ export default function Page() {
             >
               무료 사이트 진단 <ArrowRight className="h-4 w-4" />
             </Link>
+            {/* /site-check는 연락처가 남지 않아 리드로 잡히지 않는다. 연락처가 남는 진단으로 한 줄 더 보낸다 (2026-10-29) */}
+            <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-slate-300">
+              홈페이지에 글을 올렸는데 ChatGPT에 안 나온다면 <Link href="/diagnosis" className="font-semibold text-[#00e5a0] underline underline-offset-4">무료 AI 검색 진단</Link>으로 지금 AI 답변에 어떻게 나오는지부터 확인해 보세요.
+            </p>
           </div>
         </section>
       </main>

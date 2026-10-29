@@ -5,6 +5,31 @@ import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
 import RelatedArticles from "@/components/guide/RelatedArticles"
 
+type GuideCta = {
+  title: string
+  body: string
+  href: string
+  label: string
+  /** 버튼 아래 작은 링크 (예: 매장 글에서 병원·의원만 병원 진단으로 보낼 때) */
+  sub?: { href: string; label: string }
+}
+
+// 하단 박스 기본값. 업종 무관 글은 지금처럼 일반 상담으로 보낸다
+const DEFAULT_CTA: GuideCta = {
+  title: "우리 가게, AI에게 물어보면 나올까요?",
+  body: "무료 진단 리포트로 우리 매장의 AI 검색 현황을 확인해 보세요.",
+  href: "/#contact",
+  label: "AI 검색 무료 진단 신청",
+}
+
+// 병원 주제 글의 하단 박스. '가게'·일반 상담 대신 병원 진단(/medical-diagnosis)으로 보낸다 (작가 원고 2026-10-29)
+export const MEDICAL_CTA: GuideCta = {
+  title: "우리 병원, AI에게 물어보면 나올까요?",
+  body: "병원·의원이면 조건 없이 무료로 진단해 드립니다. 네이버 AI·ChatGPT·제미나이에 환자가 쓸 법한 질문을 물어 언급 비율, 잘못 안내되는 정보, 경쟁 병원과의 차이를 리포트로 보내 드리고, 진단만 받고 마치셔도 됩니다.",
+  href: "/medical-diagnosis",
+  label: "병원 무료 AI 검색 진단 신청",
+}
+
 // 가이드 아티클 공용 레이아웃 (서버 컴포넌트 — 정적 렌더링이라 크롤러/AI가 그대로 읽음)
 export default function GuideArticle({
   kicker = "GUIDE",
@@ -12,6 +37,7 @@ export default function GuideArticle({
   description,
   date,
   href,
+  cta = DEFAULT_CTA,
   children,
 }: {
   kicker?: string
@@ -20,6 +46,8 @@ export default function GuideArticle({
   date: string
   /** 이 글의 경로 — "이어서 읽기" 추천에 사용 */
   href?: string
+  /** 하단 박스 문구와 행선지. 병원 글은 MEDICAL_CTA */
+  cta?: GuideCta
   children: React.ReactNode
 }) {
   return (
@@ -58,18 +86,21 @@ export default function GuideArticle({
         {/* CTA */}
         <section className="container mx-auto max-w-3xl px-4 pb-20 pt-10 md:px-6">
           <div className="rounded-3xl bg-gradient-to-r from-[#0b1220] to-[#101b2e] px-8 py-10 text-center shadow-xl">
-            <h2 className="text-xl font-extrabold text-white md:text-2xl">
-              우리 가게, AI에게 물어보면 나올까요?
-            </h2>
-            <p className="mt-2 text-sm text-slate-400 md:text-base">
-              무료 진단 리포트로 우리 매장의 AI 검색 현황을 확인해 보세요.
-            </p>
-            <Link href="/#contact" className="mt-6 inline-block">
+            <h2 className="text-xl font-extrabold text-white md:text-2xl">{cta.title}</h2>
+            <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-slate-400 md:text-base">{cta.body}</p>
+            <Link href={cta.href} className="mt-6 inline-block">
               <Button size="lg" className="gap-1 bg-[#00e5a0] px-8 font-bold text-[#070b14] hover:bg-[#3cf0bb]">
-                AI 검색 무료 진단 신청
+                {cta.label}
                 <ChevronRight className="h-5 w-5" />
               </Button>
             </Link>
+            {cta.sub && (
+              <p className="mt-4 text-sm">
+                <Link href={cta.sub.href} className="text-slate-300 underline underline-offset-4 hover:text-[#00e5a0]">
+                  {cta.sub.label}
+                </Link>
+              </p>
+            )}
           </div>
         </section>
       </main>

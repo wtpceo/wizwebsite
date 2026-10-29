@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import GuideArticle, { CheckItem, Callout, MEDICAL_CTA } from "@/components/guide/GuideArticle"
 
 const TITLE = "ChatGPT에 아예 안 뜨던 비뇨기과: 원인은 홈페이지 방화벽이었습니다 (6개월 GEO 사례)"
 const DESC =
@@ -40,6 +40,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <GuideArticle
         href="/guide/case-urology-clinic"
+        cta={MEDICAL_CTA}
         kicker="CASE STUDY"
         title={TITLE}
         description={DESC}

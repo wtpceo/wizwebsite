@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import GuideArticle, { CheckItem, Callout, MEDICAL_CTA } from "@/components/guide/GuideArticle"
 
 // 5.9위인데 CTR 3.3% → 규제 대신 결과를 앞세움
 const TITLE = "치과 AI 검색 최적화(GEO): ChatGPT가 우리 치과를 추천하게 하려면"
@@ -34,7 +34,8 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <GuideArticle href="/guide/dental-geo" kicker="DENTAL GEO" title={TITLE} description={DESC} date="2026년 7월 9일 발행 · 2026년 9월 8일 갱신">
+      <GuideArticle href="/guide/dental-geo"
+        cta={MEDICAL_CTA} kicker="DENTAL GEO" title={TITLE} description={DESC} date="2026년 7월 9일 발행 · 2026년 9월 8일 갱신">
         <p>
           결론부터 말씀드리면, 치과의 AI 검색 최적화(GEO)는 <strong>"치료효과를 자랑하는 것"이 아니라
           "AI가 신뢰하고 인용할 수 있는 사실 정보를 갖추는 것"</strong>입니다. 치과는{" "}
@@ -76,6 +77,10 @@ export default function Page() {
             해서는 절반만 노출됩니다.
           </CheckItem>
         </ul>
+
+        <p>
+          우리 치과가 이런 질문에 지금 나오는지는 원장님이 직접 물어봐도 되지만, AI는 같은 질문에도 답을 매번 다르게 해서 한두 번으로는 판단하기 어렵습니다. <a href="/medical-diagnosis">병원 무료 AI 검색 진단</a>에서는 같은 질문을 여러 번 물어 언급 비율과 잘못 안내되는 정보를 정리해 드립니다.
+        </p>
 
         <h2>치과는 왜 일반 업종과 다르게 접근해야 하나요?</h2>
         <p>
@@ -204,8 +209,8 @@ export default function Page() {
           정리하면, 치과 GEO의 원칙은 <strong>"치료효과를 파는 게 아니라, 신뢰할 수 있는 사실 정보를
           제공해서 AI가 인용하게 만드는 것"</strong>입니다. 시술별 페이지·질문형 콘텐츠·FAQ·정확한
           기본정보로 홈페이지를 채우고, 리뷰는 방문경험 중심으로 관리하면 의료법에 안전하면서 AI 인용에도
-          가장 유리합니다. 우리 치과가 지금 AI 검색에 어떻게 뜨는지 궁금하시면, 위즈더플래닝의{" "}
-          <strong>무료 진단 리포트</strong>로 현황부터 확인해 보세요.
+          가장 유리합니다. 우리 치과가 지금 AI 검색에 어떻게 뜨는지 궁금하시면,{" "}
+          <a href="/medical-diagnosis">치과·의원 무료 AI 검색 진단</a>으로 현황부터 확인해 보세요.
         </Callout>
         <p>
           이 글의 원칙을 실제 치과 홈페이지 제작에 적용한 51일 기록은{" "}

@@ -8,6 +8,7 @@ import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
 import HowWeReport from "@/components/sections/HowWeReport"
+import DiagnosisApplyForm from "@/components/medical/DiagnosisApplyForm"
 import { GUIDE_ARTICLES } from "@/lib/guide-articles"
 
 const PUBLISHED = "2026-07-23"
@@ -122,7 +123,7 @@ const serviceJsonLd = {
   description: DESC,
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "위플 5단계 프로세스: 진단·기술·정합·콘텐츠·검증",
+    name: "위즈더플래닝 5단계 프로세스: 진단·기술·정합·콘텐츠·검증",
     itemListElement: SCOPE.map((s) => ({
       "@type": "Offer",
       itemOffered: { "@type": "Service", name: s.title, description: s.desc },
@@ -188,18 +189,20 @@ export default function Page() {
               병원을 묻습니다. 그 답변에 우리 병원이 포함되도록 만드는 작업을 대행합니다.
             </p>
             <div className="mt-9 flex flex-col gap-3 min-[400px]:flex-row">
-              <Link href="/medical-diagnosis">
+              {/* 진단 폼을 이 페이지 맨 아래(#apply)에 두었다. 진단 페이지로 한 번 더 넘어가며 빠지는 사람을 줄이려는 것 (2026-10-29) */}
+              <a href="#apply">
                 <Button size="lg" className="gap-1 bg-[#00e5a0] px-8 py-6 text-base font-bold text-[#070b14] shadow-lg shadow-[#00e5a0]/25 hover:bg-[#3cf0bb]">
-                  무료 진단부터 시작하기
+                  무료 진단 신청하기
                   <ChevronRight className="h-5 w-5" />
                 </Button>
-              </Link>
+              </a>
               <a href="tel:1670-0704">
                 <Button size="lg" variant="outline" className="w-full border-slate-700 bg-transparent px-8 py-6 text-base text-slate-300 hover:border-slate-500 hover:bg-white/5 hover:text-white min-[400px]:w-auto">
                   전화 상담 1670-0704
                 </Button>
               </a>
             </div>
+            <p className="mt-4 text-sm text-slate-400">병원·의원이면 진단은 조건 없이 무료이고, 결과만 받고 마치셔도 됩니다.</p>
             {/* 숫자 스트립 — 전부 사이트에서 검증 가능한 수치만 */}
             <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 text-sm sm:grid-cols-4">
               {[
@@ -258,7 +261,7 @@ export default function Page() {
           <div className="container mx-auto max-w-4xl px-4 md:px-6">
             <p className="text-xs font-bold tracking-[0.25em] text-emerald-600">PROCESS</p>
             <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
-              위플 5단계 프로세스: 진단에서 검증까지
+              5단계로 진행합니다: 진단에서 검증까지
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-gray-600">
               순서가 중요합니다. 홈페이지가 막혀 있는 상태에서 콘텐츠부터 늘리는 것이 가장 흔한
@@ -281,6 +284,13 @@ export default function Page() {
                 </div>
               ))}
             </div>
+            <p className="mt-8 text-base leading-relaxed text-gray-700">
+              다섯 단계 가운데 첫 단계인 진단은 계약 전에 무료로 해 드립니다. 네이버 AI·ChatGPT·제미나이에 환자가 쓸 법한
+              질문을 물어 언급 비율, 잘못 안내되는 정보, 경쟁 병원과의 차이를 리포트로 보내 드립니다.{" "}
+              <a href="#apply" className="font-semibold text-emerald-700 underline underline-offset-4">
+                이 페이지에서 바로 신청하기
+              </a>
+            </p>
           </div>
         </section>
 
@@ -453,12 +463,6 @@ export default function Page() {
                 </li>
               ))}
             </ul>
-            <Link href="/medical-diagnosis" className="mt-8 inline-block">
-              <Button size="lg" className="gap-1 bg-[#00e5a0] px-8 py-6 text-base font-bold text-[#070b14] hover:bg-[#3cf0bb]">
-                병원 무료 AI 검색 진단 신청
-                <ChevronRight className="h-5 w-5" />
-              </Button>
-            </Link>
             <p className="mt-5 text-sm text-slate-400">
               전화가 편하시면{" "}
               <a href="tel:1670-0704" className="font-bold text-[#00e5a0] underline-offset-4 hover:underline">
@@ -468,6 +472,9 @@ export default function Page() {
             </p>
           </div>
         </section>
+
+        {/* 진단 신청 폼 (id="apply"). /medical-diagnosis와 같은 부품이라 diagnosis_submit 이벤트도 그대로 잡힌다 */}
+        <DiagnosisApplyForm />
       </main>
 
       <Footer />

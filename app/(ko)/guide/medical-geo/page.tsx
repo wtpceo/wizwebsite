@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import GuideArticle, { CheckItem, Callout, MEDICAL_CTA } from "@/components/guide/GuideArticle"
 
 // 8.0위인데 CTR 2.0% → 규제 대신 결과를 앞세움
 const TITLE = "병원 AI 검색 최적화(GEO): ChatGPT가 우리 병원을 추천하게 하려면"
@@ -33,7 +33,8 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <GuideArticle href="/guide/medical-geo" kicker="MEDICAL GEO" title={TITLE} description={DESC} date="2026년 7월 9일 발행 · 2026년 9월 8일 갱신">
+      <GuideArticle href="/guide/medical-geo"
+        cta={MEDICAL_CTA} kicker="MEDICAL GEO" title={TITLE} description={DESC} date="2026년 7월 9일 발행 · 2026년 9월 8일 갱신">
         <p>
           병원·의원의 AI 검색 최적화(GEO)는 일반 업종과 결정적으로 다른 점이 하나 있습니다. 바로{" "}
           <strong>의료광고법</strong>입니다. AI에 잘 인용되려고 "환자 치료후기"나 "부작용 없는 시술"
@@ -69,6 +70,10 @@ export default function Page() {
             를 함께 관리해야 두 갈래를 모두 잡습니다.
           </CheckItem>
         </ul>
+
+        <p>
+          우리 병원이 지금 이런 출처들에서 어떻게 읽히고 있는지는 <a href="/medical-diagnosis">병원 무료 AI 검색 진단</a>으로 확인할 수 있습니다. 네이버 AI·ChatGPT·제미나이에 환자가 쓸 법한 질문을 물어 언급 비율과 잘못 안내되는 정보를 정리해 드립니다.
+        </p>
 
         <h2>치료후기는 위험, 방문후기는 안전</h2>
         <p>
@@ -171,7 +176,8 @@ export default function Page() {
         <p>
           우리 병원이 지금 AI 답변에 나오는지는{" "}
           <a href="/guide/check-hospital-ai-visibility">원장님이 5분 만에 직접 확인하는 법</a>으로 먼저
-          보시고, 맡기는 쪽을 검토하신다면{" "}
+          보시고, 직접 볼 시간이 없으시면 <a href="/medical-diagnosis">병원 무료 AI 검색 진단</a>을 신청해 주세요.
+          맡기는 쪽을 검토하신다면{" "}
           <a href="/medical-geo-agency">병원 GEO 대행 안내</a>에서 진행 순서와 주간 보고 방식을
           확인하세요.
         </p>

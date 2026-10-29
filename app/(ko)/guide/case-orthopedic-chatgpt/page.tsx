@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import GuideArticle, { CheckItem, Callout, MEDICAL_CTA } from "@/components/guide/GuideArticle"
 import CaseAccessRequest from "@/components/guide/CaseAccessRequest"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내
@@ -107,6 +107,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <GuideArticle
         href="/guide/case-orthopedic-chatgpt"
+        cta={MEDICAL_CTA}
         kicker="정형외과 사례 · 자체 실측"
         title={TITLE}
         description={DESC}

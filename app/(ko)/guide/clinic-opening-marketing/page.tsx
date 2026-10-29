@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import GuideArticle, { CheckItem, Callout, MEDICAL_CTA } from "@/components/guide/GuideArticle"
 
 // 주 키워드: 병원 개원 준비 (마케팅 관점)
 // 연관 검색어(2026-09-28 자동완성·1페이지 조사): 개원 마케팅 / 병원 개원 마케팅 / 병원 개원 컨설팅 /
@@ -99,6 +99,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <GuideArticle
         href="/guide/clinic-opening-marketing"
+        cta={MEDICAL_CTA}
         kicker="업종별 가이드 · 병원·의원"
         title={TITLE}
         description={DESC}
@@ -205,6 +206,10 @@ export default function Page() {
           <a href="/guide/case-orthopedic-chatgpt">정형외과 사례</a>).
         </Callout>
 
+        <p>
+          개원 첫 주에 직접 재기 어렵다면 <a href="/medical-diagnosis">병원 무료 AI 검색 진단</a>을 한 번 받아 두세요. 첫 주에 AI 답변에서 병원 이름이 얼마나 불리는지, 잘못 안내되는 정보는 없는지가 이후 비교의 기준이 됩니다.
+        </p>
+
         <h2>개원 마케팅과 병원 개원 컨설팅은 다릅니다</h2>
         <p>
           개원 컨설팅은 입지, 자금, 인허가, 장비, 인력처럼 <strong>병원을 여는 일</strong>을 봅니다.
@@ -236,8 +241,9 @@ export default function Page() {
         </p>
         <p>
           저희는 병원·의원에 한해 조건 없이 무료로 진단해 드립니다. 네이버 AI·ChatGPT·제미나이에 환자
-          질문을 반복해 물어 언급 비율과 잘못된 정보를 정리해 보내드리고, 진단만 받고 마치셔도 됩니다.{" "}
-          <a href="/medical-geo-agency">병원 GEO 대행 안내</a>에서 진행 방식을 먼저 보셔도 좋습니다.
+          질문을 반복해 물어 언급 비율과 잘못된 정보를 정리해 보내드리고, 진단만 받고 마치셔도 됩니다. 신청은{" "}
+          <a href="/medical-diagnosis">병원 무료 AI 검색 진단</a>에서 하시면 되고, 진행 방식은{" "}
+          <a href="/medical-geo-agency">병원 GEO 대행 안내</a>에서 먼저 보셔도 좋습니다.
         </p>
 
         <h2>자주 묻는 질문</h2>

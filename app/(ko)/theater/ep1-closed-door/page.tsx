@@ -178,6 +178,10 @@ export default function Page() {
             >
               무료 사이트 진단 <ArrowRight className="h-4 w-4" />
             </Link>
+            {/* /site-check는 연락처가 남지 않아 리드로 잡히지 않는다. 연락처가 남는 진단으로 한 줄 더 보낸다 (2026-10-29) */}
+            <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-slate-300">
+              블로그에만 글을 쌓아 왔다면 AI가 우리 가게를 어떻게 소개하는지부터 보세요. <Link href="/diagnosis" className="font-semibold text-[#00e5a0] underline underline-offset-4">무료 AI 검색 진단</Link>을 신청하시면 세 엔진에 실제로 물어본 결과를 리포트로 보내 드립니다.
+            </p>
           </div>
         </section>
       </main>
