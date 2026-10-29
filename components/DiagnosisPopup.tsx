@@ -17,6 +17,8 @@ export default function DiagnosisPopup() {
   useEffect(() => {
     // 진단 페이지 자체에서는 노출하지 않음
     if (pathname?.startsWith("/medical-diagnosis")) return
+    // 병원 GEO 대행 페이지 맨 아래에 같은 진단 폼(#apply)이 있다. 팝업이 다른 페이지로 데려가면 한 단계가 더 생긴다 (2026-10-29 총괄 결정)
+    if (pathname?.startsWith("/medical-geo-agency")) return
     // 업종무관 진단 랜딩(/diagnosis)도 제외 — 이 팝업은 "병원이라면?" 병원 퍼널로 보낸다.
     // 메타광고 광고세트 B(업종무관) 트래픽이 병원 퍼널로 새면 A/B 비교가 오염된다.
     // 근거: 04_brief/2026-08-18_local-geo_brief_v1.md §0
