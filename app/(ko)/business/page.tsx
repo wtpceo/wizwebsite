@@ -48,7 +48,7 @@ const STEPS = [
 const PROOF = [
   { k: "17% → 93%", v: "수도권 정형외과의 ChatGPT 언급률. 같은 질문 10개를 3번씩 물은 답변 30개 기준으로 계약 전 5개, 39일 뒤 28개에 병원 이름이 나왔습니다. 2주 뒤 25개(83%)로 내려간 회차도 그대로 적었습니다.", href: "/guide/case-orthopedic-chatgpt" },
   { k: "3쪽 vs 167쪽", v: "167쪽짜리 치과 사이트가 인근 3쪽짜리 사이트에 밀려 인용되지 않던 사례. 분량이 아니라 읽히는 구조의 문제였습니다.", href: "/guide/case-dental-llms-factsheet" },
-  { k: "18 / 100", v: "2026년 9월 9일 기준 우리 자신의 AI 검색 점수. 잘한 숫자만 보여드리지 않습니다.", href: "/how-we-measure" },
+  { k: "16 / 100", v: "2026년 10월 19일에 잰 우리 자신의 AI 검색 점수입니다. 9월 7일 18점에서 2점 내려간 것까지 그대로 적습니다.", href: "/how-we-measure" },
 ]
 
 const NOT = [
@@ -56,6 +56,24 @@ const NOT = [
   "관제 시스템 계정을 판매하거나 제공하지 않습니다. 리포트로 드립니다.",
   "광고 계정을 대행사 명의로 만들지 않습니다. 계약이 끝나면 데이터가 고객사에 남아야 합니다.",
   "인위적인 트래픽이나 리뷰를 만들지 않습니다.",
+]
+
+// 설명 문구는 작가 세션 확정본 (2026-10-29)
+const REPORT_SHOTS = [
+  {
+    src: "/report/business-report-summary.jpg",
+    alt: "위즈더플래닝 주간 리포트 42주차 요약: 카테고리 점유율 0%, 출처 인용률 13%, 인용 키워드 3/9, 웹 건강도 100점",
+    caption: "매주 첫 장. 숫자 네 개와 지난 측정 대비 변화",
+    w: 1200,
+    h: 1172,
+  },
+  {
+    src: "/report/business-report-engines.jpg",
+    alt: "위즈더플래닝 주간 리포트 42주차 엔진별 노출: Gemini·ChatGPT·Perplexity 응답 10개씩, 출처 인용 2·2·3건",
+    caption: "엔진마다 같은 조건으로 묻고 응답 수를 분모로 적습니다",
+    w: 1200,
+    h: 1077,
+  },
 ]
 
 const FAQ = [
@@ -230,6 +248,32 @@ export default function Page() {
               </li>
             ))}
           </ol>
+        </section>
+
+        {/* 주간 리포트 샘플 — 자사 42주차(10/19 측정) 화면. 광고주 리포트는 쓰지 않는다 (10/29 대표 결정) */}
+        <section className="bg-[#f6f8f7] py-16 md:py-20">
+          <div className="container mx-auto max-w-4xl px-4 md:px-6">
+            <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">매주 받는 보고서</h2>
+            <p className="mt-3 max-w-2xl text-base leading-relaxed text-gray-600">
+              위즈더플래닝 자신을 잰 42주차(10월 12일~18일) 주간 리포트 화면입니다.
+            </p>
+            {/* 화면 속 글자가 읽혀야 해서 두 장을 나란히 두지 않고 세로로 쌓는다 */}
+            <div className="mt-8 max-w-3xl space-y-10">
+              {REPORT_SHOTS.map((r) => (
+                <figure key={r.src}>
+                  <img
+                    src={r.src}
+                    alt={r.alt}
+                    width={r.w}
+                    height={r.h}
+                    loading="lazy"
+                    className="w-full rounded-xl border border-gray-200 bg-white"
+                  />
+                  <figcaption className="mt-3 text-sm leading-relaxed text-gray-600">{r.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
         </section>
 
         {/* 근거 */}

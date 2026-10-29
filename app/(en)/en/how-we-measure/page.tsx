@@ -6,7 +6,7 @@ import EnFooter from "@/components/en/EnFooter"
 
 const TITLE = "How We Measure: Our In-House AI Search Monitoring"
 const DESC =
-  "We measure AI search visibility every week with a monitoring system we built ourselves, across Naver AI Briefing, ChatGPT, Gemini and Perplexity. Six screens from the system, including our own score of 18 out of 100. We do not sell it; clients get reports."
+  "We measure AI search visibility every week with a monitoring system we built ourselves, across Naver AI Briefing, ChatGPT, Gemini and Perplexity. Six screens from the system, including our own score: 16 out of 100 on October 19, 2026, down from 18 on September 7. We do not sell it; clients get reports."
 const PATH = "/en/how-we-measure"
 const URL = "https://wiztheplanning.com/en/how-we-measure"
 const PUBLISHED = "2026-09-15"
@@ -34,9 +34,12 @@ export const metadata: Metadata = {
 const SCREENS = [
   {
     src: "/tools/realgeo-dashboard.jpg",
-    alt: "WizThePlanning AI search monitoring dashboard: overall score 18/100, AI citation exposure rate 18%, web health 100, citations by engine",
+    alt: "WizThePlanning AI search monitoring dashboard, measured October 19, 2026: overall score 16/100, AI citation exposure rate 20%, web health 100, citations by engine",
+    // The Oct 19 capture is cropped (side menu, notice bar and comparison row removed), so its ratio differs from the other five
+    w: 1546,
+    h: 672,
     title: "Monitoring dashboard",
-    body: "This is our own account. Our overall score is 18 out of 100, and we are not hiding it. The dashboard shows a 7% share on questions that do not name us and 88% on questions that do, side by side. We keep them apart because blending the two inflates the number.",
+    body: "This is our own account. On October 19, 2026 our overall score was 16 out of 100, down two points from 18 on September 7, and we are not hiding it. The dashboard shows a 3% share on questions that do not name us and 88% on questions that do, side by side. We keep them apart because blending the two inflates the number.",
   },
   {
     src: "/tools/realgeo-weekly-report.jpg",
@@ -141,7 +144,7 @@ const FAQ = [
   },
   {
     q: "Why publish your own score?",
-    a: "Because we promise measurement instead of guaranteed visibility, and showing only the good numbers would break that promise. Leaving our overall score of 18 and our list of lost keywords in plain view is proof that the reports we send clients are built the same way.",
+    a: "Because we promise measurement instead of guaranteed visibility, and showing only the good numbers would break that promise. Leaving our overall score in plain view, including its drop from 18 on September 7 to 16 on October 19, along with our list of lost keywords, is proof that the reports we send clients are built the same way.",
   },
 ]
 
@@ -152,7 +155,7 @@ const webPageJsonLd = {
   url: URL,
   description: DESC,
   datePublished: PUBLISHED,
-  dateModified: PUBLISHED,
+  dateModified: "2026-10-29",
   inLanguage: "en",
   publisher: { "@type": "Organization", name: "WizThePlanning", url: "https://wiztheplanning.com/en" },
   primaryImageOfPage: "https://wiztheplanning.com/tools/realgeo-dashboard.jpg",
@@ -190,13 +193,14 @@ export default function Page() {
               leave it there. We measure AI answers across Naver AI Briefing, ChatGPT, Gemini and Perplexity every week
               with a <span className="font-semibold text-slate-200">monitoring system we built ourselves</span> and use
               in-house. Below are six screens from it. Every one of them measures our own company, so nothing is
-              blurred out.
+              blurred out. The dashboard is from the October 19, 2026 measurement; the other five were captured in
+              September when this page first went up.
             </p>
             <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 text-sm sm:grid-cols-4">
               {[
                 { n: "4", d: "AI engines measured" },
                 { n: "Weekly", d: "Automatic re-measurement and report" },
-                { n: "18", d: "Our own overall score (out of 100)" },
+                { n: "16", d: "Our own overall score (out of 100, Oct 19; previously 18)" },
                 { n: "0", d: "Accounts sold to outsiders" },
               ].map((s) => (
                 <div key={s.d}>
@@ -212,7 +216,7 @@ export default function Page() {
         <section className="container mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-20">
           <p className="text-xs font-bold tracking-[0.25em] text-emerald-600">SCREENS</p>
           <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
-            Six screens, captured on September 9, 2026
+            Six screens, captured in September and October 2026
           </h2>
           <p className="mt-3 max-w-2xl text-base text-gray-600">
             The account being measured is WizThePlanning itself. Client screens belong to clients, so we do not publish
@@ -226,8 +230,8 @@ export default function Page() {
                   <img
                     src={s.src}
                     alt={s.alt}
-                    width={1800}
-                    height={1053}
+                    width={s.w ?? 1800}
+                    height={s.h ?? 1053}
                     loading={i === 0 ? "eager" : "lazy"}
                     className="w-full rounded-2xl border border-gray-200 shadow-lg shadow-gray-200/60"
                   />

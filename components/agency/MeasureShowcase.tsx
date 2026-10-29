@@ -22,7 +22,7 @@ export default function MeasureShowcase() {
             {[
               "월요일 새벽 자동 측정, 주 1회 리포트",
               "인용이 빠지면 바로 경고",
-              "우리 회사 점수 18점까지 그대로 공개",
+              "우리 회사 점수 18점에서 16점으로 내려간 것까지 공개",
             ].map((t) => (
               <li key={t} className="flex items-start gap-2">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
@@ -42,12 +42,12 @@ export default function MeasureShowcase() {
           <img
             src="/tools/realgeo-dashboard.jpg"
             alt="위즈더플래닝 GEO 관제 대시보드 화면: REALGEO 스코어, AI 인용 노출률, 엔진별 인용, 웹 건강도"
-            width={1800}
-            height={1053}
+            width={1546}
+            height={672}
             loading="lazy"
             className="w-full rounded-2xl border border-gray-200 shadow-xl shadow-gray-200/70 transition-transform duration-300 group-hover:-translate-y-1"
           />
-          <p className="mt-2 text-center text-xs text-gray-400">2026년 9월 9일, 위즈더플래닝 자체 워크스페이스 캡처</p>
+          <p className="mt-2 text-center text-xs text-gray-400">2026년 10월 19일 측정, 위즈더플래닝 자체 워크스페이스 화면</p>
         </Link>
       </div>
     </section>

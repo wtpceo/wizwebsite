@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 → 현재 33자
 const TITLE = "측정 방식: 자체 개발 GEO 관제 시스템으로 매주 재는 것"
 const DESC =
-  "위즈더플래닝은 AI 검색 노출을 감이 아니라 자체 개발한 GEO 관제 시스템으로 매주 측정합니다. 관제 화면 6장을 그대로 공개합니다. 우리 회사 점수가 100점 만점에 18점인 것까지 그대로입니다. 외부에 판매하지 않고, 광고주께는 계정이 아니라 정리된 주간 리포트를 드립니다."
+  "위즈더플래닝은 AI 검색 노출을 감이 아니라 자체 개발한 GEO 관제 시스템으로 매주 측정합니다. 관제 화면 6장을 그대로 공개합니다. 우리 회사 점수는 2026년 10월 19일 측정에서 100점 만점에 16점으로, 9월 7일 18점보다 내려갔습니다. 외부에 판매하지 않고, 광고주께는 계정이 아니라 정리된 주간 리포트를 드립니다."
 const URL = "https://wiztheplanning.com/how-we-measure"
 const PUBLISHED = "2026-09-09"
 
@@ -23,9 +23,12 @@ export const metadata: Metadata = {
 const SCREENS = [
   {
     src: "/tools/realgeo-dashboard.jpg",
-    alt: "위즈더플래닝 GEO 관제 대시보드: REALGEO 스코어 18/100, AI 인용 노출률 18%, 웹 건강도 100, 엔진별 인용 현황",
+    alt: "위즈더플래닝 GEO 관제 대시보드(2026년 10월 19일 측정): REALGEO 스코어 16/100, AI 인용 노출률 20%, 웹 건강도 100, 엔진별 인용 현황",
+    // 10/19 캡처는 왼쪽 메뉴·공지·하단 비교 줄을 잘라 내서 나머지 5장과 비율이 다르다
+    w: 1546,
+    h: 672,
     title: "관제 대시보드",
-    body: "우리 회사 것입니다. 종합 점수는 100점 만점에 18점입니다. 좋게 보이려고 숨기지 않습니다. 상호 없는 질문에서의 점유율 7%와 상호를 대고 물었을 때의 88%를 따로 보여주는 이유는, 둘을 섞으면 숫자가 부풀려지기 때문입니다.",
+    body: "우리 회사 것입니다. 2026년 10월 19일에 잰 종합 점수는 100점 만점에 16점으로, 9월 7일의 18점보다 2점 내려갔습니다. 좋게 보이려고 숨기지 않습니다. 상호 없는 질문에서의 점유율 3%와 상호를 대고 물었을 때의 88%를 따로 보여주는 이유는, 둘을 섞으면 숫자가 부풀려지기 때문입니다.",
   },
   {
     src: "/tools/realgeo-weekly-report.jpg",
@@ -77,7 +80,7 @@ const FAQ = [
   },
   {
     q: "왜 자기 회사 점수를 그대로 공개하나요?",
-    a: "노출을 보장하는 대신 측정을 약속하기 때문입니다. 좋은 숫자만 골라 보여드리면 그 약속이 무너집니다. 저희 회사의 종합 점수 18점, 인용이 빠진 키워드 목록까지 그대로 두는 것이 광고주께 드리는 리포트도 그렇게 만든다는 증거입니다.",
+    a: "노출을 보장하는 대신 측정을 약속하기 때문입니다. 좋은 숫자만 골라 보여드리면 그 약속이 무너집니다. 저희 회사 종합 점수가 9월 7일 18점에서 10월 19일 16점으로 내려간 것, 인용이 빠진 키워드 목록까지 그대로 두는 것이 광고주께 드리는 리포트도 그렇게 만든다는 증거입니다.",
   },
 ]
 
@@ -88,7 +91,7 @@ const webPageJsonLd = {
   url: URL,
   description: DESC,
   datePublished: PUBLISHED,
-  dateModified: PUBLISHED,
+  dateModified: "2026-10-29",
   inLanguage: "ko-KR",
   publisher: { "@id": "https://wiztheplanning.com/#organization" },
   primaryImageOfPage: "https://wiztheplanning.com/tools/realgeo-dashboard.jpg",
@@ -124,13 +127,14 @@ export default function Page() {
               AI 검색은 순위표가 없어서 &ldquo;잘되고 있다&rdquo;는 말로 넘어가기 쉽습니다. 저희는 AI 답변을
               반복 측정하고 인용 출처를 기록하는 <span className="font-semibold text-slate-200">GEO 관제 시스템을
               직접 개발해</span> 사내에서 씁니다. 아래는 그 화면 6장입니다. 전부 저희 회사 자신을 측정한 것이라
-              가린 것이 없습니다.
+              가린 것이 없습니다. 관제 대시보드는 2026년 10월 19일 측정 화면이고, 나머지 다섯 장은 9월에 이 페이지를
+              처음 열 때 찍은 화면입니다.
             </p>
             <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 text-sm sm:grid-cols-4">
               {[
                 { n: "4개", d: "측정 엔진" },
                 { n: "주 1회", d: "자동 재측정·리포트" },
-                { n: "18점", d: "우리 회사 종합 점수 (100점 만점)" },
+                { n: "16점", d: "우리 회사 종합 점수 (10월 19일 측정, 직전 18점)" },
                 { n: "0", d: "외부 판매 계정" },
               ].map((s) => (
                 <div key={s.d}>
@@ -146,7 +150,7 @@ export default function Page() {
         <section className="container mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-20">
           <p className="text-xs font-bold tracking-[0.25em] text-emerald-600">SCREENS</p>
           <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
-            관제 화면 6장, 2026년 9월 9일 캡처
+            관제 화면 6장, 2026년 9월·10월 캡처
           </h2>
           <p className="mt-3 max-w-2xl text-base text-gray-600">
             측정 대상은 위즈더플래닝 자신입니다. 광고주 화면은 광고주 것이라 공개하지 않습니다.
@@ -158,8 +162,8 @@ export default function Page() {
                   <img
                     src={s.src}
                     alt={s.alt}
-                    width={1800}
-                    height={1053}
+                    width={s.w ?? 1800}
+                    height={s.h ?? 1053}
                     loading={i === 0 ? "eager" : "lazy"}
                     className="w-full rounded-2xl border border-gray-200 shadow-lg shadow-gray-200/60"
                   />
