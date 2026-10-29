@@ -14,11 +14,11 @@ type GuideCta = {
   sub?: { href: string; label: string }
 }
 
-// 하단 박스 기본값. 업종 무관 글은 지금처럼 일반 상담으로 보낸다
+// 하단 박스 기본값. 버튼 이름("무료 진단")과 가는 곳을 맞춰 연락처가 남는 업종 무관 진단으로 보낸다 (2026-10-29 총괄 결정, 예전에는 /#contact)
 const DEFAULT_CTA: GuideCta = {
   title: "우리 가게, AI에게 물어보면 나올까요?",
   body: "무료 진단 리포트로 우리 매장의 AI 검색 현황을 확인해 보세요.",
-  href: "/#contact",
+  href: "/diagnosis",
   label: "AI 검색 무료 진단 신청",
 }
 
