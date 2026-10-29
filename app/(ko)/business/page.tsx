@@ -46,7 +46,7 @@ const STEPS = [
 ]
 
 const PROOF = [
-  { k: "17% → 93%", v: "수도권 정형외과의 ChatGPT 언급률. 계약 전 10개 질문 중 4개에만 나왔고, 39일 뒤 같은 모델·같은 질문으로 다시 재자 10개 모두에 나왔습니다.", href: "/guide/case-orthopedic-chatgpt" },
+  { k: "17% → 93%", v: "수도권 정형외과의 ChatGPT 언급률. 같은 질문 10개를 3번씩 물은 답변 30개 기준으로 계약 전 5개, 39일 뒤 28개에 병원 이름이 나왔습니다. 2주 뒤 25개(83%)로 내려간 회차도 그대로 적었습니다.", href: "/guide/case-orthopedic-chatgpt" },
   { k: "3쪽 vs 167쪽", v: "167쪽짜리 치과 사이트가 인근 3쪽짜리 사이트에 밀려 인용되지 않던 사례. 분량이 아니라 읽히는 구조의 문제였습니다.", href: "/guide/case-dental-llms-factsheet" },
   { k: "18 / 100", v: "2026년 9월 9일 기준 우리 자신의 AI 검색 점수. 잘한 숫자만 보여드리지 않습니다.", href: "/how-we-measure" },
 ]

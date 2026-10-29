@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Loader2, CheckCircle2, Info } from "lucide-react"
 import Link from "next/link"
 import { readAttribution } from "@/lib/attribution"
+import { trackBusinessProposalSubmit } from "@/lib/analytics"
 
 // 기업 제안 요청 폼.
 // 자영업 문의 폼과 다른 점 세 가지:
@@ -84,6 +85,7 @@ export default function BusinessContactForm() {
         }),
       })
       if (!res.ok) throw new Error("failed")
+      trackBusinessProposalSubmit({ budget: f.budget, timing: f.timing, services: needs })
       setStatus("done")
     } catch {
       setStatus("error")

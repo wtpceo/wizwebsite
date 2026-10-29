@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import BizArticle, { CheckItem, Callout } from "@/components/business/BizArticle"
+import BizArticle, { CheckItem, Callout, BizContactNote } from "@/components/business/BizArticle"
 
 // 주 키워드: 인하우스 vs 대행사
 // 연관 검색어(2026-09-19 자동완성 227개 조사): 대행사 vs 인하우스 / 인하우스 마케팅 / 인하우스 마케팅 뜻 /
@@ -108,6 +108,8 @@ export default function Page() {
         title={TITLE}
         description={DESC}
         date="2026년 10월 27일"
+        ctaTitle="안에 둘 일과 맡길 일부터 나눠 보세요"
+        ctaBody="지금 팀 구성과 맡기려는 업무를 적어 주시면 어디까지 안에서 하고 무엇을 밖에 맡길지 나눠서 회신하겠습니다. 저희를 쓰지 않는 편이 낫다면 그 구성으로 말씀드립니다."
       >
         <p>
           <strong>인하우스와 대행사는 둘 중 하나를 고르는 문제가 아닙니다.</strong> 판단은 안에 두고 한
@@ -216,6 +218,10 @@ export default function Page() {
           대부분은 두 목록에 한 줄씩 걸립니다. 그럴 때는 판단하는 사람 한 명을 안에 두고 실행을 밖에 맡기는 구성이
           남습니다.
         </p>
+
+        <BizContactNote>
+          어느 쪽에 걸리는지 애매하다면 지금 팀에 누가 있고 무엇을 맡기려는지 <a href="/business/contact">기업 제안 요청 양식</a>에 적어 주세요. 안에 둘 일과 밖에 맡길 일을 나눠서 답장드리겠습니다.
+        </BizContactNote>
 
         <h2>마케팅팀 구성: 첫 한 명은 누구를 뽑을까</h2>
         <p>

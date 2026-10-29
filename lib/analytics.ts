@@ -82,6 +82,23 @@ export function trackContactSubmit(params: { source?: string; budget?: string } 
   fbEvent("Lead", { content_name: "무료 상담 신청", lead_budget: params.budget || "미응답" }, true)
 }
 
+/** 기업 제안 요청 폼 제출 완료(/business/contact) → Meta `Lead` ★ 주 전환
+ *  대표 결정(2026-10-29): 메타에서는 기업 문의를 따로 나누지 않고 총 리드 수로 본다.
+ *  구분은 content_name 으로만 하고, GA4는 generate_lead + form=business 로 남겨
+ *  측정 세션이 서비스 계정으로 주간 집계한다. 개인정보(이름·메일·전화)는 넣지 않는다. */
+export function trackBusinessProposalSubmit(
+  params: { budget?: string; timing?: string; services?: string[] } = {},
+) {
+  const services = params.services?.length ? params.services.join(", ") : "미선택"
+  gaEvent("generate_lead", {
+    form: "business",
+    budget: params.budget || "미응답",
+    start_timing: params.timing || "미응답",
+    services,
+  })
+  fbEvent("Lead", { content_name: "business_proposal", lead_budget: params.budget || "미응답" }, true)
+}
+
 /** 카카오톡 상담 위젯 클릭 → Meta `Contact` (보조 지표 — CPA 분모에 넣지 않는다) */
 export function trackChatClick() {
   gaEvent("chat_click", { channel: "kakao" })

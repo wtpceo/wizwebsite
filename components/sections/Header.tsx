@@ -121,19 +121,21 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
+        <Link href="/" className="flex shrink-0 items-center gap-2" onClick={() => setOpen(false)}>
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             className="flex items-baseline gap-0.5"
           >
-            <span className="text-xl font-extrabold tracking-tight text-gray-900">위즈더플래닝</span>
+            <span className="whitespace-nowrap text-xl font-extrabold tracking-tight text-gray-900">위즈더플래닝</span>
             <span className="h-2 w-2 rounded-full bg-[#00e5a0]" />
           </motion.div>
         </Link>
 
-        <nav className="hidden md:flex gap-6">
+        {/* 메뉴 11개가 한 줄에 들어가는 폭은 약 1,200px. 그보다 좁으면(1024px 노트북·태블릿) 로고와 메뉴가
+            두 줄로 꺾이므로 xl 미만은 햄버거 메뉴로 보낸다 */}
+        <nav className="hidden xl:flex gap-6 whitespace-nowrap">
           {menuItems.map((item, i) => (
             <motion.div
               key={item.key}
@@ -250,7 +252,7 @@ export default function Header() {
           <Button
             variant="outline"
             size="icon"
-            className="md:hidden border-gray-200 text-gray-700"
+            className="xl:hidden border-gray-200 text-gray-700"
             aria-label="메뉴 열기"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -276,7 +278,7 @@ export default function Header() {
 
       {/* 모바일 메뉴 패널 (애니메이션 없이 즉시 표시 — 어떤 기기에서도 확실하게) */}
       {open && (
-        <div className="md:hidden">
+        <div className="xl:hidden">
           <div
             className="fixed inset-0 top-16 z-40 bg-black/40"
             onClick={() => setOpen(false)}

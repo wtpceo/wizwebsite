@@ -180,6 +180,17 @@ export default function AgencyHero() {
               </Link>
             </motion.div>
 
+            {/* 기업 경로 진입 — 홈에서 /business로 가는 길이 헤더 메뉴 하나뿐이라 첫 화면에 한 줄 둔다 (2026-10-29 대표 결정) */}
+            <motion.div variants={fadeIn} className="mt-5">
+              <Link
+                href="/business"
+                className="group inline-flex items-center gap-1 text-sm font-semibold text-slate-300 underline-offset-4 hover:text-[#00e5a0] hover:underline"
+              >
+                회사 마케팅팀이라면 기업 대행 안내부터 보세요
+                <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            </motion.div>
+
             {/* 신뢰 라인 */}
             <motion.div
               variants={fadeIn}

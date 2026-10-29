@@ -6,6 +6,16 @@ import { relatedBizArticles } from "@/lib/business-articles"
 
 export { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
+// 본문 중간 행동 유도 문단. 글 하단 박스까지 내려가지 않고 떠나는 담당자를 위해 글마다 한 곳에 둔다.
+// 문구 안에 /business/contact 링크를 직접 넣는다(자영업 경로 링크 금지).
+export function BizContactNote({ children }: { children: React.ReactNode }) {
+  return (
+    <aside className="mt-8 rounded-2xl border border-emerald-100 bg-emerald-50/60 px-5 py-4 text-base leading-[1.85] text-gray-800">
+      {children}
+    </aside>
+  )
+}
+
 // 기업 경로 글 레이아웃. 본문 스타일 규칙은 가이드 글과 같게 두되,
 // CTA는 무료 진단이 아니라 제안 요청(/business/contact)으로만 보낸다.
 export default function BizArticle({
@@ -14,6 +24,8 @@ export default function BizArticle({
   title,
   description,
   date,
+  ctaTitle,
+  ctaBody,
   children,
 }: {
   href: string
@@ -21,6 +33,9 @@ export default function BizArticle({
   title: string
   description: string
   date: string
+  /** 하단 박스 제목·본문. 회신 메일에서 지킬 약속이 글마다 달라서 글별로 받는다 */
+  ctaTitle: string
+  ctaBody: string
   children: React.ReactNode
 }) {
   const related = relatedBizArticles(href)
@@ -46,11 +61,8 @@ export default function BizArticle({
 
         <section className="container mx-auto max-w-3xl px-4 pb-14 md:px-6">
           <div className="rounded-3xl bg-gradient-to-r from-[#0b1220] to-[#101b2e] px-6 py-10 text-center md:px-10">
-            <p className="text-xl font-extrabold text-white md:text-2xl">제안 요청서를 보내 주세요</p>
-            <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-400 md:text-base">
-              평가 항목과 제출 기한이 있으면 그 형식에 맞춰 회신합니다. 이 글의 12개 항목을 정리한 체크
-              문서도 회사 메일로 보내드립니다.
-            </p>
+            <p className="text-xl font-extrabold text-white md:text-2xl">{ctaTitle}</p>
+            <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-400 md:text-base">{ctaBody}</p>
             <Link href="/business/contact" className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-[#00e5a0] px-6 py-3 text-sm font-bold text-[#070b14] hover:bg-[#3cf0bb]">
               제안 요청 보내기 <ArrowRight className="h-4 w-4" />
             </Link>

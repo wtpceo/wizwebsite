@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import BizArticle, { CheckItem, Callout } from "@/components/business/BizArticle"
+import BizArticle, { CheckItem, Callout, BizContactNote } from "@/components/business/BizArticle"
 
 // 기업 경로 첫 글. 대상은 제안을 보내는 마케팅 담당자다.
 // 수치는 공개 자료와 자사 실측만 쓴다. 대행 요율은 출처를 밝힌 공개 자료로만 인용한다.
@@ -117,6 +117,8 @@ export default function Page() {
         title={TITLE}
         description={DESC}
         date="2026년 9월 20일"
+        ctaTitle="제안 요청서를 보내 주세요"
+        ctaBody="평가 항목과 제출 기한이 정해져 있으면 그 형식에 맞춰 제안서를 보내 드리겠습니다. 이 글의 12개 항목을 정리한 체크 문서도 회신 메일에 같이 넣어 드립니다."
       >
         <p>
           <strong>RFP에 과제·예산 구조·기간·성과 정의·계정 소유권·보고 체계·평가 방식이 적혀 있으면
@@ -190,7 +192,7 @@ export default function Page() {
         </ul>
         <Callout>
           <strong>기준선을 RFP 항목으로 넣으세요.</strong> 저희가 진행한 수도권 정형외과는 계약 전
-          ChatGPT 언급률이 10개 질문 중 4개, 30번 중 17%였습니다. 39일 뒤 같은 모델과 같은 질문으로
+          ChatGPT 언급률이 10개 질문 중 4개, 30번 중 5번(17%)이었습니다. 39일 뒤 같은 모델과 같은 질문으로
           다시 재자 10개 질문 모두, 30번 중 28번(93%)으로 바뀌었습니다. 시작 시점을 같은 방법으로
           재두지 않았다면 이 비교는 불가능했습니다.
         </Callout>
@@ -240,6 +242,10 @@ export default function Page() {
           항목은 빠져 있는 경우가 많습니다. 형식만 참고하시고 항목은 위 12가지로 다시 채우시는 편이
           낫습니다.
         </p>
+
+        <BizContactNote>
+          저희가 받는 요청서도 이 12가지로 읽습니다. 비어 있는 항목이 있으면 견적부터 내지 않고 회신 메일에서 먼저 여쭤봅니다. 보내실 요청서가 있다면 <a href="/business/contact">기업 제안 요청 양식</a>에 첨부해 주세요.
+        </BizContactNote>
 
         <h2>질의응답 창구를 하나로 두세요</h2>
         <p>

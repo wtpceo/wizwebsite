@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import BizArticle, { CheckItem, Callout } from "@/components/business/BizArticle"
+import BizArticle, { CheckItem, Callout, BizContactNote } from "@/components/business/BizArticle"
 
 // 주 키워드: 마케팅 대행사 수수료
 // 연관 검색어(2026-10-10 구글 자동완성 · 2026-09-19 1페이지 조사): 광고대행사 수수료율 /
@@ -117,6 +117,8 @@ export default function Page() {
         title={TITLE}
         description={DESC}
         date="2026년 10월 10일"
+        ctaTitle="견적을 항목별로 받아 보세요"
+        ctaBody="예산 구간과 기간을 남겨 주시면 월 운영과 단발 캠페인 중 어느 쪽이 맞는지, 견적에 어떤 항목이 들어가는지 먼저 정리해 보내 드리겠습니다. 금액은 범위를 확인하고 나서 온보딩비와 운영료를 나눠 말씀드립니다."
       >
         <p>
           <strong>대행 수수료는 세 가지 구조뿐입니다.</strong> 정액, 광고비 연동, 성과형. 나머지는 이
@@ -201,6 +203,10 @@ export default function Page() {
           짧은 계약을 보조하게 됩니다. 저희가 상담에서 브랜드를 먼저 학습한 뒤 제안하는 방식을 유지하려면
           이 단계를 줄일 수 없어서, 금액을 숨기는 대신 항목을 분리해 두었습니다.
         </p>
+
+        <BizContactNote>
+          어느 구조가 맞는지 아직 정하지 못하셨다면 예산 구간과 기간만 <a href="/business/contact">기업 제안 요청 양식</a>에 적어 주셔도 됩니다. 저희가 구조부터 맞춰 보고 회신드리겠습니다.
+        </BizContactNote>
 
         <h2>계약서에서 확인할 여섯 가지</h2>
         <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200">

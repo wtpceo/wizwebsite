@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import BizArticle, { CheckItem, Callout } from "@/components/business/BizArticle"
+import BizArticle, { CheckItem, Callout, BizContactNote } from "@/components/business/BizArticle"
 
 // 주 키워드: 광고대행사 선정 기준
 // 연관 검색어(2026-09-30 자동완성·2026-09-19 1페이지 조사): 광고대행사 선정 공고 / 광고대행사 계약서 /
@@ -109,6 +109,8 @@ export default function Page() {
         title={TITLE}
         description={DESC}
         date="2026년 9월 30일"
+        ctaTitle="저희 제안서도 같은 표에 올려 보세요"
+        ctaBody="과제와 예산 구간, 제출 기한을 남겨 주시면 이 글의 여섯 축 순서대로 제안서를 짜서 회사 메일로 보내 드리겠습니다. 다른 대행사 제안서와 나란히 놓고 점수를 매겨 보시면 됩니다."
       >
         <p>
           <strong>광고대행사 선정 기준은 여섯 축이면 충분합니다.</strong> 과제 이해도, 실행 계획의
@@ -181,6 +183,10 @@ export default function Page() {
             제안서입니다.
           </CheckItem>
         </ul>
+
+        <BizContactNote>
+          저희 제안서도 이 네 가지로 보시면 됩니다. 과제와 예산 구간을 <a href="/business/contact">기업 제안 요청 양식</a>에 적어 주시면 저희가 못 하는 일까지 적어서 회신하겠습니다.
+        </BizContactNote>
 
         <h2>레퍼런스는 재현 가능성으로 확인합니다</h2>
         <p>
