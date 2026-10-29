@@ -253,9 +253,10 @@ export default function Page() {
         {/* 주간 리포트 샘플 — 자사 42주차(10/19 측정) 화면. 광고주 리포트는 쓰지 않는다 (10/29 대표 결정) */}
         <section className="bg-[#f6f8f7] py-16 md:py-20">
           <div className="container mx-auto max-w-4xl px-4 md:px-6">
-            <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">매주 받는 보고서</h2>
+            <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">계약하면 받는 주간 보고서</h2>
             <p className="mt-3 max-w-2xl text-base leading-relaxed text-gray-600">
-              위즈더플래닝 자신을 잰 42주차(10월 12일~18일) 주간 리포트 화면입니다.
+              위즈더플래닝 자신을 잰 42주차(10월 12일~18일, 10월 19일 측정) 주간 보고서 화면입니다. 카테고리 점유율
+              0%처럼 좋지 않은 숫자도 그대로 옮겼습니다. 6쪽짜리 샘플 PDF는 제안 요청을 주시면 회신 메일로 보내 드립니다.
             </p>
             {/* 화면 속 글자가 읽혀야 해서 두 장을 나란히 두지 않고 세로로 쌓는다 */}
             <div className="mt-8 max-w-3xl space-y-10">
