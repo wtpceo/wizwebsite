@@ -25,7 +25,20 @@ const staggerContainer = {
   },
 }
 
-export default function ContactSection({ sectionClassName = "", variant = "default" }: { sectionClassName?: string; variant?: "default" | "redOrange" }) {
+// title·description·messagePlaceholder: 페이지마다 문의 구간 문구를 바꿀 때 쓴다 (예: /portfolio 촬영 문의, 2026-10-29)
+export default function ContactSection({
+  sectionClassName = "",
+  variant = "default",
+  title,
+  description,
+  messagePlaceholder,
+}: {
+  sectionClassName?: string
+  variant?: "default" | "redOrange"
+  title?: string
+  description?: string
+  messagePlaceholder?: string
+}) {
   const styleMap = {
     default: {
       iconBg: "bg-[#00e5a0]/15 text-[#00e5a0]",
@@ -59,12 +72,20 @@ export default function ContactSection({ sectionClassName = "", variant = "defau
               CONTACT
             </span>
             <h2 className="text-3xl font-extrabold tracking-tight md:text-4xl lg:text-5xl text-white">
-              <span className="hidden md:inline">지금 바로 상담받고<br />마케팅 고민을 해결하세요</span>
-              <span className="block md:hidden">지금 바로 상담받고<br />마케팅 고민을 해결하세요</span>
+              {title ?? (
+                <>
+                  <span className="hidden md:inline">지금 바로 상담받고<br />마케팅 고민을 해결하세요</span>
+                  <span className="block md:hidden">지금 바로 상담받고<br />마케팅 고민을 해결하세요</span>
+                </>
+              )}
             </h2>
             <p className="max-w-[800px] mx-auto text-slate-400 md:text-xl">
-              <span className="hidden md:inline">AI 검색 진단부터 실행까지, 전문 마케터가 직접 제안해드립니다.</span>
-              <span className="block md:hidden">AI 검색 진단부터 실행까지,<br />전문 마케터가 직접 제안해드립니다.</span>
+              {description ?? (
+                <>
+                  <span className="hidden md:inline">AI 검색 진단부터 실행까지, 전문 마케터가 직접 제안해드립니다.</span>
+                  <span className="block md:hidden">AI 검색 진단부터 실행까지,<br />전문 마케터가 직접 제안해드립니다.</span>
+                </>
+              )}
             </p>
           </motion.div>
         </motion.div>
@@ -125,7 +146,7 @@ export default function ContactSection({ sectionClassName = "", variant = "defau
             viewport={{ once: true, amount: 0.1 }}
           >
             <div className="w-full max-w-md mx-auto bg-white rounded-2xl shadow-2xl p-8">
-              <ContactForm />
+              <ContactForm messagePlaceholder={messagePlaceholder} />
             </div>
           </motion.div>
         </div>

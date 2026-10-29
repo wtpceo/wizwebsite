@@ -205,7 +205,11 @@ export default function PortfolioPage() {
           </div>
         </section>
         {/* 문의 받기 섹션 */}
-        <ContactSection />
+        <ContactSection
+          title="이런 사진, 우리 가게도 찍어 드릴까요?"
+          description="촬영하고 싶은 매장과 원하는 시기를 남겨 주시면 촬영 범위와 일정을 맞춰 연락드리겠습니다. 위 사진은 모두 저희가 직접 찍었고, 기획부터 촬영과 보정까지 외주 없이 합니다."
+          messagePlaceholder="찍고 싶은 것(매장 외관·내부, 메뉴, 사람)과 쓰실 곳(네이버 플레이스, 인스타그램, 홈페이지), 원하는 시기를 적어 주세요."
+        />
       </main>
       <Footer />
     </div>

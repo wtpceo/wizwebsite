@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import GuideArticle, { CheckItem, Callout, SMALL_BIZ_CTA } from "@/components/guide/GuideArticle"
 
 const TITLE =
   "네이버가 ChatGPT·구글 AI의 접근을 막았습니다. 그래서 홈페이지가 필수입니다"
@@ -73,6 +73,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <GuideArticle
         href="/guide/naver-blocks-ai-crawlers"
+        cta={SMALL_BIZ_CTA}
         kicker="네이버 · AI 검색"
         title={TITLE}
         description={DESC}
@@ -198,6 +199,12 @@ export default function Page() {
           결국 <strong>본인 명의의 홈페이지</strong>입니다.
         </p>
 
+        <Callout>
+          <strong>그럼 지금 ChatGPT는 우리 가게를 뭐라고 소개할까요</strong>
+          <br />
+          네이버 블로그와 카페에 쌓은 글은 ChatGPT가 읽지 못합니다. 그 상태에서 AI가 우리 가게를 어떻게 안내하고 있는지는 직접 물어봐야 알 수 있습니다. <a href="/diagnosis">무료 AI 검색 진단</a>을 신청하시면 ChatGPT·네이버 AI·제미나이에 손님이 쓸 법한 질문을 물어, 우리 가게가 나오는지와 잘못 안내되는 정보는 없는지 리포트로 보내 드립니다.
+        </Callout>
+
         <h2>그래서 홈페이지가 &lsquo;선택&rsquo;이 아니라 &lsquo;기반&rsquo;이 됩니다</h2>
         <p>
           엔진마다 참고하는 출처가 다릅니다. 네이버 AI는 플레이스·리뷰를, ChatGPT·구글은 열린 웹의
@@ -242,6 +249,11 @@ export default function Page() {
           </a>
           해 보세요. 주소 한 줄이면 됩니다. 부족한 부분이 어디인지, 새로 만들어야 할지 고쳐야 할지
           판단하는 출발점이 됩니다.
+        </Callout>
+        <Callout>
+          <strong>홈페이지 점검 다음은 AI 답변 확인입니다</strong>
+          <br />
+          주소 점검은 AI가 우리 홈페이지를 읽을 수 있는지를 봅니다. AI가 실제로 우리 가게를 추천하는지는 따로 물어봐야 하는데, <a href="/diagnosis">무료 AI 검색 진단</a>에서 세 엔진에 물어본 결과를 리포트로 받아 보실 수 있습니다. 업종은 가리지 않습니다.
         </Callout>
         <p>
           홈페이지가 없다면 지금이 만들 때이고, 있다면 AI가 읽을 수 있게 열려 있는지 점검할

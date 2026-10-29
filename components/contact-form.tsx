@@ -39,7 +39,7 @@ const BUDGET_OPTIONS = [
   "아직 정하지 않았어요",
 ]
 
-export default function ContactForm() {
+export default function ContactForm({ messagePlaceholder }: { messagePlaceholder?: string } = {}) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
@@ -253,7 +253,7 @@ export default function ContactForm() {
             <Textarea
               id="message"
               name="message"
-              placeholder="문의하실 내용을 자유롭게 작성해주세요"
+              placeholder={messagePlaceholder ?? "문의하실 내용을 자유롭게 작성해주세요"}
               value={formData.message}
               onChange={handleChange}
               className="min-h-[120px] bg-gray-50 border-gray-200 focus:border-emerald-500 focus:ring-emerald-500/20"

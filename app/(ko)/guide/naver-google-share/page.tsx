@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import GuideArticle, { CheckItem, Callout, SMALL_BIZ_CTA } from "@/components/guide/GuideArticle"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 유지 → 현재 48자
 const TITLE = "구글 네이버 검색 점유율: 28%부터 65%까지, 왜 출처마다 다른가"
@@ -86,6 +86,7 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <GuideArticle
         href="/guide/naver-google-share"
+        cta={SMALL_BIZ_CTA}
         kicker="시장 데이터 · 자체 정리"
         title={TITLE}
         description={DESC}
@@ -194,6 +195,12 @@ export default function Page() {
           검색·AI에서 들어왔는지 확인하는 방법은 앞서 정리해 두었습니다.
         </p>
 
+        <Callout>
+          <strong>우리 손님은 어디서 우리 가게를 찾고 있을까요</strong>
+          <br />
+          점유율 기사보다 중요한 건 우리 가게가 실제로 어디에 나오느냐입니다. <a href="/diagnosis">무료 AI 검색 진단</a>을 신청하시면 네이버 AI·ChatGPT·제미나이에 손님이 쓸 법한 질문을 물어, 우리 가게가 어느 쪽에 나오고 어느 쪽에서 빠져 있는지 리포트로 보내 드립니다.
+        </Callout>
+
         <h2>다만 한 곳만 하면 안 되는 이유는 분명합니다</h2>
         <p>
           점유율 논쟁과 별개로, <strong>두 경로는 서로를 대신하지 못합니다.</strong> 이건 저희가 직접
@@ -237,10 +244,15 @@ export default function Page() {
           </CheckItem>
         </ul>
         <p>
-          우리 홈페이지가 AI에게 어떻게 보이는지는{" "}
-          <a href="/site-check">무료 사이트 진단</a>으로 확인하실 수 있고, 전체 그림은{" "}
-          <a href="/guide/geo">GEO 총정리</a>에 모아 두었습니다.
+          우리 홈페이지를 AI가 읽을 수 있는지는 <a href="/site-check">무료 사이트 진단</a>으로 바로 볼 수
+          있습니다. AI가 실제로 우리 가게를 추천하는지는 <a href="/diagnosis">무료 AI 검색 진단</a>으로 확인해
+          드립니다. 전체 그림은 <a href="/guide/geo">GEO 총정리</a>에 모아 두었습니다.
         </p>
+        <Callout>
+          <strong>두 경로 가운데 어디가 비어 있는지부터</strong>
+          <br />
+          네이버와 글로벌 AI 중 우리 가게가 어느 쪽에서 빠져 있는지는 한 번 재 보면 압니다. <a href="/diagnosis">무료 AI 검색 진단</a>에서 세 엔진에 물어본 결과를 리포트로 보내 드립니다.
+        </Callout>
       </GuideArticle>
     </>
   )

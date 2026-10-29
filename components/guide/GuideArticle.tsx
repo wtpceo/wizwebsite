@@ -30,6 +30,14 @@ export const MEDICAL_CTA: GuideCta = {
   label: "병원 무료 AI 검색 진단 신청",
 }
 
+// 자영업 독자가 많이 들어오는 글의 하단 박스. 연락처가 남는 업종 무관 진단(/diagnosis)으로 보낸다 (작가 원고 2026-10-29)
+export const SMALL_BIZ_CTA: GuideCta = {
+  title: "우리 가게, AI에게 물어보면 나올까요?",
+  body: "ChatGPT·네이버 AI·제미나이가 우리 가게를 추천하는지, 잘못 안내하는 정보는 없는지 무료 진단 리포트로 알려 드립니다. 업종은 가리지 않습니다.",
+  href: "/diagnosis",
+  label: "무료 AI 검색 진단 신청",
+}
+
 // 가이드 아티클 공용 레이아웃 (서버 컴포넌트 — 정적 렌더링이라 크롤러/AI가 그대로 읽음)
 export default function GuideArticle({
   kicker = "GUIDE",
