@@ -37,7 +37,9 @@ const 예산_옵션 = [
   "아직 정하지 않았어요",
 ]
 
-export default function DiagnosisApplyForm() {
+// hideHeading: /medical-geo-agency처럼 바로 위에 "진단부터 시작하세요" 박스가 있는 페이지에서
+// 같은 뜻의 제목이 두 번 나오지 않게 FREE DIAGNOSIS·제목을 숨기고 설명 문단만 남긴다
+export default function DiagnosisApplyForm({ hideHeading = false }: { hideHeading?: boolean } = {}) {
   const [submitting, setSubmitting] = useState(false)
   const [done, setDone] = useState(false)
   const [form, setForm] = useState({
@@ -111,11 +113,15 @@ export default function DiagnosisApplyForm() {
           viewport={{ once: true, margin: "-80px" }}
           className="mx-auto max-w-2xl text-center"
         >
-          <span className="text-xs font-bold tracking-[0.25em] text-[#00e5a0]">FREE DIAGNOSIS</span>
-          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
-            병원 무료 AI 검색 진단 신청
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-slate-400 md:text-lg">
+          {!hideHeading && (
+            <>
+              <span className="text-xs font-bold tracking-[0.25em] text-[#00e5a0]">FREE DIAGNOSIS</span>
+              <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+                병원 무료 AI 검색 진단 신청
+              </h2>
+            </>
+          )}
+          <p className={`${hideHeading ? "" : "mt-4 "}text-base leading-relaxed text-slate-400 md:text-lg`}>
             아래 정보를 남겨주시면 담당 마케터가 네이버 AI·ChatGPT·제미나이 진단 리포트를 만들어
             직접 설명해 드립니다. <strong className="font-semibold text-white">영업시간 내 신청하시면 5분 안에</strong> 결과가 준비되고, 담당 마케터가 연락드립니다.
             병원·의원에 한해 조건 없이 무료입니다.

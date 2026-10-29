@@ -474,7 +474,7 @@ export default function Page() {
         </section>
 
         {/* 진단 신청 폼 (id="apply"). /medical-diagnosis와 같은 부품이라 diagnosis_submit 이벤트도 그대로 잡힌다 */}
-        <DiagnosisApplyForm />
+        <DiagnosisApplyForm hideHeading />
       </main>
 
       <Footer />
