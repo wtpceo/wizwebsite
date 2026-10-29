@@ -99,6 +99,32 @@ export function trackBusinessProposalSubmit(
   fbEvent("Lead", { content_name: "business_proposal", lead_budget: params.budget || "미응답" }, true)
 }
 
+/** 영문 B2B·외국어 문의 폼 제출 완료 → Meta `Lead` ★ 주 전환
+ *  대표 결정(2026-10-29): 홈페이지로 들어오는 모든 문의를 리드로 센다.
+ *  GA4는 일반 상담과 같은 contact_submit 으로 보내 측정 세션의 '총 리드' 식을 바꾸지 않고,
+ *  form_type 으로 나눈다. generate_lead 는 기업 제안 요청 전용으로 남긴다. */
+export function trackForeignContactSubmit(params: { form: "en_contact" | "locale_contact"; locale: string; interest?: string }) {
+  gaEvent("contact_submit", {
+    form_type: params.form,
+    locale: params.locale,
+    interest: params.interest || "미응답",
+  })
+  fbEvent("Lead", { content_name: params.form, content_category: params.locale }, true)
+}
+
+/** 사례 열람 요청 제출 완료(가이드 사례 글 하단) → GA4 case_access_request + Meta 커스텀 이벤트
+ *  총 리드에 넣을지는 대표 결정 대기라 Lead 로 보내지 않는다. 결정이 나면 이 함수만 바꾼다. */
+export function trackCaseAccessRequest(params: { caseKey: string }) {
+  gaEvent("case_access_request", { case_key: params.caseKey })
+  fbEvent("CaseAccessRequest", { content_name: params.caseKey })
+}
+
+/** 전화번호(tel:) 링크 클릭 → Meta `Contact` (보조 지표, 카카오톡 클릭과 같은 급. CPA 분모에 넣지 않는다) */
+export function trackPhoneClick() {
+  gaEvent("phone_click", { channel: "phone" })
+  fbEvent("Contact", { content_name: "전화" }, true)
+}
+
 /** 카카오톡 상담 위젯 클릭 → Meta `Contact` (보조 지표 — CPA 분모에 넣지 않는다) */
 export function trackChatClick() {
   gaEvent("chat_click", { channel: "kakao" })

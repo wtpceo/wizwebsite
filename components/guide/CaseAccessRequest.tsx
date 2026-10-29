@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Lock, ShieldCheck, CheckCircle2, Loader2, Upload } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { trackCaseAccessRequest } from "@/lib/analytics"
 
 // 전체 사례(유료분) 열람 신청 폼
 // - 공개 티저 아래에 붙는 "잠금 → 신청" 블록.
@@ -40,6 +41,7 @@ export default function CaseAccessRequest({
         setStatus("idle")
         return
       }
+      trackCaseAccessRequest({ caseKey })
       setStatus("done")
     } catch {
       setError("네트워크 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.")

@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { Loader2, CheckCircle2 } from "lucide-react"
 import { readAttribution } from "@/lib/attribution"
+import { trackForeignContactSubmit } from "@/lib/analytics"
 
 // 영문 B2B 문의 폼. 해외 담당자는 전화보다 메일이 기본이라 이메일을 필수로, 전화는 선택으로 둔다.
 // 기존 /api/contact 스키마(name·phone·email·storeName·message·language)에 맞춰 보내고,
@@ -55,6 +56,7 @@ export default function EnContactForm() {
         }),
       })
       if (!res.ok) throw new Error("failed")
+      trackForeignContactSubmit({ form: "en_contact", locale: "en", interest: f.interest })
       setStatus("done")
     } catch {
       setStatus("error")
