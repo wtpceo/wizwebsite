@@ -109,6 +109,11 @@ export default function Page() {
           <a href="/guide/geo">GEO 총정리</a>도 함께 보시면 전체 그림이 잡힙니다.
         </p>
 
+        <p>
+          저희가 맡으면 무엇을 재고 무엇을 받으시는지는{" "}
+          <a href="/guide/geo-optimization-service">GEO 최적화 서비스 안내</a>에 적어 두었습니다.
+        </p>
+
         <h2>말이 아니라 숫자로 보면 이렇습니다</h2>
         <p>
           &ldquo;AI 검색 최적화가 중요하다&rdquo;는 글은 이미 많습니다. 그런데{" "}

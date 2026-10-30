@@ -63,7 +63,7 @@ const REPORT_SHOTS = [
   {
     src: "/report/business-report-summary.jpg",
     alt: "위즈더플래닝 주간 리포트 42주차 요약: 카테고리 점유율 0%, 출처 인용률 13%, 인용 키워드 3/9, 웹 건강도 100점",
-    caption: "매주 첫 장. 숫자 네 개와 지난 측정 대비 변화",
+    caption: "보고서 첫 장. 지표 네 개와 지난 측정 대비 변화",
     w: 1200,
     h: 1264,
   },
