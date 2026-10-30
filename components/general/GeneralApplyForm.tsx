@@ -40,7 +40,18 @@ const 예산_옵션 = [
   "아직 정하지 않았어요",
 ]
 
-export default function GeneralApplyForm() {
+export default function GeneralApplyForm({
+  heading,
+  description,
+  pageTag,
+}: {
+  /** 신청서 제목. 없으면 "무료 AI 검색 진단 신청" */
+  heading?: string
+  /** 제목 아래 설명. 없으면 /diagnosis 기본 문구 */
+  description?: string
+  /** 신청이 들어온 곳 표시 (예: 가이드 글). 관리자 메일 제목·본문 첫 줄에 붙어 /diagnosis 신청과 구분된다 */
+  pageTag?: string
+} = {}) {
   const [submitting, setSubmitting] = useState(false)
   const [done, setDone] = useState(false)
   const [form, setForm] = useState({
@@ -78,8 +89,9 @@ export default function GeneralApplyForm() {
         email: "",
         storeName: form.store,
         budget: form.budget,
+        ...(pageTag ? { language: pageTag } : {}),
         message:
-          `[무료 AI 검색 진단 신청 · 업종무관]\n` +
+          `[무료 AI 검색 진단 신청 · 업종무관${pageTag ? ` · ${pageTag}` : ""}]\n` +
           `상호: ${form.store}\n` +
           `담당자: ${form.name}\n` +
           `연락처: ${form.phone}\n` +
@@ -123,11 +135,11 @@ export default function GeneralApplyForm() {
         >
           <span className="text-xs font-bold tracking-[0.25em] text-[#00e5a0]">FREE DIAGNOSIS</span>
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-white md:text-4xl">
-            무료 AI 검색 진단 신청
+            {heading ?? "무료 AI 검색 진단 신청"}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-400 md:text-lg">
-            아래 정보를 남겨주시면 담당 마케터가 네이버 AI·ChatGPT·제미나이 진단 리포트를 만들어
-            직접 설명해 드립니다. <strong className="font-semibold text-white">영업시간 내 신청하시면 5분 안에</strong> 결과가 준비되고, 담당 마케터가 연락드립니다.
+            {description ?? <>아래 정보를 남겨주시면 담당 마케터가 네이버 AI·ChatGPT·제미나이 진단 리포트를 만들어
+            직접 설명해 드립니다. <strong className="font-semibold text-white">영업시간 내 신청하시면 5분 안에</strong> 결과가 준비되고, 담당 마케터가 연락드립니다.</>}
           </p>
         </motion.div>
 

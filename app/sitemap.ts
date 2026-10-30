@@ -64,6 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/strategy/6", priority: 0.8, changeFrequency: "monthly" },
     { path: "/guide", priority: 0.9, changeFrequency: "weekly" },
     { path: "/guide/geo", priority: 1.0, changeFrequency: "weekly" },
+    { path: "/guide/geo-optimization-service", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/geo-vs-seo", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/hospital-marketing-cost", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/slow-business-checks", priority: 0.9, changeFrequency: "monthly" },

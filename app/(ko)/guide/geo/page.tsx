@@ -262,6 +262,10 @@ export default function Page() {
           &lsquo;보장&rsquo;한다고 하지 않는가, 계약이 끝나면 홈페이지와 콘텐츠가 내 것으로
           남는가.</strong>
         </p>
+        <p>
+          저희가 GEO 서비스로 무엇을 재고 어디를 고치는지, 비용은 얼마부터인지는{" "}
+          <a href="/guide/geo-optimization-service">GEO 최적화 서비스 안내</a>에 순서대로 적어 두었습니다.
+        </p>
 
         <h2>GEO는 어뷰징이 아닙니다</h2>
         <p>

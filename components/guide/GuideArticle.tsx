@@ -46,6 +46,7 @@ export default function GuideArticle({
   date,
   href,
   cta = DEFAULT_CTA,
+  afterArticle,
   children,
 }: {
   kicker?: string
@@ -54,8 +55,10 @@ export default function GuideArticle({
   date: string
   /** 이 글의 경로 — "이어서 읽기" 추천에 사용 */
   href?: string
-  /** 하단 박스 문구와 행선지. 병원 글은 MEDICAL_CTA */
-  cta?: GuideCta
+  /** 하단 박스 문구와 행선지. 병원 글은 MEDICAL_CTA. null이면 박스를 뺀다(본문 아래에 신청서를 직접 둔 글) */
+  cta?: GuideCta | null
+  /** 본문 바로 아래, 이어서 읽기 위에 넣을 블록 (예: 글 안의 진단 신청서) */
+  afterArticle?: React.ReactNode
   children: React.ReactNode
 }) {
   return (
@@ -88,29 +91,33 @@ export default function GuideArticle({
           {children}
         </article>
 
+        {afterArticle}
+
         {/* 이어서 읽기 — 관련 글로 회독 유도 + 내부 링크 강화 */}
         {href && <RelatedArticles currentHref={href} />}
 
         {/* CTA */}
-        <section className="container mx-auto max-w-3xl px-4 pb-20 pt-10 md:px-6">
-          <div className="rounded-3xl bg-gradient-to-r from-[#0b1220] to-[#101b2e] px-8 py-10 text-center shadow-xl">
-            <h2 className="text-xl font-extrabold text-white md:text-2xl">{cta.title}</h2>
-            <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-slate-400 md:text-base">{cta.body}</p>
-            <Link href={cta.href} className="mt-6 inline-block">
-              <Button size="lg" className="gap-1 bg-[#00e5a0] px-8 font-bold text-[#070b14] hover:bg-[#3cf0bb]">
-                {cta.label}
-                <ChevronRight className="h-5 w-5" />
-              </Button>
-            </Link>
-            {cta.sub && (
-              <p className="mt-4 text-sm">
-                <Link href={cta.sub.href} className="text-slate-300 underline underline-offset-4 hover:text-[#00e5a0]">
-                  {cta.sub.label}
-                </Link>
-              </p>
-            )}
-          </div>
-        </section>
+        {cta && (
+          <section className="container mx-auto max-w-3xl px-4 pb-20 pt-10 md:px-6">
+            <div className="rounded-3xl bg-gradient-to-r from-[#0b1220] to-[#101b2e] px-8 py-10 text-center shadow-xl">
+              <h2 className="text-xl font-extrabold text-white md:text-2xl">{cta.title}</h2>
+              <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-slate-400 md:text-base">{cta.body}</p>
+              <Link href={cta.href} className="mt-6 inline-block">
+                <Button size="lg" className="gap-1 bg-[#00e5a0] px-8 font-bold text-[#070b14] hover:bg-[#3cf0bb]">
+                  {cta.label}
+                  <ChevronRight className="h-5 w-5" />
+                </Button>
+              </Link>
+              {cta.sub && (
+                <p className="mt-4 text-sm">
+                  <Link href={cta.sub.href} className="text-slate-300 underline underline-offset-4 hover:text-[#00e5a0]">
+                    {cta.sub.label}
+                  </Link>
+                </p>
+              )}
+            </div>
+          </section>
+        )}
       </main>
       <Footer />
     </div>

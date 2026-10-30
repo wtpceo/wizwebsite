@@ -269,7 +269,8 @@ export default function Page() {
         <p>
           우리 가게가 지금 AI에게 어떻게 보이는지는{" "}
           <a href="/site-check">무료 사이트 진단</a>으로 1분이면 확인됩니다. GEO의 정의부터 방법까지는{" "}
-          <a href="/guide/geo">GEO 총정리</a>에 한 페이지로 모아 두었습니다.
+          <a href="/guide/geo">GEO 총정리</a>에 한 페이지로 모아 두었습니다. 저희 가격과 진행 방식은{" "}
+          <a href="/guide/geo-optimization-service">GEO 최적화 서비스 안내</a>에 있습니다.
         </p>
         <p>
           직접 진행할지 맡길지 먼저 정하고 싶으시면{" "}
