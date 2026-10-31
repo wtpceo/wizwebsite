@@ -12,7 +12,7 @@ import GeneralApplyForm from "@/components/general/GeneralApplyForm"
 const TITLE = "GEO 최적화 서비스: 무엇을 재고 고치는지, 무료 진단부터"
 const DESC =
   "GEO 최적화 서비스로 위즈더플래닝이 실제로 하는 일을 순서대로 적었습니다. 고치기 전에 ChatGPT·네이버 AI·제미나이에 지금 몇 번 나오는지부터 무료로 재 드리고, 신청은 이 글 아래에서 바로 하실 수 있습니다."
-const DATE = "2026-10-30"
+const DATE = "2026-10-31"
 const URL = "https://wiztheplanning.com/guide/geo-optimization-service"
 
 export const metadata: Metadata = {
@@ -96,7 +96,7 @@ export default function Page() {
         kicker="서비스 안내 · 자체 실측"
         title={TITLE}
         description={DESC}
-        date="2026년 10월 30일"
+        date="2026년 10월 31일"
         afterArticle={
           <>
             <GeneralApplyForm

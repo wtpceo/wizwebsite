@@ -40,7 +40,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     kicker: "서비스 안내 · 자체 실측",
     title: "GEO 최적화 서비스: 무엇을 재고 고치는지, 무료 진단부터",
     desc: "GEO 최적화 서비스는 AI가 손님 질문에 답할 때 우리 가게 이름을 근거와 함께 꺼내게 만드는 일입니다. 무엇을 재고, 어디를 고치고, 무엇을 받는지, 비용은 얼마부터인지와 맡기지 않는 편이 나은 경우까지 저희가 공개한 실측으로만 적었습니다.",
-    date: "2026. 10. 30",
+    date: "2026. 10. 31",
     related: ["/guide/how-to-choose-geo-agency", "/guide/geo-cost", "/guide/case-orthopedic-chatgpt"],
   },
   {
