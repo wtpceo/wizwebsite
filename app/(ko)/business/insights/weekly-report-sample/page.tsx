@@ -131,7 +131,7 @@ export default function Page() {
             src="/report/business-report-summary.jpg"
             alt="위즈더플래닝 자사 42주차 주간 보고서 첫 장: 카테고리 점유율, 출처 인용률, 인용 키워드, 웹 건강도 네 지표와 지난 측정 대비 변화"
             width={1200}
-            height={1264}
+            height={1221}
             loading="lazy"
             className="w-full rounded-xl border border-slate-200"
           />
