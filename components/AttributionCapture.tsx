@@ -1,7 +1,8 @@
 "use client"
 
 import { useEffect } from "react"
-import { captureAttribution } from "@/lib/attribution"
+import { usePathname } from "next/navigation"
+import { captureAttribution, recordPageView } from "@/lib/attribution"
 
 /**
  * 첫 진입의 UTM·referrer 를 잡아둔다. 화면에는 아무것도 그리지 않는다.
@@ -10,9 +11,15 @@ import { captureAttribution } from "@/lib/attribution"
  * 가이드 글로 들어와 둘러보다 신청하는 경로도 있어서, 모든 페이지에서 잡아야 한다.
  */
 export default function AttributionCapture() {
+  const pathname = usePathname()
+
   useEffect(() => {
     captureAttribution()
   }, [])
+
+  useEffect(() => {
+    if (pathname) recordPageView(pathname)
+  }, [pathname])
 
   return null
 }

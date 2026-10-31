@@ -5,6 +5,8 @@
 //    광고 최적화 목표와 CPA 계산의 분모가 되므로 여러 이벤트로 흩뜨리지 않는다.
 //    (성과 파이프라인: 09_tracking/TRACKING_PLAN.md §1 · fetch.py 의 CONVERSION_ACTIONS)
 
+import { readSourcePath } from "@/lib/attribution"
+
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void
@@ -56,6 +58,8 @@ export function trackDiagnosisSubmit(
 ) {
   gaEvent("diagnosis_submit", {
     form_type: "medical_diagnosis",
+    // 직전에 본 페이지. /diagnosis 폼은 page_path 로는 어느 글에서 왔는지 갈리지 않는다
+    source_path: readSourcePath(),
     specialty: params.specialty || "미선택",
     lead_source: params.source || "미응답",
     lead_budget: params.budget || "미응답",
@@ -141,6 +145,8 @@ export function trackGeneralDiagnosisSubmit(
 ) {
   gaEvent("diagnosis_submit", {
     form_type: "general_diagnosis",
+    // 직전에 본 페이지. /diagnosis 폼은 page_path 로는 어느 글에서 왔는지 갈리지 않는다
+    source_path: readSourcePath(),
     industry: params.industry || "미선택",
     lead_source: params.source || "미응답",
     lead_budget: params.budget || "미응답",

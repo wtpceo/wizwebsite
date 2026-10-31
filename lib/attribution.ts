@@ -94,6 +94,41 @@ export function readAttribution(): Attribution {
   return read() ?? {}
 }
 
+/**
+ * 탭 안에서 직전에 본 페이지를 기록한다 — 진단 신청이 어느 글에서 왔는지 보려는 용도.
+ *
+ * document.referrer 만 쓰면 틀린다. <Link> 이동은 페이지를 새로 불러오지 않아서
+ * referrer 가 그 전 페이지로 남는다(가이드 하단 박스가 이 경우다).
+ * 새로고침은 같은 경로라 직전 페이지를 덮어쓰지 않는다.
+ */
+const NAV_KEY = "wtp_nav"
+
+export function recordPageView(pathname: string): void {
+  try {
+    const raw = sessionStorage.getItem(NAV_KEY)
+    const current = raw ? (JSON.parse(raw) as { current?: string }).current : undefined
+    if (current === pathname) return
+    sessionStorage.setItem(NAV_KEY, JSON.stringify({ current: pathname, previous: current }))
+  } catch {
+    /* 기록 실패는 무시한다 — 신청 자체를 막지 않는다 */
+  }
+}
+
+/** 직전 페이지 경로. 이 탭의 첫 페이지면 "(entry)" (광고·검색·주소 입력으로 바로 들어온 경우) */
+export function readSourcePath(): string {
+  try {
+    const raw = sessionStorage.getItem(NAV_KEY)
+    const previous = raw ? (JSON.parse(raw) as { previous?: string }).previous : undefined
+    if (previous) return previous
+    // 새 탭으로 열면 기록이 비어 있다. 이때는 페이지를 새로 불러온 것이라 referrer 가 맞다
+    const ref = document.referrer ? new URL(document.referrer) : null
+    if (ref && ref.hostname === window.location.hostname) return ref.pathname
+  } catch {
+    /* 아래 기본값으로 */
+  }
+  return "(entry)"
+}
+
 /** 관리자 메일에 넣을 한 줄 요약. 값이 없으면 빈 문자열 */
 export function formatAttribution(a: Attribution): string {
   const chan = [a.utm_source, a.utm_medium, a.utm_campaign, a.utm_term, a.utm_content]
