@@ -18,7 +18,7 @@ const POINTS = [
   {
     icon: Gauge,
     title: "AI 3개 엔진 실측 리포트",
-    desc: "ChatGPT·퍼플렉시티·네이버 AI에서 우리 병원이 실제로 어떻게 답변되는지 엔진별로 실측합니다.",
+    desc: "네이버 AI·ChatGPT·제미나이에서 우리 병원이 실제로 어떻게 답변되는지 엔진별로 실측합니다.",
   },
   {
     icon: Swords,

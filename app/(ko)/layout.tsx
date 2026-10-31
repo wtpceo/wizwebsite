@@ -98,7 +98,7 @@ const jsonLd = {
       email: 'wiz@wiztheplanning.com',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '가산디지털로 178, 2518-2519호',
+        streetAddress: '디지털로 178 퍼블릭가산 A동 2518호·2519호',
         addressLocality: '금천구',
         addressRegion: '서울특별시',
         addressCountry: 'KR',
