@@ -94,6 +94,14 @@ export default function Page() {
           숫자로 보여주고 시작합니다. 진단 없이 계약서부터 내미는 곳은, 출발점을 재지 않았으니{" "}
           <strong>나중에 성과를 증명할 방법도 없습니다.</strong>
         </p>
+        <Callout>
+          <strong>이 질문, 저희에게 먼저 해 보세요</strong>
+          <br />
+          저희도 GEO 대행사이니 계약 전 진단을 보여 달라고 먼저 요청하셔도 됩니다.{" "}
+          <a href="/diagnosis">무료 AI 검색 진단</a>을 신청하시면 ChatGPT·네이버 AI·제미나이에 손님이 쓸 법한 질문을
+          물어, 우리 이름이 나오는지와 잘못 안내되는 정보는 없는지 리포트로 보내 드리겠습니다. 받고 나서 계약하지
+          않으셔도 되고, 그 리포트를 들고 다른 업체와 비교하셔도 됩니다.
+        </Callout>
 
         <h2>질문 ② &ldquo;노출을 보장하시나요?&rdquo;: &lsquo;네&rsquo;라고 하면 위험 신호</h2>
         <p>
@@ -178,7 +186,7 @@ export default function Page() {
           방식으로 일하는지는 <a href="/medical-geo-agency">병원 GEO 대행 페이지</a>의 &lsquo;우리가
           하지 않는 것&rsquo; 섹션에, 실제 실험 데이터는{" "}
           <a href="/guide/platform-ai-crawler-status">플랫폼 15곳 크롤러 실측</a> 같은 공개 자료에
-          그대로 있습니다. 위 7가지 질문을 저희에게 먼저 던지셔도 좋습니다. 계약 전 무료 진단부터
+          그대로 있습니다. 위 7가지 질문을 저희에게 먼저 던지셔도 좋습니다. <a href="/diagnosis">계약 전 무료 진단</a>부터
           시작하는 이유가 질문 ①의 답이기도 합니다.
         </p>
         <p>
