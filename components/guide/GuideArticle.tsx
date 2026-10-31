@@ -86,8 +86,8 @@ export default function GuideArticle({
           </div>
         </section>
 
-        {/* 본문 */}
-        <article className="container mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16 [&>h2]:mt-12 [&>h2]:text-2xl [&>h2]:font-extrabold [&>h2]:tracking-tight [&>h2]:text-gray-900 [&>h3]:mt-8 [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-gray-900 [&>p]:mt-4 [&>p]:text-base [&>p]:leading-[1.85] [&>p]:text-gray-700 [&>ul]:mt-4 [&>ul]:space-y-2 [&>ul]:pl-1 [&>ol]:mt-4 [&>ol]:space-y-3 [&>ol]:pl-1">
+        {/* 본문. 링크가 일반 글자처럼 보이지 않게 색과 밑줄을 준다. 버튼처럼 class를 직접 준 링크는 건드리지 않는다 */}
+        <article className="container mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16 [&>h2]:mt-12 [&>h2]:text-2xl [&>h2]:font-extrabold [&>h2]:tracking-tight [&>h2]:text-gray-900 [&>h3]:mt-8 [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-gray-900 [&>p]:mt-4 [&>p]:text-base [&>p]:leading-[1.85] [&>p]:text-gray-700 [&>ul]:mt-4 [&>ul]:space-y-2 [&>ul]:pl-1 [&>ol]:mt-4 [&>ol]:space-y-3 [&>ol]:pl-1 [&_a:not([class])]:font-semibold [&_a:not([class])]:text-emerald-700 [&_a:not([class])]:underline [&_a:not([class])]:underline-offset-4">
           {children}
         </article>
 
