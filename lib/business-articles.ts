@@ -13,6 +13,22 @@ export type BizArticle = {
 
 export const BUSINESS_ARTICLES: BizArticle[] = [
   {
+    href: "/business/insights/case-payment-meta-ads",
+    kicker: "광고주 사례",
+    title: "광고 효율 개선 사례: 결제 서비스 기업 메타 광고 3주, 고쳐 쓴 보고서",
+    desc: "해외 결제 서비스 기업의 메타 광고 3주 기록입니다. 134만 원으로 랜딩 조회 1만 9천 건을 만들었고, 중간에 나빠진 숫자의 원인과 보고서에서 스스로 취소한 숫자까지 적었습니다.",
+    date: "2026. 10. 31",
+    cover: "/covers/business-case-payment-meta-ads.jpg",
+  },
+  {
+    href: "/business/insights/weekly-report-sample",
+    kicker: "보고 체계",
+    title: "마케팅 성과 측정 지표: 계약하면 받는 주간 보고서 6쪽",
+    desc: "월 운영 계약을 맺으면 받는 주간 보고서를 저희 회사 것으로 보여 드립니다. 첫 장의 지표 네 개와 엔진별 표, 카테고리 점유율 0%처럼 안 좋은 숫자까지 그대로입니다.",
+    date: "2026. 10. 31",
+    cover: "/covers/business-weekly-report-sample.jpg",
+  },
+  {
     href: "/business/insights/inhouse-vs-agency",
     kicker: "조직 구성",
     title: "인하우스 vs 대행사: 마케터 1명 실제 비용과 업무를 나누는 기준",

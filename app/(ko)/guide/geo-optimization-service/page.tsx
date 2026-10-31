@@ -8,7 +8,6 @@ import GeneralApplyForm from "@/components/general/GeneralApplyForm"
 //   H2 4곳(GEO 서비스·GEO 최적화·GEO 마케팅 대행사·GEO 업체), FAQ 4곳에 넣었다.
 // '추천'·'고르는'은 how-to-choose-geo-agency 몫이라 제목·소제목에 넣지 않는다(자기잠식 방지).
 // 신청서는 /medical-geo-agency처럼 본문 바로 아래(#apply)에 두고, 하단 공통 박스는 뺀다.
-// 주간 보고서 샘플 글(/business/insights/weekly-report-sample)이 배포되면 '주간 보고서 샘플' 문구에 링크를 건다.
 const TITLE = "GEO 최적화 서비스: 무엇을 재고 고치는지, 무료 진단부터"
 const DESC =
   "GEO 최적화 서비스로 위즈더플래닝이 실제로 하는 일을 순서대로 적었습니다. 고치기 전에 ChatGPT·네이버 AI·제미나이에 지금 몇 번 나오는지부터 무료로 재 드리고, 신청은 이 글 아래에서 바로 하실 수 있습니다."
@@ -248,8 +247,8 @@ export default function Page() {
         <p>
           계약하시면 주간 보고서를 받으십니다. 첫 장에 지표 네 개(카테고리 점유율, 출처 인용률, 인용 키워드, 웹
           건강도)가 있고, 엔진별 표와 달라진 것, 다음에 할 일이 뒤에 붙습니다. 좋지 않은 숫자도 고치지 않고
-          적습니다. 저희 회사를 잰 42주차 보고서는 카테고리 점유율이 0%였는데, 그 숫자 그대로 주간 보고서
-          샘플에 옮겨 두었습니다.
+          적습니다. 저희 회사를 잰 42주차 보고서는 카테고리 점유율이 0%였는데, 그 숫자 그대로{" "}
+          <a href="/business/insights/weekly-report-sample">주간 보고서 샘플</a>에 옮겨 두었습니다.
         </p>
         <figure className="mt-6">
           <img

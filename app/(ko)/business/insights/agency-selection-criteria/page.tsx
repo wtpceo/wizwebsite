@@ -201,6 +201,10 @@ export default function Page() {
           재지 않으면 처음 숫자도 믿을 수 없기 때문입니다. 측정 방법은{" "}
           <a href="/how-we-measure">측정 방식</a> 페이지에 관제 화면으로 공개해 두었습니다.
         </Callout>
+        <p>
+          광고 쪽 숫자와 광고주 쪽 숫자를 맞춰 보다가 저희가 쓴 숫자를 취소한 기록은{" "}
+          <a href="/business/insights/case-payment-meta-ads">결제 서비스 기업 메타 광고 3주 사례</a>에 적었습니다.
+        </p>
 
         <h2>광고대행사 계약서에서 확인할 여섯 가지</h2>
         <div className="mt-6 overflow-x-auto rounded-xl border border-slate-200">
