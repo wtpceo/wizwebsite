@@ -13,6 +13,14 @@ export type BizArticle = {
 
 export const BUSINESS_ARTICLES: BizArticle[] = [
   {
+    href: "/business/insights/enterprise-geo-adoption",
+    kicker: "도입 준비",
+    title: "기업 GEO 도입 순서: 법무·홍보 검토부터 보고 체계까지 6단계",
+    desc: "기업 GEO 도입은 사이트 수정보다 지금 상태를 재고 담당을 정하는 일이 먼저입니다. 법무·홍보 검토를 어디에 넣을지, 누가 맡을지, 윗선에 무엇을 보고할지 여섯 단계로 정리했습니다.",
+    date: "2026. 10. 31",
+    cover: "/covers/business-enterprise-geo-adoption.jpg",
+  },
+  {
     href: "/business/insights/case-payment-meta-ads",
     kicker: "광고주 사례",
     title: "광고 효율 개선 사례: 결제 서비스 기업 메타 광고 3주, 고쳐 쓴 보고서",
