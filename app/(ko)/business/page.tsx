@@ -286,7 +286,7 @@ export default function Page() {
           <div className="container mx-auto max-w-4xl px-4 md:px-6">
             <h2 className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">숫자로 남긴 기록</h2>
             <p className="mt-3 max-w-2xl text-base leading-relaxed text-slate-400">
-              광고주 이름은 밝히지 않습니다. 대신 측정 방법과 원자료를 공개합니다.
+              광고주 이름은 밝히지 않습니다. 대신 측정 방법과 회차별 숫자를 공개합니다.
             </p>
             <div className="mt-8 grid gap-5 md:grid-cols-3">
               {PROOF.map((p) => (

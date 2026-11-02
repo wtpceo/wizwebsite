@@ -228,8 +228,8 @@ export default function Page() {
           아닙니다.
         </p>
         <p>
-          측정 방법과 원자료는 <a href="/guide/case-orthopedic-chatgpt">정형외과 사례 글</a>에 그대로
-          적어 두었습니다.
+          측정 방법과 회차별 숫자는 <a href="/guide/case-orthopedic-chatgpt">정형외과 사례 글</a>에 적어
+          두었습니다.
         </p>
 
         <p>
