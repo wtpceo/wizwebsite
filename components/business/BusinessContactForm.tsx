@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Loader2, CheckCircle2, Info } from "lucide-react"
+import { Loader2, CheckCircle2 } from "lucide-react"
 import Link from "next/link"
 import { readAttribution } from "@/lib/attribution"
 import { trackBusinessProposalSubmit } from "@/lib/analytics"
@@ -9,7 +9,7 @@ import { trackBusinessProposalSubmit } from "@/lib/analytics"
 // 기업 제안 요청 폼.
 // 자영업 문의 폼과 다른 점 세 가지:
 //  1) 회사 이메일을 필수로 받는다(개인 문의가 자연히 걸러진다).
-//  2) 월 예산 구간을 받아 기준(리테이너 월 300만원) 미만이면 무료 진단 경로를 안내한다. 막지는 않는다.
+//  2) 월 예산 구간을 받는다. 어느 구간이든 그대로 접수한다(2026-11-03 기업 전용 전환으로 무료 진단 안내를 뺐다).
 //  3) /api/contact 로 보내되 language="기업 제안 요청" 태그를 붙여 관리자 메일 제목에서 바로 구분되게 한다.
 const BUDGETS = [
   "월 300만원 미만",
@@ -46,8 +46,6 @@ export default function BusinessContactForm() {
     setF((p) => ({ ...p, [k]: e.target.value }))
   const toggleNeed = (n: string) =>
     setNeeds((p) => (p.includes(n) ? p.filter((x) => x !== n) : [...p, n]))
-
-  const underMinimum = f.budget === BUDGETS[0]
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -156,17 +154,6 @@ export default function BusinessContactForm() {
         </div>
       </div>
 
-      {underMinimum && (
-        <div className="flex gap-2.5 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm leading-relaxed text-amber-900">
-          <Info className="mt-0.5 h-4 w-4 shrink-0" />
-          <p>
-            기업 대행은 월 300만원(대행료 기준)부터 진행합니다. 이 구간이라면{" "}
-            <Link href="/diagnosis" className="font-bold underline underline-offset-2">무료 AI 검색 진단</Link>이나{" "}
-            <Link href="/site-check" className="font-bold underline underline-offset-2">무료 사이트 진단</Link>이 더 맞습니다.
-            그대로 보내 주셔도 확인은 합니다.
-          </p>
-        </div>
-      )}
 
       <div>
         <label className={labelCls} htmlFor="biz-agency">현재 대행사</label>

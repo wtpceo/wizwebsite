@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
-import GuideArticle, { Callout } from "@/components/guide/GuideArticle"
-import GeneralApplyForm from "@/components/general/GeneralApplyForm"
+import GuideArticle, { BUSINESS_CTA, Callout } from "@/components/guide/GuideArticle"
+import BusinessContactForm from "@/components/business/BusinessContactForm"
 
 // 리드 글 (대표 지시 10/30 "홈페이지에 리드 받을 수 있는 글 하나 올리자", 작가 원고 2026-10-30)
 // 주 키워드: GEO 최적화 서비스
@@ -8,9 +8,10 @@ import GeneralApplyForm from "@/components/general/GeneralApplyForm"
 //   H2 4곳(GEO 서비스·GEO 최적화·GEO 마케팅 대행사·GEO 업체), FAQ 4곳에 넣었다.
 // '추천'·'고르는'은 how-to-choose-geo-agency 몫이라 제목·소제목에 넣지 않는다(자기잠식 방지).
 // 신청서는 /medical-geo-agency처럼 본문 바로 아래(#apply)에 두고, 하단 공통 박스는 뺀다.
-const TITLE = "GEO 최적화 서비스: 무엇을 재고 고치는지, 무료 진단부터"
+// 2026-11-03 기업 전용 전환: 무료 진단 약속을 기업 기준(계약 전 기준선 측정, 월 300만 원부터 최소 3개월)으로 바꿨다. 작가 원고 2026-11-03_geo-optimization-service_기업전환_수정문구
+const TITLE = "GEO 최적화 서비스: 무엇을 재고 고치는지, 기준선 측정부터"
 const DESC =
-  "GEO 최적화 서비스로 위즈더플래닝이 실제로 하는 일을 순서대로 적었습니다. 고치기 전에 ChatGPT·네이버 AI·제미나이에 지금 몇 번 나오는지부터 무료로 재 드리고, 신청은 이 글 아래에서 바로 하실 수 있습니다."
+  "GEO 최적화 서비스로 위즈더플래닝이 실제로 하는 일을 순서대로 적었습니다. 계약 전에 ChatGPT·네이버 AI·제미나이에 브랜드가 지금 몇 번 나오는지부터 재고, 제안 요청은 이 글 아래에서 바로 보내실 수 있습니다."
 const DATE = "2026-10-31"
 const URL = "https://wiztheplanning.com/guide/geo-optimization-service"
 
@@ -33,7 +34,7 @@ const jsonLd = {
   headline: TITLE,
   description: DESC,
   datePublished: DATE,
-  dateModified: DATE,
+  dateModified: "2026-11-03",
   inLanguage: "ko",
   author: { "@id": "https://wiztheplanning.com/#organization" },
   publisher: { "@id": "https://wiztheplanning.com/#organization" },
@@ -55,18 +56,18 @@ const FAQ: { q: string; a: string; body?: React.ReactNode }[] = [
   },
   {
     q: "geo 대행은 어떤 업종이 받을 수 있나요?",
-    a: "손님이 검색해서 찾아오는 곳이면 업종을 가리지 않습니다. 식당, 카페, 펜션, 학원, 미용실, 헬스장 모두 진단하는 방식은 같고 손님이 AI에 묻는 말만 다릅니다. 병원·의원은 병원 GEO 대행 안내에서 따로 받습니다.",
+    a: "마케팅 담당자가 있는 회사라면 업종을 가리지 않습니다. 소비재 브랜드든 B2B 서비스든 재는 방식은 같고 고객이 AI에 묻는 말만 다릅니다. 병원·의원은 병원 GEO 대행 안내에서 따로 받습니다.",
     body: (
       <>
-        손님이 검색해서 찾아오는 곳이면 업종을 가리지 않습니다. 식당, 카페, 펜션, 학원, 미용실, 헬스장 모두
-        진단하는 방식은 같고 손님이 AI에 묻는 말만 다릅니다. 병원·의원은{" "}
+        마케팅 담당자가 있는 회사라면 업종을 가리지 않습니다. 소비재 브랜드든 B2B 서비스든 재는 방식은 같고
+        고객이 AI에 묻는 말만 다릅니다. 병원·의원은{" "}
         <a href="/medical-geo-agency">병원 GEO 대행 안내</a>에서 따로 받습니다.
       </>
     ),
   },
   {
     q: "AI 검색 최적화 서비스는 홈페이지가 없어도 받을 수 있나요?",
-    a: "네. 다만 AI가 참고할 우리 가게의 공식 정보가 부족하다는 뜻이라 진단 결과에서 그 부분이 먼저 고칠 항목으로 나올 가능성이 큽니다. 지금 어느 채널에 어떤 정보가 흩어져 있는지부터 정리해 드립니다.",
+    a: "네. 다만 AI가 참고할 우리 회사의 공식 정보가 부족하다는 뜻이라 기준선 측정에서 그 부분이 먼저 고칠 항목으로 나올 가능성이 큽니다. 지금 어느 채널에 어떤 정보가 흩어져 있는지부터 정리해 드립니다.",
   },
   {
     q: "GEO 업체가 상위 노출을 보장한다고 하면 믿어도 되나요?",
@@ -97,29 +98,23 @@ export default function Page() {
         description={DESC}
         date="2026년 10월 31일"
         afterArticle={
-          <>
-            <GeneralApplyForm
-              heading="지금 우리 가게가 AI에 어떻게 나오는지부터 재 드릴게요"
-              description="상호와 연락처를 남겨 주시면 담당 마케터가 진단 결과를 들고 연락드리겠습니다. 진단은 무료이고, 받고 나서 계약하지 않으셔도 됩니다."
-              pageTag="GEO 서비스 글"
-            />
-            <p className="container mx-auto max-w-3xl px-4 pt-6 text-center text-sm text-gray-500 md:px-6">
-              마케팅 담당자가 있는 회사라면{" "}
-              <a href="/business/contact" className="font-medium text-gray-700 underline underline-offset-4 hover:text-emerald-700">
-                기업 제안 요청
-              </a>
-              으로 보내 주세요. 월 300만 원부터, 최소 3개월 기준으로 따로 제안드립니다.
-            </p>
-          </>
+          // 2026-11-03 기업 전용 전환: 업종 무관 진단 신청서 대신 기업 제안 요청 폼을 둔다. 본문의 #apply 링크가 이 자리로 온다
+          <section id="apply" className="container mx-auto max-w-3xl scroll-mt-20 px-4 pb-16 pt-10 md:px-6">
+            <h2 className="text-2xl font-extrabold leading-snug text-gray-900 md:text-3xl">{BUSINESS_CTA.title}</h2>
+            <p className="mt-3 text-base leading-relaxed text-gray-600">{BUSINESS_CTA.body}</p>
+            <div className="mt-8">
+              <BusinessContactForm />
+            </div>
+          </section>
         }
       >
         <p>
           <strong>
-            GEO 최적화 서비스는 ChatGPT·네이버 AI·제미나이가 손님 질문에 답할 때 우리 가게 이름을 근거와 함께
+            GEO 최적화 서비스는 ChatGPT·네이버 AI·제미나이가 고객 질문에 답할 때 우리 브랜드 이름을 근거와 함께
             꺼내도록 사이트와 바깥 정보를 고치는 일입니다.
           </strong>{" "}
-          저희는 고치기 전에 지금 상태부터 무료로 재 드리고, 신청은{" "}
-          <a href="#apply">이 글 맨 아래 신청서</a>에서 바로 하실 수 있습니다.
+          저희는 계약 전에 지금 상태부터 재고 나서 고치기 시작합니다. 제안 요청은{" "}
+          <a href="#apply">이 글 맨 아래 폼</a>에서 바로 보내실 수 있습니다.
         </p>
         <p>
           아래는 위즈더플래닝이 GEO 서비스로 하는 일을 순서대로 적은 것입니다. GEO라는 말이 처음이시면{" "}
@@ -132,9 +127,9 @@ export default function Page() {
         <h2>GEO 서비스는 고치기 전에 먼저 잽니다</h2>
         <p>
           AI 답변은 같은 질문에도 물을 때마다 조금씩 달라집니다. 화면 한 장을 캡처해서 &ldquo;나온다, 안
-          나온다&rdquo;를 말하면 그날 운에 따라 결론이 뒤집히니까 저희는 손님이 실제로 칠 법한 질문을 정해
-          두고 엔진마다 여러 번 묻습니다. 질문에는 가게 이름을 넣지 않습니다. 이름을 대고 물으면 어느 엔진이든
-          찾아 주기 때문에 아직 우리 가게를 모르는 손님이 묻는 형태만 셉니다.
+          나온다&rdquo;를 말하면 그날 운에 따라 결론이 뒤집히니까 저희는 고객이 실제로 칠 법한 질문을 정해
+          두고 엔진마다 여러 번 묻습니다. 질문에는 브랜드 이름을 넣지 않습니다. 이름을 대고 물으면 어느 엔진이든
+          찾아 주기 때문에 아직 우리 브랜드를 모르는 고객이 묻는 형태만 셉니다.
         </p>
         <p>
           한 정형외과 의원은 계약 전 진단에서 질문 10개를 엔진마다 질문당 3번씩, 모두 30번 물었습니다. 네이버
@@ -149,10 +144,10 @@ export default function Page() {
             <strong>AI가 근거로 단 출처.</strong> 우리 사이트인지, 블로그나 디렉토리 같은 남의 페이지인지
           </li>
           <li>
-            <strong>잘못 안내하는 정보.</strong> 영업시간, 위치, 하지 않는 서비스처럼 손님을 헛걸음하게 만드는 것
+            <strong>잘못 안내하는 정보.</strong> 가격, 연락처, 하지 않는 서비스처럼 고객이 잘못 알고 문의하게 만드는 것
           </li>
         </ul>
-        <p>대신 추천되는 경쟁 가게가 어디인지와 무엇부터 고칠지도 진단서에 같이 적어 드립니다.</p>
+        <p>대신 추천되는 경쟁 브랜드가 어디인지와 무엇부터 고칠지도 측정 결과에 같이 적어 드립니다.</p>
         <p>
           저희 회사 사이트도 같은 방식으로 잽니다. 10월 19일 측정에서 저희 점수는 100점 만점에 16점이었습니다.
           좋은 숫자는 아니지만 <a href="/how-we-measure">측정 방식</a> 페이지에 관제 화면과 함께 그대로 공개해
@@ -160,22 +155,22 @@ export default function Page() {
         </p>
 
         <Callout>
-          <strong>우리 가게는 지금 몇 번 중 몇 번 나올까요</strong>
+          <strong>우리 브랜드는 지금 몇 번 중 몇 번 나올까요</strong>
           <br />
-          무료 진단을 신청하시면 네이버 AI·ChatGPT·제미나이에 손님이 쓸 법한 질문을 물어 보고, 우리 가게 이름이
-          나오는지와 잘못 안내되는 정보는 없는지 리포트로 정리해 드립니다. 업종은 가리지 않고, 진단만 받고
-          끝내셔도 됩니다.
+          계약 전에 네이버 AI·ChatGPT·제미나이에 고객이 쓸 법한 질문을 물어 보고, 브랜드 이름이 나오는지와 잘못
+          안내되는 정보는 없는지 기준선 리포트로 정리해 드립니다. 이 측정은 온보딩 항목으로 따로 견적을 내고,
+          대행료는 월 300만 원부터 최소 3개월입니다.
           <br />
           <a
             href="#apply"
             className="mt-3 inline-block rounded-lg bg-[#070b14] px-4 py-2 text-sm font-bold text-[#00e5a0] no-underline hover:bg-[#101b2e]"
           >
-            진단 신청서로 가기
+            제안 요청 보내기
           </a>
         </Callout>
 
         <h2>GEO 최적화로 고치는 곳</h2>
-        <p>진단에서 빈 곳이 보이면 그 자리를 고칩니다. 가게마다 다르지만 대개 아래 네 군데 중 하나에서 막혀 있습니다.</p>
+        <p>진단에서 빈 곳이 보이면 그 자리를 고칩니다. 회사마다 다르지만 대개 아래 네 군데 중 하나에서 막혀 있습니다.</p>
 
         <h3>AI가 읽을 수 있는 사이트 구조</h3>
         <p>
@@ -189,7 +184,7 @@ export default function Page() {
 
         <h3>이름과 사실을 한 문장으로 묶기</h3>
         <p>
-          AI가 우리 가게에 대한 사실은 알면서 이름을 못 부르는 경우가 생각보다 많습니다. 정형외과 진단 때
+          AI가 우리 회사에 대한 사실은 알면서 이름을 못 부르는 경우가 생각보다 많습니다. 정형외과 진단 때
           ChatGPT는 이 병원을 이름 없이 이렇게 소개했습니다.
         </p>
         <blockquote className="mt-4 border-l-4 border-gray-300 pl-5 text-base leading-[1.85] text-gray-700">
@@ -197,7 +192,7 @@ export default function Page() {
           곳으로 소개되었습니다.&rdquo;
         </blockquote>
         <p>
-          위치도 진료 시간도 맞았는데 이름만 빠져 있었습니다. 그래서 가게가 직접 가진 페이지에서 이름과 사실을
+          위치도 진료 시간도 맞았는데 이름만 빠져 있었습니다. 그래서 회사가 직접 가진 페이지에서 이름과 사실을
           한 문장으로 묶고 위치·영업시간·대표 서비스를 한 파일에 모은 AI 안내 파일(llms.txt)도 만듭니다. 쓰는
           원칙은 <a href="/guide/what-is-llms-txt">llms.txt 기초 정리</a>에 공개해 두었습니다.
         </p>
@@ -206,15 +201,14 @@ export default function Page() {
         <p>
           이름이 나오기 시작하면 다음 일은 틀린 정보입니다. 정형외과는 재측정 때 이름이 나온 답 28개 중 3개가
           평일 진료 마감을 실제보다 이른 시간으로 적었습니다. 병원 정보 디렉토리에 남아 있던 옛 정보로
-          보입니다. 가게가 먼저 적어 두지 않은 정보는 AI가 다른 곳에서 채우기 때문에 바깥에 흩어진 옛 정보를
+          보입니다. 회사가 먼저 적어 두지 않은 정보는 AI가 다른 곳에서 채우기 때문에 바깥에 흩어진 옛 정보를
           찾아 고치고 사이트에 정확한 값을 먼저 적어 둡니다.
         </p>
 
         <h3>바깥 출처</h3>
         <p>
-          AI는 우리 사이트 하나만 보고 추천하지 않습니다. 홈페이지도 플레이스도 없던 지방 중식당 한 곳은 웹
-          자산을 만들고 두 달 뒤 AI 답변에서 추천 4위에 올랐는데 그때 AI가 단 출처는 홈페이지가 아니라 제3자
-          플랫폼이었습니다. 정형외과도 후기와 예약을 묻는 질문에서는 동네 업체 프로필이 출처로 달렸습니다.
+          AI는 우리 사이트 하나만 보고 추천하지 않습니다. 앞의 정형외과도 후기와 예약을 묻는 질문에서는 병원
+          사이트가 아니라 동네 업체 프로필이 출처로 달렸습니다.
           네이버가 AI 크롤러를 막아 두어서{" "}
           <a href="/guide/naver-blocks-ai-crawlers">네이버 안에 쌓은 글은 ChatGPT가 읽지 못한다</a>는 점도 이
           단계에서 같이 봅니다.
@@ -233,15 +227,15 @@ export default function Page() {
           전체 기록은 <a href="/guide/case-orthopedic-chatgpt">정형외과 ChatGPT 사례</a>에 있습니다.
         </p>
         <p>
-          걸리는 시간은 가게마다 다릅니다. 출장세차 한 곳은 2개월 만에 구글 AI 개요에 올랐고, 홈페이지를 전부
+          걸리는 시간은 회사마다 다릅니다. 빠른 곳은 2개월 만에 구글 AI 개요에 올랐고, 홈페이지를 전부
           다시 만든 비뇨의학과는 홈페이지 작업에만 약 2개월, ChatGPT·구글·네이버에서 안정적으로 보이기까지 약
           6개월이 걸렸습니다.
         </p>
 
         <h2>GEO 마케팅 대행사에 맡기면 받는 것</h2>
         <p>
-          처음 받으시는 건 무료 진단서입니다. 엔진별로 이름이 나온 비율, AI가 근거로 단 출처, 잘못 안내되는 정보,
-          대신 추천되는 경쟁 가게, 무엇부터 고칠지가 들어 있습니다. 숫자만 받아서는 무엇부터 할지 정하기 어려워서
+          처음 받으시는 건 계약 전 기준선 측정 결과입니다. 엔진별로 이름이 나온 비율, AI가 근거로 단 출처, 잘못 안내되는 정보,
+          대신 추천되는 경쟁 브랜드, 무엇부터 고칠지가 들어 있습니다. 숫자만 받아서는 무엇부터 할지 정하기 어려워서
           담당 마케터가 직접 연락드려 결과를 짚어 드립니다.
         </p>
         <p>
@@ -270,13 +264,7 @@ export default function Page() {
 
         <h2>GEO 업체 비용은 얼마부터인가요</h2>
         <ul className="list-disc space-y-2 pl-5 text-base leading-[1.85] text-gray-700">
-          <li>
-            <strong>진단:</strong> 무료입니다. 진단 뒤에 자동으로 결제되거나 유료로 넘어가는 일은 없습니다.
-          </li>
-          <li>
-            <strong>가게:</strong> 규모에 따라 월 30만 원부터(VAT 별도)이고, 최소 6개월 진행합니다. AI 답변은 빠른
-            곳이 2개월쯤, 대체로 6개월 안쪽에서 움직여서 기간을 그렇게 잡았습니다.
-          </li>
+          {/* 2026-11-03 기업 전용 전환: 소상공인 요금(가게 월 30만 원·최소 6개월)과 무료 진단 줄을 뺐다. 우리 가격·조건은 본문 원칙의 예외 */}
           <li>
             <strong>마케팅 담당자가 있는 조직:</strong> 대행료 월 300만 원부터, 최소 3개월이고 계약 전 기준선 측정은
             따로 견적을 냅니다. 자세한 기준은 <a href="/business">기업 마케팅 대행 안내</a>에 있습니다.
@@ -299,8 +287,8 @@ export default function Page() {
             <strong>한두 달 안에 매출로 확인하고 싶으실 때.</strong> 빠른 곳도 변화가 보이기까지 2개월쯤 걸립니다.
           </li>
           <li>
-            <strong>손님이 검색해서 오지 않는 장사일 때.</strong> 단골과 지인 소개로 대부분 돌아가는 가게라면 AI 답에
-            이름이 나와도 달라지는 게 적습니다.
+            <strong>고객이 검색해서 찾아오지 않는 사업일 때.</strong> 기존 거래처와 소개로 영업이 대부분 돌아가는
+            회사라면 AI 답에 이름이 나와도 달라지는 게 적습니다.
           </li>
           <li>
             <strong>직접 할 시간이 있으실 때.</strong> 사이트를 손볼 줄 알고 매달 몇 시간을 낼 수 있다면 직접 하셔도
@@ -309,8 +297,8 @@ export default function Page() {
           </li>
         </ul>
         <p>
-          어느 쪽인지 애매하시면 <a href="#apply">진단부터</a> 받아 보셔도 됩니다. 진단만 받고 끝내셔도
-          괜찮습니다.
+          어느 쪽인지 애매하시면 <a href="#apply">제안 요청</a>에 지금 상황을 적어 보내 주세요. 맡기실 만한지부터
+          같이 보겠습니다.
         </p>
 
         <h2>자주 묻는 질문</h2>

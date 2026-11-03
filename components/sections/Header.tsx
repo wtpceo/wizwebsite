@@ -47,14 +47,13 @@ export default function Header() {
     { key: 'services', anchor: 'services' },
     // IMC·인플루언서 섭외 라인 (2026-11-03 대표 결정, '서비스' 바로 옆)
     { key: 'influencer', href: '/influencer', isExternal: true },
-    { key: 'sitecheck', href: '/site-check', isExternal: true },
+    // 2026-11-03 대표 결정: 기업 전용으로 타깃을 바꿔 소상공인 입구(무료 사이트 진단, 위즈 극장)는 메뉴에서 뺐다. 페이지는 그대로 둔다
     { key: 'measure', href: '/how-we-measure', isExternal: true },
     { key: 'business', href: '/business', isExternal: true },
     { key: 'team', anchor: 'team' },
     { key: 'medical', isDropdown: true, highlight: true },
     { key: 'portfolio', href: '/portfolio', isExternal: true },
     { key: 'guide', href: '/guide', isExternal: true },
-    { key: 'theater', href: '/theater', isExternal: true },
     { key: 'faq', anchor: 'faq' },
     { key: 'contact', anchor: 'contact' }
   ];
@@ -337,9 +336,9 @@ export default function Header() {
                 </li>
               ))}
             </ul>
-            <Link href="/#contact" onClick={() => setOpen(false)} className="mt-4 block">
+            <Link href="/business/contact" onClick={() => setOpen(false)} className="mt-4 block">
               <Button className="w-full bg-[#00e5a0] py-6 text-base font-bold text-[#070b14] hover:bg-[#3cf0bb]">
-                무료 AI 검색 진단 받기
+                광고 상담 받기
               </Button>
             </Link>
 

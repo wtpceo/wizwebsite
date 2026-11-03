@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion, type Variants } from "framer-motion"
-import { ChevronRight, ArrowUpRight, Film } from "lucide-react"
+import { ChevronRight, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import BrandAskBox from "@/components/agency/BrandAskBox"
 
@@ -89,14 +89,6 @@ function ProofStrip() {
         <span className="text-xs font-semibold tracking-wide text-slate-300">
           실측 기록: 내려간 숫자도 그대로 적습니다
         </span>
-        <Link
-          href="/theater"
-          className="group flex items-center gap-1.5 text-[11px] text-slate-500 transition-colors hover:text-[#00e5a0]"
-        >
-          <Film className="h-3 w-3" />
-          배경 영상은 위즈 극장 5편입니다
-          <ArrowUpRight className="h-3 w-3 transition-colors group-hover:text-[#00e5a0]" />
-        </Link>
       </div>
       <div className="grid gap-px overflow-hidden rounded-lg border border-white/10 bg-white/10 sm:grid-cols-3">
         {PROOF_ROWS.map((row) => (
@@ -160,12 +152,13 @@ export default function AgencyHero() {
             </motion.p>
 
             <motion.div variants={fadeIn} className="mt-7 flex flex-col gap-3 min-[400px]:flex-row md:mt-9">
-              <Link href="/diagnosis">
+              {/* 2026-11-03 기업 전용 전환: 주 버튼을 /diagnosis 에서 기업 제안 요청으로 바꿨다 */}
+              <Link href="/business/contact">
                 <Button
                   size="lg"
                   className="gap-1 rounded-md bg-[#00e5a0] px-8 py-6 text-lg font-bold text-[#070b14] transition-colors duration-200 hover:bg-[#3cf0bb]"
                 >
-                  우리가 물어볼 질문 보기
+                  광고 상담 받기
                   <ChevronRight className="h-5 w-5" />
                 </Button>
               </Link>

@@ -1,4 +1,3 @@
-import DiagnosisPopup from "@/components/DiagnosisPopup"
 import ChatWidget from "@/components/ChatWidget"
 import MetaPixel from "@/components/MetaPixel"
 import AttributionCapture from "@/components/AttributionCapture"
@@ -27,7 +26,7 @@ export default function RootShell({
         <PhoneClickTracker />
         {children}
         <ChatWidget />
-        <DiagnosisPopup />
+        {/* 전역 무료 진단 팝업(DiagnosisPopup)은 2026-11-03 기업 전용 전환으로 끈다. 파일은 남겨 둔다 */}
       </body>
       <GoogleAnalytics gaId="G-CF8977QJ2V" />
       {/* 픽셀 ID가 없으면 렌더되지 않는다 → 환경변수 미설정 시 조용히 비활성 */}

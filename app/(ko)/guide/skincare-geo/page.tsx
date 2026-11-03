@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import GuideArticle, { BUSINESS_CTA, CheckItem, Callout } from "@/components/guide/GuideArticle"
 
 const TITLE = "피부·에스테틱 AI 검색 최적화(GEO) 가이드: 홈페이지가 인용을 가른다"
 const DESC =
@@ -35,11 +35,8 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <GuideArticle href="/guide/skincare-geo"
         cta={{
-          title: "우리 매장, AI에게 물어보면 나올까요?",
-          body: "피부관리·에스테틱 매장은 업종 무관 무료 진단으로, 피부과 같은 의원은 병원 전용 무료 진단으로 신청해 주세요. 두 진단 모두 조건 없이 무료입니다.",
-          href: "/diagnosis",
-          label: "무료 AI 검색 진단 신청",
-          sub: { href: "/medical-diagnosis", label: "병원·의원은 병원 전용 진단으로" },
+          ...BUSINESS_CTA,
+          sub: { href: "/medical-diagnosis", label: "피부과·의원이라면 병원 무료 AI 검색 진단부터 받아 보세요" },
         }} kicker="SKINCARE GEO" title={TITLE} description={DESC} date="2026년 7월 9일 발행 · 2026년 9월 8일 갱신">
         <p>
           결론부터 말씀드리겠습니다. 피부관리샵·에스테틱은 <strong>AI 검색에서 "홈페이지"가 승부처</strong>인

@@ -71,14 +71,7 @@ export default function WhyFreeGeneral() {
             않습니다. 식당·카페·펜션·학원·헬스장·미용실: 손님이 검색해서 찾아오는 곳이라면
             방식은 같습니다.
           </p>
-          {/* 가격 기준점 — 제안서에서 처음 가격을 보고 이탈하는 걸 줄인다 (2026-09-15, 정현우 확인)
-              VAT 별도 · 최소 6개월 · 주 1회 보고서 (정현우 확인 2026-09-15) */}
-          <p className="mx-auto mt-6 inline-flex flex-wrap items-center justify-center gap-x-2 rounded-full border border-[#00e5a0]/30 bg-[#00e5a0]/10 px-5 py-2 text-sm text-slate-200">
-            <span className="font-bold text-[#00e5a0]">개선 작업 비용</span>
-            <span className="whitespace-nowrap">가게 규모에 따라 월 30만원부터 (VAT 별도)</span>
-            <span className="whitespace-nowrap">· 최소 6개월</span>
-            <span className="whitespace-nowrap">· 주 1회 성과 보고서</span>
-          </p>
+          {/* 소상공인 요금(가게 월 30만원부터·최소 6개월) 표시는 2026-11-03 기업 전용 전환으로 뺐다. 페이지는 둔다 */}
         </motion.div>
 
         <div className="mx-auto mt-12 grid max-w-5xl gap-5 md:grid-cols-3">

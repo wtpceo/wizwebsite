@@ -290,14 +290,14 @@ export default function Page() {
         {/* CTA */}
         <section className="container mx-auto max-w-5xl px-4 pb-20 md:px-6">
           <div className="rounded-3xl bg-gradient-to-r from-[#0b1220] to-[#101b2e] px-8 py-12 text-center shadow-xl">
-            <h2 className="text-xl font-extrabold text-white md:text-3xl">우리 가게는 지금 어떻게 나오는지부터</h2>
+            <h2 className="text-xl font-extrabold text-white md:text-3xl">우리 브랜드는 지금 AI 검색에서 어떻게 보이는지부터</h2>
             <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-slate-400 md:text-base">
               같은 시스템으로 현재 상태를 먼저 측정해 드립니다. 진단 결과만 받아보시고 마무리하셔도 됩니다.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-              <Link href="/diagnosis">
+              <Link href="/business/contact">
                 <Button size="lg" className="w-full gap-1 bg-[#00e5a0] px-8 py-6 text-base font-bold text-[#070b14] hover:bg-[#3cf0bb] sm:w-auto">
-                  무료 AI 검색 진단 신청
+                  제안 요청 보내기
                   <ChevronRight className="h-5 w-5" />
                 </Button>
               </Link>

@@ -14,28 +14,37 @@ type GuideCta = {
   sub?: { href: string; label: string }
 }
 
-// 하단 박스 기본값. 버튼 이름("무료 진단")과 가는 곳을 맞춰 연락처가 남는 업종 무관 진단으로 보낸다 (2026-10-29 총괄 결정, 예전에는 /#contact)
-const DEFAULT_CTA: GuideCta = {
-  title: "우리 가게, AI에게 물어보면 나올까요?",
-  body: "무료 진단 리포트로 우리 매장의 AI 검색 현황을 확인해 보세요.",
-  href: "/diagnosis",
-  label: "AI 검색 무료 진단 신청",
+// 하단 박스. 2026-11-03 대표 결정으로 타깃을 기업 전용으로 바꿨다(소상공인은 받지 않고, 병원은 기업으로 본다).
+// 글 본문은 검색 자산이라 그대로 두고, 하단 박스만 기업·병원 문의로 바꾼다. 문구: 작가 원고 2026-11-03_가이드_진단상자_교체문구
+// 제목은 어느 폭에서나 쉼표 뒤에서 줄을 끊는다(아래 CtaTitle). 휴대폰에서도 2줄에 들도록 작가가 뒷부분을 줄였다
+export const BUSINESS_CTA: GuideCta = {
+  title: "광고 예산이 있는 기업이라면, 검색 결과부터 확인해 보세요",
+  body: "네이버·구글 검색과 AI 답변에 브랜드가 어떻게 나오는지 같이 보고, 담당자님과 목표부터 정하겠습니다.",
+  href: "/business/contact",
+  label: "제안 요청 보내기",
 }
+const DEFAULT_CTA = BUSINESS_CTA
 
-// 병원 주제 글의 하단 박스. '가게'·일반 상담 대신 병원 진단(/medical-diagnosis)으로 보낸다 (작가 원고 2026-10-29)
+// 병원 주제 글. 병원 무료 진단은 계속 둔다(2026-11-03 대표 결정). 버튼은 병원 진단(/medical-diagnosis)으로 보낸다
 export const MEDICAL_CTA: GuideCta = {
-  title: "우리 병원, AI에게 물어보면 나올까요?",
-  body: "병원·의원이면 조건 없이 무료로 진단해 드립니다. 네이버 AI·ChatGPT·제미나이에 환자가 쓸 법한 질문을 물어 언급 비율, 잘못 안내되는 정보, 경쟁 병원과의 차이를 리포트로 보내 드리고, 진단만 받고 마치셔도 됩니다.",
+  title: "광고 예산이 있는 병원이라면, 검색 결과부터 확인해 보세요",
+  body: "진료과 검색어로 네이버와 AI 답변에 병원이 어떻게 소개되는지 같이 보고, 원장님·실장님과 목표부터 정하겠습니다.",
   href: "/medical-diagnosis",
   label: "병원 무료 AI 검색 진단 신청",
 }
 
-// 자영업 독자가 많이 들어오는 글의 하단 박스. 연락처가 남는 업종 무관 진단(/diagnosis)으로 보낸다 (작가 원고 2026-10-29)
-export const SMALL_BIZ_CTA: GuideCta = {
-  title: "우리 가게, AI에게 물어보면 나올까요?",
-  body: "ChatGPT·네이버 AI·제미나이가 우리 가게를 추천하는지, 잘못 안내하는 정보는 없는지 무료 진단 리포트로 알려 드립니다. 업종은 가리지 않습니다.",
-  href: "/diagnosis",
-  label: "무료 AI 검색 진단 신청",
+// 예전 자영업 글용 상자. 이제 기업 상자와 같다(가져다 쓰는 글이 있어 이름만 남긴다)
+export const SMALL_BIZ_CTA = BUSINESS_CTA
+
+function CtaTitle({ text }: { text: string }) {
+  const at = text.indexOf(", ")
+  if (at < 0) return <>{text}</>
+  return (
+    <>
+      {text.slice(0, at + 1)}
+      <br /> {text.slice(at + 2)}
+    </>
+  )
 }
 
 // 가이드 아티클 공용 레이아웃 (서버 컴포넌트 — 정적 렌더링이라 크롤러/AI가 그대로 읽음)
@@ -100,7 +109,9 @@ export default function GuideArticle({
         {cta && (
           <section className="container mx-auto max-w-3xl px-4 pb-20 pt-10 md:px-6">
             <div className="rounded-3xl bg-gradient-to-r from-[#0b1220] to-[#101b2e] px-8 py-10 text-center shadow-xl">
-              <h2 className="text-xl font-extrabold text-white md:text-2xl">{cta.title}</h2>
+              <h2 className="text-xl font-extrabold text-white md:text-2xl">
+                <CtaTitle text={cta.title} />
+              </h2>
               <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-slate-400 md:text-base">{cta.body}</p>
               <Link href={cta.href} className="mt-6 inline-block">
                 <Button size="lg" className="gap-1 bg-[#00e5a0] px-8 font-bold text-[#070b14] hover:bg-[#3cf0bb]">

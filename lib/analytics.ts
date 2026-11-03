@@ -77,13 +77,15 @@ export function trackDiagnosisSubmit(
 }
 
 /** 일반 문의 폼 제출 완료 → Meta `Lead` ★ 주 전환 */
-export function trackContactSubmit(params: { source?: string; budget?: string } = {}) {
+export function trackContactSubmit(params: { industry?: string; source?: string; budget?: string } = {}) {
   gaEvent("contact_submit", {
     form_type: "general_contact",
+    // 기업 / 병원 / 그 밖. 측정 세션이 이 폼에서 기업·병원 문의를 가른다(2026-11-03)
+    industry: params.industry || "미응답",
     lead_source: params.source || "미응답",
     lead_budget: params.budget || "미응답",
   })
-  fbEvent("Lead", { content_name: "무료 상담 신청", lead_budget: params.budget || "미응답" }, true)
+  fbEvent("Lead", { content_name: "무료 상담 신청", content_category: params.industry || "미응답", lead_budget: params.budget || "미응답" }, true)
 }
 
 /** 기업 제안 요청 폼 제출 완료(/business/contact) → Meta `Lead` ★ 주 전환
@@ -96,6 +98,8 @@ export function trackBusinessProposalSubmit(
   const services = params.services?.length ? params.services.join(", ") : "미선택"
   gaEvent("generate_lead", {
     form: "business",
+    // 직전에 본 페이지. 가이드 글 안에 넣은 기업 폼과 /business/contact 를 글별로 나눈다(2026-11-03)
+    source_path: readSourcePath(),
     budget: params.budget || "미응답",
     // 다른 폼 이벤트와 같은 이름. GA4 맞춤 측정기준을 lead_budget 하나로 잡는다(2026-11-03). budget은 기존 집계용으로 남긴다
     lead_budget: params.budget || "미응답",

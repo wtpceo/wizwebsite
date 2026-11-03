@@ -1,8 +1,8 @@
 import Link from "next/link"
 
 // 실제 존재하는 페이지들을 카테고리별로 노출 (내부 링크 → 크롤링·색인에도 도움)
+// 2026-11-03 기업 전용 전환: 무료 홈페이지 진단과 업종별 전략(소상공인) 링크는 뺐다. 페이지는 그대로 둔다
 const serviceLinks = [
-  { label: "무료 홈페이지 진단", href: "/site-check" },
   { label: "병원 GEO 대행", href: "/medical-geo-agency" },
   { label: "병원 무료 AI 검색 진단", href: "/medical-diagnosis" },
   { label: "엘리베이터TV 광고", href: "/focusmedia" },
@@ -14,13 +14,6 @@ const serviceLinks = [
 const bizNo = "668-81-00391"
 const bizInfoUrl = `https://www.ftc.go.kr/bizCommPop.do?wrkr_no=${bizNo.replace(/-/g, "")}`
 
-const strategyLinks = [
-  { label: "음식점 마케팅 전략", href: "/strategy/1" },
-  { label: "배달 플랫폼 관리 전략", href: "/strategy/2" },
-  { label: "학원 마케팅 전략", href: "/strategy/3" },
-  { label: "뷰티 업종 마케팅 전략", href: "/strategy/5" },
-  { label: "운동·피트니스 마케팅 전략", href: "/strategy/6" },
-]
 
 export default function Footer() {
   return (
@@ -54,19 +47,6 @@ export default function Footer() {
             </ul>
           </nav>
 
-          {/* 업종별 전략 */}
-          <nav aria-label="업종별 전략" className="space-y-3">
-            <h4 className="font-semibold text-slate-200">업종별 전략</h4>
-            <ul className="space-y-2">
-              {strategyLinks.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href} className="transition-colors hover:text-[#00e5a0]">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
 
           {/* 고객센터 + 약관 + SNS */}
           <div className="space-y-4">

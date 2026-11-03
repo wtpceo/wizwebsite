@@ -29,19 +29,22 @@ const SOURCE_OPTIONS = [
   "기타",
 ]
 
-// 월 예산 — 누구에게 먼저 전화할지 정하는 항목 (2026-09-15)
+// 업종 구분 — 측정에서 기업·병원 문의를 가르는 항목. 필수, 폼 맨 앞 (2026-11-03 기업 전용 전환)
+const INDUSTRY_OPTIONS = ["기업", "병원", "그 밖"]
+
+// 월 예산 — 누구에게 먼저 전화할지 정하는 항목 (2026-09-15). 2026-11-03 기업 전용 전환으로 기업 대행 기준 구간으로 바꿨다
 // 진단 폼과 달리 선택 항목이다: 메인 상담은 문의 성격이 넓어 필수로 두면 문의 자체가 줄 수 있다
 const BUDGET_OPTIONS = [
-  "월 30만원 미만",
-  "월 30~50만원",
-  "월 50~100만원",
-  "월 100만원 이상",
-  "아직 정하지 않았어요",
+  "월 300만원 미만",
+  "월 300만~1,000만원",
+  "월 1,000만원 이상",
+  "아직 정하지 않음",
 ]
 
 export default function ContactForm({ messagePlaceholder }: { messagePlaceholder?: string } = {}) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
+    industry: "",
     name: "",
     phone: "",
     email: "",
@@ -80,7 +83,7 @@ export default function ContactForm({ messagePlaceholder }: { messagePlaceholder
       const payload = {
         ...formData,
         attribution: readAttribution(),
-        message: `${formData.message}\n\n─────\n월 예산: ${formData.budget || "미응답"}\n유입 경로: ${formData.source || "미응답"}`,
+        message: `${formData.message}\n\n─────\n구분: ${formData.industry || "미응답"}\n월 예산: ${formData.budget || "미응답"}\n유입 경로: ${formData.source || "미응답"}`,
       };
 
       const response = await fetch(apiUrl, {
@@ -119,7 +122,7 @@ export default function ContactForm({ messagePlaceholder }: { messagePlaceholder
       }
 
       // 성공 메시지 표시
-      trackContactSubmit({ source: formData.source, budget: formData.budget })
+      trackContactSubmit({ industry: formData.industry, source: formData.source, budget: formData.budget })
       setIsSubmitting(false)
       toast({
         title: "상담 신청이 완료되었습니다",
@@ -135,7 +138,7 @@ export default function ContactForm({ messagePlaceholder }: { messagePlaceholder
       setAlertOpen(true)
       
       // 폼 초기화
-      setFormData({ name: "", phone: "", email: "", storeName: "", budget: "", source: "", message: "" })
+      setFormData({ industry: "", name: "", phone: "", email: "", storeName: "", budget: "", source: "", message: "" })
     } catch (error) {
       console.error('문의 제출 오류:', error); // 오류 로깅
       setIsSubmitting(false)
@@ -164,6 +167,25 @@ export default function ContactForm({ messagePlaceholder }: { messagePlaceholder
         className="w-full"
       >
         <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="space-y-2">
+            <label htmlFor="industry" className="text-sm font-medium text-gray-700">
+              문의하시는 곳
+            </label>
+            <select
+              id="industry"
+              name="industry"
+              value={formData.industry}
+              onChange={handleChange}
+              required
+              className="h-12 w-full rounded-md border border-gray-200 bg-gray-50 px-3 text-gray-900 outline-none transition-colors focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+            >
+              <option value="">선택</option>
+              {INDUSTRY_OPTIONS.map((o) => (
+                <option key={o} value={o}>{o}</option>
+              ))}
+            </select>
+          </div>
+
           <div className="space-y-2">
             <label htmlFor="name" className="text-sm font-medium text-gray-700">
               이름

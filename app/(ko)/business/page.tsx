@@ -211,7 +211,6 @@ export default function Page() {
                 <li><strong className="text-gray-900">대행료 월 300만원부터.</strong> 광고비는 별도이고 매체에 직접 집행하십니다.</li>
                 <li><strong className="text-gray-900">최소 3개월.</strong> 한 달로는 측정 자체가 되지 않습니다.</li>
                 <li><strong className="text-gray-900">온보딩 기준선 측정은 별도.</strong> 계약 전 현재 상태부터 기록합니다.</li>
-                <li>이 조건보다 작은 규모라면 <Link href="/diagnosis" className="font-semibold text-emerald-700 underline underline-offset-4">무료 진단</Link>이 더 맞습니다.</li>
               </ul>
             </div>
           </div>

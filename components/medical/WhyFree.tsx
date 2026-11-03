@@ -68,12 +68,10 @@ export default function WhyFree() {
             입니다. 실제 개선(콘텐츠·홈페이지·플레이스 정비)은 유료지만, 진단 없이 시작하지
             않습니다. 병원·의원에 한해 조건 없이 무료로 드립니다.
           </p>
-          {/* 가격 기준점 — 제안서에서 처음 가격을 보고 이탈하는 걸 줄인다 (2026-09-15, 정현우 확인)
-              VAT 별도 · 최소 6개월 · 주 1회 보고서 (정현우 확인 2026-09-15) */}
+          {/* 2026-11-03 대표 결정: 병원 대행 가격(월 80만원·최소 6개월)은 싣지 않고 진단 뒤 제안서로 드린다 */}
           <p className="mx-auto mt-6 inline-flex flex-wrap items-center justify-center gap-x-2 rounded-full border border-[#00e5a0]/30 bg-[#00e5a0]/10 px-5 py-2 text-sm text-slate-200">
             <span className="font-bold text-[#00e5a0]">개선 작업 비용</span>
-            <span className="whitespace-nowrap">병원 대행 월 80만원 (VAT 별도)</span>
-            <span className="whitespace-nowrap">· 최소 6개월</span>
+            <span>대행 비용은 진단 결과를 보고 제안서로 드립니다</span>
             <span className="whitespace-nowrap">· 주 1회 성과 보고서</span>
           </p>
         </motion.div>
