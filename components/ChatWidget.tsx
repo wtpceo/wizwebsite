@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 import { trackChatClick } from "@/lib/analytics"
 
 // 카카오톡 실시간 상담 플로팅 위젯 — 전역(layout) 상시 노출
-const KAKAO_CHAT_URL = "http://pf.kakao.com/_QUTxcb/chat"
+export const KAKAO_CHAT_URL = "http://pf.kakao.com/_QUTxcb/chat"
 
 // 로케일별 라벨 (외국인 사장님 페이지에서 언어에 맞게 표시)
 const CHAT_LABELS = {

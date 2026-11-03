@@ -178,6 +178,23 @@ export default function CoreServices() {
         >
           2016년부터 7,000+ 광고주와 함께한 실행력 위에, AI 검색 시대의 전략을 더했습니다.
         </motion.p>
+
+        {/* IMC·인플루언서 섭외 라인 입구. 홈에는 이 한 곳만 둔다 (2026-11-03 대표 결정, 첫 화면 메시지는 그대로) */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="mx-auto mt-8 max-w-2xl border-t border-gray-200 pt-6 text-center"
+        >
+          <Link
+            href="/influencer"
+            className="group inline-flex items-center gap-1 text-[15px] font-semibold text-gray-800 underline-offset-4 hover:text-emerald-700 hover:underline"
+          >
+            인플루언서 섭외가 필요하신가요? 브랜드에 맞는 크리에이터를 캠페인마다 새로 찾아 드립니다
+            <ChevronRight className="h-4 w-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   )

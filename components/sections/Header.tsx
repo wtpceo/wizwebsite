@@ -14,6 +14,7 @@ export default function Header() {
 
   const menuTexts: Record<string, string> = {
     services: '서비스',
+    influencer: '인플루언서 섭외',
     sitecheck: '무료 사이트 진단',
     measure: '측정 방식',
     business: '기업',
@@ -44,6 +45,8 @@ export default function Header() {
   // 메뉴 항목과 해당 앵커 ID
   const menuItems = [
     { key: 'services', anchor: 'services' },
+    // IMC·인플루언서 섭외 라인 (2026-11-03 대표 결정, '서비스' 바로 옆)
+    { key: 'influencer', href: '/influencer', isExternal: true },
     { key: 'sitecheck', href: '/site-check', isExternal: true },
     { key: 'measure', href: '/how-we-measure', isExternal: true },
     { key: 'business', href: '/business', isExternal: true },

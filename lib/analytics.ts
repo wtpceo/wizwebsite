@@ -97,10 +97,25 @@ export function trackBusinessProposalSubmit(
   gaEvent("generate_lead", {
     form: "business",
     budget: params.budget || "미응답",
+    // 다른 폼 이벤트와 같은 이름. GA4 맞춤 측정기준을 lead_budget 하나로 잡는다(2026-11-03). budget은 기존 집계용으로 남긴다
+    lead_budget: params.budget || "미응답",
     start_timing: params.timing || "미응답",
     services,
   })
   fbEvent("Lead", { content_name: "business_proposal", lead_budget: params.budget || "미응답" }, true)
+}
+
+/** IMC·인플루언서 섭외 제안 요청 폼 제출 완료(/influencer#contact) → Meta `Lead` ★ 주 전환
+ *  기업 제안 요청과 같은 generate_lead 를 쓰고 form=influencer 로 나눈다. 메타는 content_name 으로만 구분한다. */
+export function trackInfluencerProposalSubmit(params: { product?: string; budget?: string; timing?: string } = {}) {
+  gaEvent("generate_lead", {
+    form: "influencer",
+    // 폼 맨 앞 '필요한 것'(목적별 상품). 2026-11-03 4안
+    product: params.product || "미응답",
+    lead_budget: params.budget || "미응답",
+    start_timing: params.timing || "미응답",
+  })
+  fbEvent("Lead", { content_name: "influencer", lead_budget: params.budget || "미응답" }, true)
 }
 
 /** 영문 B2B·외국어 문의 폼 제출 완료 → Meta `Lead` ★ 주 전환

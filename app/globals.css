@@ -163,3 +163,11 @@ body {
 .animate-fade-in {
   animation: fade-in 0.6s ease-out forwards;
 } 
+/* /influencer 숏폼 장면 줄 첫 칸: 사진이 천천히 다가오고 아래 막대가 찬다. 움직임 줄이기 설정이면 멈춘다 */
+@keyframes inf-reel-push { from { transform: scale(1); } to { transform: scale(1.08); } }
+@keyframes inf-reel-bar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.inf-reel-push { animation: inf-reel-push 9s ease-in-out infinite alternate; }
+.inf-reel-bar { transform: scaleX(0.38); transform-origin: left; animation: inf-reel-bar 9s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .inf-reel-push, .inf-reel-bar { animation: none; }
+}

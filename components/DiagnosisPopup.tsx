@@ -29,6 +29,8 @@ export default function DiagnosisPopup() {
     if (pathname?.startsWith("/luke")) return
     // 기업 경로(/business)는 자영업·병원 홍보를 띄우지 않는다 (CLAUDE.md 기업 경로 정책: 교차 홍보 금지)
     if (pathname?.startsWith("/business")) return
+    // IMC·인플루언서 섭외(/influencer)도 기업 담당자 대상이라 진단 팝업을 띄우지 않는다 (2026-11-03 총괄 결정)
+    if (pathname?.startsWith("/influencer")) return
     // 외국어(중국어/베트남어) 페이지에서는 한국어 팝업 노출 안 함
     if (pathname?.startsWith("/zh") || pathname?.startsWith("/vi") || pathname === "/en" || pathname?.startsWith("/en/")) return
 
