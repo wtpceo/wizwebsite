@@ -1,356 +1,257 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { motion } from "framer-motion"
-import { X, ChevronDown, Globe } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { ChevronDown, Globe } from "lucide-react"
+import { AD_SERVICES } from "@/lib/ad-services"
+
+// 사이트 머리(2026-11 리브랜딩). 디자인기준 v1: 흰 바탕, 선·그림자·유리 효과 없음, 높이 64px.
+// 워드마크 + 메뉴 다섯 개(다루는 광고, 병원, 일한 기록, 인사이트, 회사) + 버튼 하나(광고 상담 받기).
+// 예전 홈 앵커 메뉴(#services, #team, #faq, #contact)는 새 홈에 없어 뺐다.
+// 여러 페이지가 이 파일을 import하므로 파일 이름과 default export는 그대로 둔다
+
+type SubItem = { label: string; href: string }
+type MenuItem = { label: string; href?: string; items?: SubItem[] }
+
+const MENU: MenuItem[] = [
+  { label: "다루는 광고", items: AD_SERVICES.map((a) => ({ label: a.label, href: a.href })) },
+  {
+    label: "병원",
+    items: [
+      { label: "병원 통합 마케팅", href: "/medical-geo-agency" },
+      { label: "병원 무료 AI 검색 진단", href: "/medical-diagnosis" },
+    ],
+  },
+  { label: "일한 기록", href: "/portfolio" },
+  {
+    label: "인사이트",
+    items: [
+      { label: "기업 인사이트", href: "/business/insights" },
+      { label: "가이드", href: "/guide" },
+    ],
+  },
+  { label: "회사", href: "/business" },
+]
+
+const LANGS = [
+  { label: "한국어", href: "/", hrefLang: "ko" },
+  { label: "English", href: "/en", hrefLang: "en" },
+  { label: "中文", href: "/zh", hrefLang: "zh-Hans" },
+  { label: "Tiếng Việt", href: "/vi", hrefLang: "vi" },
+]
+
+// 현재 경로가 그 주소이거나 그 아래면 켠다
+const matches = (pathname: string, href: string) => pathname === href || pathname.startsWith(href + "/")
 
 export default function Header() {
   const [open, setOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState<string | null>(null)
-  const pathname = usePathname()
+  const pathname = usePathname() ?? "/"
 
-  const menuTexts: Record<string, string> = {
-    services: '서비스',
-    influencer: '인플루언서 섭외',
-    sitecheck: '무료 사이트 진단',
-    measure: '측정 방식',
-    business: '기업',
-    team: '제작팀',
-    medical: '병원',
-    portfolio: '포트폴리오',
-    guide: '인사이트',
-    theater: '위즈 극장',
-    faq: 'FAQ',
-    contact: '문의하기',
-    consultation: '상담 문의'
-  };
+  // 하위 항목 중 가장 길게 맞는 주소 하나만 현재로 본다(/business 아래 /business/insights가 '회사'까지 켜지지 않게)
+  const allHrefs = MENU.flatMap((m) => (m.items ? m.items.map((i) => i.href) : m.href ? [m.href] : []))
+  const current = allHrefs.filter((h) => matches(pathname, h)).sort((a, b) => b.length - a.length)[0]
+  const isCurrent = (href: string) => href === current
+  const menuActive = (m: MenuItem) => (m.items ? m.items.some((i) => isCurrent(i.href)) : !!m.href && isCurrent(m.href))
 
-  // 병원 드롭다운 하위 항목 (앞으로 진료과별 페이지도 여기에 추가)
-  const medicalSubItems = [
-    {
-      href: '/medical-geo-agency',
-      label: '병원 GEO 대행',
-      desc: '병원·의원 AI 검색 최적화 서비스',
-    },
-    {
-      href: '/medical-diagnosis',
-      label: '무료 AI 검색 진단',
-      desc: '우리 병원 현재 상태 확인 (진단 무료)',
-    },
-  ];
-
-  // 메뉴 항목과 해당 앵커 ID
-  const menuItems = [
-    { key: 'services', anchor: 'services' },
-    // IMC·인플루언서 섭외 라인 (2026-11-03 대표 결정, '서비스' 바로 옆)
-    { key: 'influencer', href: '/influencer', isExternal: true },
-    // 2026-11-03 대표 결정: 기업 전용으로 타깃을 바꿔 소상공인 입구(무료 사이트 진단, 위즈 극장)는 메뉴에서 뺐다. 페이지는 그대로 둔다
-    { key: 'measure', href: '/how-we-measure', isExternal: true },
-    { key: 'business', href: '/business', isExternal: true },
-    { key: 'team', anchor: 'team' },
-    { key: 'medical', isDropdown: true, highlight: true },
-    { key: 'portfolio', href: '/portfolio', isExternal: true },
-    { key: 'guide', href: '/guide', isExternal: true },
-    { key: 'faq', anchor: 'faq' },
-    { key: 'contact', anchor: 'contact' }
-  ];
-
-  // 모바일 메뉴 열렸을 때 배경 스크롤 잠금
+  // 모바일 메뉴가 열렸을 때 바탕 스크롤 잠금
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden"
-    } else {
+    document.body.style.overflow = open ? "hidden" : ""
+    return () => {
       document.body.style.overflow = ""
     }
-    return () => { document.body.style.overflow = "" }
   }, [open])
 
-  // 스크롤 스파이 — 홈에서 현재 화면에 보이는 섹션에 해당하는 앵커 메뉴 활성화
+  // 페이지를 옮기면 모바일 메뉴를 닫는다
   useEffect(() => {
-    if (pathname !== "/") {
-      setActiveSection(null)
-      return
-    }
-    const anchorIds = ["services", "team", "faq", "contact"]
-    const els = anchorIds
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null)
-    if (els.length === 0) return
-
-    const visible = new Set<string>()
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) visible.add(entry.target.id)
-          else visible.delete(entry.target.id)
-        })
-        // DOM 순서상 화면에 걸친 첫 섹션을 활성으로 (없으면 히어로 등 → 아무것도 활성 안 함)
-        const current = anchorIds.find((id) => visible.has(id)) ?? null
-        setActiveSection(current)
-      },
-      // 뷰포트 중앙 부근을 지나는 섹션을 현재 섹션으로 판정
-      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
-    )
-    els.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
+    setOpen(false)
   }, [pathname])
 
-  const hrefFor = (item: (typeof menuItems)[number]) =>
-    item.isExternal ? (item.href as string) : `/#${item.anchor}`
-
-  // 현재 보고 있는 페이지/섹션에 해당하는 메뉴 활성 여부
-  const isActive = (item: (typeof menuItems)[number]) => {
-    // 병원 드롭다운 — 하위 항목 중 하나라도 현재 경로면 활성
-    if (item.isDropdown) {
-      return medicalSubItems.some(
-        (s) => pathname === s.href || pathname.startsWith(s.href + "/")
-      )
-    }
-    // 실제 페이지 링크 (하위 경로 포함)
-    if (item.isExternal && item.href) {
-      return pathname === item.href || pathname.startsWith(item.href + "/")
-    }
-    // 홈 내부 앵커 섹션 (스크롤 스파이)
-    if (item.anchor) {
-      return pathname === "/" && activeSection === item.anchor
-    }
-    return false
-  }
+  const topItem =
+    "inline-flex h-10 items-center gap-1 px-3 text-[15px] font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--surface)]"
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-      <div className="container flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-50 w-full bg-[var(--bg)] text-[var(--ink)]">
+      <div className="mx-auto flex h-16 items-center justify-between gap-4 px-3 md:px-4">
         <Link href="/" className="flex shrink-0 items-center gap-2" onClick={() => setOpen(false)}>
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-baseline gap-0.5"
-          >
+          <span className="flex items-baseline gap-0.5">
             <span className="whitespace-nowrap text-xl font-extrabold tracking-tight text-gray-900">위즈더플래닝</span>
             <span className="h-2 w-2 rounded-full bg-[#00e5a0]" />
-          </motion.div>
+          </span>
         </Link>
 
-        {/* 메뉴 11개가 한 줄에 들어가는 폭은 약 1,200px. 그보다 좁으면(1024px 노트북·태블릿) 로고와 메뉴가
-            두 줄로 꺾이므로 xl 미만은 햄버거 메뉴로 보낸다 */}
-        <nav className="hidden xl:flex gap-6 whitespace-nowrap">
-          {menuItems.map((item, i) => (
-            <motion.div
-              key={item.key}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.1 * i }}
-              className={item.isDropdown ? "group relative" : undefined}
-            >
-              {item.isDropdown ? (
-                <>
-                  {/* 병원 메뉴 — hover/focus 시 하위 메뉴 노출 */}
-                  <button
-                    type="button"
-                    aria-haspopup="true"
-                    aria-current={isActive(item) ? "page" : undefined}
-                    className={
-                      isActive(item)
-                        ? "inline-flex items-center gap-1 rounded-full bg-[#00e5a0] px-3 py-1 text-sm font-bold text-[#070b14]"
-                        : "inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-sm font-bold text-emerald-600 transition-colors hover:bg-emerald-100"
-                    }
-                  >
-                    <span className={isActive(item) ? "h-1.5 w-1.5 rounded-full bg-[#070b14]" : "h-1.5 w-1.5 rounded-full bg-[#00e5a0]"} />
-                    {menuTexts[item.key]}
-                    <ChevronDown className="h-3.5 w-3.5" />
-                  </button>
-
-                  {/* 하위 메뉴 — 마우스가 빠져나가도 끊기지 않도록 위쪽 여백 포함 */}
-                  <div className="invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                    <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white p-2 shadow-xl">
-                      {medicalSubItems.map((sub) => {
-                        const subActive = pathname === sub.href || pathname.startsWith(sub.href + "/")
-                        return (
-                          <Link
-                            key={sub.href}
-                            href={sub.href}
-                            aria-current={subActive ? "page" : undefined}
-                            className={
-                              subActive
-                                ? "block rounded-xl bg-emerald-50 px-3 py-2.5"
-                                : "block rounded-xl px-3 py-2.5 transition-colors hover:bg-gray-50"
-                            }
-                          >
-                            <span className={subActive ? "block text-sm font-bold text-emerald-700" : "block text-sm font-bold text-gray-900"}>
-                              {sub.label}
-                            </span>
-                            <span className="mt-0.5 block text-xs leading-relaxed text-gray-500">
-                              {sub.desc}
-                            </span>
-                          </Link>
-                        )
-                      })}
-                    </div>
-                  </div>
-                </>
-              ) : (
-              <Link
-                href={hrefFor(item)}
-                aria-current={isActive(item) ? "page" : undefined}
-                className={
-                  item.highlight
-                    ? isActive(item)
-                      ? "inline-flex items-center gap-1 rounded-full bg-[#00e5a0] px-3 py-1 text-sm font-bold text-[#070b14]"
-                      : "inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-sm font-bold text-emerald-600 transition-colors hover:bg-emerald-100"
-                    : isActive(item)
-                      ? "border-b-2 border-[#00e5a0] pb-1 text-sm font-bold text-emerald-600"
-                      : "border-b-2 border-transparent pb-1 text-sm font-medium text-gray-800 transition-colors hover:text-emerald-600"
-                }
-              >
-                {item.highlight && (
-                  <span className={isActive(item) ? "h-1.5 w-1.5 rounded-full bg-[#070b14]" : "h-1.5 w-1.5 rounded-full bg-[#00e5a0]"} />
-                )}
-                {menuTexts[item.key]}
-              </Link>
-              )}
-            </motion.div>
-          ))}
+        {/* 데스크톱 메뉴. 드롭다운은 마우스를 올리거나 키보드로 들어가면(focus-within) 열린다 */}
+        <nav aria-label="주요 메뉴" className="hidden lg:block">
+          <ul className="flex items-center gap-1 whitespace-nowrap">
+            {MENU.map((m) => {
+              const active = menuActive(m)
+              return (
+                <li key={m.label} className={m.items ? "group relative" : undefined}>
+                  {m.items ? (
+                    <>
+                      <button
+                        type="button"
+                        aria-haspopup="true"
+                        className={`${topItem} ${active ? "bg-[var(--surface)] font-extrabold" : ""}`}
+                      >
+                        {m.label}
+                        <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
+                      </button>
+                      {/* 마우스가 빠져나가도 끊기지 않도록 위쪽 여백(pt-2)을 둔다 */}
+                      <div className="invisible absolute left-0 top-full z-50 min-w-[220px] pt-2 opacity-0 transition-opacity duration-150 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                        <ul className="bg-[var(--surface)] py-2">
+                          {m.items.map((sub) => (
+                            <li key={sub.href}>
+                              <Link
+                                href={sub.href}
+                                aria-current={isCurrent(sub.href) ? "page" : undefined}
+                                className={`block px-4 py-2.5 text-[15px] transition-colors hover:bg-[var(--surface-2)] ${
+                                  isCurrent(sub.href) ? "bg-[var(--surface-2)] font-bold" : "font-medium"
+                                }`}
+                              >
+                                {sub.label}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </>
+                  ) : (
+                    <Link
+                      href={m.href as string}
+                      aria-current={active ? "page" : undefined}
+                      className={`${topItem} ${active ? "bg-[var(--surface)] font-extrabold" : ""}`}
+                    >
+                      {m.label}
+                    </Link>
+                  )}
+                </li>
+              )
+            })}
+          </ul>
         </nav>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center gap-2 md:gap-4"
-        >
-          {/* 언어 전환 — 외국인 사장님용 중국어/베트남어 페이지 (크롤러 발견성 + 사용자 접근) */}
+        <div className="flex items-center gap-2">
+          {/* 언어 선택: 영문 B2B, 중국어·베트남어 페이지로 가는 입구(크롤러 발견성 + 사용자 접근) */}
           <div className="group relative hidden md:block">
             <button
               type="button"
               aria-haspopup="true"
               aria-label="언어 선택 / Language"
-              className="inline-flex items-center gap-1 rounded-full border border-gray-200 px-2.5 py-1.5 text-sm font-medium text-gray-600 transition-colors hover:text-emerald-600"
+              className="inline-flex h-10 items-center gap-1 px-2.5 text-[var(--muted)] transition-colors hover:bg-[var(--surface)] hover:text-[var(--ink)]"
             >
-              <Globe className="h-4 w-4" />
-              <ChevronDown className="h-3.5 w-3.5" />
+              <Globe className="h-4 w-4" aria-hidden="true" />
+              <ChevronDown className="h-3.5 w-3.5" aria-hidden="true" />
             </button>
-            <div className="invisible absolute right-0 top-full z-50 w-40 pt-2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-              <div className="overflow-hidden rounded-2xl border border-gray-100 bg-white p-1.5 shadow-xl">
-                <Link href="/" hrefLang="ko" className="block rounded-xl px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50">한국어</Link>
-                <Link href="/en" hrefLang="en" className="block rounded-xl px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50">English</Link>
-                <Link href="/zh" hrefLang="zh-Hans" className="block rounded-xl px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50">中文</Link>
-                <Link href="/vi" hrefLang="vi" className="block rounded-xl px-3 py-2 text-sm font-medium text-gray-800 hover:bg-gray-50">Tiếng Việt</Link>
-              </div>
+            <div className="invisible absolute right-0 top-full z-50 w-40 pt-2 opacity-0 transition-opacity duration-150 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+              <ul className="bg-[var(--surface)] py-2">
+                {LANGS.map((l) => (
+                  <li key={l.href}>
+                    <Link
+                      href={l.href}
+                      hrefLang={l.hrefLang}
+                      className="block px-4 py-2 text-sm font-medium transition-colors hover:bg-[var(--surface-2)]"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
-          {/* 데스크톱: 상담 버튼 노출 / 모바일: 숨김(메뉴 안에 포함) */}
-          <Link href="/#contact" className="hidden sm:block">
-            <Button className="bg-[#070b14] font-bold text-white transition-all duration-300 hover:bg-[#101b2e] hover:shadow-lg hover:shadow-emerald-500/15">
-              {menuTexts.consultation}
-            </Button>
+          <Link
+            href="/business/contact"
+            className="hidden h-12 items-center bg-[var(--accent)] px-5 text-[15px] font-bold text-[var(--ink)] transition-[background,transform] duration-200 hover:bg-[var(--accent-hover)] active:scale-[0.97] sm:inline-flex"
+          >
+            광고 상담 받기
           </Link>
 
-          {/* 모바일 햄버거 */}
-          <Button
-            variant="outline"
-            size="icon"
-            className="xl:hidden border-gray-200 text-gray-700"
-            aria-label="메뉴 열기"
+          {/* 모바일 메뉴 버튼 */}
+          <button
+            type="button"
+            className="inline-flex h-11 w-11 items-center justify-center bg-[var(--surface)] lg:hidden"
+            aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
             aria-expanded={open}
+            aria-controls="mobile-menu"
             onClick={() => setOpen((v) => !v)}
           >
-            <span className="sr-only">메뉴 열기</span>
-            {open ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                className="h-5 w-5"
-              >
-                <line x1="4" x2="20" y1="12" y2="12" />
-                <line x1="4" x2="20" y1="6" y2="6" />
-                <line x1="4" x2="20" y1="18" y2="18" />
-              </svg>
-            )}
-          </Button>
-        </motion.div>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              {open ? (
+                <path d="M4 4l12 12M16 4L4 16" stroke="currentColor" strokeWidth="2" />
+              ) : (
+                <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" strokeWidth="2" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
-      {/* 모바일 메뉴 패널 (애니메이션 없이 즉시 표시 — 어떤 기기에서도 확실하게) */}
+      {/* 모바일 메뉴: 호버가 없으므로 하위 항목을 펼쳐 둔다. 애니메이션 없이 바로 보인다 */}
       {open && (
-        <div className="xl:hidden">
-          <div
-            className="fixed inset-0 top-16 z-40 bg-black/40"
+        <nav
+          id="mobile-menu"
+          aria-label="주요 메뉴"
+          className="fixed inset-x-0 bottom-0 top-16 z-50 overflow-y-auto bg-[var(--bg)] px-4 pb-8 pt-2 lg:hidden"
+        >
+          <ul className="flex flex-col gap-1.5">
+            {MENU.map((m) => (
+              <li key={m.label} className="bg-[var(--surface)]">
+                {m.items ? (
+                  <div className="px-4 py-3">
+                    <span className="block text-base font-extrabold">{m.label}</span>
+                    <ul className="mt-1.5 flex flex-col">
+                      {m.items.map((sub) => (
+                        <li key={sub.href}>
+                          <Link
+                            href={sub.href}
+                            onClick={() => setOpen(false)}
+                            aria-current={isCurrent(sub.href) ? "page" : undefined}
+                            className={`block py-2 text-[15px] ${isCurrent(sub.href) ? "font-bold" : "font-medium text-[var(--muted)]"}`}
+                          >
+                            {sub.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : (
+                  <Link
+                    href={m.href as string}
+                    onClick={() => setOpen(false)}
+                    aria-current={menuActive(m) ? "page" : undefined}
+                    className={`flex min-h-[56px] items-center px-4 text-base ${menuActive(m) ? "bg-[var(--surface-2)] font-extrabold" : "font-extrabold"}`}
+                  >
+                    {m.label}
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="/business/contact"
             onClick={() => setOpen(false)}
-          />
-          <nav className="fixed inset-x-0 top-16 z-50 border-b border-gray-100 bg-white px-4 pb-6 pt-2 shadow-xl">
-            <ul className="flex flex-col">
-              {menuItems.map((item) => (
-                <li key={item.key}>
-                  {item.isDropdown ? (
-                    /* 모바일에선 호버가 없으므로 하위 항목을 들여쓰기로 펼쳐 표시 */
-                    <div className="border-b border-gray-50 py-3">
-                      <span className="flex items-center gap-2 text-base font-bold text-emerald-600">
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#00e5a0]" />
-                        {menuTexts[item.key]}
-                      </span>
-                      <ul className="mt-1.5 flex flex-col gap-0.5 pl-3.5">
-                        {medicalSubItems.map((sub) => {
-                          const subActive = pathname === sub.href || pathname.startsWith(sub.href + "/")
-                          return (
-                            <li key={sub.href}>
-                              <Link
-                                href={sub.href}
-                                onClick={() => setOpen(false)}
-                                aria-current={subActive ? "page" : undefined}
-                                className={
-                                  subActive
-                                    ? "block py-2 text-sm font-bold text-emerald-600"
-                                    : "block py-2 text-sm font-medium text-gray-600 transition-colors hover:text-emerald-600"
-                                }
-                              >
-                                {sub.label}
-                              </Link>
-                            </li>
-                          )
-                        })}
-                      </ul>
-                    </div>
-                  ) : (
-                    <Link
-                      href={hrefFor(item)}
-                      onClick={() => setOpen(false)}
-                      aria-current={isActive(item) ? "page" : undefined}
-                      className={
-                        isActive(item)
-                          ? "flex items-center gap-2 border-b border-gray-50 py-3.5 text-base font-bold text-emerald-600"
-                          : "block border-b border-gray-50 py-3.5 text-base font-medium text-gray-800 transition-colors hover:text-emerald-600"
-                      }
-                    >
-                      {isActive(item) && <span className="h-1.5 w-1.5 rounded-full bg-[#00e5a0]" />}
-                      {menuTexts[item.key]}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-            <Link href="/business/contact" onClick={() => setOpen(false)} className="mt-4 block">
-              <Button className="w-full bg-[#00e5a0] py-6 text-base font-bold text-[#070b14] hover:bg-[#3cf0bb]">
-                광고 상담 받기
-              </Button>
-            </Link>
+            className="mt-4 flex h-14 items-center justify-center bg-[var(--accent)] text-base font-bold text-[var(--ink)] active:scale-[0.97]"
+          >
+            광고 상담 받기
+          </Link>
 
-            {/* 외국인 사장님용 언어 선택 */}
-            <div className="mt-4 flex items-center gap-2 border-t border-gray-100 pt-4 text-sm">
-              <Globe className="h-4 w-4 text-gray-400" />
-              <Link href="/en" onClick={() => setOpen(false)} className="rounded-full bg-gray-50 px-3 py-1 font-medium text-gray-700">English</Link>
-              <Link href="/zh" onClick={() => setOpen(false)} className="rounded-full bg-gray-50 px-3 py-1 font-medium text-gray-700">中文</Link>
-              <Link href="/vi" onClick={() => setOpen(false)} className="rounded-full bg-gray-50 px-3 py-1 font-medium text-gray-700">Tiếng Việt</Link>
-            </div>
-          </nav>
-        </div>
+          {/* 외국어 페이지 */}
+          <div className="mt-4 flex flex-wrap items-center gap-2 text-sm">
+            <Globe className="h-4 w-4 text-[var(--muted)]" aria-hidden="true" />
+            {LANGS.filter((l) => l.href !== "/").map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                hrefLang={l.hrefLang}
+                onClick={() => setOpen(false)}
+                className="bg-[var(--surface)] px-3 py-1.5 font-medium"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </div>
+        </nav>
       )}
     </header>
   )

@@ -1,54 +1,34 @@
 import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
-import AgencyHero from "@/components/agency/AgencyHero"
-import StatsBand from "@/components/agency/StatsBand"
-import MeasureShowcase from "@/components/agency/MeasureShowcase"
-import CoreServices from "@/components/agency/CoreServices"
-import ProductionTeam from "@/components/agency/ProductionTeam"
-import PortfolioShowcase from "@/components/agency/PortfolioShowcase"
-import MatzipTown from "@/components/agency/MatzipTown"
-import GuidePreview from "@/components/agency/GuidePreview"
-import TestimonialsSection from "@/components/sections/TestimonialsSection"
-import FaqSection from "@/components/sections/FaqSection"
-import ContactSection from "@/components/sections/ContactSection"
-import HowWeReport from "@/components/sections/HowWeReport"
-import { FAQ_ITEMS } from "@/lib/faq-data"
+import HomeWall from "@/components/home/HomeWall"
+import HomeDepts from "@/components/home/HomeDepts"
+import HomeStages from "@/components/home/HomeStages"
+import HomeAds from "@/components/home/HomeAds"
+import HomeShelf from "@/components/home/HomeShelf"
+import HomeStats from "@/components/home/HomeStats"
+import HomeContact from "@/components/home/HomeContact"
+import HomeReveal from "@/components/home/HomeReveal"
+import s from "@/components/home/home.module.css"
 
-// FAQPage 구조화 데이터 — 검색엔진·AI가 질문/답변을 그대로 인용할 수 있게 서버 렌더링으로 주입
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ_ITEMS.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
-}
-
+// 홈(2026-11 리브랜딩). 바탕은 09_전체리브랜딩_2026-11/프로토타입/index.html, 문구는 홈메인_원고_1차.md.
+// 섹션 순서는 프로토타입 그대로이되, 2518·2519 소개 판(HomeIntro)은 대표 지시(2026-11-03)로 뺐다. 메타데이터는 (ko)/layout.tsx의 것을 쓴다.
+// 카피 기준: 비유·격언 없이 확인된 사실만 평서문으로 쓴다
+// 예전 홈 섹션(components/agency/*, components/sections/*)은 다른 페이지가 써서 지우지 않았다
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+    <>
       <Header />
-      <AgencyHero />
-      <StatsBand />
-      <MeasureShowcase />
-      <CoreServices />
-      <ProductionTeam />
-      <PortfolioShowcase />
-      <MatzipTown />
-      <TestimonialsSection />
-      <FaqSection />
-      <GuidePreview />
-      <HowWeReport />
-      <ContactSection />
+      <main className={s.home}>
+        <HomeWall />
+        <HomeDepts />
+        <HomeStages />
+        <HomeAds />
+        <HomeShelf />
+        <HomeStats />
+        <HomeContact />
+        <HomeReveal />
+      </main>
       <Footer />
-    </main>
+    </>
   )
 }
