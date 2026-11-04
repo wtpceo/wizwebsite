@@ -18,6 +18,7 @@ import {
   CONTACT,
 } from "./content"
 import { MG } from "./mg"
+import { DETAILS } from "./details"
 import { Icon } from "./icons"
 import { Words, Chars, Cut, Ex, vars } from "./parts"
 import SfContactForm from "./SfContactForm"
@@ -42,7 +43,8 @@ export default function ShortformHome() {
       <SfHeader home />
       <SfMenu home />
 
-      {/* 0 인트로 — 검은 화면 「한 팀.」 */}
+      {/* 0 인트로 — 검은 화면 「한 팀.」 · 처음 읽을 때만(이 줄이 sf-pre 를 붙여야 보임 — JS가 없으면 인트로 없이 바로 첫 화면 · CSS가 5초 뒤 스스로 걷음) */}
+      <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('sf-pre')" }} />
       <div className="intro" id="intro" aria-hidden="true">
         <div className="fl">
           {["검색", "광고", "블로그", "인플루언서", "촬영", "해외", "홈페이지", "엘리베이터TV"].map((w) => (
@@ -68,8 +70,8 @@ export default function ShortformHome() {
             <h1 className="in2">
               나눠 맡기던 마케팅,
               <br />
-              이제 한 팀이
-              <span className="rw" id="rw" aria-live="polite">
+              이제 한 팀이{" "}
+              <span className="rw" id="rw">
                 <span className="in">{HERO_ENDS[0]}</span>
               </span>
             </h1>
@@ -244,6 +246,8 @@ export default function ShortformHome() {
         return (
           <div className="svc" key={s.k} id={`svc-${s.k}`} data-svc={s.k}>
             <Cut id={`c${base}`} no={next()} ch={3} tone={SVC_TONE[si]} fx={s.fx} label={`${s.n} 1`} className="sa">
+              {/* 옛 쪽의 /#services 링크가 여기로 온다 */}
+              {si === 0 ? <span id="services" className="sf-anchor" aria-hidden="true" /> : null}
               <div className="sa-in">
                 <p className="sa-no">
                   <b>{s.no}</b> / 08 · {s.n}
@@ -316,6 +320,7 @@ export default function ShortformHome() {
                           <li key={r}>{r}</li>
                         ))}
                       </ul>
+                      {DETAILS[s.k].recNote ? <small className="sc-recn">{DETAILS[s.k].recNote}</small> : null}
                     </div>
                   ) : null}
                   <div className="sc-btn">
@@ -456,15 +461,16 @@ export default function ShortformHome() {
               <p className="ps-no">
                 {i + 1} / 5
               </p>
-              <h2 className="ps-w" aria-label={st.w}>
-                <span className="slot" aria-hidden="true" style={vars({ n: i })}>
+              <h2 className="sr">{st.w}</h2>
+              <p className="ps-w" aria-hidden="true">
+                <span className="slot" style={vars({ n: i })}>
                   <span className="slot-r">
                     {STEPS.map((x) => (
-                      <span key={x.w}>{x.w}</span>
+                      <span key={x.w}>{x.w} </span>
                     ))}
                   </span>
                 </span>
-              </h2>
+              </p>
               <p className="ps-l">{st.t}</p>
               <ol className="ps-flow" aria-label="진행 순서">
                 {STEPS.map((x, j) => (
@@ -540,8 +546,8 @@ export default function ShortformHome() {
               ) : null}
               {i === 3 ? (
                 <figure className="doc rep">
-                  <img src="/sf/img/report.jpg" alt="실제 주간 보고서 한 장(업체명 가림)" loading="lazy" width={975} height={835} />
-                  <figcaption>실제 주간 보고서 · 업체명 가림</figcaption>
+                  <img src="/sf/img/report.jpg" alt="실제 주간 보고서 한 장(업체명·글 제목 가림)" loading="lazy" width={975} height={835} />
+                  <figcaption>실제 주간 보고서 · 업체명·글 제목 가림</figcaption>
                 </figure>
               ) : null}
               {i === 4 ? (
@@ -600,6 +606,8 @@ export default function ShortformHome() {
 
       {/* 9 문의 */}
       <Cut id="c44" no={next()} ch={8} tone="c" fx="swipe" label="문의하기">
+        {/* 옛 쪽(가이드·극장·옛 머리글)의 /#contact 링크가 여기로 온다 */}
+        <span id="contact" className="sf-anchor" aria-hidden="true" />
         <div className="ct">
           <div className="ct-t">
             <h2 className="cap sz-lg">

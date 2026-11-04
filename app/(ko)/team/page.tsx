@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     type: "website",
   },
+  twitter: { card: "summary_large_image", title: `${d.title} | 위즈더플래닝`, description: d.desc, images: [`/og-home.jpg?v=${timestamp}`] },
 }
 
 export default function TeamPage() {
@@ -54,7 +55,7 @@ export default function TeamPage() {
             <h1>
               분야별 시니어가
               <br />
-              직접 담당합니다.
+              직접 담당합니다.{" "}
               <small>창구는 담당 마케터 한 명.</small>
             </h1>
             <p className="dp-lead">{d.lead}</p>
@@ -90,13 +91,13 @@ export default function TeamPage() {
       </section>
       <Meta />
 
-      <Sec kicker="담당 마케터" q={d.q1}>
+      <Sec q={d.q1}>
         {d.marketer.map((p) => (
           <p key={p}>{p}</p>
         ))}
       </Sec>
 
-      <Sec kicker="다섯 팀" q="어떤 팀이 무슨 일을 맡나요?">
+      <Sec q="어떤 팀이 무슨 일을 맡나요?">
         <p>{d.teamsLead}</p>
         <ul className="dp-items">
           {TEAMS.map(([k, n, jobs]) => (
@@ -108,7 +109,7 @@ export default function TeamPage() {
         </ul>
       </Sec>
 
-      <Sec id="process" kicker="진행 과정" q="상담부터 리포트까지 어떻게 흘러가나요?">
+      <Sec id="process" q="상담부터 리포트까지 어떻게 흘러가나요?">
         <p>{d.processLead}</p>
         <ol className="dp-steps">
           {STEPS.map((st, i) => (
@@ -132,13 +133,13 @@ export default function TeamPage() {
             </ul>
           </div>
           <figure className="dp-ph" style={{ height: "auto", background: "#fff", padding: 10, border: "1px solid #E3EAF2" }}>
-            <img src="/sf/img/report.jpg" alt="실제 주간 보고서 한 장(업체명 가림)" width={975} height={835} style={{ height: "auto" }} loading="lazy" />
-            <figcaption style={{ marginTop: 8, fontSize: 13, color: "#55627A" }}>실제 주간 보고서 · 업체명 가림</figcaption>
+            <img src="/sf/img/report.jpg" alt="실제 주간 보고서 한 장(업체명·글 제목 가림)" width={975} height={835} style={{ height: "auto" }} loading="lazy" />
+            <figcaption style={{ marginTop: 8, fontSize: 13, color: "#55627A" }}>실제 주간 보고서 · 업체명·글 제목 가림</figcaption>
           </figure>
         </div>
       </Sec>
 
-      <Sec kicker="자주 묻는 질문" q="전문 인력·진행 과정 자주 묻는 질문">
+      <Sec q="전문 인력·진행 과정 자주 묻는 질문">
         <Faq items={d.faq} />
       </Sec>
 

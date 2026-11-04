@@ -11,7 +11,6 @@ export default function SolutionDoc({ slug }: { slug: string }) {
   const d = SOL_DETAILS[slug]
   const crumbs = [
     { name: "홈", path: "/" },
-    { name: "업종별 솔루션", path: "/solutions/local" },
     { name: f.n, path: `/solutions/${f.slug}` },
   ]
   const keys = f.c.map((c) => c[0]).filter((k) => k !== "plan")
@@ -38,7 +37,7 @@ export default function SolutionDoc({ slug }: { slug: string }) {
       <section className="dp-hero t-k" aria-label={`${f.n} 소개`}>
         <div className="dp-w dp-hero-in">
           <div>
-            <Crumb items={[{ name: "홈", href: "/" }, { name: "업종별 솔루션", href: "/#c33" }, { name: f.n }]} />
+            <Crumb items={[{ name: "홈", href: "/" }, { name: f.n }]} />
             <p className="dp-no">업종별 솔루션 · {f.who}</p>
             <h1>
               {f.n}
@@ -62,7 +61,7 @@ export default function SolutionDoc({ slug }: { slug: string }) {
       </section>
       <Meta />
 
-      <Sec kicker="이런 고민이 있다면" q={d.q1}>
+      <Sec q={d.q1}>
         <ol className="dp-num">
           {d.pains.map(([t, x]) => (
             <li key={t}>
@@ -73,7 +72,7 @@ export default function SolutionDoc({ slug }: { slug: string }) {
         </ol>
       </Sec>
 
-      <Sec kicker="묶어서 하는 순서" q={d.q2}>
+      <Sec q={d.q2}>
         <p>{d.comboLead}</p>
         <ul className="dp-pairs">
           {f.c.map(([k, n, why]) => {
@@ -95,7 +94,7 @@ export default function SolutionDoc({ slug }: { slug: string }) {
         </ul>
       </Sec>
 
-      <Sec kicker="진행 방식" q="어떻게 진행되나요?">
+      <Sec q="어떻게 진행되나요?">
         <ol className="dp-num">
           {d.process.map(([t, x]) => (
             <li key={t}>
@@ -106,7 +105,7 @@ export default function SolutionDoc({ slug }: { slug: string }) {
         </ol>
       </Sec>
 
-      <Sec kicker="자주 묻는 질문" q={`${f.n} 자주 묻는 질문`}>
+      <Sec q={`${f.n} 자주 묻는 질문`}>
         <Faq items={d.faq} />
       </Sec>
 

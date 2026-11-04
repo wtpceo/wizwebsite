@@ -19,7 +19,6 @@ export default function ServiceDoc({ slug }: { slug: string }) {
   const d = DETAILS[s.k]
   const crumbs = [
     { name: "홈", path: "/" },
-    { name: "서비스", path: "/services/search" },
     { name: s.n, path: `/services/${s.slug}` },
   ]
   const ld = {
@@ -50,12 +49,12 @@ export default function ServiceDoc({ slug }: { slug: string }) {
       <section className="dp-hero" aria-label={`${s.n} 소개`}>
         <div className="dp-w dp-hero-in">
           <div>
-            <Crumb items={[{ name: "홈", href: "/" }, { name: "서비스", href: "/#c8" }, { name: s.n }]} />
+            <Crumb items={[{ name: "홈", href: "/" }, { name: s.n }]} />
             <p className="dp-no">
               서비스 {s.no} / 08{s.k === "search" ? " · 대표 서비스" : ""}
             </p>
             <h1>
-              {s.n}
+              {s.n}{" "}
               <small>{s.cap.replace("\n", " ")}</small>
             </h1>
             <p className="dp-lead">{d.lead}</p>
@@ -77,13 +76,13 @@ export default function ServiceDoc({ slug }: { slug: string }) {
       </section>
       <Meta />
 
-      <Sec kicker="개요와 핵심 가치" q={d.q1}>
+      <Sec q={d.q1}>
         {d.overview.map((p) => (
           <p key={p}>{p}</p>
         ))}
       </Sec>
 
-      <Sec kicker="세부 상품" q={`${s.n}에는 어떤 상품이 있나요?`}>
+      <Sec q={`${s.n}에는 어떤 상품이 있나요?`}>
         <p>{d.itemsLead}</p>
         <ul className="dp-items">
           {s.items.map(([n, t]) => (
@@ -95,7 +94,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
         </ul>
       </Sec>
 
-      <Sec kicker="직접 실행이 다른 점" q={d.q3}>
+      <Sec q={d.q3}>
         <ol className="dp-num">
           {d.diff.map(([t, x]) => (
             <li key={t}>
@@ -106,7 +105,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
         </ol>
       </Sec>
 
-      <Sec kicker="진행 방식과 리포트 예시" q="어떤 순서로 진행하고 무엇을 보고받나요?">
+      <Sec q="어떤 순서로 진행하고 무엇을 보고받나요?">
         <ol className="dp-num">
           {d.process.map(([t, x]) => (
             <li key={t}>
@@ -142,7 +141,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
         ) : null}
       </Sec>
 
-      <Sec kicker="함께하면 좋은 서비스" q={`${s.n}${wa(s.n)} 같이 하면 좋은 서비스는 무엇인가요?`}>
+      <Sec q={`${s.n}${wa(s.n)} 같이 하면 좋은 서비스는 무엇인가요?`}>
         <p>{d.pairsLead}</p>
         <ul className="dp-pairs">
           {d.pairs.map(([k, why]) => {
@@ -165,7 +164,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
         </ul>
       </Sec>
 
-      <Sec kicker="자주 묻는 질문" q={`${s.n} 자주 묻는 질문`}>
+      <Sec q={`${s.n} 자주 묻는 질문`}>
         <Faq items={d.faq} />
       </Sec>
 

@@ -55,14 +55,11 @@ export function Meta() {
 }
 
 /** 질문형 제목 구역 */
-export function Sec({ id, kicker, q, children }: { id?: string; kicker?: string; q: string; children: ReactNode }) {
+export function Sec({ id, q, children }: { id?: string; q: string; children: ReactNode }) {
   return (
     <section className="dp-sec" id={id}>
       <div className="dp-w dp-sec-in">
-        <h2>
-          {kicker ? <small>{kicker}</small> : null}
-          {q}
-        </h2>
+        <h2>{q}</h2>
         <div className="dp-body rv">{children}</div>
       </div>
     </section>

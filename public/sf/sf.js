@@ -121,6 +121,7 @@ var H4=(function(){
     d.innerHTML='<div class="xbg"></div><div class="xpp"><div class="xl"><small class="xin" id="xs"></small><div id="xmg"></div><p class="first xin" id="xf"></p></div><div class="xr"><div class="xin"><h3 id="xh"></h3><p class="t1" id="xt"></p><div class="recs" id="xrec"></div><ol id="xdo"></ol><div class="exs"><p>이런 화면으로 보고드립니다 · 예시(업체명 가림)</p><div class="strip" id="xstrip"></div></div></div><div class="xb xin"><a class="p1" id="xp1" href="#c44">이 서비스 상담하기</a><a class="p2" id="xp2" href="#">자세히 보기</a></div></div><button class="xx" type="button" aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>';
     document.body.appendChild(d);xp=d;xpp=d.querySelector('.xpp');
     d.querySelector('.xx').addEventListener('click',close);d.querySelector('.xbg').addEventListener('click',close);
+    var xp1=d.querySelector('#xp1');if(xp1)xp1.addEventListener('click',function(){close();});
     addEventListener('keydown',function(e){if(e.key==='Escape')close();});}
   function toRect(r){var p=xpp.getBoundingClientRect();return 'translate('+(r.left-p.left)+'px,'+(r.top-p.top)+'px) scale('+(r.width/p.width)+','+(r.height/p.height)+')';}
   function open(i,btn){if(!xp)mountX();if(busy)return;busy=true;from=btn;last=document.activeElement;var s=S[i];
@@ -143,7 +144,7 @@ var H4=(function(){
     setTimeout(function(){xp.classList.remove('open');xpp.classList.remove('anim');xpp.style.transform='';xpp.style.borderRadius='';busy=false;document.body.style.overflow='';if(last)last.focus({preventScroll:true});if(H4.onClose)H4.onClose();},reduce?0:560);}
 
   /* 검은 화면 「한 팀.」 */
-  function intro(done){var el=document.getElementById('intro');if(!el||reduce){if(el)el.style.display='none';done();return;}
+  function intro(done){var el=document.getElementById('intro'),cs=el&&getComputedStyle(el);if(!el||reduce||cs.display==='none'||cs.visibility==='hidden'){if(el)el.style.display='none';done();return;}
     var fl=[].slice.call(el.querySelectorAll('.fl span')),ids=[],fin=false;
     function go(){if(fin)return;fin=true;ids.forEach(clearTimeout);el.classList.add('gone');done();setTimeout(function(){el.style.display='none'},800);}
     fl.forEach(function(s,k){ids.push(setTimeout(function(){fl.forEach(function(x){x.classList.remove('on')});s.classList.add('on');},120+k*105));});
@@ -219,7 +220,7 @@ function cutsInit() {
   H.classList.add('sf-js');
   if (!H4.reduce) H.classList.add('sf-anim', 'sf-snap');
   var cuts = [].slice.call(root.querySelectorAll('.cut')), cur = null;
-  var bars = [].slice.call(document.querySelectorAll('#sfp a')), noEl = document.getElementById('sfcNo'), chEl = document.getElementById('sfcCh'), hdr = document.getElementById('sfh');
+  var bars = [].slice.call(document.querySelectorAll('#sfp a')), noEl = document.getElementById('sfcNo'), chEl = document.getElementById('sfcCh'), hdr = document.getElementById('sfh'), skip = document.getElementById('sfs');
   var byCh = {};
   cuts.forEach(function (c) { var ch = +c.getAttribute('data-ch'); (byCh[ch] = byCh[ch] || []).push(c); });
 
@@ -250,6 +251,7 @@ function cutsInit() {
     if (chEl) chEl.textContent = CHN[ch] || '';
     if (hdr) hdr.setAttribute('data-tone', c.getAttribute('data-tone'));
     H.setAttribute('data-sf-tone', c.getAttribute('data-tone'));
+    if (skip) { if (c.id === 'c44' || c.id === 'c45') skip.setAttribute('data-hide', ''); else skip.removeAttribute('data-hide'); }
   }
   function activate(c) {
     if (c === cur) return;
@@ -327,6 +329,25 @@ function docInit() {
   setTimeout(function () { if (!fired) rv.forEach(function (e) { e.classList.add('on'); }); }, 2500);
 }
 
+/* 쪽 옮김은 문서를 새로 읽는다 — next/script 는 이 파일을 문서당 한 번만 돌린다.
+   넥스트가 쪽만 바꿔 끼우면(링크·뒤로 가기) 새 쪽에 움직임이 안 붙어 홈은 인트로 검은 막이, 새 쪽은 본문이 투명하게 남는다(11-04 검수 Critical).
+   그래서 이 파일이 돈 문서에서는 다른 주소로 가는 링크·주소 바꿈·뒤로 가기를 전부 진짜 쪽 이동으로 바꾼다. 같은 쪽 안 #컷 이동은 그대로. */
+function hardNav() {
+  var here = location.pathname;
+  function away(u) { try { var x = new URL(u, location.href); return x.origin === location.origin && x.pathname !== here; } catch (e) { return false; } }
+  addEventListener('click', function (e) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a || (a.target && a.target !== '_self') || a.hasAttribute('download') || !away(a.href)) return;
+    e.preventDefault(); e.stopPropagation(); location.assign(a.href);
+  }, true);
+  var push = history.pushState, rep = history.replaceState;
+  history.pushState = function (st, t, u) { if (u != null && away(u)) { location.assign(new URL(u, location.href).href); return; } return push.apply(history, arguments); };
+  history.replaceState = function (st, t, u) { if (u != null && away(u)) { location.replace(new URL(u, location.href).href); return; } return rep.apply(history, arguments); };
+  addEventListener('popstate', function () { if (location.pathname !== here) location.reload(); });
+}
+
+hardNav();
 chromeInit();
 cutsInit();
 heroInit();

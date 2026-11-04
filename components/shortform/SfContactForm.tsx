@@ -46,11 +46,12 @@ export default function SfContactForm({ services, initial = [], source = "home_s
           phone: phone.trim(),
           storeName: company.trim(),
           message: [source === "home_shortform" ? `[홈 무료 진단 신청]` : `[무료 진단 신청 · ${source}]`, `관심 서비스: ${names.length ? names.join(", ") : "고르지 않음"}`].join("\n"),
-          language: "홈 무료 진단",
+          language: source === "home_shortform" ? "홈 무료 진단" : "서비스 쪽 무료 진단",
         }),
       })
       if (!res.ok) throw new Error("failed")
-      trackContactSubmit({ source, industry: names.join(", ") || "미응답" })
+      // industry 칸은 기업·병원·그 밖을 가르는 값이라 넣지 않는다(서비스 이름은 메일 본문에) · 어느 쪽 폼인지는 GA 쪽 주소로 갈린다
+      trackContactSubmit()
       setStatus("done")
     } catch {
       setStatus("error")

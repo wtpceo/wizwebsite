@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       locale: "ko_KR",
       type: "website",
     },
+    twitter: { card: "summary_large_image", title: `${d.title} | 위즈더플래닝`, description: d.desc, images: [`/og-home.jpg?v=${timestamp}`] },
   }
 }
 

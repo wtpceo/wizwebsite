@@ -31,6 +31,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       locale: "ko_KR",
       type: "website",
     },
+    // 새 쪽마다 X(트위터) 카드도 그 쪽 제목·설명으로(안 두면 레이아웃의 홈 글이 나감)
+    twitter: { card: "summary_large_image", title: `${d.title} | 위즈더플래닝`, description: d.desc, images: [`/og-home.jpg?v=${timestamp}`] },
   }
 }
 

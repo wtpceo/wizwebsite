@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     type: "website",
   },
+  twitter: { card: "summary_large_image", title: `${d.title} | 위즈더플래닝`, description: d.desc, images: [`/og-home.jpg?v=${timestamp}`] },
 }
 
 export default function AboutPage() {
@@ -48,7 +49,7 @@ export default function AboutPage() {
             <h1>
               나눠 맡기던 마케팅,
               <br />
-              이제 한 팀이 직접.
+              이제 한 팀이 직접.{" "}
               <small>재하청 없이, 우리 팀이 직접 책임집니다.</small>
             </h1>
             <p className="dp-lead">{d.lead}</p>
@@ -78,13 +79,13 @@ export default function AboutPage() {
       </section>
       <Meta />
 
-      <Sec kicker="위즈더플래닝은" q={d.q1}>
+      <Sec q={d.q1}>
         {d.intro.map((p) => (
           <p key={p}>{p}</p>
         ))}
       </Sec>
 
-      <Sec id="one-team" kicker="왜 한 팀인가" q="따로 맡기면 무엇이 어려운가요?">
+      <Sec id="one-team" q="따로 맡기면 무엇이 어려운가요?">
         <p>채널마다 업체가 다르면 우리 브랜드 하나를 두고 연락이 여러 갈래로 갈라집니다.</p>
         <ol className="dp-num">
           {PROBLEMS.map(([t, x]) => (
@@ -96,7 +97,7 @@ export default function AboutPage() {
         </ol>
       </Sec>
 
-      <Sec kicker="따로 맡길 때와 비교" q="한 팀이 하면 무엇이 달라지나요?">
+      <Sec q="한 팀이 하면 무엇이 달라지나요?">
         <p>광고 운영부터 촬영·편집까지 사내 팀이 직접 하고, 손님은 담당 마케터 한 명과만 이야기합니다.</p>
         <table className="ab-cmp">
           <thead>
@@ -118,7 +119,7 @@ export default function AboutPage() {
         </table>
       </Sec>
 
-      <Sec id="location" kicker="회사 정보 · 오시는 길" q="어디에 있고, 언제 연락하면 되나요?">
+      <Sec id="location" q="어디에 있고, 언제 연락하면 되나요?">
         <p>{d.where}</p>
         <dl className="ab-info">
           <div>
@@ -154,7 +155,7 @@ export default function AboutPage() {
         </dl>
       </Sec>
 
-      <Sec kicker="자주 묻는 질문" q="회사소개 자주 묻는 질문">
+      <Sec q="회사소개 자주 묻는 질문">
         <Faq items={d.faq} />
       </Sec>
 

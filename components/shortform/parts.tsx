@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from "react"
+import { Fragment, type CSSProperties, type ReactNode } from "react"
 
 // 글자를 서버에서 미리 쪼개 둔다(런타임 split-text 아님 — HTML에 글이 그대로 있다)
 type V = CSSProperties & Record<`--${string}`, string | number>
@@ -10,7 +10,8 @@ export function Words({ text, start = 0 }: { text: string; start?: number }) {
   return (
     <>
       {lines.map((line, li) => (
-        <span className="ln" key={li}>
+        <Fragment key={li}>
+        <span className="ln">
           {line.split(" ").map((w, wi, arr) => {
             const n = i++
             return (
@@ -23,6 +24,9 @@ export function Words({ text, start = 0 }: { text: string; start?: number }) {
             )
           })}
         </span>
+        {/* 줄 사이 띄어쓰기 — 화면은 줄로 나뉘어도 HTML 글은 「…검색 맨 위로」처럼 낱말이 붙지 않게(검색·AI가 읽는 글) */}
+        {li < lines.length - 1 ? " " : null}
+        </Fragment>
       ))}
     </>
   )
@@ -35,7 +39,8 @@ export function Chars({ text, start = 0 }: { text: string; start?: number }) {
   return (
     <>
       {lines.map((line, li) => (
-        <span className="ln" key={li}>
+        <Fragment key={li}>
+        <span className="ln">
           {line.split(" ").map((word, wi, words) => (
             <span key={wi}>
               {/* 낱말 안에서는 줄이 꺾이지 않게 한 덩어리로 */}
@@ -57,6 +62,8 @@ export function Chars({ text, start = 0 }: { text: string; start?: number }) {
             </span>
           ))}
         </span>
+        {li < lines.length - 1 ? " " : null}
+        </Fragment>
       ))}
     </>
   )
