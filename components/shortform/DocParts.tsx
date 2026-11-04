@@ -79,7 +79,7 @@ export function Faq({ items }: { items: [string, string][] }) {
   )
 }
 
-export function ContactBlock({ title, sub, initial = [], source }: { title: string; sub?: string; initial?: string[]; source: string }) {
+export function ContactBlock({ title, sub, label, initial = [], source }: { title: string; sub?: string; label?: string; initial?: string[]; source: string }) {
   return (
     <section className="dp-ct" id="contact" aria-label="문의하기">
       <div className="dp-w dp-ct-in">
@@ -99,7 +99,7 @@ export function ContactBlock({ title, sub, initial = [], source }: { title: stri
             </a>
           </div>
         </div>
-        <SfContactForm services={SERVICES.map((s) => ({ k: s.k, n: s.n }))} initial={initial} source={source} />
+        <SfContactForm services={SERVICES.map((s) => ({ k: s.k, n: s.n }))} initial={initial} source={source} label={label} />
       </div>
     </section>
   )

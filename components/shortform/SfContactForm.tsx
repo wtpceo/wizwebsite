@@ -9,7 +9,8 @@ import { trackContactSubmit } from "@/lib/analytics"
 
 type Svc = { k: string; n: string }
 
-export default function SfContactForm({ services, initial = [], source = "home_shortform" }: { services: Svc[]; initial?: string[]; source?: string }) {
+// label: 신청 이름(버튼·폼 이름·메일 머리) — 로컬 업종 쪽은 「상담 신청」(무료 진단은 기업·병원 대상 · 11-04)
+export default function SfContactForm({ services, initial = [], source = "home_shortform", label = "무료 진단 신청" }: { services: Svc[]; initial?: string[]; source?: string; label?: string }) {
   const [company, setCompany] = useState("")
   const [phone, setPhone] = useState("")
   const [picked, setPicked] = useState<string[]>(initial)
@@ -45,7 +46,7 @@ export default function SfContactForm({ services, initial = [], source = "home_s
           name: company.trim(),
           phone: phone.trim(),
           storeName: company.trim(),
-          message: [source === "home_shortform" ? `[홈 무료 진단 신청]` : `[무료 진단 신청 · ${source}]`, `관심 서비스: ${names.length ? names.join(", ") : "고르지 않음"}`].join("\n"),
+          message: [source === "home_shortform" ? `[홈 ${label}]` : `[${label} · ${source}]`, `관심 서비스: ${names.length ? names.join(", ") : "고르지 않음"}`].join("\n"),
           language: source === "home_shortform" ? "홈 무료 진단" : "서비스 쪽 무료 진단",
         }),
       })
@@ -69,7 +70,7 @@ export default function SfContactForm({ services, initial = [], source = "home_s
   }
 
   return (
-    <form className="ct-f" onSubmit={submit} noValidate aria-label="무료 진단 신청">
+    <form className="ct-f" onSubmit={submit} noValidate aria-label={label}>
       <label className="ct-l">
         <span>회사명</span>
         <input value={company} onChange={(e) => setCompany(e.target.value)} placeholder="회사명을 적어 주세요" autoComplete="organization" />
@@ -103,7 +104,7 @@ export default function SfContactForm({ services, initial = [], source = "home_s
         </p>
       ) : null}
       <button type="submit" className="ct-go" disabled={status === "sending"}>
-        {status === "sending" ? "보내는 중" : "무료 진단 신청"}
+        {status === "sending" ? "보내는 중" : label}
       </button>
     </form>
   )
