@@ -44,7 +44,12 @@ export default function ShortformHome() {
       <SfMenu home />
 
       {/* 0 인트로 — 검은 화면 「한 팀.」 · 처음 읽을 때만(이 줄이 sf-pre 를 붙여야 보임 — JS가 없으면 인트로 없이 바로 첫 화면 · CSS가 5초 뒤 스스로 걷음) */}
-      <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('sf-pre')" }} />
+      {/* 우리 사이트 안에서 넘어온 방문(로고·메뉴로 홈에 돌아옴)은 인트로를 다시 틀지 않는다 */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: "try{var r=document.referrer;if(!r||new URL(r).host!==location.host)document.documentElement.classList.add('sf-pre')}catch(e){document.documentElement.classList.add('sf-pre')}",
+        }}
+      />
       <div className="intro" id="intro" aria-hidden="true">
         <div className="fl">
           {["검색", "광고", "블로그", "인플루언서", "촬영", "해외", "홈페이지", "엘리베이터TV"].map((w) => (

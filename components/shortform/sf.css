@@ -787,3 +787,8 @@ html.sf-pre .sf .intro { animation: sf-intro-safe 0s linear 5s forwards; }
   .sf .svl { margin-top: 12px; gap: 6px; }
   .sf .svb { padding: 6px 12px; }
 }
+/* 휴대폰 업종별 셋째 컷(엔터프라이즈 네 줄) — 「자세히」 링크가 아래 고정 바에 깔리지 않게 화면 높이 안으로 */
+@media (max-width: 820px) {
+  .sf .so-2 .so-path li { padding: 10px 0; grid-template-columns: 48px minmax(0, 1fr); }
+  .sf .so-2 .so-ph { height: 22vh; }
+}
