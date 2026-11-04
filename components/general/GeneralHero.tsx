@@ -42,7 +42,7 @@ export default function GeneralHero() {
         >
           <motion.div variants={fadeIn}>
             <span className="text-xs font-bold tracking-[0.25em] text-[#00e5a0]">
-              기업·병원 대상 · 무료 AI 검색 진단
+              업종 무관 · 무료 AI 검색 진단
             </span>
           </motion.div>
 
@@ -50,7 +50,7 @@ export default function GeneralHero() {
             variants={fadeIn}
             className="mt-6 text-[clamp(2.25rem,5vw,5.25rem)] font-extrabold leading-[1.15] tracking-tight text-white"
           >
-            우리 업체,
+            우리 가게,
             <br />
             <span className="bg-gradient-to-r from-[#00e5a0] to-sky-400 bg-clip-text text-transparent">
               ChatGPT에 물어보면
@@ -65,12 +65,12 @@ export default function GeneralHero() {
           >
             손님들은 이제 검색창이 아니라 ChatGPT·퍼플렉시티·네이버 AI에게{" "}
             <span className="font-semibold text-slate-200">
-              &ldquo;판교역 근처 치과 추천해줘&rdquo;
+              &ldquo;성수동 브런치 카페 추천해줘&rdquo;
             </span>
-            라고 묻습니다. 그 답변에 우리 업체가 나오는지, 혹시 틀린 정보를 안내하고 있지는
+            라고 묻습니다. 그 답변에 우리 가게가 나오는지, 혹시 틀린 정보를 안내하고 있지는
             않은지 무료로 진단해 드립니다.{" "}
             <span className="font-semibold text-slate-200">
-              무료 진단은 기업과 병원을 대상으로 합니다.
+              업종은 가리지 않습니다.
             </span>
           </motion.p>
 

@@ -12,7 +12,6 @@ import ForceTopOnLoad from "@/components/ForceTopOnLoad"
 import { GENERAL_FAQ } from "@/lib/general-faq-data"
 
 // 업종 무관 무료 AI 검색 진단 — 병원판(/medical-diagnosis)의 짝 페이지.
-// 2026-11-04 사장님: 무료 진단은 기업·병원 대상 → 소개 문구(검색 설명·첫 화면·구조화 데이터·신청서·대상 FAQ)만 맞춤. 본문 예시는 그대로(사령탑 결정).
 // 메타광고 광고세트 B의 전용 랜딩이다. 두 랜딩의 전환 구조(폼 제출 1단계 → Lead)를
 // 동일하게 유지해야 병원 vs 업종무관 비교가 성립한다.
 // 근거: 04_brief/2026-08-18_local-geo_brief_v1.md §0
@@ -21,12 +20,12 @@ const BASE_URL = "https://wiztheplanning.com"
 const PAGE_URL = `${BASE_URL}/diagnosis`
 
 export const metadata: Metadata = {
-  title: "무료 AI 검색 진단 | ChatGPT·네이버 AI에 우리 업체가 나올까요?",
+  title: "무료 AI 검색 진단 | ChatGPT·네이버 AI에 우리 가게가 나올까요?",
   description:
-    "기업·병원 대상 무료 AI 검색 진단. 네이버 AI·ChatGPT·제미나이가 우리 업체를 추천하는지, 잘못된 정보를 안내하는지, 경쟁 업체와 격차가 얼마인지 실측 리포트로 알려드립니다. 매장·학원은 전화나 카카오톡 상담으로 먼저 안내합니다.",
+    "업종 무관 무료 AI 검색 진단. 네이버 AI·ChatGPT·제미나이가 우리 가게를 추천하는지, 잘못된 정보를 안내하는지, 경쟁 가게와 격차가 얼마인지 실측 리포트로 알려드립니다. 식당·카페·펜션·학원·헬스장·미용실 모두 가능.",
   keywords: [
-    "AI 검색 최적화", "GEO 마케팅", "로컬 마케팅", "ChatGPT 업체 추천",
-    "병원 AI 검색", "무료 사이트 진단", "기업 마케팅", "검색 최적화",
+    "AI 검색 최적화", "GEO 마케팅", "로컬 마케팅", "ChatGPT 가게 추천",
+    "네이버 AI 맛집", "무료 사이트 진단", "소상공인 마케팅", "검색 최적화",
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
@@ -34,7 +33,7 @@ export const metadata: Metadata = {
     url: PAGE_URL,
     title: "무료 AI 검색 진단 | 위즈더플래닝",
     description:
-      "네이버 AI·ChatGPT·제미나이에 우리 업체가 어떻게 나오는지 무료로 진단해 드립니다. 무료 진단은 기업과 병원을 대상으로 합니다.",
+      "네이버 AI·ChatGPT·제미나이에 우리 가게가 어떻게 나오는지 무료로 진단해 드립니다. 업종은 가리지 않습니다.",
     siteName: "위즈더플래닝",
     locale: "ko_KR",
   },
@@ -42,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "무료 AI 검색 진단 | 위즈더플래닝",
     description:
-      "네이버 AI·ChatGPT·제미나이에 우리 업체가 어떻게 나오는지 무료로 진단해 드립니다. 무료 진단은 기업과 병원을 대상으로 합니다.",
+      "네이버 AI·ChatGPT·제미나이에 우리 가게가 어떻게 나오는지 무료로 진단해 드립니다. 업종은 가리지 않습니다.",
   },
 }
 
@@ -61,16 +60,16 @@ const serviceJsonLd = {
   areaServed: { "@type": "Country", name: "대한민국" },
   audience: {
     "@type": "Audience",
-    audienceType: "기업·병원",
+    audienceType: "오프라인 로컬 사업자 (음식점·카페·펜션·학원·헬스장·미용실 등)",
   },
   description:
-    "네이버 AI·ChatGPT·제미나이 세 엔진에 실제 손님 질문을 던져 우리 업체의 언급 점유율(SoV), 오정보 여부, 경쟁 업체 대비 격차를 측정한 진단 리포트를 무료로 제공합니다.",
+    "네이버 AI·ChatGPT·제미나이 세 엔진에 실제 손님 질문을 던져 우리 가게의 언급 점유율(SoV), 오정보 여부, 경쟁 가게 대비 격차를 측정한 진단 리포트를 무료로 제공합니다.",
   offers: {
     "@type": "Offer",
     price: "0",
     priceCurrency: "KRW",
     availability: "https://schema.org/InStock",
-    description: "기업·병원 대상 무료 진단",
+    description: "업종 무관 무료 진단",
   },
 }
 
