@@ -34,7 +34,7 @@ const jsonLd = {
   headline: TITLE,
   description: DESC,
   datePublished: DATE,
-  dateModified: "2026-11-03",
+  dateModified: "2026-11-04",
   inLanguage: "ko",
   author: { "@id": "https://wiztheplanning.com/#organization" },
   publisher: { "@id": "https://wiztheplanning.com/#organization" },
@@ -159,7 +159,7 @@ export default function Page() {
           <br />
           계약 전에 네이버 AI·ChatGPT·제미나이에 고객이 쓸 법한 질문을 물어 보고, 브랜드 이름이 나오는지와 잘못
           안내되는 정보는 없는지 기준선 리포트로 정리해 드립니다. 이 측정은 온보딩 항목으로 따로 견적을 냅니다.
-          대행료는 진단 뒤 제안서로 안내하고, 계약은 최소 3개월입니다.
+          대행료는 맡기실 범위를 듣고 제안서로 안내하며, 계약은 최소 3개월입니다.
           <br />
           <a
             href="#apply"
@@ -266,8 +266,8 @@ export default function Page() {
         <ul className="list-disc space-y-2 pl-5 text-base leading-[1.85] text-gray-700">
           {/* 2026-11-03 기업 전용 전환: 소상공인 요금(가게 월 30만 원·최소 6개월)과 무료 진단 줄을 뺐다. 우리 조건은 본문 원칙의 예외 · 11-04부터 금액은 진단 뒤 제안서로 */}
           <li>
-            <strong>마케팅 담당자가 있는 조직:</strong> 대행료는 진단 뒤 제안서로 안내하고, 계약은 최소 3개월입니다. 계약 전
-            기준선 측정은 따로 견적을 냅니다. 자세한 기준은 <a href="/business">기업 마케팅 대행 안내</a>에 있습니다.
+            <strong>마케팅 담당자가 있는 조직:</strong> 대행료는 맡기실 범위와 매체에 따라 달라 제안서로 안내하고, 계약은
+            최소 3개월입니다. 계약 전 기준선 측정은 따로 견적을 냅니다. 자세한 기준은 <a href="/business">기업 마케팅 대행 안내</a>에 있습니다.
           </li>
         </ul>
         <p>

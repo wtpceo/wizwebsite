@@ -12,6 +12,7 @@ const TITLE = "기업 GEO 도입 순서: 법무·홍보 검토부터 보고 체�
 const DESC =
   "기업 GEO 도입은 사이트 수정보다 지금 상태를 재고 담당을 정하는 일이 먼저입니다. 법무·홍보 검토를 어디에 넣을지, 누가 맡을지, 윗선에 무엇을 보고할지 여섯 단계로 정리했습니다."
 const DATE = "2026-10-31"
+const MODIFIED = "2026-11-04" // 금액 대신 「제안서로」(사장님 11-04)
 const URL = "https://wiztheplanning.com/business/insights/enterprise-geo-adoption"
 
 export const metadata: Metadata = {
@@ -28,7 +29,7 @@ const jsonLd = {
   headline: TITLE,
   description: DESC,
   datePublished: DATE,
-  dateModified: DATE,
+  dateModified: MODIFIED,
   inLanguage: "ko",
   author: { "@id": "https://wiztheplanning.com/#organization" },
   publisher: { "@id": "https://wiztheplanning.com/#organization" },
@@ -112,7 +113,7 @@ export default function Page() {
         description={DESC}
         date="2026년 10월 31일"
         ctaTitle="여섯 단계 중 어디서 막혀 있는지부터 보겠습니다"
-        ctaBody="과제와 예산 구간, 지금 진행 상태를 남겨 주시면 저희가 맡을 범위와 못 하는 일을 적어 회사 메일로 보내 드리겠습니다. 대행료는 진단 뒤 제안서로 안내하고 계약은 최소 3개월이며, 기준선 측정은 별도입니다."
+        ctaBody="과제와 예산 구간, 지금 진행 상태를 남겨 주시면 저희가 맡을 범위와 못 하는 일을 적어 회사 메일로 보내 드리겠습니다. 대행료는 회신 때 제안서로 안내하고 계약은 최소 3개월이며, 기준선 측정은 별도입니다."
       >
         <p>
           <strong>

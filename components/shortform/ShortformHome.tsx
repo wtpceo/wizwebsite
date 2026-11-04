@@ -618,7 +618,7 @@ export default function ShortformHome() {
             <h2 className="cap sz-lg">
               <Words text={"우리 브랜드 마케팅,\n지금 무료로 진단받아 보세요."} />
             </h2>
-            <p className="sm">무료 진단은 기업과 병원을 대상으로 합니다. 세 칸만 적으시면 담당자가 연락드립니다. 가격은 진단 뒤 제안서로 안내합니다.</p>
+            <p className="sm">대상은 기업과 병원입니다. 세 칸만 적으시면 담당자가 연락드립니다. 가격은 진단 뒤 제안서로 안내합니다.</p>
             <div className="ct-ways">
               <a href={CONTACT.telHref} data-tel>
                 <Icon k="phone" />

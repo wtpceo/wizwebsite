@@ -11,6 +11,7 @@ const TITLE = "마케팅 성과 측정 지표: 계약하면 받는 주간 보고
 const DESC =
   "위즈더플래닝과 월 운영 계약을 맺으면 받는 주간 보고서를 저희 회사 것으로 보여 드립니다. 첫 장의 지표 네 개와 엔진별 표, 카테고리 점유율 0%처럼 안 좋은 숫자까지 그대로입니다."
 const DATE = "2026-10-31"
+const MODIFIED = "2026-11-04" // 금액 대신 「제안서로」(사장님 11-04)
 const URL = "https://wiztheplanning.com/business/insights/weekly-report-sample"
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ const jsonLd = {
   headline: TITLE,
   description: DESC,
   datePublished: DATE,
-  dateModified: DATE,
+  dateModified: MODIFIED,
   inLanguage: "ko",
   author: { "@id": "https://wiztheplanning.com/#organization" },
   publisher: { "@id": "https://wiztheplanning.com/#organization" },
@@ -88,7 +89,7 @@ export default function Page() {
         description={DESC}
         date="2026년 10월 31일"
         ctaTitle="보고서 샘플을 회신 메일로 받아 보세요"
-        ctaBody="과제와 예산 구간을 남겨 주시면 이 글의 6쪽 보고서 PDF를 회신 메일에 같이 넣어 보내 드리겠습니다. 월 운영 비용은 진단 뒤 제안서로 안내하고, 계약은 최소 3개월이며 기준선 측정은 별도입니다."
+        ctaBody="과제와 예산 구간을 남겨 주시면 이 글의 6쪽 보고서 PDF를 회신 메일에 같이 넣어 보내 드리겠습니다. 월 운영 금액은 제안서에 적어 드리고, 계약은 최소 3개월이며 기준선 측정은 별도입니다."
       >
         <p>
           <strong>저희와 월 운영 계약을 맺으면 AI 검색 노출과 사이트 상태를 정리한 주간 보고서를 받으십니다.</strong>{" "}

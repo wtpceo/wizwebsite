@@ -11,6 +11,7 @@ const TITLE = "마케팅 대행사 수수료 구조 3가지: 어디서 손해가
 const DESC =
   "대행 수수료는 정액, 광고비 연동, 성과형 셋 중 하나이거나 그 조합입니다. 구조마다 광고주가 손해 보는 지점이 다릅니다. 세 구조의 차이와 계약서에서 확인할 조항, 그리고 저희가 받는 방식과 온보딩비를 따로 두는 이유를 공개합니다."
 const DATE = "2026-10-10"
+const MODIFIED = "2026-11-04" // 금액 대신 「제안서로」(사장님 11-04)
 const URL = "https://wiztheplanning.com/business/insights/marketing-agency-fee"
 
 export const metadata: Metadata = {
@@ -30,7 +31,7 @@ const jsonLd = {
   headline: TITLE,
   description: DESC,
   datePublished: DATE,
-  dateModified: DATE,
+  dateModified: MODIFIED,
   inLanguage: "ko",
   author: { "@id": "https://wiztheplanning.com/#organization" },
   publisher: { "@id": "https://wiztheplanning.com/#organization" },
@@ -179,7 +180,7 @@ export default function Page() {
         <ul>
           <CheckItem>
             <strong>월 운영.</strong> AI 검색 최적화와 콘텐츠, 광고 운영, 주간 보고까지 맡는 형태입니다.{" "}
-            금액은 진단 뒤 제안서로 안내하고, 계약은 <strong>최소 3개월</strong>입니다. 계약 전 기준선 측정은 별도로 둡니다.
+            금액은 맡기실 범위를 듣고 제안서로 안내하며, 계약은 <strong>최소 3개월</strong>입니다. 계약 전 기준선 측정은 별도로 둡니다.
           </CheckItem>
           <CheckItem>
             <strong>단발 캠페인.</strong> 2주짜리 메타 광고처럼 기간이 정해진 건입니다. 구조는{" "}
@@ -201,7 +202,7 @@ export default function Page() {
         <p>
           이걸 월 운영료에 녹이면 두 가지가 생깁니다. 짧은 건은 조사를 건너뛰게 되고, 긴 계약을 한 쪽이
           짧은 계약을 보조하게 됩니다. 저희가 상담에서 브랜드를 먼저 학습한 뒤 제안하는 방식을 유지하려면
-          이 단계를 줄일 수 없어서, 금액을 숨기는 대신 항목을 분리해 두었습니다.
+          이 단계를 줄일 수 없어서, 온보딩비를 운영료에 섞지 않고 항목을 나눠 둡니다.
         </p>
 
         <BizContactNote>

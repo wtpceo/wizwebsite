@@ -13,6 +13,7 @@ const TITLE = "인하우스 vs 대행사: 마케터 1명 실제 비용과 업무
 const DESC =
   "인하우스와 대행사는 둘 중 하나를 고르는 문제가 아닙니다. 마케터 한 명을 뽑으면 회사가 실제로 내는 돈을 2026년 4대보험 요율로 계산하고 안에 둘 일과 밖에 맡길 일을 나누는 기준을 정리했습니다."
 const DATE = "2026-10-27"
+const MODIFIED = "2026-11-04" // 우리 금액 문장 뺌(사장님 11-04)
 const URL = "https://wiztheplanning.com/business/insights/inhouse-vs-agency"
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ const jsonLd = {
   headline: TITLE,
   description: DESC,
   datePublished: DATE,
-  dateModified: DATE,
+  dateModified: MODIFIED,
   inLanguage: "ko",
   image: "https://wiztheplanning.com/covers/business-inhouse.jpg",
   author: { "@id": "https://wiztheplanning.com/#organization" },
@@ -165,8 +166,7 @@ export default function Page() {
 
         <h3>비교는 금액보다 일의 범위로</h3>
         <p>
-          인하우스 한 명에 드는 월 473만 원을 대행료와 나란히 놓으면 대행이 싸 보일 때가 많습니다. 하지만 이렇게
-          비교하면 틀립니다. 인하우스 담당자는 일주일 내내 한 회사 일만 하고, 대행사는 여러 회사 일을 나눠
+          인하우스 한 명에 드는 월 473만 원을 대행료와 나란히 놓고 어느 쪽이 싼지 보면 틀립니다. 인하우스 담당자는 일주일 내내 한 회사 일만 하고, 대행사는 여러 회사 일을 나눠
           합니다. 같은 돈으로 무엇을 얼마나 할 수 있는지가 따져 볼 지점입니다.
         </p>
         <p>
@@ -276,7 +276,7 @@ export default function Page() {
 
         <h2>저희에게 맡기지 않는 편이 나은 경우</h2>
         <p>
-          월 마케팅 예산이 대행료와 광고비를 합쳐 300만 원이 안 된다면, 지금은 담당자 한 명이 직접 운영하면서 필요한
+          월 마케팅 예산이 크지 않다면 지금은 담당자 한 명이 직접 운영하면서 필요한
           촬영만 건별로 맡기시는 편이 낫습니다. 제품이 매주 바뀌는 초기 단계도 마찬가지입니다. 이런 경우 상담을
           주시면 저희를 쓰지 않는 구성으로 말씀드립니다.
         </p>

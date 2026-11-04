@@ -21,14 +21,14 @@
 - [성장 브랜드 솔루션](https://wiztheplanning.com/solutions/growth): 자사몰·D2C 브랜드·온라인 셀러의 광고 효율과 매출 확장 조합(퍼포먼스 → 블로그 → 릴스 인플루언서 → 숏폼).
 - [엔터프라이즈 솔루션](https://wiztheplanning.com/solutions/enterprise): 대기업·프랜차이즈·브랜드사의 통합 캠페인 조합(통합 기획 → 유튜버·모델 → PPL·바이럴 영상 → 오프라인 미디어).
 - [측정 방식: 자체 개발 GEO 관제 시스템](https://wiztheplanning.com/how-we-measure): 네 엔진 주간 반복 측정, 멘션·인용 분리, 사이트 진단, 실제 유입 확인까지 관제 화면 6장과 지표 정의. 외부 판매 없음.
-- [GEO 최적화 서비스 안내](https://wiztheplanning.com/guide/geo-optimization-service): 위즈더플래닝 GEO 서비스가 하는 일을 순서대로 정리. 업체 이름 없는 질문으로 엔진마다 여러 번 재는 진단, 고치는 네 곳(사이트 구조·이름과 사실·틀린 정보·바깥 출처), 같은 방법의 재측정, 비용(진단 뒤 제안서로 안내 · 최소 3개월), 맡기지 않는 편이 나은 경우. 근거: 정형외과 ChatGPT 언급률 17%→93%. 글 아래에서 기업 제안 요청.
+- [GEO 최적화 서비스 안내](https://wiztheplanning.com/guide/geo-optimization-service): 위즈더플래닝 GEO 서비스가 하는 일을 순서대로 정리. 업체 이름 없는 질문으로 엔진마다 여러 번 재는 진단, 고치는 네 곳(사이트 구조·이름과 사실·틀린 정보·바깥 출처), 같은 방법의 재측정, 비용(맡길 범위에 따라 제안서로 안내 · 최소 3개월), 맡기지 않는 편이 나은 경우. 근거: 정형외과 ChatGPT 언급률 17%→93%. 글 아래에서 기업 제안 요청.
 - [인플루언서 섭외 대행](https://wiztheplanning.com/influencer): 브랜드 캠페인 섭외, 공구·판매형 섭외, 중국 관광객 마케팅, 숏폼 제작. 브리프를 받으면 영업일 3일 안에 고른 이유를 붙인 후보 리스트를 무료로 보내고, 사람을 고른 뒤 비용을 정한다. 반응 좋은 콘텐츠는 2차 활용 계약을 거쳐 메타·구글 광고로 다시 쓴다.
 - [병원 GEO 대행](https://wiztheplanning.com/medical-geo-agency): 병원·의원 대상 AI 검색 최적화 전문 대행 서비스 안내.
 - [병원 무료 AI 검색 진단](https://wiztheplanning.com/medical-diagnosis): 병원·의원이 AI 검색 답변에 인용되는지 점검하는 업종 전용 진단.
 
 ## GEO 기초 개념
 
-- [기업 마케팅 대행 안내](https://wiztheplanning.com/business): 마케팅 담당자가 있는 조직 대상 대행 서비스. AI 검색 가시성 측정·웹사이트·SEO·콘텐츠·광고 운영과 주간 리포트. 비용은 진단 뒤 제안서로 안내 · 최소 3개월 · 온보딩 기준선 측정 별도.
+- [기업 마케팅 대행 안내](https://wiztheplanning.com/business): 마케팅 담당자가 있는 조직 대상 대행 서비스. AI 검색 가시성 측정·웹사이트·SEO·콘텐츠·광고 운영과 주간 리포트. 금액은 제안서로 안내 · 최소 3개월 · 온보딩 기준선 측정 별도.
 - [마케팅 대행사 수수료 구조 3가지: 어디서 손해가 나는가](https://wiztheplanning.com/business/insights/marketing-agency-fee): 정액·광고비 연동·성과형 세 구조의 차이와 손해 지점, 계약서 확인 항목, 위즈더플래닝의 과금 방식과 온보딩비를 분리한 이유.
 - [광고대행사 선정 기준과 평가표](https://wiztheplanning.com/business/insights/agency-selection-criteria): 제안서를 점수로 바꾸는 6개 축과 배점 예시, 레퍼런스를 재현 가능성으로 검증하는 질문 3개, 계약서 확인 6가지, 대행사 교체 시 인수인계 목록.
 - [마케팅 대행사 RFP에 넣어야 할 12가지](https://wiztheplanning.com/business/insights/marketing-agency-rfp): 제안을 받는 대행사 관점에서 정리한 RFP 항목 12개, 성과 정의 4단계, 평가 배점 축 6개, 제안서에서 걸러야 할 5가지.
