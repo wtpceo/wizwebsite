@@ -139,7 +139,7 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
         },
         {
           q: "How much does it cost?",
-          a: "It depends on your current situation and goals. We start with a free check of where your business stands, then suggest a plan and a quote. The decision is yours.",
+          a: "It depends on your current situation and goals. We start by checking where your business stands, then suggest a plan and a quote. The free check is for companies and hospitals. The decision is yours.",
         },
         {
           q: "How long until I see results?",
@@ -156,7 +156,7 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
       ],
     },
     contact: {
-      heading: "First, a free look at where your business stands",
+      heading: "First, let's talk about where your business stands",
       body: "Leave your details and we'll explain your current situation and what to do next, in a way that makes sense to you. English is fine.",
       langNote: "Feel free to write in English. We'll reply through translation.",
       kakao: "Chat with us on KakaoTalk",
@@ -257,7 +257,7 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
         },
         {
           q: "费用大概多少？",
-          a: "每家店的情况和目标不同，费用也不一样。我们会先免费诊断你的现状，再给出适合的方案和报价，之后由你决定。",
+          a: "每家店的情况和目标不同，费用也不一样。我们会先了解你的现状，再给出适合的方案和报价，之后由你决定。免费诊断面向企业和医院。",
         },
         {
           q: "要多久才能见效？",
@@ -274,7 +274,7 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
       ],
     },
     contact: {
-      heading: "先免费看看你的店现在的状况",
+      heading: "先聊聊你的店现在的状况",
       body: "留下联系方式，我们会用你能懂的方式说明现状和该怎么做。中文咨询没问题。",
       langNote: "请用中文留言即可，我们会通过翻译对接。",
       kakao: "用KakaoTalk咨询",
@@ -375,7 +375,7 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
         },
         {
           q: "Chi phí khoảng bao nhiêu?",
-          a: "Mỗi tiệm có tình trạng và mục tiêu khác nhau nên chi phí cũng khác. Chúng tôi kiểm tra hiện trạng miễn phí trước, rồi đưa ra phương án và báo giá phù hợp để bạn quyết định.",
+          a: "Mỗi tiệm có tình trạng và mục tiêu khác nhau nên chi phí cũng khác. Chúng tôi xem hiện trạng trước, rồi đưa ra phương án và báo giá phù hợp để bạn quyết định. Kiểm tra miễn phí dành cho công ty và bệnh viện.",
         },
         {
           q: "Bao lâu thì thấy hiệu quả?",
@@ -392,7 +392,7 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
       ],
     },
     contact: {
-      heading: "Trước tiên, xem miễn phí tình trạng tiệm bạn",
+      heading: "Trước tiên, cùng trao đổi về tình trạng tiệm bạn",
       body: "Để lại liên hệ, chúng tôi sẽ giải thích tình trạng hiện tại và cần làm gì, theo cách bạn hiểu được. Tư vấn tiếng Việt thoải mái.",
       langNote: "Cứ nhắn bằng tiếng Việt, chúng tôi sẽ trao đổi qua phiên dịch.",
       kakao: "Tư vấn qua KakaoTalk",
