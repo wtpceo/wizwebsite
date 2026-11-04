@@ -167,7 +167,7 @@ var CHN = ['한 팀', '따로 맡기면', '한 팀이 하면', '여덟 가지', 
 function heroInit() {
   var hero = document.getElementById('c1'); if (!hero) return;
   var RW = SFD.ends || [], N = S.length, ring = document.getElementById('ring'), rw = document.getElementById('rw');
-  var btns = [].slice.call(document.querySelectorAll('#svl .svb')), cards = [], ctl = [], step = 0, live = false, SL = 1300, shown = 0;
+  var btns = [].slice.call(document.querySelectorAll('#svl .svb')), cards = [], ctl = [], step = 0, live = false, SL = 900, shown = 0;
   var play = H4.wall(document.getElementById('bgt'));
   S.forEach(function (s, i) { ring.insertAdjacentHTML('beforeend', H4.phone(i)); });
   btns.forEach(function (b, i) { b.style.setProperty('--pd', (SL * 3) + 'ms'); b.addEventListener('click', function () { go(i); }); });
@@ -205,7 +205,7 @@ function heroInit() {
     hero.classList.add('ready'); play(true);
     if (H4.reduce || deep) { live = true; step = 0; place(); return; }
     ring.classList.add('whirl'); requestAnimationFrame(function () { step = 0; place(); });
-    setTimeout(function () { ring.classList.remove('whirl'); live = true; place(); }, 2450);
+    setTimeout(function () { ring.classList.remove('whirl'); live = true; place(); }, 1650);
   }
   if (deep) start(); else H4.intro(start);
   var heroOn = true;

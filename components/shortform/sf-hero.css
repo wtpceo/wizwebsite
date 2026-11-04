@@ -480,8 +480,8 @@
 .sf .orbit:after{content:"";position:absolute;inset:14%;border-radius:50%;border:1px dashed rgba(255,255,255,.14)}
 .sf .floor{position:absolute;left:50%;top:calc(50% + var(--ch) * .52);width:calc(var(--ch) * 1.2);height:calc(var(--ch) * .14);transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(4,26,52,.55),rgba(4,26,52,0));pointer-events:none}
 .sf .i3{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
-.sf .ring{position:absolute;left:0;top:0;transform-style:preserve-3d;transition:transform .8s var(--io)}
-.sf .ring.whirl{transition:transform 2.4s cubic-bezier(0.12,0.75,0.18,1)}
+.sf .ring{position:absolute;left:0;top:0;transform-style:preserve-3d;transition:transform .55s var(--io)}
+.sf .ring.whirl{transition:transform 1.6s cubic-bezier(0.12,0.75,0.18,1)}
 .sf .ring .pcard{position:absolute;left:calc(var(--ch) * -.28125);top:calc(var(--ch) * -.5);backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .sf .ring .pcard .ph:after{content:"";position:absolute;inset:0;z-index:5;background:linear-gradient(180deg,rgba(13,79,140,.55),rgba(13,79,140,.75));transition:opacity .45s ease;pointer-events:none}
 .sf .ring .pcard.on .ph:after{opacity:0}
