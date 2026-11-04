@@ -33,6 +33,8 @@
 .sf .dp-btns a { font-size: 15px; font-weight: 750; padding: 15px 22px; border-radius: 4px; }
 .sf .dp-btns .p1 { background: #fff; color: var(--b1); }
 .sf .dp-btns .p2 { border: 1px solid rgba(255,255,255,.5); color: #fff; }
+.sf .dp-more { margin: 16px 0 0; font-size: 14.5px; font-weight: 700; }
+.sf .dp-more a { color: var(--sky); text-decoration: underline; text-underline-offset: 3px; }
 .sf .dp-mg { width: 100%; max-width: 520px; justify-self: center; }
 .sf .dp-mg .mg { border-radius: 14px; box-shadow: 0 40px 80px -40px rgba(4,26,52,.7); }
 .sf .dp-ph { position: relative; margin: 0; height: 380px; border-radius: 6px; overflow: hidden; }

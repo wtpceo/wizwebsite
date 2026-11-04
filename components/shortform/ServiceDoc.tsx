@@ -70,6 +70,12 @@ export default function ServiceDoc({ slug }: { slug: string }) {
                 전화 1670-0704
               </a>
             </div>
+            {/* 옛 상세 쪽은 주소 그대로 두고 여기서 잇는다(지시서 「옛 쪽은 새 쪽에서 잇기만」) */}
+            {s.more ? (
+              <p className="dp-more">
+                <a href={s.more.href}>{s.more.label} →</a>
+              </p>
+            ) : null}
           </div>
           <div className="dp-mg" aria-hidden="true" dangerouslySetInnerHTML={{ __html: MG[s.k] }} />
         </div>
