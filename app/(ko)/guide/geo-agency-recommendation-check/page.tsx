@@ -230,7 +230,7 @@ export default function Page() {
           <strong>추천 순위 말고 우리 숫자부터 보고 싶으시다면</strong>
           <br />
           여기는 저희 안내입니다. 추천 글을 아무리 읽어도 우리 이름이 AI 답변에 나오는지는 알 수 없습니다.{" "}
-          <a href="/diagnosis">무료 AI 검색 진단</a>을 신청하시면 ChatGPT·네이버 AI·제미나이에 손님이 쓸 법한 질문을
+          <a href="/#c44">무료 AI 검색 진단</a>을 신청하시면 ChatGPT·네이버 AI·제미나이에 손님이 쓸 법한 질문을
           물어 지금 상태를 리포트로 보내 드리겠습니다. 어느 대행사와 이야기하시든 출발점 숫자가 있으면 그 업체의
           주장을 확인하기 쉬워집니다.
         </Callout>
@@ -265,7 +265,7 @@ export default function Page() {
           직접 할지 맡길지부터 고민 중이시면{" "}
           <a href="/guide/geo-diy-or-agency">직접 할까 대행 맡길까</a>에 판단 기준을 정리해 두었고,
           우리 홈페이지 상태는 <a href="/site-check">무료 사이트 진단</a>에서 바로 확인되고, AI 답변에 실제로
-          나오는지는 <a href="/diagnosis">무료 AI 검색 진단</a>으로 재 드립니다.
+          나오는지는 <a href="/#c44">무료 AI 검색 진단</a>으로 재 드립니다.
         </p>
       </GuideArticle>
     </>

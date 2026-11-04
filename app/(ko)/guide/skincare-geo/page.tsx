@@ -90,7 +90,7 @@ export default function Page() {
         </p>
 
         <p>
-          우리 매장 홈페이지가 AI에게 읽히고 있는지는 <a href="/diagnosis">무료 AI 검색 진단</a>으로 확인할 수 있습니다. ChatGPT·네이버 AI·제미나이가 우리 매장을 추천하는지, 잘못 안내하는 정보는 없는지 리포트로 보내 드립니다. 피부과처럼 의료기관이라면 <a href="/medical-diagnosis">병원 무료 AI 검색 진단</a>으로 신청해 주세요.
+          우리 매장 홈페이지가 AI에게 읽히고 있는지는 <a href="/#c44">무료 AI 검색 진단</a>으로 확인할 수 있습니다. ChatGPT·네이버 AI·제미나이가 우리 매장을 추천하는지, 잘못 안내하는 정보는 없는지 리포트로 보내 드립니다. 피부과처럼 의료기관이라면 <a href="/medical-diagnosis">병원 무료 AI 검색 진단</a>으로 신청해 주세요.
         </p>
 
         <h2>그럼 홈페이지를 어떻게 구성해야 하나요?</h2>
@@ -194,7 +194,7 @@ export default function Page() {
           홈페이지 인용 준비 상태를 함께 확인해 보세요.
         </Callout>
         <p>
-          어디서부터 손댈지 모르겠다면 지금 상태부터 재 보는 게 빠릅니다. 피부관리·에스테틱 매장은 <a href="/diagnosis">무료 AI 검색 진단</a>에서, 피부과 같은 의원은 <a href="/medical-diagnosis">병원 무료 AI 검색 진단</a>에서 신청하시면 됩니다.
+          어디서부터 손댈지 모르겠다면 지금 상태부터 재 보는 게 빠릅니다. 피부관리·에스테틱 매장은 <a href="/#c44">무료 AI 검색 진단</a>에서, 피부과 같은 의원은 <a href="/medical-diagnosis">병원 무료 AI 검색 진단</a>에서 신청하시면 됩니다.
         </p>
       </GuideArticle>
     </>
