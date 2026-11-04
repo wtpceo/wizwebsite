@@ -179,7 +179,7 @@ export default function Page() {
         <ul>
           <CheckItem>
             <strong>월 운영.</strong> AI 검색 최적화와 콘텐츠, 광고 운영, 주간 보고까지 맡는 형태입니다.{" "}
-            <strong>월 300만 원부터, 최소 3개월</strong>입니다. 계약 전 기준선 측정은 별도로 둡니다.
+            금액은 진단 뒤 제안서로 안내하고, 계약은 <strong>최소 3개월</strong>입니다. 계약 전 기준선 측정은 별도로 둡니다.
           </CheckItem>
           <CheckItem>
             <strong>단발 캠페인.</strong> 2주짜리 메타 광고처럼 기간이 정해진 건입니다. 구조는{" "}

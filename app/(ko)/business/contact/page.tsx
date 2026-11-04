@@ -7,7 +7,7 @@ import BusinessContactForm from "@/components/business/BusinessContactForm"
 
 const TITLE = "기업 제안 요청 | 위즈더플래닝"
 const DESC =
-  "기업 마케팅 대행 제안을 요청하는 곳입니다. 회사와 목표, 예산 구간을 알려 주시면 담당자가 회사 메일로 회신드립니다. 대행료 월 300만원부터, 최소 3개월."
+  "기업 마케팅 대행 제안을 요청하는 곳입니다. 회사와 목표, 예산 구간을 알려 주시면 담당자가 회사 메일로 회신드립니다. 비용은 진단 뒤 제안서로 안내하고, 계약은 최소 3개월입니다."
 const URL = "https://wiztheplanning.com/business/contact"
 
 export const metadata: Metadata = {
@@ -48,8 +48,8 @@ export default function Page() {
               회사와 목표를 알려 주세요
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">
-              담당자가 내용을 보고 회사 메일로 회신드립니다. 대행료 월 300만원부터, 최소 3개월 기준으로
-              진행합니다.{" "}
+              담당자가 내용을 보고 회사 메일로 회신드립니다. 비용은 진단 뒤 제안서로 안내하고, 계약은 최소
+              3개월 기준입니다.{" "}
               <Link href="/business" className="font-semibold text-[#00e5a0] underline underline-offset-4">
                 기업 마케팅 안내
               </Link>

@@ -85,7 +85,7 @@ export function ContactBlock({ title, sub, initial = [], source }: { title: stri
       <div className="dp-w dp-ct-in">
         <div>
           <h2>{title}</h2>
-          <p className="sm">{sub || "세 칸만 적으시면 담당자가 연락드립니다. 가격은 진단 뒤 제안서로 안내합니다."}</p>
+          <p className="sm">{sub || "무료 진단은 기업과 병원을 대상으로 합니다. 세 칸만 적으시면 담당자가 연락드립니다. 가격은 진단 뒤 제안서로 안내합니다."}</p>
           <div className="ct-ways">
             <a href={CONTACT.telHref} data-tel>
               <Icon k="phone" />

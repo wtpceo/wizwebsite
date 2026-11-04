@@ -11,11 +11,11 @@ import { Button } from "@/components/ui/button"
 // 기업 마케팅 허브. 자영업 페이지와 말과 경로를 분리한다.
 // - "사장님·가게" 대신 "담당자·브랜드·조직"
 // - CTA는 무료 진단이 아니라 제안 요청(/business/contact)
-// - 기준(리테이너 월 300만원, 최소 3개월, 온보딩 별도)을 페이지에 적어 스스로 걸러지게 한다
+// - 기준(최소 3개월, 온보딩 별도)을 페이지에 적어 스스로 걸러지게 한다 · 금액은 적지 않고 진단 뒤 제안서로(사장님 11-04)
 // 수치는 공개된 자사 사례에서만 가져온다. 보장 문구는 쓰지 않는다.
 const TITLE = "기업 마케팅: AI 검색·SEO·콘텐츠를 한 팀에서 | 위즈더플래닝"
 const DESC =
-  "마케팅 담당자가 있는 조직을 위한 대행 서비스입니다. ChatGPT·네이버 AI·구글에서 브랜드가 어떻게 인용되는지 매주 같은 기준으로 측정하고, 홈페이지·콘텐츠·광고까지 한 팀에서 실행합니다. 대행료 월 300만원부터, 최소 3개월."
+  "마케팅 담당자가 있는 조직을 위한 대행 서비스입니다. ChatGPT·네이버 AI·구글에서 브랜드가 어떻게 인용되는지 매주 같은 기준으로 측정하고, 홈페이지·콘텐츠·광고까지 한 팀에서 실행합니다. 비용은 진단 뒤 제안서로 안내하고, 계약은 최소 3개월입니다."
 const URL = "https://wiztheplanning.com/business"
 
 export const metadata: Metadata = {
@@ -79,7 +79,7 @@ const REPORT_SHOTS = [
 const FAQ = [
   {
     q: "최소 계약 조건이 어떻게 되나요?",
-    a: "대행료 기준 월 300만원부터, 최소 3개월입니다. AI 검색은 한 달 만에 결과가 나오지 않습니다. 실제로 홈페이지를 전면 개선한 비뇨의학과의 경우 홈페이지 작업에만 약 2개월, ChatGPT·구글·네이버에서 안정적으로 노출되기까지 약 6개월이 걸렸습니다. 광고비는 대행료와 별도이며 고객사가 매체에 직접 집행합니다.",
+    a: "비용은 진단 뒤 제안서로 안내하고, 계약은 최소 3개월입니다. AI 검색은 한 달 만에 결과가 나오지 않습니다. 실제로 홈페이지를 전면 개선한 비뇨의학과의 경우 홈페이지 작업에만 약 2개월, ChatGPT·구글·네이버에서 안정적으로 노출되기까지 약 6개월이 걸렸습니다. 광고비는 대행료와 별도이며 고객사가 매체에 직접 집행합니다.",
   },
   {
     q: "기준선 측정은 무엇이고 비용이 따로 드나요?",
@@ -98,7 +98,7 @@ const FAQ = [
     a: "네. 평가 항목과 제출 기한을 보내 주시면 그 형식에 맞춰 제안서를 작성합니다. 보안 서약이 필요하면 먼저 체결한 뒤 자료를 받습니다.",
   },
   {
-    q: "예산이 월 300만원보다 작으면 방법이 없나요?",
+    q: "예산이 적으면 방법이 없나요?",
     a: "기업 대행은 어렵습니다. 대신 무료 진단으로 현재 상태를 확인하시고, 직접 하실 수 있는 순서를 정리한 가이드를 보시는 편이 낫습니다. 규모가 커지면 그때 다시 이야기하면 됩니다.",
   },
 ]
@@ -113,15 +113,6 @@ const serviceJsonLd = {
   areaServed: { "@type": "Country", name: "대한민국" },
   audience: { "@type": "Audience", audienceType: "마케팅 담당 조직이 있는 기업" },
   provider: { "@id": "https://wiztheplanning.com/#organization" },
-  offers: {
-    "@type": "Offer",
-    priceSpecification: {
-      "@type": "PriceSpecification",
-      priceCurrency: "KRW",
-      minPrice: 3000000,
-      description: "대행료 기준 월 300만원부터, 최소 3개월. 광고비는 별도.",
-    },
-  },
 }
 
 const faqJsonLd = {
@@ -180,7 +171,7 @@ export default function Page() {
                 ["2016년", "대행 시작"],
                 ["7,000여", "함께한 광고주"],
                 ["4개 엔진", "측정, 기본 보고서는 3개"],
-                ["월 300만원~", "대행료 기준"],
+                ["주 1회", "주간 보고서"],
               ].map(([v, l]) => (
                 <div key={l}>
                   <dt className="sr-only">{l}</dt>
@@ -200,7 +191,7 @@ export default function Page() {
               <h3 className="text-lg font-bold text-gray-900">맞는 경우</h3>
               <ul className="mt-3 space-y-2.5 text-sm leading-relaxed text-gray-600">
                 <li>마케팅을 맡은 담당자나 팀이 있는 조직</li>
-                <li>대행료로 월 300만원 이상을 쓸 수 있는 규모</li>
+                <li>매달 마케팅 예산을 정해 두고 쓰는 조직</li>
                 <li>검색과 AI 답변에서 브랜드가 밀리고 있다고 느끼는 곳</li>
                 <li>보고서로 사내 설득을 해야 하는 담당자</li>
               </ul>
@@ -208,7 +199,7 @@ export default function Page() {
             <div className="rounded-2xl border border-gray-200 bg-[#f6f8f7] p-6">
               <h3 className="text-lg font-bold text-gray-900">진행 기준</h3>
               <ul className="mt-3 space-y-2.5 text-sm leading-relaxed text-gray-600">
-                <li><strong className="text-gray-900">대행료 월 300만원부터.</strong> 광고비는 별도이고 매체에 직접 집행하십니다.</li>
+                <li><strong className="text-gray-900">비용은 진단 뒤 제안서로.</strong> 광고비는 별도이고 매체에 직접 집행하십니다.</li>
                 <li><strong className="text-gray-900">최소 3개월.</strong> 한 달로는 측정 자체가 되지 않습니다.</li>
                 <li><strong className="text-gray-900">온보딩 기준선 측정은 별도.</strong> 계약 전 현재 상태부터 기록합니다.</li>
               </ul>
