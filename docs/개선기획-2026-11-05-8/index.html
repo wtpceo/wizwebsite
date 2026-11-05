@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>소개 쪽 내용 보강 기획</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 회사 홈 새 디자인과 같은 코발트·남흑. 왼쪽 지금, 오른쪽 바뀐 뒤를 같은 크기로 비교하는 기획서 */
+  --paper:#F6F8FB; --card:#fff; --ink:#111827; --sub:#4B5565; --line:#E3E8EF;
+  --cob:#0D4F8C; --b1:#1E6C9F; --b2:#2A93C2; --nk:#0B1422; --sky2:#7CC4E8; --ok:#15803D; --warn:#B45309;
+  --font:"Noto Sans KR","Apple SD Gothic Neo",sans-serif; color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);line-height:1.7;word-break:keep-all}
+.w{max-width:1120px;margin:0 auto;padding:0 20px}
+header.top{background:var(--nk);color:#fff;padding:32px 0 26px}
+header.top .k{font-size:13px;color:var(--sky2);font-weight:700}
+header.top h1{margin:6px 0 8px;font-size:27px;line-height:1.3;font-weight:900;text-wrap:balance}
+header.top p{margin:0;color:#D3DEEA;max-width:70ch}
+section{padding:30px 0 6px}
+h2{font-size:21px;margin:0 0 6px;line-height:1.35;text-wrap:balance}
+.lead{color:var(--sub);margin:0 0 14px;max-width:74ch}
+.cmp{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:16px;align-items:start}
+.col>b.lab{display:inline-block;font-size:13px;font-weight:800;padding:2px 9px;border-radius:4px;margin-bottom:8px}
+.col.now>b.lab{background:#EEF1F5;color:var(--sub)}
+.col.aft>b.lab{background:#E8F5EC;color:var(--ok)}
+.pg{background:#F3F7FB;border:1px solid var(--line);border-radius:10px;padding:18px}
+.pg h3{margin:0 0 10px;font-size:19px;line-height:1.35}
+.pg .p{margin:0 0 10px;font-size:14.5px;color:#26313F}
+/* 지금 화면 그대로: 실제 기록 상자 */
+.recs{background:#fff;border:1px solid #D6E1EC;border-left:3px solid var(--b2);border-radius:4px;padding:12px 14px}
+.recs p{margin:0 0 4px;font-size:12px;font-weight:800;color:var(--b1)}
+.recs li{font-size:14px;font-weight:700;list-style:none}
+.recs ul{margin:0;padding:0}
+/* 바뀐 뒤 블록 */
+.blk{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin-top:12px}
+.blk .t{display:flex;gap:8px;align-items:baseline;margin:0 0 8px;font-size:15.5px;font-weight:800}
+.blk .t em{font-style:normal;font-size:11.5px;font-weight:800;color:#fff;background:var(--b1);border-radius:3px;padding:0 6px}
+.case{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:14px}
+.case dt{color:var(--sub);font-weight:700}
+.case dd{margin:0}
+.big{font-size:26px;font-weight:900;color:var(--cob);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.big small{font-size:13px;color:var(--sub);font-weight:600;margin-left:6px}
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:3px solid var(--b2);margin-top:6px}
+.tl div{padding:8px 8px 2px 0;font-size:13px}
+.tl b{display:block;font-size:13.5px;color:var(--cob)}
+.no li{font-size:14px;margin:3px 0}
+.no{margin:0;padding-left:18px}
+.lk a{display:block;font-size:14px;color:var(--b1);font-weight:700;text-decoration:none;padding:3px 0}
+.src{font-size:12px;color:var(--sub);margin-top:6px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);font-size:14.5px}
+th,td{text-align:left;padding:10px 12px;border-top:1px solid var(--line);vertical-align:top}
+th{background:#EEF3F8;font-weight:700;border-top:0}
+.tw{overflow-x:auto}
+.score{display:inline-block;min-width:30px;text-align:center;font-weight:900;font-variant-numeric:tabular-nums;border-radius:4px;padding:0 6px;background:#E6F1F8;color:var(--cob)}
+.who{font-weight:800;font-size:13px}
+.who.c{color:var(--ok)}.who.s{color:var(--warn)}
+.q{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:0 0 10px}
+.q b{display:block}
+.q .rec{color:var(--ok);font-weight:700;font-size:14px}
+footer{padding:30px 0 50px;color:var(--sub);font-size:13.5px}
+@media (max-width:820px){.cmp{grid-template-columns:1fr}.tl{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="top"><div class="w">
+  <div class="k">회사 홈 리뉴얼 · 개선 7차 기획서 · 2026-11-05</div>
+  <h1>소개 쪽은 칸은 다 있는데 칸마다 한 줄이라 얕게 읽힙니다. 저장소에 이미 있는 실측 글로 절반은 채울 수 있습니다</h1>
+  <p>서비스 8쪽은 본문이 1,160~2,300자, 업종 3쪽은 530~550자입니다. 가격 기준, 담당자, 「이런 곳엔 안 맞습니다」는 열한 쪽 어디에도 없습니다. 사례 숫자는 서비스 다섯 쪽에 한두 줄씩 있고, 업종 쪽에는 한 줄도 없습니다. 그런데 가이드 글 약 45편 가운데 소개 쪽에서 연결하는 글은 3편뿐입니다.</p>
+</div></header>
+<main class="w">
+
+<section>
+  <h2>검색 최적화 쪽 「진행과 보고」 칸을 예로 그렸습니다</h2>
+  <p class="lead">왼쪽은 지금 화면 그대로입니다. 오른쪽은 같은 자리에 네 덩어리를 더한 모습입니다. 숫자와 문장은 저장소의 사례 글과 FAQ에서 그대로 가져왔고, 새로 만든 숫자는 없습니다.</p>
+  <div class="cmp">
+    <div class="col now">
+      <b class="lab">지금</b>
+      <div class="pg">
+        <h3>진행은 어떻게 하고, 보고는 어떻게 받나요?</h3>
+        <p class="p">진단 → 고칠 곳 정리 → 고치기 → 다시 재기. 4단계가 한 줄씩 있고, 아래에 보고서에 들어가는 것 세 줄과 예시 화면이 있습니다.</p>
+        <div class="recs"><p>실제 기록</p><ul><li>ChatGPT 추천 1순위 · 2026.10.28</li><li>네이버 지도 201위 → 1위 · 2025.08 → 2026.10</li></ul></div>
+        <p class="p" style="margin-top:10px;color:var(--sub);font-size:13px">언제쯤 달라지는지, 어떤 곳에 안 맞는지, 비슷한 업종 사례가 더 있는지는 쪽 안에서 찾을 수 없습니다.</p>
+      </div>
+    </div>
+    <div class="col aft">
+      <b class="lab">바뀐 뒤</b>
+      <div class="pg">
+        <h3>진행은 어떻게 하고, 보고는 어떻게 받나요?</h3>
+        <p class="p">4단계와 보고서 예시는 그대로 두고, 아래 네 덩어리를 붙입니다.</p>
+
+        <div class="blk">
+          <p class="t"><em>사례</em>네이버·제미나이엔 나오는데 ChatGPT만 모르던 정형외과</p>
+          <dl class="case">
+            <dt>처음</dt><dd>질문 10개 중 ChatGPT에서만 4개. 야간·주말 진료 사실을 병원 이름과 잇지 못하고 있었습니다</dd>
+            <dt>39일 뒤</dt><dd><span class="big">17% → 93%<small>같은 질문 30번 다시 물은 언급률</small></span></dd>
+            <dt>남은 것</dt><dd>2주 뒤 다시 재니 83%. 내려간 숫자도 같이 적습니다</dd>
+          </dl>
+          <p class="src">근거: 가이드 글 「언급률 17%에서 93%까지」 · 병원명·지역 비공개 · 고친 방법은 사업자 인증 뒤 열람</p>
+        </div>
+
+        <div class="blk">
+          <p class="t"><em>기간</em>언제쯤 달라지나요</p>
+          <div class="tl">
+            <div><b>첫 주</b>진단표와 고칠 곳 목록</div>
+            <div><b>2~4주</b>틀린 정보 바로잡기</div>
+            <div><b>1~3개월</b>인용이 넓어짐</div>
+            <div><b>매주</b>같은 질문으로 다시 잰 표</div>
+          </div>
+          <p class="src">근거: 검색 최적화 FAQ 「정보를 바로잡는 데 2~4주, 인용이 넓어지는 데 1~3개월」</p>
+        </div>
+
+        <div class="blk">
+          <p class="t"><em>안 맞는 곳</em>이런 경우엔 맡기지 않으시는 편이 낫습니다</p>
+          <ul class="no">
+            <li>노출 보장을 원하실 때. 약속드릴 수 있는 건 같은 방법으로 다시 잰 숫자입니다</li>
+            <li>한두 달 안에 매출로 확인하고 싶으실 때. 빠른 곳도 2개월쯤 걸립니다</li>
+            <li>손님 대부분이 소개로 오는 사업일 때</li>
+          </ul>
+          <p class="src">근거: 가이드 글 「GEO 대행이 맞지 않는 경우」 문장을 줄여 옮김</p>
+        </div>
+
+        <div class="blk lk">
+          <p class="t"><em>더 읽기</em>직접 잰 기록</p>
+          <a href="#">2개월 만에 구글 AI 개요에 나온 출장 세차 →</a>
+          <a href="#">3쪽짜리 홈페이지가 167쪽보다 먼저 인용된 치과 →</a>
+          <a href="#">우리 회사 점수는 16점입니다(측정 방식) →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>업종 쪽은 「이 업종이면 첫 한 달에 무엇부터」를 넣습니다</h2>
+  <p class="lead">로컬 비즈니스 쪽은 지금 고민 세 줄, 서비스 묶음, 4단계, FAQ 세 개가 전부입니다(약 550자). 옛 업종 전략 쪽(음식점·학원·펜션·뷰티)에 먼저 할 일이 업종별로 정리돼 있어 그대로 옮겨 올 수 있습니다.</p>
+  <div class="cmp">
+    <div class="col now">
+      <b class="lab">지금</b>
+      <div class="pg">
+        <h3>어떤 고민이 있는 곳에 맞나요?</h3>
+        <p class="p">01 지도에서 안 보입니다 · 02 AI가 우리를 모릅니다 · 03 찾아본 손님이 읽을 글이 없습니다. 한 줄씩.</p>
+      </div>
+    </div>
+    <div class="col aft">
+      <b class="lab">바뀐 뒤</b>
+      <div class="pg">
+        <h3>업종을 고르면 첫 한 달 순서가 바뀝니다</h3>
+        <div class="blk">
+          <p class="t"><em>음식점</em>사진 → 지도 정보 → 리뷰 답글 → 블로그</p>
+          <p class="t"><em>학원</em>학부모가 소개 듣고 네이버에 이름을 치는 순서대로 맞춤</p>
+          <p class="t"><em>병원</em>체험단·후기 이벤트는 하지 않습니다(의료법). 지도·홈페이지·AI 정보부터</p>
+          <p class="t"><em>펜션</em>숙박 앱 수수료를 줄이는 직접 예약 홈페이지와 객실 촬영</p>
+          <p class="src">근거: 옛 업종 전략 쪽 1·3·4·5번, 병원 개원 가이드 글. 업종별 숫자는 사례가 있는 곳만 붙임</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>더할 칸 후보 열한 개</h2>
+  <p class="lead">효과는 「손님이 이걸 몰라서 문의를 망설이는 정도」로 매겼습니다. 누가 칸에서 「클로드」는 재료가 저장소에 있어 혼자 할 수 있는 것, 「사장님」은 정보나 결정을 받아야 하는 것입니다.</p>
+  <div class="tw"><table>
+    <tr><th>#</th><th>무엇을 넣나</th><th>손님이 몰라서 망설이는 것</th><th>재료</th><th>누가</th><th>효과</th></tr>
+    <tr><td>1</td><td>사례 카드(문제 → 한 일 → 다시 잰 숫자 → 기간)</td><td>해 본 곳인지, 얼마나 되는지</td><td>정형외과·출장 세차·펜션·블로그 1위·비뇨의학과·치과 글. 콘텐츠·글로벌·인플루언서는 사례 없음</td><td><span class="who c">클로드</span> · 사례 없는 쪽은 <span class="who s">사장님</span></td><td><span class="score">9</span></td></tr>
+    <tr><td>2</td><td>업종별 첫 한 달 순서(음식점·학원·병원·펜션·뷰티)</td><td>우리 업종도 되는지</td><td>옛 업종 전략 쪽, 개원 가이드</td><td><span class="who c">클로드</span></td><td><span class="score">8</span></td></tr>
+    <tr><td>3</td><td>기간표(첫 주 / 2~4주 / 1~3개월)</td><td>언제부터 문의가 오는지</td><td>검색 FAQ, 비뇨의학과 2개월·6개월, 엘리베이터TV 5단계. 다른 서비스 소요 일수는 받아야 함</td><td><span class="who c">클로드</span> 일부 · <span class="who s">사장님</span> 일수</td><td><span class="score">8</span></td></tr>
+    <tr><td>4</td><td>받는 것 견본(보고서·후보 리스트·단지 목록)</td><td>돈 낸 뒤 정확히 뭘 받는지</td><td>보고서 캡처 9장 중 안 쓴 것, 옛 인플루언서 쪽 후보 리스트 표. 홈페이지 제작은 견본 이미지가 없음</td><td><span class="who c">클로드</span></td><td><span class="score">7</span></td></tr>
+    <tr><td>5</td><td>비용이 정해지는 방식(광고비·대행료·제작비 나눠 설명)</td><td>견적이 왜 갈리는지, 숨은 비용</td><td>병원 마케팅 비용 글, 대행 수수료 글. 금액대는 받아야 함</td><td><span class="who c">클로드</span> 구조 · <span class="who s">사장님</span> 금액</td><td><span class="score">8</span></td></tr>
+    <tr><td>6</td><td>계약 조건 한눈표(최소 기간·광고 계정 명의·해지·원본 파일)</td><td>묶여서 못 나오는 건 아닌지</td><td>계정은 업체 명의(퍼포먼스 FAQ), 최소 3개월(검색). 해지·환불·원본 소유는 받아야 함</td><td><span class="who s">사장님</span></td><td><span class="score">7</span></td></tr>
+    <tr><td>7</td><td>이런 경우엔 안 맞습니다</td><td>말만 번지르르한 곳인지</td><td>「GEO 대행이 맞지 않는 경우」, FAQ의 「약속하지 않습니다」, 기업 기준 월 300만 원</td><td><span class="who c">클로드</span></td><td><span class="score">7</span></td></tr>
+    <tr><td>8</td><td>담당자·팀 소개(직책·경력 연수·맡는 업체 수 상한)</td><td>누가 내 일을 하는지</td><td>없음. 옛 쪽 본부장 소개는 본인 동의 확인 필요</td><td><span class="who s">사장님</span></td><td><span class="score">8</span></td></tr>
+    <tr><td>9</td><td>첫 상담 때 일어나는 일과 준비물</td><td>문의하면 영업만 당하는지</td><td>진행 순서, 「영업일 3일 안 후보 리스트」</td><td><span class="who c">클로드</span></td><td><span class="score">6</span></td></tr>
+    <tr><td>10</td><td>내려간 숫자·못 잰 것도 적기</td><td>좋은 숫자만 고른 건 아닌지</td><td>정형외과 2주 뒤 83%, 펜션 예약 기여 측정 불가, 자사 16점</td><td><span class="who c">클로드</span></td><td><span class="score">6</span></td></tr>
+    <tr><td>11</td><td>서비스별 이어 읽기 2~3편과 위즈 극장 영상</td><td>더 알아볼 곳</td><td>가이드 글 약 45편, 극장 7편(기업 쪽에서 자영업 글로는 잇지 않음)</td><td><span class="who c">클로드</span></td><td><span class="score">6</span></td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2>정할 것</h2>
+  <div class="q"><b>1. 클로드가 혼자 할 수 있는 칸을 어디까지 넣을까요?</b>1·2·3(일부)·4·7·9·10·11번은 저장소 재료로 바로 채울 수 있습니다. 사례가 없는 콘텐츠·글로벌·인플루언서 쪽은 칸을 비워 두지 않고 빼 둡니다.<div class="rec">추천: 여덟 칸 전부. 사례 카드와 업종별 순서를 먼저</div></div>
+  <div class="q"><b>2. 사장님 자료가 필요한 칸(금액대·해지 조건·담당자 소개)은 어떻게 할까요?</b>정해지기 전에는 칸 모양만 만들고 화면에는 내보내지 않는 방법이 있습니다.<div class="rec">추천: 이번엔 빼고, 자료를 주시면 그때 넣기</div></div>
+  <div class="q"><b>3. 옛 쪽에 남은 「2016년부터 · 7,000여 광고주」를 새 쪽에도 쓸까요?</b>새 쪽은 「광고주 수는 근거를 못 찾아 쓰지 않는다」로 만들었습니다. 쓰려면 근거 자료가 있어야 합니다.<div class="rec">추천: 근거 자료가 있으면 회사소개 쪽 한 곳에만</div></div>
+</section>
+</main>
+<footer class="w">근거: 저장소 details.ts·content.ts·가이드 글 원문(11-05 조사 봇 집계, 글자 수는 공백 포함 대략치) · 비교한 대행사 상세 쪽 6곳(인애드컴퍼니·그로스엠케이·제이영컨설팅·일리애드·율사이트·울프강 디지털). 확인한 쪽 가운데 「안 맞는 경우」 칸을 둔 곳은 없었습니다.</footer>
+</body>
+</html>
