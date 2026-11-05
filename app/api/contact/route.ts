@@ -27,9 +27,35 @@ function escText(v: unknown, max = 3000): string {
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
+/** 같은 IP에서 10분에 5번까지만 보낸다(자동 봇이 대표 메일함을 채우지 않게 · 11-05). 방식은 /api/site-check 와 같다 — 서버 인스턴스마다 따로 세므로 몰아치는 봇을 막는 1차 장치 */
+const CONTACT_MAX = 5
+const CONTACT_WINDOW_MS = 10 * 60 * 1000
+const contactHits = new Map<string, number[]>()
+function contactLimited(req: Request): number {
+  const xff = req.headers.get('x-forwarded-for')
+  const ip = xff ? xff.split(',')[0].trim() : req.headers.get('x-real-ip') || 'unknown'
+  const now = Date.now()
+  const hits = (contactHits.get(ip) || []).filter((t) => now - t < CONTACT_WINDOW_MS)
+  if (hits.length >= CONTACT_MAX) return Math.ceil((CONTACT_WINDOW_MS - (now - hits[0])) / 1000)
+  hits.push(now)
+  contactHits.set(ip, hits)
+  if (contactHits.size > 5000) {
+    for (const [k, v] of contactHits) {
+      const fresh = v.filter((t) => now - t < CONTACT_WINDOW_MS)
+      if (fresh.length === 0) contactHits.delete(k)
+      else contactHits.set(k, fresh)
+    }
+  }
+  return 0
+}
+
 export async function POST(req: Request) {
   try {
     console.log('API 요청 시작'); // 디버깅 로그
+    const wait = contactLimited(req)
+    if (wait) {
+      return NextResponse.json({ error: '짧은 시간에 너무 많이 보내셨습니다. 잠시 뒤 다시 보내 주세요.' }, { status: 429, headers: { 'Retry-After': String(wait) } })
+    }
     
     // 요청 데이터 파싱
     let requestData;
