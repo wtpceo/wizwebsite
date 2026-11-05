@@ -38,11 +38,11 @@ export function SfHeader({ home = false }: { home?: boolean }) {
         </div>
         <Link href="/team">전문 인력</Link>
         <Link href="/guide">인사이트</Link>
-        <a href={home ? "#c44" : "/#c44"}>문의하기</a>
+        <Link href="/contact">문의하기</Link>
       </nav>
-      <a className="sfh-cta" href={home ? "#c44" : "/#c44"}>
-        무료 진단 신청
-      </a>
+      <Link className="sfh-cta" href="/contact">
+        무료 상담 신청
+      </Link>
       <button type="button" className="sfh-menu" id="sfhMenu" aria-expanded="false" aria-controls="sfm">
         <Icon k="menu" />
         <span className="sr">메뉴 열기</span>
@@ -60,12 +60,6 @@ export function SfHeader({ home = false }: { home?: boolean }) {
           <p className="sfc" aria-hidden="true">
             <b id="sfcNo">01</b> / 45 <span id="sfcCh">{CHAPTERS[0].n}</span>
           </p>
-          {/* 자동 재생(11-05) — 홈이 숏폼처럼 저절로 넘어감 · 휠·터치·키를 쓰면 멈춤 · sf.js 가 보이게 함 */}
-          <button type="button" className="sfa" id="sfa" hidden>
-            <i aria-hidden="true" />
-            <span>자동 재생</span>
-          </button>
-          <span className="sr" id="sfaLive" role="status" aria-live="polite" />
         </>
       ) : null}
     </header>
@@ -98,7 +92,7 @@ export function SfMenu({ home = false }: { home?: boolean }) {
         ))}
         <p className="sfm-h">인사이트 · 문의</p>
         <Link href="/guide">마케팅 칼럼</Link>
-        <a href={home ? "#c44" : "/#c44"}>무료 마케팅 진단</a>
+        <Link href="/contact">무료 상담 신청</Link>
         <Link href="/business/contact">기업 제안 요청</Link>
       </div>
     </div>
@@ -147,7 +141,7 @@ export function SfFooter() {
           </div>
           <div>
             <p>문의하기</p>
-            <a href="/#c44">무료 마케팅 진단</a>
+            <Link href="/contact">무료 상담 신청</Link>
             <Link href="/business/contact">기업 제안 요청</Link>
             <Link href="/medical-diagnosis">병원 무료 AI 검색 진단</Link>
           </div>
@@ -190,13 +184,13 @@ export function SfDock({ home = false }: { home?: boolean }) {
           <Icon k="phone" />
           전화
         </a>
-        <a href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
-          <Icon k="chat" />
+        <a href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao className="kk">
+          <Icon k="kakao" />
           카카오톡
         </a>
-        <a href={home ? "#c44" : "#contact"} className="sfb-p">
-          무료 진단 신청
-        </a>
+        <Link href="/contact" className="sfb-p">
+          무료 상담 신청
+        </Link>
       </nav>
     </>
   )

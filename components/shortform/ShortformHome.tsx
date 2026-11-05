@@ -46,7 +46,7 @@ export default function ShortformHome() {
       <SfHeader home />
       <SfMenu home />
 
-      {/* 0 인트로 — 검은 화면 「한 팀.」 · 처음 읽을 때만(이 줄이 sf-pre 를 붙여야 보임 — JS가 없으면 인트로 없이 바로 첫 화면 · CSS가 5초 뒤 스스로 걷음) */}
+      {/* 0 인트로 — 검은 화면 「한 곳.」 · 처음 읽을 때만(이 줄이 sf-pre 를 붙여야 보임 — JS가 없으면 인트로 없이 바로 첫 화면 · CSS가 5초 뒤 스스로 걷음) */}
       {/* 우리 사이트 안에서 넘어온 방문(로고·메뉴로 홈에 돌아옴)은 인트로를 다시 틀지 않는다 */}
       <script
         dangerouslySetInnerHTML={{
@@ -55,13 +55,13 @@ export default function ShortformHome() {
       />
       <div className="intro" id="intro" aria-hidden="true">
         <div className="fl">
-          {["검색", "광고", "블로그", "인플루언서", "촬영", "해외", "홈페이지", "엘리베이터TV"].map((w) => (
+          {["검색", "광고", "블로그", "MCN", "촬영", "해외", "홈페이지", "엘리베이터TV"].map((w) => (
             <span key={w}>{w}</span>
           ))}
         </div>
         <div className="big">
           <i>한</i>
-          <i>팀</i>
+          <i>곳</i>
           <i>.</i>
         </div>
         <div className="bar" />
@@ -78,31 +78,33 @@ export default function ShortformHome() {
             <h1 className="in2">
               나눠 맡기던 마케팅,
               <br />
-              이제 한 팀이{" "}
+              이제 한 곳에서{" "}
               <span className="rw" id="rw">
                 <span className="in">{HERO_ENDS[0]}</span>
               </span>
             </h1>
-            <p className="sub in3">여덟 가지 일을 저희 팀이 직접 합니다. 하나를 누르면 휴대폰이 그 일의 진행 화면으로 돌아갑니다.</p>
+            <p className="sub in3">여덟 가지 일을 저희 팀이 직접 합니다. 궁금한 일을 누르면 자세한 설명으로 넘어갑니다.</p>
             <div className="btns in4">
-              <a className="b1" href="#c44" data-svc="">
-                무료 진단 신청
+              <a className="b1" href="/contact">
+                무료 상담 신청
               </a>
-              <a className="b2" href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
+              <a className="b2 kk" href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
+                <Icon k="kakao" />
                 카카오톡 상담
               </a>
             </div>
             <ol className="svl" id="svl" aria-label="위즈더플래닝이 하는 일 여덟 가지">
               {SERVICES.map((s, i) => (
                 <li key={s.k} style={vars({ i })}>
-                  <button type="button" className="svb" data-i={i} aria-pressed={i === 0 ? "true" : "false"}>
+                  {/* 누르면 그 서비스 상세 쪽으로(11-05) · 마우스를 올리면 휴대폰 고리가 그 일로 돈다(sf.js) */}
+                  <Link className="svb" href={`/services/${s.slug}`} data-i={i}>
                     <span className="ic">
                       <Icon k={s.k} />
                     </span>
                     <span className="n">{s.n}</span>
                     <span className="l">{s.ln}</span>
                     <i className="pg" />
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ol>
@@ -158,11 +160,15 @@ export default function ShortformHome() {
               </div>
             ))}
           </div>
+          {/* 11-05 사장님 「말풍선 디자인 다르게」 — 업체 넷이 한 대화방에서 말하는 모양(프로필 동그라미·이름·말풍선) */}
           <ul className="pings" aria-label="업체가 넷일 때 오가는 말">
             {PROBLEM_PINGS.map((p, i) => (
-              <li key={p} style={vars({ i })}>
+              <li key={p} style={vars({ i })} className={`pv${i % 4}`}>
+                <span className="pg-av" aria-hidden="true">
+                  {PROBLEM_VENDORS[i % 4][0].slice(0, 1)}
+                </span>
                 <i>{PROBLEM_VENDORS[i % 4][0]}</i>
-                {p}
+                <span className="pg-b">{p}</span>
               </li>
             ))}
           </ul>
@@ -190,9 +196,9 @@ export default function ShortformHome() {
       <Cut id="c5" no={next()} ch={2} tone="k" fx="build" label="해결 1">
         <div className="sv-a">
           <p className="cap sz-mega asm">
-            <Chars text="한 팀이 하면" />
+            <Chars text="한 곳이 하면" />
           </p>
-          <p className="sm">채널마다 따로 맡기던 일을 한 팀이 받습니다.</p>
+          <p className="sm">채널마다 따로 맡기던 일을 한 곳에서 받습니다.</p>
         </div>
       </Cut>
 
@@ -200,14 +206,14 @@ export default function ShortformHome() {
         <div className="sv-b">
           <div className="sv-b-t">
             <p className="cap sz-lg">
-              <Words text={"재하청 없이,\n우리 팀이 직접 책임집니다."} />
+              <Words text={"하청 없이,\n우리 팀이 직접 책임집니다."} />
             </p>
             <p className="sm">광고 운영부터 촬영·편집까지 사내 팀이 직접 합니다. 손님은 담당 마케터 한 명과만 이야기하면 됩니다.</p>
           </div>
-          <div className="orb" aria-label="한 팀이 하는 여덟 가지">
+          <div className="orb" aria-label="한 곳에서 하는 여덟 가지">
             <div className="orb-c">
               <img src="/sf/img/wiz-symbol.png" alt="" width={733} height={460} />
-              <b>위즈더플래닝 한 팀</b>
+              <b>위즈더플래닝 한 곳</b>
               <small>담당 마케터 1명</small>
             </div>
             {SERVICES.map((s, i) => (
@@ -253,7 +259,7 @@ export default function ShortformHome() {
         const base = 8 + si * 3
         return (
           <div className="svc" key={s.k} id={`svc-${s.k}`} data-svc={s.k}>
-            <Cut id={`c${base}`} no={next()} ch={3} tone={SVC_TONE[si]} fx={s.fx} label={`${s.n} 1`} className={s.k === "search" ? "sa" : "sa sa-has"}>
+            <Cut id={`c${base}`} no={next()} ch={3} tone={SVC_TONE[si]} fx={s.fx} label={`${s.n} 1`} className="sa sa-has">
               {/* 옛 쪽의 /#services 링크가 여기로 온다 */}
               {si === 0 ? <span id="services" className="sf-anchor" aria-hidden="true" /> : null}
               <div className="sa-in">
@@ -268,6 +274,14 @@ export default function ShortformHome() {
                 </Link>
                 {/* 11-05: 제목만 떠 있던 첫 컷을 실제 작업물·예시 화면으로 채움(PC는 오른쪽, 휴대폰은 제목 아래) */}
                 {SA_TILES[s.k] ? <div className={`sa-vis sa-tiles sa-n${SA_TILES[s.k].split(",").length}`} data-tiles={s.k} data-pick={SA_TILES[s.k]} aria-hidden="true" /> : null}
+                {/* 검색 최적화 — 리얼지이오(realGEO)로 실제 보내 드린 보고서 화면(11-05 사장님 「리얼지이오 예시」) */}
+                {s.k === "search" ? (
+                  <figure className="sa-vis sa-rep">
+                    <img src="/images/report/report-1.jpg" alt="AI 답변에 업체가 언급된 비율을 보여 주는 리얼지이오 보고서 화면" loading="lazy" width={1600} height={396} style={vars({ i: 0 })} />
+                    <img src="/report/business-report-engines.jpg" alt="엔진별로 물어본 수와 인용된 수를 비교한 리얼지이오 보고서 화면" loading="lazy" width={1200} height={1077} style={vars({ i: 1 })} />
+                    <figcaption>리얼지이오(realGEO) 실제 보고서 · 업체명 가림</figcaption>
+                  </figure>
+                ) : null}
                 {s.k === "infl" ? (
                   <div className="sa-vis sa-reel3" aria-hidden="true">
                     {["m1", "m2", "m3"].map((m, i) => (
@@ -356,8 +370,8 @@ export default function ShortformHome() {
                     </div>
                   ) : null}
                   <div className="sc-btn">
-                    <a className="p1" href="#c44" data-svc={s.k}>
-                      무료 진단 신청
+                    <a className="p1" href={`/contact?svc=${s.k}`}>
+                      무료 상담 신청
                     </a>
                     <Link className="p2" href={`/services/${s.slug}`}>
                       {s.n} 자세히
@@ -382,7 +396,7 @@ export default function ShortformHome() {
       <Cut id="c32" no={next()} ch={3} tone="k" fx="montage" label="여덟 가지 몽타주">
         <div className="mt">
           <p className="cap sz-xl">
-            <Words text="이 모든 걸 한 팀이." />
+            <Words text="이 모든 걸 한 곳에서." />
           </p>
           <div className="mt-scr" id="montage" aria-hidden="true">
             <img src="/sf/ex/m-shoot.jpg" alt="" loading="lazy" />
@@ -455,7 +469,7 @@ export default function ShortformHome() {
               ))}
             </ul>
           </div>
-          <p className="sm">광고·검색·블로그·인플루언서·촬영 팀이 모두 사내에 있습니다.</p>
+          <p className="sm">광고·검색·블로그·MCN·촬영 팀이 모두 사내에 있습니다.</p>
         </div>
       </Cut>
 
@@ -630,10 +644,10 @@ export default function ShortformHome() {
         <div className="ct">
           <div className="ct-t">
             <h2 className="cap sz-lg">
-              <Words text={"우리 브랜드 마케팅,\n지금 무료로 진단받아 보세요."} />
+              <Words text={"우리 브랜드 마케팅,\n지금 무료로 상담받아 보세요."} />
             </h2>
             <p className="sm">
-              기업·병원은 무료 진단, 대기업·프랜차이즈는 <a href="/business/contact">제안 요청</a>, 매장·학원은{" "}
+              기업·병원은 무료 상담, 대기업·프랜차이즈는 <a href="/business/contact">제안 요청</a>, 매장·학원은{" "}
               <a href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
                 카카오톡 상담
               </a>
@@ -645,8 +659,8 @@ export default function ShortformHome() {
                 <b>{CONTACT.tel}</b>
                 <small>{CONTACT.hours}</small>
               </a>
-              <a href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
-                <Icon k="chat" />
+              <a href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao className="kk">
+                <Icon k="kakao" />
                 <b>카카오톡 상담</b>
                 <small>채팅으로 바로 물어보기</small>
               </a>
@@ -668,7 +682,7 @@ export default function ShortformHome() {
             <img src="/sf/img/wiz-symbol.png" alt="" width={733} height={460} />
           </div>
           <p className="lg-name">WIZ THE PLANNING</p>
-          <p className="lg-sub">나눠 맡기던 마케팅, 이제 한 팀이 직접.</p>
+          <p className="lg-sub">나눠 맡기던 마케팅, 이제 한 곳에서 직접.</p>
         </div>
       </Cut>
 

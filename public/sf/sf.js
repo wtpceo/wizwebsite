@@ -53,7 +53,7 @@
     tiles:[["ads",{}],["reel",{img:"derma",cap:"첫 상담 예약 받아요",lk:"3,208",cm:"96",ad:"예약하기"}],["reel",{img:"cosme",cap:"민감한 피부도 순하게",lk:"1.2만",cm:"231",ad:"구매하기"}],["reel",{img:"giftset",cap:"신제품 출시 기념 세트",lk:"5,420",cm:"188",ad:"구매하기"}]]},
    {k:"viral",n:"바이럴",ph:"블로그 검색<br>맨 위로",rec:["블로그 탭 1위 · 2026.10.26","인기글 1위 · 2026.01"],t1:"블로그·체험단·기자단·언론 기사로 검색 맨 위를 잡습니다.",d:["올릴 검색어 정하기","블로거 고르고 글 가이드 만들기","올라간 글 주소 보고"],
     tiles:[["srch",{q:"민감성 선크림 추천",tab:"블로그",r:[{img:"sunscreen",t:"민감성 피부 선크림 세 가지 써 봤어요",s:"공감 412 · 댓글 58",when:"3일 전",b:"인기글"},{img:"makeup",t:"출근 전 5분 화장 순서",s:"공감 96",when:"1주 전"},{img:"giftset",t:"선물하기 좋은 화장품 세트 정리",s:"공감 74",when:"2주 전"}]}],["blog",{img:"cafe",b:"인기글",t:"성수 조용한 카페, 딸기 생크림 케이크 맛집",when:"2026.10.21"}],["news",{img:"sunscreen",t:"국내 화장품 브랜드, 민감성 피부 라인 새로 내놓아",when:"2026.10.14"}],["blog",{img:"fcafe",b:"블로그 1위",red:1,t:"프랜차이즈 카페 겨울 신메뉴 먼저 마셔 봤어요",when:"2026.09.30"}]]},
-   {k:"infl",n:"인플루언서",ph:"팔로워 많은 계정이<br>소개하게",rec:["저희 맛집 채널 @matzip_town 팔로워 5.1만 · 2026.11"],t1:"팔로워 많은 계정이 우리 브랜드를 소개합니다. 저희가 직접 운영하는 채널도 있습니다.",d:["업종·손님층에 맞는 계정 찾기","방문 날짜와 올릴 내용 맞추기","게시물 주소와 반응 보고"],
+   {k:"infl",n:"유튜버·인스타·틱톡 MCN",ph:"팔로워 많은 계정이<br>소개하게",rec:["저희 맛집 채널 @matzip_town 팔로워 5.1만 · 2026.11"],t1:"팔로워 많은 계정이 우리 브랜드를 소개합니다. 저희가 직접 운영하는 채널도 있습니다.",d:["업종·손님층에 맞는 계정 찾기","방문 날짜와 올릴 내용 맞추기","게시물 주소와 반응 보고"],
     tiles:[["reel",{img:"bbq",cap:"두께 보고 바로 들어감",lk:"2.4만",cm:"612"}],["reel",{img:"cafe",cap:"성수 카페 여기 진짜 조용해요",lk:"1.1만",cm:"342"}],["reel",{img:"salon",cap:"펌 하고 3주 지난 상태",lk:"8,412",cm:"205"}],["reel",{img:"pilates",cap:"아침 7시 필라테스 루틴",lk:"6,930",cm:"117"}]]},
    {k:"content",n:"콘텐츠·미디어",ph:"찍고 자르고<br>자막까지",rec:[],t1:"자체 촬영팀이 가서 찍고, 자막·음악까지 넣어 릴스·쇼츠로 올립니다.",d:["자체 촬영팀이 가서 촬영","자막·음악 넣어 편집","릴스·쇼츠·블로그에 올리기"],
     tiles:[["edit",{img:"sashimi",s:"오늘 들어온 <em>광어</em>"}],["shoot",{img:"cafe"}],["edit",{img:"salon",s:"뿌리 볼륨만 <em>살려 주세요</em>"}],["shoot",{img:"shootcos"}]]},
@@ -118,7 +118,7 @@ var H4=(function(){
   /* 누르면 그 자리에서 커지며 열리는 창 */
   var xp,xpp,from=null,last=null,busy=false;
   function mountX(){var d=document.createElement('div');d.className='xp';d.id='xp';d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');d.setAttribute('aria-labelledby','xh');
-    d.innerHTML='<div class="xbg"></div><div class="xpp"><div class="xl"><small class="xin" id="xs"></small><div id="xmg"></div><p class="first xin" id="xf"></p></div><div class="xr"><div class="xin"><h3 id="xh"></h3><p class="t1" id="xt"></p><div class="recs" id="xrec"></div><ol id="xdo"></ol><div class="exs"><p>이런 화면으로 보고드립니다 · 예시(업체명 가림)</p><div class="strip" id="xstrip"></div></div></div><div class="xb xin"><a class="p1" id="xp1" href="#c44">무료 진단 신청</a><a class="p2" id="xp2" href="#">자세히 보기</a></div></div><button class="xx" type="button" aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>';
+    d.innerHTML='<div class="xbg"></div><div class="xpp"><div class="xl"><small class="xin" id="xs"></small><div id="xmg"></div><p class="first xin" id="xf"></p></div><div class="xr"><div class="xin"><h3 id="xh"></h3><p class="t1" id="xt"></p><div class="recs" id="xrec"></div><ol id="xdo"></ol><div class="exs"><p>이런 화면으로 보고드립니다 · 예시(업체명 가림)</p><div class="strip" id="xstrip"></div></div></div><div class="xb xin"><a class="p1" id="xp1" href="/contact">무료 상담 신청</a><a class="p2" id="xp2" href="#">자세히 보기</a></div></div><button class="xx" type="button" aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>';
     document.body.appendChild(d);xp=d;xpp=d.querySelector('.xpp');
     d.querySelector('.xx').addEventListener('click',close);d.querySelector('.xbg').addEventListener('click',close);
     var xp1=d.querySelector('#xp1');if(xp1)xp1.addEventListener('click',function(){close();});
@@ -131,7 +131,7 @@ var H4=(function(){
     document.getElementById('xh').textContent=s.n;document.getElementById('xt').textContent=s.t1;
     document.getElementById('xrec').innerHTML=s.rec.map(function(r){return '<span>'+r+'</span>'}).join('');
     document.getElementById('xdo').innerHTML=s.d.map(function(r){return '<li>'+r+'</li>'}).join('');
-    var p1=document.getElementById('xp1'),p2=document.getElementById('xp2');p1.setAttribute('data-svc',s.k);p2.setAttribute('href',s.more||('#svc-'+s.k));
+    var p1=document.getElementById('xp1'),p2=document.getElementById('xp2');p1.setAttribute('href','/contact?svc='+s.k);p2.setAttribute('href',s.more||('#svc-'+s.k));
     document.getElementById('xstrip').innerHTML=s.ph.map(function(t){return tile(t)}).join('');
     xp.classList.add('open');xpp.classList.remove('anim');
     if(!reduce&&btn){xpp.style.transform=toRect(btn.getBoundingClientRect());xpp.style.borderRadius='40px';void xpp.offsetWidth;xpp.classList.add('anim');}
@@ -143,14 +143,14 @@ var H4=(function(){
     if(!reduce&&from){xpp.classList.add('anim');xpp.style.transform=toRect(from.getBoundingClientRect());xpp.style.borderRadius='40px';}
     setTimeout(function(){xp.classList.remove('open');xpp.classList.remove('anim');xpp.style.transform='';xpp.style.borderRadius='';busy=false;document.body.style.overflow='';if(last)last.focus({preventScroll:true});if(H4.onClose)H4.onClose();},reduce?0:560);}
 
-  /* 검은 화면 「한 팀.」 */
+  /* 검은 화면 「한 곳.」 */
   function intro(done){var el=document.getElementById('intro'),cs=el&&getComputedStyle(el);if(!el||reduce||cs.display==='none'||cs.visibility==='hidden'){if(el)el.style.display='none';done();return;}
     var fl=[].slice.call(el.querySelectorAll('.fl span')),ids=[],fin=false;
     function go(){if(fin)return;fin=true;ids.forEach(clearTimeout);el.classList.add('gone');done();setTimeout(function(){el.style.display='none'},800);}
     fl.forEach(function(s,k){ids.push(setTimeout(function(){fl.forEach(function(x){x.classList.remove('on')});s.classList.add('on');},120+k*105));});
     ids.push(setTimeout(function(){fl.forEach(function(x){x.classList.remove('on')});el.classList.add('land');},120+fl.length*105));
     ids.push(setTimeout(go,2400));el.addEventListener('click',go);}
-  var INTRO='<div class="intro" id="intro" aria-hidden="true"><div class="fl"><span>검색</span><span>광고</span><span>블로그</span><span>인플루언서</span><span>촬영</span><span>해외</span><span>홈페이지</span><span>엘리베이터TV</span></div><div class="big"><i>한</i><i>팀</i><i>.</i></div><div class="bar"></div></div>';
+  var INTRO='<div class="intro" id="intro" aria-hidden="true"><div class="fl"><span>검색</span><span>광고</span><span>블로그</span><span>MCN</span><span>촬영</span><span>해외</span><span>홈페이지</span><span>엘리베이터TV</span></div><div class="big"><i>한</i><i>곳</i><i>.</i></div><div class="bar"></div></div>';
   /* 화면 밖이면 멈춤 */
   function pauseOff(hero,play){if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(e){hero.classList.toggle('paused',!e.isIntersecting);play(e.isIntersecting);})},{threshold:.05}).observe(hero);}
   return {reduce:reduce,fine:fine,phone:phone,story:story,wall:wall,open:open,close:close,intro:intro,INTRO:INTRO,pauseOff:pauseOff};
@@ -161,16 +161,17 @@ var H4=(function(){
 var SFD = {};
 try { SFD = JSON.parse(document.getElementById('sf-data').textContent); } catch (e) { SFD = {}; }
 if (SFD.svc) SFD.svc.forEach(function (d, i) { var s = S[i]; if (!s || s.k !== d.k) return; s.ln = d.ln; s.first = d.first; s.t1 = d.t1; s.d = d.d; s.rec = d.rec; s.more = d.more; });
-var CHN = ['한 팀', '따로 맡기면', '한 팀이 하면', '여덟 가지', '업종별', '전문 인력', '진행 과정', '인사이트', '문의', '끝'];
+var CHN = ['한 곳', '따로 맡기면', '한 곳이 하면', '여덟 가지', '업종별', '전문 인력', '진행 과정', '인사이트', '문의', '끝'];
 
 /* 첫 화면 — 시안 c1b 를 서버가 그린 목록에 묶음 */
 function heroInit() {
   var hero = document.getElementById('c1'); if (!hero) return;
   var RW = SFD.ends || [], N = S.length, ring = document.getElementById('ring'), rw = document.getElementById('rw');
-  var btns = [].slice.call(document.querySelectorAll('#svl .svb')), cards = [], ctl = [], step = 0, live = false, SL = 900, shown = 0;
+  var btns = [].slice.call(document.querySelectorAll('#svl .svb')), cards = [], ctl = [], step = 0, live = false, SL = 1300, shown = 0; /* 휴대폰 화면 한 장 1.3초(11-05 움직임 줄이기 · 전에는 0.9초) */
   var play = H4.wall(document.getElementById('bgt'));
   S.forEach(function (s, i) { ring.insertAdjacentHTML('beforeend', H4.phone(i)); });
-  btns.forEach(function (b, i) { b.style.setProperty('--pd', (SL * 3) + 'ms'); b.addEventListener('click', function () { go(i); }); });
+  /* 서비스 버튼은 상세 쪽 링크(11-05) — 마우스를 올리거나 키보드로 고르면 휴대폰 고리만 그 일로 돌린다 */
+  btns.forEach(function (b, i) { b.style.setProperty('--pd', (SL * 3) + 'ms'); if (H4.fine) b.addEventListener('mouseenter', function () { if (idx() !== i) go(i); }); b.addEventListener('focus', function () { if (idx() !== i) go(i); }); });
   cards = [].slice.call(ring.querySelectorAll('.pcard'));
   cards.forEach(function (c, i) {
     c.style.transform = 'rotateY(' + (i * 360 / N) + 'deg) translateZ(var(--z))';
@@ -189,7 +190,7 @@ function heroInit() {
     ring.style.transform = 'translateZ(calc(var(--z) * -1)) rotateY(' + (-step * 360 / N) + 'deg)';
     var a = idx();
     cards.forEach(function (c, i) { c.classList.toggle('on', i === a); if (i !== a) ctl[i].stop(); });
-    btns.forEach(function (b, i) { var on = i === a; if (on && live) { b.classList.remove('on'); void b.offsetWidth; } b.classList.toggle('on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+    btns.forEach(function (b, i) { var on = i === a; if (on && live) { b.classList.remove('on'); void b.offsetWidth; } b.classList.toggle('on', on); });
     word(a);
     document.getElementById('cf').innerHTML = S[a].first + '<small>' + S[a].n + ' · 휴대폰을 누르면 자세히</small>';
     if (live) ctl[a].start(true); else ctl[a].reset();
@@ -252,54 +253,11 @@ function cutsInit() {
     if (hdr) hdr.setAttribute('data-tone', c.getAttribute('data-tone'));
     H.setAttribute('data-sf-tone', c.getAttribute('data-tone'));
     if (skip) { if (c.id === 'c44' || c.id === 'c45') skip.setAttribute('data-hide', ''); else skip.removeAttribute('data-hide'); }
-    var ab = document.getElementById('sfa'); if (ab && !H4.reduce) ab.hidden = (c.id === 'c44' || c.id === 'c45');
   }
   function activate(c) {
     if (c === cur) return;
     if (cur) { cur.classList.remove('is-on'); leave(cur); }
-    cur = c; c.classList.add('is-on', 'seen'); enter(c); ui(c); schedule();
-  }
-  /* 자동 재생(11-05) — 숏폼처럼 컷이 저절로 넘어감. 머무는 시간은 등장 움직임이 끝난 뒤 여유 1.2초 + 글자 수.
-     휠·터치·키·클릭을 쓰면 바로 멈추고, 문의 칸(44)에 닿아도 멈춤. 「동작 줄이기」면 켜지 않음. */
-  var autoBtn = document.getElementById('sfa'), autoLive = document.getElementById('sfaLive'), auto = false, autoT = 0, touched = false;
-  /* 머무는 시간 = 넘어오는 스크롤(0.3초) + 이 컷 등장 움직임이 끝나는 시각(최대 1.6초) + 다 나타난 뒤 여유 1.2초(11-05 사장님) + 글자 수만큼 읽는 시간(최대 1.4초) · 컷 하나 약 2.5~4.5초 */
-  function enterEnd(c) {
-    var end = 0;
-    if (c.getAnimations) c.getAnimations({ subtree: true }).forEach(function (a) {
-      var t = a.effect && a.effect.getComputedTiming ? a.effect.getComputedTiming() : null;
-      if (t && isFinite(t.endTime) && a.playState !== 'finished') end = Math.max(end, t.endTime - (a.currentTime || 0));
-    });
-    return Math.min(end, 1600);
-  }
-  function durOf(c) { var n = Math.min((c.innerText || '').replace(/\s+/g, '').length, 170); return Math.round(300 + enterEnd(c) + 1200 + n * 8); }
-  function schedule() {
-    clearTimeout(autoT); if (!auto || !cur || document.hidden) return;
-    if (cur.id === 'c44' || cur.id === 'c45') { setAuto(false); return; }
-    autoT = setTimeout(function () { var n = cuts[cuts.indexOf(cur) + 1]; if (!n) { setAuto(false); return; } window.scrollTo({ top: n.getBoundingClientRect().top + scrollY, behavior: 'smooth' }); }, durOf(cur));
-  }
-  function setAuto(on) {
-    auto = on;
-    if (autoBtn) { autoBtn.classList.toggle('on', on); autoBtn.querySelector('span').textContent = on ? '멈춤' : '자동 재생'; }
-    if (autoLive) autoLive.textContent = on ? '자동 재생을 시작했습니다. 멈추려면 멈춤 버튼을 누르세요.' : '';
-    if (on && cur && cur.id === 'c1') { clearTimeout(autoT); var n = cuts[1]; if (n) window.scrollTo({ top: n.getBoundingClientRect().top + scrollY, behavior: 'smooth' }); return; }
-    schedule();
-  }
-  if (autoBtn && !H4.reduce) {
-    autoBtn.hidden = false;
-    autoBtn.addEventListener('click', function () { touched = true; setAuto(!auto); });
-    ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(function (ev) {
-      addEventListener(ev, function (e) { if (autoBtn.contains(e.target)) return; touched = true; if (auto) setAuto(false); }, { passive: true, capture: true });
-    });
-    document.addEventListener('visibilitychange', schedule);
-    addEventListener('blur', function () { clearTimeout(autoT); });
-    addEventListener('focus', schedule);
-    /* 첫 화면(인트로 포함)을 「보이는 동안」 8초 보여 준 뒤, 손님이 아무것도 안 건드렸으면 재생 시작(다른 탭에 있으면 돌아온 뒤부터 셈) */
-    var seenMs = 0, lastT = Date.now();
-    var startT = setInterval(function () {
-      var now = Date.now(); if (!document.hidden && document.hasFocus()) seenMs += now - lastT; lastT = now;
-      if (touched || !cur || cur.id !== 'c1') { clearInterval(startT); return; }
-      if (seenMs >= 8000) { clearInterval(startT); setAuto(true); }
-    }, 250);
+    cur = c; c.classList.add('is-on', 'seen'); enter(c); ui(c);
   }
   function pick() {
     var y = innerHeight * 0.5;
@@ -319,7 +277,7 @@ function cutsInit() {
   setTimeout(function () { if (!cur) H.classList.remove('sf-anim'); }, 1500);
 }
 
-/* 32 몽타주 — 여덟 가지 화면 32장을 0.15초씩 하드컷 */
+/* 32 몽타주 — 여덟 가지 화면 32장을 0.9초씩(11-05 움직임 줄이기) */
 var mtEl, mtKids = [], mtT = 0, mtK = 0;
 function montagePrep() {
   mtEl = document.getElementById('montage'); if (!mtEl || mtKids.length) return;
@@ -330,7 +288,7 @@ function montagePrep() {
 function montageGo(on) {
   clearInterval(mtT); if (!mtKids.length) return;
   if (!on || H4.reduce) { mtKids.forEach(function (m, i) { m.classList.toggle('on', i === 0); }); return; }
-  mtT = setInterval(function () { mtKids[mtK].classList.remove('on'); mtK = (mtK + 1) % mtKids.length; mtKids[mtK].classList.add('on'); }, 420);
+  mtT = setInterval(function () { mtKids[mtK].classList.remove('on'); mtK = (mtK + 1) % mtKids.length; mtKids[mtK].classList.add('on'); }, 900);
 }
 
 /* 버튼들 — 서비스 미리 고르기 · 카카오톡 클릭 기록 · 휴대폰 메뉴 */

@@ -6,12 +6,19 @@ import { trackContactSubmit } from "@/lib/analytics"
 
 // 홈 문의 컷(44) — 회사명·연락처·회사 이메일(선택, 11-05)·관심 서비스. 보내는 곳은 다른 폼과 같은 /api/contact(Resend → 대표 메일).
 // 「이 서비스 상담」 버튼(data-svc)을 누르고 오면 그 서비스가 미리 골라져 있다(sf.js 가 sf:svc 이벤트를 쏜다).
+// full = 무료 상담 신청 쪽(/contact · 11-05) — 담당자·주소·시작 시점·궁금한 점(전부 선택)이 더 붙는다. /contact?svc=search 로 오면 그 서비스가 골라져 있다.
 
 type Svc = { k: string; n: string }
 
-// label: 신청 이름(버튼·폼 이름·메일 머리) — 로컬 업종 쪽은 「상담 신청」(무료 진단은 기업·병원 대상 · 11-04)
-export default function SfContactForm({ services, initial = [], source = "home_shortform", label = "무료 진단 신청" }: { services: Svc[]; initial?: string[]; source?: string; label?: string }) {
+const WHEN = ["아직 미정", "바로", "1개월 안", "3개월 안"]
+
+// label: 신청 이름(버튼·폼 이름·메일 머리) — 11-05 사장님 「무료 진단 신청」→「무료 상담 신청」
+export default function SfContactForm({ services, initial = [], source = "home_shortform", label = "무료 상담 신청", full = false }: { services: Svc[]; initial?: string[]; source?: string; label?: string; full?: boolean }) {
   const [company, setCompany] = useState("")
+  const [person, setPerson] = useState("")
+  const [site, setSite] = useState("")
+  const [when, setWhen] = useState("")
+  const [note, setNote] = useState("")
   const [phone, setPhone] = useState("")
   const [email, setEmail] = useState("")
   const [picked, setPicked] = useState<string[]>(initial)
@@ -25,8 +32,12 @@ export default function SfContactForm({ services, initial = [], source = "home_s
       if (k) setPicked((p) => (p.includes(k) ? p : [...p, k]))
     }
     window.addEventListener("sf:svc", on)
+    try {
+      const q = new URLSearchParams(window.location.search).get("svc")
+      if (q && services.some((s) => s.k === q)) setPicked((p) => (p.includes(q) ? p : [...p, q]))
+    } catch {}
     return () => window.removeEventListener("sf:svc", on)
-  }, [])
+  }, [services])
 
   const toggle = (k: string) => setPicked((p) => (p.includes(k) ? p.filter((x) => x !== k) : [...p, k]))
 
@@ -45,12 +56,20 @@ export default function SfContactForm({ services, initial = [], source = "home_s
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           attribution: readAttribution(),
-          name: company.trim(),
+          name: person.trim() ? `${company.trim()} · ${person.trim()}` : company.trim(),
           phone: phone.trim(),
           email: email.trim() || undefined,
           storeName: company.trim(),
-          message: [source === "home_shortform" ? `[홈 ${label}]` : `[${label} · ${source}]`, `관심 서비스: ${names.length ? names.join(", ") : "고르지 않음"}`].join("\n"),
-          language: source === "home_shortform" ? "홈 무료 진단" : "서비스 쪽 무료 진단",
+          message: [
+            source === "home_shortform" ? `[홈 ${label}]` : `[${label} · ${source}]`,
+            `관심 서비스: ${names.length ? names.join(", ") : "고르지 않음"}`,
+            site.trim() ? `홈페이지·검색어: ${site.trim()}` : "",
+            when ? `시작 시점: ${when}` : "",
+            note.trim() ? `궁금한 점: ${note.trim()}` : "",
+          ]
+            .filter(Boolean)
+            .join("\n"),
+          language: source === "home_shortform" ? "홈 무료 상담" : source === "contact_page" ? "무료 상담 신청 쪽" : "서비스 쪽 무료 상담",
         }),
       })
       if (!res.ok) throw new Error("failed")
@@ -78,6 +97,14 @@ export default function SfContactForm({ services, initial = [], source = "home_s
         <span>회사명</span>
         <input value={company} onChange={(e) => setCompany(e.target.value)} placeholder="회사명을 적어 주세요" autoComplete="organization" />
       </label>
+      {full ? (
+        <label className="ct-l">
+          <span>
+            담당자 이름 <small>선택</small>
+          </span>
+          <input value={person} onChange={(e) => setPerson(e.target.value)} placeholder="연락받으실 분 이름" autoComplete="name" />
+        </label>
+      ) : null}
       <label className="ct-l">
         <span>연락처</span>
         <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="연락받을 번호를 적어 주세요" inputMode="tel" autoComplete="tel" />
@@ -86,8 +113,16 @@ export default function SfContactForm({ services, initial = [], source = "home_s
         <span>
           회사 이메일 <small>선택</small>
         </span>
-        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="진단 결과·자료를 받을 메일" type="email" inputMode="email" autoComplete="email" />
+        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="상담 자료를 받을 메일" type="email" inputMode="email" autoComplete="email" />
       </label>
+      {full ? (
+        <label className="ct-l">
+          <span>
+            홈페이지 주소나 검색어 <small>선택</small>
+          </span>
+          <input value={site} onChange={(e) => setSite(e.target.value)} placeholder="예: 홈페이지 주소, 스토어 주소, 손님이 찾는 검색어" autoComplete="url" />
+        </label>
+      ) : null}
       <fieldset className="ct-s">
         <legend>
           관심 서비스 <small>여러 개 골라도 됩니다</small>
@@ -101,6 +136,29 @@ export default function SfContactForm({ services, initial = [], source = "home_s
           ))}
         </div>
       </fieldset>
+      {full ? (
+        <>
+          <fieldset className="ct-s">
+            <legend>
+              언제 시작하고 싶으세요? <small>선택</small>
+            </legend>
+            <div className="ct-sg">
+              {WHEN.map((w) => (
+                <label key={w} className={when === w ? "on" : ""}>
+                  <input type="radio" name="ct-when" checked={when === w} onChange={() => setWhen(w)} />
+                  {w}
+                </label>
+              ))}
+            </div>
+          </fieldset>
+          <label className="ct-l">
+            <span>
+              궁금한 점 <small>선택</small>
+            </span>
+            <textarea value={note} onChange={(e) => setNote(e.target.value)} rows={4} maxLength={2000} placeholder="지금 고민이나 궁금한 점을 편하게 적어 주세요. 정리되지 않아도 괜찮습니다." />
+          </label>
+        </>
+      ) : null}
       <label className="ct-a">
         <input type="checkbox" checked={agree} onChange={(e) => setAgree(e.target.checked)} />
         <span>

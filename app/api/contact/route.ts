@@ -19,6 +19,14 @@ function esc(v: unknown): string {
     .slice(0, 300);
 }
 
+/** 손님이 적은 글(이름·연락처·문의 내용)도 메일 HTML에 그대로 넣지 않는다 — 태그가 섞여 와도 글자로만 보이게(11-05) */
+function escText(v: unknown, max = 3000): string {
+  return String(v ?? '')
+    .slice(0, max)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
 export async function POST(req: Request) {
   try {
     console.log('API 요청 시작'); // 디버깅 로그
@@ -63,11 +71,11 @@ export async function POST(req: Request) {
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
         <h2 style="color: #4338ca;">새로운 문의가 접수되었습니다</h2>
         ${budget ? `<p style="display:inline-block;background:#fef3c7;color:#92400e;font-weight:bold;padding:6px 12px;border-radius:6px;margin:0 0 8px;">💰 월 예산: ${esc(budget)}</p>` : ''}
-        ${language ? `<p style="display:inline-block;background:#00e5a0;color:#070b14;font-weight:bold;padding:4px 10px;border-radius:6px;">🌐 ${language}</p>` : ''}
-        <p><strong>이름:</strong> ${name}</p>
-        <p><strong>연락처:</strong> ${phone || '미입력'}</p>
-        ${email ? `<p><strong>이메일:</strong> ${email}</p>` : ''}
-        ${storeName ? `<p><strong>가게명:</strong> ${storeName}</p>` : ''}
+        ${language ? `<p style="display:inline-block;background:#00e5a0;color:#070b14;font-weight:bold;padding:4px 10px;border-radius:6px;">🌐 ${escText(language, 60)}</p>` : ''}
+        <p><strong>이름:</strong> ${escText(name, 200)}</p>
+        <p><strong>연락처:</strong> ${phone ? escText(phone, 40) : '미입력'}</p>
+        ${email ? `<p><strong>이메일:</strong> ${escText(email, 200)}</p>` : ''}
+        ${storeName ? `<p><strong>가게명:</strong> ${escText(storeName, 200)}</p>` : ''}
         <div style="margin:16px 0;padding:12px;border-left:3px solid #4338ca;background:#f8f8ff;">
           <p style="margin:0 0 6px;font-weight:bold;">📊 유입 경로</p>
           <p style="margin:0;font-size:15px;">${esc(formatAttribution(attribution))}</p>
@@ -76,9 +84,7 @@ export async function POST(req: Request) {
           ${attribution.referrer ? `<p style="margin:2px 0 0;color:#666;font-size:13px;">referrer: ${esc(attribution.referrer)}</p>` : ''}
         </div>
         <p><strong>문의내용:</strong></p>
-        <div style="background-color: #f5f5f5; padding: 12px; border-radius: 4px;">
-          <p>${message}</p>
-        </div>
+        <div style="background-color: #f5f5f5; padding: 12px; border-radius: 4px; white-space: pre-wrap;">${escText(message)}</div>
       </div>
     `;
     
@@ -126,12 +132,10 @@ export async function POST(req: Request) {
         ` : `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
             <h2 style="color: #4338ca;">문의 접수 확인</h2>
-            <p>${name}님, 문의해 주셔서 감사합니다.</p>
+            <p>${escText(name, 200)}님, 문의해 주셔서 감사합니다.</p>
             <p>빠른 시일 내에 답변 드리도록 하겠습니다.</p>
             <p><strong>문의하신 내용:</strong></p>
-            <div style="background-color: #f5f5f5; padding: 12px; border-radius: 4px;">
-              <p>${message}</p>
-            </div>
+            <div style="background-color: #f5f5f5; padding: 12px; border-radius: 4px; white-space: pre-wrap;">${escText(message)}</div>
           </div>
         `;
         

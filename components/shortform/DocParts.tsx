@@ -92,8 +92,8 @@ export function ContactBlock({ title, sub, label, initial = [], source }: { titl
               <b>{CONTACT.tel}</b>
               <small>{CONTACT.hours}</small>
             </a>
-            <a href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
-              <Icon k="chat" />
+            <a href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao className="kk">
+              <Icon k="kakao" />
               <b>카카오톡 상담</b>
               <small>채팅으로 바로 물어보기</small>
             </a>

@@ -32,7 +32,7 @@ export function Words({ text, start = 0 }: { text: string; start?: number }) {
   )
 }
 
-/** 글자 하나씩(뒤집기·흩어짐) — 흩어질 자리는 글자 순번으로 정해진 값(새로고침해도 같음) */
+/** 글자 하나씩 올라오는 자막 */
 export function Chars({ text, start = 0 }: { text: string; start?: number }) {
   let i = start
   const lines = text.split("\n")
@@ -47,12 +47,8 @@ export function Chars({ text, start = 0 }: { text: string; start?: number }) {
               <span className="wd">
                 {Array.from(word).map((c, ci) => {
                   const n = i++
-                  const h = Math.imul(n + 7, 2654435761) >>> 0
-                  const dx = ((h % 200) - 100) * 4.2
-                  const dy = (((h >>> 8) % 200) - 100) * 3.1
-                  const r = ((h >>> 16) % 160) - 80
                   return (
-                    <span key={ci} className="ch" style={{ "--i": n, "--dx": `${dx.toFixed(0)}px`, "--dy": `${dy.toFixed(0)}px`, "--r": `${r}deg` } as V}>
+                    <span key={ci} className="ch" style={{ "--i": n } as V}>
                       {c}
                     </span>
                   )
@@ -98,13 +94,6 @@ export function Cut({
       data-tone={tone}
       aria-label={label}
     >
-      <div className="tr" aria-hidden="true">
-        <i />
-        <i />
-        <i />
-        <i />
-        <i />
-      </div>
       {children}
     </section>
   )

@@ -7,7 +7,7 @@ import { ABOUT_PAGE } from "@/components/shortform/details"
 import { Chars, vars } from "@/components/shortform/parts"
 import { OG_TIMESTAMP as timestamp } from "@/lib/site-metadata"
 
-// 회사소개(2026-11-04 리뉴얼) — 위즈더플래닝 소개 · 왜 한 팀인가 · 여덟 가지 · 회사 정보·오시는 길
+// 회사소개(2026-11-04 리뉴얼) — 위즈더플래닝 소개 · 왜 한 곳인가 · 여덟 가지 · 회사 정보·오시는 길
 const d = ABOUT_PAGE
 
 export const metadata: Metadata = {
@@ -47,14 +47,14 @@ export default function AboutPage() {
           <div>
             <Crumb items={[{ name: "홈", href: "/" }, { name: "회사소개" }]} />
             <p className="dp-no">위즈더플래닝 소개</p>
-            <h1 aria-label="나눠 맡기던 마케팅, 이제 한 팀이 직접. 재하청 없이, 우리 팀이 직접 책임집니다.">
-              <Chars text={"나눠 맡기던 마케팅,\n이제 한 팀이 직접."} />{" "}
-              <small>재하청 없이, 우리 팀이 직접 책임집니다.</small>
+            <h1 aria-label="나눠 맡기던 마케팅, 이제 한 곳에서 직접. 하청 없이, 우리 팀이 직접 책임집니다.">
+              <Chars text={"나눠 맡기던 마케팅,\n이제 한 곳에서 직접."} />{" "}
+              <small>하청 없이, 우리 팀이 직접 책임집니다.</small>
             </h1>
             <p className="dp-lead">{d.lead}</p>
             <div className="dp-btns">
-              <a className="p1" href="#contact">
-                무료 진단 신청
+              <a className="p1" href="/contact">
+                무료 상담 신청
               </a>
               <a className="p2" href="tel:16700704" data-tel>
                 전화 1670-0704
@@ -96,7 +96,7 @@ export default function AboutPage() {
         </ol>
       </Sec>
 
-      <Sec q="한 팀이 하면 무엇이 달라지나요?">
+      <Sec q="한 곳에 맡기면 무엇이 달라지나요?">
         <p>광고 운영부터 촬영·편집까지 사내 팀이 직접 하고, 손님은 담당 마케터 한 명과만 이야기합니다.</p>
         <table className="ab-cmp">
           <thead>

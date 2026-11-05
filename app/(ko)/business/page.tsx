@@ -13,9 +13,9 @@ import { Button } from "@/components/ui/button"
 // - CTA는 무료 진단이 아니라 제안 요청(/business/contact)
 // - 기준(최소 3개월, 온보딩 별도)을 페이지에 적어 스스로 걸러지게 한다 · 금액은 적지 않고 진단 뒤 제안서로(사장님 11-04)
 // 수치는 공개된 자사 사례에서만 가져온다. 보장 문구는 쓰지 않는다.
-const TITLE = "기업 마케팅: AI 검색·SEO·콘텐츠를 한 팀에서 | 위즈더플래닝"
+const TITLE = "기업 마케팅: AI 검색·SEO·콘텐츠를 한 곳에서 | 위즈더플래닝"
 const DESC =
-  "마케팅 담당자가 있는 조직을 위한 대행 서비스입니다. ChatGPT·네이버 AI·구글에서 브랜드가 어떻게 인용되는지 매주 같은 기준으로 측정하고, 홈페이지·콘텐츠·광고까지 한 팀에서 실행합니다. 금액은 제안서로 안내하고, 계약은 최소 3개월입니다."
+  "마케팅 담당자가 있는 조직을 위한 대행 서비스입니다. ChatGPT·네이버 AI·구글에서 브랜드가 어떻게 인용되는지 매주 같은 기준으로 측정하고, 홈페이지·콘텐츠·광고까지 한 곳에서 실행합니다. 금액은 제안서로 안내하고, 계약은 최소 3개월입니다."
 const URL = "https://wiztheplanning.com/business"
 
 export const metadata: Metadata = {
@@ -152,7 +152,7 @@ export default function Page() {
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">
               마케팅 담당자가 있는 조직을 위한 대행입니다. ChatGPT·네이버 AI·구글에서 브랜드가 어떻게
-              인용되는지 매주 같은 기준으로 측정하고, 홈페이지·콘텐츠·광고까지 한 팀에서 실행합니다.
+              인용되는지 매주 같은 기준으로 측정하고, 홈페이지·콘텐츠·광고까지 한 곳에서 실행합니다.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href="/business/contact">

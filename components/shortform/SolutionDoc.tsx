@@ -46,8 +46,8 @@ export default function SolutionDoc({ slug }: { slug: string }) {
             </h1>
             <p className="dp-lead">{d.lead}</p>
             <div className="dp-btns">
-              <a className="p1" href="#contact">
-                {f.slug === "local" ? "상담 신청" : "무료 진단 신청"}
+              <a className="p1" href="/contact">
+                무료 상담 신청
               </a>
               <a className="p2" href="tel:16700704" data-tel>
                 전화 1670-0704
@@ -130,7 +130,7 @@ export default function SolutionDoc({ slug }: { slug: string }) {
         <ContactBlock
           title={`${f.n}에 맞는 조합, 상담부터 받아 보세요.`}
           sub="무료 진단은 기업과 병원을 대상으로 합니다. 매장·학원·전문직은 전화나 카카오톡 상담으로 먼저 이야기 나눕니다. 가격은 상담 뒤 제안서로 안내합니다."
-          label="상담 신청"
+          label="무료 상담 신청"
           initial={keys}
           source={`solution_${f.slug}`}
         />

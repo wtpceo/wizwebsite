@@ -32,6 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...["local", "growth", "enterprise"].map((s) => ({ path: `/solutions/${s}`, priority: 0.8, changeFrequency: "monthly" as const, lastmod: "2026-11-04" })),
     { path: "/team", priority: 0.7, changeFrequency: "monthly", lastmod: "2026-11-04" },
     { path: "/about", priority: 0.8, changeFrequency: "monthly", lastmod: "2026-11-04" },
+    { path: "/contact", priority: 0.6, changeFrequency: "monthly", lastmod: "2026-11-05" },
     { path: "/en", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-09-15" },
     { path: "/en/korea-market-entry", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-09-15" },
     { path: "/en/agency-partners", priority: 0.8, changeFrequency: "monthly", lastmod: "2026-09-15" },
