@@ -258,10 +258,10 @@ function cutsInit() {
     if (cur) { cur.classList.remove('is-on'); leave(cur); }
     cur = c; c.classList.add('is-on', 'seen'); enter(c); ui(c); schedule();
   }
-  /* 자동 재생(11-05) — 숏폼처럼 컷이 저절로 넘어감. 머무는 시간은 그 컷 글자 수로(제목 한 줄 약 1.7초 · 목록 컷 최대 4초).
+  /* 자동 재생(11-05) — 숏폼처럼 컷이 저절로 넘어감. 머무는 시간은 그 컷 글자 수로(제목 한 줄 약 1.5초 · 목록 컷 최대 3.4초).
      휠·터치·키·클릭을 쓰면 바로 멈추고, 문의 칸(44)에 닿아도 멈춤. 「동작 줄이기」면 켜지 않음. */
   var autoBtn = document.getElementById('sfa'), auto = false, autoT = 0, touched = false;
-  function durOf(c) { if (!c.__d) { var n = Math.min((c.innerText || '').replace(/\s+/g, '').length, 170); c.__d = Math.round(1400 + n * 15); } return c.__d; }
+  function durOf(c) { if (!c.__d) { var n = Math.min((c.innerText || '').replace(/\s+/g, '').length, 170); c.__d = Math.round(1200 + n * 13); } return c.__d; }
   function schedule() {
     clearTimeout(autoT); if (!auto || !cur || document.hidden) return;
     if (cur.id === 'c44' || cur.id === 'c45') { setAuto(false); return; }
