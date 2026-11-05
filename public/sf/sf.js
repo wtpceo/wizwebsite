@@ -30,14 +30,14 @@
     ads:function(){var a=[['18-24',5],['25-34',95],['35-44',159],['45-54',333],['55-64',429],['65+',286]],h='';
       a.forEach(function(x){h+='<div><i style="height:'+Math.max(3,Math.round(x[1]/429*82))+'%"></i>'+x[0]+'</div>'});
       return '<div class="tile ads">'+TGL+'<div class="hd">메타 광고 결과<small>2026.02 · 한 달</small></div><div class="kp"><div><span>링크 클릭</span><b>1,317</b></div><div><span>쓴 광고비</span><b>99,939원</b></div><div class="w"><span>클릭 한 번에</span><b>약 76원</b></div></div><div class="ch"><p>나이대별 클릭</p><div class="br">'+h+'</div></div></div>'},
-    blog:function(d){return '<div class="tile blog"><div class="top"><img src="'+IMG(d.img)+'" alt="" loading="lazy">'+TG+'</div><div class="bd"><span class="bdg'+(d.red?' r':'')+'">'+d.b+'</span><h4>'+d.t+'</h4><div class="by"><i></i>'+bl(18)+' · '+d.when+'</div><div class="ln2"></div><div class="ln2 s"></div></div></div>'},
-    news:function(d){return '<div class="tile news">'+TGL+'<div class="mast"><b>'+bl(26)+' 신문</b><span>'+d.when+'</span></div><h4>'+d.t+'</h4><div class="im"><img src="'+IMG(d.img)+'" alt="" loading="lazy"></div><div class="ln2"></div><div class="ln2" style="width:70%"></div></div>'},
+    blog:function(d){return '<div class="tile blog"><div class="top"><img src="'+IMG(d.img)+'" alt="" loading="lazy">'+TG+'</div><div class="bd"><span class="bdg'+(d.red?' r':'')+'">'+d.b+'</span><b class="h4t">'+d.t+'</b><div class="by"><i></i>'+bl(18)+' · '+d.when+'</div><div class="ln2"></div><div class="ln2 s"></div></div></div>'},
+    news:function(d){return '<div class="tile news">'+TGL+'<div class="mast"><b>'+bl(26)+' 신문</b><span>'+d.when+'</span></div><b class="h4t">'+d.t+'</b><div class="im"><img src="'+IMG(d.img)+'" alt="" loading="lazy"></div><div class="ln2"></div><div class="ln2" style="width:70%"></div></div>'},
     edit:function(d){return '<div class="tile edit"><div class="pv"><img src="'+IMG(d.img)+'" alt="" loading="lazy"><div class="sub2">'+d.s+'</div></div>'+TG+
       '<div class="tl"><div class="tt"><span>00:07</span><span>00:15</span></div><div class="trk"><i style="width:30%;background:#2A93C2"></i><i style="width:24%;background:#5FB3D9"></i><i style="width:40%;background:#2A93C2"></i></div><div class="trk"><i style="width:58%;background:#C98A12"></i><i style="width:36%;background:#E1B04F"></i></div><div class="trk"><i style="width:94%;background:#3D4656"></i></div><span class="ph2"></span></div></div>'},
     shoot:function(d){return '<div class="tile shoot"><img class="pic" src="'+IMG(d.img)+'" alt="" loading="lazy"><div class="gr"></div><div class="fc"></div>'+TG+'<div class="hud2"><span><i></i>00:12</span><span>4K · 60</span></div><div class="bt"><i></i></div></div>'},
-    xhs:function(d){return '<div class="tile xhs">'+TGL+'<div class="im"><img src="'+IMG(d.img)+'" alt="" loading="lazy"></div><h4>'+d.t+'</h4><div class="by"><i></i>'+bl(16)+'<b>'+ICON.hrt.replace('<svg','<svg')+d.lk+'</b></div></div>'},
+    xhs:function(d){return '<div class="tile xhs">'+TGL+'<div class="im"><img src="'+IMG(d.img)+'" alt="" loading="lazy"></div><b class="h4t">'+d.t+'</b><div class="by"><i></i>'+bl(16)+'<b>'+ICON.hrt.replace('<svg','<svg')+d.lk+'</b></div></div>'},
     line:function(d){return '<div class="tile line">'+TG+'<div class="lh"><i></i>'+bl(20)+'</div><div class="msg"><img src="'+IMG(d.img)+'" alt="" loading="lazy"><p>'+d.t+'</p><a>'+d.a+'</a></div><div class="tm">午後 6:12</div></div>'},
-    web:function(d){return '<div class="tile web"><div class="hb"><img src="'+IMG(d.img)+'" alt="" loading="lazy"></div><div class="nv">'+bl(24)+'<i></i></div>'+TG+'<div class="hc"><h4>'+d.h+'</h4><p>'+d.s+'</p><a>'+d.b+'</a></div><div class="qb"><div><i></i>전화</div><div><i></i>예약</div><div><i></i>오시는 길</div><div class="ln2"></div></div></div>'},
+    web:function(d){return '<div class="tile web"><div class="hb"><img src="'+IMG(d.img)+'" alt="" loading="lazy"></div><div class="nv">'+bl(24)+'<i></i></div>'+TG+'<div class="hc"><b class="h4t">'+d.h+'</b><p>'+d.s+'</p><a>'+d.b+'</a></div><div class="qb"><div><i></i>전화</div><div><i></i>예약</div><div><i></i>오시는 길</div><div class="ln2"></div></div></div>'},
     adm:function(){var r=[['dental','11월 진료 시간 안내','11.03 · 게시 중',1],['derma','사랑니 뽑은 뒤 먹어도 되는 음식','10.30 · 게시 중',1],['academy','추석 연휴 휴원 안내','09.28 · 내림',0],['pension','주차장 위치가 바뀌었어요','09.12 · 게시 중',1]],h='';
       r.forEach(function(x){h+='<div class="row"><img src="'+IMG(x[0])+'" alt="" loading="lazy"><div><b>'+x[1]+'</b><small>'+x[2]+'</small></div><span class="tgl'+(x[3]?'':' off')+'"></span></div>'});
       return '<div class="tile adm">'+TGL+'<div class="hd">소식 관리<span>새 글</span></div>'+h+'</div>'},
@@ -55,11 +55,11 @@
     tiles:[["srch",{q:"제주 애월 소품샵",tab:"블로그",r:[{img:"shop",t:"애월 소품샵 여기 진짜 귀여워요, 2층까지 꽉 찬 굿즈",s:"공감 412 · 댓글 58",when:"3일 전",b:"인기글"},{img:"cafe",t:"제주 서쪽 하루 코스, 카페랑 소품샵만 돌았어요",s:"공감 96",when:"1주 전"},{img:"pension",t:"애월 바다 보이는 숙소 정리",s:"공감 74",when:"2주 전"}]}],["blog",{img:"cafe",b:"인기글",t:"성수 조용한 카페, 딸기 생크림 케이크 맛집",when:"2026.10.21"}],["news",{img:"sashimi",t:"제철 광어 들어오는 동네 횟집, 주말엔 예약부터",when:"2026.10.14"}],["blog",{img:"pension",b:"블로그 1위",red:1,t:"가평 호수 뷰 펜션, 노을 질 땐 테라스로",when:"2026.09.30"}]]},
    {k:"infl",n:"인플루언서",ph:"팔로워 많은 계정이<br>소개하게",rec:["저희 맛집 채널 @matzip_town 팔로워 5.1만 · 2026.11"],t1:"팔로워 많은 계정이 우리 업체를 소개합니다. 저희가 직접 운영하는 채널도 있습니다.",d:["업종·손님층에 맞는 계정 찾기","방문 날짜와 올릴 내용 맞추기","게시물 주소와 반응 보고"],
     tiles:[["reel",{img:"bbq",cap:"두께 보고 바로 들어감",lk:"2.4만",cm:"612"}],["reel",{img:"shop",cap:"제주 가면 여긴 꼭 들러요",lk:"1.1만",cm:"342"}],["reel",{img:"salon",cap:"펌 하고 3주 지난 상태",lk:"8,412",cm:"205"}],["reel",{img:"pilates",cap:"아침 7시 필라테스 루틴",lk:"6,930",cm:"117"}]]},
-   {k:"content",n:"콘텐츠·미디어",ph:"찍고 자르고<br>자막까지",rec:["직접 찍은 숏폼 356편","직접 찍은 사진 5만 장+"],t1:"자체 촬영팀이 가서 찍고, 자막·음악까지 넣어 릴스·쇼츠로 올립니다.",d:["자체 촬영팀이 가서 촬영","자막·음악 넣어 편집","릴스·쇼츠·블로그에 올리기"],
+   {k:"content",n:"콘텐츠·미디어",ph:"찍고 자르고<br>자막까지",rec:[],t1:"자체 촬영팀이 가서 찍고, 자막·음악까지 넣어 릴스·쇼츠로 올립니다.",d:["자체 촬영팀이 가서 촬영","자막·음악 넣어 편집","릴스·쇼츠·블로그에 올리기"],
     tiles:[["edit",{img:"sashimi",s:"오늘 들어온 <em>광어</em>"}],["shoot",{img:"cafe"}],["edit",{img:"salon",s:"뿌리 볼륨만 <em>살려 주세요</em>"}],["shoot",{img:"bbq"}]]},
    {k:"global",n:"글로벌",ph:"샤오홍슈·LINE에도<br>올리고",rec:["중국 샤오홍슈 · 도우인 · 왕홍 공동구매","일본 인스타 · LINE"],t1:"한국에 오기 전 손님이 보는 샤오홍슈·LINE에 업체를 올립니다.",d:["업체 소개·메뉴를 중국어·일본어로 정리","현지 체험단·인플루언서 게시","검색 노출과 저장 수 보고"],
     tiles:[["xhs",{img:"myeong",t:"明洞逛吃攻略｜本地人推荐的小店",lk:"2.3万"}],["line",{img:"palace",t:"景福宮で韓服体験。駅から歩いて5分です",a:"予約する"}],["xhs",{img:"bbq",t:"首尔烤肉天花板｜排队也值得",lk:"1.8万"}],["line",{img:"cosme",t:"店舗限定のスキンケアセットあります",a:"詳しく見る"}]]},
-   {k:"home",n:"홈페이지 제작",ph:"홈페이지는<br>새로 만들고",rec:["만든 홈페이지 40곳+"],t1:"AI와 검색이 읽기 쉬운 홈페이지를 새로 만들거나, 지금 홈페이지 속 정보만 고칩니다.",d:["구조안과 메인 시안 확인받고 제작","소식·휴무를 직접 고치는 관리자 화면","질문형 글 올리고 색인 요청"],
+   {k:"home",n:"홈페이지 제작",ph:"홈페이지는<br>새로 만들고",rec:[],t1:"AI와 검색이 읽기 쉬운 홈페이지를 새로 만들거나, 지금 홈페이지 속 정보만 고칩니다.",d:["구조안과 메인 시안 확인받고 제작","소식·휴무를 직접 고치는 관리자 화면","질문형 글 올리고 색인 요청"],
     tiles:[["web",{img:"dental",h:"아프지 않게,<br>오래 쓰게.",s:"평일 밤 9시까지 진료",b:"진료 예약"}],["web",{img:"academy",h:"밤 10시까지<br>자습을 봐 줍니다",s:"중등 수학 · 소수 정원",b:"상담 신청"}],["web",{img:"pension",h:"창을 열면<br>호수가 보이는 방",s:"객실 4개 · 바비큐 테라스",b:"예약하기"}],["adm",{}]]},
    {k:"off",n:"오프라인 미디어",ph:"엘리베이터TV에도<br>띄웁니다",rec:["포커스미디어 엘리베이터TV 공식 총판"],t1:"엘리베이터TV·택배차·극장·카카오T까지 동네 손님 눈에 띄는 곳에 광고합니다.",d:["업체 근처 단지·차량·극장 고르기","광고 영상·시안 제작","송출·부착 기간 보고"],
     tiles:[["elev",{}],["truck",{}],["cine",{}],["taxi",{}]]}];
@@ -106,7 +106,7 @@ var H4=(function(){
     return {start:function(r){clearTimeout(t);live=!reduce;if(r)k=0;show();if(live)step();},stop:function(){clearTimeout(t);live=false;show();},reset:function(){k=0;show();}};}
 
   /* 배경 벽 — 릴스 + 예시 화면 + AI 모델 사진을 섞어서, 빠르게 */
-  function wall(el){var R=['r08','r13','r26','r31','r04','r06','r03','r11','r14','r15','r17','r18','r23','r25'],PLAY={r08:1,r13:1,r26:1,r31:1};
+  function wall(el){var R=['r26','r13','r31','r22','r04','r03','r11','r14','r15','r22','r31','r26','r13','r11'],PLAY={r26:1,r13:1,r31:1,r22:1};
     var M=[['pho',{img:'m-reel',cap:'성수 카페 브이로그'}],['ai',{q:'분당 피부과 추천해 줘',it:[{img:'derma',k:'피부과',why:'야간 진료 · 리프팅 상담'},{k:'피부과의원',why:'토요일 진료',w:14}]}],['ads',{}],['pho',{img:'m-family',cap:'가평 호수 뷰 펜션'}],['web',{img:'academy',h:'밤 10시까지<br>자습을 봐 줍니다',s:'중등 수학 · 소수 정원',b:'상담 신청'}],['xhs',{img:'myeong',t:'明洞逛吃攻略｜本地人推荐的小店',lk:'2.3万'}],['pho',{img:'m-team',cap:'담당 마케터가 직접'}],['srch',{q:'성수 카페',tab:'블로그',r:[{img:'cafe',t:'성수 조용한 카페, 딸기 케이크',s:'공감 312',when:'2일 전',b:'인기글'},{img:'pasta',t:'성수 파스타 데이트 코스',s:'공감 88',when:'1주 전'}]}],['elev',{}],['pho',{img:'m-tourist',cap:'명동 쇼핑 브이로그'}],['rank',{t:'네이버 지도 순위',k:'동네 이름 + 업종'}],['blog',{img:'pension',b:'블로그 1위',red:1,t:'가평 호수 뷰 펜션, 노을 질 땐 테라스로',when:'2026.09.30'}],['pho',{img:'m-salon',cap:'펌 하고 3주 뒤'}],['cine',{}],['pho',{img:'m-chef',cap:'셰프의 한 접시'}],['line',{img:'palace',t:'景福宮で韓服体験',a:'予約する'}]];
     var it=[],j=0;R.forEach(function(r,i){it.push(PLAY[r]?'<div class="rl"><video src="/sf/v/'+r+'.mp4" poster="/sf/v/'+r+'.jpg" muted loop playsinline autoplay preload="metadata"></video></div>':'<div class="rl"><img src="/sf/v/'+r+'.jpg" alt="" loading="lazy" decoding="async"></div>');if(M[j])it.push('<div class="rl">'+tile(M[j++])+'</div>');});
     while(M[j])it.push('<div class="rl">'+tile(M[j++])+'</div>');
@@ -287,7 +287,7 @@ function montagePrep() {
 function montageGo(on) {
   clearInterval(mtT); if (!mtKids.length) return;
   if (!on || H4.reduce) { mtKids.forEach(function (m, i) { m.classList.toggle('on', i === 0); }); return; }
-  mtT = setInterval(function () { mtKids[mtK].classList.remove('on'); mtK = (mtK + 1) % mtKids.length; mtKids[mtK].classList.add('on'); }, 150);
+  mtT = setInterval(function () { mtKids[mtK].classList.remove('on'); mtK = (mtK + 1) % mtKids.length; mtKids[mtK].classList.add('on'); }, 420);
 }
 
 /* 버튼들 — 서비스 미리 고르기 · 카카오톡 클릭 기록 · 휴대폰 메뉴 */

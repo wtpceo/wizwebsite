@@ -37,7 +37,7 @@ html.sf-menu { overflow: hidden; }
 .sf .cap.sz-lg { font-size: clamp(32px, 4.2vw, 72px); line-height: 1.12; }
 .sf .cap.sz-mega { font-size: clamp(76px, 13vw, 232px); letter-spacing: -.06em; }
 .sf .sm { margin: 18px 0 0; font-size: clamp(15px, 1.25vw, 19px); line-height: 1.6; max-width: 34em; opacity: .82; font-weight: 500; }
-.sf .ex { position: absolute; right: 10px; bottom: 8px; z-index: 3; font-size: 11px; font-weight: 600; letter-spacing: .01em; color: currentColor; opacity: .55; }
+.sf .ex { position: absolute; right: 10px; bottom: 8px; z-index: 3; font-size: 12px; font-weight: 650; letter-spacing: .01em; color: currentColor; opacity: .85; }
 .sf .ic { display: inline-flex; align-items: center; justify-content: center; }
 .sf .ic svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
@@ -259,7 +259,7 @@ html.sf-anim .sf .cut.is-on .orb-c { animation: sf-pulse .8s cubic-bezier(.2,1.3
 .sf .cmp-r { border-top: 1px solid rgba(255,255,255,.2); padding: 14px 0; transform-origin: 50% 0; }
 .sf .cmp-r:last-child { border-bottom: 1px solid rgba(255,255,255,.2); }
 .sf .cmp-r [role="rowheader"] { font-size: 14px; font-weight: 700; color: var(--sky); }
-.sf .cmp-a { font-size: clamp(14px, 1.1vw, 17px); opacity: .62; text-decoration: line-through; text-decoration-color: rgba(255,255,255,.35); padding-right: 16px; }
+.sf .cmp-a { font-size: clamp(14px, 1.1vw, 17px); opacity: .8; text-decoration: line-through; text-decoration-color: rgba(255,255,255,.35); padding-right: 16px; }
 .sf .cmp-b { font-size: clamp(15px, 1.3vw, 20px); font-weight: 800; }
 html.sf-anim .sf .cut:not(.seen) .cmp-r { opacity: 0; }
 html.sf-anim .sf .cut.is-on .cmp-r { animation: sf-flipin .55s cubic-bezier(.2,1,.3,1) both; animation-delay: calc(.6s + var(--i) * 110ms); }
@@ -390,7 +390,7 @@ html.sf-anim .sf .cut.is-on .sc-items li { animation: sf-rise .45s cubic-bezier(
 .sf .deck { position: absolute; inset: 0; perspective: 1400px; }
 .sf .deck .dk { position: absolute; width: 36%; border-radius: 10px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(14,42,68,.55); }
 /* 예시 화면 틀(.tile)의 글자 크기 4cqw 가 화면 폭이 아니라 이 틀 폭을 기준으로 잡히게(안 두면 PC에서 57px로 커져 틀 안이 비어 보임 · 11-04) */
-.sf .deck .dk, .sf .sa-iso .dk, .sf .mt-scr .mk { container-type: inline-size; }
+.sf .deck .dk, .sf .sa-iso .dk, .sf .mt-scr .mk, .sf .sa-tiles .dk { container-type: inline-size; }
 html.sf-anim .sf .cut:not(.seen) .deck .dk { opacity: 0; }
 html.sf-anim .sf .cut.is-on .deck .dk { animation: sf-deal .8s cubic-bezier(.16,1,.3,1) both; animation-delay: calc(.3s + var(--j) * 120ms); }
 @keyframes sf-deal { from { opacity: 0; transform: translate3d(30%, 30%, 0) rotate(14deg) scale(.8); } }
@@ -668,6 +668,7 @@ html.sf-anim .sf .cut.is-on .ct-f { animation: sf-rise .7s cubic-bezier(.23,1,.3
 .sf .ct-l span, .sf .ct-s legend { font-size: 14px; font-weight: 800; }
 .sf .ct-l input { width: 100%; font: inherit; font-size: 16px; padding: 13px 14px; border: 1px solid #C9D6E3; border-radius: 4px; background: #fff; color: var(--ink); }
 .sf .ct-l input:focus { outline: 2px solid var(--b2); outline-offset: 0; border-color: var(--b2); }
+.sf .ct-l input::placeholder { color: #67728A; opacity: 1; }
 .sf .ct-s { border: 0; margin: 0; padding: 0; }
 .sf .ct-s legend { padding: 0; margin-bottom: 8px; }
 .sf .ct-s legend small { font-weight: 500; color: var(--sub); margin-left: 6px; }
@@ -743,6 +744,7 @@ html.sf-anim .sf .cut.is-on .lg-sub { animation: sf-rise .7s cubic-bezier(.23,1,
   .sf .hero .sub { font-size: 14px; line-height: 1.55; }
   .sf .hero .svl { display: flex; overflow-x: auto; gap: 6px; margin: 14px -16px 0; padding: 0 16px 4px; scrollbar-width: none; grid-template-columns: none; }
   .sf .hero .svl::-webkit-scrollbar { display: none; }
+  .sf .hero .svl { -webkit-mask-image: linear-gradient(90deg, #000 82%, transparent); mask-image: linear-gradient(90deg, #000 82%, transparent); }
   .sf .hero .svl li { flex: none; }
   .sf .hero .svb { white-space: nowrap; }
   .sf .hero .hint { display: none; }
