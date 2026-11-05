@@ -833,13 +833,17 @@ html.sf-pre .sf .intro { animation: sf-intro-safe 0s linear 5s forwards; }
 /* 첫 화면 옆 휴대폰 검색 화면 — 둘째 줄 보조 글이 화면 끝에 반쯤 잘려 보이지 않게 */
 .sf .ring .srch .r:not(.hl) .bd2 { display: none; }
 /* 낮은 노트북(1366×657·1280×720) — 첫 화면 여덟 가지 목록이 화면 안에 다 들게 */
-@media (min-width: 821px) and (max-height: 760px) {
+/* 낮은 노트북 화면(13인치 맥북 크롬 1440×780 등) — 첫 화면이 화면보다 길면 첫 휠이 한 번 덜 넘어간다(11-05 실측 811px > 780px) */
+@media (min-width: 821px) and (max-height: 840px) {
   .sf .hero .wrap { padding-top: 88px; padding-bottom: 46px; }
   .sf .hero h1 { font-size: clamp(34px, 6.2vh, 58px); }
   .sf .sub { margin-top: 10px; }
   .sf .btns { margin-top: 16px; }
   .sf .svl { margin-top: 12px; gap: 6px; }
   .sf .svb { padding: 6px 12px; }
+}
+@media (min-width: 821px) and (max-height: 680px) {
+  .sf .hero .wrap { padding-top: 80px; padding-bottom: 40px; }
 }
 /* 휴대폰 업종별 셋째 컷(엔터프라이즈 네 줄) — 「자세히」 링크가 아래 고정 바에 깔리지 않게 화면 높이 안으로 */
 @media (max-width: 820px) {
