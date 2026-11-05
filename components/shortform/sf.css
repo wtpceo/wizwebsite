@@ -237,7 +237,7 @@ html.sf-anim .sf .cut.is-on .pings li { animation: sf-ping .5s cubic-bezier(.2,1
 html.sf-anim .sf .cut:not(.seen) .probs li { opacity: 0; }
 html.sf-anim .sf .cut.is-on .probs li { animation: sf-rise .5s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.9s + var(--i) * 140ms); }
 /* 글자가 부서져 흩어짐(Break Typography) */
-html.sf-anim .sf .fx-break.is-on .brk .ch { animation: sf-pop .45s cubic-bezier(.2,1.3,.4,1) both, sf-break .9s cubic-bezier(.6,0,.4,1) 2.9s forwards; animation-delay: calc(.2s + var(--i) * 32ms), calc(2.9s + var(--i) * 18ms); }
+html.sf-anim .sf .fx-break.is-on .brk .ch { animation: sf-pop .45s cubic-bezier(.2,1.3,.4,1) both, sf-break .9s cubic-bezier(.6,0,.4,1) 1.4s forwards; animation-delay: calc(.2s + var(--i) * 32ms), calc(1.4s + var(--i) * 18ms); }
 @keyframes sf-break { 0% { transform: none; } 40% { transform: translate(calc(var(--dx) * .035), calc(var(--dy) * .045)) rotate(calc(var(--r) * .3)); } 100% { transform: translate(calc(var(--dx) * .012), calc(var(--dy) * .016)) rotate(calc(var(--r) * .08)); } }
 .sf .fx-break .brk .ch:nth-child(3n) { color: var(--sky2); }
 
