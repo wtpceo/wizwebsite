@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>회사 홈 개선 2차 기획</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 1차 기획서와 같은 남색 종이. 묶음마다 「지금 / 바뀐 뒤」 두 칸 */
+  --paper:#F6F8FB; --card:#FFFFFF; --ink:#111827; --sub:#4B5565; --line:#E3E8EF;
+  --navy:#0B1F3A; --blue:#1E6CB0; --sky:#7CC4E8; --bad:#B4380B; --good:#15803D;
+  --font:"Noto Sans KR","Apple SD Gothic Neo",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);line-height:1.7;word-break:keep-all}
+.w{max-width:1080px;margin:0 auto;padding:0 20px}
+header{background:var(--navy);color:#fff;padding:38px 0 30px}
+header .k{font-size:13px;color:var(--sky);font-weight:700}
+header h1{margin:6px 0 8px;font-size:30px;line-height:1.3;font-weight:900;letter-spacing:-.02em;text-wrap:balance}
+header p{margin:0;color:#D3DEEA;max-width:64ch}
+section{padding:36px 0 4px}
+h2{font-size:23px;line-height:1.35;margin:0 0 6px;letter-spacing:-.015em}
+.lead{color:var(--sub);margin:0 0 14px;max-width:70ch}
+.num{display:inline-flex;width:28px;height:28px;border-radius:7px;background:var(--navy);color:#fff;font-size:14px;align-items:center;justify-content:center;margin-right:9px;vertical-align:3px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0 18px}
+.pane{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;min-width:0}
+.pane>b{display:block;font-size:13px;margin-bottom:8px}
+.now>b{color:var(--bad)} .after>b{color:var(--good)}
+.pane img{max-width:100%;border-radius:8px;display:block}
+.cap{font-size:14px;color:var(--sub);margin:8px 0 0}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);font-size:14.5px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#EEF3F9;font-size:13px;color:var(--sub)}
+.tw{overflow-x:auto;margin:10px 0 16px}
+.pick{background:#FFF8EE;border:1px solid #F0D3A8;border-radius:12px;padding:14px 16px;margin:8px 0 18px}
+.pick h3{margin:0 0 6px;font-size:15.5px}
+.pick ol{margin:0;padding-left:20px}
+.pick li{margin:3px 0}
+/* 바뀐 뒤 그림: 첫 화면 */
+.hero{background:#0D4F8C;color:#fff;border-radius:10px;padding:22px 20px;display:grid;grid-template-columns:1.1fr .9fr;gap:14px;align-items:center}
+.hero h4{margin:0;font-size:22px;line-height:1.25;font-weight:900}
+.hero h4 em{font-style:normal;color:#BFE4F5}
+.hero p{margin:10px 0 0;font-size:13.5px;line-height:1.55;color:#E3EDF6}
+.hero .two{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.hero .two span{border:1px solid rgba(255,255,255,.45);border-radius:6px;padding:7px 8px;font-size:12.5px;line-height:1.35}
+.hero .two span b{display:block;font-size:13px}
+.hero .ph{aspect-ratio:9/16;max-height:210px;justify-self:center;background:#fff;border-radius:14px;border:4px solid #0B1220;color:var(--ink);padding:10px;font-size:11.5px;width:120px}
+.hero .ph i{display:block;font-style:normal;background:#EEF3F9;border-radius:5px;padding:5px;margin-top:6px}
+.hero .ph i.on{background:#E0EEFA;border:1px solid #9CC6EA}
+/* 서비스 장 흐름 */
+.flow{display:flex;flex-wrap:wrap;gap:4px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px}
+.flow span{font-size:12px;padding:4px 7px;border-radius:5px;background:#EEF3F9;white-space:nowrap}
+.flow span.s{background:#0D4F8C;color:#fff}
+.flow span.x{background:#FDE4DA;color:var(--bad);text-decoration:line-through}
+.flow small{width:100%;font-size:12.5px;color:var(--sub);margin-top:6px}
+/* 문의 칸 */
+.ct{background:#0D4F8C;color:#fff;border-radius:10px;padding:18px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ct h4{margin:0;font-size:19px;line-height:1.3}
+.ct .route{margin-top:10px;display:grid;gap:6px}
+.ct .route div{background:rgba(255,255,255,.1);border-radius:6px;padding:8px 10px;font-size:12.5px;line-height:1.45}
+.ct .route b{display:block;font-size:13.5px}
+.ct .get{margin-top:10px;font-size:12.5px;color:#D9E8F5}
+.form{background:#fff;color:var(--ink);border-radius:8px;padding:12px;font-size:12px;display:grid;gap:7px}
+.form label{display:grid;gap:3px;font-weight:700}
+.form label span{border:1px solid #C9D6E3;border-radius:4px;padding:6px 8px;font-weight:400;color:#5A6577}
+.form label.new span{border-color:#2A93C2;background:#F1F8FD}
+.form .go{background:#1E6C9F;color:#fff;text-align:center;border-radius:5px;padding:8px;font-weight:800}
+.tag{display:inline-block;font-size:11px;font-weight:700;color:#0F6A3A;background:#E3F6E9;border-radius:4px;padding:0 5px;margin-left:4px}
+@media (max-width:760px){.pair,.hero,.ct{grid-template-columns:1fr}header h1{font-size:25px}}
+</style>
+</head>
+<body>
+<header><div class="w">
+  <div class="k">위즈더플래닝 회사 홈 · 개선 2차 기획 · 2026. 11. 5.</div>
+  <h1>손님 두 갈래를 첫 화면에서 나누고, 서비스 장은 빨리 넘기고, 문의는 이름 하나로</h1>
+  <p>impeccable 점검에서 나온 큰 개선 세 묶음입니다. 묶음마다 정하실 것이 하나씩 있어 그림을 먼저 보여 드립니다. 작은 고장 묶음은 이미 고쳐서 미리보기에 올렸습니다.</p>
+</div></header>
+
+<section><div class="w">
+  <h2><span class="num">1</span>손님층: 매장과 기업·병원을 첫 화면에서 나눕니다</h2>
+  <p class="lead">점검 봇은 「기업·병원 대상인데 예시가 가게 쪽」이라고 했지만, 절반만 맞습니다. 홈은 매장·학원도 상담으로 받습니다(11-04 결정). 진짜 문제는 첫 화면에서 두 갈래가 안 보이고, 예시가 매장 쪽(소품샵·펜션·횟집·맛집 계정)으로 쏠린 것입니다. 대상 안내는 44번째 컷에 처음 나옵니다.</p>
+  <div class="pair">
+    <div class="pane now"><b>지금 · 첫 화면</b><img src="img/b-hero.jpg" alt="지금 첫 화면. 보조 문장이 휴대폰 조작법을 설명함"><p class="cap">보조 문장이 「하나를 누르면 휴대폰이 그 일의 진행 화면으로 돌아갑니다」라는 조작법 설명입니다.</p></div>
+    <div class="pane after"><b>바뀐 뒤 · 보조 문장 자리에 두 갈래</b>
+      <div class="hero">
+        <div><h4>나눠 맡기던 마케팅,<br>이제 한 팀이 <em>AI 검색까지.</em></h4>
+          <p>여덟 가지 일을 재하청 없이 저희 팀이 직접 합니다.</p>
+          <div class="two"><span><b>기업·병원</b>무료 진단 뒤 제안서</span><span><b>매장·학원·전문직</b>전화·카카오톡 상담</span></div></div>
+        <div class="ph">AI 답변<i class="on">강남 피부과 · 야간 진료</i><i>판교 치과 · 주차</i><i>정자동 필라테스</i></div>
+      </div>
+      <p class="cap">휴대폰 속 예시도 병원·브랜드를 앞에 둡니다. 매장 예시는 지우지 않고 뒤로 보냅니다.</p>
+    </div>
+  </div>
+  <div class="tw"><table>
+    <tr><th style="width:28%">바꿀 곳</th><th>지금</th><th style="width:38%">바뀐 뒤 (추천 A안)</th></tr>
+    <tr><td>첫 화면 보조 문장</td><td>휴대폰 조작법 설명</td><td>「재하청 없이 직접」 + 두 갈래 칸</td></tr>
+    <tr><td>예시 화면 검색어</td><td>제주 애월 소품샵 · 정자동 필라테스 · 판교 치과 · 분당 피부과</td><td>병원·브랜드 예시를 절반 이상으로 · 소품샵은 「성수 카페」 한 장만</td></tr>
+    <tr><td>홈 글의 「우리 업체·동네」 10곳</td><td>매장 말투</td><td>「우리 브랜드·병원」으로 바꾸고, 매장 이야기는 로컬 업종 컷(33번)에만</td></tr>
+    <tr><td>엔터프라이즈 첫 사진(35번·/solutions/enterprise)</td><td>식당 촬영 장면</td><td>실제 기업 리포트 화면</td></tr>
+  </table></div>
+  <div class="pick"><h3>정하실 것</h3><ol><li><b>A안(추천)</b>: 두 갈래를 다 받는다고 밝히고 예시를 반반으로 맞춥니다. 매장 손님도 놓치지 않습니다.</li><li><b>B안</b>: 기업·병원 중심으로 예시와 말투를 전부 바꿉니다. 매장 손님은 로컬 업종 쪽에서만 만납니다.</li></ol></div>
+</div></section>
+
+<section><div class="w">
+  <h2><span class="num">2</span>서비스 장: 24컷을 손가락 한 번에 지나갈 수 있게</h2>
+  <p class="lead">서비스 여덟 가지가 컷 셋씩, 모두 24컷이고 컷마다 화면이 멈춥니다. 관심 있는 서비스 하나만 보려 해도 24번 넘겨야 합니다.</p>
+  <div class="pair">
+    <div class="pane now"><b>지금 · 24컷, 컷마다 멈춤</b>
+      <div class="flow"><span class="s">검색 3</span><span>퍼포먼스 3</span><span>바이럴 3</span><span>인플루언서 3</span><span>콘텐츠 3</span><span>글로벌 3</span><span>홈페이지 3</span><span>오프라인 3</span><small>전체 46컷 · 서비스 장 24컷 모두 「한 칸씩 멈춤」</small></div>
+      <img src="img/b-svc-sheet.jpg" alt="서비스 장 컷 한눈표" style="margin-top:10px"></div>
+    <div class="pane after"><b>바뀐 뒤</b>
+      <div class="flow"><span class="s">검색 3</span><span>퍼포먼스 2</span><span>바이럴 2</span><span>인플루언서 2</span><span>콘텐츠 2</span><span>글로벌 2</span><span>홈페이지 2</span><span>오프라인 2</span><small>B안: 대표 서비스만 3컷, 나머지는 「먼저 하는 일」 컷을 상품 컷에 합쳐 2컷 · 전체 39컷</small></div>
+      <div class="flow" style="margin-top:8px"><span class="s">검색 3</span><span>퍼포먼스 3</span><span>…</span><span>오프라인 3</span><small>A안: 컷은 그대로 두고 서비스 장 안에서만 멈춤을 풀어 쭉 밀면 지나감 · 위쪽 장 막대에 장 이름을 보이게</small></div>
+    </div>
+  </div>
+  <div class="pick"><h3>정하실 것</h3><ol><li><b>A안(추천)</b>: 내용은 그대로 두고 쭉 밀리게만 합니다. 오늘 채운 그림을 버리지 않고, 되돌리기도 쉽습니다.</li><li><b>B안</b>: 대표 서비스만 3컷, 나머지는 2컷으로 줄입니다(46컷에서 39컷). 이야기는 짧아지지만 「먼저 하는 일」 움직이는 그림 7개가 빠집니다.</li></ol></div>
+</div></section>
+
+<section><div class="w">
+  <h2><span class="num">3</span>문의: 버튼 이름을 하나로, 신청하면 받는 것을 미리</h2>
+  <p class="lead">문의 버튼 이름이 「무료 진단·무료 진단 신청·상담 문의·이 서비스 상담·우리 업종 상담·건너뛰고 문의·이 서비스 문의·기업 제안 요청」 8가지입니다. 첫 화면 「상담 문의」는 실제로 카카오톡을 엽니다. 44번 컷에서는 무료 진단과 기업 제안 요청 가운데 무엇을 골라야 할지 근거가 없고, 신청 뒤 무엇을 언제 받는지도 안 적혀 있습니다.</p>
+  <div class="pair">
+    <div class="pane now"><b>지금 · 44번 문의 컷</b><img src="img/b-c44.jpg" alt="지금 문의 컷"></div>
+    <div class="pane after"><b>바뀐 뒤</b>
+      <div class="ct">
+        <div><h4>우리 브랜드 마케팅,<br>무료 진단부터 받아 보세요.</h4>
+          <div class="route"><div><b>기업·병원 → 무료 진단 신청</b>지금 어디에 어떻게 나오는지 진단표를 보내 드립니다</div><div><b>대기업·프랜차이즈 → 제안 요청</b>RFP 항목표·평가표를 회사 메일로</div><div><b>매장·학원 → 카카오톡 상담</b>채팅으로 바로 물어보기</div></div>
+          <p class="get">신청하면: <b>[연락 시간]</b> 안에 담당 마케터가 연락드리고, 진단표(38번 컷 모양)를 보내 드립니다.</p></div>
+        <div class="form"><label>회사명<span>회사명을 적어 주세요</span></label><label>연락처<span>연락받을 번호</span></label><label class="new">회사 이메일 <i class="tag">새로 · 선택</i><span>진단표 받을 메일</span></label><label>관심 서비스<span>여덟 가지 중 고르기</span></label><div class="go">무료 진단 신청</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="tw"><table>
+    <tr><th style="width:30%">버튼</th><th>지금 이름</th><th style="width:38%">바뀐 뒤</th></tr>
+    <tr><td>주 버튼(머리글·첫 화면·아래 고정 바)</td><td>무료 진단 · 무료 진단 신청</td><td>「무료 진단 신청」 하나</td></tr>
+    <tr><td>카카오톡으로 가는 버튼</td><td>상담 문의</td><td>「카카오톡 상담」</td></tr>
+    <tr><td>오른쪽 아래 떠 있는 버튼</td><td>건너뛰고 문의 · 이 서비스 문의</td><td>「문의 칸으로」</td></tr>
+    <tr><td>새 쪽 첫 화면 버튼</td><td>이 서비스 상담 · 우리 업종 상담</td><td>「무료 진단 신청」(로컬 업종 쪽만 「상담 신청」)</td></tr>
+  </table></div>
+  <div class="pick"><h3>정하실 것</h3><ol><li>신청 뒤 몇 시간·며칠 안에 연락드리는지. 사이트에 적으면 약속이 되니 실제 운영 기준으로 정해 주세요(예: 「영업일 하루 안」).</li><li>회사 이메일 칸을 넣을지(선택 칸으로 추천 · 진단표·자료를 메일로 보낼 수 있음)</li></ol></div>
+</div></section>
+</body>
+</html>
