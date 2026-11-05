@@ -165,7 +165,7 @@ export default function ShortformHome() {
           <div className="kt">
             <p className="kt-h" aria-hidden="true">
               <b>채팅</b>
-              <span>안 읽은 대화 6</span>
+              <span className="kt-n">안 읽은 대화 6</span>
             </p>
             <ul className="pings" aria-label="업체가 넷일 때 쌓이는 카톡방">
               {PROBLEM_PINGS.map((p, i) => {
@@ -182,7 +182,9 @@ export default function ShortformHome() {
                       오후 {i + 2}:{String(14 + i * 7).padStart(2, "0")}
                     </small>
                     <em className="pg-n" aria-hidden="true">
-                      <span data-count={unread}>{unread}</span>
+                      <span data-count={unread} data-delay={700 + i * 260}>
+                        {unread}
+                      </span>
                     </em>
                   </li>
                 )

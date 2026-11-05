@@ -110,7 +110,7 @@ var H4=(function(){
   function wall(el){/* 11-05 음식점 숏폼만 있던 벽에 패션·뷰티 숏폼(f1·f2·b1·b2 — 생성 사진으로 만든 4초 영상) 섞음 */
     var R=['r26','f1','r13','b1','r31','f2','r04','b2','r15','r22','f1','r11','b1','r14'],PLAY={r26:1,f1:1,b1:1}; /* 벽을 화면 전체로 되살린 뒤 첫 화면 프레임이 떨어져(검수 실측 120→30fps) 도는 영상은 3편만 */
     var M=[['pho',{img:'m-reel',cap:'성수 카페 브이로그'}],['ai',{q:'분당 피부과 추천해 줘',it:[{img:'derma',k:'피부과',why:'야간 진료 · 리프팅 상담'},{k:'피부과의원',why:'토요일 진료',w:14}]}],['ads',{}],['pho',{img:'hanui',cap:'한의원 상담실 촬영'}],['web',{img:'academy',h:'밤 10시까지<br>자습을 봐 줍니다',s:'중등 수학 · 소수 정원',b:'상담 신청'}],['xhs',{img:'myeong',t:'明洞逛吃攻略｜本地人推荐的小店',lk:'2.3万'}],['pho',{img:'m-team',cap:'담당 마케터가 직접'}],['srch',{q:'성수 카페',tab:'블로그',r:[{img:'cafe',t:'성수 조용한 카페, 딸기 케이크',s:'공감 312',when:'2일 전',b:'인기글'},{img:'pasta',t:'성수 파스타 데이트 코스',s:'공감 88',when:'1주 전'}]}],['elev',{}],['pho',{img:'m-tourist',cap:'명동 쇼핑 브이로그'}],['rank',{t:'네이버 지도 순위',k:'동네 이름 + 업종'}],['blog',{img:'fcafe',b:'블로그 1위',red:1,t:'프랜차이즈 카페 겨울 신메뉴 먼저 마셔 봤어요',when:'2026.09.30'}],['pho',{img:'m-salon',cap:'펌 하고 3주 뒤'}],['cine',{}],['pho',{img:'shootcos',cap:'화장품 제품 촬영'}],['line',{img:'palace',t:'景福宮で韓服体験',a:'予約する'}],['pho',{img:'fashion-look',cap:'가을 룩북 촬영'}],['pho',{img:'fnb-dessert',cap:'카페 디저트 촬영'}],['pho',{img:'beauty-salon',cap:'뷰티 살롱 촬영'}],['pho',{img:'fashion-detail',cap:'니트 디테일 촬영'}]];
-    var it=[],j=0;R.forEach(function(r,i){it.push(PLAY[r]?'<div class="rl"><video src="/sf/v/'+r+'.mp4" poster="/sf/v/'+r+'.jpg" muted loop playsinline autoplay preload="metadata"></video></div>':'<div class="rl"><img src="/sf/v/'+r+'.jpg" alt="" loading="lazy" decoding="async"></div>');if(M[j])it.push('<div class="rl">'+tile(M[j++])+'</div>');});
+    var it=[],j=0,seen={};R.forEach(function(r,i){var pl=PLAY[r]&&!reduce&&!seen[r];seen[r]=1;it.push(pl?'<div class="rl"><video src="/sf/v/'+r+'.mp4" poster="/sf/v/'+r+'.jpg" muted loop playsinline autoplay preload="metadata"></video></div>':'<div class="rl"><img src="/sf/v/'+r+'.jpg" alt="" loading="lazy" decoding="async"></div>');if(M[j])it.push('<div class="rl">'+tile(M[j++])+'</div>');});
     while(M[j])it.push('<div class="rl">'+tile(M[j++])+'</div>');
     var c=['','','','','',''];it.forEach(function(h,k){c[k%6]+=h});
     el.innerHTML=c.map(function(h){return '<div class="bgc"><div class="bgk">'+h+h.replace(/ autoplay/g,'')+'</div></div>'}).join('');
@@ -131,7 +131,7 @@ var H4=(function(){
     document.getElementById('xmg').innerHTML=MG[s.k];
     document.getElementById('xf').innerHTML='<span>먼저 하는 일</span>'+s.first;
     document.getElementById('xh').textContent=s.n;document.getElementById('xt').textContent=s.t1;
-    document.getElementById('xrec').innerHTML=s.rec.map(function(r){return '<span>'+r.replace(/(\d{1,3}(?:,\d{3})+|\d{3,})(?![.\d])/g,function(n){return '<span data-count="'+n.replace(/,/g,'')+'">'+n+'</span>'})+'</span>'}).join('');if(window.SFcount)SFcount(document.getElementById('xrec'));
+    document.getElementById('xrec').innerHTML=s.rec.map(function(r){return '<span>'+r.replace(/(?<![\d.,])(\d{1,3}(?:,\d{3})+|\d{3,})(?![.\d,]|위|년)/g,function(n){return '<span data-count="'+n.replace(/,/g,'')+'">'+n+'</span>'})+'</span>'}).join('');if(window.SFcount)SFcount(document.getElementById('xrec'));
     document.getElementById('xdo').innerHTML=s.d.map(function(r){return '<li>'+r+'</li>'}).join('');
     var p1=document.getElementById('xp1'),p2=document.getElementById('xp2');p1.setAttribute('href','/contact?svc='+s.k);p2.setAttribute('href',s.more||('#svc-'+s.k));
     document.getElementById('xstrip').innerHTML=s.ph.map(function(t){return '<div class="sk">'+tile(t)+'</div>'}).join('');
@@ -372,7 +372,8 @@ function countUp(root) {
   function run(el) {
     var to = parseFloat(el.getAttribute('data-count')) || 0, from = parseFloat(el.getAttribute('data-from')) || 0, t0 = performance.now(), dur = 1100, comma = /,/.test(el.textContent);
     function fmt(n) { return comma ? n.toLocaleString('ko-KR') : String(n); }
-    function step(t) { var k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = fmt(Math.round(from + (to - from) * e)); if (k < 1) requestAnimationFrame(step); }
+    var dl = parseFloat(el.getAttribute('data-delay')) || 0; t0 += dl;
+    function step(t) { if (t < t0) { requestAnimationFrame(step); return; } var k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = fmt(Math.round(from + (to - from) * e)); if (k < 1) requestAnimationFrame(step); }
     requestAnimationFrame(step);
   }
   if (!('IntersectionObserver' in window)) return;
