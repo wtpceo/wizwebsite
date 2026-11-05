@@ -44,7 +44,7 @@ export const WORKS: Record<string, Works> = {
   },
   infl: {
     lead: "섭외는 저희가 직접 만든 플랫폼 위플루언서에서 조건에 맞는 채널을 구독자·평균 조회수·조회율로 골라 시작합니다. 아래 사진은 저희가 직접 운영하는 맛집 채널 @matzip_town(팔로워 5.1만, 2026. 11. 4. 기준)에 올라간 것입니다.",
-    tag: "실제 화면 · 채널 이름·브랜드명 가림",
+    tag: "섭외 플랫폼 실제 화면(채널·브랜드명 가림) · 직접 운영 채널 @matzip_town",
     items: [
       { img: "/sf/ex/wipl-campaign.jpg", w: 1188, h: 724, cap: "위플루언서 캠페인 화면: 조건에 맞는 유튜브 채널 89곳을 조회율 순으로", wide: true },
       { img: "/sf/pf/m1.jpg", w: 450, h: 800, cap: "뚝배기 갈비찜", reel: true },

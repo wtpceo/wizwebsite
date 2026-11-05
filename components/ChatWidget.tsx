@@ -20,7 +20,7 @@ export default function ChatWidget() {
   // 제휴사 명의 랜딩(/luke)에서는 위즈 카카오채널 위젯 숨김 — 명의 일관성 + 유입 추적 보호
   if (pathname?.startsWith("/luke")) return null
   // 홈(숏폼형)과 리뉴얼 새 쪽(2026-11-04)은 아래 고정 바·문의 칸에 카카오톡 상담이 따로 있어 떠 있는 버튼을 숨긴다
-  if (pathname === "/" || /^\/(services|solutions|team|about)(\/|$)/.test(pathname || "")) return null
+  if (pathname === "/" || /^\/(services|solutions|team|about|contact|guide|theater|business\/insights)(\/|$)/.test(pathname || "")) return null
   const locale = pathname?.startsWith("/zh") ? "zh" : pathname?.startsWith("/vi") ? "vi" : pathname === "/en" || pathname?.startsWith("/en/") ? "en" : "ko"
   const label = CHAT_LABELS[locale]
 

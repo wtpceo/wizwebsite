@@ -33,7 +33,7 @@ export default function Page() {
     <DocShell>
     <div className="flex flex-col bg-[#070b14]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <main className="flex-1">
+      <div className="flex-1">
         {/* 극장 헤더 */}
         <section className="relative overflow-hidden py-16 md:py-24">
           <div className="geo-grid-bg absolute inset-0 opacity-40" />
@@ -114,7 +114,7 @@ export default function Page() {
             </p>
           </div>
         </section>
-      </main>
+      </div>
     </div>
     </DocShell>
   )

@@ -8,6 +8,7 @@ import { Icon } from "./icons"
 /** 신청 버튼 — 기본은 무료 상담 신청, 기업 경로(/business/*)는 제안 요청(CLAUDE.md 기업 경로 정책) */
 export type SfCta = { href: string; label: string }
 const DEFAULT_CTA: SfCta = { href: "/contact", label: "무료 상담 신청" }
+export const BIZ_CTA: SfCta = { href: "/business/contact", label: "제안 요청 보내기" }
 
 export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; cta?: SfCta }) {
   return (

@@ -63,7 +63,7 @@ export default function Page() {
     <DocShell>
     <div className="flex flex-col bg-[#070b14]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoJsonLd) }} />
-      <main className="flex-1">
+      <div className="flex-1">
         <section className="container mx-auto max-w-3xl px-4 py-14 md:px-6 md:py-20">
           <Link href="/theater" className="inline-flex items-center gap-1 text-sm text-slate-400 transition-colors hover:text-[#00e5a0]">
             <ChevronLeft className="h-4 w-4" /> 위즈 극장
@@ -184,7 +184,7 @@ export default function Page() {
             </Link>
           </div>
         </section>
-      </main>
+      </div>
     </div>
     </DocShell>
   )

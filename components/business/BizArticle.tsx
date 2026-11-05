@@ -2,9 +2,10 @@ import Link from "next/link"
 import { relatedBizArticles } from "@/lib/business-articles"
 import { DocShell, Crumb } from "@/components/shortform/DocParts"
 import { Icon } from "@/components/shortform/icons"
+import { BIZ_CTA } from "@/components/shortform/SiteChrome"
 
 /** 기업 경로 신청 버튼 — 머리글·아래 바도 제안 요청으로(무료 상담 신청 ✕ · CLAUDE.md 기업 경로 정책) */
-export const BIZ_CTA = { href: "/business/contact", label: "제안 요청 보내기" }
+export { BIZ_CTA }
 
 export { CheckItem, Callout } from "@/components/guide/GuideArticle"
 

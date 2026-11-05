@@ -15,7 +15,8 @@
 }
 .sf * { box-sizing: border-box; }
 .sf img { max-width: none; }
-.sf a { color: inherit; text-decoration: none; }
+/* :where 로 우선순위를 낮춤 — 새 틀 안에 들어온 옛 쪽(극장·기업 글)의 링크 색·밑줄 클래스가 이기게(11-05 검수) */
+:where(.sf) a { color: inherit; text-decoration: none; }
 .sf svg { display: block; }
 .sf .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 html.sf-snap { scroll-snap-type: y mandatory; }

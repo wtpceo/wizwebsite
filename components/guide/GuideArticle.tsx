@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { DocShell, Crumb } from "@/components/shortform/DocParts"
+import { BIZ_CTA } from "@/components/shortform/SiteChrome"
 import { Icon } from "@/components/shortform/icons"
 import RelatedArticles from "@/components/guide/RelatedArticles"
 
@@ -70,7 +71,7 @@ export default function GuideArticle({
 }) {
   // 2026-11-05 사장님 「인사이트도 새 디자인으로」 — 껍데기(머리글·첫 칸·글 아래 상자·바닥글)만 회사 홈 새 디자인으로. 본문·주소·구조화 데이터는 그대로
   return (
-    <DocShell>
+    <DocShell cta={cta ? { href: cta.href, label: cta.label } : BIZ_CTA}>
       <section className="dp-hero gd-hero" aria-label="글 머리">
         <div className="dp-w gd-hero-in">
           <Crumb items={[{ name: "홈", href: "/" }, { name: "마케팅 칼럼", href: "/guide" }]} />
