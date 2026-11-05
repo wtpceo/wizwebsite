@@ -233,23 +233,23 @@ html.sf-anim .sf .ooh.tv .tv3{animation:sf-tv 9s linear 6s infinite}
 @keyframes sf-vG2{0%,40%{transform:translateY(36cqw)}56%,100%{transform:translateY(52cqw)}}
 @keyframes sf-vG3{0%,40%{opacity:1;transform:translateY(52cqw)}56%,100%{opacity:0;transform:translateY(68cqw)}}
 @keyframes sf-vMe{0%,14%{opacity:0;transform:translateY(80cqw)}40%{opacity:1;transform:translateY(68cqw)}56%,90%{opacity:1;transform:translateY(20cqw)}100%{opacity:0;transform:translateY(20cqw)}}
-.sf .mg-i .ph{left:33cqw;top:5cqw;width:34cqw;height:62cqw;border-radius:4cqw;border:1cqw solid #05080D;background:url(/sf/ex/bbq.jpg) center/cover;overflow:hidden}
+.sf .mg-i .ph{left:29cqw;top:5cqw;width:34cqw;height:62cqw;border-radius:4cqw;border:1cqw solid #05080D;background:url(/sf/ex/bbq.jpg) center/cover;overflow:hidden}
 .sf .mg-i .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.6))}
 .sf .mg-i .ph span{left:3cqw;right:3cqw;bottom:4cqw;z-index:1;font-size:3.4cqw;font-weight:800;line-height:1.3}
-.sf .mg-i .ht{width:6cqw;height:6cqw;left:62cqw;top:50cqw;fill:#F2545B;animation:sf-iH 2.5s var(--eo) infinite;opacity:0}
-.sf .mg-i .h2{left:66cqw;animation-delay:.5s}
-.sf .mg-i .h3{left:60cqw;animation-delay:1s}
-.sf .mg-i .h4{left:68cqw;animation-delay:1.5s}
-.sf .mg-i .h5{left:63cqw;animation-delay:2s}
-.sf .mg-i .cnt{right:4cqw;top:8cqw;text-align:right;font-size:3.2cqw;color:#9FB4CA;font-weight:600}
+.sf .mg-i .ht{width:6cqw;height:6cqw;left:58cqw;top:50cqw;fill:#F2545B;animation:sf-iH 2.5s var(--eo) infinite;opacity:0}
+.sf .mg-i .h2{left:62cqw;animation-delay:.5s}
+.sf .mg-i .h3{left:56cqw;animation-delay:1s}
+.sf .mg-i .h4{left:64cqw;animation-delay:1.5s}
+.sf .mg-i .h5{left:59cqw;animation-delay:2s}
+.sf .mg-i .cnt{right:8cqw;top:8cqw;text-align:right;font-size:3.2cqw;color:#9FB4CA;font-weight:600}
 .sf .mg-i .cnt b{display:block;min-width:5.4ch;font-size:7cqw;font-weight:900;color:#fff;font-variant-numeric:tabular-nums;counter-reset:n var(--n);animation:sf-iN 5s linear infinite}
-.sf .mg-i .cnt b:after{content:"+" counter(n)}
+.sf .mg-i .cnt b:after{content:"1," counter(n)}
 .sf .mg-i .bb{left:3cqw;font-size:3.2cqw;font-weight:700;background:#fff;color:var(--ink);padding:1.4cqw 2.4cqw;border-radius:2.4cqw 2.4cqw 2.4cqw .6cqw;opacity:0;animation:sf-iB 5s var(--eo) infinite}
 .sf .mg-i .bb1{top:16cqw}
 .sf .mg-i .bb2{top:30cqw;animation-delay:.9s}
 .sf .mg-i .bb3{top:44cqw;animation-delay:1.8s}
-.sf @property --n{syntax:"<integer>";inherits:false;initial-value:0}
-@keyframes sf-iN{0%{--n:0}80%,100%{--n:1204}}
+@property --n{syntax:"<integer>";inherits:false;initial-value:0}
+@keyframes sf-iN{0%{--n:381}100%{--n:498}}
 @keyframes sf-iH{0%{opacity:0;transform:translateY(0) scale(.7)}15%{opacity:1;transform:translateY(-6cqw) scale(1)}100%{opacity:0;transform:translateY(-40cqw) scale(1.1) rotate(12deg)}}
 @keyframes sf-iB{0%,10%{opacity:0;transform:translateY(2cqw) scale(.9)}20%,80%{opacity:1;transform:none}92%,100%{opacity:0}}
 .sf .mg-c .vf{left:8cqw;right:8cqw;top:5cqw;height:44cqw;border-radius:2cqw;background:url(/sf/ex/sashimi.jpg) center 60%/cover;overflow:hidden}
@@ -314,7 +314,7 @@ html.sf-anim .sf .ooh.tv .tv3{animation:sf-tv 9s linear 6s infinite}
 .sf .mg-o .fl{left:0;right:0;top:2cqw;text-align:center;font-size:3.6cqw;font-weight:800;color:#F2C45A;font-variant-numeric:tabular-nums}
 .sf .mg-o .fl b{counter-reset:f var(--f2);animation:sf-oF 5s linear infinite}
 .sf .mg-o .fl b:after{content:counter(f) "F"}
-.sf @property --f2{syntax:"<integer>";inherits:false;initial-value:1}
+@property --f2{syntax:"<integer>";inherits:false;initial-value:1}
 .sf .mg-o .lb{left:75cqw;top:30cqw;font-size:3.2cqw;color:#9FB4CA;font-weight:700;line-height:1.5}
 @keyframes sf-oL{0%,10%{transform:none}24%,82%{transform:translateX(-100%)}96%,100%{transform:none}}
 @keyframes sf-oR{0%,10%{transform:none}24%,82%{transform:translateX(100%)}96%,100%{transform:none}}

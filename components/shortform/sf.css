@@ -231,9 +231,8 @@ html.sf-anim .sf .cut.is-on .cmp-r { animation: sf-rise .5s cubic-bezier(.23,1,.
 .sf .t-c .sa-no b { color: var(--sky); }
 .sf .sa-cap { position: relative; z-index: 2; max-width: 14em; }
 /* 뒤집기 판(Flip Board) — 글자마다 칸 */
-.sf .fx-flip .sa-cap .ch { position: relative; padding: .02em .06em; margin: 0 .02em .06em 0; background: rgba(255,255,255,.08); border-radius: 3px; }
-.sf .fx-flip .sa-cap .ch::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: rgba(11,20,34,.6); }
-.sf .fx-flip .sa-cap .ln:last-child > span:last-child .ch { background: var(--b2); }
+/* 검색 첫 컷 — 글자마다 상자·가운데 줄을 친 뒤집기 판 모양은 11-05 걷어냄(깨져 보임). 마지막 낱말만 하늘색 */
+.sf .fx-flip .sa-cap .ln:last-child > span:last-child .ch { color: var(--sky2); }
 /* 슬롯(Slot Roll) */
 .sf .fx-slot .sa-cap .ch { overflow: hidden; vertical-align: top; }
 .sf .sa.fx-slot .sa-cap .ln:first-child > span:first-child .ch { color: var(--sky); }
@@ -268,6 +267,13 @@ html.sf-anim .sf .sa.is-on .sa-vis > * { animation: sf-rise .55s cubic-bezier(.2
 .sf .sa-n3 .dk:nth-child(3) .tile { transform: translateY(-6%) rotate(4deg); }
 .sf .sa-n2 .dk:nth-child(1) { width: clamp(184px, 15vw, 292px); }
 .sf .sa-n2 .dk:nth-child(2) .tile { transform: translateY(10%) rotate(3deg); }
+/* 검색 최적화 — 사람들이 보는 AI 답변 화면(예시) 위에, 아래로 리얼지이오 실제 보고서 띠(11-05) */
+.sf .sa-ai { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; width: 100%; max-width: 560px; justify-self: center; margin: 0; }
+.sf .sa-ai .ai-c { container-type: inline-size; width: min(340px, 78%); justify-self: center; }
+.sf .sa-ai .ai-c .tile { border-radius: 16px; box-shadow: 0 40px 70px -36px rgba(0,0,0,.65); }
+.sf .sa-ai > img { display: block; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 30px 60px -34px rgba(0,0,0,.6); margin-top: -64px; position: relative; }
+.sf .sa-ai figcaption { font-size: 12.5px; font-weight: 600; opacity: .78; text-align: right; }
+@media (max-width: 820px) { .sf .sa-ai .ai-c { width: min(220px, 62%); } .sf .sa-ai > img { margin-top: -36px; } }
 /* 검색 최적화 — 리얼지이오 실제 보고서 두 장(위: 언급 비율 띠 · 아래: 엔진별 인용) */
 .sf .sa-rep { margin: 0; display: grid; gap: 14px; width: 100%; max-width: 660px; justify-self: center; }
 .sf .sa-rep img { display: block; width: 100%; height: auto; border-radius: 8px; box-shadow: 0 34px 60px -34px rgba(0,0,0,.6); }
@@ -909,3 +915,7 @@ html.sf-pre .sf .intro { animation: sf-intro-safe 0s linear 5s forwards; }
 /* MCN 첫 컷 예시 게시물 — 계정 이름 자리는 흐린 막대(실제 채널 아님) */
 .sf .sa-reel3 b { white-space: nowrap; }
 .sf .sa-reel3 b .hd { display: inline-block; width: 34px; height: 9px; margin-right: 4px; border-radius: 5px; background: rgba(255,255,255,.55); filter: blur(1.5px); vertical-align: middle; }
+/* 콘텐츠 첫 컷 아래 줄 숏폼 3편은 세로 화면에 가깝게 */
+.sf .sa-wall video { aspect-ratio: 3 / 4; }
+/* 첫 화면 뒤 숏폼 벽이 보이게(11-05 사장님 「배경에서 숏폼이 여러 개 돌던 디자인 왜 빠졌나」) — 글자 쪽(왼쪽)은 진하게 두고 휴대폰 쪽(오른쪽) 막을 옅게 */
+@media (min-width: 821px) { .sf .hero .veil { background: linear-gradient(90deg, rgba(20,84,132,.96) 0%, rgba(24,92,142,.9) 34%, rgba(30,108,159,.5) 60%, rgba(36,128,178,.22) 100%), linear-gradient(180deg, rgba(24,96,146,.5) 0%, rgba(24,96,146,0) 20%, rgba(24,96,146,0) 80%, rgba(24,96,146,.75) 100%); } }

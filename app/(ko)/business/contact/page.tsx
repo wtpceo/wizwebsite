@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Mail, Phone, Clock, FileCheck2 } from "lucide-react"
 import BusinessContactForm from "@/components/business/BusinessContactForm"
-import { DocShell } from "@/components/shortform/DocParts"
+import { DocShell, Crumb } from "@/components/shortform/DocParts"
 
 const TITLE = "기업 제안 요청 | 위즈더플래닝"
 const DESC =
@@ -38,59 +38,48 @@ export default function Page() {
   return (
     // 2026-11-05 사장님 「여기도 아직 이전 페이지」 — 머리글·바닥글만 새 틀(DocShell)로, 본문은 그대로
     <DocShell cta={BIZ_CTA}>
-    <div className="flex min-h-screen flex-col bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }} />
-      <div className="flex-1">
-        <section className="relative overflow-hidden bg-[#070b14] py-16 md:py-20">
-          <div className="geo-grid-bg absolute inset-0 opacity-60" />
-          <div className="container relative mx-auto max-w-5xl px-4 md:px-6">
-            <p className="text-xs font-bold tracking-[0.2em] text-[#00e5a0]">기업 제안 요청</p>
-            <h1 className="mt-4 text-[clamp(1.9rem,4vw,3rem)] font-extrabold leading-tight tracking-tight text-white">
-              회사와 목표를 알려 주세요
-            </h1>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">
-              담당자가 내용을 보고 회사 메일로 회신드립니다. 금액은 제안서에 적어 드리고, 계약은 최소
-              3개월 기준입니다.{" "}
-              <Link href="/business" className="font-semibold text-[#00e5a0] underline underline-offset-4">
+      {/* 11-05 사장님 「기업 제안 요청 디자인이 너무 다르다」 — 무료 상담 신청 쪽과 같은 두 칸(왼쪽 안내 / 오른쪽 폼) */}
+      <section className="dp-hero dp-cq t-k" id="contact" aria-label="기업 제안 요청">
+        <div className="dp-w dp-cq-in">
+          <div className="dp-cq-t">
+            <Crumb items={[{ name: "기업 마케팅", href: "/business" }, { name: "제안 요청" }]} />
+            <p className="dp-no">기업 제안 요청</p>
+            <h1>회사와 목표를 알려 주세요</h1>
+            <p className="dp-lead">
+              담당자가 내용을 보고 회사 메일로 회신드립니다. 금액은 제안서에 적어 드리고, 계약은 최소 3개월 기준입니다.{" "}
+              <Link href="/business" className="bz-lk">
                 기업 마케팅 안내
               </Link>
               에서 범위와 보고 방식을 먼저 보셔도 됩니다.
             </p>
-          </div>
-        </section>
-
-        <section className="py-14 md:py-20">
-          <div className="container mx-auto grid max-w-5xl gap-10 px-4 md:grid-cols-5 md:px-6">
-            <div className="md:col-span-2">
-              <h2 className="text-xl font-extrabold text-gray-900">회신을 빠르게 받으려면</h2>
-              <div className="mt-5 space-y-5">
-                {HELP.map(({ icon: Icon, t, d }) => (
-                  <div key={t}>
-                    <p className="flex items-center gap-2 text-sm font-bold text-gray-900">
-                      <Icon className="h-4 w-4 text-[#00b57f]" aria-hidden /> {t}
-                    </p>
-                    <p className="mt-1.5 text-sm leading-relaxed text-gray-600">{d}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-8 space-y-2 border-t border-gray-200 pt-6 text-sm text-gray-700">
-                <p className="flex items-center gap-2">
-                  <Mail className="h-4 w-4 text-emerald-600" aria-hidden />
-                  <a href="mailto:wiz@wiztheplanning.com" className="font-semibold hover:underline">wiz@wiztheplanning.com</a>
-                </p>
-                <p className="flex items-center gap-2">
-                  <Phone className="h-4 w-4 text-emerald-600" aria-hidden /> 1670-0704
-                </p>
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-gray-200 bg-[#f9fafb] p-5 md:col-span-3 md:p-8">
-              <BusinessContactForm />
+            <ol className="dp-cq-steps bz-help" aria-label="회신을 빠르게 받으려면">
+              {HELP.map(({ t, d }, i) => (
+                <li key={t}>
+                  <em>{i + 1}</em>
+                  <b>{t}</b>
+                  <span>{d}</span>
+                </li>
+              ))}
+            </ol>
+            <div className="ct-ways">
+              <a href="mailto:wiz@wiztheplanning.com">
+                <Mail aria-hidden />
+                <b>wiz@wiztheplanning.com</b>
+                <small>회신은 회사 메일로 드립니다</small>
+              </a>
+              <a href="tel:16700704" data-tel>
+                <Phone aria-hidden />
+                <b>1670-0704</b>
+                <small>평일 10:00–18:00</small>
+              </a>
             </div>
           </div>
-        </section>
-      </div>
-    </div>
+          <div className="ct-f bz-f">
+            <BusinessContactForm />
+          </div>
+        </div>
+      </section>
     </DocShell>
   )
 }

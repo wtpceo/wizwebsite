@@ -29,9 +29,10 @@ const NEEDS = [
   "측정·리포트 체계",
 ]
 
+// 11-05 새 디자인(홈·상담 신청 폼과 같은 네모 입력 칸·코발트)
 const inputCls =
-  "h-12 w-full rounded-xl border border-gray-200 bg-white px-4 text-gray-900 outline-none transition-colors focus:border-[#00b57f]"
-const labelCls = "mb-1.5 block text-sm font-semibold text-gray-800"
+  "h-12 w-full rounded border border-[#C9D6E3] bg-white px-3.5 text-base text-[#0F1B2D] outline-none transition-colors focus:border-[#2A93C2] focus:outline-2 focus:outline-[#2A93C2]"
+const labelCls = "mb-1.5 block text-sm font-extrabold text-[#0F1B2D]"
 
 export default function BusinessContactForm() {
   const [f, setF] = useState({
@@ -93,10 +94,10 @@ export default function BusinessContactForm() {
 
   if (status === "done") {
     return (
-      <div className="flex flex-col items-center gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 px-6 py-12 text-center">
-        <CheckCircle2 className="h-10 w-10 text-emerald-600" />
-        <p className="text-lg font-bold text-emerald-800">제안 요청이 접수됐습니다.</p>
-        <p className="text-sm leading-relaxed text-emerald-900/80">
+      <div className="flex flex-col items-center gap-3 rounded border border-[#CFE2F0] bg-[#F3F7FB] px-6 py-12 text-center">
+        <CheckCircle2 className="h-10 w-10 text-[#1E6C9F]" />
+        <p className="text-lg font-bold text-[#0F1B2D]">제안 요청이 접수됐습니다.</p>
+        <p className="text-sm leading-relaxed text-[#34405A]">
           담당자가 내용을 확인한 뒤 회사 메일로 회신드립니다. 기준선 측정 자료가 필요하면 회신에 함께
           요청드립니다.
         </p>
@@ -166,7 +167,7 @@ export default function BusinessContactForm() {
 
       <fieldset>
         <legend className={labelCls}>필요한 일 (여러 개 선택 가능)</legend>
-        <div className="flex flex-wrap gap-2">
+        <div className="bz-chk">
           {NEEDS.map((n) => {
             const on = needs.includes(n)
             return (
@@ -175,9 +176,7 @@ export default function BusinessContactForm() {
                 type="button"
                 onClick={() => toggleNeed(n)}
                 aria-pressed={on}
-                className={`rounded-full border px-3.5 py-1.5 text-sm font-medium transition-colors ${
-                  on ? "border-[#00b57f] bg-[#00b57f] text-white" : "border-gray-200 bg-white text-gray-600 hover:border-gray-300"
-                }`}
+                className={on ? "on" : ""}
               >
                 {n}
               </button>
@@ -194,7 +193,7 @@ export default function BusinessContactForm() {
           onChange={set("message")}
           rows={5}
           placeholder="지금 상황과 목표를 적어 주세요. 제안서에 필요한 내용(평가 항목, 제출 기한, 의사결정 절차)이 있으면 함께 적어 주시면 그 형식에 맞춰 회신합니다."
-          className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-900 outline-none transition-colors focus:border-[#00b57f]"
+          className="w-full rounded border border-[#C9D6E3] bg-white px-3.5 py-3 text-base text-[#0F1B2D] outline-none transition-colors focus:border-[#2A93C2] focus:outline-2 focus:outline-[#2A93C2]"
         />
       </div>
 
@@ -208,7 +207,7 @@ export default function BusinessContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#00b57f] text-base font-bold text-white transition-colors hover:bg-[#00a172] disabled:opacity-70"
+        className="flex h-14 w-full items-center justify-center gap-2 rounded bg-gradient-to-b from-[#2A93C2] to-[#1E6C9F] text-[17px] font-extrabold text-white disabled:opacity-70"
       >
         {status === "sending" ? (<><Loader2 className="h-5 w-5 animate-spin" /> 보내는 중</>) : "제안 요청 보내기"}
       </button>

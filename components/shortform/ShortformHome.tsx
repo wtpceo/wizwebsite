@@ -283,12 +283,12 @@ export default function ShortformHome() {
                 </Link>
                 {/* 11-05: 제목만 떠 있던 첫 컷을 실제 작업물·예시 화면으로 채움(PC는 오른쪽, 휴대폰은 제목 아래) */}
                 {SA_TILES[s.k] ? <div className={`sa-vis sa-tiles sa-n${SA_TILES[s.k].split(",").length}`} data-tiles={s.k} data-pick={SA_TILES[s.k]} aria-hidden="true" /> : null}
-                {/* 검색 최적화 — 리얼지이오(realGEO)로 실제 보내 드린 보고서 화면(11-05 사장님 「리얼지이오 예시」) */}
+                {/* 검색 최적화 — 손님이 보는 AI 답변 화면(우리 브랜드가 1번 · 예시) + 아래 리얼지이오 실제 보고서 띠(11-05 사장님 「사람들이 보는 화면에 우리 업체가 나온다」) */}
                 {s.k === "search" ? (
-                  <figure className="sa-vis sa-rep">
-                    <img src="/images/report/report-1.jpg" alt="AI 답변에 업체가 언급된 비율을 보여 주는 리얼지이오 보고서 화면" loading="lazy" width={1600} height={396} style={vars({ i: 0 })} />
-                    <img src="/report/business-report-engines.jpg" alt="엔진별로 물어본 수와 인용된 수를 비교한 리얼지이오 보고서 화면" loading="lazy" width={1200} height={1077} style={vars({ i: 1 })} />
-                    <figcaption>리얼지이오(realGEO) 실제 보고서 · 업체명 가림</figcaption>
+                  <figure className="sa-vis sa-ai">
+                    <div className="ai-c" data-tiles="search" data-pick="0" aria-hidden="true" style={vars({ i: 0 })} />
+                    <img src="/images/report/report-1.jpg" alt="AI 답변에 업체가 언급된 비율을 보여 주는 리얼지이오 보고서 화면" loading="lazy" width={1600} height={396} style={vars({ i: 1 })} />
+                    <figcaption>위: AI 답변 화면 예시 · 아래: 리얼지이오(realGEO) 실제 보고서, 업체명 가림</figcaption>
                   </figure>
                 ) : null}
                 {s.k === "infl" ? (
@@ -305,7 +305,7 @@ export default function ShortformHome() {
                           <b>
                             <i className="hd" aria-hidden="true" /> {who}
                           </b>
-                          {i === 1 ? <small>예시 화면 · AI 이미지</small> : null}
+                          {i === 1 ? <small>예시 화면</small> : null}
                         </figcaption>
                       </figure>
                     ))}
@@ -313,9 +313,10 @@ export default function ShortformHome() {
                 ) : null}
                 {s.k === "content" ? (
                   <div className="sa-vis sa-wall" aria-hidden="true">
-                    {["w1", "w2", "w3", "v", "w4", "w5"].map((m, i) =>
-                      m === "v" ? (
-                        <video key={m} data-src="/sf/v/r13.mp4" poster="/sf/v/r13.jpg" muted loop playsInline preload="none" style={vars({ i })} />
+                    {/* 11-05 사장님 「숏폼이 한 개만 돌아 아쉬움」 — 위 사진 3장, 아래 숏폼 3편이 같이 돈다 */}
+                    {["w1", "w2", "w3", "v:r04", "v:r15", "v:r31"].map((m, i) =>
+                      m.startsWith("v:") ? (
+                        <video key={m} data-src={`/sf/v/${m.slice(2)}.mp4`} poster={`/sf/v/${m.slice(2)}.jpg`} muted loop playsInline preload="none" style={vars({ i })} />
                       ) : (
                         <img key={m} src={`/sf/pf/${m}.jpg`} alt="" loading="lazy" width={720} height={540} style={vars({ i })} />
                       ),

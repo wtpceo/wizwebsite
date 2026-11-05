@@ -94,6 +94,9 @@ html.sf-anim .sf .rv.on .dp-works li { animation: sf-rise .55s cubic-bezier(.23,
 .sf .dp-pairs { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
 .sf .dp-pairs a { display: grid; grid-template-columns: 44px minmax(0, 1fr) 24px; align-items: center; column-gap: 14px; padding: 16px 0; border-top: 1px solid #D6E1EC; }
 .sf .dp-pairs .ic { width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(180deg, #2A93C2, #1E6C9F); color: #fff; }
+/* 아래 「.dp-pairs span」 글자 규칙이 아이콘 칸까지 block 으로 만들어 아이콘이 왼쪽 위로 쏠리던 것(11-05 「이모지 깨짐」) */
+.sf .dp-pairs span.ic { display: flex; align-items: center; justify-content: center; margin-top: 0; }
+.sf .dp-pairs span.ic svg { width: 22px; height: 22px; }
 .sf .dp-pairs b { font-size: 17px; font-weight: 800; }
 .sf .dp-pairs span { display: block; font-size: 14.5px; color: var(--sub); margin-top: 2px; }
 .sf .dp-pairs svg.ar { width: 20px; height: 20px; fill: none; stroke: var(--b1); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s ease; }
@@ -282,3 +285,18 @@ html.sf-anim .sf .gd-hero h1 { animation: sf-rise .6s cubic-bezier(.23,1,.32,1) 
 .sf .tm-hero li > a:hover { background: rgba(255,255,255,.08); }
 .sf .tm-hero li > a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 @media (max-width: 820px) { .sf .tm-hero li > a { padding: 8px 10px; } }
+/* 기업 제안 요청(/business/contact · 11-05) — 상담 신청 쪽 두 칸 틀 재사용 */
+.sf .bz-lk { color: var(--sky2); font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.sf .bz-help { grid-template-columns: minmax(0, 1fr); gap: 0; }
+.sf .bz-help li { grid-template-columns: 22px minmax(0, 1fr); column-gap: 10px; padding: 14px 0; }
+.sf .bz-help li em { grid-row: span 2; }
+.sf .bz-f { padding: 28px 28px 26px; }
+.sf .bz-f fieldset { border: 0; margin: 0; padding: 0; }
+.sf .bz-chk { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 18px; }
+.sf .bz-chk button { display: flex; align-items: center; gap: 10px; min-height: 30px; padding: 0; border: 0; background: none; font: inherit; font-size: 14.5px; font-weight: 600; color: #2A3448; text-align: left; cursor: pointer; }
+.sf .bz-chk button::before { content: ""; flex: none; width: 20px; height: 20px; border: 1.5px solid #6B7F95; border-radius: 3px; background: #fff; }
+.sf .bz-chk button.on { color: var(--ink); }
+.sf .bz-chk button.on::before { border-color: var(--b1); background: var(--b1) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 15px no-repeat; }
+.sf .bz-chk button:focus-visible::before { outline: 2px solid var(--b2); outline-offset: 2px; }
+.sf .bz-f a { text-decoration: underline; }
+@media (max-width: 820px) { .sf .bz-f { padding: 22px 18px; } .sf .bz-chk { grid-template-columns: minmax(0, 1fr); } }
