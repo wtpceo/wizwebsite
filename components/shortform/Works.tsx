@@ -4,7 +4,7 @@ import { vars } from "./parts"
 // 새 쪽 「실제로 어떤 결과물이 나오나요?」 띠(11-05).
 // 실제 것(촬영 사진·보고서 캡처·직접 운영 채널)과 예시 화면을 꼬리표로 구분한다. 광고주 상호·간판·얼굴이 보이는 사진은 쓰지 않는다.
 type Item =
-  | { img: string; w: number; h: number; cap: string; wide?: boolean; tall?: boolean; reel?: boolean }
+  | { img: string; w: number; h: number; cap: string; wide?: boolean; tall?: boolean; reel?: boolean; photo?: boolean }
   | { video: string; poster: string; cap: string }
   | { tiles: string; pick: string; cap: string }
 
@@ -26,12 +26,11 @@ export const WORKS: Record<string, Works> = {
   },
   perf: {
     lead: "광고 결과는 클릭 수와 쓴 돈, 클릭 한 번 값으로 보고합니다. 시안은 여러 개를 함께 돌려 보고 반응이 좋은 쪽으로 예산을 옮깁니다.",
-    tag: "예시 화면",
+    tag: "예시 화면 · 첫 칸 숫자는 실제 광고 결과",
     items: [
       { tiles: "perf", pick: "0", cap: "메타 광고 한 달 결과(2026년 2월 실제 숫자)" },
       { tiles: "perf", pick: "1", cap: "예약을 받는 광고 시안" },
       { tiles: "perf", pick: "2", cap: "구매로 잇는 광고 시안" },
-      { tiles: "perf", pick: "3", cap: "길 찾기로 잇는 광고 시안" },
     ],
   },
   viral: {
@@ -41,7 +40,6 @@ export const WORKS: Record<string, Works> = {
       { tiles: "viral", pick: "0", cap: "블로그 탭 맨 위 「인기글」 자리" },
       { tiles: "viral", pick: "1", cap: "체험단 글 한 편" },
       { tiles: "viral", pick: "2", cap: "언론 보도자료" },
-      { tiles: "viral", pick: "3", cap: "검색어별 상위 글" },
     ],
   },
   infl: {
@@ -57,11 +55,11 @@ export const WORKS: Record<string, Works> = {
     lead: "촬영팀이 매장에 가서 찍은 사진과 숏폼입니다. 음식·공간·운동처럼 업종마다 찍는 방법이 다릅니다.",
     tag: "직접 찍은 사진 · 숏폼",
     items: [
-      { video: "/sf/v/r04.mp4", poster: "/sf/v/r04.jpg", cap: "숏폼" },
+      { video: "/sf/v/r15.mp4", poster: "/sf/v/r15.jpg", cap: "숏폼: 모둠회·초밥" },
       { img: "/sf/pf/w1.jpg", w: 720, h: 540, cap: "고깃집 한상" },
       { img: "/sf/pf/w2.jpg", w: 720, h: 540, cap: "제철 생선" },
       { img: "/sf/pf/g2.jpg", w: 720, h: 540, cap: "고기 손질" },
-      { video: "/sf/v/r17.mp4", poster: "/sf/v/r17.jpg", cap: "숏폼" },
+      { video: "/sf/v/r31.mp4", poster: "/sf/v/r31.jpg", cap: "숏폼: 솥뚜껑 삼겹살" },
       { img: "/sf/pf/w4.jpg", w: 720, h: 540, cap: "미용실 공간" },
       { img: "/sf/pf/w5.jpg", w: 720, h: 540, cap: "필라테스 공간" },
       { img: "/sf/pf/g6.jpg", w: 720, h: 540, cap: "매장 공간" },
@@ -75,7 +73,6 @@ export const WORKS: Record<string, Works> = {
       { tiles: "global", pick: "0", cap: "샤오홍슈 맛집 글" },
       { tiles: "global", pick: "1", cap: "LINE 공식계정 메시지" },
       { tiles: "global", pick: "2", cap: "샤오홍슈 고깃집 글" },
-      { tiles: "global", pick: "3", cap: "LINE 매장 안내" },
     ],
   },
   off: {
@@ -85,8 +82,7 @@ export const WORKS: Record<string, Works> = {
       { tiles: "off", pick: "0", cap: "엘리베이터TV" },
       { tiles: "off", pick: "1", cap: "택배차 옆면" },
       { tiles: "off", pick: "2", cap: "극장 본편 시작 전" },
-      { tiles: "off", pick: "3", cap: "택시 뒷좌석 화면" },
-      { img: "/images/focusmedia/data-map.jpg", w: 1200, h: 800, cap: "송출할 단지를 지도에서 고릅니다(항공 사진)", wide: true },
+      { img: "/images/focusmedia/data-map.jpg", w: 1920, h: 1047, cap: "송출할 단지를 지도에서 고릅니다(항공 사진)", wide: true },
     ],
   },
   /* 업종별 솔루션 */
@@ -151,13 +147,13 @@ export default function Works({ k }: { k: string }) {
           if ("video" in it) {
             return (
               <li key={i} className="wk-v" style={vars({ n: i })}>
-                <video src={it.video} poster={it.poster} muted loop playsInline autoPlay preload="none" aria-label={it.cap} />
+                <video data-src={it.video} poster={it.poster} muted loop playsInline preload="none" aria-label={it.cap} />
                 <span>{it.cap}</span>
               </li>
             )
           }
           return (
-            <li key={i} className={it.wide ? "wk-w" : it.tall ? "wk-tall" : it.reel ? "wk-r" : undefined} style={vars({ n: i })}>
+            <li key={i} className={it.wide ? "wk-w" : it.tall ? "wk-tall" : it.reel ? "wk-r" : it.img.startsWith("/sf/pf/") ? "wk-p" : undefined} style={vars({ n: i })}>
               <img src={it.img} alt={it.cap} width={it.w} height={it.h} loading="lazy" decoding="async" />
               <span>{it.cap}</span>
             </li>

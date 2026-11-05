@@ -227,7 +227,7 @@ html.sf-anim .sf .cut:not(.seen) .probs li { opacity: 0; }
 html.sf-anim .sf .cut.is-on .probs li { animation: sf-rise .5s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.9s + var(--i) * 140ms); }
 /* 글자가 부서져 흩어짐(Break Typography) */
 html.sf-anim .sf .fx-break.is-on .brk .ch { animation: sf-pop .45s cubic-bezier(.2,1.3,.4,1) both, sf-break .9s cubic-bezier(.6,0,.4,1) 2.9s forwards; animation-delay: calc(.2s + var(--i) * 32ms), calc(2.9s + var(--i) * 18ms); }
-@keyframes sf-break { 0% { transform: none; } 40% { transform: translate(calc(var(--dx) * .1), calc(var(--dy) * .1)) rotate(calc(var(--r) * .5)); } 100% { transform: translate(calc(var(--dx) * .035), calc(var(--dy) * .035)) rotate(calc(var(--r) * .12)); } }
+@keyframes sf-break { 0% { transform: none; } 40% { transform: translate(calc(var(--dx) * .035), calc(var(--dy) * .045)) rotate(calc(var(--r) * .3)); } 100% { transform: translate(calc(var(--dx) * .012), calc(var(--dy) * .016)) rotate(calc(var(--r) * .08)); } }
 .sf .fx-break .brk .ch:nth-child(3n) { color: var(--sky2); }
 
 /* ── 3 해결 ── */
@@ -311,13 +311,18 @@ html.sf-anim .sf .sa.fx-push.is-on .sa-cap .w { animation: none; opacity: 1; }
 .sf .sa-has .sa-cap { grid-column: 1; grid-row: 2; align-self: start; }
 .sf .sa-has .sa-vis { grid-column: 2; grid-row: 1 / span 2; align-self: center; position: relative; z-index: 1; }
 .sf .sa-has .sa-cap.cap.sz-xl { font-size: clamp(44px, 5.4vw, 104px); }
+/* 그림이 두 장인 컷(글로벌·오프라인)은 제목 칸을 넓혀 「샤오홍슈·LINE에도」가 한 줄로 */
+@media (min-width: 821px) {
+  .sf .sa-has .sa-in:has(.sa-n2) { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); }
+  .sf .sa-has .sa-in:has(.sa-n2) .sa-cap .w { white-space: nowrap; }
+}
 html.sf-anim .sf .sa:not(.seen) .sa-vis > * { opacity: 0; }
 html.sf-anim .sf .sa.is-on .sa-vis > * { animation: sf-rise .6s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.45s + var(--j, var(--i, 0)) * 110ms); }
 /* 예시 화면 타일 두세 장 — 가운데(또는 첫) 장이 크게 */
 .sf .sa-tiles { display: flex; align-items: center; justify-content: center; gap: clamp(12px, 1.6vw, 28px); }
-.sf .sa-tiles .dk { flex: none; width: clamp(150px, 12vw, 236px); }
+.sf .sa-tiles .dk { flex: none; width: clamp(118px, 12vw, 236px); }
 .sf .sa-tiles .dk .tile { border-radius: 14px; box-shadow: 0 34px 60px -34px rgba(0,0,0,.55); }
-.sf .sa-n3 .dk:nth-child(2) { width: clamp(184px, 15vw, 292px); }
+.sf .sa-n3 .dk:nth-child(2) { width: clamp(146px, 15vw, 292px); }
 .sf .sa-n3 .dk:nth-child(1) .tile { transform: translateY(7%) rotate(-4deg); }
 .sf .sa-n3 .dk:nth-child(3) .tile { transform: translateY(-6%) rotate(4deg); }
 .sf .sa-n2 .dk:nth-child(1) { width: clamp(184px, 15vw, 292px); }
@@ -326,8 +331,8 @@ html.sf-anim .sf .sa.is-on .sa-vis > * { animation: sf-rise .6s cubic-bezier(.23
 .sf .sa-reel3 { display: flex; align-items: center; justify-content: center; gap: clamp(12px, 1.6vw, 26px); }
 .sf .sa-reel3 figure { position: relative; margin: 0; flex: none; width: clamp(140px, 11.5vw, 226px); aspect-ratio: 9/16; border-radius: 14px; overflow: hidden; box-shadow: 0 34px 60px -34px rgba(0,0,0,.55); }
 .sf .sa-reel3 figure:nth-child(2) { width: clamp(176px, 14.5vw, 282px); outline: 2px solid var(--sky2); outline-offset: 4px; }
-.sf .sa-reel3 figure:nth-child(1) { transform: translateY(8%); }
-.sf .sa-reel3 figure:nth-child(3) { transform: translateY(-7%); }
+.sf .sa-reel3 figure:nth-child(1) { translate: 0 8%; }
+.sf .sa-reel3 figure:nth-child(3) { translate: 0 -7%; }
 .sf .sa-reel3 img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .sf .sa-reel3 figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 12px 12px; background: linear-gradient(180deg, rgba(11,20,34,0), rgba(11,20,34,.82)); color: #fff; }
 .sf .sa-reel3 b { display: block; font-size: 13.5px; font-weight: 800; }
@@ -531,7 +536,7 @@ html.sf-anim .sf .cut.is-on .tm2-r { animation: sf-flipin .55s cubic-bezier(.2,1
 .sf .ps-wi { display: inline-block; }
 html.sf-anim .sf .cut:not(.seen) .ps-wi { opacity: 0; }
 html.sf-anim .sf .ps.is-on .ps-wi { animation: sf-drop .55s cubic-bezier(.23,1,.32,1) .2s both; }
-@keyframes sf-drop { from { opacity: 0; transform: translateY(-28%); } to { opacity: 1; transform: none; } }
+@keyframes sf-drop { from { opacity: 0; transform: translateY(-12%); } to { opacity: 1; transform: none; } }
 .sf .ps-l { margin: 10px 0 0; font-size: clamp(17px, 1.5vw, 22px); font-weight: 650; }
 .sf .ps-flow { list-style: none; margin: 30px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .sf .ps-flow li { font-size: 13.5px; font-weight: 700; padding: 7px 12px; border: 1px solid currentColor; border-radius: 3px; opacity: .4; }
@@ -587,7 +592,9 @@ html.sf-anim .sf .cut.is-on .diag tr, html.sf-anim .sf .cut.is-on .prop dl > div
 .sf .wr-tl ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
 .sf .wr-tl li { min-height: 76px; border: 1px solid #E3EAF2; border-radius: 6px; padding: 6px; display: flex; flex-direction: column; gap: 4px; }
 .sf .wr-tl small { font-size: 11.5px; font-weight: 700; color: var(--sub); }
-.sf .wr-tl li span { font-size: 11px; font-weight: 800; border-radius: 4px; padding: 3px 5px; line-height: 1.25; }
+.sf .wr-tl li span { font-size: 11px; font-weight: 800; border-radius: 4px; padding: 3px 5px; line-height: 1.25; overflow-wrap: anywhere; }
+.sf .dp-rep .wr-tl ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sf .dp-rep .wr-tl li { min-height: 0; }
 .sf .wr-tl li .n { background: #E3F6E9; color: #167A3A; }
 .sf .wr-tl li .t { background: #FFF0E3; color: #A44A0A; }
 .sf .wr figcaption { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid #E3EAF2; padding: 10px 18px; font-size: 12px; font-weight: 600; color: var(--sub); }
@@ -841,6 +848,7 @@ html.sf-anim .sf .cut.is-on .lg-sub { animation: sf-rise .7s cubic-bezier(.23,1,
   .sf .wr-mix { padding: 0 12px 2px; }
   .sf .wr-tl { padding: 8px 12px 10px; }
   .sf .wr-tl ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sf .ps .wr-tl { display: none; }
   .sf .wr-tl li { min-height: 0; }
   .sf .wr figcaption { padding: 8px 12px; font-size: 11px; }
   .sf .ins-t { flex-direction: column; align-items: flex-start; }
@@ -863,9 +871,6 @@ html.sf-anim .sf .cut.is-on .lg-sub { animation: sf-rise .7s cubic-bezier(.23,1,
   .sf .sff-nav { grid-template-columns: 1fr 1fr; }
 }
 
-/* 동작 줄이기 — 컷 넘김·키네틱 없이 일반 스크롤(스크립트도 sf-anim·sf-snap 을 안 붙임) */
-@media (prefers-reduced-motion: reduce) {
-}
 
 /* 11-04 검수 고침 ───────────────────────────── */
 /* 인트로 검은 막 — 처음 읽을 때 홈 스크립트 줄이 붙인 html.sf-pre 일 때만 보인다(JS 없이·링크로 들어오면 바로 첫 화면).

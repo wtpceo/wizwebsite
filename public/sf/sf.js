@@ -321,6 +321,10 @@ function docInit() {
     el.innerHTML = h;
   }
   var els = [].slice.call(document.querySelectorAll('[data-tiles]')), rv = [].slice.call(document.querySelectorAll('.rv'));
+  /* 작업물 띠 숏폼(11-05) — 화면 가까이 오면 그때 받고, 「동작 줄이기」면 첫 장면만 */
+  var vids = [].slice.call(document.querySelectorAll('.dp-works video[data-src]'));
+  function vplay(v) { if (v.getAttribute('data-src')) { v.src = v.getAttribute('data-src'); v.removeAttribute('data-src'); v.muted = true; } if (!H4.reduce) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } }
+  if ('IntersectionObserver' in window) { var io3 = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) vplay(e.target); else e.target.pause(); }); }, { rootMargin: '20% 0px' }); vids.forEach(function (v) { io3.observe(v); }); } else vids.forEach(vplay);
   if (!('IntersectionObserver' in window)) { els.forEach(build); rv.forEach(function (e) { e.classList.add('on'); }); return; }
   var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { build(e.target); io.unobserve(e.target); } }); }, { rootMargin: '60% 0px' });
   els.forEach(function (e) { io.observe(e); });

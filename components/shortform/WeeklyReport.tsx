@@ -17,7 +17,7 @@ const POSTS: [string, "n" | "t"][] = [
   ["10/30", "t"],
 ]
 const DAYS = ["10/23", "10/26", "10/27", "10/28", "10/29", "10/30"]
-const CH = { n: "네이버 블로그", t: "티스토리" }
+const CH = { n: "네이버", t: "티스토리" }
 
 export default function WeeklyReport() {
   return (
@@ -52,7 +52,7 @@ export default function WeeklyReport() {
             <strong>
               29<em>/ 30</em>
             </strong>
-            <span>이번 주 키워드 질문 30개 중 AI 답변에 나온 질문 · 홈페이지가 출처로 뜬 답 12개</span>
+            <span>이번 주 키워드 질문 30개 중 AI 답변에 업체가 나온 질문 · 홈페이지가 출처로 뜬 답 12개</span>
           </div>
         </div>
       </div>

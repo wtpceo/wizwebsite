@@ -605,19 +605,17 @@ export default function ShortformHome() {
               마케팅 칼럼 전체 보기 <Icon k="arrow" />
             </Link>
           </div>
-          <div className="ins-flow">
-            <ul className="ins-track">
-              {insights.map((a, j) => (
-                <li key={a.href} style={vars({ i: j })}>
-                  <Link href={a.href}>
-                    <small>{a.kicker}</small>
-                    <b>{a.title}</b>
-                    <span>{a.date}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ul className="ins-track">
+            {insights.map((a, j) => (
+              <li key={a.href} style={vars({ i: j })}>
+                <Link href={a.href}>
+                  <small>{a.kicker}</small>
+                  <b>{a.title}</b>
+                  <span>{a.date}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </Cut>
 

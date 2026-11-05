@@ -68,10 +68,11 @@
 .sf .dp-works li.wk-w { grid-column: 1 / -1; }
 .sf .dp-works li.wk-tall { grid-row: span 2; }
 .sf .dp-works img, .sf .dp-works video { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid #DCE5EF; background: #fff; }
-.sf .dp-works li:not(.wk-w):not(.wk-tall):not(.wk-r) img { aspect-ratio: 4 / 3; object-fit: cover; }
+.sf .dp-works li.wk-p img { aspect-ratio: 4 / 3; object-fit: cover; }
 .sf .dp-works li.wk-r img { aspect-ratio: 9 / 16; object-fit: cover; }
 .sf .dp-works li.wk-tall img { aspect-ratio: auto; max-height: 560px; object-fit: cover; object-position: top; }
-.sf .dp-works .wk-v video { aspect-ratio: 9 / 16; object-fit: cover; background: var(--nk2); }
+.sf .dp-works li.wk-v { grid-row: span 2; }
+.sf .dp-works .wk-v video { flex: 1; min-height: 0; height: 100%; object-fit: cover; background: var(--nk2); }
 .sf .dp-works .wk-dk { container-type: inline-size; }
 .sf .dp-works .wk-dk .dk .tile { border-radius: 10px; box-shadow: 0 24px 44px -30px rgba(14,42,68,.5); }
 .sf .dp-works span { font-size: 13.5px; font-weight: 650; line-height: 1.45; color: #34405A; }
