@@ -241,7 +241,7 @@ html.sf-anim .sf .ooh.tv .tv3{animation:sf-tv 9s linear 6s infinite}
 .sf .mg-i .h3{left:56cqw;animation-delay:1s}
 .sf .mg-i .h4{left:64cqw;animation-delay:1.5s}
 .sf .mg-i .h5{left:59cqw;animation-delay:2s}
-.sf .mg-i .cnt{right:6cqw;top:8cqw;text-align:right;font-size:3.2cqw;color:#9FB4CA;font-weight:600}
+.sf .mg-i .cnt{left:72cqw;top:8cqw;text-align:left;font-size:3.2cqw;color:#9FB4CA;font-weight:600}
 .sf .mg-i .cnt b{display:block;min-width:5.4ch;font-size:5.6cqw;font-weight:900;color:#fff;font-variant-numeric:tabular-nums;counter-reset:n var(--n);animation:sf-iN 5s linear infinite}
 .sf .mg-i .cnt b:after{content:"1," counter(n)}
 .sf .mg-i .bb{left:3cqw;font-size:3.2cqw;font-weight:700;background:#fff;color:var(--ink);padding:1.4cqw 2.4cqw;border-radius:2.4cqw 2.4cqw 2.4cqw .6cqw;opacity:0;animation:sf-iB 5s var(--eo) infinite}
