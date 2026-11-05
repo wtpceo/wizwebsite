@@ -293,12 +293,19 @@ export default function ShortformHome() {
                 ) : null}
                 {s.k === "infl" ? (
                   <div className="sa-vis sa-reel3" aria-hidden="true">
-                    {["m1", "m2", "m3"].map((m, i) => (
+                    {/* 11-05 사장님 「우리 맛집 채널 말고 유명 채널처럼, 실제 사례 동의 전이니 AI 예시로」 — 계정 이름은 가린 막대, 예시 꼬리표 */}
+                    {[
+                      ["infl-fashion", "패션 크리에이터"],
+                      ["infl-beauty", "뷰티 크리에이터"],
+                      ["infl-food", "푸드 크리에이터"],
+                    ].map(([m, who], i) => (
                       <figure key={m} style={vars({ i })}>
-                        <img src={`/sf/pf/${m}.jpg`} alt="" loading="lazy" width={450} height={800} />
+                        <img src={`/sf/pf/${m}.jpg`} alt="" loading="lazy" width={450} height={675} />
                         <figcaption>
-                          <b>@matzip_town</b>
-                          {i === 1 ? <small>직접 운영 · 팔로워 5.1만</small> : null}
+                          <b>
+                            <i className="hd" aria-hidden="true" /> {who}
+                          </b>
+                          {i === 1 ? <small>예시 화면 · AI 이미지</small> : null}
                         </figcaption>
                       </figure>
                     ))}
