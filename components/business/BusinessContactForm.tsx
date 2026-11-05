@@ -207,7 +207,7 @@ export default function BusinessContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="flex h-14 w-full items-center justify-center gap-2 rounded bg-gradient-to-b from-[#2A93C2] to-[#1E6C9F] text-[17px] font-extrabold text-white disabled:opacity-70"
+        className="bz-go flex h-14 w-full items-center justify-center gap-2 rounded bg-gradient-to-b from-[#2A93C2] to-[#1E6C9F] text-[17px] font-extrabold text-white disabled:opacity-70"
       >
         {status === "sending" ? (<><Loader2 className="h-5 w-5 animate-spin" /> 보내는 중</>) : "제안 요청 보내기"}
       </button>

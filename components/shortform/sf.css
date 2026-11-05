@@ -976,3 +976,9 @@ html.sf-anim .sf .cut.is-on .orb-i { animation: sf-gather .9s cubic-bezier(.23,1
 html.sf-anim .sf .cut.is-on .orb-c { animation: sf-fade .5s ease-out .1s both, sf-beat 2.4s ease-in-out 1.6s infinite; }
 @keyframes sf-beat { 0%, 100% { box-shadow: 0 24px 50px -24px rgba(30,108,159,.8), 0 0 0 0 rgba(42,147,194,.35); } 50% { box-shadow: 0 24px 50px -24px rgba(30,108,159,.8), 0 0 0 14px rgba(42,147,194,0); } }
 @media (prefers-reduced-motion: reduce) { .sf .orb, .sf .orb-sp::after, .sf .orb-c { animation: none !important; } }
+/* 5차 검수 반영 — ① 주간 리포트 숫자 칸(data-count)이 설명 글자 규칙(.wr-k span)에 덮여 작아지던 것 ② 공용 「.sf button 글자 물려받기」가 칼럼 글 안 기업 폼 버튼까지 어둡게 하던 것
+   ③ 휴대폰 검색 첫 컷이 화면보다 길던 것(보고서 띠·설명은 넓은 화면만) ④ 벽 영상 자막이 「먼저 하는 일」 상자 글자에 비치던 것 */
+.sf .wr-k strong > span[data-count] { display: inline; margin: 0; font: inherit; color: inherit; }
+.sf button.bz-go { color: #fff; font-size: 17px; font-weight: 800; }
+@media (max-width: 820px) { .sf .sa-ai > img, .sf .sa-ai figcaption { display: none; } .sf .sa-ai .ai-c { width: min(210px, 58%); } }
+.sf .hero .cap1 .box { background: rgba(8, 38, 68, .9); }
