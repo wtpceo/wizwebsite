@@ -262,6 +262,10 @@ export default function ShortformHome() {
                   {s.k === "search" ? " · 대표 서비스" : ""}
                 </p>
                 <h2 className="cap sz-xl sa-cap">{s.fx === "flip" || s.fx === "slot" ? <Chars text={s.cap} /> : <Words text={s.cap} />}</h2>
+                {/* 다 보지 않아도 상세 쪽으로(11-05) */}
+                <Link className="sa-more" href={`/services/${s.slug}`}>
+                  {s.n} 자세히 <Icon k="arrow" />
+                </Link>
                 {/* 11-05: 제목만 떠 있던 첫 컷을 실제 작업물·예시 화면으로 채움(PC는 오른쪽, 휴대폰은 제목 아래) */}
                 {SA_TILES[s.k] ? <div className={`sa-vis sa-tiles sa-n${SA_TILES[s.k].split(",").length}`} data-tiles={s.k} data-pick={SA_TILES[s.k]} aria-hidden="true" /> : null}
                 {s.k === "infl" ? (

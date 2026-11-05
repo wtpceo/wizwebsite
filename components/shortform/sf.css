@@ -141,6 +141,17 @@ html.sf-anim .sf .cut.is-on .sm { animation: sf-rise .7s cubic-bezier(.23,1,.32,
 .sf .sfp a:hover i { background: rgba(255,255,255,.5); }
 .sf .sfc { margin: 0; font-size: 12.5px; font-weight: 650; letter-spacing: .02em; opacity: .75; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .sf .sfc span { margin-left: 8px; font-weight: 500; }
+/* 자동 재생 버튼 — 컷 번호 옆. 재생 중이면 멈춤 표시 */
+.sf .sfa { display: inline-flex; align-items: center; gap: 6px; margin-left: 12px; padding: 6px 10px; border: 1px solid currentColor; border-radius: 4px; background: none; color: inherit; font: inherit; font-size: 12.5px; font-weight: 750; cursor: pointer; white-space: nowrap; }
+.sf .sfa[hidden] { display: none; }
+.sf .sfa i { width: 0; height: 0; border-left: 7px solid currentColor; border-top: 4.5px solid transparent; border-bottom: 4.5px solid transparent; }
+.sf .sfa[aria-pressed="true"] i { width: 7px; height: 9px; border: 0; border-left: 2.5px solid currentColor; border-right: 2.5px solid currentColor; }
+.sf .sfa:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+/* 서비스 첫 컷 「○○ 자세히」 */
+.sf .sa-more { display: inline-flex; align-items: center; gap: 6px; margin-top: 22px; font-size: 15px; font-weight: 750; text-decoration: underline; text-underline-offset: 4px; opacity: .9; justify-self: start; }
+.sf .sa-more svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.sf .sa-has .sa-more { grid-column: 1; grid-row: 3; align-self: start; }
+@media (hover: hover) and (pointer: fine) { .sf .sa-more:hover { opacity: 1; } }
 .sf .sfh-cta:focus-visible, .sf .sfh-nav a:focus-visible, .sf .sfp a:focus-visible, .sf .sfh-menu:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 .sf .sfm { position: fixed; inset: 0; z-index: 70; background: rgba(11,20,34,.98); color: #fff; overflow: auto; }
 .sf .sfm[hidden] { display: none; }
@@ -306,10 +317,10 @@ html.sf-anim .sf .sa.fx-push.is-on .sa-cap { animation: sf-push 1s cubic-bezier(
 @keyframes sf-push { from { transform: scale(2.4); opacity: 0; } to { transform: none; opacity: 1; } }
 html.sf-anim .sf .sa.fx-push.is-on .sa-cap .w { animation: none; opacity: 1; }
 /* 첫 컷 그림 자리(11-05) — 제목 왼쪽 · 그림 오른쪽. 휴대폰은 제목 아래(그림이 제목을 덮지 않게) */
-.sf .sa-has .sa-in { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); grid-template-rows: auto auto; align-content: center; column-gap: 4vw; }
+.sf .sa-has .sa-in { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); grid-template-rows: auto auto auto; align-content: center; column-gap: 4vw; }
 .sf .sa-has .sa-no { grid-column: 1; grid-row: 1; align-self: end; }
 .sf .sa-has .sa-cap { grid-column: 1; grid-row: 2; align-self: start; }
-.sf .sa-has .sa-vis { grid-column: 2; grid-row: 1 / span 2; align-self: center; position: relative; z-index: 1; }
+.sf .sa-has .sa-vis { grid-column: 2; grid-row: 1 / span 3; align-self: center; position: relative; z-index: 1; }
 .sf .sa-has .sa-cap.cap.sz-xl { font-size: clamp(44px, 5.4vw, 104px); }
 /* 그림이 두 장인 컷(글로벌·오프라인)은 제목 칸을 넓혀 「샤오홍슈·LINE에도」가 한 줄로 */
 @media (min-width: 821px) {
@@ -728,6 +739,9 @@ html.sf-anim .sf .cut.is-on .lg-sub { animation: sf-rise .7s cubic-bezier(.23,1,
   .sf .sfh-menu { display: flex; margin-left: 0; width: 40px; height: 40px; }
   .sf .sfc { margin-left: auto; }
   .sf .sfc span { display: none; }
+  .sf .sfa { margin-left: 8px; padding: 5px 8px; font-size: 12px; }
+  .sf .sa-more { margin-top: 14px; font-size: 14px; }
+  .sf .sa-has .sa-more { grid-row: auto; }
   .sf .sfh-logo b { font-size: 11.5px; letter-spacing: .12em; }
   .sf .sfh-logo img { height: 18px; }
   .sf .sfp { top: 7px; gap: 3px; }
