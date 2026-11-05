@@ -61,7 +61,7 @@
     tiles:[["xhs",{img:"myeong",t:"明洞逛吃攻略｜本地人推荐的小店",lk:"2.3万"}],["line",{img:"palace",t:"景福宮で韓服体験。駅から歩いて5分です",a:"予約する"}],["xhs",{img:"giftset",t:"韩国小众护肤品牌｜敏感肌也能用",lk:"1.8万"}],["line",{img:"cosme",t:"店舗限定のスキンケアセットあります",a:"詳しく見る"}]]},
    {k:"home",n:"홈페이지 제작",ph:"홈페이지는<br>새로 만들고",rec:[],t1:"AI와 검색이 읽기 쉬운 홈페이지를 새로 만들거나, 지금 홈페이지 속 정보만 고칩니다.",d:["구조안과 메인 시안 확인받고 제작","소식·휴무를 직접 고치는 관리자 화면","질문형 글 올리고 색인 요청"],
     tiles:[["web",{img:"dental",h:"아프지 않게,<br>오래 쓰게.",s:"평일 밤 9시까지 진료",b:"진료 예약"}],["web",{img:"academy",h:"밤 10시까지<br>자습을 봐 줍니다",s:"중등 수학 · 소수 정원",b:"상담 신청"}],["web",{img:"ortho",h:"평일 밤 8시까지<br>재활 치료",s:"도수치료 · 운동치료",b:"진료 예약"}],["adm",{}]]},
-   {k:"off",n:"오프라인 미디어",ph:"엘리베이터TV에도<br>띄웁니다",rec:["포커스미디어 엘리베이터TV 공식 총판"],t1:"엘리베이터TV·택배차·극장·카카오T까지 고객 눈에 띄는 곳에 광고합니다.",d:["업체 근처 단지·차량·극장 고르기","광고 영상·시안 제작","송출·부착 기간 보고"],
+   {k:"off",n:"오프라인 미디어",ph:"엘리베이터TV에도<br>띄웁니다",rec:["포커스미디어 엘리베이터TV 공식 총판"],t1:"엘리베이터TV·택배차·극장·카카오T까지 고객 눈에 띄는 곳에 광고합니다.",d:["매장·병원 근처 단지·차량·극장 고르기","광고 영상·시안 제작","송출·부착 기간 보고"],
     tiles:[["elev",{}],["truck",{}],["cine",{}],["taxi",{}]]}];
   function tile(t){return T[t[0]](t[1])}
 
@@ -118,7 +118,7 @@ var H4=(function(){
   /* 누르면 그 자리에서 커지며 열리는 창 */
   var xp,xpp,from=null,last=null,busy=false;
   function mountX(){var d=document.createElement('div');d.className='xp';d.id='xp';d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');d.setAttribute('aria-labelledby','xh');
-    d.innerHTML='<div class="xbg"></div><div class="xpp"><div class="xl"><small class="xin" id="xs"></small><div id="xmg"></div><p class="first xin" id="xf"></p></div><div class="xr"><div class="xin"><h3 id="xh"></h3><p class="t1" id="xt"></p><div class="recs" id="xrec"></div><ol id="xdo"></ol><div class="exs"><p>이런 화면으로 보고드립니다 · 예시(업체명 가림)</p><div class="strip" id="xstrip"></div></div></div><div class="xb xin"><a class="p1" id="xp1" href="#c44">이 서비스 상담하기</a><a class="p2" id="xp2" href="#">자세히 보기</a></div></div><button class="xx" type="button" aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>';
+    d.innerHTML='<div class="xbg"></div><div class="xpp"><div class="xl"><small class="xin" id="xs"></small><div id="xmg"></div><p class="first xin" id="xf"></p></div><div class="xr"><div class="xin"><h3 id="xh"></h3><p class="t1" id="xt"></p><div class="recs" id="xrec"></div><ol id="xdo"></ol><div class="exs"><p>이런 화면으로 보고드립니다 · 예시(업체명 가림)</p><div class="strip" id="xstrip"></div></div></div><div class="xb xin"><a class="p1" id="xp1" href="#c44">무료 진단 신청</a><a class="p2" id="xp2" href="#">자세히 보기</a></div></div><button class="xx" type="button" aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>';
     document.body.appendChild(d);xp=d;xpp=d.querySelector('.xpp');
     d.querySelector('.xx').addEventListener('click',close);d.querySelector('.xbg').addEventListener('click',close);
     var xp1=d.querySelector('#xp1');if(xp1)xp1.addEventListener('click',function(){close();});
@@ -252,6 +252,7 @@ function cutsInit() {
     if (hdr) hdr.setAttribute('data-tone', c.getAttribute('data-tone'));
     H.setAttribute('data-sf-tone', c.getAttribute('data-tone'));
     if (skip) { if (c.id === 'c44' || c.id === 'c45') skip.setAttribute('data-hide', ''); else skip.removeAttribute('data-hide'); }
+    var ab = document.getElementById('sfa'); if (ab && !H4.reduce) ab.hidden = (c.id === 'c44' || c.id === 'c45');
   }
   function activate(c) {
     if (c === cur) return;
@@ -260,7 +261,7 @@ function cutsInit() {
   }
   /* 자동 재생(11-05) — 숏폼처럼 컷이 저절로 넘어감. 머무는 시간은 그 컷 글자 수로(제목 한 줄 약 1.5초 · 목록 컷 최대 3.4초).
      휠·터치·키·클릭을 쓰면 바로 멈추고, 문의 칸(44)에 닿아도 멈춤. 「동작 줄이기」면 켜지 않음. */
-  var autoBtn = document.getElementById('sfa'), auto = false, autoT = 0, touched = false;
+  var autoBtn = document.getElementById('sfa'), autoLive = document.getElementById('sfaLive'), auto = false, autoT = 0, touched = false;
   function durOf(c) { if (!c.__d) { var n = Math.min((c.innerText || '').replace(/\s+/g, '').length, 170); c.__d = Math.round(1200 + n * 13); } return c.__d; }
   function schedule() {
     clearTimeout(autoT); if (!auto || !cur || document.hidden) return;
@@ -269,7 +270,8 @@ function cutsInit() {
   }
   function setAuto(on) {
     auto = on;
-    if (autoBtn) { autoBtn.hidden = false; autoBtn.setAttribute('aria-pressed', on ? 'true' : 'false'); autoBtn.querySelector('span').textContent = on ? '멈춤' : '자동 재생'; }
+    if (autoBtn) { autoBtn.classList.toggle('on', on); autoBtn.querySelector('span').textContent = on ? '멈춤' : '자동 재생'; }
+    if (autoLive) autoLive.textContent = on ? '자동 재생을 시작했습니다. 멈추려면 멈춤 버튼을 누르세요.' : '';
     if (on && cur && cur.id === 'c1') { clearTimeout(autoT); var n = cuts[1]; if (n) window.scrollTo({ top: n.getBoundingClientRect().top + scrollY, behavior: 'smooth' }); return; }
     schedule();
   }
@@ -280,8 +282,15 @@ function cutsInit() {
       addEventListener(ev, function (e) { if (autoBtn.contains(e.target)) return; touched = true; if (auto) setAuto(false); }, { passive: true, capture: true });
     });
     document.addEventListener('visibilitychange', schedule);
-    /* 첫 화면(인트로 포함)을 8초 보여 준 뒤, 손님이 아무것도 안 건드렸으면 재생 시작 */
-    setTimeout(function () { if (!touched && cur && cur.id === 'c1') setAuto(true); }, 8000);
+    addEventListener('blur', function () { clearTimeout(autoT); });
+    addEventListener('focus', schedule);
+    /* 첫 화면(인트로 포함)을 「보이는 동안」 8초 보여 준 뒤, 손님이 아무것도 안 건드렸으면 재생 시작(다른 탭에 있으면 돌아온 뒤부터 셈) */
+    var seenMs = 0, lastT = Date.now();
+    var startT = setInterval(function () {
+      var now = Date.now(); if (!document.hidden && document.hasFocus()) seenMs += now - lastT; lastT = now;
+      if (touched || !cur || cur.id !== 'c1') { clearInterval(startT); return; }
+      if (seenMs >= 8000) { clearInterval(startT); setAuto(true); }
+    }, 250);
   }
   function pick() {
     var y = innerHeight * 0.5;

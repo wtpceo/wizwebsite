@@ -61,10 +61,11 @@ export function SfHeader({ home = false }: { home?: boolean }) {
             <b id="sfcNo">01</b> / 45 <span id="sfcCh">{CHAPTERS[0].n}</span>
           </p>
           {/* 자동 재생(11-05) — 홈이 숏폼처럼 저절로 넘어감 · 휠·터치·키를 쓰면 멈춤 · sf.js 가 보이게 함 */}
-          <button type="button" className="sfa" id="sfa" aria-pressed="false" hidden>
+          <button type="button" className="sfa" id="sfa" hidden>
             <i aria-hidden="true" />
             <span>자동 재생</span>
           </button>
+          <span className="sr" id="sfaLive" role="status" aria-live="polite" />
         </>
       ) : null}
     </header>

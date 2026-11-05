@@ -632,7 +632,13 @@ export default function ShortformHome() {
             <h2 className="cap sz-lg">
               <Words text={"우리 브랜드 마케팅,\n지금 무료로 진단받아 보세요."} />
             </h2>
-            <p className="sm">기업·병원은 무료 진단, 대기업·프랜차이즈는 제안 요청, 매장·학원은 카카오톡 상담으로 받습니다. 신청하시면 담당 마케터가 연락드려 진단부터 시작합니다. 가격은 진단 뒤 제안서로 안내합니다.</p>
+            <p className="sm">
+              기업·병원은 무료 진단, 대기업·프랜차이즈는 <a href="/business/contact">제안 요청</a>, 매장·학원은{" "}
+              <a href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
+                카카오톡 상담
+              </a>
+              으로 받습니다. 신청하시면 담당 마케터가 연락드려 진단부터 시작합니다. 가격은 진단 뒤 제안서로 안내합니다.
+            </p>
             <div className="ct-ways">
               <a href={CONTACT.telHref} data-tel>
                 <Icon k="phone" />
