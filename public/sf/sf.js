@@ -24,12 +24,12 @@
       ['통합','블로그','지도','카페','이미지'].forEach(function(t){h+='<span'+(t===d.tab?' class="on"':'')+'>'+t+'</span>'});h+='</div>';
       d.r.forEach(function(x,i){h+='<div class="r'+(i===0?' hl':'')+'"><div class="bd"><div class="nm">'+bl(16)+' · '+x.when+'</div><div class="t">'+(x.b?'<span class="bdg">'+x.b+'</span>':'')+x.t+'</div><div class="bd2">'+x.s+'</div></div><img src="'+IMG(x.img)+'" alt="" loading="lazy"></div>'});
       return h+'</div>'},
-    rank:function(d){return '<div class="tile rank">'+TGL+'<small>'+d.t+'</small><div class="big"><span>201위 →</span> <b>1위</b></div>'+
+    rank:function(d){return '<div class="tile rank">'+TGL+'<small>'+d.t+'</small><div class="big"><span>201위 →</span> <b><i data-count="1" data-from="201" style="font-style:normal">1</i>위</b></div>'+
       '<svg viewBox="0 0 200 110"><defs><linearGradient id="rg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2A93C2" stop-opacity=".28"/><stop offset="1" stop-color="#2A93C2" stop-opacity="0"/></linearGradient></defs><path d="M0 104 L28 96 L56 90 L84 70 L112 52 L140 30 L168 14 L200 6 L200 110 L0 110Z" fill="url(#rg)"/><path d="M0 104 L28 96 L56 90 L84 70 L112 52 L140 30 L168 14 L200 6" fill="none" stroke="#1E6C9F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="200" cy="6" r="5" fill="#1E6C9F"/></svg>'+
       '<table><tr><td>'+d.k+'</td><td>1위</td></tr><tr><td>시작한 달</td><td>201위</td></tr><tr><td>순위 확인</td><td>매주</td></tr></table></div>'},
     ads:function(){var a=[['18-24',5],['25-34',95],['35-44',159],['45-54',333],['55-64',429],['65+',286]],h='';
       a.forEach(function(x){h+='<div><i style="height:'+Math.max(3,Math.round(x[1]/429*82))+'%"></i>'+x[0]+'</div>'});
-      return '<div class="tile ads">'+TGL+'<div class="hd">메타 광고 결과<small>2026.02 · 한 달</small></div><div class="kp"><div><span>링크 클릭</span><b>1,317</b></div><div><span>쓴 광고비</span><b>99,939원</b></div><div class="w"><span>클릭 한 번에</span><b>약 76원</b></div></div><div class="ch"><p>나이대별 클릭</p><div class="br">'+h+'</div></div></div>'},
+      return '<div class="tile ads">'+TGL+'<div class="hd">메타 광고 결과<small>2026.02 · 한 달</small></div><div class="kp"><div><span>링크 클릭</span><b data-count="1317">1,317</b></div><div><span>쓴 광고비</span><b><i data-count="99939" style="font-style:normal">99,939</i>원</b></div><div class="w"><span>클릭 한 번에</span><b>약 76원</b></div></div><div class="ch"><p>나이대별 클릭</p><div class="br">'+h+'</div></div></div>'},
     blog:function(d){return '<div class="tile blog"><div class="top"><img src="'+IMG(d.img)+'" alt="" loading="lazy">'+TG+'</div><div class="bd"><span class="bdg'+(d.red?' r':'')+'">'+d.b+'</span><b class="h4t">'+d.t+'</b><div class="by"><i></i>'+bl(18)+' · '+d.when+'</div><div class="ln2"></div><div class="ln2 s"></div></div></div>'},
     news:function(d){return '<div class="tile news">'+TGL+'<div class="mast"><b>'+bl(26)+' 신문</b><span>'+d.when+'</span></div><b class="h4t">'+d.t+'</b><div class="im"><img src="'+IMG(d.img)+'" alt="" loading="lazy"></div><div class="ln2"></div><div class="ln2" style="width:70%"></div></div>'},
     edit:function(d){return '<div class="tile edit"><div class="pv"><img src="'+IMG(d.img)+'" alt="" loading="lazy"><div class="sub2">'+d.s+'</div></div>'+TG+
@@ -237,6 +237,7 @@ function cutsInit() {
       el.innerHTML = h;
     });
     if (c.id === 'c32') montagePrep();
+    countUp(c);
   }
   function enter(c) {
     prep(c);
@@ -320,6 +321,7 @@ function docInit() {
     var pick = (el.getAttribute('data-pick') || '0,1,2,3').split(',').map(Number), h = '';
     pick.forEach(function (p, j) { if (s.tiles[p]) h += '<div class="dk" style="--j:' + j + '">' + tile(s.tiles[p]) + '</div>'; });
     el.innerHTML = h;
+    countUp(el);
   }
   var els = [].slice.call(document.querySelectorAll('[data-tiles]')), rv = [].slice.call(document.querySelectorAll('.rv'));
   /* 작업물 띠 숏폼(11-05) — 화면 가까이 오면 그때 받고, 「동작 줄이기」면 첫 장면만 */
@@ -352,10 +354,29 @@ function hardNav() {
   addEventListener('popstate', function () { if (location.pathname !== here) location.reload(); });
 }
 
+/* 숫자가 0부터 올라가서 멈춤(11-05 사장님 「숫자가 올라가서 멈추는 모션」) — [data-count] 가 화면에 보이면 1.1초.
+   글자는 처음부터 최종 숫자로 들어 있다(검색·AI·스크립트 없을 때 그대로). 「동작 줄이기」면 안 움직임 */
+var cntIO = null;
+function countUp(root) {
+  if (H4.reduce) return;
+  var els = [].slice.call((root || document).querySelectorAll('[data-count]:not([data-cn])'));
+  if (!els.length) return;
+  function run(el) {
+    var to = parseFloat(el.getAttribute('data-count')) || 0, from = parseFloat(el.getAttribute('data-from')) || 0, t0 = performance.now(), dur = 1100, comma = /,/.test(el.textContent);
+    function fmt(n) { return comma ? n.toLocaleString('ko-KR') : String(n); }
+    function step(t) { var k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = fmt(Math.round(from + (to - from) * e)); if (k < 1) requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+  if (!('IntersectionObserver' in window)) return;
+  if (!cntIO) cntIO = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { cntIO.unobserve(e.target); run(e.target); } }); }, { threshold: .5 });
+  els.forEach(function (el) { el.setAttribute('data-cn', ''); cntIO.observe(el); });
+}
+
 hardNav();
 chromeInit();
 cutsInit();
 heroInit();
 docInit();
+countUp(document);
 
 })();

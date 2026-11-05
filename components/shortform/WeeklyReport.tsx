@@ -37,7 +37,7 @@ export default function WeeklyReport() {
         {KPI.map(([v, u, l], i) => (
           <div key={l} className="wr-k" style={vars({ i })}>
             <strong>
-              {v}
+              <span data-count={v}>{v}</span>
               <em>{u}</em>
             </strong>
             <span>{l}</span>
@@ -50,7 +50,8 @@ export default function WeeklyReport() {
           </svg>
           <div>
             <strong>
-              29<em>/ 30</em>
+              <span data-count="29">29</span>
+              <em>/ 30</em>
             </strong>
             <span>이번 주 키워드 질문 30개 중 AI 답변에 업체가 나온 질문 · 홈페이지가 출처로 뜬 답 12개</span>
           </div>

@@ -918,7 +918,7 @@ html.sf-pre .sf .intro { animation: sf-intro-safe 0s linear 5s forwards; }
 /* 콘텐츠 첫 컷 아래 줄 숏폼 3편은 세로 화면에 가깝게 */
 .sf .sa-wall video { aspect-ratio: 3 / 4; }
 /* 첫 화면 뒤 숏폼 벽이 보이게(11-05 사장님 「배경에서 숏폼이 여러 개 돌던 디자인 왜 빠졌나」) — 글자 쪽(왼쪽)은 진하게 두고 휴대폰 쪽(오른쪽) 막을 옅게 */
-@media (min-width: 821px) { .sf .hero .veil { background: linear-gradient(90deg, rgba(20,84,132,.96) 0%, rgba(24,92,142,.9) 34%, rgba(30,108,159,.5) 60%, rgba(36,128,178,.22) 100%), linear-gradient(180deg, rgba(24,96,146,.5) 0%, rgba(24,96,146,0) 20%, rgba(24,96,146,0) 80%, rgba(24,96,146,.75) 100%); } }
+@media (min-width: 821px) { .sf .hero .veil { background: linear-gradient(90deg, rgba(20,84,132,.96) 0%, rgba(24,92,142,.9) 34%, rgba(30,108,159,.72) 60%, rgba(36,128,178,.55) 100%), linear-gradient(180deg, rgba(24,96,146,.85) 0%, rgba(24,96,146,0) 18%, rgba(24,96,146,0) 80%, rgba(24,96,146,.75) 100%); } }
 /* 첫 화면 뒤 숏폼 벽이 처음부터 안 보이던 원인(11-05): 컷 공통 「.cut > div 는 제자리(relative)」 규칙이 벽(.bg)과 막(.veil)까지 덮어 높이 48px로 납작해졌다 → 다시 화면 전체로
    첫 화면을 벗어나면 벽도 고리처럼 흐리게 감춘다(넘길 때 렉 방지) */
 .sf .cut.hero > .bg, .sf .cut.hero > .veil { position: absolute; inset: 0; z-index: 0; }
