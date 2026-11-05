@@ -3,6 +3,8 @@ import { TEAMS, STEPS, DIAG_ROWS } from "@/components/shortform/content"
 import { Icon } from "@/components/shortform/icons"
 import { DocShell, Crumb, Meta, Sec, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "@/components/shortform/DocParts"
 import { TEAM_PAGE } from "@/components/shortform/details"
+import WeeklyReport from "@/components/shortform/WeeklyReport"
+import Works from "@/components/shortform/Works"
 import { OG_TIMESTAMP as timestamp } from "@/lib/site-metadata"
 
 // 전문 인력 · 진행 과정(2026-11-04 리뉴얼). 리더 이름·사진·이력은 회사 준비물 — 받기 전엔 팀과 맡는 일만 싣는다.
@@ -127,17 +129,16 @@ export default function TeamPage() {
             <ul>
               {DIAG_ROWS.map(([a, b]) => (
                 <li key={a}>
-                  {a} — {b}
+                  {a}: {b}
                 </li>
               ))}
             </ul>
           </div>
-          <figure className="dp-ph" style={{ height: "auto", background: "#fff", padding: 10, border: "1px solid #E3EAF2" }}>
-            <img src="/sf/img/report.jpg" alt="실제 주간 보고서 한 장(업체명·글 제목 가림)" width={975} height={835} style={{ height: "auto" }} loading="lazy" />
-            <figcaption style={{ marginTop: 8, fontSize: 13, color: "#55627A" }}>실제 주간 보고서 · 업체명·글 제목 가림</figcaption>
-          </figure>
+          <WeeklyReport />
         </div>
       </Sec>
+
+      <Works k="team" />
 
       <Sec q="전문 인력·진행 과정 자주 묻는 질문">
         <Faq items={d.faq} />

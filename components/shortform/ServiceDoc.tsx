@@ -5,6 +5,7 @@ import { MG } from "./mg"
 import { Icon } from "./icons"
 import { DocShell, Crumb, Meta, Sec, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
 import { Ex } from "./parts"
+import Works from "./Works"
 
 /** 받침 있으면 「과」, 없으면 「와」 */
 function wa(w: string) {
@@ -99,6 +100,8 @@ export default function ServiceDoc({ slug }: { slug: string }) {
           ))}
         </ul>
       </Sec>
+
+      <Works k={s.k} />
 
       <Sec q={d.q3}>
         <ol className="dp-num">

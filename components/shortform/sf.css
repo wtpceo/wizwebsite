@@ -227,7 +227,7 @@ html.sf-anim .sf .cut:not(.seen) .probs li { opacity: 0; }
 html.sf-anim .sf .cut.is-on .probs li { animation: sf-rise .5s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.9s + var(--i) * 140ms); }
 /* 글자가 부서져 흩어짐(Break Typography) */
 html.sf-anim .sf .fx-break.is-on .brk .ch { animation: sf-pop .45s cubic-bezier(.2,1.3,.4,1) both, sf-break .9s cubic-bezier(.6,0,.4,1) 2.9s forwards; animation-delay: calc(.2s + var(--i) * 32ms), calc(2.9s + var(--i) * 18ms); }
-@keyframes sf-break { 0% { transform: none; opacity: 1; } 100% { transform: translate(var(--dx), var(--dy)) rotate(var(--r)) scale(.7); opacity: .18; } }
+@keyframes sf-break { 0% { transform: none; } 40% { transform: translate(calc(var(--dx) * .1), calc(var(--dy) * .1)) rotate(calc(var(--r) * .5)); } 100% { transform: translate(calc(var(--dx) * .035), calc(var(--dy) * .035)) rotate(calc(var(--r) * .12)); } }
 .sf .fx-break .brk .ch:nth-child(3n) { color: var(--sky2); }
 
 /* ── 3 해결 ── */
@@ -305,14 +305,41 @@ html.sf-anim .sf .sa.fx-shutter.is-on .sa-cap .w { animation-name: sf-shut; }
 html.sf-anim .sf .sa.fx-push.is-on .sa-cap { animation: sf-push 1s cubic-bezier(.16,1,.3,1) both; }
 @keyframes sf-push { from { transform: scale(2.4); opacity: 0; } to { transform: none; opacity: 1; } }
 html.sf-anim .sf .sa.fx-push.is-on .sa-cap .w { animation: none; opacity: 1; }
-/* 하드컷 릴스(찍고 자르고) */
-.sf .sa-reels { position: absolute; right: var(--pad-x); top: 50%; width: min(300px, 26vw); aspect-ratio: 9/16; transform: translateY(-46%) rotate(4deg); border-radius: 8px; overflow: hidden; background: var(--nk2); z-index: 0; box-shadow: 0 40px 70px -40px rgba(0,0,0,.7); }
-.sf .sa-reels video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
-.sf .sa-reels video:first-child { opacity: 1; }
-html.sf-anim .sf .sa.is-on .sa-reels video { animation: sf-hc 2.5s steps(1) infinite; animation-delay: calc(var(--i) * .5s); }
-@keyframes sf-hc { 0% { opacity: 1; } 20% { opacity: 0; } 100% { opacity: 0; } }
+/* 첫 컷 그림 자리(11-05) — 제목 왼쪽 · 그림 오른쪽. 휴대폰은 제목 아래(그림이 제목을 덮지 않게) */
+.sf .sa-has .sa-in { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); grid-template-rows: auto auto; align-content: center; column-gap: 4vw; }
+.sf .sa-has .sa-no { grid-column: 1; grid-row: 1; align-self: end; }
+.sf .sa-has .sa-cap { grid-column: 1; grid-row: 2; align-self: start; }
+.sf .sa-has .sa-vis { grid-column: 2; grid-row: 1 / span 2; align-self: center; position: relative; z-index: 1; }
+.sf .sa-has .sa-cap.cap.sz-xl { font-size: clamp(44px, 5.4vw, 104px); }
+html.sf-anim .sf .sa:not(.seen) .sa-vis > * { opacity: 0; }
+html.sf-anim .sf .sa.is-on .sa-vis > * { animation: sf-rise .6s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.45s + var(--j, var(--i, 0)) * 110ms); }
+/* 예시 화면 타일 두세 장 — 가운데(또는 첫) 장이 크게 */
+.sf .sa-tiles { display: flex; align-items: center; justify-content: center; gap: clamp(12px, 1.6vw, 28px); }
+.sf .sa-tiles .dk { flex: none; width: clamp(150px, 12vw, 236px); }
+.sf .sa-tiles .dk .tile { border-radius: 14px; box-shadow: 0 34px 60px -34px rgba(0,0,0,.55); }
+.sf .sa-n3 .dk:nth-child(2) { width: clamp(184px, 15vw, 292px); }
+.sf .sa-n3 .dk:nth-child(1) .tile { transform: translateY(7%) rotate(-4deg); }
+.sf .sa-n3 .dk:nth-child(3) .tile { transform: translateY(-6%) rotate(4deg); }
+.sf .sa-n2 .dk:nth-child(1) { width: clamp(184px, 15vw, 292px); }
+.sf .sa-n2 .dk:nth-child(2) .tile { transform: translateY(10%) rotate(3deg); }
+/* 인플루언서 — 직접 운영하는 @matzip_town 피드 세 장 */
+.sf .sa-reel3 { display: flex; align-items: center; justify-content: center; gap: clamp(12px, 1.6vw, 26px); }
+.sf .sa-reel3 figure { position: relative; margin: 0; flex: none; width: clamp(140px, 11.5vw, 226px); aspect-ratio: 9/16; border-radius: 14px; overflow: hidden; box-shadow: 0 34px 60px -34px rgba(0,0,0,.55); }
+.sf .sa-reel3 figure:nth-child(2) { width: clamp(176px, 14.5vw, 282px); outline: 2px solid var(--sky2); outline-offset: 4px; }
+.sf .sa-reel3 figure:nth-child(1) { transform: translateY(8%); }
+.sf .sa-reel3 figure:nth-child(3) { transform: translateY(-7%); }
+.sf .sa-reel3 img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sf .sa-reel3 figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 12px 12px; background: linear-gradient(180deg, rgba(11,20,34,0), rgba(11,20,34,.82)); color: #fff; }
+.sf .sa-reel3 b { display: block; font-size: 13.5px; font-weight: 800; }
+.sf .sa-reel3 small { display: block; margin-top: 2px; font-size: 12px; font-weight: 600; color: var(--sky); }
+/* 콘텐츠·미디어 — 직접 찍은 사진 벽 + 숏폼 한 칸 */
+.sf .sa-wall { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; transform: rotate(-3deg); max-width: 760px; justify-self: center; width: 100%; }
+.sf .sa-wall img, .sf .sa-wall video { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; border-radius: 6px; background: var(--nk2); }
+.sf .sa-wall small { grid-column: 1 / -1; font-size: 12px; font-weight: 600; opacity: .6; text-align: right; }
 /* 카드 비행(Isometric) */
 .sf .sa-iso { position: absolute; right: calc(var(--pad-x) - 2vw); top: 50%; width: min(520px, 40vw); height: min(560px, 62vh); transform: translateY(-50%); perspective: 1600px; z-index: 0; }
+.sf .sa-has .sa-iso.sa-vis { position: relative; right: auto; top: auto; width: 100%; max-width: 640px; height: min(600px, 66vh); transform: none; justify-self: center; }
+.sf .sa-has .sa-iso.sa-vis .dk { width: 48%; }
 .sf .sa-iso .dk { position: absolute; width: 44%; top: 8%; left: calc(var(--j) * 26%); transform: rotateX(52deg) rotateZ(-38deg) translateZ(calc(var(--j) * 60px)); transform-style: preserve-3d; box-shadow: 0 30px 50px -30px rgba(0,0,0,.7); border-radius: 10px; overflow: hidden; }
 html.sf-anim .sf .sa.fx-iso.is-on .sa-iso .dk { animation: sf-fly .95s cubic-bezier(.16,1,.3,1) both; animation-delay: calc(.4s + var(--j) * 140ms); }
 @keyframes sf-fly { from { opacity: 0; transform: rotateX(52deg) rotateZ(-38deg) translate3d(-60%, 140%, 200px); } to { opacity: 1; transform: rotateX(52deg) rotateZ(-38deg) translateZ(calc(var(--j) * 60px)); } }
@@ -500,13 +527,11 @@ html.sf-anim .sf .cut.is-on .tm2-r { animation: sf-flipin .55s cubic-bezier(.2,1
 .sf .ps-k { margin: 0 0 18px; font-size: 15px; font-weight: 700; color: var(--b1); }
 .sf .ps-no { margin: 0; font-size: 14px; font-weight: 750; opacity: .65; font-variant-numeric: tabular-nums; }
 .sf .ps-w { margin: 6px 0 0; font-size: clamp(64px, 9vw, 160px); font-weight: 900; letter-spacing: -.06em; line-height: 1.05; }
-.sf .slot { display: inline-block; height: 1.12em; overflow: hidden; vertical-align: top; }
-.sf .slot-r { display: flex; flex-direction: column; transform: translateY(calc(var(--n) * -1.12em)); }
-.sf .slot-r span { display: block; height: 1.12em; }
-html.sf-anim .sf .ps.is-on .slot-r { animation: sf-slot 1.05s cubic-bezier(.2,1.1,.3,1) .25s both; }
-@keyframes sf-slot { from { transform: translateY(calc((var(--n) + 4) * -1.12em)); } to { transform: translateY(calc(var(--n) * -1.12em)); } }
-.sf .ps-0 .slot-r { animation-name: sf-slot0; }
-@keyframes sf-slot0 { from { transform: translateY(-4.48em); } to { transform: none; } }
+/* 큰 단계 이름 — 그 단계 이름만 위에서 내려온다(11-05: 굴리는 동안 다른 단계 이름이 겹쳐 보이던 것 고침) */
+.sf .ps-wi { display: inline-block; }
+html.sf-anim .sf .cut:not(.seen) .ps-wi { opacity: 0; }
+html.sf-anim .sf .ps.is-on .ps-wi { animation: sf-drop .55s cubic-bezier(.23,1,.32,1) .2s both; }
+@keyframes sf-drop { from { opacity: 0; transform: translateY(-28%); } to { opacity: 1; transform: none; } }
 .sf .ps-l { margin: 10px 0 0; font-size: clamp(17px, 1.5vw, 22px); font-weight: 650; }
 .sf .ps-flow { list-style: none; margin: 30px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .sf .ps-flow li { font-size: 13.5px; font-weight: 700; padding: 7px 12px; border: 1px solid currentColor; border-radius: 3px; opacity: .4; }
@@ -534,11 +559,64 @@ html.sf-anim .sf .cut.is-on .diag tr, html.sf-anim .sf .cut.is-on .prop dl > div
 .sf .wk-d b { font-size: 15px; font-weight: 850; }
 .sf .wk-d p { margin: 0; padding: 9px 10px; background: var(--mist); border-radius: 4px; font-size: 13.5px; font-weight: 700; line-height: 1.35; }
 .sf .wk-d small { display: block; margin-top: 3px; font-size: 11.5px; font-weight: 600; color: var(--b1); }
-.sf .rep { padding: 12px; margin: 0; }
-.sf .rep img { width: 100%; height: auto; display: block; border-radius: 4px; }
-.sf .rep figcaption { margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--sub); }
-html.sf-anim .sf .cut:not(.seen) .rep { opacity: 0; }
-html.sf-anim .sf .cut.is-on .rep { animation: sf-zoom .8s cubic-bezier(.16,1,.3,1) .35s both; }
+/* 주간 보고서 — 실제 보고서 숫자를 화면으로 다시 그림(11-05 · WeeklyReport.tsx) */
+.sf .wr { margin: 0; background: #fff; color: var(--ink); border: 1px solid #E3EAF2; border-radius: 10px; overflow: hidden; box-shadow: 0 40px 80px -46px rgba(14,42,68,.6); font-variant-numeric: tabular-nums; }
+.sf .wr-hd { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; padding: 18px 22px; background: var(--nk); color: #fff; }
+.sf .wr-hd small { display: block; font-size: 12.5px; font-weight: 600; color: var(--sky2); }
+.sf .wr-hd b { display: block; margin-top: 4px; font-size: clamp(17px, 1.35vw, 22px); font-weight: 850; letter-spacing: -.02em; }
+.sf .wr-hd p { margin: 0; font-size: 12.5px; line-height: 1.5; text-align: right; color: #C9D6E6; white-space: nowrap; }
+.sf .wr-kp { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; padding: 16px 18px 12px; }
+.sf .wr-k { border: 1px solid #E3EAF2; border-radius: 8px; padding: 12px 14px; }
+.sf .wr-k strong { display: block; font-size: clamp(24px, 2.2vw, 36px); font-weight: 900; line-height: 1.1; color: var(--nk); letter-spacing: -.02em; }
+.sf .wr-k em { font-style: normal; font-size: 13px; font-weight: 700; color: var(--sub); margin-left: 3px; letter-spacing: 0; }
+.sf .wr-k span { display: block; margin-top: 4px; font-size: 12.5px; line-height: 1.45; color: var(--sub); font-weight: 600; }
+.sf .wr-ai { grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; background: #F1F7FD; border-color: #CFE3F6; }
+.sf .wr-ai svg { width: 58px; height: 58px; flex: none; }
+.sf .wr-rb, .sf .wr-rf { fill: none; stroke-width: 4; }
+.sf .wr-rb { stroke: #D6E6F5; }
+.sf .wr-rf { stroke: var(--b2); stroke-linecap: round; }
+.sf .wr-mix { padding: 0 18px 4px; }
+.sf .wr-bar { display: flex; height: 9px; border-radius: 5px; overflow: hidden; background: #EEF3F8; }
+.sf .wr-bar i { display: block; }
+.sf .wr-bar .n, .sf .wr-mix p .n::before { background: #2DB35D; }
+.sf .wr-bar .t, .sf .wr-mix p .t::before { background: #F28C28; }
+.sf .wr-mix p { margin: 6px 0 0; display: flex; gap: 16px; font-size: 12px; font-weight: 600; color: var(--sub); }
+.sf .wr-mix p span::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 2px; margin-right: 6px; }
+.sf .wr-tl { padding: 12px 18px 16px; }
+.sf .wr-h { margin: 0 0 8px; font-size: 13.5px; font-weight: 800; }
+.sf .wr-tl ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
+.sf .wr-tl li { min-height: 76px; border: 1px solid #E3EAF2; border-radius: 6px; padding: 6px; display: flex; flex-direction: column; gap: 4px; }
+.sf .wr-tl small { font-size: 11.5px; font-weight: 700; color: var(--sub); }
+.sf .wr-tl li span { font-size: 11px; font-weight: 800; border-radius: 4px; padding: 3px 5px; line-height: 1.25; }
+.sf .wr-tl li .n { background: #E3F6E9; color: #167A3A; }
+.sf .wr-tl li .t { background: #FFF0E3; color: #A44A0A; }
+.sf .wr figcaption { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid #E3EAF2; padding: 10px 18px; font-size: 12px; font-weight: 600; color: var(--sub); }
+html.sf-anim .sf .cut:not(.seen) .wr { opacity: 0; }
+html.sf-anim .sf .cut.is-on .wr { animation: sf-zoom .8s cubic-bezier(.16,1,.3,1) .35s both; }
+html.sf-anim .sf .cut:not(.seen) .wr-k, html.sf-anim .sf .cut:not(.seen) .wr-tl li { opacity: 0; }
+html.sf-anim .sf .cut.is-on .wr-k, html.sf-anim .sf .cut.is-on .wr-tl li { animation: sf-rise .45s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.75s + var(--i) * 80ms); }
+@keyframes sf-ring { from { stroke-dasharray: 0 30; } }
+html.sf-anim .sf .cut.is-on .wr-rf { animation: sf-ring 1.1s cubic-bezier(.23,1,.32,1) 1.1s both; }
+/* 진행 과정 카드 — 넓은 화면에서 작게 떠 보이지 않게 글자·여백을 키움(11-05) */
+@media (min-width: 1200px) {
+  .sf .ps .doc { padding: 34px 38px 38px; }
+  .sf .ps .doc-h { font-size: 18px; margin-bottom: 18px; }
+  .sf .ps .doc-f { font-size: 16px; }
+  .sf .ps .diag td { padding: 16px 0; font-size: 18px; }
+  .sf .ps .prop dl > div { grid-template-columns: 120px 1fr; padding: 18px 0; }
+  .sf .ps .prop dt { font-size: 15.5px; }
+  .sf .ps .prop dd { font-size: 20px; }
+  .sf .ps .prop dd small { font-size: 15px; }
+  .sf .ps .wk-d { min-height: 260px; }
+  .sf .ps .wk-d b { font-size: 17px; }
+  .sf .ps .wk-d p { font-size: 15.5px; padding: 11px 12px; }
+  .sf .ps .wk-d small { font-size: 12.5px; }
+  .sf .ps .fn { height: 320px; }
+  .sf .ps .fn-b b { font-size: 17px; }
+  .sf .ps .wr-hd { padding: 22px 26px; }
+  .sf .ps .wr-k span { font-size: 13.5px; }
+  .sf .ps .wr-tl li span { font-size: 12px; }
+}
 .sf .fn { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; align-items: end; height: 240px; }
 .sf .fn-b { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; }
 .sf .fn-b i { display: block; height: var(--v); min-height: 6px; background: #CFE2F0; border-radius: 3px 3px 0 0; transform-origin: bottom; }
@@ -555,13 +633,10 @@ html.sf-anim .sf .cut.is-on .fn-b i { animation: sf-grow .7s cubic-bezier(.2,1,.
 .sf .ins-t { padding: 0 var(--pad-x); display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; }
 .sf .ins-all { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 800; color: var(--b1); white-space: nowrap; }
 .sf .ins-all svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.sf .ins-flow { overflow: hidden; }
-.sf .ins-track { list-style: none; margin: 0; padding: 0 0 0 var(--pad-x); display: flex; gap: 18px; width: max-content; }
-html.sf-anim .sf .cut.is-on .ins-track { animation: sf-marq 38s linear infinite; }
-.sf .ins-flow:hover .ins-track { animation-play-state: paused; }
-@keyframes sf-marq { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 9px)); } }
-.sf .ins-track li { flex: none; width: min(440px, 76vw); }
-.sf .ins-track li:nth-child(3n+2) { width: min(520px, 82vw); }
+/* 인사이트 카드 석 장 — 화면 폭 안에 세운다(11-05: 옆으로 흘러가며 양끝이 잘리던 띠를 멈춤) */
+.sf .ins-track { list-style: none; margin: 0; padding: 0 var(--pad-x); display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
+html.sf-anim .sf .cut:not(.seen) .ins-track li { opacity: 0; }
+html.sf-anim .sf .cut.is-on .ins-track li { animation: sf-rise .5s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.5s + var(--i) * 90ms); }
 .sf .ins-track a { display: flex; flex-direction: column; gap: 14px; min-height: 260px; padding: 28px 28px 24px; border-radius: 8px; background: var(--mist); border: 1px solid #E3EAF2; transition: transform .25s cubic-bezier(.23,1,.32,1), background-color .25s ease; }
 .sf .ins-track li:nth-child(3n+1) a { background: var(--nk); color: #EEF4FA; border-color: transparent; }
 .sf .ins-track li:nth-child(3n+2) a { background: linear-gradient(160deg, #2A93C2, #1E6C9F); color: #fff; border-color: transparent; }
@@ -684,8 +759,20 @@ html.sf-anim .sf .cut.is-on .lg-sub { animation: sf-rise .7s cubic-bezier(.23,1,
   .sf .cmp-r { padding: 10px 0; }
   .sf .cmp-a { font-size: 12.5px; padding-right: 8px; }
   .sf .cmp-b { font-size: 13.5px; }
-  .sf .sa-reels { width: 46vw; right: 16px; top: auto; bottom: 90px; transform: rotate(4deg); opacity: .9; }
-  .sf .sa-iso { width: 86vw; height: 40vh; top: auto; bottom: 70px; transform: none; opacity: .85; }
+  .sf .sa-has .sa-in { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; align-content: center; row-gap: 0; }
+  .sf .sa-has .sa-no, .sf .sa-has .sa-cap, .sf .sa-has .sa-vis { grid-column: 1; grid-row: auto; }
+  .sf .sa-has .sa-cap.cap.sz-xl { font-size: clamp(36px, 10vw, 48px); }
+  .sf .sa-has .sa-vis { margin-top: 26px; }
+  .sf .sa-tiles .dk { width: 27vw; }
+  .sf .sa-n3 .dk:nth-child(2), .sf .sa-n2 .dk:nth-child(1) { width: 34vw; }
+  .sf .sa-n2 .dk:nth-child(2) { width: 30vw; }
+  .sf .sa-reel3 figure { width: 26vw; }
+  .sf .sa-reel3 figure:nth-child(2) { width: 33vw; }
+  .sf .sa-reel3 b { font-size: 11px; }
+  .sf .sa-reel3 small { font-size: 10px; }
+  .sf .sa-reel3 figcaption { padding: 28px 8px 8px; }
+  .sf .sa-wall { gap: 6px; transform: rotate(-2deg); }
+  .sf .sa-has .sa-iso.sa-vis { height: 38vh; max-width: none; }
   .sf .sb-mg { max-width: 360px; }
   .sf .sb-steps { margin-top: 18px; gap: 8px; }
   .sf .sb-steps li { font-size: 14.5px; gap: 10px; }
@@ -745,8 +832,22 @@ html.sf-anim .sf .cut.is-on .lg-sub { animation: sf-rise .7s cubic-bezier(.23,1,
   .sf .wk-d p { font-size: 11px; padding: 6px; }
   .sf .wk-d small { display: none; }
   .sf .fn { height: 140px; gap: 8px; }
+  .sf .wr-hd { padding: 12px 14px; }
+  .sf .wr-hd p { display: none; }
+  .sf .wr-kp { padding: 10px 12px 8px; gap: 6px; }
+  .sf .wr-k { padding: 8px 9px; }
+  .sf .wr-k span { font-size: 11px; }
+  .sf .wr-ai svg { width: 44px; height: 44px; }
+  .sf .wr-mix { padding: 0 12px 2px; }
+  .sf .wr-tl { padding: 8px 12px 10px; }
+  .sf .wr-tl ol { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sf .wr-tl li { min-height: 0; }
+  .sf .wr figcaption { padding: 8px 12px; font-size: 11px; }
   .sf .ins-t { flex-direction: column; align-items: flex-start; }
-  .sf .ins-track a { min-height: 210px; padding: 22px; }
+  .sf .ins-track { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .sf .ins-track a { min-height: 0; padding: 16px 18px; gap: 8px; }
+  .sf .ins-track b { font-size: 16.5px; }
+  .sf .ins { gap: 24px; }
   .sf .ct { align-content: start; padding-top: 84px; }
   .sf .ct-ways { margin-top: 16px; }
   .sf .ct-ways a { padding: 9px 0; }
@@ -764,8 +865,6 @@ html.sf-anim .sf .cut.is-on .lg-sub { animation: sf-rise .7s cubic-bezier(.23,1,
 
 /* 동작 줄이기 — 컷 넘김·키네틱 없이 일반 스크롤(스크립트도 sf-anim·sf-snap 을 안 붙임) */
 @media (prefers-reduced-motion: reduce) {
-  .sf .ins-track { animation: none !important; }
-  .sf .sa-reels video { animation: none !important; }
 }
 
 /* 11-04 검수 고침 ───────────────────────────── */

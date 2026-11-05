@@ -22,6 +22,7 @@ import { DETAILS } from "./details"
 import { Icon } from "./icons"
 import { Words, Chars, Cut, Ex, vars } from "./parts"
 import SfContactForm from "./SfContactForm"
+import WeeklyReport from "./WeeklyReport"
 import { SfHeader, SfMenu, SfFooter, SfDock } from "./SiteChrome"
 import "./sf-hero.css"
 import "./sf.css"
@@ -31,6 +32,8 @@ import "./sf-doc.css"
 // 움직임은 public/sf/sf.js 가 클래스만 바꾼다. 스크립트가 없어도 모든 컷이 그대로 보인다(html.sf-anim 일 때만 숨김).
 
 const SVC_TONE = ["k", "c", "k", "c", "k", "c", "k", "c"] as const
+// 서비스 첫 컷 예시 화면(sf.js 타일 순번) — 가운데 칸이 크게 보인다
+const SA_TILES: Record<string, string> = { perf: "1,0,2", viral: "1,0,3", global: "0,1", off: "0,1" }
 const STEP_TONE = ["w", "k", "w", "k", "w"] as const
 
 export default function ShortformHome() {
@@ -250,7 +253,7 @@ export default function ShortformHome() {
         const base = 8 + si * 3
         return (
           <div className="svc" key={s.k} id={`svc-${s.k}`} data-svc={s.k}>
-            <Cut id={`c${base}`} no={next()} ch={3} tone={SVC_TONE[si]} fx={s.fx} label={`${s.n} 1`} className="sa">
+            <Cut id={`c${base}`} no={next()} ch={3} tone={SVC_TONE[si]} fx={s.fx} label={`${s.n} 1`} className={s.k === "search" ? "sa" : "sa sa-has"}>
               {/* 옛 쪽의 /#services 링크가 여기로 온다 */}
               {si === 0 ? <span id="services" className="sf-anchor" aria-hidden="true" /> : null}
               <div className="sa-in">
@@ -259,14 +262,34 @@ export default function ShortformHome() {
                   {s.k === "search" ? " · 대표 서비스" : ""}
                 </p>
                 <h2 className="cap sz-xl sa-cap">{s.fx === "flip" || s.fx === "slot" ? <Chars text={s.cap} /> : <Words text={s.cap} />}</h2>
-                {s.fx === "cut" ? (
-                  <div className="sa-reels" aria-hidden="true">
-                    {["r13", "r04", "r17", "r22", "r08"].map((r, i) => (
-                      <video key={r} data-src={`/sf/v/${r}.mp4`} poster={`/sf/v/${r}.jpg`} muted loop playsInline preload="none" style={vars({ i })} />
+                {/* 11-05: 제목만 떠 있던 첫 컷을 실제 작업물·예시 화면으로 채움(PC는 오른쪽, 휴대폰은 제목 아래) */}
+                {SA_TILES[s.k] ? <div className={`sa-vis sa-tiles sa-n${SA_TILES[s.k].split(",").length}`} data-tiles={s.k} data-pick={SA_TILES[s.k]} aria-hidden="true" /> : null}
+                {s.k === "infl" ? (
+                  <div className="sa-vis sa-reel3" aria-hidden="true">
+                    {["m1", "m2", "m3"].map((m, i) => (
+                      <figure key={m} style={vars({ i })}>
+                        <img src={`/sf/pf/${m}.jpg`} alt="" loading="lazy" width={450} height={800} />
+                        <figcaption>
+                          <b>@matzip_town</b>
+                          {i === 1 ? <small>직접 운영 · 팔로워 5.1만</small> : null}
+                        </figcaption>
+                      </figure>
                     ))}
                   </div>
                 ) : null}
-                {s.fx === "iso" ? <div className="sa-iso" data-tiles={s.k} data-pick="0,1,2" aria-hidden="true" /> : null}
+                {s.k === "content" ? (
+                  <div className="sa-vis sa-wall" aria-hidden="true">
+                    {["w1", "w2", "w3", "v", "w4", "w5"].map((m, i) =>
+                      m === "v" ? (
+                        <video key={m} data-src="/sf/v/r13.mp4" poster="/sf/v/r13.jpg" muted loop playsInline preload="none" style={vars({ i })} />
+                      ) : (
+                        <img key={m} src={`/sf/pf/${m}.jpg`} alt="" loading="lazy" width={720} height={540} style={vars({ i })} />
+                      ),
+                    )}
+                    <small>직접 찍은 사진 · 숏폼</small>
+                  </div>
+                ) : null}
+                {s.fx === "iso" ? <div className="sa-vis sa-iso" data-tiles={s.k} data-pick="0,1,2" aria-hidden="true" /> : null}
                 {s.fx === "wipe" || s.fx === "smooth" || s.fx === "shutter" ? (
                   <div className="sa-wp" aria-hidden="true">
                     <i />
@@ -468,13 +491,7 @@ export default function ShortformHome() {
               </p>
               <h2 className="sr">{st.w}</h2>
               <p className="ps-w" aria-hidden="true">
-                <span className="slot" style={vars({ n: i })}>
-                  <span className="slot-r">
-                    {STEPS.map((x) => (
-                      <span key={x.w}>{x.w} </span>
-                    ))}
-                  </span>
-                </span>
+                <span className="ps-wi">{st.w}</span>
               </p>
               <p className="ps-l">{st.t}</p>
               <ol className="ps-flow" aria-label="진행 순서">
@@ -550,10 +567,7 @@ export default function ShortformHome() {
                 </div>
               ) : null}
               {i === 3 ? (
-                <figure className="doc rep">
-                  <img src="/sf/img/report.jpg" alt="실제 주간 보고서 한 장(업체명·글 제목 가림)" loading="lazy" width={975} height={835} />
-                  <figcaption>실제 주간 보고서 · 업체명·글 제목 가림</figcaption>
-                </figure>
+                <WeeklyReport />
               ) : null}
               {i === 4 ? (
                 <div className="doc fun">
@@ -593,17 +607,15 @@ export default function ShortformHome() {
           </div>
           <div className="ins-flow">
             <ul className="ins-track">
-              {[0, 1].map((rep) =>
-                insights.map((a, j) => (
-                  <li key={`${rep}-${a.href}`} aria-hidden={rep === 1 ? "true" : undefined} style={vars({ i: j })}>
-                    <Link href={a.href} tabIndex={rep === 1 ? -1 : undefined}>
-                      <small>{a.kicker}</small>
-                      <b>{a.title}</b>
-                      <span>{a.date}</span>
-                    </Link>
-                  </li>
-                )),
-              )}
+              {insights.map((a, j) => (
+                <li key={a.href} style={vars({ i: j })}>
+                  <Link href={a.href}>
+                    <small>{a.kicker}</small>
+                    <b>{a.title}</b>
+                    <span>{a.date}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

@@ -62,6 +62,22 @@
 .sf .dp-rep { margin-top: 28px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 32px; align-items: center; }
 .sf .dp-rep h3 { margin: 0 0 10px; font-size: 16px; font-weight: 800; }
 .sf .dp-rep ul { margin: 0; padding: 0 0 0 18px; display: grid; gap: 6px; font-size: 15px; line-height: 1.6; color: #34405A; }
+/* 실제 작업물 띠(11-05 · Works.tsx) — 실제 것과 예시 화면을 꼬리표로 구분 */
+.sf .dp-works { list-style: none; margin: 22px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 14px; align-items: start; }
+.sf .dp-works li { margin: 0; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.sf .dp-works li.wk-w { grid-column: 1 / -1; }
+.sf .dp-works li.wk-tall { grid-row: span 2; }
+.sf .dp-works img, .sf .dp-works video { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid #DCE5EF; background: #fff; }
+.sf .dp-works li:not(.wk-w):not(.wk-tall):not(.wk-r) img { aspect-ratio: 4 / 3; object-fit: cover; }
+.sf .dp-works li.wk-r img { aspect-ratio: 9 / 16; object-fit: cover; }
+.sf .dp-works li.wk-tall img { aspect-ratio: auto; max-height: 560px; object-fit: cover; object-position: top; }
+.sf .dp-works .wk-v video { aspect-ratio: 9 / 16; object-fit: cover; background: var(--nk2); }
+.sf .dp-works .wk-dk { container-type: inline-size; }
+.sf .dp-works .wk-dk .dk .tile { border-radius: 10px; box-shadow: 0 24px 44px -30px rgba(14,42,68,.5); }
+.sf .dp-works span { font-size: 13.5px; font-weight: 650; line-height: 1.45; color: #34405A; }
+.sf .dp-works-tag { display: block; margin-top: 14px; font-size: 12.5px; font-weight: 600; color: var(--sub); }
+html.sf-anim .sf .rv:not(.on) .dp-works li { opacity: 0; }
+html.sf-anim .sf .rv.on .dp-works li { animation: sf-rise .55s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.1s + var(--n, 0) * 70ms); }
 .sf .dp-deck { position: relative; height: 330px; }
 .sf .dp-deck .deck { position: absolute; inset: 0; }
 .sf .dp-deck .dk { width: 30%; }
@@ -166,6 +182,9 @@ html.sf-anim .sf .rv.on .deck .dk { animation: sf-deal .8s cubic-bezier(.16,1,.3
   .sf .dp-items { grid-template-columns: 1fr; }
   .sf .dp-steps { grid-template-columns: 1fr; gap: 14px; }
   .sf .dp-deck { height: 230px; }
+  .sf .dp-works { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 10px; }
+  .sf .dp-works li.wk-tall { grid-row: auto; grid-column: 1 / -1; }
+  .sf .dp-works span { font-size: 12.5px; }
   .sf .dp-ct { padding: 52px 0 calc(64px + env(safe-area-inset-bottom)); }
   .sf .dp-ct .ct-ways { display: none; }
 }

@@ -4,6 +4,7 @@ import { SOL_DETAILS } from "./details"
 import { Icon } from "./icons"
 import { DocShell, Crumb, Meta, Sec, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
 import { Ex } from "./parts"
+import Works from "./Works"
 
 // 업종별 솔루션 3쪽 — 누구에게 · 고민 · 묶어서 하는 순서 · 진행 · 자주 묻는 질문 · 문의
 export default function SolutionDoc({ slug }: { slug: string }) {
@@ -71,6 +72,8 @@ export default function SolutionDoc({ slug }: { slug: string }) {
           ))}
         </ol>
       </Sec>
+
+      <Works k={slug} />
 
       <Sec q={d.q2}>
         <p>{d.comboLead}</p>
