@@ -55,7 +55,7 @@ export default function ShortformHome() {
       />
       <div className="intro" id="intro" aria-hidden="true">
         <div className="fl">
-          {["검색", "광고", "블로그", "MCN", "촬영", "해외", "홈페이지", "엘리베이터TV"].map((w) => (
+          {["MCN", "광고", "검색", "촬영", "블로그", "해외", "홈페이지", "엘리베이터TV"].map((w) => (
             <span key={w}>{w}</span>
           ))}
         </div>
@@ -160,18 +160,27 @@ export default function ShortformHome() {
               </div>
             ))}
           </div>
-          {/* 11-05 사장님 「말풍선 디자인 다르게」 — 업체 넷이 한 대화방에서 말하는 모양(프로필 동그라미·이름·말풍선) */}
-          <ul className="pings" aria-label="업체가 넷일 때 오가는 말">
-            {PROBLEM_PINGS.map((p, i) => (
-              <li key={p} style={vars({ i })} className={`pv${i % 4}`}>
-                <span className="pg-av" aria-hidden="true">
-                  {PROBLEM_VENDORS[i % 4][0].slice(0, 1)}
-                </span>
-                <i>{PROBLEM_VENDORS[i % 4][0]}</i>
-                <span className="pg-b">{p}</span>
-              </li>
-            ))}
-          </ul>
+          {/* 11-05 사장님 「실제 카톡 대화처럼, 더 가독성 있게」 — 업체 넷이 있는 단톡방(방 이름·네모 프로필·꼬리 말풍선·보낸 시각) */}
+          <div className="kt">
+            <p className="kt-h" aria-hidden="true">
+              <b>마케팅 업체 단톡방</b>
+              <span>5</span>
+            </p>
+            <ul className="pings" aria-label="업체가 넷일 때 오가는 말">
+              {PROBLEM_PINGS.map((p, i) => (
+                <li key={p} style={vars({ i })} className={`pv${i % 4}`}>
+                  <span className="pg-av" aria-hidden="true">
+                    {PROBLEM_VENDORS[i % 4][0].slice(0, 1)}
+                  </span>
+                  <i>{PROBLEM_VENDORS[i % 4][0]}</i>
+                  <span className="pg-r">
+                    <span className="pg-b">{p}</span>
+                    <small aria-hidden="true">오후 2:{String(14 + i * 2).padStart(2, "0")}</small>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </Cut>
 

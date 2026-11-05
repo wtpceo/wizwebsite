@@ -47,16 +47,16 @@
     taxi:function(){return '<div class="tile tab">'+TG+'<div class="seat"></div><div class="cp">택시 뒷좌석 화면</div><div class="pad"><img src="'+IMG('derma')+'" alt="" loading="lazy"><span>퇴근길 피부 상담</span></div></div>'}
   };
   var S=[
-   {k:"search",n:"검색 최적화",ph:"AI가 먼저<br>추천하게",rec:["ChatGPT 추천 1순위 · 2026.10.28","네이버 지도 201위 → 1위 · 2026.10"],t1:"AI가 추천할 때, 지도에서 고를 때 우리 브랜드가 먼저 나오게 합니다.",d:["홈페이지·지도 정보를 똑같이 맞추기","손님 질문에 답하는 글 올리기","매주 같은 질문으로 다시 묻고 보고"],
-    tiles:[["ai",{q:"판교역 근처 치과 추천해 줘",it:[{img:"dental",k:"치과",why:"야간 진료 · 임플란트 상담 후기가 많아요"},{k:"치과의원",why:"주차 가능 · 토요일 진료",w:14},{k:"치과",why:"교정 상담 따로 받음",w:20}]}],["rank",{t:"네이버 지도 순위",k:"동네 이름 + 업종"}],["ai",{q:"정자동 필라테스 처음인데 어디가 좋아?",it:[{img:"pilates",k:"필라테스",why:"1:1 체험 수업 · 아침 7시 반"},{k:"스튜디오",why:"기구 수업 위주",w:16},{k:"필라테스",why:"주말 수업 있음",w:12}]}],["srch",{q:"분당 피부과",tab:"지도",r:[{img:"derma",t:"피부과의원 · 리프팅·여드름 진료",s:"방문자 리뷰 · 블로그 리뷰",when:"영업 중",b:"1"},{img:"cosme",t:"피부과 · 야간 진료",s:"방문자 리뷰",when:"영업 중"}]}]]},
-   {k:"perf",n:"퍼포먼스",ph:"광고는 마케터가<br>직접 돌리고",rec:["메타 광고 1,317번 클릭 · 99,939원 · 2026.02"],t1:"네이버·메타·구글·당근 광고를 담당 마케터가 직접 운영합니다.",d:["담당 마케터가 세팅·운영","자체 제작 영상·이미지 여러 개 비교","반응 좋은 쪽으로 예산 이동"],
-    tiles:[["ads",{}],["reel",{img:"derma",cap:"첫 상담 예약 받아요",lk:"3,208",cm:"96",ad:"예약하기"}],["reel",{img:"cosme",cap:"민감한 피부도 순하게",lk:"1.2만",cm:"231",ad:"구매하기"}],["reel",{img:"giftset",cap:"신제품 출시 기념 세트",lk:"5,420",cm:"188",ad:"구매하기"}]]},
-   {k:"viral",n:"바이럴",ph:"블로그 검색<br>맨 위로",rec:["블로그 탭 1위 · 2026.10.26","인기글 1위 · 2026.01"],t1:"블로그·체험단·기자단·언론 기사로 검색 맨 위를 잡습니다.",d:["올릴 검색어 정하기","블로거 고르고 글 가이드 만들기","올라간 글 주소 보고"],
-    tiles:[["srch",{q:"민감성 선크림 추천",tab:"블로그",r:[{img:"sunscreen",t:"민감성 피부 선크림 세 가지 써 봤어요",s:"공감 412 · 댓글 58",when:"3일 전",b:"인기글"},{img:"makeup",t:"출근 전 5분 화장 순서",s:"공감 96",when:"1주 전"},{img:"giftset",t:"선물하기 좋은 화장품 세트 정리",s:"공감 74",when:"2주 전"}]}],["blog",{img:"cafe",b:"인기글",t:"성수 조용한 카페, 딸기 생크림 케이크 맛집",when:"2026.10.21"}],["news",{img:"sunscreen",t:"국내 화장품 브랜드, 민감성 피부 라인 새로 내놓아",when:"2026.10.14"}],["blog",{img:"fcafe",b:"블로그 1위",red:1,t:"프랜차이즈 카페 겨울 신메뉴 먼저 마셔 봤어요",when:"2026.09.30"}]]},
    {k:"infl",n:"유튜버·인스타·틱톡 MCN",ph:"팔로워 많은 계정이<br>소개하게",rec:["저희 맛집 채널 @matzip_town 팔로워 5.1만 · 2026.11"],t1:"팔로워 많은 계정이 우리 브랜드를 소개합니다. 저희가 직접 운영하는 채널도 있습니다.",d:["업종·손님층에 맞는 계정 찾기","방문 날짜와 올릴 내용 맞추기","게시물 주소와 반응 보고"],
     tiles:[["reel",{img:"bbq",cap:"두께 보고 바로 들어감",lk:"2.4만",cm:"612"}],["reel",{img:"cafe",cap:"성수 카페 여기 진짜 조용해요",lk:"1.1만",cm:"342"}],["reel",{img:"salon",cap:"펌 하고 3주 지난 상태",lk:"8,412",cm:"205"}],["reel",{img:"pilates",cap:"아침 7시 필라테스 루틴",lk:"6,930",cm:"117"}]]},
+   {k:"perf",n:"퍼포먼스",ph:"광고는 마케터가<br>직접 돌리고",rec:["메타 광고 1,317번 클릭 · 99,939원 · 2026.02"],t1:"네이버·메타·구글·당근 광고를 담당 마케터가 직접 운영합니다.",d:["담당 마케터가 세팅·운영","자체 제작 영상·이미지 여러 개 비교","반응 좋은 쪽으로 예산 이동"],
+    tiles:[["ads",{}],["reel",{img:"derma",cap:"첫 상담 예약 받아요",lk:"3,208",cm:"96",ad:"예약하기"}],["reel",{img:"cosme",cap:"민감한 피부도 순하게",lk:"1.2만",cm:"231",ad:"구매하기"}],["reel",{img:"giftset",cap:"신제품 출시 기념 세트",lk:"5,420",cm:"188",ad:"구매하기"}]]},
+   {k:"search",n:"검색 최적화",ph:"AI가 먼저<br>추천하게",rec:["ChatGPT 추천 1순위 · 2026.10.28","네이버 지도 201위 → 1위 · 2026.10"],t1:"AI가 추천할 때, 지도에서 고를 때 우리 브랜드가 먼저 나오게 합니다.",d:["홈페이지·지도 정보를 똑같이 맞추기","손님 질문에 답하는 글 올리기","매주 같은 질문으로 다시 묻고 보고"],
+    tiles:[["ai",{q:"판교역 근처 치과 추천해 줘",it:[{img:"dental",k:"치과",why:"야간 진료 · 임플란트 상담 후기가 많아요"},{k:"치과의원",why:"주차 가능 · 토요일 진료",w:14},{k:"치과",why:"교정 상담 따로 받음",w:20}]}],["rank",{t:"네이버 지도 순위",k:"동네 이름 + 업종"}],["ai",{q:"정자동 필라테스 처음인데 어디가 좋아?",it:[{img:"pilates",k:"필라테스",why:"1:1 체험 수업 · 아침 7시 반"},{k:"스튜디오",why:"기구 수업 위주",w:16},{k:"필라테스",why:"주말 수업 있음",w:12}]}],["srch",{q:"분당 피부과",tab:"지도",r:[{img:"derma",t:"피부과의원 · 리프팅·여드름 진료",s:"방문자 리뷰 · 블로그 리뷰",when:"영업 중",b:"1"},{img:"cosme",t:"피부과 · 야간 진료",s:"방문자 리뷰",when:"영업 중"}]}]]},
    {k:"content",n:"콘텐츠·미디어",ph:"찍고 자르고<br>자막까지",rec:[],t1:"자체 촬영팀이 가서 찍고, 자막·음악까지 넣어 릴스·쇼츠로 올립니다.",d:["자체 촬영팀이 가서 촬영","자막·음악 넣어 편집","릴스·쇼츠·블로그에 올리기"],
     tiles:[["edit",{img:"sashimi",s:"오늘 들어온 <em>광어</em>"}],["shoot",{img:"cafe"}],["edit",{img:"salon",s:"뿌리 볼륨만 <em>살려 주세요</em>"}],["shoot",{img:"shootcos"}]]},
+   {k:"viral",n:"바이럴",ph:"블로그 검색<br>맨 위로",rec:["블로그 탭 1위 · 2026.10.26","인기글 1위 · 2026.01"],t1:"블로그·체험단·기자단·언론 기사로 검색 맨 위를 잡습니다.",d:["올릴 검색어 정하기","블로거 고르고 글 가이드 만들기","올라간 글 주소 보고"],
+    tiles:[["srch",{q:"민감성 선크림 추천",tab:"블로그",r:[{img:"sunscreen",t:"민감성 피부 선크림 세 가지 써 봤어요",s:"공감 412 · 댓글 58",when:"3일 전",b:"인기글"},{img:"makeup",t:"출근 전 5분 화장 순서",s:"공감 96",when:"1주 전"},{img:"giftset",t:"선물하기 좋은 화장품 세트 정리",s:"공감 74",when:"2주 전"}]}],["blog",{img:"cafe",b:"인기글",t:"성수 조용한 카페, 딸기 생크림 케이크 맛집",when:"2026.10.21"}],["news",{img:"sunscreen",t:"국내 화장품 브랜드, 민감성 피부 라인 새로 내놓아",when:"2026.10.14"}],["blog",{img:"fcafe",b:"블로그 1위",red:1,t:"프랜차이즈 카페 겨울 신메뉴 먼저 마셔 봤어요",when:"2026.09.30"}]]},
    {k:"global",n:"글로벌",ph:"샤오홍슈·LINE에도<br>올리고",rec:["중국 샤오홍슈 · 도우인 · 왕홍 공동구매","일본 인스타 · LINE"],t1:"한국에 오기 전 손님이 보는 샤오홍슈·LINE에 업체를 올립니다.",d:["업체 소개·메뉴를 중국어·일본어로 정리","현지 체험단·인플루언서 게시","검색 노출과 저장 수 보고"],
     tiles:[["xhs",{img:"myeong",t:"明洞逛吃攻略｜本地人推荐的小店",lk:"2.3万"}],["line",{img:"palace",t:"景福宮で韓服体験。駅から歩いて5分です",a:"予約する"}],["xhs",{img:"giftset",t:"韩国小众护肤品牌｜敏感肌也能用",lk:"1.8万"}],["line",{img:"cosme",t:"店舗限定のスキンケアセットあります",a:"詳しく見る"}]]},
    {k:"home",n:"홈페이지 제작",ph:"홈페이지는<br>새로 만들고",rec:[],t1:"AI와 검색이 읽기 쉬운 홈페이지를 새로 만들거나, 지금 홈페이지 속 정보만 고칩니다.",d:["구조안과 메인 시안 확인받고 제작","소식·휴무를 직접 고치는 관리자 화면","질문형 글 올리고 색인 요청"],
@@ -90,7 +90,7 @@ var H4=(function(){
     viral:{ln:"블로그·체험단·기자단으로 검색 맨 위",first:"올릴 검색어부터 정합니다",ph:[["srch",{q:"민감성 선크림 추천",tab:"블로그",r:[{img:"sunscreen",t:"민감성 피부 선크림 세 가지 써 봤어요",s:"공감 412 · 댓글 58",when:"3일 전",b:"인기글"},{img:"makeup",t:"출근 전 5분 화장 순서",s:"공감 96",when:"1주 전"},{img:"giftset",t:"선물하기 좋은 화장품 세트 정리",s:"공감 74",when:"2주 전"}]}],["blog",{img:"cafe",b:"인기글",t:"성수 조용한 카페, 딸기 생크림 케이크 맛집",when:"2026.10.21"}],["mg",{k:"viral",cap:"우리 글을 검색 맨 위로"}]]},
     infl:{ln:"업종에 맞는 계정이 우리 브랜드를 소개",first:"손님층에 맞는 계정부터 찾습니다",ph:[["reel",{img:"m-reel",cap:"성수 카페 여기 진짜 조용해요",lk:"2.4만",cm:"612"}],["reel",{img:"m-salon",cap:"펌 하고 3주 지난 상태",lk:"8,412",cm:"205"}],["mg",{k:"infl",cap:"하트·댓글·저장이 붙습니다"}]]},
     content:{ln:"직접 가서 찍고 자막까지 넣어 올림",first:"촬영 날짜와 찍을 장면을 정합니다",ph:[["pho",{img:"m-shoot",cap:"촬영팀이 직접 갑니다"}],["edit",{img:"sashimi",s:"오늘 들어온 <em>광어</em>"}],["edit",{img:"m-chef",s:"불 앞에서 <em>바로</em> 담아요"}]]},
-    global:{ln:"샤오홍슈·도우인·LINE에 업체를 올림",first:"소개·메뉴를 중국어·일본어로 옮깁니다",ph:[["xhs",{img:"m-tourist",t:"首尔逛吃攻略｜本地人推荐的小店",lk:"2.3万"}],["mg",{k:"global",cap:"중국·일본 손님이 오기 전에 보는 곳"}],["line",{img:"palace",t:"景福宮で韓服体験。駅から歩いて5分です",a:"予約する"}]]},
+    global:{ln:"샤오홍슈·도우인·콰이쇼우·따중디엔핑·LINE에 올림",first:"소개·메뉴를 중국어·일본어로 옮깁니다",ph:[["xhs",{img:"m-tourist",t:"首尔逛吃攻略｜本地人推荐的小店",lk:"2.3万"}],["mg",{k:"global",cap:"중국·일본 손님이 오기 전에 보는 곳"}],["line",{img:"palace",t:"景福宮で韓服体験。駅から歩いて5分です",a:"予約する"}]]},
     home:{ln:"AI와 검색이 읽기 쉬운 홈페이지",first:"구조안과 첫 화면 시안부터 보여 드립니다",ph:[["web",{img:"m-dental",h:"평일 밤 9시까지<br>진료합니다",s:"주차 2시간 무료",b:"진료 예약"}],["mg",{k:"home",cap:"화면을 짜고 예약 버튼까지"}],["web",{img:"m-trainer",h:"아침 7시 반<br>첫 수업",s:"1:1 체험 수업",b:"체험 신청"}]]},
     off:{ln:"엘리베이터TV·택배차·극장·카카오T",first:"매장·병원 근처 단지와 차량부터 고릅니다",ph:[["elev",{}],["mg",{k:"off",cap:"문이 열리면 우리 광고"}],["truck",{}]]}
   };
@@ -150,9 +150,10 @@ var H4=(function(){
     fl.forEach(function(s,k){ids.push(setTimeout(function(){fl.forEach(function(x){x.classList.remove('on')});s.classList.add('on');},120+k*105));});
     ids.push(setTimeout(function(){fl.forEach(function(x){x.classList.remove('on')});el.classList.add('land');},120+fl.length*105));
     ids.push(setTimeout(go,2400));el.addEventListener('click',go);}
-  var INTRO='<div class="intro" id="intro" aria-hidden="true"><div class="fl"><span>검색</span><span>광고</span><span>블로그</span><span>MCN</span><span>촬영</span><span>해외</span><span>홈페이지</span><span>엘리베이터TV</span></div><div class="big"><i>한</i><i>곳</i><i>.</i></div><div class="bar"></div></div>';
+  var INTRO='<div class="intro" id="intro" aria-hidden="true"><div class="fl"><span>MCN</span><span>광고</span><span>검색</span><span>촬영</span><span>블로그</span><span>해외</span><span>홈페이지</span><span>엘리베이터TV</span></div><div class="big"><i>한</i><i>곳</i><i>.</i></div><div class="bar"></div></div>';
   /* 화면 밖이면 멈춤 */
-  function pauseOff(hero,play){if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(e){hero.classList.toggle('paused',!e.isIntersecting);play(e.isIntersecting);})},{threshold:.05}).observe(hero);}
+  /* 11-05 렉 재측정: 2번 컷으로 넘어갈 때 끊김의 주범이 돌아가는 휴대폰 고리 — 화면에 보이는 첫 화면이 화면 높이의 85% 아래로 줄면 바로 멈춘다(전에는 5% 아래에서 · 휴대폰처럼 첫 화면이 화면보다 길어도 맞게) */
+  function pauseOff(hero,play){if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(e){var need=Math.min(innerHeight,e.boundingClientRect.height)*.85,on=e.isIntersecting&&e.intersectionRect.height>=need;hero.classList.toggle('paused',!on);play(on);})},{threshold:[0,.3,.5,.6,.65,.7,.75,.8,.85,.9,.95,1]}).observe(hero);}
   return {reduce:reduce,fine:fine,phone:phone,story:story,wall:wall,open:open,close:close,intro:intro,INTRO:INTRO,pauseOff:pauseOff};
 })();
 
@@ -251,7 +252,7 @@ function cutsInit() {
     if (noEl) noEl.textContent = String(c.getAttribute('data-no')).padStart(2, '0');
     if (chEl) chEl.textContent = CHN[ch] || '';
     if (hdr) hdr.setAttribute('data-tone', c.getAttribute('data-tone'));
-    H.setAttribute('data-sf-tone', c.getAttribute('data-tone'));
+    if (skip) skip.setAttribute('data-tone', c.getAttribute('data-tone'));
     if (skip) { if (c.id === 'c44' || c.id === 'c45') skip.setAttribute('data-hide', ''); else skip.removeAttribute('data-hide'); }
   }
   function activate(c) {

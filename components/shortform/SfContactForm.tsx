@@ -14,6 +14,7 @@ const WHEN = ["아직 미정", "바로", "1개월 안", "3개월 안"]
 // label: 신청 이름(버튼·폼 이름·메일 머리) — 11-05 사장님 「무료 진단 신청」→「무료 상담 신청」
 export default function SfContactForm({ services, initial = [], source = "home_shortform", label = "무료 상담 신청", full = false }: { services: Svc[]; initial?: string[]; source?: string; label?: string; full?: boolean }) {
   const [company, setCompany] = useState("")
+  const [agency, setAgency] = useState(false)
   const [person, setPerson] = useState("")
   const [site, setSite] = useState("")
   const [when, setWhen] = useState("")
@@ -55,6 +56,7 @@ export default function SfContactForm({ services, initial = [], source = "home_s
           storeName: company.trim(),
           message: [
             source === "home_shortform" ? `[홈 ${label}]` : `[${label} · ${source}]`,
+            full ? `대행사 여부: ${agency ? "대행사" : "아님"}` : "",
             `관심 서비스: ${names.length ? names.join(", ") : "고르지 않음"}`,
             site.trim() ? `홈페이지·검색어: ${site.trim()}` : "",
             when ? `시작 시점: ${when}` : "",
@@ -86,6 +88,17 @@ export default function SfContactForm({ services, initial = [], source = "home_s
 
   return (
     <form className="ct-f" onSubmit={submit} noValidate aria-label={label}>
+      {full ? (
+        <fieldset className="ct-s">
+          <legend>대행사이신가요?</legend>
+          <div className="ct-sg ct-one">
+            <label className={agency ? "on" : ""}>
+              <input type="checkbox" checked={agency} onChange={(e) => setAgency(e.target.checked)} />
+              대행사에서 문의합니다
+            </label>
+          </div>
+        </fieldset>
+      ) : null}
       <label className="ct-l">
         <span>회사명</span>
         <input value={company} onChange={(e) => setCompany(e.target.value)} placeholder="회사명을 적어 주세요" autoComplete="organization" />
@@ -135,7 +148,7 @@ export default function SfContactForm({ services, initial = [], source = "home_s
             <legend>
               언제 시작하고 싶으세요? <small>선택</small>
             </legend>
-            <div className="ct-sg">
+            <div className="ct-sg rd">
               {WHEN.map((w) => (
                 <label key={w} className={when === w ? "on" : ""}>
                   <input type="radio" name="ct-when" checked={when === w} onChange={() => setWhen(w)} />

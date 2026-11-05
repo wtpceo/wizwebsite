@@ -20,7 +20,7 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
       <nav className="sfh-nav" aria-label="주 메뉴">
         <Link href="/about">회사소개</Link>
         <div className="sfh-dd">
-          <Link href="/services/search">서비스</Link>
+          <Link href="/services/influencer">서비스</Link>
           <div className="sfh-ddp">
             {SERVICES.map((s) => (
               <Link key={s.k} href={`/services/${s.slug}`}>

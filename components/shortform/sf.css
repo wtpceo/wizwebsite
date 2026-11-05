@@ -96,10 +96,10 @@ html.sf-anim .sf .cut.is-on .sm { animation: sf-rise .6s cubic-bezier(.23,1,.32,
 
 /* 건너뛰기 · 휴대폰 아래 바 */
 .sf .sfs { position: fixed; right: 24px; bottom: 24px; z-index: 45; display: flex; align-items: center; gap: 8px; padding: 13px 16px; border-radius: 4px; font-size: 14px; font-weight: 750; background: #fff; color: var(--b1); box-shadow: 0 14px 30px -16px rgba(6,26,44,.55); transition: background-color .3s ease, color .3s ease, transform .2s ease; }
-html[data-sf-tone="w"] .sf .sfs { background: var(--b1); color: #fff; }
+.sf .sfs[data-tone="w"] { background: var(--b1); color: #fff; }
 .sf .sfs svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .sf .sfs:hover { transform: translateY(-2px); }
-html[data-sf-tone] .sf .sfs[data-hide] { opacity: 0; pointer-events: none; }
+.sf .sfs[data-hide] { opacity: 0; pointer-events: none; }
 .sf .sfb { display: none; }
 .sf .sfh-nav a { white-space: nowrap; }
 /* 1180 아래 PC(작은 노트북) — 메뉴는 버튼으로, 첫 화면 휴대폰 고리는 폭에 맞춰 작게 */
@@ -164,14 +164,22 @@ html.sf-anim .sf .cut.is-on .blk { animation: sf-rise .5s cubic-bezier(.23,1,.32
 .sf .pz-b .blks { display: grid; gap: 10px; }
 .sf .pz-b .blk { border: 3px solid currentColor; padding: 14px 20px 15px; gap: 5px; }
 .sf .pz-b .blk b { font-size: clamp(22px, 2.2vw, 36px); }
-.sf .pings { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
-.sf .pings li { display: grid; grid-template-columns: 34px minmax(0, 1fr); column-gap: 10px; row-gap: 3px; align-items: start; }
-.sf .pings .pg-av { grid-row: span 2; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 850; background: #fff; color: var(--b1); }
-.sf .pings .pv1 .pg-av { background: var(--sky); color: var(--nk); }
-.sf .pings .pv2 .pg-av { background: var(--nk); color: #fff; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.5); }
-.sf .pings .pv3 .pg-av { background: transparent; color: #fff; box-shadow: inset 0 0 0 1.5px #fff; }
-.sf .pings li i { font-style: normal; font-size: 12px; font-weight: 700; color: rgba(255,255,255,.82); }
-.sf .pings .pg-b { justify-self: start; max-width: 100%; background: #fff; color: var(--ink); border-radius: 2px 14px 14px 14px; padding: 9px 13px 10px; font-size: clamp(13.5px, 1.05vw, 16px); font-weight: 600; line-height: 1.4; }
+/* 카카오톡 단톡방 모양(11-05) — 하늘회색 바탕 · 방 이름 줄 · 네모난 프로필 · 꼬리 달린 흰 말풍선 · 보낸 시각 */
+.sf .kt { background: #B2C7DA; color: #191919; border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px -34px rgba(4,20,40,.75); }
+.sf .kt-h { margin: 0; display: flex; align-items: center; gap: 6px; padding: 13px 16px; background: rgba(255,255,255,.28); font-size: 14.5px; }
+.sf .kt-h b { font-weight: 800; }
+.sf .kt-h span { font-size: 13px; font-weight: 600; color: #4B5B6B; }
+.sf .pings { list-style: none; margin: 0; padding: 14px 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+.sf .pings li { display: grid; grid-template-columns: 38px minmax(0, 1fr); column-gap: 9px; row-gap: 3px; align-items: start; }
+.sf .pings .pg-av { grid-row: span 2; width: 38px; height: 38px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; color: #fff; background: #6F8FB0; }
+.sf .pings .pv1 .pg-av { background: #E59A5B; }
+.sf .pings .pv2 .pg-av { background: #5E6B7A; }
+.sf .pings .pv3 .pg-av { background: #B784C9; }
+.sf .pings li i { font-style: normal; font-size: 12.5px; font-weight: 600; color: #3E4A57; }
+.sf .pings .pg-r { display: flex; align-items: flex-end; gap: 6px; min-width: 0; }
+.sf .pings .pg-b { position: relative; max-width: 100%; background: #fff; color: #191919; border-radius: 4px 14px 14px 14px; padding: 8px 12px 9px; font-size: clamp(14px, 1.05vw, 16px); font-weight: 500; line-height: 1.45; }
+.sf .pings .pg-b::before { content: ""; position: absolute; left: -6px; top: 0; border-top: 9px solid #fff; border-left: 7px solid transparent; }
+.sf .pings .pg-r small { flex: none; font-size: 11px; color: #4B5B6B; padding-bottom: 1px; }
 html.sf-anim .sf .cut:not(.seen) .pings li { opacity: 0; }
 html.sf-anim .sf .cut.is-on .pings li { animation: sf-rise .45s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.55s + var(--i) * 150ms); }
 .sf .pz-c { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 5vw; align-items: center; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); }
@@ -617,11 +625,17 @@ html.sf-anim .sf .cut.is-on .ct-f { animation: sf-rise .6s cubic-bezier(.23,1,.3
 .sf .ct-s { border: 0; margin: 0; padding: 0; }
 .sf .ct-s legend { padding: 0; margin-bottom: 8px; }
 .sf .ct-s legend small { font-weight: 500; color: var(--sub); margin-left: 6px; }
-.sf .ct-sg { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
-.sf .ct-sg label { position: relative; display: flex; align-items: center; justify-content: center; text-align: center; min-height: 44px; padding: 6px 6px; border: 1px solid #C9D6E3; border-radius: 3px; font-size: 13.5px; font-weight: 700; cursor: pointer; transition: background-color .15s ease, border-color .15s ease, color .15s ease; }
+.sf .ct-sg { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 18px; }
+/* 고른 칸이 바로 보이는 네모 체크·동그라미 선택(11-05 사장님 「제대로 체크되는 항목」) */
+.sf .ct-sg label { position: relative; display: flex; align-items: center; gap: 10px; min-height: 30px; font-size: 14.5px; font-weight: 600; line-height: 1.35; color: #2A3448; cursor: pointer; }
+.sf .ct-sg label::before { content: ""; flex: none; width: 20px; height: 20px; border: 1.5px solid #8FA3B8; border-radius: 3px; background: #fff; transition: background-color .15s ease, border-color .15s ease; }
+.sf .ct-sg label.on { color: var(--ink); }
+.sf .ct-sg label.on::before { border-color: var(--b1); background: var(--b1) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / 15px no-repeat; }
+.sf .ct-sg.rd label::before { border-radius: 50%; }
+.sf .ct-sg.rd label.on::before { background: radial-gradient(circle, var(--b1) 0 5px, #fff 5.5px); }
+.sf .ct-sg.ct-one { grid-template-columns: 1fr; }
 .sf .ct-sg input { position: absolute; opacity: 0; pointer-events: none; }
-.sf .ct-sg label.on { background: var(--b1); border-color: var(--b1); color: #fff; }
-.sf .ct-sg label:focus-within { outline: 2px solid var(--b2); outline-offset: 1px; }
+.sf .ct-sg label:focus-within::before { outline: 2px solid var(--b2); outline-offset: 2px; }
 .sf .ct-a { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; color: #2A3448; }
 .sf .ct-a input { width: 18px; height: 18px; accent-color: var(--b1); }
 .sf .ct-a a { color: var(--b1); text-decoration: underline; margin-left: 4px; }
@@ -702,11 +716,14 @@ html.sf-anim .sf .cut.is-on .lg-sub { animation: sf-rise .7s cubic-bezier(.23,1,
   .sf .pz-b .blk b { font-size: 19px; }
   .sf .pz-b .blk span { font-size: 12px; }
   .sf .pz-b .blk { border-width: 2px; padding: 9px 10px 10px; }
-  .sf .pings { position: absolute; left: 20px; right: 20px; bottom: 78px; gap: 6px; }
-  .sf .pings li { grid-template-columns: 28px minmax(0, 1fr); column-gap: 8px; }
-  .sf .pings .pg-av { width: 28px; height: 28px; font-size: 12px; }
+  .sf .kt { position: absolute; left: 20px; right: 20px; bottom: 78px; border-radius: 12px; }
+  .sf .kt-h { padding: 8px 12px; font-size: 13px; }
+  .sf .pings { gap: 6px; padding: 8px 10px 10px; }
+  .sf .pings li { grid-template-columns: 30px minmax(0, 1fr); column-gap: 7px; }
+  .sf .pings .pg-av { width: 30px; height: 30px; border-radius: 11px; font-size: 12px; }
   .sf .pings li i { font-size: 11px; }
-  .sf .pings .pg-b { font-size: 13px; padding: 7px 11px 8px; }
+  .sf .pings .pg-b { font-size: 13px; padding: 6px 10px 7px; }
+  .sf .pings .pg-r small { font-size: 10px; }
   .sf .pings li:nth-child(n+5) { display: none; }
   .sf .pz-b { align-content: start; }
   .sf .probs li { padding: 11px 0; grid-template-columns: 38px 1fr; }
@@ -856,3 +873,21 @@ html.sf-pre .sf .intro { animation: sf-intro-safe 0s linear 5s forwards; }
   .sf .so-2 .so-path li { padding: 10px 0; grid-template-columns: 48px minmax(0, 1fr); }
   .sf .so-2 .so-ph { height: 22vh; }
 }
+
+/* ── 서비스 아이콘 색(11-05 사장님 「아이콘마다 색이 다 같다」) — 서비스마다 고유 색 --sc. 자리마다 바탕·선에 나눠 씀 ── */
+.sf :has(> svg[data-k="infl"]) { --sc: #E5484D; }
+.sf :has(> svg[data-k="perf"]) { --sc: #2F7FE0; }
+.sf :has(> svg[data-k="search"]) { --sc: #7C5CE6; }
+.sf :has(> svg[data-k="content"]) { --sc: #E08A12; }
+.sf :has(> svg[data-k="viral"]) { --sc: #1FA45B; }
+.sf :has(> svg[data-k="global"]) { --sc: #0B9DB8; }
+.sf :has(> svg[data-k="home"]) { --sc: #D9468F; }
+.sf :has(> svg[data-k="off"]) { --sc: #EE6A1F; }
+/* 진한 색 바탕 + 흰 선: 첫 화면 버튼 · 서비스 셋째 컷 제목 · 상세 쪽 함께 하는 일 */
+.sf .svb .ic:has(> svg[data-k]), .sf .svb.on .ic:has(> svg[data-k]), .sf .sc-h .ic:has(> svg[data-k]), .sf .dp-pairs .ic:has(> svg[data-k]) { background: var(--sc); color: #fff; box-shadow: inset 0 -2px 0 rgba(0,0,0,.14); }
+/* 옅은 색 바탕 + 색 선: 흰 바탕 자리(원·업종 조합·팀 지도·메뉴) */
+.sf .orb-i .ic:has(> svg[data-k]), .sf .tm-map li .ic:has(> svg[data-k]) { color: var(--sc); background: color-mix(in srgb, var(--sc) 11%, #fff); border-color: color-mix(in srgb, var(--sc) 30%, #fff); }
+.sf .so-path .ic:has(> svg[data-k]) { color: var(--sc); border-color: var(--sc); background: color-mix(in srgb, var(--sc) 10%, transparent); }
+.sf .sfh-ddp a svg[data-k] { stroke: var(--sc); }
+/* 어두운 바탕 위 작은 칸(전문 인력 쪽·회사소개 서비스 목록) */
+.sf .tm-hero li .ic:has(> svg[data-k]), .sf .ab-svc .ic:has(> svg[data-k]), .sf .tm2-ph:has(> svg[data-k]) { background: var(--sc); color: #fff; }

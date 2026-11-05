@@ -21,5 +21,5 @@ export const IC: Record<string, string> = {
 }
 
 export function Icon({ k, className }: { k: string; className?: string }) {
-  return <svg viewBox="0 0 24 24" aria-hidden="true" className={className} dangerouslySetInnerHTML={{ __html: IC[k] || "" }} />
+  return <svg viewBox="0 0 24 24" aria-hidden="true" className={className} data-k={k} dangerouslySetInnerHTML={{ __html: IC[k] || "" }} />
 }
