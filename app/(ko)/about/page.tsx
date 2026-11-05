@@ -158,7 +158,7 @@ export default function AboutPage() {
         <Faq items={d.faq} />
       </Sec>
 
-      <ContactBlock title="우리 브랜드 마케팅, 지금 무료로 진단받아 보세요." source="about" />
+      <ContactBlock title="우리 브랜드 마케팅, 지금 무료로 상담받아 보세요." source="about" />
     </DocShell>
   )
 }

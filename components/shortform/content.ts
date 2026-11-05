@@ -333,7 +333,7 @@ export const INSIGHT_HREFS = ["/guide/case-orthopedic-chatgpt", "/guide/case-den
 export const CHAPTERS: { n: string; id: string }[] = [
   { n: "한 곳", id: "c1" },
   { n: "따로 맡기면", id: "c2" },
-  { n: "한 곳이 하면", id: "c5" },
+  { n: "한 곳에 맡기면", id: "c5" },
   { n: "여덟 가지", id: "c8" },
   { n: "업종별", id: "c33" },
   { n: "전문 인력", id: "c36" },

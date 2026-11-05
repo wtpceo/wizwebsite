@@ -129,13 +129,13 @@ export default function SolutionDoc({ slug }: { slug: string }) {
       {f.slug === "local" ? (
         <ContactBlock
           title={`${f.n}에 맞는 조합, 상담부터 받아 보세요.`}
-          sub="무료 진단은 기업과 병원을 대상으로 합니다. 매장·학원·전문직은 전화나 카카오톡 상담으로 먼저 이야기 나눕니다. 가격은 상담 뒤 제안서로 안내합니다."
+          sub="매장·학원·전문직은 아래 신청이나 전화·카카오톡으로 편하게 먼저 물어보셔도 됩니다. 가격은 상담 뒤 제안서로 안내합니다."
           label="무료 상담 신청"
           initial={keys}
           source={`solution_${f.slug}`}
         />
       ) : (
-        <ContactBlock title={`${f.n}에 맞는 조합, 진단부터 받아 보세요.`} initial={keys} source={`solution_${f.slug}`} />
+        <ContactBlock title={`${f.n}에 맞는 조합, 상담부터 받아 보세요.`} initial={keys} source={`solution_${f.slug}`} />
       )}
     </DocShell>
   )

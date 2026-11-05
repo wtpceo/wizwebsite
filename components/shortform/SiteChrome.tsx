@@ -66,7 +66,7 @@ export function SfHeader({ home = false }: { home?: boolean }) {
   )
 }
 
-export function SfMenu({ home = false }: { home?: boolean }) {
+export function SfMenu() {
   return (
     <div className="sfm" id="sfm" hidden>
       <div className="sfm-in">

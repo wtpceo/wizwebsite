@@ -420,7 +420,7 @@ html.sf-anim .sf .ooh.tv .tv3{animation:sf-tv 9s linear 6s infinite}
 .sf .xr ol li{counter-increment:d;display:flex;gap:12px;align-items:center;font-size:15.5px;color:#2A3448}
 .sf .xr ol li:before{content:counter(d);width:26px;height:26px;border-radius:50%;background:var(--grad);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none}
 .sf .xr .exs{margin-top:26px}
-.sf .xr .exs p{margin:0 0 10px;font-size:13px;color:var(--sub)}
+.sf .xr .exs>p{margin:0 0 10px;font-size:13px;color:var(--sub)}
 .sf .xr .strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:420px}
 .sf .xr .strip .tile{border-radius:12px;box-shadow:0 10px 24px -14px rgba(14,42,68,.35)}
 .sf .xb{margin-top:auto;display:flex;gap:10px;padding-top:24px}

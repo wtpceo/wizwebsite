@@ -19,8 +19,8 @@ function esc(v: unknown): string {
     .slice(0, 300);
 }
 
-/** 손님이 적은 글(이름·연락처·문의 내용)도 메일 HTML에 그대로 넣지 않는다 — 태그가 섞여 와도 글자로만 보이게(11-05) */
-function escText(v: unknown, max = 3000): string {
+/** 손님이 적은 글(이름·연락처·문의 내용)도 메일 HTML에 그대로 넣지 않는다 — 태그가 섞여 와도 글자로만 보이게(11-05). 문의 내용은 메일에만 남으므로 사실상 자르지 않는다(한도 5만 자) */
+function escText(v: unknown, max = 50000): string {
   return String(v ?? '')
     .slice(0, max)
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')

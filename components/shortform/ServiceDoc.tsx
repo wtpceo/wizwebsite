@@ -190,7 +190,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
         </div>
       </nav>
 
-      <ContactBlock title={`${s.n} 상담, 무료 진단부터 받아 보세요.`} initial={[s.k]} source={`service_${s.slug}`} />
+      <ContactBlock title={`${s.n}, 무료 상담부터 받아 보세요.`} initial={[s.k]} source={`service_${s.slug}`} />
     </DocShell>
   )
 }

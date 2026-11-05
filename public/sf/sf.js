@@ -119,7 +119,7 @@ var H4=(function(){
   var xp,xpp,from=null,last=null,busy=false;
   function mountX(){var d=document.createElement('div');d.className='xp';d.id='xp';d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');d.setAttribute('aria-labelledby','xh');
     d.innerHTML='<div class="xbg"></div><div class="xpp"><div class="xl"><small class="xin" id="xs"></small><div id="xmg"></div><p class="first xin" id="xf"></p></div><div class="xr"><div class="xin"><h3 id="xh"></h3><p class="t1" id="xt"></p><div class="recs" id="xrec"></div><ol id="xdo"></ol><div class="exs"><p>이런 화면으로 보고드립니다 · 예시(업체명 가림)</p><div class="strip" id="xstrip"></div></div></div><div class="xb xin"><a class="p1" id="xp1" href="/contact">무료 상담 신청</a><a class="p2" id="xp2" href="#">자세히 보기</a></div></div><button class="xx" type="button" aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>';
-    document.body.appendChild(d);xp=d;xpp=d.querySelector('.xpp');
+    (document.getElementById('sf')||document.body).appendChild(d);xp=d;xpp=d.querySelector('.xpp');
     d.querySelector('.xx').addEventListener('click',close);d.querySelector('.xbg').addEventListener('click',close);
     var xp1=d.querySelector('#xp1');if(xp1)xp1.addEventListener('click',function(){close();});
     addEventListener('keydown',function(e){if(e.key==='Escape')close();});}
@@ -132,7 +132,7 @@ var H4=(function(){
     document.getElementById('xrec').innerHTML=s.rec.map(function(r){return '<span>'+r+'</span>'}).join('');
     document.getElementById('xdo').innerHTML=s.d.map(function(r){return '<li>'+r+'</li>'}).join('');
     var p1=document.getElementById('xp1'),p2=document.getElementById('xp2');p1.setAttribute('href','/contact?svc='+s.k);p2.setAttribute('href',s.more||('#svc-'+s.k));
-    document.getElementById('xstrip').innerHTML=s.ph.map(function(t){return tile(t)}).join('');
+    document.getElementById('xstrip').innerHTML=s.ph.map(function(t){return '<div class="sk">'+tile(t)+'</div>'}).join('');
     xp.classList.add('open');xpp.classList.remove('anim');
     if(!reduce&&btn){xpp.style.transform=toRect(btn.getBoundingClientRect());xpp.style.borderRadius='40px';void xpp.offsetWidth;xpp.classList.add('anim');}
     xpp.style.transform='';xpp.style.borderRadius='';
@@ -161,7 +161,7 @@ var H4=(function(){
 var SFD = {};
 try { SFD = JSON.parse(document.getElementById('sf-data').textContent); } catch (e) { SFD = {}; }
 if (SFD.svc) SFD.svc.forEach(function (d, i) { var s = S[i]; if (!s || s.k !== d.k) return; s.ln = d.ln; s.first = d.first; s.t1 = d.t1; s.d = d.d; s.rec = d.rec; s.more = d.more; });
-var CHN = ['한 곳', '따로 맡기면', '한 곳이 하면', '여덟 가지', '업종별', '전문 인력', '진행 과정', '인사이트', '문의', '끝'];
+var CHN = ['한 곳', '따로 맡기면', '한 곳에 맡기면', '여덟 가지', '업종별', '전문 인력', '진행 과정', '인사이트', '문의', '끝'];
 
 /* 첫 화면 — 시안 c1b 를 서버가 그린 목록에 묶음 */
 function heroInit() {
@@ -295,8 +295,6 @@ function montageGo(on) {
 function chromeInit() {
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest ? e.target.closest('a') : null; if (!a) return;
-    var svc = a.getAttribute('data-svc');
-    if (svc) { try { window.dispatchEvent(new CustomEvent('sf:svc', { detail: svc })); } catch (x) {} }
     if (a.hasAttribute('data-kakao')) {
       try { if (window.gtag) window.gtag('event', 'chat_click', { channel: 'kakao', page_path: location.pathname, transport_type: 'beacon' }); } catch (x) {}
       try { if (window.fbq) window.fbq('track', 'Contact', { content_name: '카카오톡 상담' }); } catch (x) {}

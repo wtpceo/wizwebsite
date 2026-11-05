@@ -44,7 +44,7 @@ export default function ShortformHome() {
   return (
     <main className="sf" id="sf">
       <SfHeader home />
-      <SfMenu home />
+      <SfMenu />
 
       {/* 0 인트로 — 검은 화면 「한 곳.」 · 처음 읽을 때만(이 줄이 sf-pre 를 붙여야 보임 — JS가 없으면 인트로 없이 바로 첫 화면 · CSS가 5초 뒤 스스로 걷음) */}
       {/* 우리 사이트 안에서 넘어온 방문(로고·메뉴로 홈에 돌아옴)은 인트로를 다시 틀지 않는다 */}
@@ -196,7 +196,7 @@ export default function ShortformHome() {
       <Cut id="c5" no={next()} ch={2} tone="k" fx="build" label="해결 1">
         <div className="sv-a">
           <p className="cap sz-mega asm">
-            <Chars text="한 곳이 하면" />
+            <Chars text="한 곳에 맡기면" />
           </p>
           <p className="sm">채널마다 따로 맡기던 일을 한 곳에서 받습니다.</p>
         </div>
@@ -213,7 +213,7 @@ export default function ShortformHome() {
           <div className="orb" aria-label="한 곳에서 하는 여덟 가지">
             <div className="orb-c">
               <img src="/sf/img/wiz-symbol.png" alt="" width={733} height={460} />
-              <b>위즈더플래닝 한 곳</b>
+              <b>위즈더플래닝</b>
               <small>담당 마케터 1명</small>
             </div>
             {SERVICES.map((s, i) => (

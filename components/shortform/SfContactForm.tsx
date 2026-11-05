@@ -5,7 +5,6 @@ import { readAttribution } from "@/lib/attribution"
 import { trackContactSubmit } from "@/lib/analytics"
 
 // 홈 문의 컷(44) — 회사명·연락처·회사 이메일(선택, 11-05)·관심 서비스. 보내는 곳은 다른 폼과 같은 /api/contact(Resend → 대표 메일).
-// 「이 서비스 상담」 버튼(data-svc)을 누르고 오면 그 서비스가 미리 골라져 있다(sf.js 가 sf:svc 이벤트를 쏜다).
 // full = 무료 상담 신청 쪽(/contact · 11-05) — 담당자·주소·시작 시점·궁금한 점(전부 선택)이 더 붙는다. /contact?svc=search 로 오면 그 서비스가 골라져 있다.
 
 type Svc = { k: string; n: string }
@@ -27,16 +26,10 @@ export default function SfContactForm({ services, initial = [], source = "home_s
   const [err, setErr] = useState("")
 
   useEffect(() => {
-    const on = (e: Event) => {
-      const k = (e as CustomEvent<string>).detail
-      if (k) setPicked((p) => (p.includes(k) ? p : [...p, k]))
-    }
-    window.addEventListener("sf:svc", on)
     try {
       const q = new URLSearchParams(window.location.search).get("svc")
       if (q && services.some((s) => s.k === q)) setPicked((p) => (p.includes(q) ? p : [...p, q]))
     } catch {}
-    return () => window.removeEventListener("sf:svc", on)
   }, [services])
 
   const toggle = (k: string) => setPicked((p) => (p.includes(k) ? p.filter((x) => x !== k) : [...p, k]))
