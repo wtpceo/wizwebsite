@@ -65,7 +65,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
             </p>
             <div className="dp-btns">
               <a className="p1" href="#contact">
-                이 서비스 상담
+                무료 진단 신청
               </a>
               <a className="p2" href="tel:16700704" data-tel>
                 전화 1670-0704

@@ -47,7 +47,7 @@ export default function SolutionDoc({ slug }: { slug: string }) {
             <p className="dp-lead">{d.lead}</p>
             <div className="dp-btns">
               <a className="p1" href="#contact">
-                우리 업종 상담
+                {f.slug === "local" ? "상담 신청" : "무료 진단 신청"}
               </a>
               <a className="p2" href="tel:16700704" data-tel>
                 전화 1670-0704

@@ -89,7 +89,7 @@ export default function ShortformHome() {
                 무료 진단 신청
               </a>
               <a className="b2" href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
-                상담 문의
+                카카오톡 상담
               </a>
             </div>
             <ol className="svl" id="svl" aria-label="위즈더플래닝이 하는 일 여덟 가지">
@@ -353,7 +353,7 @@ export default function ShortformHome() {
                   ) : null}
                   <div className="sc-btn">
                     <a className="p1" href="#c44" data-svc={s.k}>
-                      이 서비스 상담
+                      무료 진단 신청
                     </a>
                     <Link className="p2" href={`/services/${s.slug}`}>
                       {s.n} 자세히
@@ -628,7 +628,7 @@ export default function ShortformHome() {
             <h2 className="cap sz-lg">
               <Words text={"우리 브랜드 마케팅,\n지금 무료로 진단받아 보세요."} />
             </h2>
-            <p className="sm">대상은 기업과 병원입니다. 세 칸만 적으시면 담당자가 연락드립니다. 가격은 진단 뒤 제안서로 안내합니다.</p>
+            <p className="sm">기업·병원은 무료 진단, 대기업·프랜차이즈는 제안 요청, 매장·학원은 카카오톡 상담으로 받습니다. 신청하시면 담당 마케터가 연락드려 진단부터 시작합니다. 가격은 진단 뒤 제안서로 안내합니다.</p>
             <div className="ct-ways">
               <a href={CONTACT.telHref} data-tel>
                 <Icon k="phone" />

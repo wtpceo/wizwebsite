@@ -41,7 +41,7 @@ export function SfHeader({ home = false }: { home?: boolean }) {
         <a href={home ? "#c44" : "/#c44"}>문의하기</a>
       </nav>
       <a className="sfh-cta" href={home ? "#c44" : "/#c44"}>
-        무료 진단
+        무료 진단 신청
       </a>
       <button type="button" className="sfh-menu" id="sfhMenu" aria-expanded="false" aria-controls="sfm">
         <Icon k="menu" />
@@ -176,7 +176,7 @@ export function SfDock({ home = false }: { home?: boolean }) {
   return (
     <>
       <a className="sfs" id="sfs" href={home ? "#c44" : "#contact"}>
-        {home ? "건너뛰고 문의" : "이 서비스 문의"}
+        문의 칸으로
         <Icon k="arrow" />
       </a>
       <nav className="sfb" aria-label="바로 연락">
@@ -189,7 +189,7 @@ export function SfDock({ home = false }: { home?: boolean }) {
           카카오톡
         </a>
         <a href={home ? "#c44" : "#contact"} className="sfb-p">
-          무료 진단
+          무료 진단 신청
         </a>
       </nav>
     </>

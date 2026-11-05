@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import { readAttribution } from "@/lib/attribution"
 import { trackContactSubmit } from "@/lib/analytics"
 
-// 홈 문의 컷(44) — 세 칸(회사명·연락처·관심 서비스). 보내는 곳은 다른 폼과 같은 /api/contact(Resend → 대표 메일).
+// 홈 문의 컷(44) — 회사명·연락처·회사 이메일(선택, 11-05)·관심 서비스. 보내는 곳은 다른 폼과 같은 /api/contact(Resend → 대표 메일).
 // 「이 서비스 상담」 버튼(data-svc)을 누르고 오면 그 서비스가 미리 골라져 있다(sf.js 가 sf:svc 이벤트를 쏜다).
 
 type Svc = { k: string; n: string }
@@ -13,6 +13,7 @@ type Svc = { k: string; n: string }
 export default function SfContactForm({ services, initial = [], source = "home_shortform", label = "무료 진단 신청" }: { services: Svc[]; initial?: string[]; source?: string; label?: string }) {
   const [company, setCompany] = useState("")
   const [phone, setPhone] = useState("")
+  const [email, setEmail] = useState("")
   const [picked, setPicked] = useState<string[]>(initial)
   const [agree, setAgree] = useState(false)
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle")
@@ -34,6 +35,7 @@ export default function SfContactForm({ services, initial = [], source = "home_s
     setErr("")
     if (!company.trim()) return setErr("회사명을 적어 주세요.")
     if (phone.replace(/\D/g, "").length < 9) return setErr("연락받을 번호를 적어 주세요.")
+    if (email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) return setErr("이메일 주소를 다시 확인해 주세요.")
     if (!agree) return setErr("개인정보 수집·이용에 동의해 주세요.")
     setStatus("sending")
     const names = services.filter((s) => picked.includes(s.k)).map((s) => s.n)
@@ -45,6 +47,7 @@ export default function SfContactForm({ services, initial = [], source = "home_s
           attribution: readAttribution(),
           name: company.trim(),
           phone: phone.trim(),
+          email: email.trim() || undefined,
           storeName: company.trim(),
           message: [source === "home_shortform" ? `[홈 ${label}]` : `[${label} · ${source}]`, `관심 서비스: ${names.length ? names.join(", ") : "고르지 않음"}`].join("\n"),
           language: source === "home_shortform" ? "홈 무료 진단" : "서비스 쪽 무료 진단",
@@ -78,6 +81,12 @@ export default function SfContactForm({ services, initial = [], source = "home_s
       <label className="ct-l">
         <span>연락처</span>
         <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="연락받을 번호를 적어 주세요" inputMode="tel" autoComplete="tel" />
+      </label>
+      <label className="ct-l">
+        <span>
+          회사 이메일 <small>선택</small>
+        </span>
+        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="진단 결과·자료를 받을 메일" type="email" inputMode="email" autoComplete="email" />
       </label>
       <fieldset className="ct-s">
         <legend>
