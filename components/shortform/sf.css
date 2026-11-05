@@ -907,4 +907,5 @@ html.sf-pre .sf .intro { animation: sf-intro-safe 0s linear 5s forwards; }
   .sf .pings li:nth-child(n+4) { display: none; }
 }
 /* MCN 첫 컷 예시 게시물 — 계정 이름 자리는 흐린 막대(실제 채널 아님) */
-.sf .sa-reel3 b .hd { display: inline-block; width: 58px; height: 9px; margin-right: 4px; border-radius: 5px; background: rgba(255,255,255,.55); filter: blur(1.5px); vertical-align: middle; }
+.sf .sa-reel3 b { white-space: nowrap; }
+.sf .sa-reel3 b .hd { display: inline-block; width: 34px; height: 9px; margin-right: 4px; border-radius: 5px; background: rgba(255,255,255,.55); filter: blur(1.5px); vertical-align: middle; }
