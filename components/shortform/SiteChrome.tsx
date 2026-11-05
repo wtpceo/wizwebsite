@@ -5,7 +5,11 @@ import { Icon } from "./icons"
 // 홈(숏폼형)과 새 쪽(서비스·업종별·전문 인력·회사소개)이 같이 쓰는 머리글·메뉴·바닥글·아래 바.
 // home = 장 막대와 「NN / 46」이 붙고 컷 바탕색을 따라 글자색이 바뀐다. doc = 흰 바탕 고정 머리글.
 
-export function SfHeader({ home = false }: { home?: boolean }) {
+/** 신청 버튼 — 기본은 무료 상담 신청, 기업 경로(/business/*)는 제안 요청(CLAUDE.md 기업 경로 정책) */
+export type SfCta = { href: string; label: string }
+const DEFAULT_CTA: SfCta = { href: "/contact", label: "무료 상담 신청" }
+
+export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; cta?: SfCta }) {
   return (
     <header className={`sfh${home ? "" : " sfh-doc"}`} id="sfh" data-tone={home ? "c" : "w"}>
       <Link className="sfh-logo" href="/" aria-label="위즈더플래닝 홈">
@@ -40,8 +44,8 @@ export function SfHeader({ home = false }: { home?: boolean }) {
         <Link href="/guide">인사이트</Link>
         <Link href="/contact">문의하기</Link>
       </nav>
-      <Link className="sfh-cta" href="/contact">
-        무료 상담 신청
+      <Link className="sfh-cta" href={cta.href}>
+        {cta.label}
       </Link>
       <button type="button" className="sfh-menu" id="sfhMenu" aria-expanded="false" aria-controls="sfm">
         <Icon k="menu" />
@@ -172,7 +176,7 @@ export function SfFooter() {
   )
 }
 
-export function SfDock({ home = false }: { home?: boolean }) {
+export function SfDock({ home = false, cta = DEFAULT_CTA }: { home?: boolean; cta?: SfCta }) {
   return (
     <>
       <a className="sfs" id="sfs" href={home ? "#c44" : "#contact"}>
@@ -188,8 +192,8 @@ export function SfDock({ home = false }: { home?: boolean }) {
           <Icon k="kakao" />
           카카오톡
         </a>
-        <Link href="/contact" className="sfb-p">
-          무료 상담 신청
+        <Link href={cta.href} className="sfb-p">
+          {cta.label}
         </Link>
       </nav>
     </>

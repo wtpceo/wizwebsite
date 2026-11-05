@@ -1,8 +1,10 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import Header from "@/components/sections/Header"
-import Footer from "@/components/Footer"
 import { relatedBizArticles } from "@/lib/business-articles"
+import { DocShell, Crumb } from "@/components/shortform/DocParts"
+import { Icon } from "@/components/shortform/icons"
+
+/** 기업 경로 신청 버튼 — 머리글·아래 바도 제안 요청으로(무료 상담 신청 ✕ · CLAUDE.md 기업 경로 정책) */
+export const BIZ_CTA = { href: "/business/contact", label: "제안 요청 보내기" }
 
 export { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
@@ -10,7 +12,7 @@ export { CheckItem, Callout } from "@/components/guide/GuideArticle"
 // 문구 안에 /business/contact 링크를 직접 넣는다(자영업 경로 링크 금지).
 export function BizContactNote({ children }: { children: React.ReactNode }) {
   return (
-    <aside className="mt-8 rounded-2xl border border-emerald-100 bg-emerald-50/60 px-5 py-4 text-base leading-[1.85] text-gray-800">
+    <aside className="mt-8 border-l-4 border-[#2A93C2] bg-[#F3F7FB] px-5 py-4 text-base leading-[1.85] text-[#1F2937]">
       {children}
     </aside>
   )
@@ -39,57 +41,65 @@ export default function BizArticle({
   children: React.ReactNode
 }) {
   const related = relatedBizArticles(href)
+  // 2026-11-05 사장님 「인사이트도 새 디자인으로」 — 껍데기만 회사 홈 새 디자인으로. 본문·주소·구조화 데이터는 그대로
   return (
-    <div className="flex min-h-screen flex-col bg-white">
-      <Header />
-      <main className="flex-1">
-        <section className="relative overflow-hidden bg-[#070b14] py-16 md:py-20">
-          <div className="geo-grid-bg absolute inset-0 opacity-60" />
-          <div className="container relative mx-auto max-w-3xl px-4 md:px-6">
-            <Link href="/business/insights" className="text-xs font-bold tracking-[0.2em] text-[#00e5a0] hover:underline">
-              {kicker.toUpperCase()}
-            </Link>
-            <h1 className="mt-4 text-[clamp(1.75rem,3.6vw,2.75rem)] font-extrabold leading-[1.2] tracking-tight text-white">{title}</h1>
-            <p className="mt-5 text-base leading-relaxed text-slate-400 md:text-lg">{description}</p>
-            <p className="mt-6 text-sm text-slate-500">위즈더플래닝 · {date}</p>
-          </div>
-        </section>
+    <DocShell cta={BIZ_CTA}>
+      <section className="dp-hero gd-hero t-k" aria-label="글 머리">
+        <div className="dp-w gd-hero-in">
+          <Crumb items={[{ name: "기업 마케팅", href: "/business" }, { name: "인사이트", href: "/business/insights" }]} />
+          <p className="dp-no">{kicker}</p>
+          <h1>{title}</h1>
+          <p className="dp-lead">{description}</p>
+        </div>
+      </section>
+      <p className="dp-meta">
+        <span className="dp-w" style={{ display: "block" }}>
+          글 <b>위즈더플래닝 마케팅팀</b> · {date}
+        </span>
+      </p>
 
-        <article className="container mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16 [&>h2]:mt-12 [&>h2]:text-2xl [&>h2]:font-extrabold [&>h2]:tracking-tight [&>h2]:text-gray-900 [&>h3]:mt-8 [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-gray-900 [&>p]:mt-4 [&>p]:text-base [&>p]:leading-[1.85] [&>p]:text-gray-700 [&>ul]:mt-4 [&>ul]:space-y-2 [&>ul]:pl-1 [&>ol]:mt-4 [&>ol]:list-decimal [&>ol]:space-y-3 [&>ol]:pl-5 [&_a]:font-semibold [&_a]:text-emerald-700 [&_a]:underline-offset-4 hover:[&_a]:underline">
-          {children}
-        </article>
+      <article className="gd-body container mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16 [&>h2]:mt-12 [&>h2]:text-2xl [&>h2]:font-extrabold [&>h2]:tracking-tight [&>h2]:text-[#0F1B2D] [&>h3]:mt-8 [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-[#0F1B2D] [&>p]:mt-4 [&>p]:text-base [&>p]:leading-[1.85] [&>p]:text-[#34405A] [&>ul]:mt-4 [&>ul]:space-y-2 [&>ul]:pl-1 [&>ol]:mt-4 [&>ol]:list-decimal [&>ol]:space-y-3 [&>ol]:pl-5 [&_a]:font-semibold [&_a]:text-[#1E6C9F] [&_a]:underline [&_a]:underline-offset-4">
+        {children}
+      </article>
 
-        <section className="container mx-auto max-w-3xl px-4 pb-14 md:px-6">
-          <div className="rounded-3xl bg-gradient-to-r from-[#0b1220] to-[#101b2e] px-6 py-10 text-center md:px-10">
-            <p className="text-xl font-extrabold text-white md:text-2xl">{ctaTitle}</p>
-            <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-400 md:text-base">{ctaBody}</p>
-            <Link href="/business/contact" className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-[#00e5a0] px-6 py-3 text-sm font-bold text-[#070b14] hover:bg-[#3cf0bb]">
-              제안 요청 보내기 <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </section>
-
-        {related.length > 0 && (
-          <section className="container mx-auto max-w-5xl px-4 pb-20 md:px-6">
-            <h2 className="mb-5 text-lg font-extrabold tracking-tight text-gray-900">이어서 읽기</h2>
-            <div className="grid gap-5 sm:grid-cols-2">
+      {related.length > 0 && (
+        <section aria-label="이어서 읽기" className="container mx-auto max-w-3xl px-4 pb-4 md:px-6">
+          <div className="border-t border-[#E3EAF2] pt-10">
+            <h2 className="mb-5 flex items-center gap-3 text-lg font-extrabold tracking-tight text-[#0F1B2D]">
+              <span className="h-5 w-1 bg-[#2A93C2]" />
+              이어서 읽기
+            </h2>
+            <div className="grid gap-4 sm:grid-cols-2">
               {related.map((a) => (
-                <Link key={a.href} href={a.href} className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all hover:-translate-y-1 hover:border-emerald-500/40 hover:shadow-lg">
+                <Link key={a.href} href={a.href} className="group flex flex-col overflow-hidden rounded-lg border border-[#E3EAF2] bg-[#F3F7FB] transition-colors hover:border-[#2A93C2]">
                   <span className="block aspect-[16/9] overflow-hidden bg-slate-100">
                     <img src={a.cover} alt="" width={1200} height={675} loading="lazy" className="h-full w-full object-cover" />
                   </span>
                   <span className="flex flex-1 flex-col p-5">
-                    <span className="text-[11px] font-bold tracking-[0.15em] text-emerald-600">{a.kicker}</span>
-                    <span className="mt-1.5 text-base font-bold leading-snug text-gray-900 group-hover:text-emerald-700">{a.title}</span>
-                    <span className="mt-auto pt-3 text-xs text-gray-400">{a.date}</span>
+                    <span className="text-[11px] font-bold text-[#1E6C9F]">{a.kicker}</span>
+                    <span className="mt-1.5 text-base font-bold leading-snug text-[#0F1B2D] group-hover:text-[#1E6C9F]">{a.title}</span>
+                    <span className="mt-auto pt-3 text-xs text-[#4B5565]">{a.date}</span>
                   </span>
                 </Link>
               ))}
             </div>
-          </section>
-        )}
-      </main>
-      <Footer />
-    </div>
+          </div>
+        </section>
+      )}
+
+      <section className="gd-cta" id="contact" aria-label="제안 요청">
+        <div className="dp-w gd-cta-in">
+          <div>
+            <h2>{ctaTitle}</h2>
+            <p>{ctaBody}</p>
+          </div>
+          <div className="gd-cta-b">
+            <Link className="p1" href="/business/contact">
+              제안 요청 보내기 <Icon k="arrow" />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </DocShell>
   )
 }

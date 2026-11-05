@@ -1,8 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ChevronLeft, Clapperboard, ArrowRight } from "lucide-react"
-import Header from "@/components/sections/Header"
-import Footer from "@/components/Footer"
+import { DocShell } from "@/components/shortform/DocParts"
 import { EPISODES, SERIES_NAME, SERIES_DESC } from "@/lib/theater-episodes"
 
 const TITLE = "위즈 극장: GEO(AI 검색 최적화)를 30초 애니메이션으로 배우는 시리즈"
@@ -30,9 +29,10 @@ const jsonLd = {
 
 export default function Page() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#070b14]">
+    // 2026-11-05 인사이트 새 디자인: 머리글·바닥글만 새 것으로, 극장 무대(어두운 바탕·포스터)는 그대로
+    <DocShell>
+    <div className="flex flex-col bg-[#070b14]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <Header />
       <main className="flex-1">
         {/* 극장 헤더 */}
         <section className="relative overflow-hidden py-16 md:py-24">
@@ -115,7 +115,7 @@ export default function Page() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
+    </DocShell>
   )
 }

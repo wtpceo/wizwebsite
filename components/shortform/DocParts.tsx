@@ -3,7 +3,7 @@ import type { ReactNode } from "react"
 import { SERVICES, CONTACT } from "./content"
 import { Icon } from "./icons"
 import SfContactForm from "./SfContactForm"
-import { SfHeader, SfMenu, SfFooter, SfDock } from "./SiteChrome"
+import { SfHeader, SfMenu, SfFooter, SfDock, type SfCta } from "./SiteChrome"
 import "./sf-hero.css"
 import "./sf.css"
 import "./sf-doc.css"
@@ -12,14 +12,14 @@ const SITE = "https://wiztheplanning.com"
 export const UPDATED = "2026-11-04"
 
 /** 새 쪽 공통 틀 — 머리글·메뉴·바닥글·아래 바·예시 화면 스크립트 */
-export function DocShell({ children }: { children: ReactNode }) {
+export function DocShell({ children, cta }: { children: ReactNode; cta?: SfCta }) {
   return (
     <main className="sf sf-doc" id="sf">
-      <SfHeader />
+      <SfHeader cta={cta} />
       <SfMenu />
       {children}
       <SfFooter />
-      <SfDock />
+      <SfDock cta={cta} />
       <script
         type="application/json"
         id="sf-data"

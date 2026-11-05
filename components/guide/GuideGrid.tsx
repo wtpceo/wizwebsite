@@ -5,14 +5,6 @@ import Link from "next/link"
 import { CATEGORIES, GUIDE_ARTICLES, type CategoryKey } from "@/lib/guide-articles"
 import { coverFor } from "@/lib/guide-cover"
 
-const CAT_TEXT: Record<CategoryKey, string> = {
-  concern: "text-amber-600",
-  case: "text-emerald-600",
-  basics: "text-sky-600",
-  playbook: "text-violet-600",
-  industry: "text-rose-600",
-  naver: "text-lime-700",
-}
 
 function fmtDate(d: string) {
   // "2026. 9. 10" → "2026.09.10"
@@ -28,10 +20,10 @@ export default function GuideGrid() {
   return (
     <>
       {/* 필터 */}
-      <div className="sticky top-16 z-30 border-b border-gray-100 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70">
+      <div className="gd-filter sticky top-[66px] z-30 border-b border-[#E3EAF2] bg-white">
         <div className="container mx-auto max-w-6xl px-4 md:px-6">
           <div className="flex snap-x gap-2 overflow-x-auto py-3 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            <FilterChip label="ALL" count={GUIDE_ARTICLES.length} active={active === "all"} onClick={() => setActive("all")} />
+            <FilterChip label="전체" count={GUIDE_ARTICLES.length} active={active === "all"} onClick={() => setActive("all")} />
             {CATEGORIES.map((c) => {
               const n = GUIDE_ARTICLES.filter((g) => g.category === c.key).length
               if (!n) return null
@@ -50,7 +42,7 @@ export default function GuideGrid() {
               <Link
                 key={g.href}
                 href={g.href}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/[0.08]"
+                className="group flex flex-col overflow-hidden rounded-lg border border-[#E3EAF2] bg-white transition-colors hover:border-[#2A93C2]"
               >
                 <div className="aspect-[16/9] overflow-hidden bg-slate-100">
                   <img
@@ -64,14 +56,14 @@ export default function GuideGrid() {
                 </div>
                 <div className="flex flex-1 flex-col p-5">
                   <p className="flex items-center gap-2 text-xs font-bold">
-                    <span className={CAT_TEXT[g.category]}>{cat?.short}</span>
+                    <span className="text-[#1E6C9F]">{cat?.short}</span>
                     <span className="h-3 w-px bg-gray-200" />
-                    <span className="font-medium text-gray-400">{fmtDate(g.updated ?? g.date)}</span>
+                    <span className="font-medium text-[#4B5565]">{fmtDate(g.updated ?? g.date)}</span>
                   </p>
-                  <h3 className="mt-2.5 line-clamp-2 text-[17px] font-extrabold leading-snug tracking-tight text-gray-900 group-hover:text-emerald-700">
+                  <h3 className="mt-2.5 line-clamp-2 text-[17px] font-extrabold leading-snug tracking-tight text-[#0F1B2D] group-hover:text-[#1E6C9F]">
                     {g.title}
                   </h3>
-                  <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-gray-500">{g.desc}</p>
+                  <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-[#4B5565]">{g.desc}</p>
                 </div>
               </Link>
             )
@@ -88,14 +80,12 @@ function FilterChip({ label, count, active, onClick }: { label: string; count: n
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className={`inline-flex shrink-0 snap-start items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-bold transition-colors ${
-        active
-          ? "border-[#00e5a0] bg-[#00e5a0] text-[#070b14]"
-          : "border-gray-200 bg-white text-gray-700 hover:border-emerald-500/50 hover:bg-emerald-50 hover:text-emerald-700"
+      className={`inline-flex shrink-0 snap-start items-center gap-1.5 rounded border px-4 py-2 text-sm font-bold transition-colors ${
+        active ? "border-[#1E6C9F] bg-[#1E6C9F] text-white" : "border-[#C9D6E3] bg-white text-[#2A3448] hover:border-[#1E6C9F] hover:text-[#1E6C9F]"
       }`}
     >
       {label}
-      <span className={`text-xs ${active ? "text-[#070b14]/60" : "text-gray-400"}`}>{count}</span>
+      <span className={`text-xs ${active ? "text-white/75" : "text-[#4B5565]"}`}>{count}</span>
     </button>
   )
 }

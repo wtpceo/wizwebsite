@@ -1,8 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ChevronLeft, ArrowRight, BookOpen } from "lucide-react"
-import Header from "@/components/sections/Header"
-import Footer from "@/components/Footer"
+import { DocShell } from "@/components/shortform/DocParts"
 import { EPISODES } from "@/lib/theater-episodes"
 
 const ep = EPISODES.find((e) => e.slug === "ep5-unread-invitation")!
@@ -60,9 +59,10 @@ function Caption({ children }: { children: React.ReactNode }) {
 
 export default function Page() {
   return (
-    <div className="flex min-h-screen flex-col bg-[#070b14]">
+    // 2026-11-05 인사이트 새 디자인: 머리글·바닥글만 새 것으로, 극장 무대(어두운 바탕·포스터)는 그대로
+    <DocShell>
+    <div className="flex flex-col bg-[#070b14]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoJsonLd) }} />
-      <Header />
       <main className="flex-1">
         <section className="container mx-auto max-w-3xl px-4 py-14 md:px-6 md:py-20">
           <Link href="/theater" className="inline-flex items-center gap-1 text-sm text-slate-400 transition-colors hover:text-[#00e5a0]">
@@ -191,7 +191,7 @@ export default function Page() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
+    </DocShell>
   )
 }
