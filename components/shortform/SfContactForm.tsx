@@ -56,7 +56,7 @@ export default function SfContactForm({ services, initial = [], source = "home_s
           storeName: company.trim(),
           message: [
             source === "home_shortform" ? `[홈 ${label}]` : `[${label} · ${source}]`,
-            full ? `대행사 여부: ${agency ? "대행사" : "아님"}` : "",
+            full && agency ? "대행사 여부: 대행사에서 문의(체크함)" : "",
             `관심 서비스: ${names.length ? names.join(", ") : "고르지 않음"}`,
             site.trim() ? `홈페이지·검색어: ${site.trim()}` : "",
             when ? `시작 시점: ${when}` : "",

@@ -51,7 +51,7 @@
    {k:"infl",n:"유튜버·인스타·틱톡 MCN",ph:"팔로워 많은 계정이<br>소개하게",rec:["저희 맛집 채널 @matzip_town 팔로워 5.1만 · 2026.11"],t1:"팔로워 많은 계정이 우리 브랜드를 소개합니다. 저희가 직접 운영하는 채널도 있습니다.",d:["업종·손님층에 맞는 계정 찾기","방문 날짜와 올릴 내용 맞추기","게시물 주소와 반응 보고"],
     tiles:[["reel",{img:"fnb-dish",cap:"돌솥 비빔밥에 반찬이 여섯 가지",lk:"2.4만",cm:"612"}],["reel",{img:"fnb-dessert",cap:"성수 카페 여기 진짜 조용해요",lk:"1.1만",cm:"342"}],["reel",{img:"beauty-salon",cap:"메이크업 받고 바로 촬영 갑니다",lk:"8,412",cm:"205"}],["reel",{img:"fashion-look",cap:"출근룩 트렌치 이렇게 입어요",lk:"6,930",cm:"117"}]]},
    {k:"perf",n:"퍼포먼스",ph:"광고는 마케터가<br>직접 돌리고",rec:["메타 광고 1,317번 클릭 · 99,939원 · 2026.02"],t1:"네이버·메타·구글·당근 광고를 담당 마케터가 직접 운영합니다.",d:["담당 마케터가 세팅·운영","자체 제작 영상·이미지 여러 개 비교","반응 좋은 쪽으로 예산 이동"],
-    tiles:[["ads",{}],["reel",{img:"derma",cap:"첫 상담 예약 받아요",lk:"3,208",cm:"96",ad:"예약하기"}],["reel",{img:"beauty-flat",cap:"민감한 피부도 순하게",lk:"1.2만",cm:"231",ad:"구매하기"}],["reel",{img:"fashion-look",cap:"가을 신상 트렌치코트 입고됐어요",lk:"5,420",cm:"188",ad:"구매하기"}]]},
+    tiles:[["ads",{}],["reel",{img:"derma",cap:"첫 상담 예약 받아요",lk:"3,208",cm:"96",ad:"예약하기"}],["reel",{img:"beauty-flat",cap:"민감한 피부도 순하게",lk:"1.2만",cm:"231",ad:"구매하기"}],["reel",{img:"fashion-detail",cap:"가을 신상 니트 입고됐어요",lk:"5,420",cm:"188",ad:"구매하기"}]]},
    {k:"search",n:"검색 최적화",ph:"AI가 먼저<br>추천하게",rec:["ChatGPT 추천 1순위 · 2026.10.28","네이버 지도 201위 → 1위 · 2026.10"],t1:"AI가 추천할 때, 지도에서 고를 때 우리 브랜드가 먼저 나오게 합니다.",d:["홈페이지·지도 정보를 똑같이 맞추기","손님 질문에 답하는 글 올리기","매주 같은 질문으로 다시 묻고 보고"],
     tiles:[["ai",{q:"판교역 근처 치과 추천해 줘",it:[{img:"dental",k:"치과",why:"야간 진료 · 임플란트 상담 후기가 많아요"},{k:"치과의원",why:"주차 가능 · 토요일 진료",w:14},{k:"치과",why:"교정 상담 따로 받음",w:20}]}],["rank",{t:"네이버 지도 순위",k:"동네 이름 + 업종"}],["ai",{q:"정자동 필라테스 처음인데 어디가 좋아?",it:[{img:"pilates",k:"필라테스",why:"1:1 체험 수업 · 아침 7시 반"},{k:"스튜디오",why:"기구 수업 위주",w:16},{k:"필라테스",why:"주말 수업 있음",w:12}]}],["srch",{q:"분당 피부과",tab:"지도",r:[{img:"derma",t:"피부과의원 · 리프팅·여드름 진료",s:"방문자 리뷰 · 블로그 리뷰",when:"영업 중",b:"1"},{img:"cosme",t:"피부과 · 야간 진료",s:"방문자 리뷰",when:"영업 중"}]}]]},
    {k:"content",n:"콘텐츠·미디어",ph:"찍고 자르고<br>자막까지",rec:[],t1:"자체 촬영팀이 가서 찍고, 자막·음악까지 넣어 릴스·쇼츠로 올립니다.",d:["자체 촬영팀이 가서 촬영","자막·음악 넣어 편집","릴스·쇼츠·블로그에 올리기"],
@@ -154,7 +154,7 @@ var H4=(function(){
   var INTRO='<div class="intro" id="intro" aria-hidden="true"><div class="fl"><span>MCN</span><span>광고</span><span>검색</span><span>촬영</span><span>블로그</span><span>해외</span><span>홈페이지</span><span>엘리베이터TV</span></div><div class="big"><i>한</i><i>곳</i><i>.</i></div><div class="bar"></div></div>';
   /* 화면 밖이면 멈춤 */
   /* 11-05 렉 재측정: 2번 컷으로 넘어갈 때 끊김의 주범이 돌아가는 휴대폰 고리 — 화면에 보이는 첫 화면이 화면 높이의 85% 아래로 줄면 바로 멈춘다(전에는 5% 아래에서 · 휴대폰처럼 첫 화면이 화면보다 길어도 맞게) */
-  function pauseOff(hero,play){if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(e){var need=Math.min(innerHeight,e.boundingClientRect.height)*.85,on=e.isIntersecting&&e.intersectionRect.height>=need;hero.classList.toggle('paused',!on);play(on);})},{threshold:[0,.3,.5,.6,.65,.7,.75,.8,.85,.9,.95,1]}).observe(hero);}
+  function pauseOff(hero,play){var last=null;if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(e){var need=Math.min(innerHeight,e.boundingClientRect.height)*.85,on=e.isIntersecting&&e.intersectionRect.height>=need;if(on===last)return;last=on;hero.classList.toggle('paused',!on);play(on);})},{threshold:[0,.3,.5,.6,.65,.7,.75,.8,.85,.9,.95,1]}).observe(hero);}
   return {reduce:reduce,fine:fine,phone:phone,story:story,wall:wall,open:open,close:close,intro:intro,INTRO:INTRO,pauseOff:pauseOff};
 })();
 
