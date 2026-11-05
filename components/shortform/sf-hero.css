@@ -362,7 +362,7 @@ html.sf-anim .sf .ooh.tv .tv3{animation:sf-tv 9s linear 6s infinite}
 .sf .rl>img,.sf .rl>video{width:100%;height:100%;object-fit:cover;display:block}
 .sf .rl .tile{height:100%;aspect-ratio:auto}
 .sf .veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(24,96,146,.95) 0%,rgba(30,108,159,.88) 36%,rgba(36,128,178,.66) 66%,rgba(42,147,194,.52) 100%),linear-gradient(180deg,rgba(24,96,146,.55) 0%,rgba(24,96,146,0) 22%,rgba(24,96,146,0) 78%,rgba(24,96,146,.8) 100%)}
-.sf .paused .bgk,.sf .paused .mg,.sf .paused .mg *,.sf .paused .glow:before,.sf .paused .flow,.sf .paused .ring *,.sf .paused .svb .pg{animation-play-state:paused!important}
+.sf .paused .bgk,.sf .paused .mg,.sf .paused .mg *,.sf .paused .glow:before,.sf .paused .flow{animation-play-state:paused!important}
 .sf .kick{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--sky);margin:0 0 16px}
 .sf .kick:before{content:"";width:22px;height:2px;background:var(--sky)}
 .sf .hero h1{margin:0;font-size:clamp(36px,3.6vw,54px);line-height:1.14;letter-spacing:-.035em;font-weight:800}

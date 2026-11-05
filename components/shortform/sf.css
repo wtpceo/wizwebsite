@@ -891,3 +891,9 @@ html.sf-pre .sf .intro { animation: sf-intro-safe 0s linear 5s forwards; }
 .sf .sfh-ddp a svg[data-k] { stroke: var(--sc); }
 /* 어두운 바탕 위 작은 칸(전문 인력 쪽·회사소개 서비스 목록) */
 .sf .tm-hero li .ic:has(> svg[data-k]), .sf .ab-svc .ic:has(> svg[data-k]), .sf .tm2-ph:has(> svg[data-k]) { background: var(--sc); color: #fff; }
+
+/* 11-05 렉 재측정(1→2번·2→3번 넘김 끊김 27% → 13%): ① 머리글 글자색이 흰색↔남색으로 0.3초 걸쳐 바뀌며 매 장면 다시 그리던 것을 즉시 바꿈
+   ② 첫 화면을 벗어나기 시작하면(화면의 85% 아래) 휴대폰 고리를 0.2초에 흐리게 감춤 — 넘기는 동안 고리를 그리지 않게 */
+.sf .sfh, .sf .sfh-logo img, .sf .sfs { transition: none; }
+.sf .hero .stage { transition: opacity .2s ease, visibility 0s linear 0s; }
+.sf .hero.paused .stage { opacity: 0; visibility: hidden; transition: opacity .2s ease, visibility 0s linear .2s; }
