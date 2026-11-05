@@ -327,14 +327,14 @@ html.sf-anim .sf .ooh.tv .tv3{animation:sf-tv 9s linear 6s infinite}
 .sf .intro .fl span.on{opacity:1}
 .sf .intro .big{display:flex;font-size:clamp(110px,19vw,300px);font-weight:900;letter-spacing:-.06em;color:#fff;line-height:1}
 .sf .intro .big i{font-style:normal;display:inline-block;opacity:0;transform:translateY(18%) scale(1.35)}
-.sf .intro.land .big i{animation:sf-slam .5s var(--eo) forwards}
+.sf .intro.land .big i{animation:sf-hslam .5s var(--eo) forwards}
 .sf .intro.land .big i:nth-child(2){animation-delay:.07s}
 .sf .intro .big i:nth-child(2){margin-left:.22em}
 .sf .intro.land .big i:nth-child(3){animation-delay:.14s;color:var(--sky)}
 .sf .intro .bar{position:absolute;left:50%;top:calc(50% + clamp(70px,11vw,170px));width:min(60vw,640px);height:3px;background:linear-gradient(90deg,rgba(124,196,232,0),var(--sky),rgba(124,196,232,0));transform:translateX(-50%) scaleX(0)}
 .sf .intro.land .bar{animation:sf-sweep .7s var(--eo) .2s forwards}
 .sf .intro .skip{position:absolute;right:24px;bottom:22px;font-size:13px;color:#6F8197;background:none;border:0;cursor:pointer}
-@keyframes sf-slam{to{opacity:1;transform:none}}
+@keyframes sf-hslam{to{opacity:1;transform:none}}
 @keyframes sf-sweep{to{transform:translateX(-50%) scaleX(1)}}
 .sf{--ink:#0F1B2D; --sub:#55627A; --line:#DCE5EF; --sky:#BFE4F5; --sky2:#7CC4E8;
   --b1:#1E6C9F; --b2:#2A93C2; --blue:#2386B6; --blue-lo:#1E6C9F; --navy:#0E2A44; --grad:linear-gradient(180deg,#2A93C2,#1E6C9F);
@@ -352,7 +352,7 @@ html.sf-anim .sf .ooh.tv .tv3{animation:sf-tv 9s linear 6s infinite}
 .sf .bg{position:absolute;inset:0;z-index:-2;perspective:1700px}
 .sf .bgt{position:absolute;right:-12%;top:-26%;width:100%;height:150%;display:grid;grid-template-columns:repeat(6,1fr);gap:14px;transform:rotateX(16deg) rotateY(-18deg) rotateZ(7deg)}
 .sf .bgc{overflow:hidden;height:100%}
-.sf .bgk{display:flex;flex-direction:column;gap:14px;animation:sf-roll 22s linear infinite;will-change:transform}
+.sf .bgk{display:flex;flex-direction:column;gap:14px;animation:sf-hroll 22s linear infinite;will-change:transform}
 .sf .bgc:nth-child(2) .bgk{animation-duration:27s;animation-direction:reverse}
 .sf .bgc:nth-child(3) .bgk{animation-duration:19s}
 .sf .bgc:nth-child(4) .bgk{animation-duration:25s;animation-direction:reverse}
@@ -373,10 +373,10 @@ html.sf-anim .sf .ooh.tv .tv3{animation:sf-tv 9s linear 6s infinite}
 .sf .btns a:active{transform:scale(.97)}
 .sf .b1{background:#fff;color:var(--b1)}
 .sf .b2{color:#fff;border:1px solid rgba(255,255,255,.45)}
-.sf .ready .in1{animation:sf-fade .8s var(--eo) both}
-.sf .ready .in2{animation:sf-fade .8s var(--eo) .08s both}
-.sf .ready .in3{animation:sf-fade .8s var(--eo) .16s both}
-.sf .ready .in4{animation:sf-fade .8s var(--eo) .24s both}
+.sf .ready .in1{animation:sf-hfade .8s var(--eo) both}
+.sf .ready .in2{animation:sf-hfade .8s var(--eo) .08s both}
+.sf .ready .in3{animation:sf-hfade .8s var(--eo) .16s both}
+.sf .ready .in4{animation:sf-hfade .8s var(--eo) .24s both}
 .sf .btns a:focus-visible,.sf .pcard:focus-visible,.sf .svb:focus-visible,.sf .xx:focus-visible,.sf .xb a:focus-visible{outline:2px solid #fff;outline-offset:3px}
 .sf .pcard{position:relative;display:block;width:calc(var(--ch) * .5625);height:var(--ch);border:0;padding:0;background:none;cursor:pointer;text-align:left;flex:none}
 .sf .pcard .glow{position:absolute;inset:-3px;border-radius:calc(var(--ch) * .075);overflow:hidden;opacity:0;transition:opacity .4s ease}
@@ -429,8 +429,8 @@ html.sf-anim .sf .ooh.tv .tv3{animation:sf-tv 9s linear 6s infinite}
 .sf .xb .p2{color:var(--blue-lo);border:1px solid #B9D3E6}
 .sf .xx{position:absolute;right:16px;top:16px;z-index:3;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .sf .xx svg{width:18px;height:18px;stroke:var(--ink);stroke-width:2;fill:none}
-@keyframes sf-roll{from{transform:translateY(0)}to{transform:translateY(-50%)}}
-@keyframes sf-fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes sf-hroll{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+@keyframes sf-hfade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 @keyframes sf-bar{to{transform:scaleX(1)}}
 @keyframes sf-spin{to{transform:rotate(360deg)}}
 @media (max-width:820px){.sf .gnb{padding:0 18px;height:60px}
@@ -479,7 +479,7 @@ html.sf-anim .sf .ooh.tv .tv3{animation:sf-tv 9s linear 6s infinite}
 .sf .svb.on .pg{animation:sf-pg var(--pd,3.9s) linear forwards}
 @keyframes sf-pg{to{transform:scaleX(1)}}
 @media (hover:hover) and (pointer:fine){.sf .svb:not(.on):hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.38)}}
-.sf .ready .svl li{animation:sf-fade .6s var(--eo) both;animation-delay:calc(.3s + var(--i) * 45ms)}
+.sf .ready .svl li{animation:sf-hfade .6s var(--eo) both;animation-delay:calc(.3s + var(--i) * 45ms)}
 .sf .right{position:relative;height:min(760px,calc(100vh - 120px));min-height:560px}
 .sf .stage{position:absolute;inset:0 0 92px 0;perspective:1500px;perspective-origin:50% 40%;--ch:min(540px,62vh)}
 .sf .orbit{position:absolute;left:50%;top:50%;width:calc(var(--ch) * 2.1);height:calc(var(--ch) * .42);transform:translate(-50%,-10%);border-radius:50%;border:1px solid rgba(255,255,255,.22);pointer-events:none}
