@@ -429,7 +429,7 @@ export default function ShortformHome() {
       <Cut id="c32" no={next()} ch={3} tone="k" fx="montage" label="여덟 가지 몽타주">
         <div className="mt">
           <p className="cap sz-xl">
-            <Words text="이 모든 걸 한 곳에서." />
+            <Words text="MCN부터 엘리베이터TV까지, 한 곳에서." />
           </p>
           <div className="mt-scr" id="montage" aria-hidden="true">
             <img src="/sf/ex/m-shoot.jpg" alt="" loading="lazy" />
@@ -447,7 +447,7 @@ export default function ShortformHome() {
         <Cut key={f.n} id={`c${33 + i}`} no={next()} ch={4} tone={(["w", "c", "k"] as const)[i]} fx="cwipe" label={`업종별 ${f.n}`} className={`so so-${i}`}>
           <div className="so-in">
             <div className="so-t">
-              {i === 0 ? <p className="so-k">우리 업종에 맞는 조합을 제안합니다.</p> : null}
+              {i === 0 ? <p className="so-k">업종마다 먼저 손볼 곳이 다릅니다. 진단에서 안 보인 곳부터 순서를 잡습니다.</p> : null}
               <p className="so-who">
                 <b>{f.n}</b> {f.who}
               </p>
@@ -481,7 +481,7 @@ export default function ShortformHome() {
       <Cut id="c36" no={next()} ch={5} tone="w" fx="folder" label="전문 인력 1">
         <div className="tm">
           <p className="cap sz-lg">
-            <Words text={"분야별 시니어가\n직접 담당합니다."} />
+            <Words text={"다섯 팀이 나눠서\n직접 합니다."} />
           </p>
           <div className="tm-map">
             <div className="tm-c">
@@ -535,7 +535,7 @@ export default function ShortformHome() {
           <div className="ps-in">
             <div className="ps-t">
               {i === 0 ? (
-                <p className="ps-k">상담부터 리포트까지, 한 명의 담당자가 끝까지.</p>
+                <p className="ps-k">상담부터 리포트까지 담당 마케터 한 명이 맡습니다.</p>
               ) : null}
               <p className="ps-no">
                 {i + 1} / 5
@@ -677,14 +677,14 @@ export default function ShortformHome() {
         <div className="ct">
           <div className="ct-t">
             <h2 className="cap sz-lg">
-              <Words text={"우리 브랜드 마케팅,\n지금 무료로 상담받아 보세요."} />
+              <Words text={"우리 브랜드 마케팅,\n무료 상담부터 받아 보세요."} />
             </h2>
             <p className="sm">
-              기업·병원은 무료 상담, 대기업·프랜차이즈는 <a href="/business/contact">제안 요청</a>, 매장·학원은{" "}
+              대기업·프랜차이즈는 <a href="/business/contact">제안 요청</a> 쪽에서 따로 받습니다. 매장·학원은{" "}
               <a href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
-                카카오톡 상담
+                카카오톡
               </a>
-              으로 받습니다. 신청하시면 담당 마케터가 연락드려 진단부터 시작합니다. 가격은 진단 뒤 제안서로 안내합니다.
+              으로 먼저 물어보셔도 됩니다. 신청하시면 담당 마케터가 연락드려 진단부터 시작합니다. 가격은 진단 뒤 제안서로 안내합니다.
             </p>
             <div className="ct-ways">
               <a href={CONTACT.telHref} data-tel>

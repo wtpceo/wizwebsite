@@ -26,7 +26,7 @@
       return h+'</div>'},
     rank:function(d){return '<div class="tile rank">'+TGL+'<small>'+d.t+'</small><div class="big"><span>201위 →</span> <b><i data-count="1" data-from="201" style="font-style:normal">1</i>위</b></div>'+
       '<svg viewBox="0 0 200 110"><defs><linearGradient id="rg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2A93C2" stop-opacity=".28"/><stop offset="1" stop-color="#2A93C2" stop-opacity="0"/></linearGradient></defs><path d="M0 104 L28 96 L56 90 L84 70 L112 52 L140 30 L168 14 L200 6 L200 110 L0 110Z" fill="url(#rg)"/><path d="M0 104 L28 96 L56 90 L84 70 L112 52 L140 30 L168 14 L200 6" fill="none" stroke="#1E6C9F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="200" cy="6" r="5" fill="#1E6C9F"/></svg>'+
-      '<table><tr><td>'+d.k+'</td><td>1위</td></tr><tr><td>시작한 달</td><td>201위</td></tr><tr><td>순위 확인</td><td>매주</td></tr></table></div>'},
+      '<table><tr><td>'+d.k+'</td><td>1위</td></tr><tr><td>시작한 달</td><td>201위</td></tr><tr><td>순위 확인</td><td>매달</td></tr></table></div>'},
     ads:function(){var a=[['18-24',5],['25-34',95],['35-44',159],['45-54',333],['55-64',429],['65+',286]],h='';
       a.forEach(function(x){h+='<div><i style="height:'+Math.max(3,Math.round(x[1]/429*82))+'%"></i>'+x[0]+'</div>'});
       return '<div class="tile ads">'+TGL+'<div class="hd">메타 광고 결과<small>2026.02 · 한 달</small></div><div class="kp"><div><span>링크 클릭</span><b data-count="1317">1,317</b></div><div><span>쓴 광고비</span><b><i data-count="99939" style="font-style:normal">99,939</i>원</b></div><div class="w"><span>클릭 한 번에</span><b>약 76원</b></div></div><div class="ch"><p>나이대별 클릭</p><div class="br">'+h+'</div></div></div>'},
@@ -56,12 +56,12 @@
     tiles:[["ai",{q:"판교역 근처 치과 추천해 줘",it:[{img:"dental",k:"치과",why:"야간 진료 · 임플란트 상담 후기가 많아요"},{k:"치과의원",why:"주차 가능 · 토요일 진료",w:14},{k:"치과",why:"교정 상담 따로 받음",w:20}]}],["rank",{t:"네이버 지도 순위",k:"동네 이름 + 업종"}],["ai",{q:"정자동 필라테스 처음인데 어디가 좋아?",it:[{img:"pilates",k:"필라테스",why:"1:1 체험 수업 · 아침 7시 반"},{k:"스튜디오",why:"기구 수업 위주",w:16},{k:"필라테스",why:"주말 수업 있음",w:12}]}],["srch",{q:"분당 피부과",tab:"지도",r:[{img:"derma",t:"피부과의원 · 리프팅·여드름 진료",s:"방문자 리뷰 · 블로그 리뷰",when:"영업 중",b:"1"},{img:"cosme",t:"피부과 · 야간 진료",s:"방문자 리뷰",when:"영업 중"}]}]]},
    {k:"content",n:"콘텐츠·미디어",ph:"찍고 자르고<br>자막까지",rec:[],t1:"자체 촬영팀이 가서 찍고, 자막·음악까지 넣어 릴스·쇼츠로 올립니다.",d:["자체 촬영팀이 가서 촬영","자막·음악 넣어 편집","릴스·쇼츠·블로그에 올리기"],
     tiles:[["edit",{img:"sashimi",s:"오늘 들어온 <em>광어</em>"}],["shoot",{img:"fashion-store"}],["edit",{img:"salon",s:"뿌리 볼륨만 <em>살려 주세요</em>"}],["shoot",{img:"shootcos"}]]},
-   {k:"viral",n:"바이럴",ph:"블로그 검색<br>맨 위로",rec:["블로그 탭 1위 · 2026.10.26","인기글 1위 · 2026.01"],t1:"블로그·체험단·기자단·언론 기사로 검색 맨 위를 잡습니다.",d:["올릴 검색어 정하기","블로거 고르고 글 가이드 만들기","올라간 글 주소 보고"],
+   {k:"viral",n:"바이럴",ph:"블로그 검색<br>맨 위로",rec:["블로그 탭 1위 · 2026.10.26","인기글 1위 · 2026.01"],t1:"블로그·체험단·기자단·언론 기사로 검색 위쪽에 우리 글을 올립니다.",d:["올릴 검색어 정하기","블로거 고르고 글 가이드 만들기","올라간 글 주소 보고"],
     tiles:[["srch",{q:"민감성 선크림 추천",tab:"블로그",r:[{img:"sunscreen",t:"민감성 피부 선크림 세 가지 써 봤어요",s:"공감 412 · 댓글 58",when:"3일 전",b:"인기글"},{img:"makeup",t:"출근 전 5분 화장 순서",s:"공감 96",when:"1주 전"},{img:"giftset",t:"선물하기 좋은 화장품 세트 정리",s:"공감 74",when:"2주 전"}]}],["blog",{img:"fnb-dessert",b:"인기글",t:"성수 조용한 카페, 딸기 생크림 케이크 맛집",when:"2026.10.21"}],["news",{img:"sunscreen",t:"국내 화장품 브랜드, 민감성 피부 라인 새로 내놓아",when:"2026.10.14"}],["blog",{img:"fcafe",b:"블로그 1위",red:1,t:"프랜차이즈 카페 겨울 신메뉴 먼저 마셔 봤어요",when:"2026.09.30"}]]},
    {k:"global",n:"글로벌",ph:"샤오홍슈·LINE에도<br>올리고",rec:["중국 샤오홍슈 · 도우인 · 왕홍 공동구매","일본 인스타 · LINE"],t1:"한국에 오기 전 손님이 보는 샤오홍슈·LINE에 업체를 올립니다.",d:["업체 소개·메뉴를 중국어·일본어로 정리","현지 체험단·인플루언서 게시","검색 노출과 저장 수 보고"],
     tiles:[["xhs",{img:"myeong",t:"明洞逛吃攻略｜本地人推荐的小店",lk:"2.3万"}],["line",{img:"palace",t:"景福宮で韓服体験。駅から歩いて5分です",a:"予約する"}],["xhs",{img:"giftset",t:"韩国小众护肤品牌｜敏感肌也能用",lk:"1.8万"}],["line",{img:"cosme",t:"店舗限定のスキンケアセットあります",a:"詳しく見る"}]]},
    {k:"home",n:"홈페이지 제작",ph:"홈페이지는<br>새로 만들고",rec:[],t1:"AI와 검색이 읽기 쉬운 홈페이지를 새로 만들거나, 지금 홈페이지 속 정보만 고칩니다.",d:["구조안과 메인 시안 확인받고 제작","소식·휴무를 직접 고치는 관리자 화면","질문형 글 올리고 색인 요청"],
-    tiles:[["web",{img:"dental",h:"아프지 않게,<br>오래 쓰게.",s:"평일 밤 9시까지 진료",b:"진료 예약"}],["web",{img:"academy",h:"밤 10시까지<br>자습을 봐 줍니다",s:"중등 수학 · 소수 정원",b:"상담 신청"}],["web",{img:"ortho",h:"평일 밤 8시까지<br>재활 치료",s:"도수치료 · 운동치료",b:"진료 예약"}],["adm",{}]]},
+    tiles:[["web",{img:"dental",h:"평일 밤 9시까지<br>진료합니다",s:"평일 밤 9시까지 진료",b:"진료 예약"}],["web",{img:"academy",h:"밤 10시까지<br>자습을 봐 줍니다",s:"중등 수학 · 소수 정원",b:"상담 신청"}],["web",{img:"ortho",h:"평일 밤 8시까지<br>재활 치료",s:"도수치료 · 운동치료",b:"진료 예약"}],["adm",{}]]},
    {k:"off",n:"오프라인 미디어",ph:"엘리베이터TV에도<br>띄웁니다",rec:["포커스미디어 엘리베이터TV 공식 총판"],t1:"엘리베이터TV·택배차·극장·카카오T까지 고객 눈에 띄는 곳에 광고합니다.",d:["매장·병원 근처 단지·차량·극장 고르기","광고 영상·시안 제작","송출·부착 기간 보고"],
     tiles:[["elev",{}],["truck",{}],["cine",{}],["taxi",{}]]}];
   function tile(t){return T[t[0]](t[1])}
@@ -86,10 +86,10 @@ var H4=(function(){
   T.mg=function(d){return '<div class="tile mgt"><span class="tg">예시 화면</span><div class="mgw">'+MG[d.k]+'</div><p>'+d.cap+'</p></div>'};
   /* 서비스마다: 하는 일 한 줄 · 먼저 하는 일 · 휴대폰 화면 3장 */
   var X={
-    search:{ln:"AI·지도에서 우리 브랜드가 먼저 나오게",first:"홈페이지·지도 정보부터 똑같이 맞춥니다",ph:[["ai",{q:"판교역 근처 치과 추천해 줘",it:[{img:"m-dental",k:"치과",why:"야간 진료 · 상담 후기가 많아요"},{k:"치과의원",why:"주차 가능 · 토요일 진료",w:14},{k:"치과",why:"교정 상담 따로 받음",w:20}]}],["mg",{k:"search",cap:"AI 답변 3등이던 업체를 1등으로"}],["rank",{t:"네이버 지도 순위",k:"동네 이름 + 업종"}]]},
+    search:{ln:"AI·지도에서 우리 브랜드가 먼저 나오게",first:"홈페이지·지도 정보부터 똑같이 맞춥니다",ph:[["ai",{q:"판교역 근처 치과 추천해 줘",it:[{img:"m-dental",k:"치과",why:"야간 진료 · 상담 후기가 많아요"},{k:"치과의원",why:"주차 가능 · 토요일 진료",w:14},{k:"치과",why:"교정 상담 따로 받음",w:20}]}],["mg",{k:"search",cap:"AI 답변 1번 자리에 우리 이름이"}],["rank",{t:"네이버 지도 순위",k:"동네 이름 + 업종"}]]},
     perf:{ln:"네이버·메타·구글·당근 광고를 직접 운영",first:"광고 시안 여러 개를 같이 돌려 봅니다",ph:[["reel",{img:"derma",cap:"첫 상담 예약 받아요",lk:"3,208",cm:"96",ad:"예약하기"}],["mg",{k:"perf",cap:"잘 되는 시안으로 광고비를 옮깁니다"}],["ads",{}]]},
     viral:{ln:"블로그·체험단·기자단으로 검색 맨 위",first:"올릴 검색어부터 정합니다",ph:[["srch",{q:"민감성 선크림 추천",tab:"블로그",r:[{img:"sunscreen",t:"민감성 피부 선크림 세 가지 써 봤어요",s:"공감 412 · 댓글 58",when:"3일 전",b:"인기글"},{img:"makeup",t:"출근 전 5분 화장 순서",s:"공감 96",when:"1주 전"},{img:"giftset",t:"선물하기 좋은 화장품 세트 정리",s:"공감 74",when:"2주 전"}]}],["blog",{img:"cafe",b:"인기글",t:"성수 조용한 카페, 딸기 생크림 케이크 맛집",when:"2026.10.21"}],["mg",{k:"viral",cap:"우리 글을 검색 맨 위로"}]]},
-    infl:{ln:"업종에 맞는 계정이 우리 브랜드를 소개",first:"손님층에 맞는 계정부터 찾습니다",ph:[["reel",{img:"m-reel",cap:"성수 카페 여기 진짜 조용해요",lk:"2.4만",cm:"612"}],["reel",{img:"m-salon",cap:"펌 하고 3주 지난 상태",lk:"8,412",cm:"205"}],["mg",{k:"infl",cap:"하트·댓글·저장이 붙습니다"}]]},
+    infl:{ln:"업종에 맞는 계정이 우리 브랜드를 소개",first:"손님층에 맞는 계정부터 찾습니다",ph:[["reel",{img:"m-reel",cap:"성수 카페 여기 진짜 조용해요",lk:"2.4만",cm:"612"}],["reel",{img:"m-salon",cap:"펌 하고 3주 지난 상태",lk:"8,412",cm:"205"}],["mg",{k:"infl",cap:"하트·댓글·저장 수까지 보고합니다"}]]},
     content:{ln:"직접 가서 찍고 자막까지 넣어 올림",first:"촬영 날짜와 찍을 장면을 정합니다",ph:[["pho",{img:"m-shoot",cap:"촬영팀이 직접 갑니다"}],["edit",{img:"sashimi",s:"오늘 들어온 <em>광어</em>"}],["edit",{img:"m-chef",s:"불 앞에서 <em>바로</em> 담아요"}]]},
     global:{ln:"샤오홍슈·따중디엔핑·LINE 등에 올림",first:"소개·메뉴를 중국어·일본어로 옮깁니다",ph:[["xhs",{img:"m-tourist",t:"首尔逛吃攻略｜本地人推荐的小店",lk:"2.3万"}],["mg",{k:"global",cap:"중국·일본 손님이 오기 전에 보는 곳"}],["line",{img:"palace",t:"景福宮で韓服体験。駅から歩いて5分です",a:"予約する"}]]},
     home:{ln:"AI와 검색이 읽기 쉬운 홈페이지",first:"구조안과 첫 화면 시안부터 보여 드립니다",ph:[["web",{img:"m-dental",h:"평일 밤 9시까지<br>진료합니다",s:"주차 2시간 무료",b:"진료 예약"}],["mg",{k:"home",cap:"화면을 짜고 예약 버튼까지"}],["web",{img:"m-trainer",h:"아침 7시 반<br>첫 수업",s:"1:1 체험 수업",b:"체험 신청"}]]},
@@ -164,7 +164,7 @@ var H4=(function(){
 var SFD = {};
 try { SFD = JSON.parse(document.getElementById('sf-data').textContent); } catch (e) { SFD = {}; }
 if (SFD.svc) SFD.svc.forEach(function (d, i) { var s = S[i]; if (!s || s.k !== d.k) return; s.ln = d.ln; s.first = d.first; s.t1 = d.t1; s.d = d.d; s.rec = d.rec; s.more = d.more; });
-var CHN = ['한 곳', '따로 맡기면', '한 곳에 맡기면', '여덟 가지', '업종별', '전문 인력', '진행 과정', '인사이트', '문의', '끝'];
+var CHN = ['한 곳', '따로 맡기면', '한 곳에 맡기면', '하는 일', '업종별', '전문 인력', '진행 과정', '인사이트', '문의', '끝'];
 
 /* 첫 화면 — 시안 c1b 를 서버가 그린 목록에 묶음 */
 function heroInit() {

@@ -31,7 +31,7 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
           </div>
         </div>
         <div className="sfh-dd">
-          <Link href="/solutions/local">업종별 솔루션</Link>
+          <Link href="/solutions/local">업종별 마케팅</Link>
           <div className="sfh-ddp">
             {SOLUTIONS.map((f) => (
               <Link key={f.slug} href={`/solutions/${f.slug}`}>
@@ -89,7 +89,7 @@ export function SfMenu() {
             </Link>
           ))}
         </div>
-        <p className="sfm-h">업종별 솔루션</p>
+        <p className="sfm-h">업종별 마케팅</p>
         {SOLUTIONS.map((f) => (
           <Link key={f.slug} href={`/solutions/${f.slug}`}>
             {f.n}
@@ -130,7 +130,7 @@ export function SfFooter() {
             ))}
           </div>
           <div>
-            <p>업종별 솔루션</p>
+            <p>업종별 마케팅</p>
             {SOLUTIONS.map((f) => (
               <Link key={f.slug} href={`/solutions/${f.slug}`}>
                 {f.n}

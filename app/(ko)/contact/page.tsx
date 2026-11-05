@@ -89,7 +89,7 @@ export default function ContactPage() {
           <SfContactForm services={SERVICES.map((s) => ({ k: s.k, n: s.n }))} source="contact_page" full />
         </div>
       </section>
-      <Sec q="상담 전에 많이 물어보시는 것">
+      <Sec q="상담 전에 많이 물어보시는 질문">
         <Faq items={FAQ} />
       </Sec>
     </DocShell>

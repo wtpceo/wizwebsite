@@ -130,7 +130,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
         </ol>
         <div className="dp-rep">
           <div>
-            <h3>보고서에 들어가는 것</h3>
+            <h3>보고서 항목</h3>
             <ul>
               {d.report.map((r) => (
                 <li key={r}>
@@ -188,7 +188,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
 
       <nav className="dp-other" aria-label="다른 서비스">
         <div className="dp-w">
-          <p>여덟 가지 서비스</p>
+          <p>다른 서비스</p>
           <nav>
             {SERVICES.map((o) => (
               <Link key={o.k} href={`/services/${o.slug}`} aria-current={o.k === s.k ? "page" : undefined}>

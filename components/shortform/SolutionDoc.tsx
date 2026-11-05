@@ -43,7 +43,7 @@ export default function SolutionDoc({ slug }: { slug: string }) {
         <div className="dp-w dp-hero-in">
           <div>
             <Crumb items={[{ name: "홈", href: "/" }, { name: f.n }]} />
-            <p className="dp-no">업종별 솔루션 · {f.who}</p>
+            <p className="dp-no">업종별 마케팅 · {f.who}</p>
             <h1 aria-label={`${f.n} ${f.q.replace("\n", " ")}`}>
               <Chars text={f.n} />{" "}
               <small>{f.q.replace("\n", " ")}</small>
@@ -118,7 +118,7 @@ export default function SolutionDoc({ slug }: { slug: string }) {
 
       <nav className="dp-other" aria-label="다른 업종">
         <div className="dp-w">
-          <p>업종별 솔루션</p>
+          <p>업종별 마케팅</p>
           <nav>
             {SOLUTIONS.map((o) => (
               <Link key={o.slug} href={`/solutions/${o.slug}`} aria-current={o.slug === f.slug ? "page" : undefined}>
