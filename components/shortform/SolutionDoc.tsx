@@ -40,8 +40,8 @@ export default function SolutionDoc({ slug }: { slug: string }) {
           <div>
             <Crumb items={[{ name: "홈", href: "/" }, { name: f.n }]} />
             <p className="dp-no">업종별 솔루션 · {f.who}</p>
-            <h1>
-              <Chars text={f.n} />
+            <h1 aria-label={`${f.n} ${f.q.replace("\n", " ")}`}>
+              <Chars text={f.n} />{" "}
               <small>{f.q.replace("\n", " ")}</small>
             </h1>
             <p className="dp-lead">{d.lead}</p>

@@ -54,7 +54,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
             <p className="dp-no">
               서비스 {s.no} / 08{s.k === "search" ? " · 대표 서비스" : ""}
             </p>
-            <h1>
+            <h1 aria-label={`${s.n} ${s.cap.replace("\n", " ")}`}>
               <Chars text={s.n} />{" "}
               <small>{s.cap.replace("\n", " ")}</small>
             </h1>

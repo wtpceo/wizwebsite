@@ -175,12 +175,12 @@ html.sf-anim .sf .rv.on li:nth-child(6) { animation-delay: .3s; }
 .sf .dp-hero h1 .ch { display: inline-block; }
 .sf .dp-hero h1 small { position: relative; width: fit-content; }
 .sf .dp-hero h1 small::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--sky2); transform-origin: left; transform: scaleX(0); }
-html:not(.sf-anim) .sf .dp-hero h1 small::after { transform: none; }
 html.sf-anim .sf .dp-hero h1 .ch { animation: sf-up .65s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.1s + var(--i) * 45ms); }
 @keyframes sf-up { from { transform: translateY(110%); } to { transform: none; } }
 html.sf-anim .sf .dp-hero h1 small { animation: sf-rise .6s cubic-bezier(.23,1,.32,1) .5s both; }
-html.sf-anim .sf .dp-hero h1 small::after { animation: sf-line .7s cubic-bezier(.23,1,.32,1) .85s both; }
-@keyframes sf-line { to { transform: scaleX(1); } }
+html.sf-anim .sf .dp-hero h1 small::after { animation: sf-line 1.5s cubic-bezier(.23,1,.32,1) .85s both; }
+/* 밑줄은 그어졌다가 사라짐 — 끝난 화면은 원래 디자인 그대로 */
+@keyframes sf-line { 0% { transform: scaleX(0); opacity: 1; } 50% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0; } }
 html.sf-anim .sf .dp-hero .dp-no, html.sf-anim .sf .dp-hero .dp-crumb { animation: sf-rise .5s cubic-bezier(.23,1,.32,1) both; }
 html.sf-anim .sf .dp-hero .dp-lead { animation: sf-rise .6s cubic-bezier(.23,1,.32,1) .75s both; }
 html.sf-anim .sf .dp-hero .dp-first { animation: sf-rise .6s cubic-bezier(.23,1,.32,1) .88s both; }

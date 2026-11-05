@@ -47,7 +47,7 @@ export default function AboutPage() {
           <div>
             <Crumb items={[{ name: "홈", href: "/" }, { name: "회사소개" }]} />
             <p className="dp-no">위즈더플래닝 소개</p>
-            <h1>
+            <h1 aria-label="나눠 맡기던 마케팅, 이제 한 팀이 직접. 재하청 없이, 우리 팀이 직접 책임집니다.">
               <Chars text={"나눠 맡기던 마케팅,\n이제 한 팀이 직접."} />{" "}
               <small>재하청 없이, 우리 팀이 직접 책임집니다.</small>
             </h1>

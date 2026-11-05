@@ -55,7 +55,7 @@ export default function TeamPage() {
           <div>
             <Crumb items={[{ name: "홈", href: "/" }, { name: "전문 인력" }]} />
             <p className="dp-no">전문 인력 · 진행 과정</p>
-            <h1>
+            <h1 aria-label="분야별 시니어가 직접 담당합니다. 창구는 담당 마케터 한 명.">
               <Chars text={"분야별 시니어가\n직접 담당합니다."} />{" "}
               <small>창구는 담당 마케터 한 명.</small>
             </h1>
