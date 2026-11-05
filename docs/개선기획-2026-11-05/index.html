@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>회사 홈 개선 기획</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 위즈더플래닝 새 홈과 같은 남색·하늘색. 기획서는 흰 종이 위에 「지금 / 바뀐 뒤」를 나란히 놓는 구성 */
+  --paper:#F6F8FB; --card:#FFFFFF; --ink:#111827; --sub:#5B6676; --line:#E3E8EF;
+  --navy:#0B1F3A; --blue:#1E6CB0; --sky:#7CC4E8; --bad:#C2410C; --good:#15803D; --warn:#B45309;
+  --font:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.7;word-break:keep-all}
+a{color:var(--blue)}
+.w{max-width:1080px;margin:0 auto;padding:0 20px}
+header.top{background:var(--navy);color:#fff;padding:40px 0 34px}
+header.top .k{font-size:13px;letter-spacing:.04em;color:var(--sky);font-weight:700}
+header.top h1{margin:6px 0 10px;font-size:34px;line-height:1.3;font-weight:900;letter-spacing:-.02em;text-wrap:balance}
+header.top p{margin:0;color:#C9D6E6;max-width:62ch}
+header.top a{color:#fff}
+.sum{margin:-18px auto 0;position:relative}
+.sum .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:0 10px 24px -18px rgba(17,24,39,.22)}
+.sum h2{margin:0 0 10px;font-size:20px}
+.sum ul{margin:0;padding-left:18px}
+.sum li{margin:4px 0}
+.pill{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:1px 9px;margin-right:6px;vertical-align:2px}
+.p1{background:#E0EEFA;color:var(--blue)} .p2{background:#FDEBD8;color:var(--warn)} .pb{background:#FDE4DA;color:var(--bad)}
+section{padding:42px 0 6px}
+section > .w > h2{font-size:24px;line-height:1.35;margin:0 0 6px;letter-spacing:-.015em;text-wrap:balance}
+.lead{color:var(--sub);margin:0 0 18px;max-width:70ch}
+.num{display:inline-flex;width:30px;height:30px;border-radius:8px;background:var(--navy);color:#fff;font-size:15px;align-items:center;justify-content:center;margin-right:10px;vertical-align:3px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0 22px}
+.pane{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;min-width:0}
+.pane > b{display:block;font-size:13px;margin-bottom:8px}
+.pane.now > b{color:var(--bad)} .pane.after > b{color:var(--good)}
+.pane img{max-width:100%;border-radius:8px;display:block}
+.pane .cap{font-size:13.5px;color:var(--sub);margin:8px 0 0}
+.row3{display:flex;gap:10px;flex-wrap:wrap}
+.row3 img{width:calc(33.333% - 7px);min-width:120px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14.5px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#EEF3F9;font-size:13px;color:var(--sub);font-weight:700}
+tr:last-child td{border-bottom:0}
+.tw{overflow-x:auto;margin:12px 0 20px}
+.tag{font-size:12px;color:var(--sub)}
+/* 퍼포먼스 그림 (바뀐 뒤) */
+.mgp{background:linear-gradient(180deg,#0F2A4D,#0B1F3A);border-radius:10px;padding:16px 14px 12px;color:#fff;text-align:center}
+.mgp .t{font-weight:800;font-size:15px}.mgp .t em{font-style:normal;color:var(--sky)}
+.mgp .bars{display:flex;justify-content:space-around;align-items:flex-end;height:110px;margin-top:10px}
+.mgp .bars span{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;color:#9FB4CA}
+.mgp .bars i{display:block;width:34px;border-radius:5px 5px 2px 2px;background:rgba(124,196,232,.45)}
+.mgp .bars .on i{background:linear-gradient(180deg,#9FD4EE,#2A93C2)}
+/* 넓은 화면 컷 바뀐 뒤 그림 */
+.cut{border-radius:10px;overflow:hidden;aspect-ratio:16/9;display:grid;grid-template-columns:1fr 1.1fr;align-items:center;padding:0 5%;gap:4%;color:#fff}
+.cut .tt small{display:block;font-size:10px;opacity:.75;margin-bottom:6px}
+.cut .tt strong{font-size:clamp(16px,2.6vw,26px);line-height:1.2;font-weight:900;letter-spacing:-.02em}
+.cut.glob{background:#28407A}
+.phones{display:flex;gap:6%;justify-content:center;align-items:center}
+.ph{width:38%;aspect-ratio:9/18;border-radius:12px;border:3px solid #0B1220;background:#fff;overflow:hidden;color:var(--ink);display:flex;flex-direction:column;box-shadow:0 18px 30px -16px rgba(0,0,0,.6)}
+.ph .bar{font-size:8px;font-weight:800;padding:5px 7px;color:#fff}
+.ph .pic{flex:1;background:center/cover}
+.ph .tx{font-size:8.5px;line-height:1.35;padding:5px 7px 7px;font-weight:700}
+.ph .tx span{display:block;font-weight:400;color:var(--sub);font-size:7.5px;margin-top:2px}
+.ph.x .bar{background:#FF2442} .ph.l .bar{background:#06C755}
+.ph.l{transform:translateY(10%)}
+.cut.cont{background:#10131F}
+.wall{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;transform:rotate(-3deg)}
+.wall img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
+.cut.infl{background:#174C8C}
+.reels{display:flex;gap:5%;justify-content:center}
+.reels div{width:28%;aspect-ratio:9/16;border-radius:9px;background:center/cover;border:2px solid rgba(255,255,255,.3);position:relative}
+.reels div:nth-child(2){transform:translateY(-8%) scale(1.08);border-color:var(--sky)}
+.reels div b{position:absolute;left:6px;right:6px;bottom:6px;font-size:8px;line-height:1.3}
+/* 엘리베이터 */
+.elev{position:relative;width:420px;max-width:100%;aspect-ratio:640/960;overflow:hidden;border-radius:10px;background:#222}
+.elev > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none;border-radius:0}
+.elev .scr{position:absolute;left:0;top:0;width:200px;height:560px;transform-origin:0 0;transform:matrix3d(0.733037,0.115560,0,0.000672,0.016683,0.582839,0,0.000079,0,0,1,0,210,33.46875,0,1);background:#0E2240;color:#fff;display:flex;flex-direction:column;overflow:hidden}
+.elev .scr .ad-pic{height:52%;background:url(img/pasta.jpg) center/cover}
+.elev .scr .ad-tx{padding:16px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.elev .scr .ad-tx small{font-size:13px;color:var(--sky);font-weight:700}
+.elev .scr .ad-tx b{font-size:30px;line-height:1.2;font-weight:900}
+.elev .scr .ad-tx span{font-size:15px;color:#C9D6E6}
+.elev .scr .ad-tx i{margin-top:auto;font-style:normal;font-size:13px;background:#fff;color:var(--navy);border-radius:6px;padding:6px 8px;font-weight:800;align-self:flex-start}
+.elev .ex{position:absolute;right:8px;top:8px;font-size:11px;background:rgba(0,0,0,.55);color:#fff;padding:2px 7px;border-radius:5px}
+/* 보고서 (바뀐 뒤) */
+.rep{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:13px}
+.rep .hd{background:var(--navy);color:#fff;padding:14px 16px;display:flex;justify-content:space-between;gap:10px;align-items:flex-end}
+.rep .hd b{font-size:17px;display:block}
+.rep .hd small{color:#AFC3DA;font-size:11.5px;display:block}
+.rep .hd .r{text-align:right;font-size:11.5px;color:#C9D6E6;font-variant-numeric:tabular-nums}
+.rep .kp{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:12px}
+.rep .k{border:1px solid var(--line);border-radius:9px;padding:9px 10px}
+.rep .k strong{font-size:22px;font-weight:900;font-variant-numeric:tabular-nums;color:var(--navy)}
+.rep .k strong em{font-style:normal;font-size:12px;color:var(--sub);font-weight:500;margin-left:2px}
+.rep .k p{margin:2px 0 0;font-size:11px;color:var(--sub);line-height:1.4}
+.rep .k.ai{grid-column:1/-1;display:flex;gap:12px;align-items:center;background:#F1F7FD;border-color:#CFE3F6}
+.ring{width:58px;height:58px;flex:none}
+.rep .mix{padding:0 12px 4px}
+.rep .mix .bar{display:flex;height:10px;border-radius:5px;overflow:hidden}
+.rep .mix .bar i{display:block}
+.rep .mix .lg{display:flex;gap:14px;font-size:11px;color:var(--sub);margin-top:5px}
+.rep .mix .lg span:before{content:"";display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;vertical-align:0;background:var(--c)}
+.rep .tl{padding:10px 12px 14px}
+.rep .tl h4{margin:0 0 8px;font-size:12.5px}
+.rep .days{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.rep .day{border:1px solid var(--line);border-radius:8px;padding:6px;min-height:72px}
+.rep .day small{display:block;font-size:10.5px;color:var(--sub);font-variant-numeric:tabular-nums}
+.rep .chip{display:block;margin-top:4px;font-size:10.5px;border-radius:4px;padding:2px 5px;font-weight:700}
+.rep .n{background:#E3F6E9;color:#167A3A} .rep .t{background:#FFF0E3;color:#B4540C}
+.rep .ft{border-top:1px solid var(--line);padding:8px 12px;font-size:11px;color:var(--sub);display:flex;justify-content:space-between}
+.decide{background:#FFF8EE;border:1px solid #F3D9B4;border-radius:12px;padding:16px 18px;margin:12px 0 20px}
+.decide h3{margin:0 0 6px;font-size:16px}
+.decide ol{margin:0;padding-left:20px}
+footer{padding:40px 0 60px;color:var(--sub);font-size:13px}
+@media (max-width:760px){
+  .pair{grid-template-columns:1fr}
+  header.top h1{font-size:27px}
+  .rep .kp{grid-template-columns:1fr 1fr 1fr}
+  .rep .days{grid-template-columns:repeat(3,1fr)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="w">
+    <div class="k">위즈더플래닝 회사 홈 · 개선 기획 · 2026. 11. 5.</div>
+    <h1>글자가 겹치는 곳 6군데를 먼저 고치고 비어 보이는 화면은 실제 작업물로 채웁니다</h1>
+    <p>홈 46컷을 넓은 PC(1728px)와 휴대폰(390px)에서 컷마다 4.5초씩 지켜보며 찍었습니다. 새 쪽 13개도 끝까지 찍어 봤습니다. 지금 화면은 <a href="https://wizwebsite-renewal.vercel.app">회사 홈 미리보기</a>에서 볼 수 있습니다.</p>
+  </div>
+</header>
+
+<div class="w sum">
+  <div class="box">
+    <h2>한눈에 보기</h2>
+    <ul>
+      <li><span class="pill pb">고장</span>글자 겹침·잘림 6곳: 퍼포먼스 그림의 「B안」, 휴대폰 콘텐츠·홈페이지 컷, 진행 과정 5컷, 「연락도 넷」 컷, 인사이트 카드</li>
+      <li><span class="pill p1">채움</span>서비스 첫 컷 7개가 제목만 떠 있어 비어 보입니다. 우리 촬영팀 사진 255장, 실제 보고서 캡처 13장, 인플루언서 사진 9장을 이미 갖고 있어서 그걸로 채웁니다</li>
+      <li><span class="pill p1">채움</span>엘리베이터TV 화면은 광고가 위쪽 60%만 덮고 아래는 파란 빈 화면입니다. 화면 네 모서리에 맞춰 광고 한 장을 꽉 채웁니다</li>
+      <li><span class="pill p1">새로</span>보고서는 흐린 사진 대신 같은 숫자로 다시 그린 화면 보고서로 바꿉니다</li>
+      <li><span class="pill p1">채움</span>새 쪽 13개는 서비스 쪽마다 실제 작업물 띠를 하나씩 넣고, 업종 쪽에는 예시를 3장씩 넣습니다</li>
+      <li><span class="pill p2">사장님</span>사무실·팀 사진, 리더 사진·이력, 실제 팀 이름, 회사 소개서 PDF가 들어오면 회사소개·전문 인력 쪽이 완성됩니다</li>
+    </ul>
+  </div>
+</div>
+
+<section id="bugs">
+  <div class="w">
+    <h2><span class="num">1</span>글자 겹침·잘림 6곳</h2>
+    <p class="lead">컷마다 0.5초 간격으로 9번씩 멈춰 보며 글자끼리 겹치거나 화면 밖으로 나가는 순간을 잡았습니다. 장식용 배경 휴대폰 속 작은 글자는 빼고, 손님 눈에 띄는 것만 추렸습니다.</p>
+
+    <div class="pair">
+      <div class="pane now"><b>지금 · 퍼포먼스 그림 (홈 12번 컷, 퍼포먼스 쪽 첫 화면)</b>
+        <img src="img/b-perf.jpg" alt="반응 좋은 B안 예산 이동 문장에서 B안이 다른 글자 위에 겹친 화면">
+        <p class="cap">「B안」이 「으로」 위에 올라앉아 「반응 좋은 B안 예산 이동」처럼 읽힙니다. 움직이는 그림 안의 글자를 전부 띄워 배치하는 공통 규칙이 문장 속 「B안」까지 띄워서 생긴 일입니다.</p>
+      </div>
+      <div class="pane after"><b>바뀐 뒤</b>
+        <div class="mgp"><div class="t">반응 좋은 <em>B안</em>으로 예산 이동</div>
+          <div class="bars"><span><i style="height:30px"></i>A안</span><span class="on"><i style="height:86px"></i>B안</span><span><i style="height:44px"></i>C안</span></div></div>
+        <p class="cap">문장 속 글자만 제자리에 두도록 한 줄 고칩니다. 같은 그림이 퍼포먼스 쪽에도 쓰여서 두 곳이 함께 고쳐집니다.</p>
+      </div>
+    </div>
+
+    <div class="pane now" style="margin-bottom:14px"><b>지금 · 휴대폰에서 겹치거나 잘리는 4곳</b>
+      <div class="row3" style="gap:10px">
+        <img src="img/b-m-c20.jpg" alt="휴대폰 콘텐츠 컷에서 영상이 제목을 덮은 화면" style="width:calc(20% - 8px)">
+        <img src="img/b-m-c26.jpg" alt="휴대폰 홈페이지 컷에서 그림이 제목을 덮은 화면" style="width:calc(20% - 8px)">
+        <img src="img/b-m-c38.jpg" alt="진행 과정 컷에서 다른 단계 이름이 겹쳐 보이는 화면" style="width:calc(20% - 8px)">
+        <img src="img/b-m-c4.jpg" alt="연락도 넷 컷에서 제목 글자가 흩어져 사라진 화면" style="width:calc(20% - 8px)">
+        <img src="img/b-m-c43.jpg" alt="인사이트 카드가 왼쪽에서 잘린 화면" style="width:calc(20% - 8px)">
+      </div>
+    </div>
+    <div class="tw"><table>
+      <tr><th style="width:24%">어디</th><th>지금 무엇이 보이나</th><th style="width:36%">바뀐 뒤</th></tr>
+      <tr><td>콘텐츠·미디어 첫 컷(20번)<br><span class="tag">휴대폰</span></td><td>기울어진 릴스 영상이 「찍고 자르고 자막까지」 제목의 오른쪽 절반을 덮습니다.</td><td>휴대폰에서는 영상을 제목 아래로 내립니다. PC 배치는 그대로 둡니다.</td></tr>
+      <tr><td>홈페이지 제작 첫 컷(26번)<br><span class="tag">휴대폰</span></td><td>비스듬히 놓인 홈페이지 그림 석 장이 「새로 만들고」 글자 위로 올라옵니다.</td><td>같은 방법으로 그림을 제목 아래로 내립니다.</td></tr>
+      <tr><td>진행 과정 5컷(38~42번)<br><span class="tag">PC·휴대폰</span></td><td>큰 글자가 슬롯처럼 굴러가는 0.3~1초 사이에 다른 단계 이름이 겹쳐 보입니다. 1단계인데 「제안」이, 2단계인데 「개선」이 잠깐 뜹니다.</td><td>굴리기를 빼고 그 단계 이름만 위에서 내려오게 합니다.</td></tr>
+      <tr><td>「업체가 넷이면 연락도 넷.」(4번)<br><span class="tag">휴대폰</span></td><td>3초쯤에 글자가 서로 겹치고, 3.6초에는 제목 글자가 화면 밖으로 흩어져 제목 줄이 비어 버립니다.</td><td>글자가 한 번 흔들렸다가 제자리에 남게 합니다. 깨지는 느낌은 그대로 두되 제목은 끝까지 읽힙니다.</td></tr>
+      <tr><td>인사이트 카드(43번)<br><span class="tag">PC·휴대폰</span></td><td>카드 줄이 옆으로 흘러가서 멈춘 순간 첫 카드가 왼쪽에서 잘립니다. 넓은 화면에서는 오른쪽 카드도 잘립니다.</td><td>카드 3장을 화면 폭에 맞춰 세웁니다. 나머지 글은 「칼럼 전체 보기」로 보냅니다.</td></tr>
+      <tr><td>홈페이지 제작 첫 컷 왼쪽 잘림<br><span class="tag">사장님 화면</span></td><td>사장님 캡처에서는 「07 / 08」과 「홈페이지는」 앞부분이 왼쪽에서 잘렸습니다. 1728px에서 다시 찍어 보니 다 보였습니다. 컷이 밀려 들어오는 도중의 장면으로 보입니다 [추론].</td><td>이 컷의 들어오는 효과를 옆으로 밀기에서 제자리 나타나기로 바꿉니다.</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<section id="empty">
+  <div class="w">
+    <h2><span class="num">2</span>서비스 첫 컷 7개를 실제 작업물로 채웁니다</h2>
+    <p class="lead">여덟 서비스는 컷이 셋씩인데 첫 컷은 큰 제목만 있고 넓은 화면에서는 3분의 2가 비어 있습니다. 글로벌과 오프라인 미디어는 그림이 아예 없습니다. 둘째·셋째 컷(먼저 하는 일, 상품 목록)은 지금도 그림이 있어서 그대로 둡니다.</p>
+    <div class="pair">
+      <div class="pane now"><b>지금 · 글로벌 첫 컷(23번)</b><img src="img/b-global-w.jpg" alt="샤오홍슈·LINE에도 제목만 있는 빈 화면"></div>
+      <div class="pane after"><b>바뀐 뒤 · 샤오홍슈·LINE 화면 예시를 나란히</b>
+        <div class="cut glob">
+          <div class="tt"><small>06 / 08 · 글로벌</small><strong>샤오홍슈·<br>LINE에도</strong></div>
+          <div class="phones">
+            <div class="ph x"><div class="bar">小红书</div><div class="pic" style="background-image:url(img/myeong.jpg)"></div><div class="tx">明洞逛吃攻略<span>本地人推荐的小店 · 2.3万</span></div></div>
+            <div class="ph l"><div class="bar">LINE</div><div class="pic" style="background-image:url(img/palace.jpg)"></div><div class="tx">景福宮で韓服体験<span>予約する</span></div></div>
+          </div>
+        </div>
+        <p class="cap">사이트 다른 곳에서 이미 쓰는 예시 화면 두 장을 크게 키웁니다. 「예시 화면」 표시는 그대로 붙입니다.</p>
+      </div>
+    </div>
+    <div class="pair">
+      <div class="pane now"><b>지금 · 콘텐츠·미디어 첫 컷(20번)</b><img src="img/b-content-w.jpg" alt="왼쪽 제목과 오른쪽 끝 영상 하나만 있는 화면"></div>
+      <div class="pane after"><b>바뀐 뒤 · 우리 촬영팀이 찍은 사진으로 벽을 채움</b>
+        <div class="cut cont">
+          <div class="tt"><small>05 / 08 · 콘텐츠·미디어</small><strong>찍고 자르고<br>자막까지</strong></div>
+          <div class="wall"><img src="img/pf1.jpg" alt=""><img src="img/pf2.jpg" alt=""><img src="img/pf3.jpg" alt=""><img src="img/pf4.jpg" alt=""><img src="img/pf5.jpg" alt=""><img src="img/pf6.jpg" alt=""></div>
+        </div>
+        <p class="cap">옛 포트폴리오 쪽에 있는 촬영 사진 255장 가운데 간판·상호가 안 보이는 컷만 고릅니다. 사진 사이로 릴스 영상 1~2개가 재생됩니다.</p>
+      </div>
+    </div>
+    <div class="pair">
+      <div class="pane now"><b>지금 · 인플루언서 첫 컷(17번)</b><img src="img/b-w-c17.jpg" alt="맞는 계정이 소개하게 제목만 있는 화면"></div>
+      <div class="pane after"><b>바뀐 뒤 · 릴스 세 장</b>
+        <div class="cut infl">
+          <div class="tt"><small>04 / 08 · 인플루언서</small><strong>맞는 계정이<br>소개하게</strong></div>
+          <div class="reels"><div style="background-image:url(img/inf1.jpg)"><b>@matzip_town</b></div><div style="background-image:url(img/inf2.jpg)"><b>릴스 체험단</b></div><div style="background-image:url(img/inf3.jpg)"><b>유튜버 섭외</b></div></div>
+        </div>
+        <p class="cap">옛 인플루언서 쪽 사진을 씁니다. 우리가 직접 운영하는 @matzip_town(팔로워 5.1만)을 맨 앞에 둡니다.</p>
+      </div>
+    </div>
+    <div class="tw"><table>
+      <tr><th style="width:22%">컷</th><th>지금</th><th style="width:44%">채울 것 (이미 가진 자료)</th></tr>
+      <tr><td>퍼포먼스(11번)</td><td>「광고는 마케터가 직접 돌립니다」 제목만</td><td>광고 관리자 숫자 화면 예시(클릭 1,317 · 99,939원 같은 지금 그림 속 숫자)를 크게</td></tr>
+      <tr><td>바이럴(14번)</td><td>사선 무늬 배경 위 제목만</td><td>블로그 검색 결과 화면 예시. 「인기글」 표시가 붙은 우리 글이 맨 위에 오는 장면</td></tr>
+      <tr><td>인플루언서(17번)</td><td>제목만</td><td>위 그림처럼 릴스 세 장</td></tr>
+      <tr><td>콘텐츠·미디어(20번)</td><td>오른쪽 끝에 영상 하나</td><td>위 그림처럼 촬영 사진 벽과 릴스 영상</td></tr>
+      <tr><td>글로벌(23번)</td><td>제목만</td><td>위 그림처럼 샤오홍슈·LINE 화면</td></tr>
+      <tr><td>홈페이지 제작(26번)</td><td>오른쪽에 작은 그림</td><td>그림을 지금의 2배로 키우고 제목 바로 옆으로</td></tr>
+      <tr><td>오프라인 미디어(29번)</td><td>제목만</td><td>엘리베이터 사진에 광고가 꽉 찬 화면(아래 3번)</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<section id="elev">
+  <div class="w">
+    <h2><span class="num">3</span>엘리베이터TV 화면을 광고로 꽉 채웁니다</h2>
+    <p class="lead">사진 속 TV 화면은 높이 474픽셀인데 광고 글상자가 위쪽 283픽셀만 덮고 있습니다. 그래서 아래 40%가 파란 빈 화면으로 남습니다. 화면이 비스듬히 찍혀 있어서 네모난 상자로는 맞지 않습니다.</p>
+    <div class="pair">
+      <div class="pane now"><b>지금</b><img src="img/b-elev.jpg" alt="엘리베이터TV 화면 위쪽에만 광고 글이 있고 아래는 빈 화면"></div>
+      <div class="pane after"><b>바뀐 뒤 · 화면 네 모서리에 맞춰 광고 한 장</b>
+        <div class="elev"><img src="img/elev.jpg" alt="">
+          <div class="scr"><div class="ad-pic"></div><div class="ad-tx"><small>단지 앞 상가 1층</small><b>이번 주말<br>오픈합니다</b><span>첫 주 방문 손님께<br>음료 한 잔</span><i>엘리베이터에서 본 손님 환영</i></div></div>
+          <span class="ex">예시 화면</span></div>
+        <p class="cap">사진 속 화면의 네 모서리를 재서 광고를 원근 그대로 얹었습니다. 실제로 만들 때는 광고 장면 2~3장이 차례로 바뀌게 해서 「TV가 켜져 있는」 느낌을 냅니다. 같은 사진이 쓰이는 홈 배경, 오프라인 미디어 쪽, 서비스 그림 3곳이 함께 바뀝니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="report">
+  <div class="w">
+    <h2><span class="num">4</span>보고서는 같은 숫자로 다시 그린 화면 보고서로 바꿉니다</h2>
+    <p class="lead">지금은 실제 주간 보고서를 찍은 사진이라 업체명과 글 제목을 흐리게 가렸습니다. 그 탓에 화면이 뿌옇게 보입니다. 바뀐 뒤 보고서는 사진 속 숫자를 하나도 바꾸지 않고 다시 그립니다. 가려야 할 글 제목은 칸에서 빼고 날짜·채널만 남깁니다. 홈 41번 컷과 전문 인력 쪽에 같이 들어갑니다.</p>
+    <div class="pair">
+      <div class="pane now"><b>지금</b><img src="img/b-report.jpg" alt="흐리게 가린 실제 주간 보고서 사진"></div>
+      <div class="pane after"><b>바뀐 뒤</b>
+        <div class="rep" role="img" aria-label="다시 그린 주간 보고서 예시">
+          <div class="hd"><div><small>주간 리포트 · 업체명 가림</small><b>1주차: 네이버 3편 · 티스토리 4편</b></div><div class="r">보고일 2026. 10. 31.<br>기간 10. 26. ~ 10. 30.</div></div>
+          <div class="kp">
+            <div class="k"><strong>7<em>편</em></strong><p>이번 주 발행</p></div>
+            <div class="k"><strong>24<em>편</em></strong><p>누적 발행<br>(9/16 계약 시작부터)</p></div>
+            <div class="k"><strong>12<em>편</em></strong><p>티스토리 누적</p></div>
+            <div class="k ai">
+              <svg class="ring" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="15.5" fill="none" stroke="#DCE8F5" stroke-width="4"/><circle cx="18" cy="18" r="15.5" fill="none" stroke="#1E6CB0" stroke-width="4" stroke-linecap="round" stroke-dasharray="94.1 97.4" transform="rotate(-90 18 18)"/><text x="18" y="21" text-anchor="middle" font-size="9" font-weight="800" fill="#0B1F3A">29/30</text></svg>
+              <div><strong style="font-size:15px">AI 답변 노출</strong><p>키워드 질문 30개 중 29개에서 노출 · 홈페이지가 출처로 뜬 답 12개</p></div>
+            </div>
+          </div>
+          <div class="mix"><div class="bar"><i style="width:42.9%;background:#2DB35D"></i><i style="width:57.1%;background:#F28C28"></i></div>
+            <div class="lg"><span style="--c:#2DB35D">네이버 블로그 3편</span><span style="--c:#F28C28">티스토리 4편</span></div></div>
+          <div class="tl"><h4>이번 주 글 발행</h4>
+            <div class="days">
+              <div class="day"><small>10/23</small><span class="chip t">티스토리</span></div>
+              <div class="day"><small>10/26</small><span class="chip n">네이버</span><span class="chip t">티스토리</span></div>
+              <div class="day"><small>10/27</small><span class="chip t">티스토리</span></div>
+              <div class="day"><small>10/28</small><span class="chip n">네이버</span></div>
+              <div class="day"><small>10/29</small></div>
+              <div class="day"><small>10/30</small><span class="chip n">네이버</span></div>
+            </div></div>
+          <div class="ft"><span>모든 글 발행 완료</span><span>위즈더플래닝</span></div>
+        </div>
+        <p class="cap">숫자는 사진 속 보고서에 적힌 그대로입니다(7편 · 24편 · 12편 · 29/30 · 출처 12). 사진에 보이는 발행 줄은 6줄이라 7편 가운데 6편만 그렸습니다. 나머지 한 줄은 원본 보고서를 보고 채웁니다.</p>
+      </div>
+    </div>
+    <p class="lead">진행 과정의 다른 네 컷(진단표·제안서·일정표·개선 그래프)도 넓은 화면에서 오른쪽에 작게 떠 있습니다. 보고서와 같은 디자인으로 맞추고 지금보다 1.5배 크게 키웁니다.</p>
+  </div>
+</section>
+
+<section id="pages">
+  <div class="w">
+    <h2><span class="num">5</span>새 쪽 13개에 사진·예시를 넣습니다</h2>
+    <p class="lead">새 쪽은 질문과 답으로 읽기 좋게 짜여 있지만 그림이 적습니다. 서비스 쪽 그림은 첫 화면 그림과 예시 묶음 하나로 2개뿐입니다. 업종 쪽은 사진이 1장이고 회사소개에는 한 장도 없습니다 [실측: 코드와 캡처].</p>
+    <div class="tw"><table>
+      <tr><th style="width:22%">쪽</th><th style="width:16%">지금 그림</th><th>넣을 것</th><th style="width:17%">자료</th></tr>
+      <tr><td>검색 최적화</td><td>2</td><td>실제 AI 진단 보고서 캡처 3장(업체명 가림)과 「ChatGPT 추천 1위」 기록 화면</td><td>보유 (보고서 9장)</td></tr>
+      <tr><td>퍼포먼스</td><td>2</td><td>시안 A·B·C 비교 화면과 광고 숫자 화면 예시를 크게</td><td>보유</td></tr>
+      <tr><td>바이럴</td><td>2</td><td>블로그 1위·인기글 화면 예시 3장</td><td>보유 (예시 화면)</td></tr>
+      <tr><td>인플루언서</td><td>2</td><td>@matzip_town 피드 사진 6장과 섭외 장면 사진</td><td>보유 (사진 9장)</td></tr>
+      <tr><td>콘텐츠·미디어</td><td>2</td><td>촬영 사진 8~12장 띠(업종별로 음식·공간·운동)와 릴스 영상 3편</td><td>보유 (촬영 255장 · 릴스 16편)</td></tr>
+      <tr><td>글로벌</td><td>2</td><td>샤오홍슈·도우인·LINE 화면 예시 각 1장</td><td>보유 (예시 화면)</td></tr>
+      <tr><td>홈페이지 제작</td><td>2</td><td>우리가 만든 사이트 첫 화면 캡처 4~6장</td><td>사장님 확인 (공개해도 되는 곳)</td></tr>
+      <tr><td>오프라인 미디어</td><td>2</td><td>엘리베이터·택배차·극장 광고가 꽉 찬 사진과 단지 지도 사진</td><td>보유 (지도 사진 1장)</td></tr>
+      <tr><td>로컬 · 성장 · 엔터프라이즈</td><td>1씩</td><td>업종에 맞는 예시 3장씩(로컬은 매장·병원·학원, 성장은 상세페이지·광고, 엔터프라이즈는 기업 리포트 2장)</td><td>보유</td></tr>
+      <tr><td>전문 인력</td><td>1</td><td>보고서 4장을 넘겨 보는 칸과 촬영·회의 현장 사진</td><td>보고서 보유 · 현장 사진은 사장님</td></tr>
+      <tr><td>회사소개</td><td>0</td><td>사무실·팀 사진, 오시는 길 지도</td><td>사장님 (사진)</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<section id="etc">
+  <div class="w">
+    <h2><span class="num">6</span>그 밖에 찾은 것</h2>
+    <div class="tw"><table>
+      <tr><th style="width:30%">무엇</th><th>왜 문제인가</th><th style="width:30%">처리</th></tr>
+      <tr><td>미리보기에서는 문의 폼이 메일로 가지 않음</td><td>미리보기 프로젝트에 메일 발송 열쇠가 없습니다 [실측]. 링크를 받은 사람이 신청하면 사장님께 닿지 않습니다.</td><td>운영으로 옮기면 저절로 해결됩니다. 그 전까지는 둘러보기용으로만 공유</td></tr>
+      <tr><td>안 쓰는 사진 8장</td><td>서비스 이름이 붙은 사진 8장이 어디에도 쓰이지 않습니다. 「오프라인」 사진이 중식 요리, 「글로벌」 사진이 아이스크림이라 이름과 내용도 맞지 않습니다.</td><td>지웁니다</td></tr>
+      <tr><td>「분야별 시니어」 팀 구조 컷(36번)</td><td>원 하나와 팀 이름 다섯 줄뿐입니다.</td><td>팀 이름·리더 사진이 오면 사진 카드로 바꿉니다</td></tr>
+    </table></div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="w">
+    <h2><span class="num">7</span>순서</h2>
+    <div class="tw"><table>
+      <tr><th style="width:16%">차례</th><th>하는 일</th><th style="width:22%">누가</th></tr>
+      <tr><td>1차</td><td>1번 글자 겹침 6곳 → 3번 엘리베이터 → 4번 보고서·진행 과정 → 2번 서비스 첫 컷 7개 → 5번 새 쪽 중 자료를 가진 11개</td><td>클로드 · 사장님 할 일 없음</td></tr>
+      <tr><td>확인</td><td>미리보기 주소에 올리고 PC·휴대폰 캡처와 겹침 검사를 다시 돌려 0건인지 보여 드림</td><td>클로드</td></tr>
+      <tr><td>2차</td><td>홈페이지 제작 사례, 사무실·팀 사진, 리더 사진·이력, 팀 이름, 소개서 PDF가 들어오는 대로 채움</td><td>사장님 자료 → 클로드</td></tr>
+    </table></div>
+    <div class="decide">
+      <h3>정해 주실 것</h3>
+      <ol>
+        <li>이 순서대로 1차를 진행해도 되는지</li>
+        <li>옛 포트폴리오 촬영 사진(광고주 매장)을 새 홈 콘텐츠 컷과 쪽에 써도 되는지. 지금도 /portfolio 쪽에 공개돼 있고, 간판·상호가 보이는 컷은 뺍니다</li>
+        <li>엘리베이터 화면 속 광고를 위 예시처럼 만들지, 실제로 집행한 포커스미디어 광고 소재를 쓸지(소재가 있으면 그쪽이 더 믿음직합니다)</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<footer><div class="w">점검: 홈 46컷 × 넓은 PC·휴대폰 캡처, 컷마다 0.5초 간격 9번 겹침 검사, 새 쪽 13개 PC·휴대폰 구간 캡처(170장). 2026. 11. 5.</div></footer>
+</body>
+</html>
