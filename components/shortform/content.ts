@@ -31,7 +31,7 @@ export type Service = {
   fx: "flip" | "slot" | "shutter" | "wipe" | "cut" | "push" | "iso" | "smooth"
 }
 
-export const SERVICES: Service[
+export const SERVICES: Service[] = [
   {
     k: "infl",
     slug: "influencer",
@@ -75,7 +75,6 @@ export const SERVICES: Service[
     more: null,
     fx: "slot",
   },
-  ] = [
   {
     k: "search",
     slug: "search",
