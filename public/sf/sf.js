@@ -42,7 +42,8 @@
       r.forEach(function(x){h+='<div class="row"><img src="'+IMG(x[0])+'" alt="" loading="lazy"><div><b>'+x[1]+'</b><small>'+x[2]+'</small></div><span class="tgl'+(x[3]?'':' off')+'"></span></div>'});
       return '<div class="tile adm">'+TGL+'<div class="hd">소식 관리<span>새 글</span></div>'+h+'</div>'},
     elev:function(){return '<div class="tile ooh tv"><img class="pic" src="'+IMG('elev-ad1')+'" alt="" loading="lazy"><img class="pic tv2" src="'+IMG('elev-ad2')+'" alt="" loading="lazy"><img class="pic tv3" src="'+IMG('elev-ad3')+'" alt="" loading="lazy">'+TG+'<div class="lb">엘리베이터TV 15초<small>단지·기간을 골라 송출</small></div></div>'},
-    truck:function(){return '<div class="tile ooh"><img class="pic" src="'+IMG('truck')+'" alt="" loading="lazy"><div class="ov" style="left:33.5%;top:46.6%;width:52%;height:15.2%;padding:1.4cqw 2.4cqw"><b style="font-size:4.6cqw">GRAND OPEN</b><small>3월 19일 · 길 건너 1층</small></div>'+TG+'<div class="lb">택배차량 광고<small>동네를 매일 지나는 차에 부착</small></div></div>'},
+    /* 택배차 광고는 짐칸에 합성한 사진(11-05 · 칸 비율마다 덧댄 판이 어긋나던 것) */
+    truck:function(){return '<div class="tile ooh"><img class="pic" src="'+IMG('truck-ad')+'" alt="" loading="lazy">'+TG+'<div class="lb">택배차량 광고<small>동네를 매일 지나는 차에 부착</small></div></div>'},
     cine:function(){return '<div class="tile dark">'+TG+'<div class="cp">극장 광고<b>본편 시작 전 15초</b></div><div class="scr"><img src="'+IMG('fcafe')+'" alt="" loading="lazy"><span>겨울 신메뉴 나왔어요</span></div><div class="seats"></div></div>'},
     taxi:function(){return '<div class="tile tab">'+TG+'<div class="seat"></div><div class="cp">택시 뒷좌석 화면</div><div class="pad"><img src="'+IMG('derma')+'" alt="" loading="lazy"><span>퇴근길 피부 상담</span></div></div>'}
   };

@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { TEAMS, STEPS, DIAG_ROWS } from "@/components/shortform/content"
+import { TEAMS, STEPS, DIAG_ROWS, SERVICES } from "@/components/shortform/content"
 import { Icon } from "@/components/shortform/icons"
 import { DocShell, Crumb, Meta, Sec, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "@/components/shortform/DocParts"
 import { TEAM_PAGE } from "@/components/shortform/details"
@@ -78,12 +78,15 @@ export default function TeamPage() {
               <small>손님 한 분에 한 명</small>
             </div>
             <ul>
+              {/* 팀 칸을 누르면 그 서비스 쪽으로(11-05 점검: 버튼처럼 생겼는데 안 눌리던 것) */}
               {TEAMS.map(([k, n]) => (
                 <li key={n}>
-                  <span className="ic">
-                    <Icon k={k} />
-                  </span>
-                  {n}
+                  <a href={`/services/${SERVICES.find((s) => s.k === k)?.slug ?? ""}`}>
+                    <span className="ic">
+                      <Icon k={k} />
+                    </span>
+                    {n}
+                  </a>
                 </li>
               ))}
             </ul>

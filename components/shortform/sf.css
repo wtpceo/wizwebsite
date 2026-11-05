@@ -897,3 +897,5 @@ html.sf-pre .sf .intro { animation: sf-intro-safe 0s linear 5s forwards; }
 .sf .sfh, .sf .sfh-logo img, .sf .sfs { transition: none; }
 .sf .hero .stage { transition: opacity .2s ease, visibility 0s linear 0s; }
 .sf .hero.paused .stage { opacity: 0; visibility: hidden; transition: opacity .2s ease, visibility 0s linear .2s; }
+/* 서비스가 아닌 아이콘(기획 등)은 기본 코발트(11-05 점검: 엔터프라이즈 「통합 캠페인 기획」이 흰 바탕에 흰색) */
+.sf .ic { --sc: var(--b1); }

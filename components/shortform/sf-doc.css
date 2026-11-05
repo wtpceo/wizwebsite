@@ -269,3 +269,16 @@ html.sf-anim .sf .gd-hero h1 { animation: sf-rise .6s cubic-bezier(.23,1,.32,1) 
 @media (max-width: 820px) { .sf .gd-filter { top: 58px; } }
 /* 「문의 칸으로」가 갈 #contact 칸이 없는 쪽(칼럼 목록·극장·글 안 신청서 글)에서는 숨김(11-05 검수) */
 .sf-doc:not(:has(#contact)) .sfs { display: none; }
+/* 11-05 점검 반영 — 상담 쪽 휴대폰: 폼을 제목 바로 아래로, 아래 고정 바는 숨김(폼 버튼과 같은 버튼이 두 개 겹쳐 보이던 것) */
+@media (max-width: 820px) {
+  .sf .dp-cq-t { display: contents; }
+  .sf .dp-cq-in > .ct-f { order: 1; margin-top: 0; }
+  .sf .dp-cq-steps { order: 2; }
+  .sf .dp-cq .ct-ways { order: 3; margin-top: 0; }
+  .sf:has(.dp-cq) .sfb { display: none; }
+}
+.sf .tm-hero li:has(> a) { padding: 0; }
+.sf .tm-hero li > a { display: flex; align-items: center; gap: 12px; flex: 1; padding: 10px 14px; color: inherit; border-radius: 4px; }
+.sf .tm-hero li > a:hover { background: rgba(255,255,255,.08); }
+.sf .tm-hero li > a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+@media (max-width: 820px) { .sf .tm-hero li > a { padding: 8px 10px; } }
