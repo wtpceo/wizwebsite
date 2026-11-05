@@ -259,10 +259,19 @@ function cutsInit() {
     if (cur) { cur.classList.remove('is-on'); leave(cur); }
     cur = c; c.classList.add('is-on', 'seen'); enter(c); ui(c); schedule();
   }
-  /* 자동 재생(11-05) — 숏폼처럼 컷이 저절로 넘어감. 머무는 시간은 그 컷 글자 수로(제목 한 줄 약 1.5초 · 목록 컷 최대 3.4초).
+  /* 자동 재생(11-05) — 숏폼처럼 컷이 저절로 넘어감. 머무는 시간은 등장 움직임이 끝난 뒤 여유 1.2초 + 글자 수.
      휠·터치·키·클릭을 쓰면 바로 멈추고, 문의 칸(44)에 닿아도 멈춤. 「동작 줄이기」면 켜지 않음. */
   var autoBtn = document.getElementById('sfa'), autoLive = document.getElementById('sfaLive'), auto = false, autoT = 0, touched = false;
-  function durOf(c) { if (!c.__d) { var n = Math.min((c.innerText || '').replace(/\s+/g, '').length, 170); c.__d = Math.round(1200 + n * 13 + (/fx-(flip|slot|build|break)/.test(c.className) ? 700 : 0)); } return c.__d; }
+  /* 머무는 시간 = 넘어오는 스크롤(0.3초) + 이 컷 등장 움직임이 끝나는 시각(최대 2.5초) + 다 나타난 뒤 여유 1.2초(11-05 사장님) + 글자 수만큼 읽는 시간(최대 1.7초) */
+  function enterEnd(c) {
+    var end = 0;
+    if (c.getAnimations) c.getAnimations({ subtree: true }).forEach(function (a) {
+      var t = a.effect && a.effect.getComputedTiming ? a.effect.getComputedTiming() : null;
+      if (t && isFinite(t.endTime) && a.playState !== 'finished') end = Math.max(end, t.endTime - (a.currentTime || 0));
+    });
+    return Math.min(end, 2500);
+  }
+  function durOf(c) { var n = Math.min((c.innerText || '').replace(/\s+/g, '').length, 170); return Math.round(300 + enterEnd(c) + 1200 + n * 10); }
   function schedule() {
     clearTimeout(autoT); if (!auto || !cur || document.hidden) return;
     if (cur.id === 'c44' || cur.id === 'c45') { setAuto(false); return; }
