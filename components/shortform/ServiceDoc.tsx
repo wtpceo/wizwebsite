@@ -4,7 +4,7 @@ import { DETAILS } from "./details"
 import { MG } from "./mg"
 import { Icon } from "./icons"
 import { DocShell, Crumb, Meta, Sec, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
-import { Ex } from "./parts"
+import { Ex, Chars } from "./parts"
 import Works from "./Works"
 
 /** 받침 있으면 「과」, 없으면 「와」 */
@@ -55,7 +55,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
               서비스 {s.no} / 08{s.k === "search" ? " · 대표 서비스" : ""}
             </p>
             <h1>
-              {s.n}{" "}
+              <Chars text={s.n} />{" "}
               <small>{s.cap.replace("\n", " ")}</small>
             </h1>
             <p className="dp-lead">{d.lead}</p>

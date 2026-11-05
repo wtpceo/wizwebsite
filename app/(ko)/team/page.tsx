@@ -4,6 +4,7 @@ import { Icon } from "@/components/shortform/icons"
 import { DocShell, Crumb, Meta, Sec, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "@/components/shortform/DocParts"
 import { TEAM_PAGE } from "@/components/shortform/details"
 import WeeklyReport from "@/components/shortform/WeeklyReport"
+import { Chars } from "@/components/shortform/parts"
 import Works from "@/components/shortform/Works"
 import { OG_TIMESTAMP as timestamp } from "@/lib/site-metadata"
 
@@ -55,9 +56,7 @@ export default function TeamPage() {
             <Crumb items={[{ name: "홈", href: "/" }, { name: "전문 인력" }]} />
             <p className="dp-no">전문 인력 · 진행 과정</p>
             <h1>
-              분야별 시니어가
-              <br />
-              직접 담당합니다.{" "}
+              <Chars text={"분야별 시니어가\n직접 담당합니다."} />{" "}
               <small>창구는 담당 마케터 한 명.</small>
             </h1>
             <p className="dp-lead">{d.lead}</p>

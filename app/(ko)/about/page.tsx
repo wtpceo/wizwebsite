@@ -4,6 +4,7 @@ import { SERVICES, COMPARE, PROBLEMS, CONTACT } from "@/components/shortform/con
 import { Icon } from "@/components/shortform/icons"
 import { DocShell, Crumb, Meta, Sec, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "@/components/shortform/DocParts"
 import { ABOUT_PAGE } from "@/components/shortform/details"
+import { Chars, vars } from "@/components/shortform/parts"
 import { OG_TIMESTAMP as timestamp } from "@/lib/site-metadata"
 
 // 회사소개(2026-11-04 리뉴얼) — 위즈더플래닝 소개 · 왜 한 팀인가 · 여덟 가지 · 회사 정보·오시는 길
@@ -47,9 +48,7 @@ export default function AboutPage() {
             <Crumb items={[{ name: "홈", href: "/" }, { name: "회사소개" }]} />
             <p className="dp-no">위즈더플래닝 소개</p>
             <h1>
-              나눠 맡기던 마케팅,
-              <br />
-              이제 한 팀이 직접.{" "}
+              <Chars text={"나눠 맡기던 마케팅,\n이제 한 팀이 직접."} />{" "}
               <small>재하청 없이, 우리 팀이 직접 책임집니다.</small>
             </h1>
             <p className="dp-lead">{d.lead}</p>
@@ -63,8 +62,8 @@ export default function AboutPage() {
             </div>
           </div>
           <ul className="ab-svc" aria-label="위즈더플래닝이 하는 일 여덟 가지">
-            {SERVICES.map((s) => (
-              <li key={s.k}>
+            {SERVICES.map((s, i) => (
+              <li key={s.k} style={vars({ n: i })}>
                 <Link href={`/services/${s.slug}`}>
                   <span className="ic">
                     <Icon k={s.k} />

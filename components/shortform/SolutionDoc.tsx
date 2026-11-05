@@ -3,7 +3,7 @@ import { SERVICES, SOLUTIONS } from "./content"
 import { SOL_DETAILS } from "./details"
 import { Icon } from "./icons"
 import { DocShell, Crumb, Meta, Sec, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
-import { Ex } from "./parts"
+import { Ex, Chars } from "./parts"
 import Works from "./Works"
 
 // 업종별 솔루션 3쪽 — 누구에게 · 고민 · 묶어서 하는 순서 · 진행 · 자주 묻는 질문 · 문의
@@ -41,7 +41,7 @@ export default function SolutionDoc({ slug }: { slug: string }) {
             <Crumb items={[{ name: "홈", href: "/" }, { name: f.n }]} />
             <p className="dp-no">업종별 솔루션 · {f.who}</p>
             <h1>
-              {f.n}
+              <Chars text={f.n} />
               <small>{f.q.replace("\n", " ")}</small>
             </h1>
             <p className="dp-lead">{d.lead}</p>
