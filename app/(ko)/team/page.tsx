@@ -61,7 +61,7 @@ export default function TeamPage() {
             </h1>
             <p className="dp-lead">{d.lead}</p>
             <div className="dp-btns">
-              <a className="p1" href="#contact">
+              <a className="p1" href="/contact">
                 담당 마케터와 상담
               </a>
               <a className="p2" href="tel:16700704" data-tel>
