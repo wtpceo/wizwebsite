@@ -917,3 +917,8 @@ html.sf-pre .sf .intro { animation: sf-intro-safe 0s linear 5s forwards; }
   .sf .so-2 .so-path li { padding: 10px 0; grid-template-columns: 48px minmax(0, 1fr); }
   .sf .so-2 .so-ph { height: 22vh; }
 }
+/* 작은 휴대폰(370px 이하) — 자동 재생 버튼이 들어가도 로고가 한 줄로(11-05) */
+@media (max-width: 370px) {
+  .sf .sfh-logo b { font-size: 10.5px; letter-spacing: .08em; }
+  .sf .sfh { gap: 8px; }
+}
