@@ -131,7 +131,7 @@ var H4=(function(){
     document.getElementById('xmg').innerHTML=MG[s.k];
     document.getElementById('xf').innerHTML='<span>먼저 하는 일</span>'+s.first;
     document.getElementById('xh').textContent=s.n;document.getElementById('xt').textContent=s.t1;
-    document.getElementById('xrec').innerHTML=s.rec.map(function(r){return '<span>'+r+'</span>'}).join('');
+    document.getElementById('xrec').innerHTML=s.rec.map(function(r){return '<span>'+r.replace(/(\d{1,3}(?:,\d{3})+|\d{3,})(?![.\d])/g,function(n){return '<span data-count="'+n.replace(/,/g,'')+'">'+n+'</span>'})+'</span>'}).join('');if(window.SFcount)SFcount(document.getElementById('xrec'));
     document.getElementById('xdo').innerHTML=s.d.map(function(r){return '<li>'+r+'</li>'}).join('');
     var p1=document.getElementById('xp1'),p2=document.getElementById('xp2');p1.setAttribute('href','/contact?svc='+s.k);p2.setAttribute('href',s.more||('#svc-'+s.k));
     document.getElementById('xstrip').innerHTML=s.ph.map(function(t){return '<div class="sk">'+tile(t)+'</div>'}).join('');
@@ -380,6 +380,7 @@ function countUp(root) {
   els.forEach(function (el) { el.setAttribute('data-cn', ''); cntIO.observe(el); });
 }
 
+window.SFcount = countUp;
 hardNav();
 chromeInit();
 cutsInit();

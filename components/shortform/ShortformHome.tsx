@@ -20,7 +20,7 @@ import {
 import { MG } from "./mg"
 import { DETAILS } from "./details"
 import { Icon } from "./icons"
-import { Words, Chars, Cut, Ex, vars } from "./parts"
+import { Words, Chars, Cut, Ex, vars, Nums } from "./parts"
 import SfContactForm from "./SfContactForm"
 import WeeklyReport from "./WeeklyReport"
 import { SfHeader, SfMenu, SfFooter, SfDock } from "./SiteChrome"
@@ -392,7 +392,9 @@ export default function ShortformHome() {
                       <p>실제 기록</p>
                       <ul>
                         {s.rec.map((r) => (
-                          <li key={r}>{r}</li>
+                          <li key={r}>
+                  <Nums text={r} />
+                </li>
                         ))}
                       </ul>
                       {DETAILS[s.k].recNote ? <small className="sc-recn">{DETAILS[s.k].recNote}</small> : null}

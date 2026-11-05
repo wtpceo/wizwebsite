@@ -108,3 +108,21 @@ export function vars(o: Record<string, string | number>): V {
   for (const k of Object.keys(o)) s[`--${k}`] = o[k]
   return s as V
 }
+
+/** 실적 줄의 큰 숫자(26,456 · 1,313,861처럼 세 자리 이상)만 0부터 올라가게 감싼다. 날짜(2026.8.12)는 그대로 — 11-05 사장님 「숫자가 올라가서 멈추는 모션 · 필요한 곳 계속」 */
+export function Nums({ text }: { text: string }) {
+  const parts = text.split(/(\d{1,3}(?:,\d{3})+(?![.\d])|\d{3,}(?![.\d]))/)
+  return (
+    <>
+      {parts.map((p, i) =>
+        i % 2 ? (
+          <span key={i} data-count={p.replace(/,/g, "")}>
+            {p}
+          </span>
+        ) : (
+          p
+        ),
+      )}
+    </>
+  )
+}

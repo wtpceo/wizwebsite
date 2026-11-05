@@ -4,7 +4,7 @@ import { DETAILS } from "./details"
 import { MG } from "./mg"
 import { Icon } from "./icons"
 import { DocShell, Crumb, Meta, Sec, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
-import { Ex, Chars } from "./parts"
+import { Ex, Chars, Nums } from "./parts"
 import Works from "./Works"
 
 /** 받침 있으면 「과」, 없으면 「와」 */
@@ -133,7 +133,9 @@ export default function ServiceDoc({ slug }: { slug: string }) {
             <h3>보고서에 들어가는 것</h3>
             <ul>
               {d.report.map((r) => (
-                <li key={r}>{r}</li>
+                <li key={r}>
+                  <Nums text={r} />
+                </li>
               ))}
             </ul>
           </div>
@@ -147,7 +149,9 @@ export default function ServiceDoc({ slug }: { slug: string }) {
             <p>실제 기록</p>
             <ul>
               {s.rec.map((r) => (
-                <li key={r}>{r}</li>
+                <li key={r}>
+                  <Nums text={r} />
+                </li>
               ))}
             </ul>
             {d.recNote ? <small className="dp-recn">{d.recNote}</small> : null}
