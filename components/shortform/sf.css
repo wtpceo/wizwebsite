@@ -925,3 +925,54 @@ html.sf-pre .sf .intro { animation: sf-intro-safe 0s linear 5s forwards; }
 .sf .cut.hero > .wrap { z-index: 1; }
 .sf .hero > .bg { transition: opacity .2s ease, visibility 0s linear 0s; }
 .sf .hero.paused > .bg { opacity: 0; visibility: hidden; transition: opacity .2s ease, visibility 0s linear .2s; }
+/* 첫 화면 서비스 버튼 — A안 번호 줄 목록(11-05 사장님 선택): 번호·이름 크게, 설명 한 줄, 서비스 색은 오른쪽 작은 점 */
+.sf .svb .no { display: none; }
+@media (min-width: 821px) {
+  .sf .hero .svl { gap: 0 26px; }
+  .sf .hero .svl .svb, .sf .hero .svl .svb:not(.on), .sf .hero .svl .svb.on { grid-template-columns: 28px minmax(0, 1fr) 10px; column-gap: 10px; row-gap: 1px; padding: 9px 4px 10px; border: 0; border-bottom: 1px solid rgba(255,255,255,.2); border-radius: 0; background: none; color: #fff; box-shadow: none; }
+  .sf .hero .svl .svb .no { display: block; grid-row: 1 / span 2; align-self: start; padding-top: 3px; font-style: normal; font-size: 12.5px; font-weight: 800; color: var(--sky); font-variant-numeric: tabular-nums; }
+  .sf .hero .svl .svb .n { grid-column: 2; font-size: 15.5px; color: #fff; }
+  .sf .hero .svl .svb .l { grid-column: 2; color: rgba(255,255,255,.82); }
+  .sf .hero .svl .svb .ic, .sf .hero .svl .svb.on .ic { grid-column: 3; grid-row: 1 / span 2; align-self: center; width: 9px; height: 9px; border-radius: 50%; background: var(--sc); box-shadow: 0 0 0 3px rgba(255,255,255,.12); }
+  .sf .hero .svl .svb .ic svg { display: none; }
+  .sf .hero .svl .svb.on { background: rgba(255,255,255,.1); }
+  .sf .hero .svl .svb.on .n { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 5px; }
+  .sf .hero .svl .svb:hover { background: rgba(255,255,255,.07); }
+}
+/* 3번 컷 — 카카오톡 채팅 목록(11-05): 흰 바탕 · 네모 프로필 · 방 이름 · 마지막 말 · 시각 · 안 읽은 빨간 숫자. 방이 위에서부터 차례로 쌓임 */
+.sf .kt { background: #fff; color: #191919; }
+.sf .kt-h { background: #fff; border-bottom: 1px solid #EEF0F2; padding: 14px 16px 12px; font-size: 17px; }
+.sf .kt-h span { margin-left: auto; font-size: 12.5px; color: #8A929C; font-weight: 600; }
+.sf .pings { padding: 4px 0 6px; gap: 0; }
+.sf .pings li { grid-template-columns: 44px minmax(0, 1fr) auto; column-gap: 12px; row-gap: 2px; padding: 9px 16px; align-items: center; }
+.sf .pings li + li { border-top: 0; }
+.sf .pings .pg-av { grid-row: 1 / span 2; width: 44px; height: 44px; border-radius: 16px; font-size: 16px; }
+.sf .pings li i { grid-column: 2; font-size: 14.5px; font-weight: 700; color: #191919; }
+.sf .pings .pg-b, .sf .pings .pg-b::before { all: unset; }
+.sf .pings .pg-b { grid-column: 2; display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 13.5px; color: #6B7480; font-weight: 500; }
+.sf .pings .pg-t { grid-column: 3; grid-row: 1; justify-self: end; font-size: 11.5px; color: #9AA2AC; }
+.sf .pings .pg-n { grid-column: 3; grid-row: 2; justify-self: end; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 10px; background: #FF3B30; color: #fff; font-style: normal; font-size: 11.5px; font-weight: 800; display: flex; align-items: center; justify-content: center; font-variant-numeric: tabular-nums; }
+html.sf-anim .sf .cut.is-on .pings li { animation: sf-stack .5s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.4s + var(--i) * 260ms); }
+@keyframes sf-stack { from { opacity: 0; transform: translateY(-14px) scale(.98); background: #F2F8FF; } to { opacity: 1; transform: none; background: transparent; } }
+@media (max-width: 820px) {
+  .sf .pings li { grid-template-columns: 34px minmax(0, 1fr) auto; column-gap: 9px; padding: 6px 12px; }
+  .sf .pings .pg-av { width: 34px; height: 34px; border-radius: 12px; font-size: 13px; }
+  .sf .pings li i { font-size: 12.5px; }
+  .sf .pings .pg-b { font-size: 12px; }
+  .sf .kt-h { padding: 9px 12px; font-size: 14px; }
+}
+/* 6번 컷 원 — 8개가 바깥에서 모여들고(들어올 때) 천천히 함께 돌며, 바퀴살 빛 점이 가운데로 흘러듦(11-05) */
+@property --rot { syntax: "<angle>"; inherits: true; initial-value: 0deg; }
+.sf .orb { --rot: 0deg; }
+.sf .orb-i { transform: rotate(calc(var(--a) + var(--rot))) translate(var(--rad)) rotate(calc((var(--a) + var(--rot)) * -1)); }
+.sf .orb-sp { position: absolute; left: 50%; top: 50%; width: calc(var(--R) * .42); height: 2px; margin-top: -1px; transform-origin: 0 50%; transform: rotate(calc(var(--a) + var(--rot))); pointer-events: none; z-index: 0; background: linear-gradient(90deg, rgba(42,147,194,.0) 20%, rgba(42,147,194,.22)); }
+.sf .orb-sp::after { content: ""; position: absolute; top: -2px; left: 0; width: 6px; height: 6px; border-radius: 50%; background: #2A93C2; box-shadow: 0 0 10px 2px rgba(42,147,194,.55); opacity: 0; }
+html.sf-anim .sf .cut.is-on .orb { animation: sf-orbit 48s linear 1.3s infinite; }
+@keyframes sf-orbit { to { --rot: 360deg; } }
+html.sf-anim .sf .cut.is-on .orb-sp::after { animation: sf-flow 2.4s cubic-bezier(.5,0,.75,0) infinite; animation-delay: calc(1.2s + var(--i) * 300ms); }
+@keyframes sf-flow { 0% { left: 100%; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { left: 18%; opacity: 0; } }
+html.sf-anim .sf .cut.is-on .orb-i { animation: sf-gather .9s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.2s + var(--i) * 70ms); }
+@keyframes sf-gather { from { opacity: 0; transform: rotate(calc(var(--a) + var(--rot) - 40deg)) translate(calc(var(--rad) * 1.7)) rotate(calc((var(--a) + var(--rot) - 40deg) * -1)); } to { opacity: 1; transform: rotate(calc(var(--a) + var(--rot))) translate(var(--rad)) rotate(calc((var(--a) + var(--rot)) * -1)); } }
+html.sf-anim .sf .cut.is-on .orb-c { animation: sf-fade .5s ease-out .1s both, sf-beat 2.4s ease-in-out 1.6s infinite; }
+@keyframes sf-beat { 0%, 100% { box-shadow: 0 24px 50px -24px rgba(30,108,159,.8), 0 0 0 0 rgba(42,147,194,.35); } 50% { box-shadow: 0 24px 50px -24px rgba(30,108,159,.8), 0 0 0 14px rgba(42,147,194,0); } }
+@media (prefers-reduced-motion: reduce) { .sf .orb, .sf .orb-sp::after, .sf .orb-c { animation: none !important; } }

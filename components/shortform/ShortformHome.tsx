@@ -98,6 +98,7 @@ export default function ShortformHome() {
                 <li key={s.k} style={vars({ i })}>
                   {/* 누르면 그 서비스 상세 쪽으로(11-05) · 마우스를 올리면 휴대폰 고리가 그 일로 돈다(sf.js) */}
                   <Link className="svb" href={`/services/${s.slug}`} data-i={i}>
+                    <em className="no" aria-hidden="true">{s.no}</em>
                     <span className="ic">
                       <Icon k={s.k} />
                     </span>
@@ -160,25 +161,32 @@ export default function ShortformHome() {
               </div>
             ))}
           </div>
-          {/* 11-05 사장님 「실제 카톡 대화처럼, 더 가독성 있게」 — 업체 넷이 있는 단톡방(방 이름·네모 프로필·꼬리 말풍선·보낸 시각) */}
+          {/* 11-05 사장님 「단톡방 하나보다 업체마다 카톡방이 여러 개 생기고 계속 쌓이는 느낌」 — 카카오톡 채팅 목록(방이 하나씩 위로 쌓이고 안 읽은 숫자가 올라감) */}
           <div className="kt">
             <p className="kt-h" aria-hidden="true">
-              <b>마케팅 업체 단톡방</b>
-              <span>5</span>
+              <b>채팅</b>
+              <span>안 읽은 대화 6</span>
             </p>
-            <ul className="pings" aria-label="업체가 넷일 때 오가는 말">
-              {PROBLEM_PINGS.map((p, i) => (
-                <li key={p} style={vars({ i })} className={`pv${i % 4}`}>
-                  <span className="pg-av" aria-hidden="true">
-                    {PROBLEM_VENDORS[i % 4][0].slice(0, 1)}
-                  </span>
-                  <i>{PROBLEM_VENDORS[i % 4][0]}</i>
-                  <span className="pg-r">
+            <ul className="pings" aria-label="업체가 넷일 때 쌓이는 카톡방">
+              {PROBLEM_PINGS.map((p, i) => {
+                const room = ["광고 대행사 담당자", "블로그 체험단 업체", "영상 제작사 PD", "인플루언서 섭외 업체", "광고 대행사 팀장", "블로그 기자단 업체"][i]
+                const unread = [3, 12, 5, 8, 2, 21][i]
+                return (
+                  <li key={p} style={vars({ i })} className={`pv${i % 4}`}>
+                    <span className="pg-av" aria-hidden="true">
+                      {room.slice(0, 1)}
+                    </span>
+                    <i>{room}</i>
                     <span className="pg-b">{p}</span>
-                    <small aria-hidden="true">오후 2:{String(14 + i * 2).padStart(2, "0")}</small>
-                  </span>
-                </li>
-              ))}
+                    <small className="pg-t" aria-hidden="true">
+                      오후 {i + 2}:{String(14 + i * 7).padStart(2, "0")}
+                    </small>
+                    <em className="pg-n" aria-hidden="true">
+                      <span data-count={unread}>{unread}</span>
+                    </em>
+                  </li>
+                )
+              })}
             </ul>
           </div>
         </div>
@@ -225,6 +233,10 @@ export default function ShortformHome() {
               <b>위즈더플래닝</b>
               <small>담당 마케터 1명</small>
             </div>
+            {/* 바퀴살 위로 빛 점이 바깥에서 가운데로 흘러듦(11-05 사장님 「8개가 돌면서 한곳에 모이는 느낌」) */}
+            {SERVICES.map((s, i) => (
+              <i className="orb-sp" key={`sp-${s.k}`} aria-hidden="true" style={vars({ i, a: `${i * 45 - 90}deg` })} />
+            ))}
             {SERVICES.map((s, i) => (
               <a className="orb-i" key={s.k} href={`#svc-${s.k}`} style={vars({ i, a: `${i * 45 - 90}deg` })}>
                 <span className="ic">

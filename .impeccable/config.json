@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": [
+          "docs/개선기획-2026-11-05-7/index.html"
+        ],
+        "createdAt": "2026-11-05T09:25:01.230Z",
+        "reason": "의도한 시안 비교: 코발트 바탕 위 서비스 색 번호·아이콘의 대비 약점을 보여 주는 기획서 데모(클로드 판단, 사장님 확인 전)"
+      }
+    ]
+  }
+}
