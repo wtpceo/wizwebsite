@@ -48,6 +48,11 @@ export default function ServiceDoc({ slug }: { slug: string }) {
     <DocShell>
       <JsonLd data={ld} />
       <section className="dp-hero" aria-label={`${s.n} 소개`}>
+        {/* 11-05 사장님 「숏폼이 뒤에서 도는 배경을 소개 쪽에도」 — 홈 첫 화면과 같은 벽, 막을 더 짙게 */}
+        <div className="dp-bg" aria-hidden="true">
+          <div className="bgt" data-wall="" />
+        </div>
+        <div className="dp-veil" aria-hidden="true" />
         <div className="dp-w dp-hero-in">
           <div>
             <Crumb items={[{ name: "홈", href: "/" }, { name: s.n }]} />

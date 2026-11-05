@@ -301,3 +301,11 @@ html.sf-anim .sf .gd-hero h1 { animation: sf-rise .6s cubic-bezier(.23,1,.32,1) 
 .sf .bz-f a { text-decoration: underline; }
 @media (max-width: 820px) { .sf .bz-f { padding: 22px 18px; } .sf .bz-chk { grid-template-columns: minmax(0, 1fr); } }
 .sf .bz-f button[type="submit"] { color: #fff; }
+
+/* 소개 쪽 첫 화면 뒤 숏폼 벽(11-05) — 홈 첫 화면 벽(.bgt·.bgc·.bgk)을 그대로 쓰고 막만 더 짙게. 글은 막 위 */
+.sf .dp-bg { position: absolute; inset: 0; z-index: 0; perspective: 1700px; pointer-events: none; }
+.sf .dp-veil { position: absolute; inset: 0; z-index: 0; pointer-events: none; background: linear-gradient(90deg, rgba(13,79,140,.97) 0%, rgba(13,79,140,.92) 42%, rgba(13,79,140,.74) 70%, rgba(13,79,140,.62) 100%), linear-gradient(180deg, rgba(13,79,140,.6) 0%, rgba(13,79,140,0) 24%, rgba(13,79,140,0) 76%, rgba(13,79,140,.9) 100%); }
+.sf .dp-hero.t-k .dp-veil { background: linear-gradient(90deg, rgba(11,20,34,.97) 0%, rgba(11,20,34,.92) 42%, rgba(11,20,34,.76) 70%, rgba(11,20,34,.64) 100%), linear-gradient(180deg, rgba(11,20,34,.6) 0%, rgba(11,20,34,0) 24%, rgba(11,20,34,0) 76%, rgba(11,20,34,.9) 100%); }
+.sf .dp-hero > .dp-w { position: relative; z-index: 1; }
+.sf .dp-hero.paused .bgk { animation-play-state: paused; }
+@media (max-width: 820px) { .sf .dp-veil, .sf .dp-hero.t-k .dp-veil { background: rgba(13,79,140,.88); } .sf .dp-hero.t-k .dp-veil { background: rgba(11,20,34,.88); } }

@@ -324,6 +324,13 @@ function docInit() {
     el.innerHTML = h;
     countUp(el);
   }
+  /* 소개 쪽 첫 화면 뒤 숏폼 벽(11-05) — 첫 화면이 보일 때만 돌고, 「동작 줄이기」면 멈춘 그림 */
+  [].slice.call(document.querySelectorAll('[data-wall]')).forEach(function (w) {
+    var play = H4.wall(w), sec = w.closest('.dp-hero');
+    if (H4.reduce || !sec) return;
+    if (!('IntersectionObserver' in window)) { play(true); return; }
+    new IntersectionObserver(function (es) { es.forEach(function (e) { sec.classList.toggle('paused', !e.isIntersecting); play(e.isIntersecting); }); }).observe(sec);
+  });
   var els = [].slice.call(document.querySelectorAll('[data-tiles]')), rv = [].slice.call(document.querySelectorAll('.rv'));
   /* 작업물 띠 숏폼(11-05) — 화면 가까이 오면 그때 받고, 「동작 줄이기」면 첫 장면만 */
   var vids = [].slice.call(document.querySelectorAll('.dp-works video[data-src]'));
