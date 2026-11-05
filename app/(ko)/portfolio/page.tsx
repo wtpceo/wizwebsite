@@ -3,9 +3,8 @@
 import Image from "next/image"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import Header from "@/components/sections/Header"
 import ContactSection from "@/components/sections/ContactSection"
-import Footer from "@/components/sections/Footer"
+import { DocShell } from "@/components/shortform/DocParts"
 
 const images = [
   "/portfolio/DSC09449.jpg",
@@ -110,9 +109,10 @@ export default function PortfolioPage() {
   const [modal, setModal] = useState<string | null>(null)
 
   return (
+    // 2026-11-05 사장님 「여기도 아직 이전 페이지」 — 머리글·바닥글만 새 틀(DocShell)로, 본문은 그대로
+    <DocShell>
     <div className="flex min-h-screen flex-col">
-      <Header />
-      <main className="flex-1 pt-20 md:pt-24">
+      <div className="flex-1 pt-20 md:pt-24">
         <section className="w-full py-12 sm:py-20 bg-gradient-to-b from-[#f7fafc] to-white">
           <div className="container mx-auto px-4">
             {/* 상단 메시지 */}
@@ -210,8 +210,8 @@ export default function PortfolioPage() {
           description="촬영하고 싶은 매장과 원하는 시기를 남겨 주시면 촬영 범위와 일정을 맞춰 연락드리겠습니다. 위 사진은 모두 저희가 직접 찍었고, 기획부터 촬영과 보정까지 외주 없이 합니다."
           messagePlaceholder="찍고 싶은 것(매장 외관·내부, 메뉴, 사람)과 쓰실 곳(네이버 플레이스, 인스타그램, 홈페이지), 원하는 시기를 적어 주세요."
         />
-      </main>
-      <Footer />
+      </div>
     </div>
+    </DocShell>
   )
 } 

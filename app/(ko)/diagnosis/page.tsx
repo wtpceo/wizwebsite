@@ -1,6 +1,4 @@
 import type { Metadata } from "next"
-import Header from "@/components/sections/Header"
-import Footer from "@/components/Footer"
 import GeneralHero from "@/components/general/GeneralHero"
 import WhyLocal from "@/components/general/WhyLocal"
 import GeneralReportPreview from "@/components/general/GeneralReportPreview"
@@ -10,6 +8,7 @@ import HowWeReport from "@/components/sections/HowWeReport"
 import GeneralFaq from "@/components/general/GeneralFaq"
 import ForceTopOnLoad from "@/components/ForceTopOnLoad"
 import { GENERAL_FAQ } from "@/lib/general-faq-data"
+import { DocShell } from "@/components/shortform/DocParts"
 
 // 업종 무관 무료 AI 검색 진단 — 병원판(/medical-diagnosis)의 짝 페이지.
 // 메타광고 광고세트 B의 전용 랜딩이다. 두 랜딩의 전환 구조(폼 제출 1단계 → Lead)를
@@ -94,12 +93,13 @@ const breadcrumbJsonLd = {
 
 export default function DiagnosisPage() {
   return (
-    <main className="min-h-screen">
+    // 2026-11-05 사장님 「여기도 아직 이전 페이지」 — 머리글·바닥글만 새 틀(DocShell)로, 본문은 그대로
+    <DocShell>
+    <div className="min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <ForceTopOnLoad />
-      <Header />
       <GeneralHero />
       <WhyLocal />
       <GeneralReportPreview />
@@ -107,7 +107,7 @@ export default function DiagnosisPage() {
       <HowWeReport />
       <GeneralApplyForm />
       <GeneralFaq />
-      <Footer />
-    </main>
+    </div>
+    </DocShell>
   )
 }

@@ -1,12 +1,12 @@
+import { BIZ_CTA } from "@/components/shortform/SiteChrome"
 import type { Metadata } from "next"
 import Link from "next/link"
 import {
   Gauge, Globe2, Search, FileText, Megaphone, LineChart,
   ArrowRight, CheckCircle2, XCircle,
 } from "lucide-react"
-import Header from "@/components/sections/Header"
-import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
+import { DocShell } from "@/components/shortform/DocParts"
 
 // 기업 마케팅 허브. 자영업 페이지와 말과 경로를 분리한다.
 // - "사장님·가게" 대신 "담당자·브랜드·조직"
@@ -136,12 +136,13 @@ const breadcrumbJsonLd = {
 
 export default function Page() {
   return (
+    // 2026-11-05 사장님 「여기도 아직 이전 페이지」 — 머리글·바닥글만 새 틀(DocShell)로, 본문은 그대로
+    <DocShell cta={BIZ_CTA}>
     <div className="flex min-h-screen flex-col bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      <Header />
-      <main className="flex-1">
+      <div className="flex-1">
         {/* 히어로 */}
         <section className="relative overflow-hidden bg-[#070b14] py-20 md:py-28">
           <div className="geo-grid-bg absolute inset-0 opacity-60" />
@@ -356,8 +357,8 @@ export default function Page() {
             </Link>
           </div>
         </section>
-      </main>
-      <Footer />
+      </div>
     </div>
+    </DocShell>
   )
 }

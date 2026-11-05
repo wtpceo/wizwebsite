@@ -1,9 +1,8 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ChevronRight, Radar, Bell, FileText, Stethoscope, BarChart3, ListChecks } from "lucide-react"
-import Header from "@/components/sections/Header"
-import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
+import { DocShell } from "@/components/shortform/DocParts"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 → 현재 33자
 const TITLE = "측정 방식: 자체 개발 GEO 관제 시스템으로 매주 재는 것"
@@ -105,12 +104,12 @@ const faqJsonLd = {
 
 export default function Page() {
   return (
+    // 2026-11-05 사장님 「여기도 아직 이전 페이지」 — 머리글·바닥글만 새 틀(DocShell)로, 본문은 그대로
+    <DocShell>
     <div className="flex min-h-screen flex-col bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
-      <Header />
-
-      <main className="flex-1">
+      <div className="flex-1">
         {/* 히어로 */}
         <section className="relative overflow-hidden bg-[#070b14] py-20 md:py-28">
           <div className="geo-grid-bg absolute inset-0 opacity-60" />
@@ -309,9 +308,8 @@ export default function Page() {
             </div>
           </div>
         </section>
-      </main>
-
-      <Footer />
+      </div>
     </div>
+    </DocShell>
   )
 }

@@ -1,10 +1,9 @@
 import type { Metadata } from "next"
-import Header from "@/components/sections/Header"
-import Footer from "@/components/Footer"
 import InfluencerContactForm from "@/components/influencer/InfluencerContactForm"
 import KakaoChatButton from "@/components/influencer/KakaoChatButton"
 import PickNeedLink from "@/components/influencer/PickNeedLink"
 import StickyCta from "@/components/influencer/StickyCta"
+import { DocShell } from "@/components/shortform/DocParts"
 
 // IMC·인플루언서 섭외 라인 소개. 기획안: 02.비즈니스/27.자사브랜딩/07_IMC재편_2026-11/IMC재편_기획안.md
 // 글은 총괄 4안 원고(20_글/원고/2026-11-03_influencer_4안_총괄원고.md). 근거: 07_IMC재편_2026-11/레퍼런스/시장수요_조사_2026-11-03.md
@@ -155,10 +154,10 @@ function Hidden({ w }: { w: string }) {
 
 export default function Page() {
   return (
+    // 2026-11-05 사장님 「여기도 아직 이전 페이지」 — 머리글·바닥글만 새 틀(DocShell)로, 본문은 그대로
+    <DocShell>
     <div className="flex min-h-svh flex-col bg-white text-base leading-[1.7] tracking-[-0.01em] text-[#1e293b] [font-variant-numeric:tabular-nums] [word-break:keep-all] md:text-[17px]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
-      <Header />
-
       {/* 첫 화면: 사진이 이끈다. 데스크톱은 사진 위 왼쪽 글, 모바일은 사진 아래 글.
           데스크톱 높이는 화면 높이에서 헤더(64)와 장면 줄이 살짝 보일 만큼(72)을 뺀다.
           글 묶음은 위에서 40~45% 지점에 오게 올리고, 왼쪽 선은 헤더 로고와 같은 container에 맞춘다(2026-11-03 대표 지시) */}
@@ -221,7 +220,7 @@ export default function Page() {
         </ul>
       </section>
 
-      <main className="flex-1">
+      <div className="flex-1">
         {/* 01 목적별 상품: 페이지의 중심. 왼쪽 질문, 오른쪽 상품. 같은 크기 카드 줄을 쓰지 않는다 */}
         <section className={sec}>
           <div className={wrap}>
@@ -463,10 +462,9 @@ export default function Page() {
             <InfluencerContactForm />
           </div>
         </section>
-      </main>
-
-      <Footer />
+      </div>
       <StickyCta />
     </div>
+    </DocShell>
   )
 }

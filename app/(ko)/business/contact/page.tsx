@@ -1,9 +1,9 @@
+import { BIZ_CTA } from "@/components/shortform/SiteChrome"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Mail, Phone, Clock, FileCheck2 } from "lucide-react"
-import Header from "@/components/sections/Header"
-import Footer from "@/components/Footer"
 import BusinessContactForm from "@/components/business/BusinessContactForm"
+import { DocShell } from "@/components/shortform/DocParts"
 
 const TITLE = "기업 제안 요청 | 위즈더플래닝"
 const DESC =
@@ -36,10 +36,11 @@ const HELP = [
 
 export default function Page() {
   return (
+    // 2026-11-05 사장님 「여기도 아직 이전 페이지」 — 머리글·바닥글만 새 틀(DocShell)로, 본문은 그대로
+    <DocShell cta={BIZ_CTA}>
     <div className="flex min-h-screen flex-col bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }} />
-      <Header />
-      <main className="flex-1">
+      <div className="flex-1">
         <section className="relative overflow-hidden bg-[#070b14] py-16 md:py-20">
           <div className="geo-grid-bg absolute inset-0 opacity-60" />
           <div className="container relative mx-auto max-w-5xl px-4 md:px-6">
@@ -88,8 +89,8 @@ export default function Page() {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
+      </div>
     </div>
+    </DocShell>
   )
 }

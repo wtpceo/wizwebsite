@@ -6,9 +6,8 @@ import { CheckCircle, Search, FileText, ArrowRight, Shield, TrendingUp, Award, U
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
-import Header from "@/components/sections/Header"
-import Footer from "@/components/sections/Footer"
 import ContactSection from "@/components/sections/ContactSection"
+import { DocShell } from "@/components/shortform/DocParts"
 
 const AnimatedBackground = () => {
   const [circles, setCircles] = useState<Array<{
@@ -275,9 +274,10 @@ export default function NaverMarketingPage() {
   }
 
   return (
+    // 2026-11-05 사장님 「여기도 아직 이전 페이지」 — 머리글·바닥글만 새 틀(DocShell)로, 본문은 그대로
+    <DocShell>
     <div className="flex min-h-screen flex-col bg-white overflow-hidden">
-      <Header />
-      <main className="flex-1">
+      <div className="flex-1">
         {/* 헤더 섹션 */}
         <motion.div
           ref={heroRef}
@@ -753,9 +753,9 @@ export default function NaverMarketingPage() {
             </Card>
           </motion.div>
         </div>
-      </main>
+      </div>
       <ContactSection />
-      <Footer />
     </div>
+    </DocShell>
   )
 } 

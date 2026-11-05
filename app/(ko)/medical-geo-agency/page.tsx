@@ -4,12 +4,11 @@ import {
   ChevronRight, Search, FileCheck, Code2, PenLine, BarChart3,
   ShieldCheck, Stethoscope, ArrowRight, Check,
 } from "lucide-react"
-import Header from "@/components/sections/Header"
-import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
 import HowWeReport from "@/components/sections/HowWeReport"
 import DiagnosisApplyForm from "@/components/medical/DiagnosisApplyForm"
 import { GUIDE_ARTICLES } from "@/lib/guide-articles"
+import { DocShell } from "@/components/shortform/DocParts"
 
 const PUBLISHED = "2026-07-23"
 const UPDATED = "2026-09-08"
@@ -164,14 +163,15 @@ const breadcrumbJsonLd = {
 
 export default function Page() {
   return (
+    // 2026-11-05 사장님 「여기도 아직 이전 페이지」 — 머리글·바닥글만 새 틀(DocShell)로, 본문은 그대로
+    <DocShell cta={{ href: "/medical-diagnosis", label: "병원 무료 AI 검색 진단" }}>
     <div className="flex min-h-screen flex-col bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
-      <Header />
-
-      <main className="flex-1">
+      
+      <div className="flex-1">
         {/* 히어로 */}
         <section className="relative overflow-hidden bg-[#070b14] py-20 md:py-28">
           <div className="geo-grid-bg absolute inset-0 opacity-60" />
@@ -475,9 +475,9 @@ export default function Page() {
 
         {/* 진단 신청 폼 (id="apply"). /medical-diagnosis와 같은 부품이라 diagnosis_submit 이벤트도 그대로 잡힌다 */}
         <DiagnosisApplyForm hideHeading />
-      </main>
+      </div>
 
-      <Footer />
-    </div>
+          </div>
+    </DocShell>
   )
 }

@@ -21,10 +21,9 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { AnimatedSection } from "@/app/components/AnimatedSection"
-import Header from "@/components/sections/Header"
-import Footer from "@/components/Footer"
 import ContactSection from "@/components/sections/ContactSection"
 import { useRef } from "react"
+import { DocShell } from "@/components/shortform/DocParts"
 
 export default function StrategyDetail() {
   const contactRef = useRef<HTMLDivElement>(null);
@@ -32,9 +31,10 @@ export default function StrategyDetail() {
     contactRef.current?.scrollIntoView({ behavior: "smooth" });
   };
   return (
+    // 2026-11-05 사장님 「여기도 아직 이전 페이지」 — 머리글·바닥글만 새 틀(DocShell)로, 본문은 그대로
+    <DocShell>
     <div className="flex min-h-screen flex-col bg-white">
-      <Header />
-      <main className="flex-1">
+      <div className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-[#070b14] py-24 md:py-28">
           <div className="geo-grid-bg absolute inset-0"></div>
@@ -547,8 +547,8 @@ export default function StrategyDetail() {
         <div ref={contactRef}>
           <ContactSection />
         </div>
-      </main>
-      <Footer />
+      </div>
     </div>
+    </DocShell>
   )
 }

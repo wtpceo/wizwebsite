@@ -1,9 +1,8 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Gauge, ShieldCheck, Zap } from "lucide-react"
-import Header from "@/components/sections/Header"
-import Footer from "@/components/Footer"
 import SiteCheckTool from "@/components/site-check/SiteCheckTool"
+import { DocShell } from "@/components/shortform/DocParts"
 
 const TITLE = "무료 홈페이지 SEO·GEO 진단: 주소만 넣으면 즉시 확인"
 const DESC =
@@ -47,12 +46,13 @@ const breadcrumbJsonLd = {
 
 export default function Page() {
   return (
+    // 2026-11-05 사장님 「여기도 아직 이전 페이지」 — 머리글·바닥글만 새 틀(DocShell)로, 본문은 그대로
+    <DocShell>
     <div className="flex min-h-screen flex-col bg-white">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      <Header />
-
-      <main className="flex-1">
+      
+      <div className="flex-1">
         {/* 히어로 + 진단 도구 */}
         <section className="relative overflow-hidden bg-[#070b14] py-16 md:py-24">
           <div className="geo-grid-bg absolute inset-0 opacity-60" />
@@ -123,9 +123,9 @@ export default function Page() {
             </p>
           </div>
         </section>
-      </main>
+      </div>
 
-      <Footer />
-    </div>
+          </div>
+    </DocShell>
   )
 }

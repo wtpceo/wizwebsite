@@ -7,9 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import Header from "@/components/sections/Header";
-import Footer from "@/components/Footer";
 import ContactSection from "@/components/sections/ContactSection";
+import { DocShell } from "@/components/shortform/DocParts"
 
 // CounterAnimation 컴포넌트
 const CounterAnimation = ({ target, duration = 2000, className = "" }: { target: string, duration?: number, className?: string }) => {
@@ -58,9 +57,10 @@ export default function StrategyDetail() {
   };
 
   return (
+    // 2026-11-05 사장님 「여기도 아직 이전 페이지」 — 머리글·바닥글만 새 틀(DocShell)로, 본문은 그대로
+    <DocShell>
     <div className="flex min-h-screen flex-col">
-      <Header />
-      <main className="flex-1">
+      <div className="flex-1">
         {/* Hero Section */}
         <section ref={aboutRef} className="relative w-full overflow-hidden bg-[#070b14] py-16 md:py-24 lg:py-28">
           <div className="geo-grid-bg absolute inset-0"></div>
@@ -568,8 +568,8 @@ export default function StrategyDetail() {
         <div ref={contactRef}>
           <ContactSection />
         </div>
-      </main>
-      <Footer />
+      </div>
     </div>
+    </DocShell>
   );
 } 

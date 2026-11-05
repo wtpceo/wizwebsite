@@ -26,9 +26,8 @@ import { EqualHeightCards } from "../../docs/1/components/equer-hegiht-card"
 import { MobileMenu } from "../../docs/1/components/mobile-menu"
 import { ScrollToTopButton } from "../../docs/1/components/scrolltopbutten"
 import { Timeline, TimelineItem } from "../../docs/1/components/timline"
-import Header from "@/components/sections/Header"
-import Footer from "@/components/sections/Footer"
 import ContactSection from "@/components/sections/ContactSection"
+import { DocShell } from "@/components/shortform/DocParts"
 
 export default function Page() {
   // 전략 카드 데이터
@@ -90,9 +89,10 @@ export default function Page() {
   ]
 
   return (
+    // 2026-11-05 사장님 「여기도 아직 이전 페이지」 — 머리글·바닥글만 새 틀(DocShell)로, 본문은 그대로
+    <DocShell>
     <div className="flex min-h-screen flex-col">
-      <Header />
-      <main className="flex-1">
+      <div className="flex-1">
         {/* 히어로 섹션 */}
         <section className="relative w-full overflow-hidden bg-[#070b14] py-14 md:py-24 lg:py-28">
           <div className="geo-grid-bg absolute inset-0" />
@@ -275,9 +275,9 @@ export default function Page() {
 
         {/* 문의 받기 섹션 */}
         <ContactSection />
-      </main>
-      <Footer />
+      </div>
       <ScrollToTopButton />
     </div>
+    </DocShell>
   )
 } 

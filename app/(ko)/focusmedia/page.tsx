@@ -9,9 +9,8 @@ import {
   Home, GraduationCap, ShoppingBag, Utensils, Dumbbell, Scissors,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import Header from "@/components/sections/Header"
-import Footer from "@/components/sections/Footer"
 import ContactSection from "@/components/sections/ContactSection"
+import { DocShell } from "@/components/shortform/DocParts"
 
 /* ────────────────────────────────────────────────────────────
    상수 데이터 (렌더 중 Math.random 금지 → 고정 배열/인덱스 기반)
@@ -182,10 +181,11 @@ const viewportOnce = { once: true, amount: 0.2 } as const
 
 export default function FocusMediaPage() {
   return (
+    // 2026-11-05 사장님 「여기도 아직 이전 페이지」 — 머리글·바닥글만 새 틀(DocShell)로, 본문은 그대로
+    <DocShell>
     <div className="flex min-h-screen flex-col bg-white font-sans">
-      <Header />
-
-      <main className="flex-1">
+      
+      <div className="flex-1">
         {/* ───────── 히어로 ───────── */}
         <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-[#070b14]">
           {/* 배경 */}
@@ -634,10 +634,10 @@ export default function FocusMediaPage() {
             </motion.div>
           </div>
         </section>
-      </main>
+      </div>
 
       <ContactSection variant="redOrange" />
-      <Footer />
-    </div>
+          </div>
+    </DocShell>
   )
 }

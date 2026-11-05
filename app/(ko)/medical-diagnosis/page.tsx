@@ -1,6 +1,4 @@
 import type { Metadata } from "next"
-import Header from "@/components/sections/Header"
-import Footer from "@/components/Footer"
 import MedicalHero from "@/components/medical/MedicalHero"
 import WhyMedical from "@/components/medical/WhyMedical"
 import ReportPreview from "@/components/medical/ReportPreview"
@@ -10,6 +8,7 @@ import HowWeReport from "@/components/sections/HowWeReport"
 import MedicalFaq from "@/components/medical/MedicalFaq"
 import ForceTopOnLoad from "@/components/ForceTopOnLoad"
 import { MEDICAL_FAQ } from "@/lib/medical-faq-data"
+import { DocShell } from "@/components/shortform/DocParts"
 
 const BASE_URL = "https://wiztheplanning.com"
 const PAGE_URL = `${BASE_URL}/medical-diagnosis`
@@ -89,12 +88,13 @@ const breadcrumbJsonLd = {
 
 export default function MedicalDiagnosisPage() {
   return (
-    <main className="min-h-screen">
+    // 2026-11-05 사장님 「여기도 아직 이전 페이지」 — 머리글·바닥글만 새 틀(DocShell)로, 본문은 그대로
+    <DocShell cta={{ href: "/medical-diagnosis", label: "병원 무료 AI 검색 진단" }}>
+    <div className="min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <ForceTopOnLoad />
-      <Header />
       <MedicalHero />
       <WhyMedical />
       <ReportPreview />
@@ -102,7 +102,7 @@ export default function MedicalDiagnosisPage() {
       <HowWeReport />
       <DiagnosisApplyForm />
       <MedicalFaq />
-      <Footer />
-    </main>
+    </div>
+    </DocShell>
   )
 }

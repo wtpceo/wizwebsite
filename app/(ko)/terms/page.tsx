@@ -1,12 +1,12 @@
 "use client"
+import { DocShell } from "@/components/shortform/DocParts"
 
-import Header from "@/components/sections/Header"
-import Footer from "@/components/Footer"
 
 export default function Terms() {
   return (
-    <main className="min-h-screen">
-      <Header />
+    // 2026-11-05 사장님 「여기도 아직 이전 페이지」 — 머리글·바닥글만 새 틀(DocShell)로, 본문은 그대로
+    <DocShell>
+    <div className="min-h-screen">
       <div className="container mx-auto px-4 py-12">
         <h1 className="text-3xl font-bold mb-8">이용약관</h1>
         
@@ -107,7 +107,7 @@ export default function Terms() {
           </section>
         </div>
       </div>
-      <Footer />
-    </main>
+    </div>
+    </DocShell>
   )
 } 
