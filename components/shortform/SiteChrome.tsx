@@ -19,48 +19,57 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
         <b>WIZ THE PLANNING</b>
       </Link>
       <nav className="sfh-nav" aria-label="주 메뉴">
-        <Link href="/about">회사소개</Link>
-        <Link href="/services/influencer">서비스</Link>
-        <Link href="/solutions/local">업종별 마케팅</Link>
-        <Link href="/team">전문 인력</Link>
-        <Link href="/guide">인사이트</Link>
-        <Link href="/contact">문의하기</Link>
-        {/* 11-06 사장님 「마우스 대면 전체 항목이 밑으로 한번에」 + 「위 메뉴에 맞게 내려와야」 — 칸 시작선을 위 메뉴 글자에 맞춘다(너비는 sf-doc.css --sfmg) */}
-        <div className="sfh-mega">
-          <div className="sfh-mega-in">
-            <div>
-              <Link href="/about">위즈더플래닝 소개</Link>
-              <Link href="/about#location">오시는 길</Link>
-            </div>
-            <div>
-              {SERVICES.map((s) => (
-                <Link key={s.k} href={`/services/${s.slug}`}>
-                  {s.n}
-                </Link>
-              ))}
-            </div>
-            <div>
-              {SOLUTIONS.map((f) => (
-                <Link key={f.slug} href={`/solutions/${f.slug}`}>
-                  {f.n}
-                </Link>
-              ))}
-              <Link href="/medical-diagnosis">병원 무료 AI 검색 진단</Link>
-            </div>
-            <div>
-              <Link href="/team">팀과 진행 과정</Link>
-            </div>
-            <div>
-              <Link href="/guide">마케팅 칼럼</Link>
-              <Link href="/theater">위즈 극장</Link>
-              <Link href="/how-we-measure">측정 방식</Link>
-            </div>
-            <div>
-              <Link href="/contact">무료 상담 신청</Link>
-              <Link href="/business/contact">기업 제안 요청</Link>
-            </div>
+        {/* 11-06 사장님 「전 칸 가운데, 상단 메뉴바 간격 다 동일하게」 — 칸을 메뉴 글자마다 달아 항상 글자 가운데 아래로 내려온다. 긴 서비스 이름은 칸이 겹쳐 여기서만 짧은 이름 */}
+        <div className="sfh-it">
+          <Link href="/about">회사소개</Link>
+          <div className="sfh-col">
+            <Link href="/about">위즈더플래닝 소개</Link>
+            <Link href="/about#location">오시는 길</Link>
           </div>
         </div>
+        <div className="sfh-it">
+          <Link href="/services/influencer">서비스</Link>
+          <div className="sfh-col">
+            {SERVICES.map((s) => (
+              <Link key={s.k} href={`/services/${s.slug}`}>
+                {s.short}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="sfh-it">
+          <Link href="/solutions/local">업종별 마케팅</Link>
+          <div className="sfh-col">
+            {SOLUTIONS.map((f) => (
+              <Link key={f.slug} href={`/solutions/${f.slug}`}>
+                {f.n}
+              </Link>
+            ))}
+            <Link href="/medical-diagnosis">병원 무료 AI 검색 진단</Link>
+          </div>
+        </div>
+        <div className="sfh-it">
+          <Link href="/team">전문 인력</Link>
+          <div className="sfh-col">
+            <Link href="/team">팀과 진행 과정</Link>
+          </div>
+        </div>
+        <div className="sfh-it">
+          <Link href="/guide">인사이트</Link>
+          <div className="sfh-col">
+            <Link href="/guide">마케팅 칼럼</Link>
+            <Link href="/theater">위즈 극장</Link>
+            <Link href="/how-we-measure">측정 방식</Link>
+          </div>
+        </div>
+        <div className="sfh-it">
+          <Link href="/contact">문의하기</Link>
+          <div className="sfh-col">
+            <Link href="/contact">무료 상담 신청</Link>
+            <Link href="/business/contact">기업 제안 요청</Link>
+          </div>
+        </div>
+        <div className="sfh-mega" aria-hidden="true" />
       </nav>
       <Link className="sfh-cta" href={cta.href}>
         {cta.label}
