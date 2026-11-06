@@ -15,6 +15,7 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
     <header className={`sfh${home ? "" : " sfh-doc"}`} id="sfh" data-tone={home ? "c" : "w"}>
       <Link className="sfh-logo" href="/" aria-label="위즈더플래닝 홈">
         <img src="/sf/img/wiz-symbol.png" alt="" width={733} height={460} />
+        {home ? <i className="sfh-sym" aria-hidden="true" /> : null}
         <b>WIZ THE PLANNING</b>
       </Link>
       <nav className="sfh-nav" aria-label="주 메뉴">

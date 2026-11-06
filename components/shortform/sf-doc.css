@@ -452,3 +452,20 @@ html.sf-anim .sf .gd-hero h1 { animation: sf-rise .6s cubic-bezier(.23,1,.32,1) 
 /* 11-06 첫 손님 점검 반영 — 떠 있는 버튼이 본문 끝을 덮어 소개 쪽에서는 뺀다(머리글에 같은 버튼이 늘 있음) · 휴대폰 맨 아래 바닥글이 머리 막대와 겹치지 않게 */
 .sf.sf-doc .sfs { display: none; }
 .sf .sff { position: relative; z-index: 60; }
+
+/* 11-06 로고 빛 줄(A안): 어두운 바탕 머리글에서 가운데 밝은 줄이 왼쪽에서 오른쪽으로. 그림과 글자를 같은 줄이 이어서 지난다 */
+.sf .sfh-sym { display: none; }
+.sf .sfh:not(.sfh-doc):not([data-tone="w"]) .sfh-logo img { display: none; }
+.sf .sfh:not(.sfh-doc):not([data-tone="w"]) .sfh-sym { display: block; width: 35px; height: 22px; font-style: normal; -webkit-mask: url(/sf/img/wiz-symbol.png) center/contain no-repeat; mask: url(/sf/img/wiz-symbol.png) center/contain no-repeat; }
+.sf .sfh:not(.sfh-doc):not([data-tone="w"]) .sfh-sym,
+.sf .sfh:not(.sfh-doc):not([data-tone="w"]) .sfh-logo b { background-image: linear-gradient(100deg, rgba(255,255,255,.72) 44%, #fff 50%, rgba(255,255,255,.72) 56%); background-size: 500px 100%; background-repeat: repeat-x; animation: sf-lg 6s linear infinite; }
+.sf .sfh:not(.sfh-doc):not([data-tone="w"]) .sfh-logo b { color: transparent; -webkit-background-clip: text; background-clip: text; animation-name: sf-lgt; }
+@keyframes sf-lg { from { background-position: 0 0; } to { background-position: 500px 0; } }
+@keyframes sf-lgt { from { background-position: -45px 0; } to { background-position: 455px 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .sf .sfh:not(.sfh-doc):not([data-tone="w"]) .sfh-sym,
+  .sf .sfh:not(.sfh-doc):not([data-tone="w"]) .sfh-logo b { animation: none; background-image: none; }
+  .sf .sfh:not(.sfh-doc):not([data-tone="w"]) .sfh-sym { background-color: #fff; }
+  .sf .sfh:not(.sfh-doc):not([data-tone="w"]) .sfh-logo b { color: #fff; }
+}
+@media (max-width: 820px) { .sf .sfh:not(.sfh-doc):not([data-tone="w"]) .sfh-sym { width: 29px; height: 18px; } }
