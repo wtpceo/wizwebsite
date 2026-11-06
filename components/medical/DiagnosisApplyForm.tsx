@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { trackDiagnosisSubmit } from "@/lib/analytics"
 import { readAttribution } from "@/lib/attribution"
+import { useFormGuard } from "@/components/forms/FormGuard"
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -42,6 +43,7 @@ const 예산_옵션 = [
 export default function DiagnosisApplyForm({ hideHeading = false }: { hideHeading?: boolean } = {}) {
   const [submitting, setSubmitting] = useState(false)
   const [done, setDone] = useState(false)
+  const { guardFields, guardValues } = useFormGuard()
   const [form, setForm] = useState({
     hospital: "",
     name: "",
@@ -64,6 +66,7 @@ export default function DiagnosisApplyForm({ hideHeading = false }: { hideHeadin
     try {
       // 기존 /api/contact 재활용 — 병원 특화 정보는 message로 조합
       const payload = {
+        ...guardValues(),
         attribution: readAttribution(),
         name: form.name,
         phone: form.phone,
@@ -149,7 +152,7 @@ export default function DiagnosisApplyForm({ hideHeading = false }: { hideHeadin
               </p>
             </div>
           ) : (
-            <form onSubmit={onSubmit} className="rounded-2xl border border-white/10 bg-white p-6 shadow-2xl md:p-8">
+            <form onSubmit={onSubmit} className="relative rounded-2xl border border-white/10 bg-white p-6 shadow-2xl md:p-8">
               <div className="space-y-4">
                 <div>
                   <label htmlFor="hospital" className="mb-1.5 block text-sm font-medium text-gray-700">병원명 <span className="text-emerald-600">*</span></label>
@@ -223,6 +226,7 @@ export default function DiagnosisApplyForm({ hideHeading = false }: { hideHeadin
               <p className="mt-3 text-center text-xs text-gray-400">
                 영업시간 내 신청 시 5분 안에 리포트 · 진단 무료 · 대행 비용은 진단 결과를 보고 제안서로 드립니다
               </p>
+              {guardFields}
             </form>
           )}
         </motion.div>

@@ -3,6 +3,7 @@
 import { useRef, useState, type FormEvent } from "react"
 import { trackContactSubmit } from "@/lib/analytics"
 import { readAttribution } from "@/lib/attribution"
+import { useFormGuard } from "@/components/forms/FormGuard"
 import s from "./blueprint.module.css"
 
 // 홈 광고 상담 폼(A안). 보내는 곳과 태그는 매체 페이지의 HomeContactForm과 같다:
@@ -25,6 +26,8 @@ export default function BlueprintContactForm() {
   const [status, setStatus] = useState<Status>("idle")
   // state는 다음 렌더에야 바뀌므로 연타를 막는 잠금은 ref로 둔다
   const lock = useRef(false)
+  // 스팸 방지: 숨은 칸 + 폼 연 시각 (서버 판정은 lib/spam-guard.ts)
+  const { guardFields, guardValues } = useFormGuard()
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -37,6 +40,7 @@ export default function BlueprintContactForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          ...guardValues(),
           attribution: readAttribution(),
           name: company,
           storeName: company,
@@ -126,6 +130,7 @@ export default function BlueprintContactForm() {
           </>
         )}
       </p>
+      {guardFields}
     </form>
   )
 }

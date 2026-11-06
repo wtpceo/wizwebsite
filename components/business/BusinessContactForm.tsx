@@ -5,6 +5,7 @@ import { Loader2, CheckCircle2 } from "lucide-react"
 import Link from "next/link"
 import { readAttribution } from "@/lib/attribution"
 import { trackBusinessProposalSubmit } from "@/lib/analytics"
+import { useFormGuard } from "@/components/forms/FormGuard"
 
 // 기업 제안 요청 폼.
 // 자영업 문의 폼과 다른 점 세 가지:
@@ -41,6 +42,7 @@ export default function BusinessContactForm() {
   const [needs, setNeeds] = useState<string[]>([])
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle")
   const [err, setErr] = useState("")
+  const { guardFields, guardValues } = useFormGuard()
 
   const set = (k: keyof typeof f) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setF((p) => ({ ...p, [k]: e.target.value }))
@@ -73,6 +75,7 @@ export default function BusinessContactForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          ...guardValues(),
           attribution: readAttribution(),
           name: f.name,
           email: f.email,
@@ -105,7 +108,7 @@ export default function BusinessContactForm() {
   }
 
   return (
-    <form onSubmit={submit} className="space-y-4" noValidate>
+    <form onSubmit={submit} className="relative space-y-4" noValidate>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className={labelCls} htmlFor="biz-company">회사명 *</label>
@@ -212,6 +215,7 @@ export default function BusinessContactForm() {
       >
         {status === "sending" ? (<><Loader2 className="h-5 w-5 animate-spin" /> 보내는 중</>) : "제안 요청 보내기"}
       </button>
+      {guardFields}
     </form>
   )
 }

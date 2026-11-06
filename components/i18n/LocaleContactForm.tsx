@@ -7,6 +7,7 @@ import type { LandingContent } from "@/lib/i18n/content"
 import type { Locale } from "@/lib/i18n/config"
 import { readAttribution } from "@/lib/attribution"
 import { trackForeignContactSubmit } from "@/lib/analytics"
+import { useFormGuard } from "@/components/forms/FormGuard"
 
 // 외국어 로케일용 문의 폼. 기존 /api/contact 로 전송하되 언어 태그를 붙여
 // 통역·번역 담당자가 어느 언어로 온 문의인지 바로 알 수 있게 한다.
@@ -23,6 +24,7 @@ export default function LocaleContactForm({
   const [message, setMessage] = useState("")
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle")
   const [err, setErr] = useState("")
+  const { guardFields, guardValues } = useFormGuard()
 
   const langTag = locale === "zh" ? "中文 문의" : locale === "en" ? "English 문의" : "Tiếng Việt 문의"
 
@@ -40,6 +42,7 @@ export default function LocaleContactForm({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          ...guardValues(),
           attribution: readAttribution(),
           name,
           phone,
@@ -68,7 +71,7 @@ export default function LocaleContactForm({
   }
 
   return (
-    <form onSubmit={submit} className="space-y-3">
+    <form onSubmit={submit} className="relative space-y-3">
       <div className="grid gap-3 sm:grid-cols-2">
         <input
           value={name}
@@ -116,6 +119,7 @@ export default function LocaleContactForm({
           t.form.submit
         )}
       </Button>
+      {guardFields}
     </form>
   )
 }

@@ -3,6 +3,7 @@
 import { useRef, useState, type FormEvent } from "react"
 import { trackContactSubmit } from "@/lib/analytics"
 import { readAttribution } from "@/lib/attribution"
+import { useFormGuard } from "@/components/forms/FormGuard"
 import s from "./home.module.css"
 
 // 홈 광고 상담 폼. /api/contact로 보내고 language 태그 "광고 상담"으로 관리자 메일 제목에서 가른다.
@@ -21,6 +22,8 @@ export default function HomeContactForm({ source = "home" }: { source?: string }
   const [status, setStatus] = useState<Status>("idle")
   // state는 다음 렌더에야 바뀌므로 연타를 막는 잠금은 ref로 둔다
   const lock = useRef(false)
+  // 스팸 방지: 숨은 칸 + 폼 연 시각 (서버 판정은 lib/spam-guard.ts)
+  const { guardFields, guardValues } = useFormGuard()
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -33,6 +36,7 @@ export default function HomeContactForm({ source = "home" }: { source?: string }
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          ...guardValues(),
           attribution: readAttribution(),
           name: company,
           storeName: company,
@@ -108,6 +112,7 @@ export default function HomeContactForm({ source = "home" }: { source?: string }
           onChange={(e) => setEmail(e.target.value)}
           disabled={done}
         />
+        {guardFields}
         <button type="submit" disabled={sending || done} aria-busy={sending}>
           {done ? "접수됐습니다" : sending ? "보내는 중" : "광고 상담 받기"}
         </button>

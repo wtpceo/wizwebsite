@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Lock, CheckCircle2, Loader2, Upload } from "lucide-react"
 import s from "@/components/guide/guide.module.css"
 import { trackCaseAccessRequest } from "@/lib/analytics"
+import { useFormGuard } from "@/components/forms/FormGuard"
 
 // 전체 사례(유료분) 열람 신청 폼
 // - 공개 티저 아래에 붙는 "잠금 → 신청" 블록.
@@ -27,6 +28,8 @@ export default function CaseAccessRequest({
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle")
   const [error, setError] = useState<string | null>(null)
   const [fileName, setFileName] = useState<string>("")
+  // 스팸 방지 숨은 칸. FormData 로 보내므로 guardFields 만 넣으면 서버(/api/case-access)가 읽는다
+  const { guardFields } = useFormGuard()
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -159,6 +162,7 @@ export default function CaseAccessRequest({
               <p className={s.caseFine}>
                 제출하신 정보는 사업자 본인 확인 목적으로만 사용되며, 심사 후 안전하게 관리됩니다.
               </p>
+              {guardFields}
             </form>
           </>
         )}

@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Loader2, CheckCircle2 } from "lucide-react"
 import { readAttribution } from "@/lib/attribution"
 import { trackInfluencerProposalSubmit } from "@/lib/analytics"
+import { useFormGuard } from "@/components/forms/FormGuard"
 
 // IMC·인플루언서 섭외 후보 리스트 요청 폼.
 // 기업 제안 요청 폼과 다른 점:
@@ -53,6 +54,7 @@ export default function InfluencerContactForm() {
   const [err, setErr] = useState("")
   // 상태값은 다음 렌더에서야 바뀌어 빠른 연타를 못 막는다. 보내는 중인지는 ref로 바로 잠근다
   const sending = useRef(false)
+  const { guardFields, guardValues } = useFormGuard()
 
   const set = (k: keyof typeof f) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setF((p) => ({ ...p, [k]: e.target.value }))
@@ -110,6 +112,7 @@ export default function InfluencerContactForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          ...guardValues(),
           attribution: readAttribution(),
           name: f.name,
           email: f.email,
@@ -140,7 +143,7 @@ export default function InfluencerContactForm() {
   }
 
   return (
-    <form id="influencer-form" onSubmit={submit} className="max-w-[640px]" noValidate>
+    <form id="influencer-form" onSubmit={submit} className="relative max-w-[640px]" noValidate>
       <fieldset>
         <legend className="mb-3 text-[15px] font-bold text-[#020817]">필요한 것</legend>
         <Choice name="influencer-need" items={NEEDS} value={need} onPick={(v) => { setNeed(v); setErr("") }} />
@@ -212,6 +215,7 @@ export default function InfluencerContactForm() {
       >
         {status === "sending" ? (<><Loader2 className="h-5 w-5 animate-spin" /> 보내는 중</>) : "후보 리스트 무료로 받기"}
       </button>
+      {guardFields}
     </form>
   )
 }
