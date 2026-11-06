@@ -260,7 +260,7 @@ export const PROBLEM_PINGS = [
   "자료 한 번만 다시 보내 주세요",
   "영상 톤이 광고랑 달라요",
   "블로그 업체 쪽에 물어보셔야 해요",
-  "광고 시안은 언제 나와요?",
+  "이번 달 하기로 한 건 다 했습니다",
   "성과가 안 나면 누구 책임이죠?",
 ]
 // 2026-11-06 저녁 대표: 한 매체만 다루고 나머지는 외주 → 성과가 아니라 '이행 내역'으로 싸우게 된다
@@ -375,11 +375,10 @@ export const INSIGHT_LABELS: Record<string, string> = {
   "/guide/naver-blog-rank-compare": "Research · 네이버 블로그",
 }
 
-/** 장 10칸(진행 막대) — 첫 컷 id. public/sf/sf.js 의 CHN 과 같은 이름·순서 */
+/** 장 9칸(진행 막대) — 첫 컷 id. public/sf/sf.js 의 CHN 과 같은 이름·순서 */
 export const CHAPTERS: { n: string; id: string }[] = [
   { n: "개요", id: "c1" },
-  { n: "과제", id: "c2" },
-  { n: "해법", id: "c5" },
+  { n: "보고 기준", id: "c7" },
   { n: "서비스", id: "c8" },
   { n: "업종별 전략", id: "c33" },
   { n: "전문팀", id: "c36" },

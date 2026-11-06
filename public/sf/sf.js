@@ -178,7 +178,7 @@ var H4=(function(){
 var SFD = {};
 try { SFD = JSON.parse(document.getElementById('sf-data').textContent); } catch (e) { SFD = {}; }
 if (SFD.svc) SFD.svc.forEach(function (d, i) { var s = S[i]; if (!s || s.k !== d.k) return; s.n = d.n; s.ln = d.ln; s.first = d.first; s.t1 = d.t1; s.d = d.d; s.rec = d.rec; s.rn = d.rn; s.more = d.more; });
-var CHN = ['개요', '과제', '해법', '서비스', '업종별 전략', '전문팀', '프로세스', '인사이트', '자주 묻는 질문', '문의']; /* components/shortform/content.ts 의 CHAPTERS 와 같은 이름·순서 */
+var CHN = ['개요', '보고 기준', '서비스', '업종별 전략', '전문팀', '프로세스', '인사이트', '자주 묻는 질문', '문의']; /* components/shortform/content.ts 의 CHAPTERS 와 같은 이름·순서 */
 
 /* 첫 화면 — 시안 c1b 를 서버가 그린 목록에 묶음 */
 function heroInit() {
