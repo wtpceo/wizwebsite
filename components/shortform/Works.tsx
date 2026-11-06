@@ -77,13 +77,12 @@ export const WORKS: Record<string, Works> = {
     ],
   },
   off: {
-    lead: "상권·타깃 반경의 단지와 차량을 고르고, 광고 소재를 제작해 송출합니다. 매체마다 소비자 눈에 들어오는 모습은 이렇습니다.",
+    lead: "상권·타깃 반경의 차량과 극장을 고르고, 광고 소재를 제작해 송출합니다. 매체마다 소비자 눈에 들어오는 모습은 이렇습니다.",
     tag: "예시 화면",
     items: [
-      { tiles: "off", pick: "0", cap: "엘리베이터TV" },
-      { tiles: "off", pick: "1", cap: "택배차 옆면" },
-      { tiles: "off", pick: "2", cap: "극장 본편 시작 전" },
-      { img: "/images/focusmedia/data-map.jpg", w: 1920, h: 1047, cap: "송출할 단지를 지도에서 고릅니다(항공 사진)", wide: true },
+      { tiles: "off", pick: "0", cap: "택배차 옆면" },
+      { tiles: "off", pick: "1", cap: "극장 본편 시작 전" },
+      { tiles: "off", pick: "2", cap: "카카오T 택시 화면" },
     ],
   },
   /* 업종별 솔루션 */

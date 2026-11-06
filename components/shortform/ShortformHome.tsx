@@ -38,6 +38,8 @@ const SVC_TONE = ["k", "c", "k", "c", "k", "c", "k", "c"] as const
 // 서비스 첫 컷 예시 화면(sf.js 타일 순번) — 가운데 칸이 크게 보인다
 const SA_TILES: Record<string, string> = { perf: "1,0,2", viral: "1,0,3", global: "0,1", off: "0,1" }
 const STEP_TONE = ["w", "k", "w", "k", "w"] as const
+/* 첫 화면 키워드 띠(11-06 밤 대표: 유튜버·메가/마이크로 인플루언서·SEO·GEO·홈페이지 제작이 첫 화면에서 보여야 한다) */
+const HERO_KEYS = ["유튜버 섭외", "메가 인플루언서", "마이크로 인플루언서", "퍼포먼스 광고", "SEO", "GEO", "숏폼 촬영", "블로그·바이럴", "마케팅 홈페이지 제작", "중국·일본 글로벌", "오프라인 미디어"]
 
 export default function ShortformHome() {
   const insights = INSIGHT_HREFS.map((h) => GUIDE_ARTICLES.find((a) => a.href === h)).filter(Boolean) as typeof GUIDE_ARTICLES
@@ -49,26 +51,8 @@ export default function ShortformHome() {
       <SfHeader home />
       <SfMenu />
 
-      {/* 0 인트로 — 검은 화면 「한 곳.」 · 처음 읽을 때만(이 줄이 sf-pre 를 붙여야 보임 — JS가 없으면 인트로 없이 바로 첫 화면 · CSS가 5초 뒤 스스로 걷음) */}
-      {/* 우리 사이트 안에서 넘어온 방문(로고·메뉴로 홈에 돌아옴)은 인트로를 다시 틀지 않는다 */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: "try{var r=document.referrer;if(!r||new URL(r).host!==location.host)document.documentElement.classList.add('sf-pre')}catch(e){document.documentElement.classList.add('sf-pre')}",
-        }}
-      />
-      <div className="intro" id="intro" aria-hidden="true">
-        <div className="fl">
-          {["유튜버 섭외", "광고", "검색·AI", "촬영", "블로그", "해외", "홈페이지", "엘리베이터TV"].map((w) => (
-            <span key={w}>{w}</span>
-          ))}
-        </div>
-        <div className="big">
-          <i>한</i>
-          <i>곳</i>
-          <i>.</i>
-        </div>
-        <div className="bar" />
-      </div>
+      {/* 0 인트로(검은 화면에 글자가 지나가고 「한 곳.」) — 11-06 밤 대표 지시로 뺐다. sf.js 의 intro()는 #intro 가 없으면 바로 첫 화면을 켠다.
+          html 에 sf-pre 를 붙이던 인라인 스크립트도 같이 빼서, 그 때문에 나던 hydration 경고도 사라진다 */}
 
       {/* 1 훅 — 확정 첫 화면 A */}
       <section className="cut cut-hero hero t-c" id="c1" data-no={next()} data-ch={0} data-tone="c" aria-label="첫 화면">
@@ -78,36 +62,65 @@ export default function ShortformHome() {
         <div className="veil" />
         <div className="wrap">
           <div className="left">
-            <p className="kick in1">INTEGRATED MARKETING COMMUNICATIONS</p>
+            <p className="kick in1">INTEGRATED MARKETING COMMUNICATIONS · IMC</p>
             {/* 2026-11-06 저녁 대표: 진단으로 시작해 성과까지 함께 가는 회사. 메시지 설계는 docs/메시지설계-2026-11-06-대표뜻.md */}
+            {/* 11-06 밤 대표: '진단' → '분석', 부제는 퍼널 위치부터 확인해 드린다는 말로 */}
             <h1 className="in2">
-              진단으로 시작해,
+              분석으로 시작해,
               <br />
               성과로 보고합니다.
             </h1>
             <p className="sub in3">
-              먼저 홈페이지·검색·AI·채널의 빈 곳을 찾고, 필요한 것만 제안합니다.
+              지금 우리 브랜드가 마케팅 퍼널의 어디쯤에 있는지 먼저 확인해 드리겠습니다.
               <br />
-              인플루언서 섭외부터 광고·SEO·GEO·촬영까지 자체 팀이 직접 실행하고, 전담 AE가 성과로 보고합니다.
+              그다음 저희 계획을 들어 보세요.
             </p>
             <div className="btns in4">
               <a className="b1" href="/contact">
                 마케팅 진단 신청
               </a>
-              {/* 카카오톡 상담은 아래 고정 바에 있다(카피덱) */}
               <a className="b2" href="/business/contact">
                 기업 제안 요청 (RFP)
               </a>
+              {/* 11-06 밤 대표: 카카오 노란 버튼으로 '카카오톡 실시간 상담' */}
+              <a className="kk" href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
+                <Icon k="kakao" />
+                카카오톡 실시간 상담
+              </a>
             </div>
-            {/* PC 카카오 진입로. 휴대폰은 아래 고정 바에 있어 CSS로 숨긴다 */}
-            <a className="kk-t in4" href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
-              카카오톡 상담
-            </a>
+            {/* 11-06 밤 대표: 하는 일이 첫 화면에서 다 보여야 한다 — 키워드 띠가 돈다(CSS만, sf-hero.css .tick) */}
+            <div className="tick in3" aria-label="위즈더플래닝이 하는 일">
+              <ul>
+                {[...HERO_KEYS, ...HERO_KEYS].map((k, i) => (
+                  <li key={i} aria-hidden={i >= HERO_KEYS.length ? true : undefined}>
+                    {k}
+                  </li>
+                ))}
+              </ul>
+            </div>
             <ul className="trust in4" aria-label="위즈더플래닝 운영 체계">
               {TRUST.map((t) => (
                 <li key={t}>{t}</li>
               ))}
             </ul>
+          </div>
+        </div>
+        {/* 11-06 저녁 대표: 2016년부터라 11년차. 아래로 내리게 끄는 줄 */}
+        <a className="hint" href="#c1b">
+          <span>11년차 IMC 대행사가 일하는 과정을 살펴보세요</span>
+          <Icon k="down" />
+        </a>
+      </section>
+
+      {/* 1-2 여덟 가지 + 휴대폰 고리 — 11-06 밤 대표 「첫 화면은 카피만, 이미지는 다음 섹션에서」. 옛 첫 화면 오른쪽(고리·접근 방식 상자)과 목록을 그대로 옮겼다. sf.js heroInit 가 #svl·#ring·#cf 를 찾는다 */}
+      <Cut id="c1b" no={next()} ch={0} tone="k" label="하는 일 여덟 가지" className="c1b">
+        <div className="c1b-in">
+          <div className="c1b-t">
+            <p className="eb">WHAT WE DO</p>
+            <p className="cap sz-lg">
+              <Words text={"여덟 가지를\n한 팀이 합니다."} />
+            </p>
+            <p className="sm">마우스를 올리면 그 일의 화면이 돌아갑니다. 휴대폰을 누르면 자세히 볼 수 있습니다.</p>
             <ol className="svl" id="svl" aria-label="위즈더플래닝이 하는 일 여덟 가지">
               {SERVICES.map((s, i) => (
                 <li key={s.k} style={vars({ i })}>
@@ -141,11 +154,7 @@ export default function ShortformHome() {
             </div>
           </div>
         </div>
-        <a className="hint" href="#c2">
-          <Icon k="down" />
-          <span>밀어서 다음</span>
-        </a>
-      </section>
+      </Cut>
 
       {/* 2 문제 */}
       <Cut id="c2" no={next()} ch={1} tone="w" fx="blocks" label="과제 1">
@@ -764,7 +773,7 @@ export default function ShortformHome() {
               </a>
               <a href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao className="kk">
                 <Icon k="kakao" />
-                <b>카카오톡 상담</b>
+                <b>카카오톡 실시간 상담</b>
                 <small>채팅 문의</small>
               </a>
               <a href="/business/contact">

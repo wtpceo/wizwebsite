@@ -62,8 +62,8 @@
     tiles:[["xhs",{img:"giftset",t:"韩国小众护肤品牌｜敏感肌也能用",lk:"2.3万"}],["line",{img:"cosme",t:"店舗限定のスキンケアセットあります",a:"詳しく見る"}],["xhs",{img:"fashion-look",t:"首尔通勤穿搭｜风衣这样穿",lk:"1.8万"}],["line",{img:"palace",t:"景福宮で韓服体験。駅から歩いて5分です",a:"予約する"}]]},
    {k:"home",n:"웹사이트 구축",ph:"사람도, AI도<br>정확히 읽는 웹사이트.",rec:[],t1:"신규 구축부터 기존 사이트의 정보 고도화까지. 검색엔진과 생성형 AI가 브랜드를 정확히 읽기 쉬운 구조로 설계합니다.",d:["정보 구조(IA) 및 메인 시안 확정","고객사 직접 관리용 CMS 구축","구조화 데이터·FAQ 콘텐츠 반영 및 검색 등록"],
     tiles:[["web",{img:"dental",h:"평일 밤 9시까지<br>진료합니다",s:"평일 밤 9시까지 진료",b:"진료 예약"}],["web",{img:"academy",h:"밤 10시까지<br>자습을 봐 줍니다",s:"중등 수학 · 소수 정원",b:"상담 신청"}],["web",{img:"ortho",h:"평일 밤 8시까지<br>재활 치료",s:"도수치료 · 운동치료",b:"진료 예약"}],["adm",{}]]},
-   {k:"off",n:"오프라인 미디어",ph:"일상의 동선 위에서,<br>반복 노출합니다.",rec:[],t1:"포커스미디어 엘리베이터TV 공식 총판. 타깃 소비자가 매일 지나는 엘리베이터·택배차량·극장·모빌리티 매체에 집행합니다.",d:["상권·타깃 반경 분석 및 매체 선정","광고 소재 제작","송출·집행 리포트"],
-    tiles:[["elev",{}],["truck",{}],["cine",{}],["taxi",{}]]}];
+   {k:"off",n:"오프라인 미디어",ph:"일상의 동선 위에서,<br>반복 노출합니다.",rec:[],t1:"타깃 소비자가 매일 지나는 택배차량·극장·카카오T 모빌리티 매체에 집행합니다. 광고 소재는 자체 팀이 만듭니다.",d:["상권·타깃 반경 분석 및 매체 선정","광고 소재 제작","송출·집행 리포트"],
+    tiles:[["truck",{}],["cine",{}],["taxi",{}]]}];
   function tile(t){return T[t[0]](t[1])}
 
 var HT='<svg viewBox="0 0 24 24" class="ht CL"><path d="M12 21s-7.5-4.6-9.6-9.3C.9 8.3 3 4.5 6.8 4.5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.8 0 5.9 3.8 4.4 7.2C19.5 16.4 12 21 12 21z"/></svg>';
@@ -75,7 +75,7 @@ var MG={
   content:'<div class="mg mg-c"><div class="vf"></div><div class="rec"><i></i>REC</div><div class="st">가을 <em>신상</em> 입고</div><div class="tl"><i class="t1"></i><i class="t2"></i><i class="t3"></i></div><div class="tl2"></div><div class="pl"></div></div>',
   global:'<div class="mg mg-g"><div class="rt r1"><b class="fr">상하이</b><div class="tr"><i></i></div><div class="pl"><svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg></div><b class="to">서울</b></div><div class="rt r2"><b class="fr">도쿄</b><div class="tr"><i></i></div><div class="pl"><svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg></div><b class="to">서울</b></div><div class="sc xh"><div class="im"></div><span class="lb">샤오홍슈</span><div class="tx">韩国护肤品牌｜敏感肌也能用</div><em>♥ 저장</em></div><div class="sc ln"><div class="im"></div><span class="lb">LINE</span><div class="tx">店舗限定セットあります</div><u>予約する</u></div><div class="cap">현지 소비자가 방한 전에 보는 곳</div></div>',
   home:'<div class="mg mg-h"><div class="br"><div class="tb"><i></i><i></i><i></i></div><div class="nv"></div><div class="hi"></div><div class="t1"></div><div class="t2"></div><div class="l1"></div><div class="l2"></div><div class="btn">예약하기</div></div><svg class="cur" viewBox="0 0 24 24"><path d="M4 2l15 9-7 1.6L9.5 20z"/></svg></div>',
-  off:'<div class="mg mg-o"><div class="fl">▲ <b></b></div><div class="ev"><div class="sc"><span>이번 주말<br>오픈합니다</span></div><div class="d1"></div><div class="d2"></div></div><div class="lb">엘리베이터TV<br>택배차<br>극장<br>카카오T</div></div>'
+  off:'<div class="mg mg-o"><div class="fl">▲ <b></b></div><div class="ev"><div class="sc"><span>이번 주말<br>오픈합니다</span></div><div class="d1"></div><div class="d2"></div></div><div class="lb">택배차<br>극장<br>카카오T<br>인쇄 매체</div></div>'
 };
 
 /* 히어로 4차 기획 공용 — tiles.js(S·T·tile)와 h4-mg.js(MG) 뒤에 불러온다 */
@@ -93,7 +93,7 @@ var H4=(function(){
     content:{ln:"기획·촬영·편집·배포를 자체 팀이 수행합니다",first:"촬영 일정과 장면 구성을 먼저 확정합니다.",ph:[["pho",{img:"m-shoot",cap:"자체 촬영팀이 현장으로"}],["edit",{img:"makeup",s:"출근 전 <em>5분</em> 화장"}],["edit",{img:"salon",s:"뿌리 볼륨만 <em>살려 주세요</em>"}]]},
     global:{ln:"현지 플랫폼에서 방한 소비자에게 알립니다",first:"브랜드 정보의 현지화가 첫 단계입니다.",ph:[["xhs",{img:"m-tourist",t:"首尔美妆攻略｜本地人推荐的小店",lk:"2.3万"}],["mg",{k:"global",cap:"현지 소비자가 방한 전에 보는 곳"}],["line",{img:"cosme",t:"店舗限定のスキンケアセットあります",a:"詳しく見る"}]]},
     home:{ln:"사람도, AI도 정확히 읽는 웹사이트",first:"정보 구조와 메인 시안을 먼저 확정합니다.",ph:[["web",{img:"m-dental",h:"평일 밤 9시까지<br>진료합니다",s:"주차 2시간 무료",b:"진료 예약"}],["mg",{k:"home",cap:"화면 설계부터 예약 전환까지"}],["web",{img:"m-trainer",h:"아침 7시 반<br>첫 수업",s:"1:1 체험 수업",b:"체험 신청"}]]},
-    off:{ln:"포커스미디어 공식 총판, 생활 동선 위의 반복 노출",first:"상권과 타깃 반경 분석에서 시작합니다.",ph:[["elev",{}],["mg",{k:"off",cap:"매일 마주치는 15초"}],["truck",{}]]}
+    off:{ln:"택배차량·극장·카카오T, 생활 동선 위의 반복 노출",first:"상권과 타깃 반경 분석에서 시작합니다.",ph:[["truck",{}],["mg",{k:"off",cap:"매일 마주치는 15초"}],["cine",{}]]}
   };
   S.forEach(function(s){var x=X[s.k];s.ln=x.ln;s.first=x.first;s.ph=x.ph;});
 
@@ -166,7 +166,7 @@ var H4=(function(){
     fl.forEach(function(s,k){ids.push(setTimeout(function(){fl.forEach(function(x){x.classList.remove('on')});s.classList.add('on');},120+k*60));});
     ids.push(setTimeout(function(){fl.forEach(function(x){x.classList.remove('on')});el.classList.add('land');},120+fl.length*60));
     ids.push(setTimeout(go,1500));el.addEventListener('click',go);}
-  var INTRO='<div class="intro" id="intro" aria-hidden="true"><div class="fl"><span>MCN</span><span>광고</span><span>검색</span><span>촬영</span><span>블로그</span><span>해외</span><span>홈페이지</span><span>엘리베이터TV</span></div><div class="big"><i>한</i><i>곳</i><i>.</i></div><div class="bar"></div></div>';
+  var INTRO='<div class="intro" id="intro" aria-hidden="true"><div class="fl"><span>MCN</span><span>광고</span><span>검색</span><span>촬영</span><span>블로그</span><span>해외</span><span>홈페이지</span><span>오프라인</span></div><div class="big"><i>한</i><i>곳</i><i>.</i></div><div class="bar"></div></div>';
   /* 화면 밖이면 멈춤 */
   /* 11-05 렉 재측정: 2번 컷으로 넘어갈 때 끊김의 주범이 돌아가는 휴대폰 고리 — 화면에 보이는 첫 화면이 화면 높이의 85% 아래로 줄면 바로 멈춘다(전에는 5% 아래에서 · 휴대폰처럼 첫 화면이 화면보다 길어도 맞게) */
   function pauseOff(hero,play){var last=null;if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(e){var need=Math.min(innerHeight,e.boundingClientRect.height)*.85,on=e.isIntersecting&&e.intersectionRect.height>=need;if(on===last)return;last=on;hero.classList.toggle('paused',!on);play(on);})},{threshold:[0,.3,.5,.6,.65,.7,.75,.8,.85,.9,.95,1]}).observe(hero);}
@@ -221,7 +221,10 @@ function heroInit() {
   }
   if (deep) start(); else H4.intro(start);
   var heroOn = true;
-  H4.pauseOff(hero, function (on) { heroOn = on; play(on); if (!on) { live = false; ctl.forEach(function (c) { c.stop(); }); } else if (hero.classList.contains('ready')) { live = true; place(); } });
+  H4.pauseOff(hero, function (on) { heroOn = on; play(on); });
+  /* 11-06 밤: 휴대폰 고리는 첫 화면이 아니라 다음 컷(c1b)에 있다 — 고리가 든 컷이 보일 때만 돈다 */
+  var ringCut = ring.closest('.cut') || hero;
+  H4.pauseOff(ringCut, function (on) { if (!on) { live = false; ctl.forEach(function (c) { c.stop(); }); } else if (hero.classList.contains('ready')) { live = true; place(); } });
   addEventListener('resize', function () { setZ(); place(); });
 }
 

@@ -70,27 +70,20 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
           </div>
         </div>
       </nav>
-      <Link className="sfh-cta" href={cta.href}>
-        {cta.label}
-      </Link>
+      {/* 11-06 밤 대표: 머리글 오른쪽 '진단 신청' 버튼과 컷 숫자(01 / 47 개요)는 뺀다. 장 이동 막대는 남긴다 */}
       <button type="button" className="sfh-menu" id="sfhMenu" aria-expanded="false" aria-controls="sfm">
         <Icon k="menu" />
         <span className="sr">메뉴 열기</span>
       </button>
       {home ? (
-        <>
-          <nav className="sfp" id="sfp" aria-label="장 이동">
-            {CHAPTERS.map((c, i) => (
-              <a key={c.id} href={`#${c.id}`} data-chap={i} title={c.n}>
-                <i />
-                <span className="sr">{c.n}</span>
-              </a>
-            ))}
-          </nav>
-          <p className="sfc" aria-hidden="true">
-            <b id="sfcNo">01</b> / 46 <span id="sfcCh">{CHAPTERS[0].n}</span>
-          </p>
-        </>
+        <nav className="sfp" id="sfp" aria-label="장 이동">
+          {CHAPTERS.map((c, i) => (
+            <a key={c.id} href={`#${c.id}`} data-chap={i} title={c.n}>
+              <i />
+              <span className="sr">{c.n}</span>
+            </a>
+          ))}
+        </nav>
       ) : null}
     </header>
   )
@@ -206,10 +199,7 @@ export function SfFooter() {
 export function SfDock({ home = false, cta = DEFAULT_CTA }: { home?: boolean; cta?: SfCta }) {
   return (
     <>
-      <a className="sfs" id="sfs" href={home ? "#c44" : "#contact"}>
-        문의하기
-        <Icon k="arrow" />
-      </a>
+      {/* 11-06 밤 대표: 오른쪽 아래 떠 있던 '문의하기' 버튼은 뺀다. 휴대폰 아래 고정 바(전화·카카오·신청)는 그대로 */}
       <nav className="sfb" aria-label="바로 연락">
         <a href={CONTACT.telHref} data-tel>
           <Icon k="phone" />

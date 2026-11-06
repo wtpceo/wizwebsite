@@ -31,7 +31,6 @@ export const metadata: Metadata = {
     '인플루언서 마케팅',
     '숏폼 제작',
     '샤오홍슈 마케팅',
-    '엘리베이터TV 광고',
     '마케팅 대행사',
     '위즈더플래닝',
   ],
@@ -83,7 +82,7 @@ const jsonLd = {
       image: 'https://wiztheplanning.com/thumbnail.png',
       slogan: '맡긴 곳이, 직접 합니다',
       description:
-        '위즈더플래닝은 AI 검색 최적화(GEO·SEO·네이버 플레이스), 퍼포먼스 광고(네이버·메타·구글·유튜브·카카오·당근), 바이럴·평판 관리, 인플루언서·MCN, 콘텐츠 프로덕션, 샤오홍슈·도우인·LINE 글로벌 마케팅, 웹사이트 구축, 엘리베이터TV 같은 오프라인 미디어까지 재위탁 없이 자체 전문팀이 직접 수행하는 IMC 통합 마케팅 에이전시입니다. 고객사마다 전담 AE를 배정해 진단·전략·실행·주간 리포트·최적화를 맡습니다.',
+        '위즈더플래닝은 AI 검색 최적화(GEO·SEO·네이버 플레이스), 퍼포먼스 광고(네이버·메타·구글·유튜브·카카오·당근), 바이럴·평판 관리, 인플루언서·MCN, 콘텐츠 프로덕션, 샤오홍슈·도우인·LINE 글로벌 마케팅, 웹사이트 구축, 택배차량·극장 같은 오프라인 미디어까지 재위탁 없이 자체 전문팀이 직접 수행하는 IMC 통합 마케팅 에이전시입니다. 고객사마다 전담 AE를 배정해 진단·전략·실행·주간 리포트·최적화를 맡습니다.',
       knowsAbout: [
         'AI 검색 최적화(GEO)',
         'Generative Engine Optimization',
@@ -98,7 +97,6 @@ const jsonLd = {
         '숏폼·바이럴 영상 제작',
         '샤오홍슈·도우인·LINE 마케팅',
         '홈페이지 제작',
-        '엘리베이터TV(포커스미디어) 광고',
       ],
       telephone: '1670-0704',
       email: 'wiz@wiztheplanning.com',
@@ -134,7 +132,7 @@ const jsonLd = {
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '콘텐츠 프로덕션', url: 'https://wiztheplanning.com/services/content', description: '기획·촬영·편집·배포를 자체 팀이 수행합니다. 브랜디드 바이럴 영상·숏폼 제작·미디어 PPL·모델·셀러 캐스팅·SNS 채널 운영·제품·공간 포토그래피.' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '글로벌 마케팅 (중국·일본)', url: 'https://wiztheplanning.com/services/global', description: '현지 플랫폼에서 방한 소비자에게 브랜드를 알립니다. 샤오홍슈·도우인·콰이쇼우·따중디엔핑·왕홍 공동구매·일본 인스타그램 인플루언서·LINE 공식계정·LINE 광고.' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '웹사이트 구축', url: 'https://wiztheplanning.com/services/homepage', description: '사람도, AI도 정확히 읽는 웹사이트를 신규 구축하거나 기존 사이트의 정보를 고도화합니다. 월간 유지관리·FAQ·콘텐츠 발행.' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '오프라인 미디어', url: 'https://wiztheplanning.com/services/offline', description: '엘리베이터TV(포커스미디어 공식 총판)·택배차량·극장·카카오T·인쇄 매체·배달앱 운영 관리까지 생활 동선 위에 집행합니다.' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '오프라인 미디어', url: 'https://wiztheplanning.com/services/offline', description: '택배차량·극장·카카오T·인쇄 매체·배달앱 운영 관리까지 생활 동선 위에 집행합니다.' } },
         ],
       },
     },
