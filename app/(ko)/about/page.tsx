@@ -97,7 +97,7 @@ export default function AboutPage() {
       </Sec>
 
       <Sec q="한 곳에 맡기면 무엇이 달라지나요?">
-        <p>연락할 곳이 하나로 줄고, 같은 이야기를 두 번 할 일이 없습니다.</p>
+        <p>연락할 곳이 하나로 줄고, 같은 이야기를 여러 번 할 일이 없습니다.</p>
         <table className="ab-cmp">
           <thead>
             <tr>
@@ -158,7 +158,7 @@ export default function AboutPage() {
         <Faq items={d.faq} />
       </Sec>
 
-      <ContactBlock title="상담은 무료입니다. 첫 통화부터 담당 마케터입니다." source="about" />
+      <ContactBlock title="상담은 무료입니다. 신청하시면 담당 마케터가 연락드립니다." source="about" />
     </DocShell>
   )
 }

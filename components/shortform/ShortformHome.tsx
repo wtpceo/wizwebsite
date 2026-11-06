@@ -673,7 +673,7 @@ export default function ShortformHome() {
         <div className="ct">
           <div className="ct-t">
             <h2 className="cap sz-lg">
-              <Words text={"상담은 무료입니다.\n첫 통화부터 담당 마케터입니다."} />
+              <Words text={"상담은 무료입니다.\n신청하시면 담당 마케터가 연락드립니다."} />
             </h2>
             <p className="sm">
               대기업·프랜차이즈는 <a href="/business/contact">제안 요청</a> 페이지에서 따로 받습니다. 매장·학원은{" "}

@@ -89,7 +89,7 @@ export const WORKS: Record<string, Works> = {
   /* 업종별 솔루션 */
   local: {
     q: "업종별로 어떤 화면이 나오나요?",
-    lead: "손님이 보게 될 화면과 직접 찍은 사진을 업종별로 모았습니다.",
+    lead: "손님이 보는 화면 예시와 직접 찍은 사진을 업종별로 모았습니다.",
     tag: "예시 화면 · 직접 찍은 사진",
     items: [
       { tiles: "search", pick: "0", cap: "병원: AI 답변에 먼저 나오게" },
