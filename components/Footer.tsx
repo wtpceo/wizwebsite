@@ -34,7 +34,7 @@ export default function Footer({ tone }: { tone?: "dark" } = {}) {
       <nav aria-label="다루는 광고" className={tile}>
         <b className={tileHead}>다루는 광고</b>
         {AD_SERVICES.map((a) => (
-          <Link key={a.href} href={a.href} className={tileLink}>
+          <Link key={a.label} href={a.href} className={tileLink}>
             {a.label}
           </Link>
         ))}

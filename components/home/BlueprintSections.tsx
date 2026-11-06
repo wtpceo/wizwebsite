@@ -34,7 +34,7 @@ export function BlueprintMedia() {
       </h2>
       <div>
         {AD_SERVICES.map((a, i) => (
-          <Link key={a.href} href={a.href} className={`${s.row} ${s.rv}`} style={v(i + 1)}>
+          <Link key={a.label} href={a.href} className={`${s.row} ${s.rv}`} style={v(i + 1)}>
             <b>{a.title}</b>
             <span>{a.desc}</span>
             <i aria-hidden="true">→</i>
