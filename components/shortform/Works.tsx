@@ -34,7 +34,7 @@ export const WORKS: Record<string, Works> = {
     ],
   },
   viral: {
-    lead: "목표는 검색했을 때 최상단에 보이는 콘텐츠입니다. 블로그·기사·체험단 글이 실제 검색 화면에서 어떻게 보이는지 예시로 보여 드립니다.",
+    lead: "목표는 검색 결과 상단을 겨냥한 콘텐츠입니다. 블로그·기사·체험단 글이 실제 검색 화면에서 어떻게 보이는지 예시로 보여 드립니다.",
     tag: "예시 화면",
     items: [
       { tiles: "viral", pick: "0", cap: "블로그 탭 맨 위 「인기글」 자리" },
@@ -92,7 +92,7 @@ export const WORKS: Record<string, Works> = {
     lead: "소비자가 보는 화면 예시와 직접 촬영한 사진을 업종별로 모았습니다.",
     tag: "예시 화면 · 직접 촬영한 사진",
     items: [
-      { tiles: "search", pick: "0", cap: "병원: AI 답변에 먼저 나오게" },
+      { tiles: "search", pick: "0", cap: "병원: AI 답변 노출 측정" },
       { img: "/sf/pf/w3.jpg", w: 720, h: 540, cap: "매장: 직접 촬영한 메뉴 사진" },
       { tiles: "home", pick: "1", cap: "학원: 상담 신청을 받는 홈페이지" },
     ],

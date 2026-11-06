@@ -75,7 +75,7 @@ export default function TeamPage() {
                 <Icon k="person" />
               </span>
               <b>전담 AE</b>
-              <small>고객사별 1인 배정</small>
+              <small>고객사별 담당 지정</small>
             </div>
             <ul>
               {/* 팀 칸을 누르면 그 서비스 쪽으로(11-05 점검: 버튼처럼 생겼는데 안 눌리던 것) */}

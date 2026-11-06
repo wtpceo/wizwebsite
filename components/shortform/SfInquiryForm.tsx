@@ -93,7 +93,7 @@ export default function SfInquiryForm() {
             `관심분야: ${names.length ? names.join(", ") : "고르지 않음"}`,
             meeting ? "오프라인 미팅 신청: 신청함" : "",
             brand.trim() ? `브랜드명: ${brand.trim()}` : "",
-            rank.trim() ? `직급: ${rank.trim()}` : "",
+            rank.trim() ? `직책: ${rank.trim()}` : "",
             budget.trim() ? `가용 예산: ${budget.trim()}` : "",
             `캠페인 진행 시점: ${when}`,
             `문의 내용: ${note.trim()}`,

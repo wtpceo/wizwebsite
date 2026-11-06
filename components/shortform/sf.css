@@ -1047,3 +1047,46 @@ html.sf-anim .sf .cut.is-on .orb-c { animation: sf-fade .5s ease-out .1s both, s
   .sf .ct-sg { gap: 2px 12px; }
   .sf .ct-sg label { min-height: 28px; }
 }
+
+/* 11-06 검수 반영 — PC 카카오 작은 링크 · 첫 화면 창 고지 · 낮은 화면에서 첫 화면·전문팀이 화면 안에 들어오게 */
+.sf .kk-t { display: inline-block; margin-top: 10px; font-size: 13.5px; font-weight: 700; color: #E1EFF8; text-decoration: underline; text-underline-offset: 3px; }
+.sf .xr .recs small { display: block; margin-top: 8px; font-size: 12px; line-height: 1.5; color: var(--sub); }
+.sf .xr .recs small a { color: var(--b1); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+@media (max-width: 820px) {
+  .sf .left > .kk-t { display: none; }
+}
+/* 첫 화면·전문팀·업종·몽타주 — 낮은 PC 화면 */
+@media (min-width: 821px) and (max-height: 840px) {
+  .sf .kk-t { margin-top: 6px; font-size: 12.5px; }
+  .sf .tm-map { margin-top: 18px; }
+  .sf .tm-map li { padding-top: 4px; padding-bottom: 4px; }
+  .sf .tm .sm { margin-top: 10px; }
+  .sf .so-path { margin-top: 20px; }
+  .sf .so-k { margin-bottom: 10px; }
+  .sf .so-t .eb { margin-bottom: 8px; }
+  .sf .mt-scr { width: min(340px, 30vw, calc((100dvh - 180px) * .5625)); }
+}
+@media (min-width: 821px) and (max-height: 740px) {
+  .sf .hero .svl .svb .l { display: none; }
+  .sf .hero .svl .svb, .sf .hero .svl .svb:not(.on), .sf .hero .svl .svb.on { padding-top: 5px; padding-bottom: 5px; }
+  .sf .hero .svl .svb .no { padding-top: 1px; }
+  .sf .tm-map li .ic { width: 34px; height: 34px; }
+  .sf .tm-c .ic { width: 68px; height: 68px; }
+}
+/* 휴대폰 첫 화면 */
+@media (max-width: 820px) {
+  .sf .hero .wrap { padding-top: 72px; }
+  .sf .hero .kick { margin-bottom: 4px; }
+  .sf .trust { margin-top: 8px; }
+  .sf .mt-scr { width: min(42vw, calc((100dvh - 470px) * .5625)); }
+}
+@media (max-width: 820px) and (max-height: 700px) {
+  .sf .hero .wrap { padding-top: 64px; }
+  .sf .hero .stage { --ch: min(170px, 26vh); height: calc(var(--ch) + 54px); }
+  .sf .hero .sub { font-size: 14px; line-height: 1.5; }
+  .sf .hero .btns a { padding: 11px 0; }
+}
+
+@media (max-width: 820px) {
+  .sf .so-0 .so-ph { height: 17vh; }
+}

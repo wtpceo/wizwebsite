@@ -98,6 +98,10 @@ export default function ShortformHome() {
                 기업 제안 요청 (RFP)
               </a>
             </div>
+            {/* PC 카카오 진입로. 휴대폰은 아래 고정 바에 있어 CSS로 숨긴다 */}
+            <a className="kk-t in4" href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
+              카카오톡 상담
+            </a>
             <ul className="trust in4" aria-label="위즈더플래닝 운영 체계">
               {TRUST.map((t) => (
                 <li key={t}>{t}</li>
@@ -109,7 +113,7 @@ export default function ShortformHome() {
                   {/* 누르면 그 서비스 상세 쪽으로(11-05) · 마우스를 올리면 휴대폰 고리가 그 일로 돈다(sf.js) */}
                   <Link className="svb" href={`/services/${s.slug}`} data-i={i} data-k={s.k}>
                     <em className="no" aria-hidden="true">{s.no}</em>
-                    <span className="n">{s.n}</span>
+                    <span className="n">{s.ls ?? s.n}</span>
                     <span className="l">{s.ln}</span>
                     <i className="pg" />
                   </Link>
@@ -524,7 +528,7 @@ export default function ShortformHome() {
                 <Icon k="person" />
               </span>
               <b>전담 AE</b>
-              <small>고객사별 1인 배정</small>
+              <small>고객사별 담당 지정</small>
             </div>
             <ul>
               {TEAMS.map(([k, n, , en], i) => (
@@ -794,7 +798,7 @@ export default function ShortformHome() {
         id="sf-data"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            svc: SERVICES.map((s) => ({ k: s.k, n: s.n, ln: s.ln, first: s.first, t1: s.t1, d: s.steps, rec: s.rec, more: `/services/${s.slug}` })),
+            svc: SERVICES.map((s) => ({ k: s.k, n: s.n, ln: s.ln, first: s.first, t1: s.t1, d: s.steps, rec: s.rec, rn: DETAILS[s.k].recNote, more: `/services/${s.slug}` })),
           }).replace(/</g, "\\u003c"),
         }}
       />

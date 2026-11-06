@@ -17,6 +17,8 @@ export default function SolutionDoc({ slug }: { slug: string }) {
     { name: f.n, path: `/solutions/${f.slug}` },
   ]
   const keys = f.c.map((c) => c[0]).filter((k) => k !== "plan")
+  // 무료 진단은 기업·병원 대상(사장님 11-04) — 매장·학원·전문직이 대상인 로컬 쪽은 상담부터(사령탑 11-04)
+  const isLocal = f.slug === "local"
   const ld = {
     "@context": "https://schema.org",
     "@graph": [
@@ -35,7 +37,7 @@ export default function SolutionDoc({ slug }: { slug: string }) {
     ],
   }
   return (
-    <DocShell>
+    <DocShell cta={isLocal ? { href: "/contact", label: "상담 신청" } : undefined}>
       <JsonLd data={ld} />
       <section className="dp-hero t-k" aria-label={`${f.n} 소개`}>
         <div className="dp-bg" aria-hidden="true">
@@ -53,7 +55,7 @@ export default function SolutionDoc({ slug }: { slug: string }) {
             <p className="dp-lead">{d.lead}</p>
             <div className="dp-btns">
               <a className="p1" href="/contact">
-                진단 신청
+                {isLocal ? "상담 신청" : "진단 신청"}
               </a>
               <a className="p2" href="tel:16700704" data-tel>
                 대표전화 1670-0704
@@ -139,11 +141,11 @@ export default function SolutionDoc({ slug }: { slug: string }) {
         </div>
       </nav>
 
-      {/* 무료 진단 쪽은 기업·병원 대상(사장님 11-04) — 매장·학원·전문직이 대상인 로컬 쪽은 카카오톡·전화 안내를 같이 */}
-      {f.slug === "local" ? (
+      {isLocal ? (
         <ContactBlock
-          title={`${f.n}, 어떤 순서가 맞는지 진단합니다.`}
-          sub="매장·병원·학원 등은 아래 신청이나 전화·카카오톡으로도 간편하게 문의하실 수 있습니다. 비용은 진단 후 맞춤 제안서로 안내해 드립니다."
+          title={`${f.n}, 어떤 순서가 맞을지 상담해 드립니다.`}
+          sub="매장·병원·학원 등은 아래 신청이나 전화·카카오톡으로도 간편하게 문의하실 수 있습니다. 비용은 상담 후 맞춤 제안서로 안내해 드립니다."
+          label="상담 신청하기"
           initial={keys}
           source={`solution_${f.slug}`}
         />
