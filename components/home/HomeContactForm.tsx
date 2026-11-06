@@ -6,9 +6,10 @@ import { readAttribution } from "@/lib/attribution"
 import s from "./home.module.css"
 
 // 홈 광고 상담 폼. /api/contact로 보내고 language 태그 "광고 상담"으로 관리자 메일 제목에서 가른다.
-// 구분(기업 / 병원 / 그 밖)은 측정 세션이 trackContactSubmit의 industry로 기업·병원 문의를 나누는 값이다.
+// 구분(기업 / 병원 / 매장·소상공인)은 측정 세션이 trackContactSubmit의 industry로 기업·병원 문의를 나누는 값이다.
+// '그 밖'은 소상공인 입구를 다시 열면서 '매장·소상공인'으로 바꿨다(대표 결정 2026-11-05, 홈 폼과 같다).
 // source는 어느 페이지에서 보냈는지(홈 "home", 매체 페이지 "search-ai" 등). GA4 lead_source와 관리자 메일 본문에 들어간다
-const INDUSTRY_OPTIONS = ["기업", "병원", "그 밖"]
+const INDUSTRY_OPTIONS = ["기업", "병원", "매장·소상공인"]
 
 type Status = "idle" | "sending" | "done" | "error"
 

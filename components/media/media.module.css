@@ -42,6 +42,8 @@
   font-weight: 800; letter-spacing: -.04em; line-height: 1.08;
 }
 .title span { white-space: nowrap; }
+/* "\n" 없는 한 줄 제목: 폭이 모자랄 때만 낱말 사이에서 꺾인다 */
+.flow span { white-space: normal; word-break: keep-all; }
 .display { --max: clamp(2.5rem, 1rem + 4.6vw, 5.75rem); line-height: 1.02; }
 
 /* ---------- 사진: 흑백, 올리면 컬러 ---------- */
@@ -61,16 +63,28 @@
   height: calc(100svh - var(--head-h)); min-height: 600px; max-height: 1040px;
   padding: 0 var(--m) var(--m);
 }
+/* 글은 위에서부터 차례로. 예전에는 문단을 칸 아래로 밀어 1440×900에서 제목과 문단 사이가 420px쯤 비었다(디자이너 점검 2026-11-03) */
 .heroText {
   grid-column: 1 / 8; min-width: 0;
-  display: flex; flex-direction: column; justify-content: space-between;
+  display: flex; flex-direction: column; justify-content: flex-start;
   padding: clamp(24px, 6vh, 72px) 0 8px;
 }
 .tall .heroText { grid-column: 1 / 9; }
+.heroFoot { margin-top: 32px; }
 .heroFoot p { font-size: var(--s-lead); line-height: 1.45; max-width: 34ch; }
 .heroBtn { margin-top: 28px; }
 .heroPic { grid-column: 8 / 13; min-height: 0; }
 .tall .heroPic { grid-column: 9 / 13; }
+/* 두 장 겹침(홈페이지 PC 캡처 뒤, 모바일 캡처 앞 오른쪽 아래). 앞 사진 둘레는 그림자 대신 바탕색 8px로 가른다 */
+.layered { position: relative; }
+/* 뒤 사진은 오른쪽으로 당겨 잘라, 페이지 가운데 제목이 앞 사진에 가리지 않고 왼쪽 반에 오게 한다 */
+.page .layered .back { position: absolute; inset: 0 0 auto 0; height: 76%; object-position: 65% top; }
+.front {
+  position: absolute; right: 0; bottom: 0; z-index: 1;
+  height: 66%; aspect-ratio: 390 / 844; max-width: 48%;
+  padding: 8px 0 0 8px; background: var(--bg);
+}
+.front img { display: block; }
 
 /* ---------- 2. 이런 회사에 맞습니다 ---------- */
 .suitsHead { grid-column: 1 / 6; align-self: start; }
@@ -126,7 +140,7 @@
 .recs { display: flex; flex-direction: column; gap: 6px; margin-top: 56px; }
 .rec {
   display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap);
-  background: var(--surface); padding: 28px 24px; min-height: 180px; align-items: start;
+  background: var(--surface); padding: 28px 24px; align-items: start;
 }
 .rec h3 { grid-column: 1 / 4; font-size: clamp(1.75rem, 1.1rem + 2.2vw, 3.25rem); letter-spacing: -.045em; line-height: 1; }
 .what { grid-column: 4 / 8; max-width: 34ch; }
@@ -202,7 +216,8 @@
   .grid > *, .recHead > *, .row > *, .rec > * { grid-column: 1 !important; }
 
   .hero { display: flex; flex-direction: column; height: auto; min-height: 0; max-height: none; padding-bottom: 0; }
-  .heroText { padding: 28px 0 32px; gap: 28px; }
+  .heroText { padding: 28px 0 32px; }
+  .heroFoot { margin-top: 28px; }
   .heroFoot p { font-size: 1.125rem; }
   .heroBtn { display: flex; width: 100%; }
   .heroPic { aspect-ratio: 1 / 1; }

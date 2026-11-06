@@ -8,13 +8,16 @@ import MediaPage, { type MediaPageData } from "@/components/media/MediaPage"
 // - 4절의 '각 광고 페이지'는 lib/ad-services.ts의 주소로 걸었다
 // - 일한 기록 화면 칸은 고객사 홈페이지 캡처(사용 동의 받음). 업종이 겹치지 않게 치과·한의원·법률·컨설팅·헬스로 골랐고 업체 이름은 쓰지 않는다
 // - 부서 이름 '홈페이지 개발 부서'는 구성안 §09-2(대표 확인 전)
-// - 첫 화면 사진은 실제 작업 화면이 오기 전까지 자리만 둔다. 작업 화면이 아니라서 alt는 비웠다
+// - 첫 화면 사진은 고객사 치과 홈페이지 PC 캡처 뒤에 같은 곳의 모바일 캡처를 겹쳤다(2026-11-03, 사용 동의 받음).
+//   원본: 09_전체리브랜딩_2026-11/레퍼런스_후보/홈페이지/arthdental_com_*.png. 이벤트 팝업이 없는 캡처로 골랐고 alt에는 업종만 쓴다
 // - 대표 승인 전이라 noindex. 사이트맵·llms.txt에 넣지 않았다
 const TITLE = "기업·병원 홈페이지 제작: 기획, 디자인, 개발, 촬영까지 | 위즈더플래닝"
 const DESC =
   "위즈더플래닝 홈페이지 개발 부서가 기업 홈페이지 제작과 병원 홈페이지 제작을 맡습니다. 지금까지 30곳 넘게 만들었고, PC와 모바일에 맞는 반응형으로 만들며 서버 렌더링과 구조화 데이터를 넣습니다."
-const HERO_IMG = "/home/m-web.jpg"
-const HERO_ALT = ""
+const HERO_IMG = "/home/site-dental-pc.jpg"
+const HERO_ALT = "위즈더플래닝이 만든 치과 홈페이지"
+const HERO_MO = "/home/site-dental-mo.jpg"
+const HERO_MO_ALT = "위즈더플래닝이 만든 치과 홈페이지 모바일 화면"
 const ALT = "위즈더플래닝이 만든 홈페이지 화면"
 
 export const metadata: Metadata = {
@@ -39,7 +42,7 @@ export const metadata: Metadata = {
     siteName: "위즈더플래닝",
     locale: "ko_KR",
     type: "website",
-    images: [{ url: HERO_IMG, width: 1200, height: 1132, alt: HERO_ALT }],
+    images: [{ url: "/covers/og-website.jpg", width: 1200, height: 630, alt: TITLE }],
   },
 }
 
@@ -49,6 +52,7 @@ const DATA: MediaPageData = {
     title: "기업·병원 홈페이지를\n기획하고 만듭니다",
     lede: "지금까지 기업·병원 홈페이지를 30곳 넘게 만들었습니다. 검색엔진과 AI가 읽을 수 있는 구조로 만들고, 사진과 영상은 저희 촬영 부서가 찍습니다.",
     image: { src: HERO_IMG, alt: HERO_ALT, shape: "square" },
+    front: { src: HERO_MO, alt: HERO_MO_ALT },
   },
   suits: {
     title: "이런 회사에\n맞습니다",
@@ -64,7 +68,7 @@ const DATA: MediaPageData = {
     ],
   },
   work: {
-    title: "홈페이지 개발 부서가\n하는 일",
+    title: "홈페이지 개발 부서가 하는 일",
     lede: "기업 홈페이지 제작은 이 순서로 진행합니다.",
     steps: [
       { name: "기획", desc: "페이지 구성과 각 페이지에 들어갈 내용을 담당자님과 정합니다" },
@@ -79,7 +83,7 @@ const DATA: MediaPageData = {
     hospital: "병원 홈페이지는 의료광고 규정 안에서 만듭니다. 진료과목, 의료진, 진료 시간은 사실 그대로 적습니다.",
   },
   links: {
-    title: "같이 맡길 수\n있는 일",
+    title: "같이 맡길 수 있는 일",
     items: [
       {
         name: "검색·AI 노출",
@@ -99,7 +103,7 @@ const DATA: MediaPageData = {
     ],
   },
   records: {
-    title: "홈페이지\n30곳 넘게",
+    title: "홈페이지 30곳 넘게",
     lede: "병원, 치과, 한의원, 안과, 법률, 컨설팅, 교육, 헬스 분야의 웹사이트 제작을 맡았습니다. 업체 이름은 쓰지 않았습니다.",
     items: [
       {
@@ -157,7 +161,7 @@ const DATA: MediaPageData = {
     },
   ],
   contact: {
-    title: "홈페이지 제작\n상담",
+    title: "홈페이지 제작 상담",
     lede: "회사 이름, 지금 홈페이지 주소(있다면), 필요한 페이지를 남겨 주시면 홈페이지 개발 부서가 회사 메일로 연락드리겠습니다.",
   },
 }

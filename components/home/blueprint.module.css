@@ -1,0 +1,185 @@
+/* 홈 '마케팅 설계도' A안 색 챕터. 바탕은 시안 common.css + A_CSS(시안_개발세션_2026-11-03/_build).
+   첫 화면 민트 → 챕터가 민트·남색·종이·흰색·검정으로 이어진다. 선·그림자·그러데이션·둥근 모서리 없음. */
+
+.home {
+  --mint: #00e5a0;
+  --navy: #070b14;
+  --paper: #f3f1ec;
+  --black: #0a0a0a;
+  --bg: #fff;
+  --ink: #070b14;
+  font-family: 'SUIT Variable', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+  font-size: 18px;
+  color: var(--ink);
+  background: var(--bg);
+}
+.home img { display: block; max-width: 100%; }
+.home a { color: inherit; text-decoration: none; }
+.home ul { list-style: none; margin: 0; padding: 0; }
+.home h1, .home h2, .home h3 { font-weight: 800; letter-spacing: -0.045em; line-height: 1.02; margin: 0; }
+.home :focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+
+.wrap { padding-left: 32px; padding-right: 32px; }
+.grid { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 8px; }
+.h2 { font-size: clamp(40px, 4.8vw, 68px); }
+.lead { font-size: clamp(20px, 1.7vw, 24px); font-weight: 600; line-height: 1.5; letter-spacing: -0.02em; margin: 0; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* 줄 폭 맞춤 제목. 서버 렌더에서는 clamp 크기로 나가고, FitLines가 폭에 맞춰 다시 잰다 */
+.ln { display: block; line-height: 1.02; }
+
+/* 버튼 (.home a{color:inherit}보다 세게) */
+.home .btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 60px; padding: 0 32px; font-size: 18px; font-weight: 700; letter-spacing: -0.02em;
+  background: var(--btn-bg, var(--navy)); color: var(--btn-ink, #fff); border: 0; cursor: pointer;
+  transition: transform 0.15s, opacity 0.15s;
+}
+.btn:hover { opacity: 0.88; }
+.btn:active { transform: scale(0.97); }
+
+/* 첫 화면: 머리줄(Header, 64px) 아래 남은 높이를 다 쓴다 */
+.hero { background: var(--mint); color: var(--navy); min-height: calc(100svh - 64px); display: flex; flex-direction: column; }
+.stage { flex: 1; display: grid; grid-template-columns: 1fr 360px; gap: 40px; align-items: center; padding: 24px 32px 48px; }
+.stage h1 .ln { font-size: clamp(50px, 9.2vw, 136px); letter-spacing: -0.05em; }
+.side p { font-size: 20px; font-weight: 600; line-height: 1.5; margin: 0 0 24px; letter-spacing: -0.02em; }
+.side .btn { width: 100%; }
+
+/* 설계도 지도: 칸 너비는 채널 수만큼 */
+.map { display: flex; gap: 6px; background: var(--navy); padding: 6px; height: 200px; }
+.map a { flex: var(--w) 1 0; min-width: 0; padding: 18px 20px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s; }
+.map a:hover { transform: translateY(-4px); }
+.map a small { font-size: 15px; font-weight: 700; }
+.map a b { font-size: clamp(18px, 1.6vw, 24px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; display: block; margin-bottom: 6px; }
+.map a span { font-size: 14px; line-height: 1.35; opacity: 0.85; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* .home a{color:inherit}보다 세게 걸어야 지도 칸(a)에도 색이 먹는다 */
+.home .c1 { background: var(--mint); color: var(--navy); }
+.home .c2 { background: var(--navy); color: #f5f5f3; }
+.home .c3 { background: var(--paper); color: var(--navy); }
+.home .c4 { background: #fff; color: var(--navy); }
+.home .c5 { background: var(--black); color: #f5f5f3; }
+
+/* 챕터: 단계마다 화면 한 장 */
+.ch { min-height: 100svh; padding: 48px 32px 64px; display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: auto auto 1fr; column-gap: 8px; }
+.ch .no { grid-column: 1 / 13; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; }
+/* 위 번호 줄(.rv)이 올라오기 전 24px 내려와 있는 동안 제목과 겹치므로 제목을 위에 둔다 */
+.ch h2 { grid-column: 1 / 13; margin-top: 20px; position: relative; z-index: 1; }
+.ch h2 .ln { font-size: clamp(44px, 6.6vw, 96px); }
+.ch figure { grid-column: 1 / 7; align-self: end; margin: 56px 0 0; height: min(56svh, 520px); overflow: hidden; }
+.ch figure img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.ch .txt { grid-column: 8 / 13; align-self: end; margin-top: 56px; padding-left: 40px; }
+.ch.t { min-height: 0; grid-template-rows: auto auto auto; }
+.ch.t .txt { grid-column: 1 / 9; align-self: start; margin-top: 48px; padding-left: 0; }
+.ch .txt p { font-size: 20px; line-height: 1.55; margin: 0 0 28px; max-width: 44ch; }
+.ch.t .txt p { max-width: 60ch; }
+.ch ul { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 17px; font-weight: 700; margin-bottom: 28px; }
+.go a { font-size: 16px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; margin-right: 20px; display: inline-block; margin-bottom: 8px; white-space: nowrap; }
+
+/* 이어서 진행하는 이유 */
+.why { background: var(--paper); padding-block: 160px; }
+.why .grid { align-items: start; }
+.why h2 { grid-column: 1 / 6; }
+.why p { grid-column: 7 / 13; font-size: clamp(20px, 1.75vw, 25px); font-weight: 500; line-height: 1.55; letter-spacing: -0.015em; margin: 0; }
+
+/* 다루는 광고: 줄마다 한 매체. 카드가 아니라 띠 목록 */
+.media { padding-block: 140px 160px; }
+.media h2 { margin-bottom: 56px; }
+.row { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 8px; align-items: baseline; padding: 34px 24px; background: #fff; transition: background 0.2s; }
+.row:nth-child(even) { background: #efefed; }
+.row:hover { background: var(--navy); color: #fff; }
+.row b { grid-column: 1 / 5; font-size: clamp(26px, 2.3vw, 32px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; }
+.row span { grid-column: 5 / 12; font-size: 19px; line-height: 1.5; }
+.row i { grid-column: 12 / 13; justify-self: end; font-style: normal; font-size: 28px; font-weight: 300; transition: transform 0.2s; }
+.row:hover i { transform: translateX(8px); }
+
+/* 일한 기록: 고르지 않은 벽 + 맡은 일 목록 */
+.records { background: #efefed; padding-block: 140px 160px; }
+.records h2 { margin-bottom: 24px; }
+.records .lead { max-width: 40ch; margin-bottom: 56px; }
+.wall { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 56px; }
+.wall figure { overflow: hidden; position: relative; margin: 0; height: var(--h); flex: var(--w) 1 calc(var(--w) * 200px); }
+.wall figure img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.names b { display: block; font-size: 20px; font-weight: 800; margin-bottom: 20px; }
+.names ul { columns: 4; column-gap: 32px; font-size: 17px; line-height: 1.5; }
+.names li { break-inside: avoid; padding: 4px 0; }
+.names a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* 광고 상담 받기 */
+.contact { background: var(--black); color: #f5f5f3; padding-block: 140px 160px; --btn-bg: var(--mint); --btn-ink: var(--navy); }
+.contact h2 { grid-column: 1 / 6; }
+.contact .lead { grid-column: 1 / 6; margin-top: 24px; max-width: 36ch; }
+.contact form { grid-column: 7 / 13; display: grid; gap: 8px; }
+.contact label { display: grid; gap: 8px; font-size: 15px; font-weight: 700; }
+.contact input, .contact select {
+  height: 60px; padding: 0 20px; border: 0; background: #1c1c1b; color: #f5f5f3; width: 100%;
+  font: inherit; -webkit-appearance: none; appearance: none;
+}
+.contact select:invalid, .contact select .ph { color: #b9b9b5; }
+.contact input::placeholder { color: #8a8a86; }
+.contact input:focus, .contact select:focus { outline: 3px solid currentColor; }
+.contact .btn { width: 100%; margin-top: 16px; }
+.contact .btn:disabled { opacity: 0.6; cursor: default; transform: none; }
+.contact .note { font-size: 14px; margin: 12px 0 0; opacity: 0.8; }
+.contact .status { font-size: 15px; margin: 12px 0 0; min-height: 1.5em; }
+.contact .status a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* 들어올 때 움직임: 서버 렌더에서는 전부 보이고, html.js가 붙은 뒤에만 숨었다 올라온다 */
+:global(html.js) .rv { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1); transition-delay: calc(var(--i, 0) * 70ms); }
+:global(html.js) .rv.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  :global(html.js) .rv { opacity: 1; transform: none; transition: none; }
+}
+
+/* 태블릿: 첫 화면을 한 단으로 쌓고 지도는 세로 목록으로(가로 다섯 칸은 768px에서 글자가 세 줄로 접힌다) */
+@media (max-width: 1023px) {
+  .stage { grid-template-columns: 1fr; gap: 32px; align-content: center; }
+  .side { max-width: 560px; }
+  .side .btn { width: auto; min-width: 280px; }
+  .map { display: grid; height: auto; gap: 4px; padding: 4px; }
+  .map a { flex: none; height: 56px; flex-direction: row; align-items: center; gap: 16px; padding: 0 20px; }
+  .map a div { display: flex; align-items: baseline; gap: 16px; min-width: 0; }
+  .map a b { margin: 0; font-size: 20px; flex: none; }
+  .map a span { flex: 1; }
+}
+
+@media (max-width: 767px) {
+  .home { font-size: 16px; }
+  .wrap { padding-left: 16px; padding-right: 16px; }
+  .h2 { font-size: 38px; }
+  .btn { display: flex; width: 100%; height: 56px; font-size: 17px; }
+  .stage { grid-template-columns: 1fr; gap: 28px; padding: 32px 16px 40px; }
+  .stage h1 .ln { font-size: 50px; line-height: 1.08; }
+  .side p { font-size: 16px; margin-bottom: 18px; }
+  .map { display: grid; height: auto; gap: 4px; padding: 4px; }
+  .map a { flex: none; height: 48px; flex-direction: row; align-items: center; gap: 12px; padding: 0 14px; }
+  .map a span { display: none; }
+  .map a b { margin: 0; font-size: 17px; }
+  .ch { min-height: 0; padding: 40px 16px 56px; display: block; }
+  .ch h2 { margin-top: 12px; }
+  .ch h2 .ln { font-size: 44px; }
+  .ch figure { height: 52vw; margin-top: 32px; }
+  .ch .txt { margin-top: 32px; padding-left: 0; }
+  .ch .txt p { font-size: 17px; }
+  .why { padding-block: 96px; }
+  .why h2, .why p { grid-column: 1 / 13; }
+  .why p { margin-top: 24px; font-size: 18px; }
+  .media { padding-block: 96px; }
+  .media h2 { margin-bottom: 32px; }
+  .row { display: block; padding: 22px 16px; }
+  .row b { display: block; font-size: 24px; margin-bottom: 8px; }
+  .row span { display: block; font-size: 16px; }
+  .row i { display: none; }
+  .records { padding-block: 96px; }
+  .wall { flex-wrap: nowrap; overflow-x: auto; gap: 6px; margin: 0 -16px 40px; padding: 0 16px; scrollbar-width: none; }
+  .wall::-webkit-scrollbar { display: none; }
+  .wall figure { flex: 0 0 auto; width: calc(88px + var(--w) * 40px); height: 180px; }
+  .names ul { columns: 2; font-size: 16px; }
+  .contact { padding-block: 96px; }
+  .contact h2, .contact .lead, .contact form { grid-column: 1 / 13; }
+  .contact form { margin-top: 40px; }
+}

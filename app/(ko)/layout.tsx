@@ -6,10 +6,10 @@ import { BASE_METADATA, OG_TIMESTAMP as timestamp } from '@/lib/site-metadata'
 export const metadata: Metadata = {
   ...BASE_METADATA,
   title: {
-    default: '위즈더플래닝 | 검색·AI 마케팅 에이전시 (GEO·SEO·광고·제작)',
+    default: '위즈더플래닝 | 빈틈 없는 마케팅을 설계하고 실행합니다',
     template: '%s | 위즈더플래닝',
   },
-  description: '위즈더플래닝은 2016년부터 광고주 7,000여 곳과 일한 광고대행사입니다. 네이버·메타·구글 광고, 검색·AI 노출, 숏폼 촬영, 인플루언서 섭외, 홈페이지 제작을 담당 부서가 맡습니다.',
+  description: '인플루언서 섭외와 촬영, 광고 소재, GEO와 SEO, 홈페이지까지 위즈더플래닝이 맡아 한 흐름으로 진행합니다. 2016년에 시작해 광고주 7,000여 곳과 일했습니다.',
   // 매체별 키워드(SEO 대행사·메타 광고 대행사·구글 광고 대행사·홈페이지 제작)는 공통 목록에서 빼고 각 매체 페이지에만 둔다(검색광고 세션 제안, 2026-11-03)
   keywords: [
     'AI 검색 최적화',
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: '위즈더플래닝 | 검색·AI 마케팅 에이전시 (GEO·SEO·광고·제작)',
-    description: '위즈더플래닝은 2016년부터 광고주 7,000여 곳과 일한 광고대행사입니다. 네이버·메타·구글 광고, 검색·AI 노출, 숏폼 촬영, 인플루언서 섭외, 홈페이지 제작을 담당 부서가 맡습니다.',
+    title: '위즈더플래닝 | 빈틈 없는 마케팅을 설계하고 실행합니다',
+    description: '인플루언서 섭외와 촬영, 광고 소재, GEO와 SEO, 홈페이지까지 위즈더플래닝이 맡아 한 흐름으로 진행합니다. 2016년에 시작해 광고주 7,000여 곳과 일했습니다.',
     url: 'https://wiztheplanning.com',
     siteName: '위즈더플래닝',
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         url: `/og-image.jpg?v=${timestamp}`,
         width: 1200,
         height: 630,
-        alt: '위즈더플래닝: AI 검색 최적화(GEO) 전문 에이전시',
+        alt: '위즈더플래닝: 빈틈 없는 마케팅을 설계하고 실행합니다',
       }
     ],
     locale: 'ko_KR',
@@ -54,8 +54,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '위즈더플래닝 | 검색·AI 마케팅 에이전시 (GEO·SEO·광고·제작)',
-    description: '위즈더플래닝은 2016년부터 광고주 7,000여 곳과 일한 광고대행사입니다. 네이버·메타·구글 광고, 검색·AI 노출, 숏폼 촬영, 인플루언서 섭외, 홈페이지 제작을 담당 부서가 맡습니다.',
+    title: '위즈더플래닝 | 빈틈 없는 마케팅을 설계하고 실행합니다',
+    description: '인플루언서 섭외와 촬영, 광고 소재, GEO와 SEO, 홈페이지까지 위즈더플래닝이 맡아 한 흐름으로 진행합니다. 2016년에 시작해 광고주 7,000여 곳과 일했습니다.',
     images: [`/og-image.jpg?v=${timestamp}`],
   },
 }
@@ -72,9 +72,9 @@ const jsonLd = {
       url: 'https://wiztheplanning.com',
       logo: 'https://wiztheplanning.com/thumbnail.png',
       image: 'https://wiztheplanning.com/thumbnail.png',
-      slogan: 'AI가 추천하는 브랜드를 만듭니다',
+      slogan: '빈틈 없는 마케팅을 설계하고 실행합니다',
       description:
-        '위즈더플래닝은 2016년부터 광고주 7,000여 곳과 일한 광고대행사입니다. 네이버·메타·구글 광고, 검색·AI 노출, 숏폼 촬영, 인플루언서 섭외, 홈페이지 제작을 담당 부서가 맡습니다. 기업과 병원·의원의 마케팅을 맡습니다.',
+        '인플루언서 섭외와 촬영, 광고 소재, GEO와 SEO, 홈페이지까지 위즈더플래닝이 맡아 한 흐름으로 진행합니다. 2016년에 시작해 광고주 7,000여 곳과 일했습니다. 기업과 병원·의원의 마케팅을 맡습니다.',
       knowsAbout: [
         'AI 검색 최적화(GEO)',
         'Generative Engine Optimization',

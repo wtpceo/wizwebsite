@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "위즈더플래닝",
     locale: "ko_KR",
     type: "website",
-    images: [{ url: HERO_IMG, width: 1200, height: 1489, alt: HERO_ALT }],
+    images: [{ url: "/covers/og-meta-ads.jpg", width: 1200, height: 630, alt: TITLE }],
   },
 }
 
@@ -53,7 +53,7 @@ const DATA: MediaPageData = {
     ],
   },
   work: {
-    title: "광고 부서가\n하는 일",
+    title: "광고 부서가 하는 일",
     lede: "인스타 광고 대행과 페이스북 광고 대행은 이 순서로 진행합니다.",
     steps: [
       { name: "목표 정하기", desc: "랜딩 페이지 조회, 문의, 구매 가운데 무엇으로 성과를 볼지 담당자님과 정합니다" },
@@ -64,7 +64,7 @@ const DATA: MediaPageData = {
     ],
   },
   links: {
-    title: "같이 맡길 수\n있는 일",
+    title: "같이 맡길 수 있는 일",
     items: [
       {
         name: "숏폼·촬영",
@@ -84,7 +84,7 @@ const DATA: MediaPageData = {
     ],
   },
   records: {
-    title: "공개한\n사례",
+    title: "공개한 사례",
     lede: "기업 이름과 집행 국가는 쓰지 않았습니다.",
     items: [
       {
@@ -130,7 +130,7 @@ const DATA: MediaPageData = {
     },
   ],
   contact: {
-    title: "메타 광고\n상담",
+    title: "메타 광고 상담",
     lede: "회사 이름, 지금 하고 있는 광고, 월 광고비를 남겨 주시면 광고 부서가 회사 메일로 연락드리겠습니다.",
   },
 }

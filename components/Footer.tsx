@@ -13,9 +13,15 @@ const tile = "bg-[var(--surface)] p-6 text-[15px] leading-relaxed md:col-span-4 
 const tileHead = "mb-2.5 block text-base font-bold"
 const tileLink = "block py-0.5 font-semibold no-underline hover:underline"
 
-export default function Footer() {
+// tone="dark": 새 홈의 바닥. 문의 면(검정)에 이어 검정 바탕·짙은 회색 타일로 간다. 색 변수만 바꾸고 짜임은 같다
+const DARK_VARS = { "--bg": "#0A0A0A", "--surface": "#1c1c1b", "--surface-2": "#2a2a29", "--ink": "#f5f5f3", "--muted": "#b9b9b5" } as React.CSSProperties
+
+export default function Footer({ tone }: { tone?: "dark" } = {}) {
   return (
-    <footer className="grid grid-cols-1 gap-2 break-keep bg-[var(--bg)] p-2 text-[var(--ink)] md:grid-cols-12">
+    <footer
+      className="grid grid-cols-1 gap-2 break-keep bg-[var(--bg)] p-2 text-[var(--ink)] md:grid-cols-12"
+      style={tone === "dark" ? DARK_VARS : undefined}
+    >
       <div className="overflow-hidden bg-[var(--surface)] p-6 md:col-span-12">
         <span
           aria-hidden="true"

@@ -5,6 +5,7 @@ import Footer from "@/components/Footer"
 import HomeReveal from "@/components/home/HomeReveal"
 import HomeContactForm from "@/components/home/HomeContactForm"
 import h from "@/components/home/home.module.css"
+import { keepDots } from "@/components/home/keepDots"
 import { AD_SERVICES } from "@/lib/ad-services"
 import s from "./media.module.css"
 
@@ -13,7 +14,8 @@ import s from "./media.module.css"
 // 문구는 페이지 파일이 원고에서 그대로 옮겨 넘긴다. 이 파일에는 화면 문구를 두지 않는다(링크 이름 제외).
 // 등장 효과는 홈의 HomeReveal과 .rise/.shutter를 그대로 빌려 쓴다(서버 렌더에서는 전부 보인다)
 
-/** 제목. 줄바꿈 위치는 원고 그대로 "\n"으로 넘긴다. 어느 폭에서나 두 줄을 넘지 않게 글자 크기를 칸 폭에 맞춘다 */
+/** 제목. 줄바꿈 위치는 원고 그대로 "\n"으로 넘긴다. 어느 폭에서나 두 줄을 넘지 않게 글자 크기를 칸 폭에 맞춘다.
+ *  한 줄에 들어가는 짧은 제목("공개한 사례", "숏폼 제작 상담")은 "\n" 없이 넘긴다. 폭이 모자랄 때만 낱말 사이에서 꺾인다 */
 type Lines = string
 
 /** 본문 안 링크는 [이름](/주소)로 적는다. 화면에서는 링크, FAQ JSON-LD에서는 이름만 남는다 */
@@ -29,6 +31,8 @@ export type MediaPageData = {
     lede: string
     /** shape: square는 가로 넓은 칸, tall은 세로 사진용 좁은 칸. fit: contain은 문서 캡처처럼 잘리면 안 되는 것 */
     image: MediaImage & { shape: "square" | "tall"; fit?: "cover" | "contain" }
+    /** 첫 화면 사진 앞에 겹쳐 놓는 두 번째 사진(오른쪽 아래, 세로). 홈페이지 PC 캡처 위에 모바일 캡처를 올릴 때 */
+    front?: MediaImage
   }
   suits: { title: Lines; lede?: string; good: string[]; better: string[] }
   work: {
@@ -83,10 +87,20 @@ function emWidth(line: string) {
 
 function Title({ text, as: Tag = "h2", id, className }: { text: Lines; as?: "h1" | "h2"; id?: string; className?: string }) {
   const lines = text.split("\n")
-  const len = (Math.max(...lines.map(emWidth)) * 1.04).toFixed(2)
+  // 한 줄 제목은 꺾일 수 있으니 두 줄 몫의 폭으로 어림한다(가장 긴 낱말이 한 줄에 들어가는 크기는 넘지 않는다)
+  const single = lines.length === 1
+  const est = single
+    ? Math.max(emWidth(text) / 1.8, ...text.split(" ").map(emWidth))
+    : Math.max(...lines.map(emWidth))
+  const len = (est * 1.04).toFixed(2)
   return (
     <div className={s.tw}>
-      <Tag id={id} className={`${s.title} ${className ?? ""} ${h.rise}`} data-reveal="" style={{ "--len": len } as CSSProperties}>
+      <Tag
+        id={id}
+        className={`${s.title} ${single ? s.flow : ""} ${className ?? ""} ${h.rise}`}
+        data-reveal=""
+        style={{ "--len": len } as CSSProperties}
+      >
         {lines.map((l, i) => (
           <span key={i}>
             {i > 0 && <br />}
@@ -105,7 +119,7 @@ function rich(text: Rich): ReactNode[] {
   const out: ReactNode[] = []
   let last = 0
   for (const m of text.matchAll(LINK)) {
-    out.push(text.slice(last, m.index))
+    out.push(keepDots(text.slice(last, m.index)))
     out.push(
       <Link key={m.index} href={m[2]}>
         {m[1]}
@@ -113,7 +127,7 @@ function rich(text: Rich): ReactNode[] {
     )
     last = (m.index ?? 0) + m[0].length
   }
-  out.push(text.slice(last))
+  out.push(keepDots(text.slice(last)))
   return out
 }
 
@@ -146,16 +160,30 @@ export default function MediaPage({ data }: { data: MediaPageData }) {
             <Title as="h1" id="h-hero" text={hero.title} className={s.display} />
             <div className={s.heroFoot}>
               <p className={h.rise} data-reveal="">
-                {hero.lede}
+                {keepDots(hero.lede)}
               </p>
               <Link className={`${h.btn} ${s.heroBtn}`} href="/business/contact">
                 광고 상담 받기
               </Link>
             </div>
           </div>
-          <figure className={`${s.heroPic} ${s.ph} ${hero.image.fit === "contain" ? s.contain : ""}`}>
+          <figure
+            className={`${s.heroPic} ${s.ph} ${hero.image.fit === "contain" ? s.contain : ""} ${hero.front ? s.layered : ""}`}
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={hero.image.src} alt={hero.image.alt} decoding="async" fetchPriority="high" />
+            <img
+              className={hero.front ? s.back : undefined}
+              src={hero.image.src}
+              alt={hero.image.alt}
+              decoding="async"
+              fetchPriority="high"
+            />
+            {hero.front && (
+              <span className={s.front}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={hero.front.src} alt={hero.front.alt} decoding="async" />
+              </span>
+            )}
           </figure>
         </section>
 
@@ -165,7 +193,7 @@ export default function MediaPage({ data }: { data: MediaPageData }) {
             <Title id="h-suits" text={suits.title} />
             {suits.lede && (
               <p className={`${s.lede} ${h.rise}`} data-reveal="">
-                {suits.lede}
+                {keepDots(suits.lede)}
               </p>
             )}
           </div>
@@ -174,7 +202,7 @@ export default function MediaPage({ data }: { data: MediaPageData }) {
               <h3>맞는 경우</h3>
               <ul className={s.list}>
                 {suits.good.map((t) => (
-                  <li key={t}>{t}</li>
+                  <li key={t}>{keepDots(t)}</li>
                 ))}
               </ul>
             </div>
@@ -182,7 +210,7 @@ export default function MediaPage({ data }: { data: MediaPageData }) {
               <h3>다른 매체가 나은 경우</h3>
               <ul className={s.list}>
                 {suits.better.map((t) => (
-                  <li key={t}>{t}</li>
+                  <li key={t}>{keepDots(t)}</li>
                 ))}
               </ul>
             </div>
@@ -195,7 +223,7 @@ export default function MediaPage({ data }: { data: MediaPageData }) {
             <Title id="h-work" text={work.title} />
             {work.lede && (
               <p className={`${s.lede} ${h.rise}`} data-reveal="">
-                {work.lede}
+                {keepDots(work.lede)}
               </p>
             )}
           </div>
@@ -203,7 +231,7 @@ export default function MediaPage({ data }: { data: MediaPageData }) {
             {work.steps.map((st, i) => (
               <li key={st.name} className={`${s.step} ${h.rise}`} data-reveal="" style={{ "--i": i } as CSSProperties}>
                 <h3>{st.name}</h3>
-                <p>{st.desc}</p>
+                <p>{keepDots(st.desc)}</p>
               </li>
             ))}
           </ol>
@@ -220,7 +248,7 @@ export default function MediaPage({ data }: { data: MediaPageData }) {
           {work.hospital && (
             <div className={`${s.grid} ${s.note}`}>
               <p className={`${s.hospital} ${h.rise}`} data-reveal="">
-                {work.hospital}
+                {keepDots(work.hospital)}
               </p>
             </div>
           )}
@@ -233,7 +261,7 @@ export default function MediaPage({ data }: { data: MediaPageData }) {
             {links.items.map((it) => (
               <div key={it.name} className={`${s.row} ${h.rise}`} data-reveal="">
                 <h3>{it.name}</h3>
-                <p>{it.desc}</p>
+                <p>{keepDots(it.desc)}</p>
                 {it.hrefs && (
                   <div className={s.go}>
                     {it.hrefs.map((href) => (
@@ -253,7 +281,7 @@ export default function MediaPage({ data }: { data: MediaPageData }) {
           <div className={s.recHead}>
             <Title id="h-records" text={records.title} />
             <p className={`${s.lede} ${h.rise}`} data-reveal="">
-              {records.lede}
+              {keepDots(records.lede)}
             </p>
           </div>
           {records.items && (
@@ -261,8 +289,8 @@ export default function MediaPage({ data }: { data: MediaPageData }) {
               {records.items.map((r) => (
                 <article key={r.href} className={`${s.rec} ${h.rise}`} data-reveal="">
                   <h3>{r.industry}</h3>
-                  <p className={s.what}>{r.work}</p>
-                  {r.figure && <p className={`${s.fig} ${h.num}`}>{r.figure}</p>}
+                  <p className={s.what}>{keepDots(r.work)}</p>
+                  {r.figure && <p className={`${s.fig} ${h.num}`}>{keepDots(r.figure)}</p>}
                   <Link href={r.href} aria-label={`${r.industry} 기록 보기`}>
                     기록 보기
                   </Link>
@@ -274,7 +302,7 @@ export default function MediaPage({ data }: { data: MediaPageData }) {
             <ul className={s.done}>
               {records.done.map((t) => (
                 <li key={t} className={h.rise} data-reveal="">
-                  {t}
+                  {keepDots(t)}
                 </li>
               ))}
             </ul>
@@ -301,7 +329,7 @@ export default function MediaPage({ data }: { data: MediaPageData }) {
               {receive.metrics.map((m) => (
                 <div key={m.name} className={`${s.metric} ${h.rise}`} data-reveal="">
                   <dt>{m.name}</dt>
-                  <dd>{m.desc}</dd>
+                  <dd>{keepDots(m.desc)}</dd>
                 </div>
               ))}
             </dl>
@@ -333,7 +361,7 @@ export default function MediaPage({ data }: { data: MediaPageData }) {
         <section className={s.contact} id="contact" aria-labelledby="h-contact">
           <Title id="h-contact" text={contact.title} />
           <p className={`${s.contactLede} ${h.rise}`} data-reveal="">
-            {contact.lede}
+            {keepDots(contact.lede)}
           </p>
           <HomeContactForm source={data.source} />
         </section>

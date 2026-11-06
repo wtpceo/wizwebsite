@@ -1,9 +1,8 @@
 import Link from "next/link"
-import { ChevronRight, ChevronLeft } from "lucide-react"
 import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
-import { Button } from "@/components/ui/button"
 import RelatedArticles from "@/components/guide/RelatedArticles"
+import s from "@/components/guide/guide.module.css"
 
 type GuideCta = {
   title: string
@@ -48,8 +47,9 @@ function CtaTitle({ text }: { text: string }) {
 }
 
 // 가이드 아티클 공용 레이아웃 (서버 컴포넌트 — 정적 렌더링이라 크롤러/AI가 그대로 읽음)
+// 2026-11 리브랜딩: 흰 바탕·잉크 글자. 제목 위 작은 머리말(kicker)은 디자인 기준에서 빼기로 해서 화면에 그리지 않는다.
+// kicker prop은 글 파일을 고치지 않으려고 계속 받는다. 스타일은 guide.module.css
 export default function GuideArticle({
-  kicker = "GUIDE",
   title,
   description,
   date,
@@ -58,6 +58,7 @@ export default function GuideArticle({
   afterArticle,
   children,
 }: {
+  /** 화면에는 그리지 않는다(디자인 기준: 제목 위 머리말 금지). 글 파일 호환용 */
   kicker?: string
   title: string
   description: string
@@ -71,62 +72,49 @@ export default function GuideArticle({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex min-h-screen flex-col bg-white">
+    <div className={s.page}>
       <Header />
-      <main className="flex-1">
-        {/* 아티클 헤더 */}
-        <section className="relative overflow-hidden bg-[#070b14] py-16 md:py-20">
-          <div className="geo-grid-bg absolute inset-0" />
-          <div className="absolute -top-32 left-1/3 h-[320px] w-[520px] rounded-full bg-[#00e5a0]/[0.07] blur-3xl" />
-          <div className="container relative mx-auto max-w-3xl px-4 md:px-6">
-            <Link
-              href="/guide"
-              className="inline-flex items-center gap-1 text-sm text-slate-400 transition-colors hover:text-[#00e5a0]"
-            >
-              <ChevronLeft className="h-4 w-4" />
+      <main className={s.main}>
+        <header className={s.head}>
+          <h1 className={s.title}>{title}</h1>
+        </header>
+
+        <div className={`${s.grid} ${s.intro}`}>
+          <div className={s.meta}>
+            <span>
+              위즈더플래닝 · <span className={s.num}>{date}</span>
+            </span>
+            <Link href="/guide" className={s.textLink}>
               가이드 목록
             </Link>
-            <p className="mt-6 text-xs font-bold tracking-[0.25em] text-[#00e5a0]">{kicker}</p>
-            <h1 className="mt-3 text-[clamp(1.875rem,3.4vw,3.25rem)] font-extrabold leading-snug tracking-tight text-white">
-              {title}
-            </h1>
-            <p className="mt-4 text-base leading-relaxed text-slate-400 md:text-lg">{description}</p>
-            <p className="mt-4 text-sm text-slate-500">위즈더플래닝 · {date}</p>
           </div>
-        </section>
+          <div className={s.col}>
+            <p className={s.lead}>{description}</p>
 
-        {/* 본문. 링크가 일반 글자처럼 보이지 않게 색과 밑줄을 준다. 버튼처럼 class를 직접 준 링크는 건드리지 않는다 */}
-        <article className="container mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16 [&>h2]:mt-12 [&>h2]:text-2xl [&>h2]:font-extrabold [&>h2]:tracking-tight [&>h2]:text-gray-900 [&>h3]:mt-8 [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-gray-900 [&>p]:mt-4 [&>p]:text-base [&>p]:leading-[1.85] [&>p]:text-gray-700 [&>ul]:mt-4 [&>ul]:space-y-2 [&>ul]:pl-1 [&>ol]:mt-4 [&>ol]:space-y-3 [&>ol]:pl-1 [&_a:not([class])]:font-semibold [&_a:not([class])]:text-emerald-700 [&_a:not([class])]:underline [&_a:not([class])]:underline-offset-4">
-          {children}
-        </article>
+            {/* 본문. 링크는 잉크 + 밑줄. 글 파일 안 Tailwind 장식(테두리·둥근 모서리·민트 글자)은 .prose가 덮어쓴다 */}
+            <article className={s.prose}>{children}</article>
 
-        {afterArticle}
+            {afterArticle && <div className={s.after}>{afterArticle}</div>}
+          </div>
+        </div>
 
         {/* 이어서 읽기 — 관련 글로 회독 유도 + 내부 링크 강화 */}
         {href && <RelatedArticles currentHref={href} />}
 
-        {/* CTA */}
         {cta && (
-          <section className="container mx-auto max-w-3xl px-4 pb-20 pt-10 md:px-6">
-            <div className="rounded-3xl bg-gradient-to-r from-[#0b1220] to-[#101b2e] px-8 py-10 text-center shadow-xl">
-              <h2 className="text-xl font-extrabold text-white md:text-2xl">
-                <CtaTitle text={cta.title} />
-              </h2>
-              <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-slate-400 md:text-base">{cta.body}</p>
-              <Link href={cta.href} className="mt-6 inline-block">
-                <Button size="lg" className="gap-1 bg-[#00e5a0] px-8 font-bold text-[#070b14] hover:bg-[#3cf0bb]">
-                  {cta.label}
-                  <ChevronRight className="h-5 w-5" />
-                </Button>
-              </Link>
-              {cta.sub && (
-                <p className="mt-4 text-sm">
-                  <Link href={cta.sub.href} className="text-slate-300 underline underline-offset-4 hover:text-[#00e5a0]">
-                    {cta.sub.label}
-                  </Link>
-                </p>
-              )}
-            </div>
+          <section className={s.cta} aria-label="문의">
+            <h2 className={s.ctaTitle}>
+              <CtaTitle text={cta.title} />
+            </h2>
+            <p className={s.ctaBody}>{cta.body}</p>
+            <Link href={cta.href} className={`${s.btn} ${s.ctaBtn}`}>
+              {cta.label}
+            </Link>
+            {cta.sub && (
+              <p className={s.ctaSub}>
+                <Link href={cta.sub.href}>{cta.sub.label}</Link>
+              </p>
+            )}
           </section>
         )}
       </main>
@@ -137,19 +125,10 @@ export default function GuideArticle({
 
 // 본문 안에서 쓰는 체크/포인트 리스트 아이템
 export function CheckItem({ children }: { children: React.ReactNode }) {
-  return (
-    <li className="flex items-start gap-2.5 text-base leading-relaxed text-gray-700">
-      <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#00e5a0]" />
-      <span>{children}</span>
-    </li>
-  )
+  return <li className={s.check}>{children}</li>
 }
 
 // 강조 콜아웃 박스
 export function Callout({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="mt-6 rounded-r-xl border-l-4 border-[#00e5a0] bg-emerald-50 px-5 py-4 text-base leading-relaxed text-gray-800">
-      {children}
-    </div>
-  )
+  return <div className={s.callout}>{children}</div>
 }

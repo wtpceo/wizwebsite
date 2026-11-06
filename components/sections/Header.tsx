@@ -15,7 +15,7 @@ type SubItem = { label: string; href: string }
 type MenuItem = { label: string; href?: string; items?: SubItem[] }
 
 const MENU: MenuItem[] = [
-  { label: "다루는 광고", items: AD_SERVICES.map((a) => ({ label: a.label, href: a.href })) },
+  { label: "다루는 광고", items: AD_SERVICES.filter((a) => a.inMenu !== false).map((a) => ({ label: a.label, href: a.href })) },
   {
     label: "병원",
     items: [
@@ -44,7 +44,13 @@ const LANGS = [
 // 현재 경로가 그 주소이거나 그 아래면 켠다
 const matches = (pathname: string, href: string) => pathname === href || pathname.startsWith(href + "/")
 
-export default function Header() {
+// tone="mint": 새 홈 첫 화면용. 민트 바탕에 잉크 글자, 흐르지 않고 자리에 선다(첫 화면이 머리줄까지 한 면이 되게).
+// 모바일 메뉴 판은 흰 바탕으로 되돌린다
+const MINT_VARS = { "--bg": "#00E5A0", "--surface": "#00cc8e", "--surface-2": "#00b67e", "--ink": "#070B14", "--muted": "#0f3b2c" } as React.CSSProperties
+const PANEL_VARS = { "--bg": "#ffffff", "--surface": "#efefed", "--surface-2": "#e2e2df", "--ink": "#0a0a0a", "--muted": "#4a4a48" } as React.CSSProperties
+
+export default function Header({ tone }: { tone?: "mint" } = {}) {
+  const mint = tone === "mint"
   const [open, setOpen] = useState(false)
   const pathname = usePathname() ?? "/"
 
@@ -71,12 +77,13 @@ export default function Header() {
     "inline-flex h-10 items-center gap-1 px-3 text-[15px] font-semibold text-[var(--ink)] transition-colors hover:bg-[var(--surface)]"
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[var(--bg)] text-[var(--ink)]">
+    <header className={`${mint ? "relative" : "sticky top-0"} z-50 w-full bg-[var(--bg)] text-[var(--ink)]`} style={mint ? MINT_VARS : undefined}>
       <div className="mx-auto flex h-16 items-center justify-between gap-4 px-3 md:px-4">
         <Link href="/" className="flex shrink-0 items-center gap-2" onClick={() => setOpen(false)}>
           <span className="flex items-baseline gap-0.5">
-            <span className="whitespace-nowrap text-xl font-extrabold tracking-tight text-gray-900">위즈더플래닝</span>
-            <span className="h-2 w-2 rounded-full bg-[#00e5a0]" />
+            <span className="whitespace-nowrap text-xl font-extrabold tracking-tight text-[var(--ink)]">위즈더플래닝</span>
+            {/* 점은 잉크색. 첫 화면 민트는 주 버튼 한 곳만 쓴다(디자이너 점검 2026-11-03) */}
+            <span className="h-2 w-2 rounded-full bg-[var(--ink)]" />
           </span>
         </Link>
 
@@ -162,7 +169,7 @@ export default function Header() {
 
           <Link
             href="/business/contact"
-            className="hidden h-12 items-center bg-[var(--accent)] px-5 text-[15px] font-bold text-[var(--ink)] transition-[background,transform] duration-200 hover:bg-[var(--accent-hover)] active:scale-[0.97] sm:inline-flex"
+            className="hidden h-12 items-center bg-[var(--ink)] px-5 text-[15px] font-bold text-[var(--on-dark)] transition-[background,transform] duration-200 hover:bg-[var(--tone-1)] active:scale-[0.97] sm:inline-flex"
           >
             광고 상담 받기
           </Link>
@@ -193,6 +200,7 @@ export default function Header() {
           id="mobile-menu"
           aria-label="주요 메뉴"
           className="fixed inset-x-0 bottom-0 top-16 z-50 overflow-y-auto bg-[var(--bg)] px-4 pb-8 pt-2 lg:hidden"
+          style={mint ? PANEL_VARS : undefined}
         >
           <ul className="flex flex-col gap-1.5">
             {MENU.map((m) => (
@@ -231,7 +239,7 @@ export default function Header() {
           <Link
             href="/business/contact"
             onClick={() => setOpen(false)}
-            className="mt-4 flex h-14 items-center justify-center bg-[var(--accent)] text-base font-bold text-[var(--ink)] active:scale-[0.97]"
+            className="mt-4 flex h-14 items-center justify-center bg-[var(--ink)] text-base font-bold text-[var(--on-dark)] active:scale-[0.97]"
           >
             광고 상담 받기
           </Link>

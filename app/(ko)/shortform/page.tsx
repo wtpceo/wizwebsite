@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "위즈더플래닝",
     locale: "ko_KR",
     type: "website",
-    images: [{ url: HERO_IMG, width: 640, height: 1146, alt: HERO_ALT }],
+    images: [{ url: "/covers/og-shortform.jpg", width: 1200, height: 630, alt: TITLE }],
   },
 }
 
@@ -56,7 +56,7 @@ const DATA: MediaPageData = {
     ],
   },
   work: {
-    title: "촬영 부서와 제작 부서가\n하는 일",
+    title: "촬영 부서와 제작 부서가 하는 일",
     lede: "숏폼 제작 대행은 이 순서로 진행합니다.",
     steps: [
       { name: "기획", desc: "영상 주제와 올릴 곳(브랜드 계정, 광고)을 담당자님과 정합니다" },
@@ -75,7 +75,7 @@ const DATA: MediaPageData = {
       "병원 숏폼은 의료광고 규정 안에서 만듭니다. 심의가 필요한 문구는 심의 기준에 맞추고, 치료 전후 비교나 환자 후기 형식은 쓰지 않습니다.",
   },
   links: {
-    title: "같이 맡길 수\n있는 일",
+    title: "같이 맡길 수 있는 일",
     items: [
       {
         name: "메타·구글·유튜브 광고",
@@ -130,7 +130,7 @@ const DATA: MediaPageData = {
     },
   ],
   contact: {
-    title: "숏폼 제작\n상담",
+    title: "숏폼 제작 상담",
     lede: "회사 이름, 알리고 싶은 제품, 영상을 올릴 곳을 남겨 주시면 촬영 부서가 회사 메일로 연락드리겠습니다.",
   },
 }

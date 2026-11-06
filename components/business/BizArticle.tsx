@@ -1,26 +1,23 @@
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
 import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
 import { relatedBizArticles } from "@/lib/business-articles"
+import { fmtDate } from "@/components/guide/format"
+import s from "@/components/guide/guide.module.css"
 
 export { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
 // 본문 중간 행동 유도 문단. 글 하단 박스까지 내려가지 않고 떠나는 담당자를 위해 글마다 한 곳에 둔다.
 // 문구 안에 /business/contact 링크를 직접 넣는다(자영업 경로 링크 금지).
 export function BizContactNote({ children }: { children: React.ReactNode }) {
-  return (
-    <aside className="mt-8 rounded-2xl border border-emerald-100 bg-emerald-50/60 px-5 py-4 text-base leading-[1.85] text-gray-800">
-      {children}
-    </aside>
-  )
+  return <aside className={s.note}>{children}</aside>
 }
 
-// 기업 경로 글 레이아웃. 본문 스타일 규칙은 가이드 글과 같게 두되,
+// 기업 경로 글 레이아웃. 본문 스타일 규칙은 가이드 글과 같게 두되(guide.module.css),
 // CTA는 무료 진단이 아니라 제안 요청(/business/contact)으로만 보낸다.
+// 2026-11 리브랜딩: 흰 바탕·잉크 글자. 제목 위 머리말(kicker)은 화면에서 빼고 prop만 받는다
 export default function BizArticle({
   href,
-  kicker,
   title,
   description,
   date,
@@ -29,6 +26,7 @@ export default function BizArticle({
   children,
 }: {
   href: string
+  /** 화면에는 그리지 않는다(디자인 기준: 제목 위 머리말 금지). 글 파일 호환용 */
   kicker: string
   title: string
   description: string
@@ -40,54 +38,53 @@ export default function BizArticle({
 }) {
   const related = relatedBizArticles(href)
   return (
-    <div className="flex min-h-screen flex-col bg-white">
+    <div className={s.page}>
       <Header />
-      <main className="flex-1">
-        <section className="relative overflow-hidden bg-[#070b14] py-16 md:py-20">
-          <div className="geo-grid-bg absolute inset-0 opacity-60" />
-          <div className="container relative mx-auto max-w-3xl px-4 md:px-6">
-            <Link href="/business/insights" className="text-xs font-bold tracking-[0.2em] text-[#00e5a0] hover:underline">
-              {kicker.toUpperCase()}
-            </Link>
-            <h1 className="mt-4 text-[clamp(1.75rem,3.6vw,2.75rem)] font-extrabold leading-[1.2] tracking-tight text-white">{title}</h1>
-            <p className="mt-5 text-base leading-relaxed text-slate-400 md:text-lg">{description}</p>
-            <p className="mt-6 text-sm text-slate-500">위즈더플래닝 · {date}</p>
-          </div>
-        </section>
+      <main className={s.main}>
+        <header className={s.head}>
+          <h1 className={s.title}>{title}</h1>
+        </header>
 
-        <article className="container mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16 [&>h2]:mt-12 [&>h2]:text-2xl [&>h2]:font-extrabold [&>h2]:tracking-tight [&>h2]:text-gray-900 [&>h3]:mt-8 [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-gray-900 [&>p]:mt-4 [&>p]:text-base [&>p]:leading-[1.85] [&>p]:text-gray-700 [&>ul]:mt-4 [&>ul]:space-y-2 [&>ul]:pl-1 [&>ol]:mt-4 [&>ol]:list-decimal [&>ol]:space-y-3 [&>ol]:pl-5 [&_a]:font-semibold [&_a]:text-emerald-700 [&_a]:underline-offset-4 hover:[&_a]:underline">
-          {children}
-        </article>
-
-        <section className="container mx-auto max-w-3xl px-4 pb-14 md:px-6">
-          <div className="rounded-3xl bg-gradient-to-r from-[#0b1220] to-[#101b2e] px-6 py-10 text-center md:px-10">
-            <p className="text-xl font-extrabold text-white md:text-2xl">{ctaTitle}</p>
-            <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-400 md:text-base">{ctaBody}</p>
-            <Link href="/business/contact" className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-[#00e5a0] px-6 py-3 text-sm font-bold text-[#070b14] hover:bg-[#3cf0bb]">
-              제안 요청 보내기 <ArrowRight className="h-4 w-4" />
+        <div className={`${s.grid} ${s.intro}`}>
+          <div className={s.meta}>
+            <span>
+              위즈더플래닝 · <span className={s.num}>{date}</span>
+            </span>
+            <Link href="/business/insights" className={s.textLink}>
+              인사이트 목록
             </Link>
           </div>
-        </section>
+          <div className={s.col}>
+            <p className={s.lead}>{description}</p>
+            <article className={`${s.prose} ${s.biz}`}>{children}</article>
+          </div>
+        </div>
 
         {related.length > 0 && (
-          <section className="container mx-auto max-w-5xl px-4 pb-20 md:px-6">
-            <h2 className="mb-5 text-lg font-extrabold tracking-tight text-gray-900">이어서 읽기</h2>
-            <div className="grid gap-5 sm:grid-cols-2">
+          <section aria-label="이어서 읽기" className={s.sec}>
+            <h2 className={s.secHead}>이어서 읽기</h2>
+            <div className={s.rows}>
               {related.map((a) => (
-                <Link key={a.href} href={a.href} className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all hover:-translate-y-1 hover:border-emerald-500/40 hover:shadow-lg">
-                  <span className="block aspect-[16/9] overflow-hidden bg-slate-100">
-                    <img src={a.cover} alt="" width={1200} height={675} loading="lazy" className="h-full w-full object-cover" />
+                <Link key={a.href} href={a.href} className={s.row}>
+                  <span className={s.rowMeta}>
+                    <b>{a.kicker}</b>
+                    <span className={s.num}>{fmtDate(a.updated ?? a.date)}</span>
                   </span>
-                  <span className="flex flex-1 flex-col p-5">
-                    <span className="text-[11px] font-bold tracking-[0.15em] text-emerald-600">{a.kicker}</span>
-                    <span className="mt-1.5 text-base font-bold leading-snug text-gray-900 group-hover:text-emerald-700">{a.title}</span>
-                    <span className="mt-auto pt-3 text-xs text-gray-400">{a.date}</span>
-                  </span>
+                  <span className={s.rowTitle}>{a.title}</span>
+                  <span className={s.rowDesc}>{a.desc}</span>
                 </Link>
               ))}
             </div>
           </section>
         )}
+
+        <section className={s.cta} aria-label="제안 요청">
+          <h2 className={s.ctaTitle}>{ctaTitle}</h2>
+          <p className={s.ctaBody}>{ctaBody}</p>
+          <Link href="/business/contact" className={`${s.btn} ${s.ctaBtn}`}>
+            제안 요청 보내기
+          </Link>
+        </section>
       </main>
       <Footer />
     </div>

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "위즈더플래닝",
     locale: "ko_KR",
     type: "website",
-    images: [{ url: HERO_IMG, width: 1200, height: 1221, alt: "위즈더플래닝 주간 보고서 첫 장" }],
+    images: [{ url: "/covers/og-search-ai.jpg", width: 1200, height: 630, alt: TITLE }],
   },
 }
 
@@ -56,7 +56,7 @@ const DATA: MediaPageData = {
     ],
   },
   work: {
-    title: "검색·GEO 부서가\n하는 일",
+    title: "검색·GEO 부서가 하는 일",
     steps: [
       { name: "질문 정하기", desc: "고객이 검색창과 AI에 칠 질문을 담당자님과 같이 정합니다" },
       {
@@ -79,7 +79,7 @@ const DATA: MediaPageData = {
     },
   },
   links: {
-    title: "같이 맡길 수\n있는 일",
+    title: "같이 맡길 수 있는 일",
     items: [
       {
         name: "홈페이지 제작",
@@ -99,7 +99,7 @@ const DATA: MediaPageData = {
     ],
   },
   records: {
-    title: "공개한\n사례",
+    title: "공개한 사례",
     lede: "업체 이름과 정확한 지역은 쓰지 않았습니다.",
     items: [
       {
@@ -166,7 +166,7 @@ const DATA: MediaPageData = {
     },
   ],
   contact: {
-    title: "검색·AI 노출\n상담",
+    title: "검색·AI 노출 상담",
     lede: "회사 이름, 지금 하고 있는 광고, 고민을 남겨 주시면 검색·GEO 부서가 회사 메일로 연락드리겠습니다.",
   },
 }

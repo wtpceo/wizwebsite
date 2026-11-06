@@ -9,6 +9,8 @@ export type AdService = {
   /** 홈 목록을 열면 보이는 한 줄 */
   desc: string
   href: string
+  /** false면 머리줄 드롭다운에는 넣지 않는다(홈 목록과 바닥에만). 기본은 넣는다 */
+  inMenu?: boolean
 }
 
 export const AD_SERVICES: AdService[] = [
@@ -21,7 +23,7 @@ export const AD_SERVICES: AdService[] = [
   {
     label: "네이버 광고",
     title: "네이버 광고",
-    desc: "파워링크, 플레이스, 브랜드 검색까지 네이버 안의 광고를 운영합니다.",
+    desc: "네이버 검색 광고를 세팅하고 운영합니다.",
     href: "/naver-marketing",
   },
   {
@@ -39,7 +41,7 @@ export const AD_SERVICES: AdService[] = [
   {
     label: "숏폼·촬영",
     title: "숏폼·촬영",
-    desc: "쇼츠와 릴스를 기획부터 촬영, 편집까지 저희 촬영팀이 합니다.",
+    desc: "쇼츠와 릴스를 기획하고 촬영해 편집합니다.",
     href: "/shortform",
   },
   {
@@ -53,5 +55,14 @@ export const AD_SERVICES: AdService[] = [
     title: "홈페이지 제작",
     desc: "광고와 검색이 도착하는 홈페이지를 만들고, 반응을 보며 고칩니다.",
     href: "/website",
+  },
+  // 소상공인 입구(대표 결정 2026-11-05). 구글 소상공인 광고가 /naver-marketing으로 가고 있어 같은 곳으로 묶는다.
+  // 홈 목록 끝과 바닥에만 넣고 머리줄 메뉴에는 넣지 않는다(총괄 전달)
+  {
+    label: "매장 마케팅",
+    title: "매장 마케팅",
+    desc: "플레이스 정보와 사진, 블로그 글을 정비하고 매장 검색 노출을 확인합니다.",
+    href: "/naver-marketing",
+    inMenu: false,
   },
 ]

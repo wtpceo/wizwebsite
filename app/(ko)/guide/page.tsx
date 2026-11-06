@@ -3,6 +3,7 @@ import Link from "next/link"
 import Header from "@/components/sections/Header"
 import Footer from "@/components/Footer"
 import GuideGrid from "@/components/guide/GuideGrid"
+import s from "@/components/guide/guide.module.css"
 
 export const metadata: Metadata = {
   title: "마케팅 가이드: AI 검색 최적화·플레이스 실전 노하우",
@@ -17,40 +18,33 @@ export const metadata: Metadata = {
   },
 }
 
+// 2026-11 리브랜딩: 네이비 머리·그러데이션을 걷고 흰 바탕 큰 제목 + 면 막대 목록으로. 스타일은 guide.module.css
 export default function GuidePage() {
   return (
-    <div className="flex min-h-screen flex-col bg-white">
+    <div className={s.page}>
       <Header />
-      <main className="flex-1">
-        {/* 헤더 */}
-        <section className="relative overflow-hidden bg-[#070b14] py-16 md:py-20">
-          <div className="geo-grid-bg absolute inset-0" />
-          <div className="absolute -top-32 left-1/3 h-[320px] w-[520px] rounded-full bg-[#00e5a0]/[0.07] blur-3xl" />
-          <div className="container relative mx-auto max-w-4xl px-4 text-center md:px-6">
-            <p className="text-xs font-bold tracking-[0.25em] text-[#00e5a0]">GUIDE</p>
-            <h1 className="mt-3 text-[clamp(1.875rem,3.8vw,3.75rem)] font-extrabold tracking-tight text-white">
-              마케팅 가이드
-            </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">
-              AI 검색 최적화(GEO)부터 네이버 플레이스, 업종별 전략까지,
-              <br className="hidden md:block" />
-              7,000여 광고주와 쌓은 노하우를 사장님 눈높이로 정리했습니다.
-            </p>
-          </div>
-        </section>
+      <main className={s.main}>
+        <header className={s.listHead}>
+          <h1 className={s.listTitle}>마케팅 가이드</h1>
+          <p className={s.listLede}>
+            AI 검색 최적화(GEO)부터 네이버 플레이스, 업종별 전략까지, 7,000여 광고주와 쌓은 노하우를 사장님 눈높이로
+            정리했습니다.
+          </p>
+        </header>
 
         {/* 상단 홍보 배너(PromoBanner)는 2026-11-03 기업 전용 전환으로 끈다 */}
 
         <GuideGrid />
 
-        <p className="pb-16 text-center text-sm text-gray-500">
+        <p className={s.listNote}>
           새 가이드가 매주 추가됩니다. 궁금한 주제가 있다면{" "}
-          <Link href="/#contact" className="font-bold text-emerald-600 underline-offset-4 hover:underline">
+          <Link href="/#contact" className={s.textLink}>
             문의하기
           </Link>
           로 알려주세요.
         </p>
       </main>
+      <div className={s.footGap} />
       <Footer />
     </div>
   )

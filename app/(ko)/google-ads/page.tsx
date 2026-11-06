@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "위즈더플래닝",
     locale: "ko_KR",
     type: "website",
-    images: [{ url: HERO_IMG, width: 1200, height: 1489, alt: HERO_ALT }],
+    images: [{ url: "/covers/og-google-ads.jpg", width: 1200, height: 630, alt: TITLE }],
   },
 }
 
@@ -59,7 +59,7 @@ const DATA: MediaPageData = {
     ],
   },
   work: {
-    title: "광고 부서가\n하는 일",
+    title: "광고 부서가 하는 일",
     lede: "구글 애즈 대행과 유튜브 광고 대행은 이 순서로 진행합니다.",
     steps: [
       { name: "목표 정하기", desc: "클릭, 문의, 구매 가운데 무엇으로 성과를 볼지 담당자님과 정합니다" },
@@ -70,7 +70,7 @@ const DATA: MediaPageData = {
     ],
   },
   links: {
-    title: "같이 맡길 수\n있는 일",
+    title: "같이 맡길 수 있는 일",
     items: [
       {
         name: "숏폼·촬영",
@@ -90,7 +90,7 @@ const DATA: MediaPageData = {
     ],
   },
   records: {
-    title: "해 온\n일",
+    title: "해 온 일",
     lede: "공개한 사례 글이 아직 없어서 한 일만 적었습니다. 업체 이름은 쓰지 않습니다.",
     done: ["구글 검색 광고 운영", "유튜브 동영상 광고 운영", "광고 소재 영상 촬영과 편집"],
   },
@@ -128,7 +128,7 @@ const DATA: MediaPageData = {
     },
   ],
   contact: {
-    title: "구글·유튜브 광고\n상담",
+    title: "구글·유튜브 광고 상담",
     lede: "회사 이름, 지금 하고 있는 광고, 월 광고비를 남겨 주시면 광고 부서가 회사 메일로 연락드리겠습니다.",
   },
 }
