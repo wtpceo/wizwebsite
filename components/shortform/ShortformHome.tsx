@@ -326,7 +326,7 @@ export default function ShortformHome() {
                 {s.k === "content" ? (
                   <div className="sa-vis sa-wall" aria-hidden="true">
                     {/* 11-05 사장님 「숏폼이 한 개만 돌아 아쉬움」 — 위 사진 3장, 아래 숏폼 3편이 같이 돈다 */}
-                    {["w1", "w2", "w3", "v:r04", "v:r15", "v:r31"].map((m, i) =>
+                    {["w1", "w2", "w3", "v:r11", "v:r15", "v:r31"].map((m, i) =>
                       m.startsWith("v:") ? (
                         <video key={m} data-src={`/sf/v/${m.slice(2)}.mp4`} poster={`/sf/v/${m.slice(2)}.jpg`} muted loop playsInline preload="none" style={vars({ i })} />
                       ) : (
@@ -412,7 +412,7 @@ export default function ShortformHome() {
                 <div className={`sc-v lay-${s.k}`} aria-hidden="true">
                   {s.k === "content" ? (
                     <div className="sc-reel">
-                      <video data-src="/sf/v/r26.mp4" poster="/sf/v/r26.jpg" muted loop playsInline preload="none" />
+                      <video data-src="/sf/v/r22.mp4" poster="/sf/v/r22.jpg" muted loop playsInline preload="none" />
                     </div>
                   ) : null}
                   <div className="deck" data-tiles={s.k} />

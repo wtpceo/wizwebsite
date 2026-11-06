@@ -508,3 +508,14 @@ html.sf-anim .sf .ooh.tv .tv3{animation:sf-tv 9s linear 6s infinite}
 .sf .cap1 .box small{display:none}
 .sf .left{display:contents}
 .sf .left>.kick,.sf .left>h1,.sf .left>.sub,.sf .left>.btns{order:-2}}
+/* 11-06 배경 벽에 유튜브·인플루언서 칸 */
+.sf .tile.yt{background:#0f0f0f;color:#fff;display:flex;flex-direction:column;gap:3cqw}
+.sf .tile.yt .yh{padding:4cqw 4cqw 0;font-size:5cqw;font-weight:800}
+.sf .tile.yt .pl{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden}
+.sf .tile.yt .pl img{width:100%;height:100%;object-fit:cover;display:block}
+.sf .tile.yt .pl i{position:absolute;left:0;bottom:0;height:1.2cqw;width:46%;background:#f00}
+.sf .tile.yt p{margin:2cqw 4cqw 0;font-size:5.4cqw;font-weight:700;line-height:1.35}
+.sf .tile.yt small{display:block;margin:1cqw 4cqw 0;font-size:4cqw;color:#aaa}
+.sf .tile.rlt .rh{position:absolute;left:4cqw;bottom:12cqw;z-index:3;font-size:5cqw;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.sf .tile.rlt .rs{position:absolute;left:4cqw;bottom:5cqw;z-index:3;font-size:5cqw;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+
