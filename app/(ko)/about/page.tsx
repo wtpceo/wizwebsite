@@ -47,9 +47,9 @@ export default function AboutPage() {
           <div>
             <Crumb items={[{ name: "홈", href: "/" }, { name: "회사소개" }]} />
             <p className="dp-no">ABOUT WIZ THE PLANNING</p>
-            <h1 aria-label="맡긴 곳이, 직접 합니다. 재위탁 없이, 인하우스 전문팀이 직접 수행합니다.">
+            <h1 aria-label="맡긴 곳이, 직접 합니다. 재위탁 없이, 자체 전문팀이 직접 수행합니다.">
               <Chars text={"맡긴 곳이,\n직접 합니다."} />{" "}
-              <small>재위탁 없이, 인하우스 전문팀이 직접 수행합니다.</small>
+              <small>재위탁 없이, 자체 전문팀이 직접 수행합니다.</small>
             </h1>
             <p className="dp-lead">{d.lead}</p>
             <div className="dp-btns">
@@ -119,7 +119,7 @@ export default function AboutPage() {
       </Sec>
 
       <Sec q="전문팀은 어떻게 나뉘어 있나요?">
-        <p>다섯 개의 전문팀이 직접 수행합니다. 일정은 전담 AE가 통합 관리합니다.</p>
+        <p>여섯 개의 부서가 직접 수행합니다. 일정은 전담 AE가 통합 관리합니다.</p>
         <ul className="dp-items">
           {TEAMS.map(([k, n, xs, en]) => (
             <li key={k}>

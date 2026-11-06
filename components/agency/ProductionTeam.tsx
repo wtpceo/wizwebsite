@@ -101,7 +101,7 @@ export default function ProductionTeam() {
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#070b14]/90 to-transparent px-6 pb-5 pt-16">
                 <p className="text-sm font-semibold text-white">
-                  촬영부터 편집까지, 전 과정 인하우스
+                  촬영부터 편집까지, 전 과정 자체 팀
                 </p>
                 <p className="mt-0.5 text-xs text-slate-400">
                   드라마·유명 채널 촬영감독 출신 제작팀

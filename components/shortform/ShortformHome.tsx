@@ -58,7 +58,7 @@ export default function ShortformHome() {
       />
       <div className="intro" id="intro" aria-hidden="true">
         <div className="fl">
-          {["MCN", "광고", "검색", "촬영", "블로그", "해외", "홈페이지", "엘리베이터TV"].map((w) => (
+          {["유튜버 섭외", "광고", "검색·AI", "촬영", "블로그", "해외", "홈페이지", "엘리베이터TV"].map((w) => (
             <span key={w}>{w}</span>
           ))}
         </div>
@@ -79,15 +79,16 @@ export default function ShortformHome() {
         <div className="wrap">
           <div className="left">
             <p className="kick in1">INTEGRATED MARKETING COMMUNICATIONS</p>
+            {/* 2026-11-06 저녁 대표: 진단으로 시작해 성과까지 함께 가는 회사. 메시지 설계는 docs/메시지설계-2026-11-06-대표뜻.md */}
             <h1 className="in2">
-              맡긴 곳이,
+              진단으로 시작해,
               <br />
-              직접 합니다.
+              성과로 보고합니다.
             </h1>
             <p className="sub in3">
-              퍼포먼스부터 AI 검색, 콘텐츠, 오프라인 미디어까지.
+              먼저 홈페이지·검색·AI·채널의 빈 곳을 찾고, 필요한 것만 제안합니다.
               <br />
-              인하우스 전문팀이 한 곳에서 직접 수행합니다.
+              인플루언서 섭외부터 광고·SEO·GEO·촬영까지 자체 팀이 직접 실행하고, 전담 AE가 성과로 보고합니다.
             </p>
             <div className="btns in4">
               <a className="b1" href="/contact">
@@ -214,7 +215,7 @@ export default function ShortformHome() {
             <p className="cap sz-lg brk">
               <Chars text={"대행사 넷, 담당자 넷,\n핑계도 넷."} />
             </p>
-            <p className="sm">대행사가 늘어날수록 브랜드는 흩어지고, 비용과 시간, 책임의 공백이 생깁니다.</p>
+            <p className="sm">매체마다 회사가 나뉘면 보고는 '이행 내역'이 되고, 성과를 책임지는 사람은 사라집니다.</p>
           </div>
           <ol className="probs">
             {PROBLEMS.map(([t, d], i) => (
@@ -235,7 +236,7 @@ export default function ShortformHome() {
           <p className="cap sz-mega asm">
             <Chars text="한 곳에 맡기면" />
           </p>
-          <p className="sm">네 곳의 대행사가 하던 일, 이제 한 곳에서 끝납니다.</p>
+          <p className="sm">진단부터 실행, 성과 보고까지 한 팀이 처음부터 끝까지 갑니다.</p>
         </div>
       </Cut>
 
@@ -245,7 +246,7 @@ export default function ShortformHome() {
             <p className="cap sz-lg">
               <Words text={"이제 떠넘길 곳이 없습니다.\n그래서 끝까지 합니다."} />
             </p>
-            <p className="sm">캠페인 전략부터 매체 운영, 콘텐츠 제작, 성과 분석까지 전 과정을 인하우스로 수행합니다. 재위탁 없이 직접 실행하며, 전담 AE가 단일 창구로 모든 커뮤니케이션을 맡습니다.</p>
+            <p className="sm">문의가 오면 먼저 브랜드의 빈 곳을 찾습니다. 그다음 인플루언서·유튜버 섭외, 퍼포먼스 광고, SEO·GEO, 촬영, 홈페이지 개발까지 필요한 것만 자체 부서가 직접 실행합니다. 영업하는 사람과 실행하는 사람이 따로 있지 않고, 전담 AE가 팀을 움직이며 성과를 직접 찾아뵙고 보고합니다.</p>
           </div>
           <div className="orb" aria-label="한 곳에서 하는 여덟 가지">
             <div className="orb-c">
@@ -272,7 +273,7 @@ export default function ShortformHome() {
       <Cut id="c7" no={next()} ch={2} tone="c" fx="shutter" label="해법 3">
         <div className="sv-c">
           <p className="cap sz-lg">
-            <Words text={"운영 구조가\n다릅니다."} />
+            <Words text={"보고 기준이\n다릅니다."} />
           </p>
           <div className="cmp" role="table" aria-label="채널별 개별 대행과 위즈더플래닝 비교">
             <div className="cmp-h" role="row">
@@ -457,7 +458,7 @@ export default function ShortformHome() {
           <div className="mt-h">
             <p className="eb">WHAT WE DO</p>
             <p className="cap sz-xl">
-              <Words text={"브랜드 성장에\n필요한 역량,\n인하우스 전문팀으로."} />
+              <Words text={"한 매체가 아니라\n퍼널 전체를 움직이는\n여덟 가지."} />
             </p>
           </div>
           <div className="mt-scr" id="montage" aria-hidden="true">
@@ -520,7 +521,7 @@ export default function ShortformHome() {
         <div className="tm">
           <p className="eb">OUR TEAM</p>
           <p className="cap sz-lg">
-            <Words text={"다섯 개의 전문팀이\n직접 수행합니다."} />
+            <Words text={"여섯 개의 부서가\n한 고객사를 함께 맡습니다."} />
           </p>
           <div className="tm-map">
             <div className="tm-c">
@@ -544,14 +545,14 @@ export default function ShortformHome() {
               ))}
             </ul>
           </div>
-          <p className="sm">분야별 전문가가 외주 없이 직접 수행합니다.</p>
+          <p className="sm">영업 따로, 실행 따로가 아닙니다. 각자 전문성을 가진 부서가 외주 없이 직접 움직입니다.</p>
         </div>
       </Cut>
 
       <Cut id="c37" no={next()} ch={5} tone="c" fx="flipb" label="전문팀 2">
         <div className="tm2">
           <p className="cap sz-lg">
-            <Words text={"팀은 다섯,\n창구는 하나."} />
+            <Words text={"부서는 여섯,\n창구는 하나."} />
           </p>
           <div className="tm2-rows">
             {TEAMS.map(([k, n, jobs, en], i) => (
@@ -567,7 +568,7 @@ export default function ShortformHome() {
               </div>
             ))}
           </div>
-          <p className="sm">첫 미팅부터 성과 리포트까지, 전담 AE가 맡습니다.</p>
+          <p className="sm">계약할 때 만난 AE가 실행 때도 팀을 움직이고, 성과 보고는 전화가 아니라 직접 찾아뵙고 합니다.</p>
           <Link className="so-more" href="/team">
             전문팀 자세히 보기 <Icon k="arrow" />
           </Link>
@@ -582,7 +583,7 @@ export default function ShortformHome() {
               {i === 0 ? (
                 <>
                   <p className="eb">HOW WE WORK</p>
-                  <p className="ps-k">진단에서 최적화까지, 다섯 단계의 순환 구조.</p>
+                  <p className="ps-k">문제를 찾는 데서 시작해, 성과가 날 때까지 돕니다.</p>
                 </>
               ) : null}
               <p className="ps-no">
@@ -615,7 +616,7 @@ export default function ShortformHome() {
                       ))}
                     </tbody>
                   </table>
-                  <p className="doc-f">미노출·불일치 영역이 전략의 최우선 과제가 됩니다.</p>
+                  <p className="doc-f">비어 있는 구간이 제안의 출발점이 됩니다. 정해진 패키지는 없습니다.</p>
                   <Ex />
                 </div>
               ) : null}
