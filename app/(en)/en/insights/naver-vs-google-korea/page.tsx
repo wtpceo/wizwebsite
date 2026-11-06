@@ -236,8 +236,7 @@ export default function Page() {
           </CheckItem>
         </ul>
         <p>
-          WizThePlanning is a Seoul-based marketing agency operating since 2016 that has worked with 7,000+
-          advertisers. If you are planning a launch, see our{" "}
+          WizThePlanning is a Seoul-based marketing agency operating since 2016. If you are planning a launch, see our{" "}
           <a href="/en/korea-market-entry">Korea market entry support</a>.
         </p>
 

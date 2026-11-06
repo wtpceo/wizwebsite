@@ -107,8 +107,6 @@ export default function MedicalHero() {
           >
             <span>2016년부터</span>
             <span className="h-1 w-1 rounded-full bg-slate-700" />
-            <span>7,000+ 광고주</span>
-            <span className="h-1 w-1 rounded-full bg-slate-700" />
             <span className="text-[#00e5a0]/80">의료광고법 반영 진단</span>
           </motion.div>
         </motion.div>

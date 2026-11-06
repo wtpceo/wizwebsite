@@ -213,7 +213,7 @@ export default function ShortformHome() {
           <p className="cap sz-mega asm">
             <Chars text="한 곳에 맡기면" />
           </p>
-          <p className="sm">채널마다 따로 맡기던 일을 한 곳에서 받습니다.</p>
+          <p className="sm">대행사 네 곳 챙기던 일, 여기 한 곳으로 끝납니다.</p>
         </div>
       </Cut>
 
@@ -223,7 +223,7 @@ export default function ShortformHome() {
             <p className="cap sz-lg">
               <Words text={"하청 없이,\n우리 팀이 직접 책임집니다."} />
             </p>
-            <p className="sm">광고 운영부터 촬영·편집까지 사내 팀이 직접 합니다. 손님은 담당 마케터 한 명과만 이야기하면 됩니다.</p>
+            <p className="sm">찍는 사람도 광고 돌리는 사람도 전부 저희 직원입니다. 전화는 담당 마케터 한 명한테만 하시면 됩니다.</p>
           </div>
           <div className="orb" aria-label="한 곳에서 하는 여덟 가지">
             <div className="orb-c">
@@ -443,7 +443,7 @@ export default function ShortformHome() {
         <Cut key={f.n} id={`c${33 + i}`} no={next()} ch={4} tone={(["w", "c", "k"] as const)[i]} fx="cwipe" label={`업종별 ${f.n}`} className={`so so-${i}`}>
           <div className="so-in">
             <div className="so-t">
-              {i === 0 ? <p className="so-k">업종마다 먼저 손볼 곳이 다릅니다. 진단에서 안 보인 곳부터 순서를 잡습니다.</p> : null}
+              {i === 0 ? <p className="so-k">병원과 고깃집이 같은 순서일 리 없습니다. 안 보이는 곳부터 잡습니다.</p> : null}
               <p className="so-who">
                 <b>{f.n}</b> {f.who}
               </p>
@@ -498,7 +498,7 @@ export default function ShortformHome() {
               ))}
             </ul>
           </div>
-          <p className="sm">광고·검색·블로그·MCN·촬영 팀이 모두 사내에 있습니다.</p>
+          <p className="sm">광고·검색·블로그·MCN·촬영, 전부 사내 팀입니다.</p>
         </div>
       </Cut>
 
@@ -518,7 +518,7 @@ export default function ShortformHome() {
               </div>
             ))}
           </div>
-          <p className="sm">다섯 팀의 일을 담당 마케터가 모아서 전합니다.</p>
+          <p className="sm">팀은 다섯, 창구는 하나.</p>
           <Link className="so-more" href="/team">
             전문 인력 자세히 <Icon k="arrow" />
           </Link>
@@ -531,7 +531,7 @@ export default function ShortformHome() {
           <div className="ps-in">
             <div className="ps-t">
               {i === 0 ? (
-                <p className="ps-k">상담부터 리포트까지 담당 마케터 한 명이 맡습니다.</p>
+                <p className="ps-k">첫 상담부터 마지막 보고까지 같은 사람입니다.</p>
               ) : null}
               <p className="ps-no">
                 {i + 1} / 5
@@ -563,7 +563,7 @@ export default function ShortformHome() {
                       ))}
                     </tbody>
                   </table>
-                  <p className="doc-f">안 보이는 곳과 서로 다른 곳부터 제안서 맨 위에 올립니다.</p>
+                  <p className="doc-f">안 보이는 곳, 어긋난 곳이 제안서 1번입니다.</p>
                   <Ex />
                 </div>
               ) : null}
@@ -628,7 +628,7 @@ export default function ShortformHome() {
                       </div>
                     ))}
                   </div>
-                  <p className="doc-f">문의에서 많이 빠지면 홈페이지 문의 버튼과 첫 문장부터 고칩니다.</p>
+                  <p className="doc-f">문의가 안 오면 버튼과 첫 문장부터 갈아엎습니다.</p>
                   <a className="loop" href="#c38">
                     <Icon k="loop" />
                     개선이 끝나면 다시 진단부터

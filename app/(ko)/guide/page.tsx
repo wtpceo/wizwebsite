@@ -7,7 +7,7 @@ import { GUIDE_ARTICLES } from "@/lib/guide-articles"
 export const metadata: Metadata = {
   title: "마케팅 가이드: AI 검색 최적화·플레이스 실전 노하우",
   description:
-    "AI 검색 최적화(GEO), 네이버 플레이스, 업종별 마케팅 실전 가이드. 위즈더플래닝이 7,000여 광고주와 쌓은 노하우를 사장님 눈높이로 정리했습니다.",
+    "AI 검색 최적화(GEO), 네이버 플레이스, 업종별 마케팅 실전 가이드. 위즈더플래닝이 쌓아 온 노하우를 사장님 눈높이로 정리했습니다.",
   alternates: { canonical: "/guide" },
   openGraph: {
     title: "마케팅 가이드 | 위즈더플래닝",

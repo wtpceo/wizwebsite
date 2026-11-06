@@ -8,7 +8,7 @@ import { EN_BASE, EN_ORG_JSONLD } from "@/lib/en/site"
 // 수치는 공개된 사례·가이드에 있는 것만 쓴다. 가격·결과 보장 문구는 법무 검토 전이므로 쓰지 않는다.
 const TITLE = "WizThePlanning | Korea Marketing Agency for Naver and AI Search"
 const DESC =
-  "Seoul-based marketing agency since 2016, working with 7,000+ advertisers. We help brands get found in Korea across Naver, Google and AI assistants like ChatGPT, Gemini and Perplexity, and we measure it every week."
+  "Seoul-based marketing agency since 2016. We help brands get found in Korea across Naver, Google and AI assistants like ChatGPT, Gemini and Perplexity, and we measure it every week."
 
 export const metadata: Metadata = {
   title: { absolute: TITLE },
@@ -39,10 +39,9 @@ export default function Page() {
           lead="Korean customers discover brands through two paths that do not replace each other: Naver's own ecosystem, and the open web that ChatGPT, Gemini, Perplexity and Google read. We work on both, and we measure where you appear every week."
         >
           <EnCtaButtons primary={{ label: "Talk to us", href: "/en/contact" }} secondary={{ label: "How we measure", href: "/en/how-we-measure" }} />
-          <dl className="mt-12 grid max-w-3xl grid-cols-2 gap-6 sm:grid-cols-4">
+          <dl className="mt-12 grid max-w-3xl grid-cols-2 gap-6 sm:grid-cols-3">
             {[
               ["2016", "In business since"],
-              ["7,000+", "Advertisers worked with"],
               ["4", "AI engines measured weekly"],
               ["93%", "ChatGPT mention rate in one clinic case, up from 17%"],
             ].map(([v, l]) => (

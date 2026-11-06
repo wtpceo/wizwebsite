@@ -13,12 +13,6 @@ const fadeUp: Variants = {
 
 const STATS = [
   {
-    value: "7,000+",
-    label: "누적 광고주",
-    desc: "2016년부터 함께한 브랜드",
-    accent: true,
-  },
-  {
     value: "1,000+",
     label: "메타 광고 캠페인",
     desc: "인스타그램·페이스북 퍼포먼스 집행",
@@ -46,7 +40,7 @@ export default function StatsBand() {
     >
       <div className="container px-4 md:px-6">
         <h2 className="sr-only">위즈더플래닝 실적</h2>
-        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-3">
           {STATS.map((stat, i) => (
             <motion.div
               key={stat.label}

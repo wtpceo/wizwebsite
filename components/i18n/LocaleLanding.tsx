@@ -173,7 +173,7 @@ export default function LocaleLanding({
             <div className="mt-14 rounded-3xl bg-gradient-to-br from-[#0b1220] to-[#101b2e] px-8 py-10 md:px-10">
               <h3 className="text-xl font-extrabold text-white md:text-2xl">{t.proof.heading}</h3>
               <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-400 md:text-base">{t.proof.body}</p>
-              <div className="mt-8 grid grid-cols-3 gap-4">
+              <div className="mt-8 grid grid-cols-2 gap-4">
                 {t.proof.stats.map((st) => (
                   <div key={st.label} className="text-center">
                     <div className="text-2xl font-extrabold text-[#00e5a0] md:text-4xl">{st.value}</div>

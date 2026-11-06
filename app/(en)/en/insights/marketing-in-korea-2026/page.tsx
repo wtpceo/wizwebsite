@@ -315,7 +315,7 @@ export default function Page() {
 
         <h2>Where to start</h2>
         <p>
-          WizThePlanning is a Seoul-based marketing agency that has worked with 7,000+ advertisers since 2016, across AI
+          WizThePlanning is a Seoul-based marketing agency operating since 2016, working across AI
           search optimization, SEO, Naver marketing, Meta and Google ads, content and websites. If you are planning a Korean
           launch, our <a href="/en/korea-market-entry">Korea market entry service</a> lays out how we set up both discovery
           paths. To see how your brand currently shows up on Naver, Google and AI assistants in Korea,{" "}

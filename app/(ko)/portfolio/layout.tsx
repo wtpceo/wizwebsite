@@ -2,12 +2,12 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "포트폴리오: 매장 사진·영상 콘텐츠 제작 사례",
-  description: "위즈더플래닝이 촬영·제작한 매장 사진, 영상 콘텐츠 포트폴리오. 7,000여 광고주와 함께한 결과물을 확인하세요.",
+  description: "위즈더플래닝이 촬영·제작한 매장 사진, 영상 콘텐츠 포트폴리오. 실제 작업 결과물을 확인하세요.",
   alternates: { canonical: "/portfolio" },
   openGraph: {
     images: ["/thumbnail.png"],
     title: "포트폴리오 | 위즈더플래닝",
-    description: "위즈더플래닝이 촬영·제작한 매장 사진, 영상 콘텐츠 포트폴리오. 7,000여 광고주와 함께한 결과물을 확인하세요.",
+    description: "위즈더플래닝이 촬영·제작한 매장 사진, 영상 콘텐츠 포트폴리오. 실제 작업 결과물을 확인하세요.",
     url: "https://wiztheplanning.com/portfolio",
   },
 }

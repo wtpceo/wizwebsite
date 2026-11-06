@@ -41,8 +41,7 @@ export default function TestimonialsSection() {
               REVIEWS
             </span>
             <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 md:text-4xl">
-              <span className="hidden md:inline">7,000여 광고주의 선택</span>
-              <span className="block md:hidden">7,000여<br />광고주의 선택</span>
+              실제 광고주들의 후기
             </h2>
             <p className="mx-auto max-w-[700px] text-gray-600 md:text-lg">
               <span className="hidden md:inline">위즈더플래닝과 함께한 고객들의 생생한 후기를 확인하세요.</span>

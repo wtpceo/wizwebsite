@@ -53,7 +53,7 @@ export default function GuidePreview() {
             <br className="md:hidden" /> 먼저 읽어보세요
           </h2>
           <p className="mt-5 text-base leading-relaxed text-gray-600 md:text-lg">
-            7,000여 광고주와 쌓은 노하우를 가이드로 정리했습니다.
+            쌓아 온 노하우를 가이드로 정리했습니다.
             <br className="hidden md:block" />
             상담 전에 읽어보시면 대화가 훨씬 빨라집니다.
           </p>

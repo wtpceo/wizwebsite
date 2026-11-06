@@ -258,7 +258,7 @@ export default function HeroSection({ locale }: { locale?: string }) {
             >
               ChatGPT, 퍼플렉시티, 네이버 AI가 당신의 가게를 추천하게 만드는 기술.
               <br className="hidden md:block" />
-              9년간 7,000여 광고주와 쌓은 로컬 마케팅 데이터로
+              9년간 쌓은 로컬 마케팅 데이터로
               <span className="font-semibold text-slate-200"> AI 검색 시대의 첫 페이지</span>를
               선점하세요.
             </motion.p>
@@ -289,8 +289,6 @@ export default function HeroSection({ locale }: { locale?: string }) {
               className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-500 lg:justify-start"
             >
               <span>2016년부터 9년</span>
-              <span className="h-1 w-1 rounded-full bg-slate-700" />
-              <span>7,000+ 광고주</span>
               <span className="h-1 w-1 rounded-full bg-slate-700" />
               <span className="text-[#00e5a0]/80">AI 검색 최적화 전문</span>
             </motion.div>

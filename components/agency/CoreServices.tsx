@@ -176,7 +176,7 @@ export default function CoreServices() {
           viewport={{ once: true, margin: "-60px" }}
           className="mx-auto mt-12 max-w-2xl text-center text-sm text-gray-500"
         >
-          2016년부터 7,000+ 광고주와 함께한 실행력 위에, AI 검색 시대의 전략을 더했습니다.
+          2016년부터 이어 온 실행력 위에, AI 검색 시대의 전략을 더했습니다.
         </motion.p>
 
         {/* IMC·인플루언서 섭외 라인 입구. 홈에는 이 한 곳만 둔다 (2026-11-03 대표 결정, 첫 화면 메시지는 그대로) */}

@@ -336,7 +336,7 @@ export default function Page() {
           </CheckItem>
         </ul>
         <p>
-          WizThePlanning is a Seoul-based marketing agency that has worked with 7,000+ advertisers since 2016. We measure AI
+          WizThePlanning is a Seoul-based marketing agency operating since 2016. We measure AI
           search visibility weekly with an in-house monitoring system; the process is described in{" "}
           <a href="/en/how-we-measure">how we measure AI search visibility</a>. Fixing the question set matters: without
           the same questions each time, you cannot tell improvement from chance.

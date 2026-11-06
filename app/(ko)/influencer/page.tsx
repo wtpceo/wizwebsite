@@ -190,8 +190,8 @@ export default function Page() {
             </a>
             <KakaoChatButton variant="ghost" label="카톡으로 먼저 물어보기" className="h-14 px-7 text-[17px]" />
           </div>
-          {/* 확인된 사실만. /business 첫 화면 숫자와 같다(2016년 대행 시작, 함께한 광고주 7,000여 곳, 10/29 결정) */}
-          <p className="mt-5 text-[14.5px] text-slate-300 md:mt-6 md:text-[15px]">2016년부터 광고 대행 · 함께한 광고주 7,000여 곳</p>
+          {/* 확인된 사실만. 2016년 대행 시작. 광고주 수는 회사소개 쪽에만 둔다(11/06 결정) */}
+          <p className="mt-5 text-[14.5px] text-slate-300 md:mt-6 md:text-[15px]">2016년부터 광고 대행</p>
         </div>
       </section>
 

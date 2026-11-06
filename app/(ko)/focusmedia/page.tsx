@@ -111,7 +111,7 @@ const DIFFERENTIATORS = [
   {
     icon: Users,
     title: "9년의 검증된 노하우",
-    desc: "7,000여 곳의 광고주가 선택한\n데이터 기반 성공 전략을\n그대로 적용해드립니다.",
+    desc: "9년간 쌓은\n데이터 기반 성공 전략을\n그대로 적용해드립니다.",
   },
 ] as const
 
@@ -296,7 +296,7 @@ export default function FocusMediaPage() {
                 </span>
                 <span className="hidden h-1 w-1 rounded-full bg-slate-600 sm:block" />
                 <span className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-orange-400" /> 9년 · 7,000여 광고주
+                  <CheckCircle className="h-4 w-4 text-orange-400" /> 9년의 운영 노하우
                 </span>
               </motion.div>
             </div>

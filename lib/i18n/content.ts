@@ -1,7 +1,7 @@
 import type { Locale } from "./config"
 
 // 외국인 사장님 대상 랜딩 콘텐츠. 기계번역 티가 나지 않도록 의역했다.
-// 브랜드 사실(2016년 설립, 7,000여 광고주)은 회사 공식 정보와 일치한다.
+// 브랜드 사실(2016년 설립)은 회사 공식 정보와 일치한다.
 
 export type LandingContent = {
   metaTitle: string
@@ -62,7 +62,7 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
   en: {
     metaTitle: "AI Search Marketing for Business Owners in Korea | WizThePlanning",
     metaDescription:
-      "Running a business in Korea? Korean customers now search on Naver and ask ChatGPT, and your shop may not appear in either. Since 2016, WizThePlanning has served 7,000+ advertisers with Korean-language SEO and AI search optimization (GEO) so Korean customers find you first. Enquiries in English welcome.",
+      "Running a business in Korea? Korean customers now search on Naver and ask ChatGPT, and your shop may not appear in either. Since 2016, WizThePlanning has offered Korean-language SEO and AI search optimization (GEO) so Korean customers find you first. Enquiries in English welcome.",
     nav: { diagnose: "Free check", contact: "Contact" },
     menu: [
       { label: "The problem", href: "#problem" },
@@ -79,7 +79,7 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
       sub: "Koreans no longer just search on Naver. They ask ChatGPT and Perplexity which place nearby is good. Not speaking Korean, or not knowing how marketing works here, shouldn't mean handing those customers to someone else. We put your business into search results and AI answers, in Korean.",
       ctaPrimary: "Check my website for free",
       ctaSecondary: "Contact us in English",
-      trust: "Since 2016 · 7,000+ advertisers · English enquiries welcome",
+      trust: "Since 2016 · English enquiries welcome",
     },
     problem: {
       heading: "Working hard, but invisible online?",
@@ -123,10 +123,9 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
     },
     proof: {
       heading: "Not a team that just started",
-      body: "Since 2016, WizThePlanning has worked with more than 7,000 advertisers, focusing on local storefront businesses such as restaurants, clinics, academies and beauty.",
+      body: "Since 2016, WizThePlanning has focused on local storefront businesses such as restaurants, clinics, academies and beauty.",
       stats: [
         { value: "2016", label: "In business since" },
-        { value: "7,000+", label: "Advertisers served" },
         { value: "English", label: "Enquiries welcome" },
       ],
     },
@@ -180,7 +179,7 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
   zh: {
     metaTitle: "在韩华人老板的营销伙伴 — AI搜索优化(GEO)｜WizThePlanning",
     metaDescription:
-      "在韩国做生意的华人老板必看。韩国顾客现在用Naver、ChatGPT搜索店铺，但你的店可能根本没出现在答案里。WizThePlanning自2016年起服务7,000多家广告主，用韩语帮你做好SEO与AI搜索优化(GEO)，让韩国人搜索时先找到你。支持中文咨询。",
+      "在韩国做生意的华人老板必看。韩国顾客现在用Naver、ChatGPT搜索店铺，但你的店可能根本没出现在答案里。WizThePlanning自2016年起提供服务，用韩语帮你做好SEO与AI搜索优化(GEO)，让韩国人搜索时先找到你。支持中文咨询。",
     nav: { diagnose: "免费诊断", contact: "咨询" },
     menu: [
       { label: "现状", href: "#problem" },
@@ -197,7 +196,7 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
       sub: "现在韩国人不只用Naver，还会问ChatGPT、Perplexity「附近哪家好」。语言不通、不懂韩国营销，不代表要把客人让给别人。我们用韩语替你把店铺信息做进搜索和AI的答案里。",
       ctaPrimary: "免费诊断我的网站",
       ctaSecondary: "中文咨询",
-      trust: "自2016年 · 服务7,000多家广告主 · 支持中文沟通",
+      trust: "自2016年 · 支持中文沟通",
     },
     problem: {
       heading: "为什么努力做生意，网上却找不到你？",
@@ -241,10 +240,9 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
     },
     proof: {
       heading: "不是刚起步的团队",
-      body: "WizThePlanning自2016年起，累计服务超过7,000家广告主，专注餐饮、医院、学院、美容等以门店为主的本地生意营销。",
+      body: "WizThePlanning自2016年起，专注餐饮、医院、学院、美容等以门店为主的本地生意营销。",
       stats: [
         { value: "2016", label: "开始至今" },
-        { value: "7,000+", label: "服务广告主" },
         { value: "中文", label: "支持咨询" },
       ],
     },
@@ -298,7 +296,7 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
   vi: {
     metaTitle: "Marketing cho chủ tiệm Việt tại Hàn — Tối ưu AI (GEO)｜WizThePlanning",
     metaDescription:
-      "Dành cho chủ tiệm người Việt kinh doanh tại Hàn Quốc. Khách Hàn giờ tìm quán bằng Naver, ChatGPT — nhưng tiệm của bạn có thể không hề xuất hiện. WizThePlanning hoạt động từ 2016, phục vụ hơn 7.000 khách hàng quảng cáo, làm SEO và tối ưu tìm kiếm AI (GEO) bằng tiếng Hàn để người Hàn tìm thấy bạn trước. Hỗ trợ tư vấn tiếng Việt.",
+      "Dành cho chủ tiệm người Việt kinh doanh tại Hàn Quốc. Khách Hàn giờ tìm quán bằng Naver, ChatGPT — nhưng tiệm của bạn có thể không hề xuất hiện. WizThePlanning hoạt động từ 2016, làm SEO và tối ưu tìm kiếm AI (GEO) bằng tiếng Hàn để người Hàn tìm thấy bạn trước. Hỗ trợ tư vấn tiếng Việt.",
     nav: { diagnose: "Kiểm tra miễn phí", contact: "Tư vấn" },
     menu: [
       { label: "Hiện trạng", href: "#problem" },
@@ -315,7 +313,7 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
       sub: "Người Hàn giờ không chỉ dùng Naver mà còn hỏi ChatGPT, Perplexity «quán nào gần đây ngon». Không giỏi tiếng Hàn, không rành marketing Hàn Quốc — không có nghĩa là phải nhường khách cho người khác. Chúng tôi đưa thông tin tiệm bạn vào câu trả lời của tìm kiếm và AI, bằng tiếng Hàn.",
       ctaPrimary: "Kiểm tra website miễn phí",
       ctaSecondary: "Tư vấn tiếng Việt",
-      trust: "Từ 2016 · Hơn 7.000 khách hàng · Hỗ trợ tiếng Việt",
+      trust: "Từ 2016 · Hỗ trợ tiếng Việt",
     },
     problem: {
       heading: "Vì sao làm ăn chăm chỉ mà trên mạng không thấy bạn?",
@@ -359,10 +357,9 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
     },
     proof: {
       heading: "Không phải đội mới vào nghề",
-      body: "WizThePlanning hoạt động từ 2016, phục vụ hơn 7.000 khách hàng quảng cáo, chuyên marketing cho kinh doanh địa phương như quán ăn, phòng khám, trung tâm, làm đẹp.",
+      body: "WizThePlanning hoạt động từ 2016, chuyên marketing cho kinh doanh địa phương như quán ăn, phòng khám, trung tâm, làm đẹp.",
       stats: [
         { value: "2016", label: "Từ khi bắt đầu" },
-        { value: "7.000+", label: "Khách hàng" },
         { value: "Tiếng Việt", label: "Hỗ trợ tư vấn" },
       ],
     },

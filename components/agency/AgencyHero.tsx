@@ -191,8 +191,6 @@ export default function AgencyHero() {
             >
               <span>2016년부터</span>
               <span className="h-1 w-1 rounded-full bg-slate-700" />
-              <span>7,000+ 광고주</span>
-              <span className="h-1 w-1 rounded-full bg-slate-700" />
               <span className="text-[#00e5a0]/80">기획·촬영·편집·개발 전부 사내</span>
             </motion.div>
           </motion.div>
