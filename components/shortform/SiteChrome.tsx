@@ -19,7 +19,7 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
         <b>WIZ THE PLANNING</b>
       </Link>
       <nav className="sfh-nav" aria-label="주 메뉴">
-        {/* 11-06 사장님 「전 칸 가운데, 상단 메뉴바 간격 다 동일하게」 — 칸을 메뉴 글자마다 달아 항상 글자 가운데 아래로 내려온다. 긴 서비스 이름은 칸이 겹쳐 여기서만 짧은 이름 */}
+        {/* 11-06 사장님 「상단 메뉴바 간격 다 동일하게」 + 「이름 줄이지 말고 칸마다」 — 마우스를 댄 메뉴의 항목만 글자 가운데 아래 상자로 */}
         <div className="sfh-it">
           <Link href="/about">회사소개</Link>
           <div className="sfh-col">
@@ -32,7 +32,7 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
           <div className="sfh-col">
             {SERVICES.map((s) => (
               <Link key={s.k} href={`/services/${s.slug}`}>
-                {s.short}
+                {s.n}
               </Link>
             ))}
           </div>
@@ -69,7 +69,6 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
             <Link href="/business/contact">기업 제안 요청</Link>
           </div>
         </div>
-        <div className="sfh-mega" aria-hidden="true" />
       </nav>
       <Link className="sfh-cta" href={cta.href}>
         {cta.label}
