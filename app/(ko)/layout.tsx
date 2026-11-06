@@ -116,7 +116,6 @@ const jsonLd = {
       foundingDate: '2016',
       sameAs: [
         'https://blog.naver.com/marketingrecipe-',
-        'https://www.instagram.com/matzip_town',
       ],
       openingHoursSpecification: {
         '@type': 'OpeningHoursSpecification',

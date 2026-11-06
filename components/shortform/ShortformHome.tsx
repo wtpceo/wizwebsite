@@ -409,7 +409,7 @@ export default function ShortformHome() {
                 <div className={`sc-v lay-${s.k}`} aria-hidden="true">
                   {s.k === "content" ? (
                     <div className="sc-reel">
-                      <video data-src="/sf/v/r22.mp4" poster="/sf/v/r22.jpg" muted loop playsInline preload="none" />
+                      <video data-src="/sf/v/b2.mp4" poster="/sf/v/b2.jpg" muted loop playsInline preload="none" />
                     </div>
                   ) : null}
                   <div className="deck" data-tiles={s.k} />

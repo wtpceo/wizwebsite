@@ -104,7 +104,7 @@ export const WORKS: Record<string, Works> = {
     items: [
       { tiles: "perf", pick: "0", cap: "광고 한 달 결과(실제 숫자)" },
       { tiles: "perf", pick: "2", cap: "구매로 잇는 광고 시안" },
-      { tiles: "global", pick: "3", cap: "일본 LINE 매장 안내" },
+      { tiles: "global", pick: "1", cap: "일본 LINE 매장 안내" },
     ],
   },
   enterprise: {
