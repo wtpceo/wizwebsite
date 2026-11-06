@@ -14,8 +14,10 @@ import {
   WEEK,
   FUNNEL,
   INSIGHT_HREFS,
+  INSIGHT_LABELS,
   CONTACT,
   HOME_FAQ,
+  TRUST,
 } from "./content"
 import { MG } from "./mg"
 import { DETAILS } from "./details"
@@ -76,21 +78,31 @@ export default function ShortformHome() {
         <div className="veil" />
         <div className="wrap">
           <div className="left">
+            <p className="kick in1">INTEGRATED MARKETING COMMUNICATIONS</p>
             <h1 className="in2">
-              나눠 맡기던 마케팅,
+              맡긴 곳이,
               <br />
-              A to Z, 한 곳에서.
+              직접 합니다.
             </h1>
-            <p className="sub in3">하청 없이 저희 팀이 직접 합니다.</p>
+            <p className="sub in3">
+              퍼포먼스부터 AI 검색, 콘텐츠, 오프라인 미디어까지.
+              <br />
+              인하우스 전문팀이 한 곳에서 직접 수행합니다.
+            </p>
             <div className="btns in4">
               <a className="b1" href="/contact">
-                무료 상담 신청
+                마케팅 진단 신청
               </a>
-              <a className="b2 kk" href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
-                <Icon k="kakao" />
-                카카오톡 상담
+              {/* 카카오톡 상담은 아래 고정 바에 있다(카피덱) */}
+              <a className="b2" href="/business/contact">
+                기업 제안 요청 (RFP)
               </a>
             </div>
+            <ul className="trust in4" aria-label="위즈더플래닝 운영 체계">
+              {TRUST.map((t) => (
+                <li key={t}>{t}</li>
+              ))}
+            </ul>
             <ol className="svl" id="svl" aria-label="위즈더플래닝이 하는 일 여덟 가지">
               {SERVICES.map((s, i) => (
                 <li key={s.k} style={vars({ i })}>
@@ -115,7 +127,7 @@ export default function ShortformHome() {
             </div>
             <div className="cap1" aria-live="polite">
               <div className="box">
-                <span>먼저 하는 일</span>
+                <span>접근 방식</span>
                 <p id="cf">
                   {SERVICES[0].first}
                   <small>{SERVICES[0].n} · 휴대폰을 누르면 자세히</small>
@@ -131,11 +143,14 @@ export default function ShortformHome() {
       </section>
 
       {/* 2 문제 */}
-      <Cut id="c2" no={next()} ch={1} tone="w" fx="blocks" label="문제 1">
+      <Cut id="c2" no={next()} ch={1} tone="w" fx="blocks" label="과제 1">
         <div className="pz pz-a">
-          <p className="cap sz-xl">
-            <Words text="퍼포먼스는 A사," />
-          </p>
+          <div>
+            <p className="eb">THE CHALLENGE</p>
+            <p className="cap sz-xl">
+              <Words text="퍼포먼스는 A사," />
+            </p>
+          </div>
           <div className="blk blk-1">
             <b>{PROBLEM_VENDORS[0][0]}</b>
             <span>{PROBLEM_VENDORS[0][1]}</span>
@@ -143,10 +158,10 @@ export default function ShortformHome() {
         </div>
       </Cut>
 
-      <Cut id="c3" no={next()} ch={1} tone="c" fx="blocks" label="문제 2">
+      <Cut id="c3" no={next()} ch={1} tone="c" fx="blocks" label="과제 2">
         <div className="pz pz-b">
           <p className="cap sz-lg">
-            <Words text={"바이럴은 B사,\n유튜브는 C사?"} />
+            <Words text={"바이럴은 B사,\n영상은 C사."} />
           </p>
           <div className="blks">
             {PROBLEM_VENDORS.map(([n, d], i) => (
@@ -156,15 +171,15 @@ export default function ShortformHome() {
               </div>
             ))}
           </div>
-          {/* 11-05 사장님 「단톡방 하나보다 업체마다 카톡방이 여러 개 생기고 계속 쌓이는 느낌」 — 카카오톡 채팅 목록(방이 하나씩 위로 쌓이고 안 읽은 숫자가 올라감) */}
+          {/* 11-05 사장님 「단톡방 하나보다 대행사마다 카톡방이 여러 개 생기고 계속 쌓이는 느낌」 — 카카오톡 채팅 목록(방이 하나씩 위로 쌓이고 안 읽은 숫자가 올라감) */}
           <div className="kt">
             <p className="kt-h" aria-hidden="true">
               <b>채팅</b>
               <span className="kt-n">안 읽은 대화 6</span>
             </p>
-            <ul className="pings" aria-label="업체가 넷일 때 쌓이는 카톡방">
+            <ul className="pings" aria-label="대행사가 넷일 때 쌓이는 카톡방">
               {PROBLEM_PINGS.map((p, i) => {
-                const room = ["광고 대행사 담당자", "블로그 체험단 업체", "영상 제작사 PD", "인플루언서 섭외 업체", "광고 대행사 팀장", "블로그 기자단 업체"][i]
+                const room = ["광고 대행사 담당자", "바이럴 대행사 담당자", "영상 프로덕션 PD", "인플루언서 에이전시", "광고 대행사 팀장", "기자단 대행사"][i]
                 const unread = [3, 12, 5, 8, 2, 21][i]
                 return (
                   <li key={p} style={vars({ i })} className={`pv${i % 4}`}>
@@ -189,11 +204,14 @@ export default function ShortformHome() {
         </div>
       </Cut>
 
-      <Cut id="c4" no={next()} ch={1} tone="k" fx="break" label="문제 3">
+      <Cut id="c4" no={next()} ch={1} tone="k" fx="break" label="과제 3">
         <div className="pz pz-c">
-          <p className="cap sz-lg brk">
-            <Chars text="업체가 넷이면 연락도 넷." />
-          </p>
+          <div>
+            <p className="cap sz-lg brk">
+              <Chars text={"대행사 넷, 담당자 넷,\n핑계도 넷."} />
+            </p>
+            <p className="sm">대행사가 늘어날수록 브랜드는 흩어지고, 비용과 시간, 책임의 공백이 생깁니다.</p>
+          </div>
           <ol className="probs">
             {PROBLEMS.map(([t, d], i) => (
               <li key={t} style={vars({ i })}>
@@ -207,28 +225,29 @@ export default function ShortformHome() {
       </Cut>
 
       {/* 3 해결 */}
-      <Cut id="c5" no={next()} ch={2} tone="k" fx="build" label="해결 1">
+      <Cut id="c5" no={next()} ch={2} tone="k" fx="build" label="해법 1">
         <div className="sv-a">
+          <p className="eb">OUR APPROACH</p>
           <p className="cap sz-mega asm">
             <Chars text="한 곳에 맡기면" />
           </p>
-          <p className="sm">대행사 네 곳 챙기던 일, 여기 한 곳으로 끝납니다.</p>
+          <p className="sm">네 곳의 대행사가 하던 일, 이제 한 곳에서 끝납니다.</p>
         </div>
       </Cut>
 
-      <Cut id="c6" no={next()} ch={2} tone="w" fx="folder" label="해결 2">
+      <Cut id="c6" no={next()} ch={2} tone="w" fx="folder" label="해법 2">
         <div className="sv-b">
           <div className="sv-b-t">
             <p className="cap sz-lg">
-              <Words text={"하청 없이,\n우리 팀이 직접 책임집니다."} />
+              <Words text={"이제 떠넘길 곳이 없습니다.\n그래서 끝까지 합니다."} />
             </p>
-            <p className="sm">찍는 사람도 광고 돌리는 사람도 전부 사내 팀입니다. 전화는 담당 마케터 한 명한테만 하시면 됩니다.</p>
+            <p className="sm">캠페인 전략부터 매체 운영, 콘텐츠 제작, 성과 분석까지 전 과정을 인하우스로 수행합니다. 재위탁 없이 직접 실행하며, 전담 AE가 단일 창구로 모든 커뮤니케이션을 맡습니다.</p>
           </div>
           <div className="orb" aria-label="한 곳에서 하는 여덟 가지">
             <div className="orb-c">
               <img src="/sf/img/wiz-symbol.png" alt="" width={733} height={460} />
               <b>위즈더플래닝</b>
-              <small>담당 마케터 1명</small>
+              <small>전담 AE</small>
             </div>
             {/* 바퀴살 위로 빛 점이 바깥에서 가운데로 흘러듦(11-05 사장님 「8개가 돌면서 한곳에 모이는 느낌」) */}
             {SERVICES.map((s, i) => (
@@ -246,15 +265,15 @@ export default function ShortformHome() {
         </div>
       </Cut>
 
-      <Cut id="c7" no={next()} ch={2} tone="c" fx="shutter" label="해결 3">
+      <Cut id="c7" no={next()} ch={2} tone="c" fx="shutter" label="해법 3">
         <div className="sv-c">
           <p className="cap sz-lg">
-            <Words text={"따로 맡길 때와\n이렇게 다릅니다."} />
+            <Words text={"운영 구조가\n다릅니다."} />
           </p>
-          <div className="cmp" role="table" aria-label="따로 맡길 때와 위즈더플래닝 비교">
+          <div className="cmp" role="table" aria-label="채널별 개별 대행과 위즈더플래닝 비교">
             <div className="cmp-h" role="row">
               <span role="columnheader">구분</span>
-              <span role="columnheader">따로 맡길 때</span>
+              <span role="columnheader">채널별 개별 대행</span>
               <span role="columnheader">위즈더플래닝</span>
             </div>
             {COMPARE.map(([k, a, b], i) => (
@@ -282,22 +301,26 @@ export default function ShortformHome() {
               {si === 0 ? <span id="services" className="sf-anchor" aria-hidden="true" /> : null}
               <div className="sa-in">
                 <p className="sa-no">
+                  <span className="eb">{s.eb}</span>
                   <b>{s.no}</b> / 08 · {s.n}
                   {s.k === "search" ? " · 대표 서비스" : ""}
                 </p>
                 <h2 className="cap sz-xl sa-cap">{s.fx === "flip" || s.fx === "slot" ? <Chars text={s.cap} /> : <Words text={s.cap} />}</h2>
-                {/* 다 보지 않아도 상세 쪽으로(11-05) */}
-                <Link className="sa-more" href={`/services/${s.slug}`}>
-                  {s.n} 자세히 <Icon k="arrow" />
-                </Link>
+                {/* 다 보지 않아도 상세 쪽으로(11-05) · 인증 배지는 제목 바로 아래(카피덱: 실적 칸에서 뺌) */}
+                <div className="sa-foot">
+                  {s.badge ? <p className="sa-badge">{s.badge}</p> : null}
+                  <Link className="sa-more" href={`/services/${s.slug}`}>
+                    서비스 자세히 보기 <Icon k="arrow" />
+                  </Link>
+                </div>
                 {/* 11-05: 제목만 떠 있던 첫 컷을 실제 작업물·예시 화면으로 채움(PC는 오른쪽, 휴대폰은 제목 아래) */}
                 {SA_TILES[s.k] ? <div className={`sa-vis sa-tiles sa-n${SA_TILES[s.k].split(",").length}`} data-tiles={s.k} data-pick={SA_TILES[s.k]} aria-hidden="true" /> : null}
-                {/* 검색 최적화 — 손님이 보는 AI 답변 화면(우리 브랜드가 1번 · 예시) + 아래 리얼지이오 실제 보고서 띠(11-05 사장님 「사람들이 보는 화면에 우리 업체가 나온다」) */}
+                {/* 검색 최적화 — 소비자가 보는 AI 답변 화면(우리 브랜드가 1번 · 예시) + 아래 리얼지이오 실제 리포트 띠(11-05 사장님) */}
                 {s.k === "search" ? (
                   <figure className="sa-vis sa-ai">
                     <div className="ai-c" data-tiles="search" data-pick="0" aria-hidden="true" style={vars({ i: 0 })} />
-                    <img src="/images/report/report-1.jpg" alt="AI 답변에 업체가 언급된 비율을 보여 주는 리얼지이오 보고서 화면" loading="lazy" width={1600} height={396} style={vars({ i: 1 })} />
-                    <figcaption>위: AI 답변 화면 예시 · 아래: 리얼지이오(realGEO) 실제 보고서, 업체명 가림</figcaption>
+                    <img src="/images/report/report-1.jpg" alt="AI 답변에 브랜드가 언급된 비율을 보여 주는 리얼지이오 리포트 화면" loading="lazy" width={1600} height={396} style={vars({ i: 1 })} />
+                    <figcaption>위: AI 답변 화면 예시 · 아래: 리얼지이오(realGEO) 실제 리포트, 고객사명 가림</figcaption>
                   </figure>
                 ) : null}
                 {s.k === "infl" ? (
@@ -349,7 +372,7 @@ export default function ShortformHome() {
                 <div className="sb-mg" aria-hidden="true" dangerouslySetInnerHTML={{ __html: MG[s.k] }} />
                 <div className="sb-t">
                   <p className="sb-k">
-                    {s.n} · 먼저 하는 일
+                    {s.n} · 접근 방식
                   </p>
                   <p className="cap sz-lg">
                     <Words text={s.first} />
@@ -386,7 +409,7 @@ export default function ShortformHome() {
                   </ul>
                   {s.rec.length ? (
                     <div className="sc-rec">
-                      <p>실제 기록</p>
+                      <p>주요 성과</p>
                       <ul>
                         {s.rec.map((r) => (
                           <li key={r}>
@@ -394,15 +417,19 @@ export default function ShortformHome() {
                 </li>
                         ))}
                       </ul>
-                      {DETAILS[s.k].recNote ? <small className="sc-recn">{DETAILS[s.k].recNote}</small> : null}
+                      {DETAILS[s.k].recNote ? (
+                        <small className="sc-recn">
+                          {DETAILS[s.k].recNote} <Link href="/how-we-measure">측정 방식 보기 →</Link>
+                        </small>
+                      ) : null}
                     </div>
                   ) : null}
                   <div className="sc-btn">
                     <a className="p1" href={`/contact?svc=${s.k}`}>
-                      무료 상담 신청
+                      진단 신청
                     </a>
                     <Link className="p2" href={`/services/${s.slug}`}>
-                      {s.n} 자세히
+                      서비스 자세히 보기
                     </Link>
                   </div>
                 </div>
@@ -413,7 +440,7 @@ export default function ShortformHome() {
                     </div>
                   ) : null}
                   <div className="deck" data-tiles={s.k} />
-                  <Ex>{s.k === "global" ? "예시 화면" : "예시 화면 · 업체명 가림"}</Ex>
+                  <Ex>{s.k === "global" ? "예시 화면" : "예시 화면 · 고객사명 가림"}</Ex>
                 </div>
               </div>
             </Cut>
@@ -423,9 +450,12 @@ export default function ShortformHome() {
 
       <Cut id="c32" no={next()} ch={3} tone="k" fx="montage" label="여덟 가지 몽타주">
         <div className="mt">
-          <p className="cap sz-xl">
-            <Words text="마케팅 A to Z, 한 곳에서." />
-          </p>
+          <div className="mt-h">
+            <p className="eb">WHAT WE DO</p>
+            <p className="cap sz-xl">
+              <Words text={"브랜드 성장에\n필요한 역량,\n인하우스 전문팀으로."} />
+            </p>
+          </div>
           <div className="mt-scr" id="montage" aria-hidden="true">
             <img src="/sf/ex/m-shoot.jpg" alt="" loading="lazy" />
           </div>
@@ -442,7 +472,16 @@ export default function ShortformHome() {
         <Cut key={f.n} id={`c${33 + i}`} no={next()} ch={4} tone={(["w", "c", "k"] as const)[i]} fx="cwipe" label={`업종별 ${f.n}`} className={`so so-${i}`}>
           <div className="so-in">
             <div className="so-t">
-              {i === 0 ? <p className="so-k">병원과 고깃집이 같은 순서일 리 없습니다. 안 보이는 곳부터 잡습니다.</p> : null}
+              {i === 0 ? (
+                <>
+                  <p className="eb">INDUSTRIES</p>
+                  <p className="so-k">
+                    업종과 성장 단계가 다르면, 전략도 달라야 합니다.
+                    <br />
+                    진단을 통해 브랜드에 가장 효과적인 채널 조합을 설계합니다.
+                  </p>
+                </>
+              ) : null}
               <p className="so-who">
                 <b>{f.n}</b> {f.who}
               </p>
@@ -461,7 +500,7 @@ export default function ShortformHome() {
                 ))}
               </ol>
               <Link className="so-more" href={`/solutions/${f.slug}`}>
-                {f.n} 자세히 <Icon k="arrow" />
+                {f.n} 전략 자세히 보기 <Icon k="arrow" />
               </Link>
             </div>
             <figure className="so-ph">
@@ -472,75 +511,85 @@ export default function ShortformHome() {
         </Cut>
       ))}
 
-      {/* 6 전문 인력 */}
-      <Cut id="c36" no={next()} ch={5} tone="w" fx="folder" label="전문 인력 1">
+      {/* 6 전문팀 */}
+      <Cut id="c36" no={next()} ch={5} tone="w" fx="folder" label="전문팀 1">
         <div className="tm">
+          <p className="eb">OUR TEAM</p>
           <p className="cap sz-lg">
-            <Words text={"다섯 팀이 나눠서\n직접 합니다."} />
+            <Words text={"다섯 개의 전문팀이\n직접 수행합니다."} />
           </p>
           <div className="tm-map">
             <div className="tm-c">
               <span className="ic">
                 <Icon k="person" />
               </span>
-              <b>담당 마케터</b>
-              <small>손님 한 분에 한 명</small>
+              <b>전담 AE</b>
+              <small>고객사별 1인 배정</small>
             </div>
             <ul>
-              {TEAMS.map(([k, n], i) => (
+              {TEAMS.map(([k, n, , en], i) => (
                 <li key={n} style={vars({ i })}>
                   <span className="ic">
                     <Icon k={k} />
                   </span>
-                  {n}
+                  <span>
+                    <small>{en}</small>
+                    {n}
+                  </span>
                 </li>
               ))}
             </ul>
           </div>
-          <p className="sm">다섯 팀 전부 위즈더플래닝 사람입니다.</p>
+          <p className="sm">분야별 전문가가 외주 없이 직접 수행합니다.</p>
         </div>
       </Cut>
 
-      <Cut id="c37" no={next()} ch={5} tone="c" fx="flipb" label="전문 인력 2">
+      <Cut id="c37" no={next()} ch={5} tone="c" fx="flipb" label="전문팀 2">
         <div className="tm2">
           <p className="cap sz-lg">
-            <Words text={"창구는\n담당 마케터 한 명."} />
+            <Words text={"팀은 다섯,\n창구는 하나."} />
           </p>
           <div className="tm2-rows">
-            {TEAMS.map(([k, n, jobs], i) => (
+            {TEAMS.map(([k, n, jobs, en], i) => (
               <div className="tm2-r" key={n} style={vars({ i })}>
                 <span className="tm2-ph" aria-hidden="true">
                   <Icon k={k} />
                 </span>
-                <b>{n}</b>
+                <b>
+                  <small>{en}</small>
+                  {n}
+                </b>
                 <span className="tm2-j">{jobs.join(" · ")}</span>
               </div>
             ))}
           </div>
-          <p className="sm">같은 이야기를 여러 번 하실 일이 없습니다.</p>
+          <p className="sm">첫 미팅부터 성과 리포트까지, 전담 AE가 맡습니다.</p>
           <Link className="so-more" href="/team">
-            전문 인력 자세히 <Icon k="arrow" />
+            전문팀 자세히 보기 <Icon k="arrow" />
           </Link>
         </div>
       </Cut>
 
-      {/* 7 진행 과정 */}
+      {/* 7 프로세스 */}
       {STEPS.map((st, i) => (
-        <Cut key={st.w} id={`c${38 + i}`} no={next()} ch={6} tone={STEP_TONE[i]} fx="slot" label={`진행 과정 ${i + 1}`} className={`ps ps-${i}`}>
+        <Cut key={st.w} id={`c${38 + i}`} no={next()} ch={6} tone={STEP_TONE[i]} fx="slot" label={`프로세스 ${i + 1}`} className={`ps ps-${i}`}>
           <div className="ps-in">
             <div className="ps-t">
               {i === 0 ? (
-                <p className="ps-k">담당 마케터 한 명이 첫 상담부터 보고까지 챙깁니다.</p>
+                <>
+                  <p className="eb">HOW WE WORK</p>
+                  <p className="ps-k">진단에서 최적화까지, 다섯 단계의 순환 구조.</p>
+                </>
               ) : null}
               <p className="ps-no">
-                {i + 1} / 5
+                {i + 1} / 5 · {st.en}
               </p>
               <h2 className="sr">{st.w}</h2>
               <p className="ps-w" aria-hidden="true">
                 <span className="ps-wi">{st.w}</span>
               </p>
               <p className="ps-l">{st.t}</p>
-              <ol className="ps-flow" aria-label="진행 순서">
+              <ol className="ps-flow" aria-label="프로세스 순서">
                 {STEPS.map((x, j) => (
                   <li key={x.w} className={j === i ? "on" : j < i ? "done" : ""}>
                     {x.w}
@@ -551,7 +600,7 @@ export default function ShortformHome() {
             <div className="ps-v">
               {i === 0 ? (
                 <div className="doc diag">
-                  <p className="doc-h">지금 어디에 어떻게 나오는지</p>
+                  <p className="doc-h">채널별 노출 현황</p>
                   <table>
                     <tbody>
                       {DIAG_ROWS.map(([a, b, c], j) => (
@@ -562,40 +611,40 @@ export default function ShortformHome() {
                       ))}
                     </tbody>
                   </table>
-                  <p className="doc-f">「안 보임」「서로 다름」 칸부터 고칩니다.</p>
+                  <p className="doc-f">미노출·불일치 영역이 전략의 최우선 과제가 됩니다.</p>
                   <Ex />
                 </div>
               ) : null}
               {i === 1 ? (
                 <div className="doc prop">
-                  <p className="doc-h">업종에 맞는 조합 · 제안서</p>
+                  <p className="doc-h">업종별 채널 조합 · 제안서</p>
                   <dl>
                     <div style={vars({ i: 0 })}>
-                      <dt>먼저 할 일</dt>
+                      <dt>우선 과제</dt>
                       <dd>
-                        지도·홈페이지 정보 맞추기<small>AI 답변이 같은 정보를 읽게 합니다</small>
+                        지도·홈페이지 정보 일원화<small>AI 답변이 같은 정보를 읽게 합니다</small>
                       </dd>
                     </div>
                     <div style={vars({ i: 1 })}>
-                      <dt>같이 할 일</dt>
+                      <dt>병행 과제</dt>
                       <dd>
-                        블로그 체험단<small>찾아본 손님이 읽을 후기를 쌓습니다</small>
+                        블로그 체험단<small>검색한 고객이 읽을 후기를 확보합니다</small>
                       </dd>
                     </div>
                     <div style={vars({ i: 2 })}>
-                      <dt>담당</dt>
+                      <dt>운영 체계</dt>
                       <dd>
-                        담당 마케터 한 명<small>매주 보고</small>
+                        전담 AE<small>주간 리포트</small>
                       </dd>
                     </div>
                   </dl>
-                  <p className="doc-f">비용은 진단 뒤 제안서로 따로 안내합니다.</p>
+                  <p className="doc-f">비용은 진단 후 맞춤 제안서로 안내해 드립니다.</p>
                   <Ex />
                 </div>
               ) : null}
               {i === 2 ? (
                 <div className="doc week">
-                  <p className="doc-h">한 주 일정 · 담당 마케터가 한 표로 챙깁니다</p>
+                  <p className="doc-h">주간 실행 계획: 전담 AE 통합 관리</p>
                   <div className="wk">
                     {WEEK.map(([d, jobs], j) => (
                       <div key={d} className="wk-d" style={vars({ i: j })}>
@@ -617,7 +666,7 @@ export default function ShortformHome() {
               ) : null}
               {i === 4 ? (
                 <div className="doc fun">
-                  <p className="doc-h">어디서 막혔는지</p>
+                  <p className="doc-h">전환 퍼널 병목 구간</p>
                   <div className="fn">
                     {FUNNEL.map(([a, b, v], j) => (
                       <div key={a} className={`fn-b${j === 2 ? " hit" : ""}`} style={vars({ i: j, v: `${v}%` })}>
@@ -627,10 +676,10 @@ export default function ShortformHome() {
                       </div>
                     ))}
                   </div>
-                  <p className="doc-f">문의에서 많이 빠지면 버튼과 첫 문장부터 바꿉니다.</p>
+                  <p className="doc-f">문의 단계 이탈이 크면, CTA와 첫 문장부터 다시 설계합니다.</p>
                   <a className="loop" href="#c38">
                     <Icon k="loop" />
-                    개선이 끝나면 다시 진단으로
+                    최적화 이후, 다시 진단으로
                   </a>
                   <Ex />
                 </div>
@@ -644,18 +693,21 @@ export default function ShortformHome() {
       <Cut id="c43" no={next()} ch={7} tone="w" fx="liquid" label="인사이트">
         <div className="ins">
           <div className="ins-t">
-            <p className="cap sz-lg">
-              <Words text={"저희가 직접\n재 보고 쓴 글입니다."} />
-            </p>
+            <div>
+              <p className="eb">INSIGHTS</p>
+              <p className="cap sz-lg">
+                <Words text={"직접 집행하고, 직접 측정한\n데이터로 씁니다."} />
+              </p>
+            </div>
             <Link className="ins-all" href="/guide">
-              마케팅 칼럼 전체 보기 <Icon k="arrow" />
+              인사이트 리포트 전체 보기 <Icon k="arrow" />
             </Link>
           </div>
           <ul className="ins-track">
             {insights.map((a, j) => (
               <li key={a.href} style={vars({ i: j })}>
                 <Link href={a.href}>
-                  <small>{a.kicker}</small>
+                  <small>{INSIGHT_LABELS[a.href] ?? a.kicker}</small>
                   <b>{a.title}</b>
                   <span>{a.date}</span>
                 </Link>
@@ -668,9 +720,12 @@ export default function ShortformHome() {
       {/* 9 자주 묻는 질문(사장님 11-06) */}
       <Cut id="cfaq" no={next()} ch={8} tone="w" fx="liquid" label="자주 묻는 질문">
         <div className="hf">
-          <h2 className="cap sz-lg">
-            <Words text={"계약 전에\n많이 묻는 질문"} />
-          </h2>
+          <div>
+            <p className="eb">FAQ</p>
+            <h2 className="cap sz-lg">
+              <Words text={"계약 전에\n많이 묻는 질문"} />
+            </h2>
+          </div>
           <Faq items={HOME_FAQ} />
         </div>
       </Cut>
@@ -681,31 +736,36 @@ export default function ShortformHome() {
         <span id="contact" className="sf-anchor" aria-hidden="true" />
         <div className="ct">
           <div className="ct-t">
+            <p className="eb">CONTACT</p>
             <h2 className="cap sz-lg">
-              <Words text={"상담은 무료입니다.\n신청하시면 담당 마케터가 연락드립니다."} />
+              <Words text={"브랜드의 다음 단계는,\n정확한 진단에서 시작됩니다."} />
             </h2>
-            <p className="sm">
-              대기업·프랜차이즈는 <a href="/business/contact">제안 요청</a> 페이지에서 따로 받습니다. 매장·학원은{" "}
+            <p className="sm">문의를 남겨 주시면 전담 AE가 연락드려 채널별 현황 진단을 진행합니다. 비용은 진단 결과를 바탕으로 한 맞춤 제안서로 안내해 드립니다.</p>
+            <p className="sm ct-n">
+              대기업·프랜차이즈·브랜드사는 <a href="/business/contact">기업 제안 요청</a>을 통해 RFP 및 제안서를 요청하실 수 있습니다.
+            </p>
+            <p className="sm ct-n">
+              매장·병원·학원 등은{" "}
               <a href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
                 카카오톡
               </a>
-              으로 먼저 물어보셔도 됩니다. 신청하시면 담당 마케터가 연락드려 진단부터 시작합니다. 가격은 진단 뒤 제안서로 안내합니다.
+              으로도 간편하게 문의하실 수 있습니다.
             </p>
             <div className="ct-ways">
               <a href={CONTACT.telHref} data-tel>
                 <Icon k="phone" />
-                <b>{CONTACT.tel}</b>
+                <b>대표전화 {CONTACT.tel}</b>
                 <small>{CONTACT.hours}</small>
               </a>
               <a href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao className="kk">
                 <Icon k="kakao" />
                 <b>카카오톡 상담</b>
-                <small>채팅으로 바로 물어보기</small>
+                <small>채팅 문의</small>
               </a>
               <a href="/business/contact">
                 <Icon k="plan" />
-                <b>기업 제안 요청</b>
-                <small>대기업·프랜차이즈·브랜드사</small>
+                <b>기업 제안 요청 (RFP)</b>
+                <small>대기업·프랜차이즈·브랜드사 전용</small>
               </a>
             </div>
           </div>
@@ -714,13 +774,14 @@ export default function ShortformHome() {
       </Cut>
 
       {/* 11 끝 — 로고 */}
-      <Cut id="c45" no={next()} ch={10} tone="k" fx="logo" label="끝">
+      <Cut id="c45" no={next()} ch={9} tone="k" fx="logo" label="끝">
         <div className="lg-rv">
           <div className="lg-mark" aria-hidden="true">
             <img src="/sf/img/wiz-symbol.png" alt="" width={733} height={460} />
           </div>
           <p className="lg-name">WIZ THE PLANNING</p>
-          <p className="lg-sub">나눠 맡기던 마케팅, 이제 한 곳에서 직접.</p>
+          <p className="lg-sub">맡긴 곳이, 직접 합니다.</p>
+          <p className="lg-en">Integrated Marketing Partner, WIZ THE PLANNING</p>
         </div>
       </Cut>
 

@@ -8,8 +8,8 @@ import { INTEREST } from "./content"
 // 홈 문의 컷(44)·소개 쪽 문의 칸 — 회사명·연락처·회사 이메일(선택, 11-05)·관심분야. 보내는 곳은 다른 폼과 같은 /api/contact(Resend → 대표 메일).
 // /contact 쪽 긴 폼은 SfInquiryForm(11-06)
 
-// label: 신청 이름(버튼·폼 이름·메일 머리) — 11-05 사장님 「무료 진단 신청」→「무료 상담 신청」
-export default function SfContactForm({ initial = [], source = "home_shortform", label = "무료 상담 신청" }: { initial?: string[]; source?: string; label?: string }) {
+// label: 신청 이름(버튼·폼 이름·메일 머리) — 11-06 대표 카피덱 「진단 신청하기」. language 값은 메일 제목 꼬리표라 그대로 둔다
+export default function SfContactForm({ initial = [], source = "home_shortform", label = "진단 신청하기" }: { initial?: string[]; source?: string; label?: string }) {
   const [company, setCompany] = useState("")
   const [phone, setPhone] = useState("")
   const [email, setEmail] = useState("")
@@ -68,8 +68,8 @@ export default function SfContactForm({ initial = [], source = "home_shortform",
   if (status === "done") {
     return (
       <div className="ct-f ct-done" role="status">
-        <b>신청을 받았습니다.</b>
-        <p>담당자가 확인하고 적어 주신 번호로 연락드립니다.</p>
+        <b>문의가 접수되었습니다.</b>
+        <p>전담 AE가 확인 후 연락드리겠습니다.</p>
       </div>
     )
   }
@@ -77,22 +77,22 @@ export default function SfContactForm({ initial = [], source = "home_shortform",
   return (
     <form className="ct-f" onSubmit={submit} noValidate aria-label={label}>
       <label className="ct-l">
-        <span>회사명</span>
+        <span>회사명 *</span>
         <input value={company} onChange={(e) => setCompany(e.target.value)} placeholder="회사명을 적어 주세요" autoComplete="organization" />
       </label>
       <label className="ct-l">
-        <span>연락처</span>
+        <span>연락처 *</span>
         <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="연락받을 번호를 적어 주세요" inputMode="tel" autoComplete="tel" />
       </label>
       <label className="ct-l">
         <span>
           회사 이메일 <small>선택</small>
         </span>
-        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="상담 자료를 받을 메일" type="email" inputMode="email" autoComplete="email" />
+        <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="자료를 받으실 회사 메일" type="email" inputMode="email" autoComplete="email" />
       </label>
       <fieldset className="ct-s">
         <legend>
-          관심분야 <small>중복선택 가능</small>
+          관심 분야 <small>복수 선택</small>
         </legend>
         <div className="ct-sg">
           {INTEREST.map(([k, n]) => (
@@ -106,7 +106,7 @@ export default function SfContactForm({ initial = [], source = "home_shortform",
       <label className="ct-a">
         <input type="checkbox" checked={agree} onChange={(e) => setAgree(e.target.checked)} />
         <span>
-          개인정보 수집·이용에 동의합니다 <a href="/privacy">자세히</a>
+          개인정보 수집·이용에 동의합니다. (필수) <a href="/privacy">자세히 보기</a>
         </span>
       </label>
       {err ? (

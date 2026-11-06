@@ -45,7 +45,7 @@ export default function SolutionDoc({ slug }: { slug: string }) {
         <div className="dp-w dp-hero-in">
           <div>
             <Crumb items={[{ name: "홈", href: "/" }, { name: f.n }]} />
-            <p className="dp-no">업종별 마케팅 · {f.who}</p>
+            <p className="dp-no">INDUSTRIES · {f.who}</p>
             <h1 aria-label={`${f.n} ${f.q.replace("\n", " ")}`}>
               <Chars text={f.n} />{" "}
               <small>{f.q.replace("\n", " ")}</small>
@@ -53,10 +53,10 @@ export default function SolutionDoc({ slug }: { slug: string }) {
             <p className="dp-lead">{d.lead}</p>
             <div className="dp-btns">
               <a className="p1" href="/contact">
-                무료 상담 신청
+                진단 신청
               </a>
               <a className="p2" href="tel:16700704" data-tel>
-                전화 1670-0704
+                대표전화 1670-0704
               </a>
             </div>
           </div>
@@ -128,7 +128,7 @@ export default function SolutionDoc({ slug }: { slug: string }) {
 
       <nav className="dp-other" aria-label="다른 업종">
         <div className="dp-w">
-          <p>업종별 마케팅</p>
+          <p>업종별 전략</p>
           <nav>
             {SOLUTIONS.map((o) => (
               <Link key={o.slug} href={`/solutions/${o.slug}`} aria-current={o.slug === f.slug ? "page" : undefined}>
@@ -139,17 +139,16 @@ export default function SolutionDoc({ slug }: { slug: string }) {
         </div>
       </nav>
 
-      {/* 무료 진단은 기업·병원 대상(사장님 11-04) — 매장·학원·전문직이 대상인 로컬 쪽은 상담부터(사령탑 11-04) */}
+      {/* 무료 진단 쪽은 기업·병원 대상(사장님 11-04) — 매장·학원·전문직이 대상인 로컬 쪽은 카카오톡·전화 안내를 같이 */}
       {f.slug === "local" ? (
         <ContactBlock
-          title={`${f.n}, 어떤 순서가 맞을지 같이 봅니다.`}
-          sub="매장·학원·전문직은 아래 신청이나 전화·카카오톡으로 편하게 먼저 물어보셔도 됩니다. 가격은 상담 뒤 제안서로 안내합니다."
-          label="무료 상담 신청"
+          title={`${f.n}, 어떤 순서가 맞는지 진단합니다.`}
+          sub="매장·병원·학원 등은 아래 신청이나 전화·카카오톡으로도 간편하게 문의하실 수 있습니다. 비용은 진단 후 맞춤 제안서로 안내해 드립니다."
           initial={keys}
           source={`solution_${f.slug}`}
         />
       ) : (
-        <ContactBlock title={`${f.n}, 어떤 순서가 맞을지 같이 봅니다.`} initial={keys} source={`solution_${f.slug}`} />
+        <ContactBlock title={`${f.n}, 어떤 순서가 맞는지 진단합니다.`} initial={keys} source={`solution_${f.slug}`} />
       )}
     </DocShell>
   )

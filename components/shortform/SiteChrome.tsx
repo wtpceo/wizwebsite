@@ -5,9 +5,9 @@ import { Icon } from "./icons"
 // 홈(숏폼형)과 새 쪽(서비스·업종별·전문 인력·회사소개)이 같이 쓰는 머리글·메뉴·바닥글·아래 바.
 // home = 장 막대와 「NN / 46」이 붙고 컷 바탕색을 따라 글자색이 바뀐다. doc = 흰 바탕 고정 머리글.
 
-/** 신청 버튼 — 기본은 무료 상담 신청, 기업 경로(/business/*)는 제안 요청(CLAUDE.md 기업 경로 정책) */
+/** 신청 버튼 — 기본은 진단 신청, 기업 경로(/business/*)는 제안 요청(CLAUDE.md 기업 경로 정책) */
 export type SfCta = { href: string; label: string }
-const DEFAULT_CTA: SfCta = { href: "/contact", label: "무료 상담 신청" }
+const DEFAULT_CTA: SfCta = { href: "/contact", label: "진단 신청" }
 export const BIZ_CTA: SfCta = { href: "/business/contact", label: "제안 요청 보내기" }
 
 export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; cta?: SfCta }) {
@@ -21,7 +21,7 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
       <nav className="sfh-nav" aria-label="주 메뉴">
         {/* 11-06 사장님 「상단 메뉴바 간격 다 동일하게」 + 「이름 줄이지 말고 칸마다」 — 마우스를 댄 메뉴의 항목만 글자 가운데 아래 상자로 */}
         <div className="sfh-it">
-          <Link href="/about">회사소개</Link>
+          <Link href="/about">회사</Link>
           <div className="sfh-col">
             <Link href="/about">위즈더플래닝 소개</Link>
             <Link href="/about#location">오시는 길</Link>
@@ -38,34 +38,34 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
           </div>
         </div>
         <div className="sfh-it">
-          <Link href="/solutions/local">업종별 마케팅</Link>
+          <Link href="/solutions/local">업종별 전략</Link>
           <div className="sfh-col">
             {SOLUTIONS.map((f) => (
               <Link key={f.slug} href={`/solutions/${f.slug}`}>
                 {f.n}
               </Link>
             ))}
-            <Link href="/medical-diagnosis">병원 무료 AI 검색 진단</Link>
+            <Link href="/medical-diagnosis">병원 AI 검색 무료 진단</Link>
           </div>
         </div>
         <div className="sfh-it">
-          <Link href="/team">전문 인력</Link>
+          <Link href="/team">전문팀</Link>
           <div className="sfh-col">
-            <Link href="/team">팀과 진행 과정</Link>
+            <Link href="/team">전문팀과 프로세스</Link>
           </div>
         </div>
         <div className="sfh-it">
           <Link href="/guide">인사이트</Link>
           <div className="sfh-col">
-            <Link href="/guide">마케팅 칼럼</Link>
-            <Link href="/theater">위즈 극장</Link>
+            <Link href="/guide">인사이트 리포트</Link>
+            <Link href="/theater">WIZ Theater</Link>
             <Link href="/how-we-measure">측정 방식</Link>
           </div>
         </div>
         <div className="sfh-it">
-          <Link href="/contact">문의하기</Link>
+          <Link href="/contact">문의</Link>
           <div className="sfh-col">
-            <Link href="/contact">무료 상담 신청</Link>
+            <Link href="/contact">진단 신청</Link>
             <Link href="/business/contact">기업 제안 요청</Link>
           </div>
         </div>
@@ -103,9 +103,9 @@ export function SfMenu() {
         <button type="button" className="sfm-x" id="sfmX" aria-label="메뉴 닫기">
           <Icon k="close" />
         </button>
-        <p className="sfm-h">회사소개</p>
+        <p className="sfm-h">회사</p>
         <Link href="/about">위즈더플래닝 소개</Link>
-        <Link href="/team">전문 인력 · 진행 과정</Link>
+        <Link href="/team">전문팀 · 프로세스</Link>
         <Link href="/about#location">오시는 길</Link>
         <p className="sfm-h">서비스</p>
         <div className="sfm-g">
@@ -115,15 +115,15 @@ export function SfMenu() {
             </Link>
           ))}
         </div>
-        <p className="sfm-h">업종별 마케팅</p>
+        <p className="sfm-h">업종별 전략</p>
         {SOLUTIONS.map((f) => (
           <Link key={f.slug} href={`/solutions/${f.slug}`}>
             {f.n}
           </Link>
         ))}
         <p className="sfm-h">인사이트 · 문의</p>
-        <Link href="/guide">마케팅 칼럼</Link>
-        <Link href="/contact">무료 상담 신청</Link>
+        <Link href="/guide">인사이트 리포트</Link>
+        <Link href="/contact">진단 신청</Link>
         <Link href="/business/contact">기업 제안 요청</Link>
       </div>
     </div>
@@ -142,10 +142,10 @@ export function SfFooter() {
         </div>
         <nav className="sff-nav" aria-label="전체 메뉴">
           <div>
-            <p>회사소개</p>
+            <p>회사</p>
             <Link href="/about">위즈더플래닝 소개</Link>
-            <Link href="/team">전문 인력</Link>
-            <Link href="/team#process">진행 과정</Link>
+            <Link href="/team">전문팀</Link>
+            <Link href="/team#process">프로세스</Link>
           </div>
           <div>
             <p>서비스</p>
@@ -156,7 +156,7 @@ export function SfFooter() {
             ))}
           </div>
           <div>
-            <p>업종별 마케팅</p>
+            <p>업종별 전략</p>
             {SOLUTIONS.map((f) => (
               <Link key={f.slug} href={`/solutions/${f.slug}`}>
                 {f.n}
@@ -165,16 +165,16 @@ export function SfFooter() {
           </div>
           <div>
             <p>인사이트</p>
-            <Link href="/guide">마케팅 칼럼</Link>
-            <Link href="/business/insights">기업 마케팅 인사이트</Link>
-            <Link href="/theater">위즈 극장</Link>
+            <Link href="/guide">인사이트 리포트</Link>
+            <Link href="/business/insights">기업 인사이트</Link>
+            <Link href="/theater">WIZ Theater</Link>
             <Link href="/how-we-measure">측정 방식</Link>
           </div>
           <div>
-            <p>문의하기</p>
-            <Link href="/contact">무료 상담 신청</Link>
+            <p>문의</p>
+            <Link href="/contact">진단 신청</Link>
             <Link href="/business/contact">기업 제안 요청</Link>
-            <Link href="/medical-diagnosis">병원 무료 AI 검색 진단</Link>
+            <Link href="/medical-diagnosis">병원 AI 검색 무료 진단</Link>
           </div>
           <div>
             <p>Language</p>
@@ -207,13 +207,13 @@ export function SfDock({ home = false, cta = DEFAULT_CTA }: { home?: boolean; ct
   return (
     <>
       <a className="sfs" id="sfs" href={home ? "#c44" : "#contact"}>
-        문의 칸으로
+        문의하기
         <Icon k="arrow" />
       </a>
       <nav className="sfb" aria-label="바로 연락">
         <a href={CONTACT.telHref} data-tel>
           <Icon k="phone" />
-          전화
+          전화 상담
         </a>
         <a href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao className="kk">
           <Icon k="kakao" />

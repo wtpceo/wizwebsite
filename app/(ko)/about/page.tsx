@@ -46,18 +46,18 @@ export default function AboutPage() {
         <div className="dp-w dp-hero-in">
           <div>
             <Crumb items={[{ name: "홈", href: "/" }, { name: "회사소개" }]} />
-            <p className="dp-no">위즈더플래닝 소개</p>
-            <h1 aria-label="나눠 맡기던 마케팅, 이제 한 곳에서 직접. 하청 없이, 우리 팀이 직접 책임집니다.">
-              <Chars text={"나눠 맡기던 마케팅,\n이제 한 곳에서 직접."} />{" "}
-              <small>하청 없이, 우리 팀이 직접 책임집니다.</small>
+            <p className="dp-no">ABOUT WIZ THE PLANNING</p>
+            <h1 aria-label="맡긴 곳이, 직접 합니다. 재위탁 없이, 인하우스 전문팀이 직접 수행합니다.">
+              <Chars text={"맡긴 곳이,\n직접 합니다."} />{" "}
+              <small>재위탁 없이, 인하우스 전문팀이 직접 수행합니다.</small>
             </h1>
             <p className="dp-lead">{d.lead}</p>
             <div className="dp-btns">
               <a className="p1" href="/contact">
-                무료 상담 신청
+                진단 신청
               </a>
               <a className="p2" href="tel:16700704" data-tel>
-                전화 1670-0704
+                대표전화 1670-0704
               </a>
             </div>
           </div>
@@ -85,7 +85,7 @@ export default function AboutPage() {
       </Sec>
 
       <Sec id="one-team" q="따로 맡기면 무엇이 어려운가요?">
-        <p>채널마다 업체가 다르면 브랜드 하나를 두고 연락이 여러 갈래가 됩니다.</p>
+        <p>대행사가 늘어날수록 브랜드는 흩어지고, 비용과 시간, 책임의 공백이 생깁니다.</p>
         <ol className="dp-num">
           {PROBLEMS.map(([t, x]) => (
             <li key={t}>
@@ -97,12 +97,12 @@ export default function AboutPage() {
       </Sec>
 
       <Sec q="한 곳에 맡기면 무엇이 달라지나요?">
-        <p>연락할 곳이 하나로 줄고, 같은 이야기를 여러 번 할 일이 없습니다.</p>
+        <p>운영 구조가 다릅니다. 창구는 전담 AE 하나로 줄고, 같은 이야기를 여러 번 할 일이 없습니다.</p>
         <table className="ab-cmp">
           <thead>
             <tr>
               <th scope="col">구분</th>
-              <th scope="col">따로 맡길 때</th>
+              <th scope="col">채널별 개별 대행</th>
               <th scope="col">위즈더플래닝</th>
             </tr>
           </thead>
@@ -118,19 +118,21 @@ export default function AboutPage() {
         </table>
       </Sec>
 
-      <Sec q="팀은 어떻게 나뉘어 있나요?">
-        <p>다섯 팀이 사내에 있습니다. 일정은 담당 마케터가 한 표로 챙깁니다.</p>
+      <Sec q="전문팀은 어떻게 나뉘어 있나요?">
+        <p>다섯 개의 전문팀이 직접 수행합니다. 일정은 전담 AE가 통합 관리합니다.</p>
         <ul className="dp-items">
-          {TEAMS.map(([k, n, xs]) => (
+          {TEAMS.map(([k, n, xs, en]) => (
             <li key={k}>
-              <b>{n}</b>
+              <b>
+                {en} {n}
+              </b>
               <span>{xs.join(" · ")}</span>
             </li>
           ))}
         </ul>
       </Sec>
 
-      <Sec q="저희가 직접 가진 것은 무엇인가요?">
+      <Sec q="위즈더플래닝이 직접 보유한 것은 무엇인가요?">
         <ol className="dp-num">
           {d.own.map(([t, x]) => (
             <li key={t}>
@@ -167,7 +169,7 @@ export default function AboutPage() {
             <dd>{CONTACT.email}</dd>
           </div>
           <div>
-            <dt>상담 시간</dt>
+            <dt>운영 시간</dt>
             <dd>평일 10:00–18:00 · 점심시간 12:15–13:30 · 주말 및 공휴일 휴무</dd>
           </div>
           <div>
@@ -181,7 +183,7 @@ export default function AboutPage() {
         <Faq items={d.faq} />
       </Sec>
 
-      <ContactBlock title="상담은 무료입니다. 신청하시면 담당 마케터가 연락드립니다." source="about" />
+      <ContactBlock title="상담은 무료입니다. 신청하시면 전담 AE가 연락드립니다." source="about" />
     </DocShell>
   )
 }

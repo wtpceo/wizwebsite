@@ -7,13 +7,13 @@ import { OG_TIMESTAMP as timestamp } from "@/lib/site-metadata"
 
 // 문의하기 쪽(2026-11-06 사장님 「로그통 문의 쪽 디자인 그대로, 품목만 우리 것으로」) — 머리글·홈·상세 쪽의 신청 버튼이 모두 여기로 온다. 홈 44번 문의 칸은 그대로.
 // 어두운 화면·두 칸 폼·칸 이름은 그쪽을 따르고, 색은 우리 파랑, 제목·안내 문장은 우리 말로 새로 썼다. 폼은 홈과 같은 /api/contact.
-const TITLE = "문의하기: 광고·검색·인플루언서 상담"
-const DESC = "별표 칸만 채워 보내 주시면 담당 마케터가 연락드립니다. 가격은 진단 뒤 제안서로 안내합니다."
+const TITLE = "문의하기: 마케팅 진단 신청·기업 제안 요청"
+const DESC = "별표 칸만 채워 보내 주시면 전담 AE가 확인 후 연락드리겠습니다. 비용은 채널별 현황 진단 결과를 바탕으로 한 맞춤 제안서로 안내해 드립니다. 대표전화 1670-0704."
 const FAQ: [string, string][] = [
-  ["상담 비용이 있나요?", "상담은 무료입니다. 진행하실 때의 비용은 진단 뒤 제안서로 안내합니다."],
-  ["무엇을 준비해야 하나요?", "따로 준비하실 것은 없습니다. 별표 칸만 채워 주시면 되고, 홈페이지가 없으면 검색어를 적어 주세요."],
-  ["대기업·프랜차이즈도 여기로 신청하나요?", "기업 제안 요청 페이지에서 따로 받습니다. 제안 요청서 항목표와 평가표는 회사 메일로 보내 드립니다."],
-  ["전화나 카카오톡으로 먼저 물어봐도 되나요?", `됩니다. ${CONTACT.tel}(${CONTACT.hours})로 전화 주시거나 카카오톡 채널로 바로 물어보세요.`],
+  ["상담 비용이 있나요?", "상담은 무료입니다. 진행 시 비용은 진단 후 맞춤 제안서로 안내해 드립니다."],
+  ["무엇을 준비해야 하나요?", "따로 준비하실 것은 없습니다. 별표 칸만 채워 주시면 되고, 웹사이트가 없으면 검색 키워드를 적어 주세요."],
+  ["대기업·프랜차이즈도 여기로 신청하나요?", "기업 제안 요청을 통해 RFP 및 제안서를 요청하실 수 있습니다. 제안 요청서 항목표와 평가표는 회사 메일로 보내 드립니다."],
+  ["전화나 카카오톡으로 먼저 물어봐도 되나요?", `됩니다. ${CONTACT.tel}(${CONTACT.hours})로 전화 주시거나 카카오톡 채널로 간편하게 문의하실 수 있습니다.`],
 ]
 
 export const metadata: Metadata = {
@@ -61,7 +61,7 @@ export default function ContactPage() {
             </h2>
             <p>
               <b>별표 칸만 채우시면 됩니다.</b>
-              <mark>담당자가 확인 후 연락드리겠습니다.</mark>
+              <mark>전담 AE가 확인 후 연락드리겠습니다.</mark>
             </p>
           </div>
           <SfInquiryForm />
@@ -69,7 +69,7 @@ export default function ContactPage() {
             <a href={CONTACT.telHref} data-tel>
               <Icon k="phone" />
               <span>
-                <b>{CONTACT.tel}</b>
+                <b>대표전화 {CONTACT.tel}</b>
                 <small>{CONTACT.hours}</small>
               </span>
             </a>
@@ -77,20 +77,20 @@ export default function ContactPage() {
               <Icon k="kakao" />
               <span>
                 <b>카카오톡 상담</b>
-                <small>채팅으로 바로 물어보기</small>
+                <small>채팅 문의</small>
               </span>
             </a>
             <a href="/business/contact">
               <Icon k="plan" />
               <span>
-                <b>기업 제안 요청</b>
-                <small>대기업·프랜차이즈·브랜드사</small>
+                <b>기업 제안 요청 (RFP)</b>
+                <small>대기업·프랜차이즈·브랜드사 전용</small>
               </span>
             </a>
           </div>
         </div>
       </section>
-      <Sec q="상담 전에 많이 물어보시는 질문">
+      <Sec q="진단 신청 전 자주 묻는 질문">
         <Faq items={FAQ} />
       </Sec>
     </DocShell>

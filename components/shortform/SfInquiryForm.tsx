@@ -116,8 +116,8 @@ export default function SfInquiryForm() {
   if (status === "done") {
     return (
       <div className="iq-done" role="status">
-        <b>문의를 받았습니다.</b>
-        <p>담당 마케터가 확인하고 적어 주신 번호로 연락드립니다.</p>
+        <b>문의가 접수되었습니다.</b>
+        <p>전담 AE가 확인 후 연락드리겠습니다.</p>
       </div>
     )
   }
@@ -144,7 +144,7 @@ export default function SfInquiryForm() {
             {bad === "site" ? <FieldErr msg={err} /> : null}
           </label>
           <fieldset className="iq-line">
-            <legend>관심분야 (중복선택 가능)</legend>
+            <legend>관심 분야 (복수 선택)</legend>
             <div className="iq-grid">
               {INTEREST.map(([k, n]) => (
                 <label key={k} className="iq-c">
@@ -156,7 +156,7 @@ export default function SfInquiryForm() {
           </fieldset>
           <fieldset className="iq-line">
             <legend>오프라인 미팅 신청</legend>
-            <p>사무실에서 담당 마케터와 얼굴 보고 이야기하고 싶으시면 체크해 주세요.</p>
+            <p>전담 AE와 사무실에서 대면 미팅을 원하시면 체크해 주세요.</p>
             <label className="iq-c">
               <input type="checkbox" checked={meeting} onChange={(e) => setMeeting(e.target.checked)} />
               미팅 신청하기
@@ -185,7 +185,7 @@ export default function SfInquiryForm() {
             </label>
             <label className="iq-l">
               <span>
-                이메일 <Req />
+                회사 이메일 <Req />
               </span>
               <input id="iq-email" aria-invalid={bad === "email"} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="example@email.com" type="email" inputMode="email" autoComplete="email" aria-required="true" />
               {bad === "email" ? <FieldErr msg={err} /> : null}
@@ -198,7 +198,7 @@ export default function SfInquiryForm() {
               {bad === "person" ? <FieldErr msg={err} /> : null}
             </label>
             <label className="iq-l">
-              <span>직급</span>
+              <span>직책</span>
               <input value={rank} onChange={(e) => setRank(e.target.value)} autoComplete="organization-title" />
             </label>
           </div>
@@ -221,12 +221,12 @@ export default function SfInquiryForm() {
             <span>
               문의 내용 <Req />
             </span>
-            <textarea id="iq-note" aria-invalid={bad === "note"} value={note} onChange={(e) => setNote(e.target.value)} rows={4} maxLength={2000} placeholder="궁금한 점이나 지금 고민을 편하게 적어 주세요." aria-required="true" />
+            <textarea id="iq-note" aria-invalid={bad === "note"} value={note} onChange={(e) => setNote(e.target.value)} rows={4} maxLength={2000} placeholder="궁금한 점이나 현재 과제를 자유롭게 입력해 주세요." aria-required="true" />
             {bad === "note" ? <FieldErr msg={err} /> : null}
           </label>
           <label className="iq-l">
             <span>브랜드 소개</span>
-            <textarea value={intro} onChange={(e) => setIntro(e.target.value)} rows={4} maxLength={2000} placeholder="어떤 브랜드인지, 주 손님은 누구인지, 꼭 알리고 싶은 말" />
+            <textarea value={intro} onChange={(e) => setIntro(e.target.value)} rows={4} maxLength={2000} placeholder="브랜드 개요, 주요 고객층, 핵심 메시지" />
           </label>
         </div>
       </div>
@@ -234,7 +234,7 @@ export default function SfInquiryForm() {
         <label className="iq-c">
           <input type="checkbox" checked={agree} onChange={(e) => setAgree(e.target.checked)} />
           <span>
-            개인정보 수집·이용에 동의합니다 <a href="/privacy">자세히</a>
+            개인정보 수집·이용에 동의합니다. (필수) <a href="/privacy">자세히 보기</a>
           </span>
         </label>
         {err && !bad ? (
@@ -243,7 +243,7 @@ export default function SfInquiryForm() {
           </p>
         ) : null}
         <button type="submit" className="iq-go" disabled={status === "sending"}>
-          {status === "sending" ? "보내는 중" : "문의 남기기"}
+          {status === "sending" ? "보내는 중" : "진단 신청하기"}
         </button>
       </div>
     </form>

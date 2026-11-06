@@ -9,7 +9,7 @@ import "./sf.css"
 import "./sf-doc.css"
 
 const SITE = "https://wiztheplanning.com"
-export const UPDATED = "2026-11-04"
+export const UPDATED = "2026-11-06"
 
 /** 새 쪽 공통 틀 — 머리글·메뉴·바닥글·아래 바·예시 화면 스크립트 */
 export function DocShell({ children, cta }: { children: ReactNode; cta?: SfCta }) {
@@ -85,17 +85,17 @@ export function ContactBlock({ title, sub, label, initial = [], source }: { titl
       <div className="dp-w dp-ct-in">
         <div>
           <h2>{title}</h2>
-          <p className="sm">{sub || "담당자가 확인 후 연락드리겠습니다. 가격은 상담 뒤 제안서로 안내합니다."}</p>
+          <p className="sm">{sub || "전담 AE가 확인 후 연락드리겠습니다. 비용은 진단 후 맞춤 제안서로 안내해 드립니다."}</p>
           <div className="ct-ways">
             <a href={CONTACT.telHref} data-tel>
               <Icon k="phone" />
-              <b>{CONTACT.tel}</b>
+              <b>대표전화 {CONTACT.tel}</b>
               <small>{CONTACT.hours}</small>
             </a>
             <a href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao className="kk">
               <Icon k="kakao" />
               <b>카카오톡 상담</b>
-              <small>채팅으로 바로 물어보기</small>
+              <small>채팅 문의</small>
             </a>
           </div>
         </div>

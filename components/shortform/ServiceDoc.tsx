@@ -10,7 +10,9 @@ import { CaseBox, TimeBox, SampleBox, NotFit, Reads, Consult } from "./DocMore"
 
 /** 받침 있으면 「과」, 없으면 「와」 */
 function wa(w: string) {
-  const c = w.charCodeAt(w.length - 1)
+  // 「글로벌 마케팅 (중국·일본)」처럼 괄호가 붙으면 괄호 앞 낱말로 본다
+  const t = w.replace(/\s*\([^)]*\)$/, "")
+  const c = t.charCodeAt(t.length - 1)
   return c >= 0xac00 && c <= 0xd7a3 && (c - 0xac00) % 28 !== 0 ? "과" : "와"
 }
 
@@ -60,23 +62,24 @@ export default function ServiceDoc({ slug }: { slug: string }) {
           <div>
             <Crumb items={[{ name: "홈", href: "/" }, { name: s.n }]} />
             <p className="dp-no">
-              서비스 {s.no} / 08{s.k === "search" ? " · 대표 서비스" : ""}
+              {s.eb} · {s.no} / 08{s.k === "search" ? " · 대표 서비스" : ""}
             </p>
             <h1 aria-label={`${s.n} ${s.cap.replace("\n", " ")}`}>
               <Chars text={s.n} />{" "}
               <small>{s.cap.replace("\n", " ")}</small>
             </h1>
+            {s.badge ? <p className="sa-badge">{s.badge}</p> : null}
             <p className="dp-lead">{d.lead}</p>
             <p className="dp-first">
-              <span>먼저 하는 일</span>
+              <span>접근 방식</span>
               {s.first}
             </p>
             <div className="dp-btns">
               <a className="p1" href={`/contact?svc=${s.k}`}>
-                무료 상담 신청
+                진단 신청
               </a>
               <a className="p2" href="tel:16700704" data-tel>
-                전화 1670-0704
+                대표전화 1670-0704
               </a>
             </div>
             {/* 옛 상세 쪽은 주소 그대로 두고 여기서 잇는다(지시서 「옛 쪽은 새 쪽에서 잇기만」) */}
@@ -122,7 +125,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
         </ol>
       </Sec>
 
-      <Sec q="어떤 순서로 진행하고 무엇을 보고받나요?">
+      <Sec q="어떤 순서로 진행하고 무엇을 리포트받나요?">
         <ol className="dp-num">
           {d.process.map(([t, x]) => (
             <li key={t}>
@@ -134,7 +137,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
         {m.time ? <TimeBox t={m.time} /> : null}
         <div className="dp-rep">
           <div>
-            <h3>보고서 항목</h3>
+            <h3>리포트 항목</h3>
             <ul>
               {d.report.map((r) => (
                 <li key={r}>
@@ -145,15 +148,15 @@ export default function ServiceDoc({ slug }: { slug: string }) {
           </div>
           <div className="dp-deck">
             <div className="deck" data-tiles={s.k} />
-            <Ex>{s.k === "global" ? "예시 화면" : "예시 화면 · 업체명 가림"}</Ex>
+            <Ex>{s.k === "global" ? "예시 화면" : "예시 화면 · 고객사명 가림"}</Ex>
           </div>
         </div>
         {m.sample ? <SampleBox s={m.sample} /> : null}
         {m.case ? (
-          <CaseBox c={m.case} down={m.down} recs={m.hideRec ? [] : s.rec} recNote={d.recNote} />
+          <CaseBox c={m.case} down={m.down} recs={m.hideRec ? [] : s.rec.filter((r) => !r.includes("사례)"))} recNote={d.recNote} />
         ) : s.rec.length ? (
           <div className="dp-recs">
-            <p>실제 기록</p>
+            <p>주요 성과</p>
             <ul>
               {s.rec.map((r) => (
                 <li key={r}>
@@ -161,7 +164,11 @@ export default function ServiceDoc({ slug }: { slug: string }) {
                 </li>
               ))}
             </ul>
-            {d.recNote ? <small className="dp-recn">{d.recNote}</small> : null}
+            {d.recNote ? (
+              <small className="dp-recn">
+                {d.recNote} <Link href="/how-we-measure">측정 방식 보기 →</Link>
+              </small>
+            ) : null}
           </div>
         ) : null}
       </Sec>
@@ -211,7 +218,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
         </div>
       </nav>
 
-      <ContactBlock title={`${s.n}, 무료 상담부터 받아 보세요.`} initial={[s.k]} source={`service_${s.slug}`} />
+      <ContactBlock title={`${s.n}, 진단 신청부터 시작하세요.`} initial={[s.k]} source={`service_${s.slug}`} />
     </DocShell>
   )
 }

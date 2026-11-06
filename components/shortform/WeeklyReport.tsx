@@ -1,6 +1,6 @@
 import { vars } from "./parts"
 
-// 실제 주간 보고서 한 장을 화면으로 다시 그린 것(11-05).
+// 실제 주간 리포트 한 장을 화면으로 다시 그린 것(11-05).
 // 숫자·날짜·채널은 원본 보고서(public/sf/img/report.jpg) 그대로. 업체명·글 제목은 원본에서도 가린 것이라 칸에서 뺐다.
 const KPI: [string, string, string][] = [
   ["7", "편", "이번 주 발행"],
@@ -21,14 +21,14 @@ const CH = { n: "네이버", t: "티스토리" }
 
 export default function WeeklyReport() {
   return (
-    <figure className="wr" aria-label="주간 보고서 한 장(업체명 가림)">
+    <figure className="wr" aria-label="주간 리포트 한 장(고객사명 비공개)">
       <div className="wr-hd">
         <div>
-          <small>주간 리포트 · 업체명 가림</small>
+          <small>주간 리포트 · 고객사명 비공개</small>
           <b>1주차: 네이버 3편 · 티스토리 4편</b>
         </div>
         <p>
-          보고일 2026. 10. 31.
+          리포트일 2026. 10. 31.
           <br />
           기간 10. 26. ~ 10. 30.
         </p>
@@ -53,7 +53,7 @@ export default function WeeklyReport() {
               <span data-count="29">29</span>
               <em>/ 30</em>
             </strong>
-            <span>이번 주 키워드 질문 30개 중 AI 답변에 업체가 나온 질문 · 홈페이지가 출처로 뜬 답 12개</span>
+            <span>이번 주 키워드 질문 30개 중 AI 답변에 브랜드가 나온 질문 · 홈페이지가 출처로 뜬 답 12개</span>
           </div>
         </div>
       </div>
@@ -86,7 +86,7 @@ export default function WeeklyReport() {
         </ol>
       </div>
       <figcaption>
-        <span>실제 주간 보고서를 다시 그림 · 7편 모두 발행 완료</span>
+        <span>실제 주간 리포트 재구성 (고객사명 비공개) · 7편 모두 발행 완료</span>
         <span>위즈더플래닝</span>
       </figcaption>
     </figure>

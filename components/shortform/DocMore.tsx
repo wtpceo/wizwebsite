@@ -35,7 +35,7 @@ export function CaseBox({ c, down, recs = [], recNote }: { c: CaseCard; down?: [
       ) : null}
       {recs.length ? (
         <div className="dp-case-r">
-          <b>다른 기록</b>
+          <b>다른 성과</b>
           <ul>
             {recs.map((r) => (
               <li key={r}>
@@ -43,7 +43,11 @@ export function CaseBox({ c, down, recs = [], recNote }: { c: CaseCard; down?: [
               </li>
             ))}
           </ul>
-          {recNote ? <small>{recNote}</small> : null}
+          {recNote ? (
+            <small>
+              {recNote} <Link href="/how-we-measure">측정 방식 보기 →</Link>
+            </small>
+          ) : null}
         </div>
       ) : null}
     </article>
@@ -101,7 +105,7 @@ export function SampleBox({ s }: { s: NonNullable<More["sample"]> }) {
 
 export function NotFit({ items }: { items: [string, string][] }) {
   return (
-    <Sec q="어떤 경우엔 맡기지 않으시는 편이 낫나요?">
+    <Sec q="어떤 경우에는 맡기지 않으시는 편이 낫나요?">
       <ul className="dp-nf">
         {items.map(([t, x]) => (
           <li key={t}>
@@ -117,7 +121,7 @@ export function NotFit({ items }: { items: [string, string][] }) {
 export function Reads({ items }: { items: [string, string][] }) {
   return (
     <nav className="dp-reads" aria-label="이어 읽을 글">
-      <h3>이어서 읽을 기록</h3>
+      <h3>이어서 읽을 인사이트</h3>
       <ul>
         {items.map(([href, t]) => (
           <li key={href}>
