@@ -95,7 +95,7 @@ export default function ShortformHome() {
               {SERVICES.map((s, i) => (
                 <li key={s.k} style={vars({ i })}>
                   {/* 누르면 그 서비스 상세 쪽으로(11-05) · 마우스를 올리면 휴대폰 고리가 그 일로 돈다(sf.js) */}
-                  <Link className="svb" href={`/services/${s.slug}`} data-i={i}>
+                  <Link className="svb" href={`/services/${s.slug}`} data-i={i} data-k={s.k}>
                     <em className="no" aria-hidden="true">{s.no}</em>
                     <span className="n">{s.n}</span>
                     <span className="l">{s.ln}</span>
