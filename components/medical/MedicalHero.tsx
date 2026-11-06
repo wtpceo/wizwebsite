@@ -93,7 +93,7 @@ export default function MedicalHero() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-slate-700 bg-transparent px-8 py-6 text-lg text-slate-300 transition-all duration-300 hover:border-slate-500 hover:bg-white/5 hover:text-white"
+                className="border-slate-500 bg-transparent px-8 py-6 text-lg !text-white transition-all duration-300 hover:border-slate-500 hover:bg-white/5 hover:text-white"
               >
                 진단서 미리보기
               </Button>

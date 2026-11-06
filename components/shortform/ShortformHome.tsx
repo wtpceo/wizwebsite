@@ -242,7 +242,7 @@ export default function ShortformHome() {
                 <span className="ic">
                   <Icon k={s.k} />
                 </span>
-                <b>{s.n}</b>
+                <b>{s.short}</b>
               </a>
             ))}
           </div>

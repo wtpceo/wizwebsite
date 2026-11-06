@@ -149,9 +149,9 @@ var H4=(function(){
   function intro(done){var el=document.getElementById('intro'),cs=el&&getComputedStyle(el);if(!el||reduce||cs.display==='none'||cs.visibility==='hidden'){if(el)el.style.display='none';done();return;}
     var fl=[].slice.call(el.querySelectorAll('.fl span')),ids=[],fin=false;
     function go(){if(fin)return;fin=true;ids.forEach(clearTimeout);el.classList.add('gone');done();setTimeout(function(){el.style.display='none'},800);}
-    fl.forEach(function(s,k){ids.push(setTimeout(function(){fl.forEach(function(x){x.classList.remove('on')});s.classList.add('on');},120+k*105));});
-    ids.push(setTimeout(function(){fl.forEach(function(x){x.classList.remove('on')});el.classList.add('land');},120+fl.length*105));
-    ids.push(setTimeout(go,2400));el.addEventListener('click',go);}
+    fl.forEach(function(s,k){ids.push(setTimeout(function(){fl.forEach(function(x){x.classList.remove('on')});s.classList.add('on');},120+k*60));});
+    ids.push(setTimeout(function(){fl.forEach(function(x){x.classList.remove('on')});el.classList.add('land');},120+fl.length*60));
+    ids.push(setTimeout(go,1500));el.addEventListener('click',go);}
   var INTRO='<div class="intro" id="intro" aria-hidden="true"><div class="fl"><span>MCN</span><span>광고</span><span>검색</span><span>촬영</span><span>블로그</span><span>해외</span><span>홈페이지</span><span>엘리베이터TV</span></div><div class="big"><i>한</i><i>곳</i><i>.</i></div><div class="bar"></div></div>';
   /* 화면 밖이면 멈춤 */
   /* 11-05 렉 재측정: 2번 컷으로 넘어갈 때 끊김의 주범이 돌아가는 휴대폰 고리 — 화면에 보이는 첫 화면이 화면 높이의 85% 아래로 줄면 바로 멈춘다(전에는 5% 아래에서 · 휴대폰처럼 첫 화면이 화면보다 길어도 맞게) */

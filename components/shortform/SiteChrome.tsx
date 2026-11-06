@@ -47,6 +47,7 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
                   {f.n}
                 </Link>
               ))}
+              <Link href="/medical-diagnosis">병원 무료 AI 검색 진단</Link>
             </div>
             <div>
               <p>전문 인력</p>
@@ -102,6 +103,7 @@ export function SfMenu() {
         <p className="sfm-h">회사소개</p>
         <Link href="/about">위즈더플래닝 소개</Link>
         <Link href="/team">전문 인력 · 진행 과정</Link>
+        <Link href="/about#location">오시는 길</Link>
         <p className="sfm-h">서비스</p>
         <div className="sfm-g">
           {SERVICES.map((s) => (

@@ -11,6 +11,8 @@ export type Service = {
   slug: string
   no: string
   n: string
+  /** 좁은 자리(홈 바퀴 그림)용 짧은 이름 */
+  short: string
   /** a 컷 큰 자막 */
   cap: string
   /** 첫 화면 목록·휴대폰 아래 한 줄 */
@@ -37,6 +39,7 @@ export const SERVICES: Service[] = [
     slug: "influencer",
     no: "01",
     n: "유튜브/인스타/틱톡 섭외·공동구매",
+    short: "인플루언서",
     cap: "후보부터 받아 보고\n정하세요",
     ln: "손님이 보는 계정에 우리 브랜드를",
     first: "팔로워 수 말고, 손님이 겹치는 계정을 봅니다.",
@@ -58,8 +61,9 @@ export const SERVICES: Service[] = [
     slug: "performance",
     no: "02",
     n: "네이버·메타·구글 광고 운영",
+    short: "광고 운영",
     cap: "광고 계정은\n업체 이름으로 만듭니다",
-    ln: "네이버·메타·구글·당근, 마케터가 직접 돌립니다",
+    ln: "담당 마케터가 직접 돌립니다",
     first: "시안끼리 붙입니다. 이긴 쪽에 예산을.",
     steps: ["담당 마케터가 세팅부터 운영까지", "직접 만든 영상·이미지 여러 개를 나란히 비교", "반응 좋은 쪽으로 예산 옮기기"],
     t1: "네이버·메타·구글·당근 광고를 운영합니다. 광고 계정은 업체 명의 그대로입니다.",
@@ -80,6 +84,7 @@ export const SERVICES: Service[] = [
     slug: "search",
     no: "03",
     n: "네이버 AI·플레이스 / AEO / GEO",
+    short: "AI 검색·지도",
     cap: "ChatGPT에 물어보세요.\n우리 이름이 나오나요?",
     ln: "AI·지도에서 우리 브랜드가 먼저 나오게",
     first: "홈페이지와 지도, 한 글자까지 맞춥니다.",
@@ -102,6 +107,7 @@ export const SERVICES: Service[] = [
     slug: "content",
     no: "04",
     n: "숏폼·영상 제작, 모델",
+    short: "숏폼·영상",
     cap: "한 번 찍어서\n네 군데 씁니다",
     ln: "찍는 날부터 올리는 날까지 저희 몫",
     first: "찍을 날과 찍을 장면을 못 박습니다.",
@@ -124,6 +130,7 @@ export const SERVICES: Service[] = [
     slug: "viral",
     no: "05",
     n: "네이버 블로그·체험단·기자단",
+    short: "블로그·체험단",
     cap: "제목을 쳐야 나오는 글은\n안 셉니다",
     ln: "손님이 칠 검색어 맨 위를 노립니다",
     first: "쓰기 전에 검색어부터 고릅니다.",
@@ -146,6 +153,7 @@ export const SERVICES: Service[] = [
     slug: "global",
     no: "06",
     n: "중국 / 일본 마케팅",
+    short: "중국·일본",
     cap: "비행기 타기 전에\n갈 곳을 정합니다",
     ln: "비행기 타기 전 손님이 보는 화면에 우리 업체를",
     first: "소개와 메뉴를 중국어·일본어로.",
@@ -170,6 +178,7 @@ export const SERVICES: Service[] = [
     slug: "homepage",
     no: "07",
     n: "홈페이지 제작",
+    short: "홈페이지",
     cap: "그림 속에만 있는 번호는\nAI가 못 읽습니다",
     ln: "사람도 AI도 읽는 홈페이지",
     first: "구조안과 첫 화면부터 보고 정하세요.",
@@ -190,6 +199,7 @@ export const SERVICES: Service[] = [
     slug: "offline",
     no: "08",
     n: "엘리베이터TV·오프라인 광고",
+    short: "엘리베이터TV",
     cap: "손님이 매일 타는\n엘리베이터에 겁니다",
     ln: "손님 눈에 들어오는 자리에 우리 광고를",
     first: "업체 반경 안 단지를 고릅니다.",

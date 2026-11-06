@@ -445,3 +445,7 @@ html.sf-anim .sf .gd-hero h1 { animation: sf-rise .6s cubic-bezier(.23,1,.32,1) 
 @media (max-width: 820px) {
   .sf .hf { grid-template-columns: minmax(0, 1fr); gap: 24px; }
 }
+
+/* 11-06 첫 손님 점검 반영 — 떠 있는 버튼이 본문 끝을 덮어 소개 쪽에서는 뺀다(머리글에 같은 버튼이 늘 있음) · 휴대폰 맨 아래 바닥글이 머리 막대와 겹치지 않게 */
+.sf.sf-doc .sfs { display: none; }
+.sf .sff { position: relative; z-index: 60; }
