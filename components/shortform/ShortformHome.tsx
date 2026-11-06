@@ -223,7 +223,7 @@ export default function ShortformHome() {
             <p className="cap sz-lg">
               <Words text={"하청 없이,\n우리 팀이 직접 책임집니다."} />
             </p>
-            <p className="sm">찍는 사람도 광고 돌리는 사람도 전부 저희 직원입니다. 전화는 담당 마케터 한 명한테만 하시면 됩니다.</p>
+            <p className="sm">찍는 사람도 광고 돌리는 사람도 전부 사내 팀입니다. 전화는 담당 마케터 한 명한테만 하시면 됩니다.</p>
           </div>
           <div className="orb" aria-label="한 곳에서 하는 여덟 가지">
             <div className="orb-c">
@@ -531,7 +531,7 @@ export default function ShortformHome() {
           <div className="ps-in">
             <div className="ps-t">
               {i === 0 ? (
-                <p className="ps-k">첫 상담부터 마지막 보고까지 같은 사람입니다.</p>
+                <p className="ps-k">담당 마케터 한 명이 첫 상담부터 보고까지 챙깁니다.</p>
               ) : null}
               <p className="ps-no">
                 {i + 1} / 5
@@ -628,7 +628,7 @@ export default function ShortformHome() {
                       </div>
                     ))}
                   </div>
-                  <p className="doc-f">문의가 안 오면 버튼과 첫 문장부터 갈아엎습니다.</p>
+                  <p className="doc-f">문의에서 많이 빠지면 버튼과 첫 문장부터 바꿉니다.</p>
                   <a className="loop" href="#c38">
                     <Icon k="loop" />
                     개선이 끝나면 다시 진단부터

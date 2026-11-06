@@ -39,7 +39,7 @@ export default function Page() {
           lead="Korean customers discover brands through two paths that do not replace each other: Naver's own ecosystem, and the open web that ChatGPT, Gemini, Perplexity and Google read. We work on both, and we measure where you appear every week."
         >
           <EnCtaButtons primary={{ label: "Talk to us", href: "/en/contact" }} secondary={{ label: "How we measure", href: "/en/how-we-measure" }} />
-          <dl className="mt-12 grid max-w-3xl grid-cols-2 gap-6 sm:grid-cols-3">
+          <dl className="mt-12 grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-3">
             {[
               ["2016", "In business since"],
               ["4", "AI engines measured weekly"],

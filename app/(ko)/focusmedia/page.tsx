@@ -296,7 +296,7 @@ export default function FocusMediaPage() {
                 </span>
                 <span className="hidden h-1 w-1 rounded-full bg-slate-600 sm:block" />
                 <span className="flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-orange-400" /> 9년의 운영 노하우
+                  <CheckCircle className="h-4 w-4 text-orange-400" /> 2016년부터 광고 대행
                 </span>
               </motion.div>
             </div>

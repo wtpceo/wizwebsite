@@ -62,7 +62,7 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
   en: {
     metaTitle: "AI Search Marketing for Business Owners in Korea | WizThePlanning",
     metaDescription:
-      "Running a business in Korea? Korean customers now search on Naver and ask ChatGPT, and your shop may not appear in either. Since 2016, WizThePlanning has offered Korean-language SEO and AI search optimization (GEO) so Korean customers find you first. Enquiries in English welcome.",
+      "Running a business in Korea? Korean customers now search on Naver and ask ChatGPT, and your shop may not appear in either. WizThePlanning, in business since 2016, offers Korean-language SEO and AI search optimization (GEO) so Korean customers find you first. Enquiries in English welcome.",
     nav: { diagnose: "Free check", contact: "Contact" },
     menu: [
       { label: "The problem", href: "#problem" },
@@ -196,7 +196,7 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
       sub: "现在韩国人不只用Naver，还会问ChatGPT、Perplexity「附近哪家好」。语言不通、不懂韩国营销，不代表要把客人让给别人。我们用韩语替你把店铺信息做进搜索和AI的答案里。",
       ctaPrimary: "免费诊断我的网站",
       ctaSecondary: "中文咨询",
-      trust: "自2016年 · 支持中文沟通",
+      trust: "始于2016年 · 支持中文沟通",
     },
     problem: {
       heading: "为什么努力做生意，网上却找不到你？",
@@ -313,7 +313,7 @@ export const LANDING: Record<Exclude<Locale, "ko">, LandingContent> = {
       sub: "Người Hàn giờ không chỉ dùng Naver mà còn hỏi ChatGPT, Perplexity «quán nào gần đây ngon». Không giỏi tiếng Hàn, không rành marketing Hàn Quốc — không có nghĩa là phải nhường khách cho người khác. Chúng tôi đưa thông tin tiệm bạn vào câu trả lời của tìm kiếm và AI, bằng tiếng Hàn.",
       ctaPrimary: "Kiểm tra website miễn phí",
       ctaSecondary: "Tư vấn tiếng Việt",
-      trust: "Từ 2016 · Hỗ trợ tiếng Việt",
+      trust: "Hoạt động từ 2016 · Hỗ trợ tiếng Việt",
     },
     problem: {
       heading: "Vì sao làm ăn chăm chỉ mà trên mạng không thấy bạn?",

@@ -204,8 +204,9 @@ export default function Page() {
             </div>
             <p className="mt-4 text-sm text-slate-400">병원·의원이면 진단은 조건 없이 무료이고, 결과만 받고 마치셔도 됩니다.</p>
             {/* 숫자 스트립 — 전부 사이트에서 검증 가능한 수치만 */}
-            <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 text-sm sm:grid-cols-3">
+            <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 text-sm sm:grid-cols-4">
               {[
+                { n: "2016~", d: "마케팅 대행" },
                 { n: "3개", d: "AI 엔진 실측 진단" },
                 { n: "주 1회", d: "측정 리포트" },
                 { n: `${GUIDE_ARTICLES.length}편`, d: "실측 가이드 공개" },
