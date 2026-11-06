@@ -1,5 +1,5 @@
 import Header from "@/components/sections/Header"
-import Footer from "@/components/Footer"
+import Footer from "@/components/legacy/LegacyFooter"
 import AgencyHero from "@/components/agency/AgencyHero"
 import StatsBand from "@/components/agency/StatsBand"
 import MeasureShowcase from "@/components/agency/MeasureShowcase"
