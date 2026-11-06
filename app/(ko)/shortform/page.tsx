@@ -9,7 +9,7 @@ import MediaPage, { type MediaPageData } from "@/components/media/MediaPage"
 // - 첫 화면과 일한 기록의 영상 칸은 아직 영상이 없어 사내 촬영 사진(사용 동의 받음)으로 둔다. 소리 없는 세로 영상이 오면 바꾼다
 // - 4절의 '각 광고 페이지'와 '홈페이지 제작 페이지'는 lib/ad-services.ts의 주소로 걸었다
 // - 부서 이름 '촬영 부서·제작 부서'는 구성안 §09-2(대표 확인 전)
-// - 대표 승인 전이라 noindex. 사이트맵·llms.txt에 넣지 않았다
+// - 2026-11-06 색인 허용(리뉴얼 배포 뒤 총괄 요청). 사이트맵·llms.txt에 들어 있다
 const TITLE = "숏폼 제작: 쇼츠·릴스 기획, 촬영, 편집, 광고 소재까지 | 위즈더플래닝"
 const DESC =
   "위즈더플래닝 촬영 부서와 제작 부서가 기업·병원의 숏폼을 기획하고 찍고 편집합니다. 지금까지 113곳의 숏폼을 360편 넘게 만들었고, 만든 영상은 메타·구글 광고 소재로도 씁니다."
@@ -22,7 +22,6 @@ export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESC,
   alternates: { canonical: "/shortform" },
-  robots: { index: false, follow: true },
   openGraph: {
     title: TITLE,
     description: DESC,

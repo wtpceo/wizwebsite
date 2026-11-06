@@ -7,7 +7,7 @@ import MediaPage, { type MediaPageData } from "@/components/media/MediaPage"
 // - 4절의 '홈페이지 제작 페이지'는 lib/ad-services.ts의 주소로 걸었다
 // - 부서 이름 '광고 부서'는 구성안 §09-2(대표 확인 전)
 // - 첫 화면 사진은 실제 운영 화면이 오기 전까지 자리만 둔다. 운영 화면이 아니라서 alt는 비웠다
-// - 대표 승인 전이라 noindex. 사이트맵·llms.txt에 넣지 않았다
+// - 2026-11-06 색인 허용(리뉴얼 배포 뒤 총괄 요청). 사이트맵·llms.txt에 들어 있다
 const TITLE = "메타 광고 대행사: 인스타그램·페이스북 광고 운영과 보고 | 위즈더플래닝"
 const DESC =
   "위즈더플래닝 광고 부서가 메타 광고 대행을 맡아 인스타그램·페이스북 광고를 세팅하고 운영합니다. 광고 소재는 촬영 부서와 제작 부서가 만들고, 광고 관리자 숫자와 광고주 쪽 숫자를 맞춰 보고합니다. 대행료는 월 300만 원부터입니다."
@@ -19,7 +19,6 @@ export const metadata: Metadata = {
   description: DESC,
   keywords: ["메타 광고 대행사", "메타 광고 대행", "인스타 광고 대행", "인스타그램 광고 대행", "페이스북 광고 대행"],
   alternates: { canonical: "/meta-ads" },
-  robots: { index: false, follow: true },
   openGraph: {
     title: TITLE,
     description: DESC,

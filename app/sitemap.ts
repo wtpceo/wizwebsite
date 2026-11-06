@@ -43,6 +43,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/vi", priority: 0.9, changeFrequency: "monthly" },
     { path: "/focusmedia", priority: 0.8, changeFrequency: "monthly" },
     { path: "/naver-marketing", priority: 0.8, changeFrequency: "monthly" },
+    // 매체 페이지 5곳(2026-11-03 신설, 11-06 색인 허용)
+    { path: "/search-ai", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-11-06" },
+    { path: "/meta-ads", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-11-06" },
+    { path: "/google-ads", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-11-06" },
+    { path: "/shortform", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-11-06" },
+    { path: "/website", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-11-06" },
     { path: "/portfolio", priority: 0.7, changeFrequency: "monthly" },
     { path: "/medical-diagnosis", priority: 0.9, changeFrequency: "monthly" },
     { path: "/diagnosis", priority: 0.9, changeFrequency: "monthly" },

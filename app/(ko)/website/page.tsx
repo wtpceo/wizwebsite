@@ -10,7 +10,7 @@ import MediaPage, { type MediaPageData } from "@/components/media/MediaPage"
 // - 부서 이름 '홈페이지 개발 부서'는 구성안 §09-2(대표 확인 전)
 // - 첫 화면 사진은 고객사 치과 홈페이지 PC 캡처 뒤에 같은 곳의 모바일 캡처를 겹쳤다(2026-11-03, 사용 동의 받음).
 //   원본: 09_전체리브랜딩_2026-11/레퍼런스_후보/홈페이지/arthdental_com_*.png. 이벤트 팝업이 없는 캡처로 골랐고 alt에는 업종만 쓴다
-// - 대표 승인 전이라 noindex. 사이트맵·llms.txt에 넣지 않았다
+// - 2026-11-06 색인 허용(리뉴얼 배포 뒤 총괄 요청). 사이트맵·llms.txt에 들어 있다
 const TITLE = "기업·병원 홈페이지 제작: 기획, 디자인, 개발, 촬영까지 | 위즈더플래닝"
 const DESC =
   "위즈더플래닝 홈페이지 개발 부서가 기업 홈페이지 제작과 병원 홈페이지 제작을 맡습니다. 지금까지 30곳 넘게 만들었고, PC와 모바일에 맞는 반응형으로 만들며 서버 렌더링과 구조화 데이터를 넣습니다."
@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     "홈페이지 제작 비용",
   ],
   alternates: { canonical: "/website" },
-  robots: { index: false, follow: true },
   openGraph: {
     title: TITLE,
     description: DESC,
