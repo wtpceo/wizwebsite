@@ -603,7 +603,7 @@ export const MORE: Record<string, More> = {
       href: "/guide/naver-ai-briefing",
       src: "매장명·지역 비공개. 6년 운영 이력과 플레이스 정보, 리뷰가 받쳐 준 결과라 글 구조만으로 된 일은 아닙니다.",
     },
-    down: ["9월 14일 2위였던 저희 글이 2주 뒤 75위 안에 없었습니다. 먼저 하기로 한 사진 설명 작업을 못 해서 효과도 확인하지 못했습니다.", "/guide/naver-blog-rank-compare"],
+    down: ["9월 14일 2위였던 운영을 돕는 매장의 글이 2주 뒤 75위 안에 없었습니다. 먼저 하기로 한 사진 설명 작업을 못 해서 효과도 확인하지 못했습니다.", "/guide/naver-blog-rank-compare"],
     sample: {
       t: "보고는 이런 표로 받습니다",
       head: ["검색어", "올라간 글", "블로그 탭 위치", "확인한 날"],
