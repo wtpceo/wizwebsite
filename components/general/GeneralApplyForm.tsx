@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { trackGeneralDiagnosisSubmit } from "@/lib/analytics"
 import { readAttribution } from "@/lib/attribution"
+import { useFormGuard } from "@/components/forms/FormGuard"
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -54,6 +55,7 @@ export default function GeneralApplyForm({
 } = {}) {
   const [submitting, setSubmitting] = useState(false)
   const [done, setDone] = useState(false)
+  const { guardFields, guardValues } = useFormGuard()
   const [form, setForm] = useState({
     store: "",
     name: "",
@@ -83,6 +85,7 @@ export default function GeneralApplyForm({
     try {
       // 기존 /api/contact 재활용 — 업종 특화 정보는 message로 조합 (병원판과 동일 방식)
       const payload = {
+        ...guardValues(),
         attribution: readAttribution(),
         name: form.name,
         phone: form.phone,
@@ -164,7 +167,7 @@ export default function GeneralApplyForm({
               </p>
             </div>
           ) : (
-            <form onSubmit={onSubmit} className="rounded-2xl border border-white/10 bg-white p-6 shadow-2xl md:p-8">
+            <form onSubmit={onSubmit} className="relative rounded-2xl border border-white/10 bg-white p-6 shadow-2xl md:p-8">
               <div className="space-y-4">
                 <div>
                   <label htmlFor="store" className="mb-1.5 block text-sm font-medium text-gray-700">상호 <span className="text-emerald-600">*</span></label>
@@ -238,6 +241,7 @@ export default function GeneralApplyForm({
               <p className="mt-3 text-center text-xs text-gray-400">
                 영업시간 내 신청 시 5분 안에 리포트 · 진단 무료
               </p>
+              {guardFields}
             </form>
           )}
         </motion.div>

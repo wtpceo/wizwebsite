@@ -18,6 +18,7 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 import { readAttribution } from "@/lib/attribution"
+import { useFormGuard } from "@/components/forms/FormGuard"
 
 // 유입 경로 — AI 검색 유입 비중을 실제 데이터로 쌓기 위한 항목
 const SOURCE_OPTIONS = [
@@ -54,6 +55,8 @@ export default function ContactForm({ messagePlaceholder }: { messagePlaceholder
     message: "",
   })
   const [alertOpen, setAlertOpen] = useState(false)
+  // 스팸 방지: 숨은 칸 + 폼 연 시각 (서버 판정은 lib/spam-guard.ts)
+  const { guardFields, guardValues } = useFormGuard()
   const [alertContent, setAlertContent] = useState({
     title: "",
     description: "",
@@ -82,6 +85,7 @@ export default function ContactForm({ messagePlaceholder }: { messagePlaceholder
       // 유입 경로는 API 스키마 변경 없이 문의내용 끝에 덧붙여 전달
       const payload = {
         ...formData,
+        ...guardValues(),
         attribution: readAttribution(),
         message: `${formData.message}\n\n─────\n구분: ${formData.industry || "미응답"}\n월 예산: ${formData.budget || "미응답"}\n유입 경로: ${formData.source || "미응답"}`,
       };
@@ -166,7 +170,7 @@ export default function ContactForm({ messagePlaceholder }: { messagePlaceholder
         transition={{ duration: 0.5 }}
         className="w-full"
       >
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="relative space-y-4">
           <div className="space-y-2">
             <label htmlFor="industry" className="text-sm font-medium text-gray-700">
               문의하시는 곳
@@ -296,6 +300,7 @@ export default function ContactForm({ messagePlaceholder }: { messagePlaceholder
               "무료 상담 신청하기"
             )}
           </Button>
+          {guardFields}
         </form>
         <Toaster />
       </motion.div>

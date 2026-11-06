@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Loader2, CheckCircle2 } from "lucide-react"
 import { readAttribution } from "@/lib/attribution"
 import { trackForeignContactSubmit } from "@/lib/analytics"
+import { useFormGuard } from "@/components/forms/FormGuard"
 
 // 영문 B2B 문의 폼. 해외 담당자는 전화보다 메일이 기본이라 이메일을 필수로, 전화는 선택으로 둔다.
 // 기존 /api/contact 스키마(name·phone·email·storeName·message·language)에 맞춰 보내고,
@@ -23,6 +24,7 @@ export default function EnContactForm() {
   const [f, setF] = useState({ name: "", email: "", company: "", website: "", country: "", phone: "", interest: INTERESTS[0], message: "" })
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle")
   const [err, setErr] = useState("")
+  const { guardFields, guardValues } = useFormGuard()
   const set = (k: keyof typeof f) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setF((p) => ({ ...p, [k]: e.target.value }))
 
@@ -46,6 +48,7 @@ export default function EnContactForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          ...guardValues(),
           attribution: readAttribution(),
           name: f.name,
           email: f.email,
@@ -74,7 +77,7 @@ export default function EnContactForm() {
   }
 
   return (
-    <form onSubmit={submit} className="space-y-3" noValidate>
+    <form onSubmit={submit} className="relative space-y-3" noValidate>
       <div className="grid gap-3 sm:grid-cols-2">
         <input value={f.name} onChange={set("name")} placeholder="Your name *" autoComplete="name" aria-label="Your name" className={inputCls} />
         <input value={f.email} onChange={set("email")} placeholder="Work email *" type="email" autoComplete="email" aria-label="Work email" className={inputCls} />
@@ -117,6 +120,7 @@ export default function EnContactForm() {
       >
         {status === "sending" ? (<><Loader2 className="h-5 w-5 animate-spin" /> Sending</>) : "Send message"}
       </button>
+      {guardFields}
     </form>
   )
 }
