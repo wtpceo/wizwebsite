@@ -129,7 +129,7 @@ export default function AgencyHero() {
           >
             <motion.div variants={fadeIn}>
               <span className="text-[clamp(0.7rem,0.85vw,0.9rem)] font-bold tracking-[0.25em] text-[#00e5a0]">
-                검색 · AI · 콘텐츠 · 광고를 한 팀에서
+                소재 제작 · SEO · GEO · 퍼포먼스 광고
               </span>
             </motion.div>
 
@@ -137,18 +137,18 @@ export default function AgencyHero() {
               variants={fadeIn}
               className="mt-4 text-[clamp(2.25rem,4.6vw,4.5rem)] md:mt-6 font-extrabold leading-[1.12] tracking-tight text-white"
             >
-              제안서보다
+              소재 제작부터 SEO·GEO,
               <br />
-              질문이 먼저입니다
+              퍼포먼스까지 한 곳에서
             </motion.h1>
 
             <motion.p
               variants={fadeIn}
               className="mt-5 max-w-[600px] text-[clamp(1rem,1.3vw,1.25rem)] leading-relaxed text-slate-400"
             >
-              위즈더플래닝은 브랜드가 검색과 AI에서 지금 어떻게 불리는지 먼저 재고,{" "}
-              <span className="font-semibold text-slate-200">같은 질문으로 매주 다시 잽니다.</span>{" "}
-              기획·촬영·편집·개발·광고를 외주 없이 안에서 하기 때문에 고칠 곳은 그날 고칩니다.
+              촬영과 광고 소재 제작, 네이버·구글 검색과 AI 답변 노출, 메타·구글 퍼포먼스 광고를{" "}
+              <span className="font-semibold text-slate-200">위즈더플래닝 한 곳에서 맡습니다.</span>{" "}
+              매체마다 회사를 나누지 않으니 소재가 바뀌면 광고와 검색 콘텐츠도 같은 날 맞춥니다.
             </motion.p>
 
             <motion.div variants={fadeIn} className="mt-7 flex flex-col gap-3 min-[400px]:flex-row md:mt-9">
@@ -193,7 +193,7 @@ export default function AgencyHero() {
               <span className="h-1 w-1 rounded-full bg-slate-700" />
               <span>7,000+ 광고주</span>
               <span className="h-1 w-1 rounded-full bg-slate-700" />
-              <span className="text-[#00e5a0]/80">기획·촬영·편집·개발 전부 사내</span>
+              <span className="text-[#00e5a0]/80">기획·촬영·편집·광고까지 한 곳에서</span>
             </motion.div>
           </motion.div>
 
