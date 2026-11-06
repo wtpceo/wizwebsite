@@ -1,11 +1,12 @@
 import Link from "next/link"
 import { SERVICES } from "./content"
-import { DETAILS } from "./details"
+import { DETAILS, MORE } from "./details"
 import { MG } from "./mg"
 import { Icon } from "./icons"
 import { DocShell, Crumb, Meta, Sec, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
 import { Ex, Chars, Nums } from "./parts"
 import Works from "./Works"
+import { CaseBox, TimeBox, SampleBox, NotFit, Reads, Consult } from "./DocMore"
 
 /** 받침 있으면 「과」, 없으면 「와」 */
 function wa(w: string) {
@@ -15,9 +16,11 @@ function wa(w: string) {
 
 // 서비스 상세 — 한 문법 7칸(계획서 §4): ① 개요와 핵심 가치 ② 세부 상품 ③ 직접 실행이 다른 점
 // ④ 진행 방식과 리포트 예시 ⑤ 함께하면 좋은 서비스 ⑥ 자주 묻는 질문 ⑦ 그 서비스가 미리 골라진 문의 폼
+// 11-05 보강 칸(기간표·견본·사례·안 맞는 경우·이어 읽기·첫 상담)은 DocMore. 근거가 없는 칸은 쪽에서 빠진다
 export default function ServiceDoc({ slug }: { slug: string }) {
   const s = SERVICES.find((x) => x.slug === slug)!
   const d = DETAILS[s.k]
+  const m = MORE[s.k]
   const crumbs = [
     { name: "홈", path: "/" },
     { name: s.n, path: `/services/${s.slug}` },
@@ -128,6 +131,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
             </li>
           ))}
         </ol>
+        {m.time ? <TimeBox t={m.time} /> : null}
         <div className="dp-rep">
           <div>
             <h3>보고서 항목</h3>
@@ -144,7 +148,10 @@ export default function ServiceDoc({ slug }: { slug: string }) {
             <Ex>{s.k === "global" ? "예시 화면" : "예시 화면 · 업체명 가림"}</Ex>
           </div>
         </div>
-        {s.rec.length ? (
+        {m.sample ? <SampleBox s={m.sample} /> : null}
+        {m.case ? (
+          <CaseBox c={m.case} down={m.down} recs={m.hideRec ? [] : s.rec} recNote={d.recNote} />
+        ) : s.rec.length ? (
           <div className="dp-recs">
             <p>실제 기록</p>
             <ul>
@@ -182,9 +189,14 @@ export default function ServiceDoc({ slug }: { slug: string }) {
         </ul>
       </Sec>
 
+      <NotFit items={m.notFit} />
+
       <Sec q={`${s.n} 자주 묻는 질문`}>
         <Faq items={d.faq} />
+        {m.reads ? <Reads items={m.reads} /> : null}
       </Sec>
+
+      <Consult items={m.consult} />
 
       <nav className="dp-other" aria-label="다른 서비스">
         <div className="dp-w">

@@ -1,15 +1,17 @@
 import Link from "next/link"
 import { SERVICES, SOLUTIONS } from "./content"
-import { SOL_DETAILS } from "./details"
+import { SOL_DETAILS, MORE } from "./details"
 import { Icon } from "./icons"
 import { DocShell, Crumb, Meta, Sec, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
 import { Ex, Chars } from "./parts"
 import Works from "./Works"
+import { CaseBox, NotFit, Reads, Consult, Month } from "./DocMore"
 
 // 업종별 솔루션 3쪽 — 누구에게 · 고민 · 묶어서 하는 순서 · 진행 · 자주 묻는 질문 · 문의
 export default function SolutionDoc({ slug }: { slug: string }) {
   const f = SOLUTIONS.find((x) => x.slug === slug)!
   const d = SOL_DETAILS[slug]
+  const m = MORE[slug]
   const crumbs = [
     { name: "홈", path: "/" },
     { name: f.n, path: `/solutions/${f.slug}` },
@@ -77,6 +79,8 @@ export default function SolutionDoc({ slug }: { slug: string }) {
         </ol>
       </Sec>
 
+      {m.month ? <Month m={m.month} /> : null}
+
       <Works k={slug} />
 
       <Sec q={d.q2}>
@@ -110,11 +114,17 @@ export default function SolutionDoc({ slug }: { slug: string }) {
             </li>
           ))}
         </ol>
+        {m.case ? <CaseBox c={m.case} /> : null}
       </Sec>
+
+      <NotFit items={m.notFit} />
 
       <Sec q={`${f.n} 자주 묻는 질문`}>
         <Faq items={d.faq} />
+        {m.reads ? <Reads items={m.reads} /> : null}
       </Sec>
+
+      <Consult items={m.consult} />
 
       <nav className="dp-other" aria-label="다른 업종">
         <div className="dp-w">

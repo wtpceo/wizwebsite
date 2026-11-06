@@ -167,10 +167,8 @@ export default function Page() {
                 </Button>
               </Link>
             </div>
-            <dl className="mt-12 grid max-w-2xl grid-cols-2 gap-6 sm:grid-cols-4">
+            <dl className="mt-12 grid max-w-sm grid-cols-2 gap-6">
               {[
-                ["2016년", "대행 시작"],
-                ["7,000여", "함께한 광고주"],
                 ["4개 엔진", "측정, 기본 보고서는 3개"],
                 ["주 1회", "주간 보고서"],
               ].map(([v, l]) => (
