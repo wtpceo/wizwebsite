@@ -3,6 +3,8 @@
 
 /* 머리글 전체 펼침 메뉴(홈·새 쪽 같이 · 11-06) — 메뉴에 마우스를 대면 넓은 판 하나에 전체 항목이 나온다 */
 .sf .sfh-nav { gap: clamp(28px, 3.2vw, 48px); }
+/* 판 위쪽 이음 칸이 메뉴 글자를 덮지 않게 */
+.sf .sfh-nav > a { position: relative; z-index: 6; }
 .sf .sfh-mega { position: absolute; left: 0; right: 0; top: 100%; z-index: 5; background: #fff; color: var(--ink); border-top: 1px solid #E3EAF2; box-shadow: 0 24px 50px -24px rgba(6,26,44,.45); opacity: 0; visibility: hidden; pointer-events: auto; transition: opacity .18s ease, visibility 0s linear .18s; }
 .sf .sfh-mega::before { content: ""; position: absolute; left: 0; right: 0; top: -36px; height: 36px; }
 .sf .sfh-nav:hover .sfh-mega, .sf .sfh-nav:focus-within .sfh-mega { opacity: 1; visibility: visible; transition-delay: 0s; }
