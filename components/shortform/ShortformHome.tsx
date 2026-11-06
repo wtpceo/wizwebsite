@@ -498,7 +498,7 @@ export default function ShortformHome() {
               ))}
             </ul>
           </div>
-          <p className="sm">광고·검색·블로그·MCN·촬영, 전부 사내 팀입니다.</p>
+          <p className="sm">다섯 팀 전부 위즈더플래닝 사람입니다.</p>
         </div>
       </Cut>
 
@@ -518,7 +518,7 @@ export default function ShortformHome() {
               </div>
             ))}
           </div>
-          <p className="sm">팀은 다섯, 창구는 하나.</p>
+          <p className="sm">같은 이야기를 여러 번 하실 일이 없습니다.</p>
           <Link className="so-more" href="/team">
             전문 인력 자세히 <Icon k="arrow" />
           </Link>
@@ -563,7 +563,7 @@ export default function ShortformHome() {
                       ))}
                     </tbody>
                   </table>
-                  <p className="doc-f">안 보이는 곳, 어긋난 곳이 제안서 1번입니다.</p>
+                  <p className="doc-f">「안 보임」「서로 다름」 칸부터 고칩니다.</p>
                   <Ex />
                 </div>
               ) : null}
@@ -618,7 +618,7 @@ export default function ShortformHome() {
               ) : null}
               {i === 4 ? (
                 <div className="doc fun">
-                  <p className="doc-h">막힌 단계부터 다시</p>
+                  <p className="doc-h">어디서 막혔는지</p>
                   <div className="fn">
                     {FUNNEL.map(([a, b, v], j) => (
                       <div key={a} className={`fn-b${j === 2 ? " hit" : ""}`} style={vars({ i: j, v: `${v}%` })}>
@@ -631,7 +631,7 @@ export default function ShortformHome() {
                   <p className="doc-f">문의에서 많이 빠지면 버튼과 첫 문장부터 바꿉니다.</p>
                   <a className="loop" href="#c38">
                     <Icon k="loop" />
-                    개선이 끝나면 다시 진단부터
+                    개선이 끝나면 다시 진단으로
                   </a>
                   <Ex />
                 </div>
@@ -646,7 +646,7 @@ export default function ShortformHome() {
         <div className="ins">
           <div className="ins-t">
             <p className="cap sz-lg">
-              <Words text={"저희가 직접\n재고 쓴 글입니다."} />
+              <Words text={"저희가 직접\n재 보고 쓴 글입니다."} />
             </p>
             <Link className="ins-all" href="/guide">
               마케팅 칼럼 전체 보기 <Icon k="arrow" />
@@ -673,10 +673,10 @@ export default function ShortformHome() {
         <div className="ct">
           <div className="ct-t">
             <h2 className="cap sz-lg">
-              <Words text={"우리 브랜드 마케팅,\n무료 상담부터 받아 보세요."} />
+              <Words text={"상담은 무료입니다.\n첫 통화부터 담당 마케터입니다."} />
             </h2>
             <p className="sm">
-              대기업·프랜차이즈는 <a href="/business/contact">제안 요청</a> 쪽에서 따로 받습니다. 매장·학원은{" "}
+              대기업·프랜차이즈는 <a href="/business/contact">제안 요청</a> 페이지에서 따로 받습니다. 매장·학원은{" "}
               <a href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
                 카카오톡
               </a>

@@ -142,14 +142,14 @@ export default function SolutionDoc({ slug }: { slug: string }) {
       {/* 무료 진단은 기업·병원 대상(사장님 11-04) — 매장·학원·전문직이 대상인 로컬 쪽은 상담부터(사령탑 11-04) */}
       {f.slug === "local" ? (
         <ContactBlock
-          title={`${f.n}에 맞는 조합, 상담부터 받아 보세요.`}
+          title={`${f.n}, 어떤 순서가 맞을지 같이 봅니다.`}
           sub="매장·학원·전문직은 아래 신청이나 전화·카카오톡으로 편하게 먼저 물어보셔도 됩니다. 가격은 상담 뒤 제안서로 안내합니다."
           label="무료 상담 신청"
           initial={keys}
           source={`solution_${f.slug}`}
         />
       ) : (
-        <ContactBlock title={`${f.n}에 맞는 조합, 상담부터 받아 보세요.`} initial={keys} source={`solution_${f.slug}`} />
+        <ContactBlock title={`${f.n}, 어떤 순서가 맞을지 같이 봅니다.`} initial={keys} source={`solution_${f.slug}`} />
       )}
     </DocShell>
   )

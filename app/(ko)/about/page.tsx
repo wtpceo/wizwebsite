@@ -85,7 +85,7 @@ export default function AboutPage() {
       </Sec>
 
       <Sec id="one-team" q="따로 맡기면 무엇이 어려운가요?">
-        <p>채널마다 업체가 다르면 우리 브랜드 하나를 두고 연락이 여러 갈래로 갈라집니다.</p>
+        <p>채널마다 업체가 다르면 브랜드 하나를 두고 연락이 여러 갈래가 됩니다.</p>
         <ol className="dp-num">
           {PROBLEMS.map(([t, x]) => (
             <li key={t}>
@@ -97,7 +97,7 @@ export default function AboutPage() {
       </Sec>
 
       <Sec q="한 곳에 맡기면 무엇이 달라지나요?">
-        <p>광고 운영부터 촬영·편집까지 사내 팀이 직접 하고, 손님은 담당 마케터 한 명과만 이야기합니다.</p>
+        <p>연락할 곳이 하나로 줄고, 같은 이야기를 두 번 할 일이 없습니다.</p>
         <table className="ab-cmp">
           <thead>
             <tr>
@@ -158,7 +158,7 @@ export default function AboutPage() {
         <Faq items={d.faq} />
       </Sec>
 
-      <ContactBlock title="우리 브랜드 마케팅, 무료 상담부터 받아 보세요." source="about" />
+      <ContactBlock title="상담은 무료입니다. 첫 통화부터 담당 마케터입니다." source="about" />
     </DocShell>
   )
 }

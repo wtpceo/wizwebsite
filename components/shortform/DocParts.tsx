@@ -85,7 +85,7 @@ export function ContactBlock({ title, sub, label, initial = [], source }: { titl
       <div className="dp-w dp-ct-in">
         <div>
           <h2>{title}</h2>
-          <p className="sm">{sub || "신청하시면 담당 마케터가 연락드려 지금 어디에 어떻게 나오는지부터 같이 봅니다. 가격은 상담 뒤 제안서로 안내합니다."}</p>
+          <p className="sm">{sub || "담당자가 확인 후 연락드리겠습니다. 가격은 상담 뒤 제안서로 안내합니다."}</p>
           <div className="ct-ways">
             <a href={CONTACT.telHref} data-tel>
               <Icon k="phone" />
