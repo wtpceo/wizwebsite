@@ -7,7 +7,7 @@ import MediaPage, { type MediaPageData } from "@/components/media/MediaPage"
 // - 주 키워드 'SEO 업체'. 'GEO 마케팅·AI 검색 최적화·GEO 대행'은 가이드 두 편과 겹쳐 제목·메타에 쓰지 않는다
 // - 4절의 '홈페이지 제작 페이지'와 '각 광고 페이지'는 lib/ad-services.ts의 주소로 걸었다
 // - 부서 이름 '검색·GEO 부서'는 구성안 §09-2(대표 확인 전)
-// - 대표 승인 전이라 noindex. 사이트맵·llms.txt에 넣지 않았다
+// - 2026-11-06 색인 허용(리뉴얼 배포 뒤 총괄 요청). 사이트맵·llms.txt에 들어 있다
 const TITLE = "SEO 업체: 네이버·구글 검색과 AI 답변 노출을 맡습니다 | 위즈더플래닝"
 const DESC =
   "위즈더플래닝 검색·GEO 부서가 SEO 대행을 합니다. 네이버·구글 검색과 ChatGPT·네이버 AI·제미나이 답변에 브랜드가 나오는지 계약 전에 재고, 사이트와 콘텐츠를 고친 뒤 같은 방법으로 다시 재서 보고합니다. 대행료는 월 300만 원부터입니다."
@@ -17,7 +17,6 @@ export const metadata: Metadata = {
   title: { absolute: TITLE },
   description: DESC,
   alternates: { canonical: "/search-ai" },
-  robots: { index: false, follow: true },
   openGraph: {
     title: TITLE,
     description: DESC,
