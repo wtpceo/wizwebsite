@@ -672,7 +672,7 @@ export default function ShortformHome() {
       <Cut id="cfaq" no={next()} ch={8} tone="w" fx="liquid" label="자주 묻는 질문">
         <div className="hf">
           <h2 className="cap sz-lg">
-            <Words text={"계약 전에\n많이 물어보시는 질문"} />
+            <Words text={"계약 전에\n많이 묻는 질문"} />
           </h2>
           <Faq items={HOME_FAQ} />
         </div>
