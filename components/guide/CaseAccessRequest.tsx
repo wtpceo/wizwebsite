@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Lock, ShieldCheck, CheckCircle2, Loader2, Upload } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Lock, CheckCircle2, Loader2, Upload } from "lucide-react"
+import s from "@/components/guide/guide.module.css"
 import { trackCaseAccessRequest } from "@/lib/analytics"
 import { useFormGuard } from "@/components/forms/FormGuard"
 
@@ -53,67 +53,56 @@ export default function CaseAccessRequest({
   }
 
   return (
-    <div className="mt-14 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-      {/* 잠금 헤더 */}
-      <div className="relative bg-[#070b14] px-6 py-8 md:px-10 md:py-10">
-        <div className="geo-grid-bg absolute inset-0 opacity-50" />
-        <div className="relative">
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#00e5a0]/15 px-3 py-1 text-xs font-bold tracking-wide text-[#00e5a0]">
-            <Lock className="h-3.5 w-3.5" />
-            사업자 인증 후 열람
-          </div>
-          <h2 className="mt-4 text-2xl font-extrabold tracking-tight text-white md:text-3xl">
-            여기부터는 <span className="text-[#00e5a0]">{heading}</span>입니다
-          </h2>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-400 md:text-base">
-            {intro}
-            <strong className="text-slate-200"> 대행사가 그대로 따라 할 수 있는 정보이기 때문입니다.</strong>
-          </p>
-          {includes && includes.length > 0 && (
-            <ul className="mt-5 grid gap-2 text-sm text-slate-300 sm:grid-cols-2">
-              {includes.map((t) => (
-                <li key={t} className="flex items-start gap-2">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#00e5a0]" />
-                  {t}
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+    <div className={s.case}>
+      {/* 잠금 머리: 잉크 면. 제목 위 배지는 디자인 기준(제목 위 머리말 금지)에 따라 제목 아래 한 줄로 옮겼다 */}
+      <div className={s.caseTop}>
+        <h2>여기부터는 {heading}입니다</h2>
+        <p className={s.caseGate}>
+          <Lock className="h-3.5 w-3.5" aria-hidden="true" />
+          사업자 인증 후 열람
+        </p>
+        <p className={s.caseIntro}>
+          {intro}
+          <strong> 대행사가 그대로 따라 할 수 있는 정보이기 때문입니다.</strong>
+        </p>
+        {includes && includes.length > 0 && (
+          <ul className={s.caseIncl}>
+            {includes.map((t) => (
+              <li key={t}>{t}</li>
+            ))}
+          </ul>
+        )}
       </div>
 
       {/* 본문: 왜 막았는지 + 신청 폼 */}
-      <div className="px-6 py-8 md:px-10 md:py-10">
+      <div className={s.caseBody}>
         {status === "done" ? (
-          <div className="flex flex-col items-center py-8 text-center">
-            <CheckCircle2 className="h-12 w-12 text-[#00e5a0]" />
-            <h3 className="mt-4 text-xl font-extrabold text-gray-900">신청이 접수되었습니다</h3>
-            <p className="mt-2 max-w-md text-sm leading-relaxed text-gray-600">
+          <div className={s.caseDone}>
+            <CheckCircle2 className="h-10 w-10" aria-hidden="true" />
+            <h3>신청이 접수되었습니다</h3>
+            <p>
               사업자 본인 확인 후 <strong>영업일 기준 1~2일 내</strong>에 전체 사례를 회신드립니다.
               대행사·동종업계로 확인되면 열람이 제한될 수 있습니다.
             </p>
           </div>
         ) : (
           <>
-            <ul className="mb-8 grid gap-3 sm:grid-cols-3">
+            <ul className={s.caseRules}>
               {[
                 { t: "실사업자만", d: "사업자등록증으로 본인 확인" },
                 { t: "대행사 제외", d: "동종업계·대행사는 열람 제한" },
                 { t: "1:1 회신", d: "심사 후 개별 발송" },
               ].map((x) => (
-                <li key={x.t} className="rounded-xl bg-slate-50 px-4 py-3">
-                  <div className="flex items-center gap-1.5 text-sm font-bold text-gray-900">
-                    <ShieldCheck className="h-4 w-4 text-[#00b37e]" />
-                    {x.t}
-                  </div>
-                  <p className="mt-1 text-xs text-gray-500">{x.d}</p>
+                <li key={x.t}>
+                  <b>{x.t}</b>
+                  {x.d}
                 </li>
               ))}
             </ul>
 
-            <form onSubmit={onSubmit} className="relative grid gap-4">
+            <form onSubmit={onSubmit} className={s.caseForm}>
               <input type="hidden" name="caseKey" value={caseKey} />
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className={s.caseTwo}>
                 <Field name="name" label="이름" required placeholder="홍길동" />
                 <Field name="businessName" label="업체명(상호)" required placeholder="○○치과의원 / ○○식당" />
                 <Field name="phone" label="연락처" required placeholder="010-0000-0000" />
@@ -128,12 +117,12 @@ export default function CaseAccessRequest({
 
               {/* 파일 첨부 */}
               <div>
-                <label className="mb-1.5 block text-sm font-semibold text-gray-800">
-                  사업자등록증 첨부 <span className="font-normal text-gray-400">(JPG·PNG·PDF, 8MB 이하)</span>
-                </label>
-                <label className="flex cursor-pointer items-center gap-2 rounded-lg border border-dashed border-slate-300 bg-slate-50 px-4 py-3 text-sm text-gray-600 transition-colors hover:border-[#00b37e] hover:bg-emerald-50/50">
-                  <Upload className="h-4 w-4 shrink-0 text-slate-400" />
-                  <span className="truncate">{fileName || "파일을 선택하세요"}</span>
+                <span className={s.caseLabel}>
+                  사업자등록증 첨부 <em>(JPG·PNG·PDF, 8MB 이하)</em>
+                </span>
+                <label className={`${s.caseInput} ${s.caseFile}`}>
+                  <Upload className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  <span>{fileName || "파일을 선택하세요"}</span>
                   <input
                     type="file"
                     name="file"
@@ -145,38 +134,32 @@ export default function CaseAccessRequest({
               </div>
 
               <div>
-                <label className="mb-1.5 block text-sm font-semibold text-gray-800">
-                  메모 <span className="font-normal text-gray-400">(선택)</span>
+                <label htmlFor="case-message" className={s.caseLabel}>
+                  메모 <em>(선택)</em>
                 </label>
                 <textarea
+                  id="case-message"
                   name="message"
                   rows={3}
                   placeholder="업종·지역이나 궁금한 점을 적어주시면 심사에 참고됩니다."
-                  className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm text-gray-900 outline-none transition-colors placeholder:text-gray-400 focus:border-[#00b37e] focus:ring-2 focus:ring-[#00e5a0]/20"
+                  className={s.caseInput}
                 />
               </div>
 
-              {error && (
-                <p className="rounded-lg bg-red-50 px-3.5 py-2.5 text-sm text-red-600">{error}</p>
-              )}
+              {error && <p className={s.caseErr}>{error}</p>}
 
-              <Button
-                type="submit"
-                size="lg"
-                disabled={status === "sending"}
-                className="w-full gap-2 bg-[#070b14] font-bold text-white hover:bg-[#111a2e] disabled:opacity-60"
-              >
+              <button type="submit" disabled={status === "sending"} className={`${s.btn} ${s.caseSubmit}`}>
                 {status === "sending" ? (
                   <>
-                    <Loader2 className="h-4 w-4 animate-spin" /> 접수 중…
+                    <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> 접수 중…
                   </>
                 ) : (
                   <>
-                    <Lock className="h-4 w-4" /> {buttonLabel}
+                    <Lock className="h-4 w-4" aria-hidden="true" /> {buttonLabel}
                   </>
                 )}
-              </Button>
-              <p className="text-center text-xs text-gray-400">
+              </button>
+              <p className={s.caseFine}>
                 제출하신 정보는 사업자 본인 확인 목적으로만 사용되며, 심사 후 안전하게 관리됩니다.
               </p>
               {guardFields}
@@ -203,17 +186,10 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={name} className="mb-1.5 block text-sm font-semibold text-gray-800">
-        {label} {required && <span className="text-[#00b37e]">*</span>}
+      <label htmlFor={name} className={s.caseLabel}>
+        {label} {required && <em aria-hidden="true">*</em>}
       </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        required={required}
-        placeholder={placeholder}
-        className="w-full rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm text-gray-900 outline-none transition-colors placeholder:text-gray-400 focus:border-[#00b37e] focus:ring-2 focus:ring-[#00e5a0]/20"
-      />
+      <input id={name} name={name} type={type} required={required} placeholder={placeholder} className={s.caseInput} />
     </div>
   )
 }

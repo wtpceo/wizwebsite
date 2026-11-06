@@ -29,25 +29,14 @@ export default function ChatWidget() {
       rel="noopener noreferrer"
       onClick={() => trackChatClick()}
       aria-label={label.aria}
-      className="group fixed bottom-5 right-5 z-40 flex items-center gap-2.5 rounded-full bg-[#00e5a0] py-3.5 pl-4 pr-5 font-bold text-[#070b14] shadow-lg shadow-[#00e5a0]/30 transition-all duration-300 hover:bg-[#3cf0bb] hover:shadow-xl hover:shadow-[#00e5a0]/40 sm:bottom-6 sm:right-6"
+      className="fixed bottom-5 right-5 z-40 flex items-center gap-2.5 bg-[var(--ink)] py-3.5 pl-4 pr-5 font-bold text-[var(--on-dark)] transition-colors duration-200 hover:bg-[var(--tone-1)] active:scale-[0.97] sm:bottom-6 sm:right-6"
     >
-      {/* 주목용 펄스 링 */}
-      <span className="pointer-events-none absolute inset-0 rounded-full bg-[#00e5a0] opacity-60 motion-safe:[animation:ping_2s_ease-out_infinite]" />
+      {/* 디자인기준 v1: 모서리 0, 그림자·펄스 없음, 잉크 바탕. 민트는 첫 화면 주 버튼에만 남긴다(디자이너 점검 2026-11-03) */}
+      <MessageCircle className="h-6 w-6 shrink-0" strokeWidth={2.2} aria-hidden="true" />
 
-      <span className="relative flex h-6 w-6 items-center justify-center">
-        <MessageCircle className="h-6 w-6" strokeWidth={2.4} />
-        {/* 온라인 표시 점 */}
-        <span className="absolute -right-0.5 -top-0.5 flex h-2.5 w-2.5">
-          <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75 motion-safe:[animation:ping_2s_ease-out_infinite]" />
-          <span className="relative inline-flex h-2.5 w-2.5 rounded-full border border-[#00e5a0] bg-emerald-500" />
-        </span>
-      </span>
-
-      <span className="relative flex flex-col leading-tight">
+      <span className="flex flex-col leading-tight">
         <span className="whitespace-nowrap text-sm font-bold">{label.title}</span>
-        <span className="whitespace-nowrap text-[10px] font-medium text-[#0a3b2c]">
-          {label.sub}
-        </span>
+        <span className="whitespace-nowrap text-[10px] font-medium text-[var(--on-dark-muted)]">{label.sub}</span>
       </span>
     </a>
   )

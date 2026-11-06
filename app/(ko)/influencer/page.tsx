@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "우리 제품에 맞는 인플루언서, 후보부터 받아 보고 정하세요",
     description: DESC,
     url: URL,
-    images: [{ url: "/covers/influencer.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/covers/og-influencer.jpg", width: 1200, height: 630 }],
     type: "website",
   },
 }

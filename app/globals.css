@@ -4,8 +4,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 2026-11 리브랜딩 디자인 기준 v1의 색 토큰. 홈과 앞으로 옮길 페이지가 같은 이름을 쓴다.
+   면 구분은 선·그림자 대신 색 한 단계로 한다. accent는 주 버튼과 선택 상태에만, 한 화면에 한 번.
+   shadcn의 HSL 변수 --muted·--accent는 이름이 겹쳐 --sc-muted·--sc-accent로 옮겼다(tailwind.config.ts) */
+:root {
+  --bg: #ffffff;
+  --surface: #efefed;
+  --surface-2: #e2e2df;
+  --ink: #0a0a0a;
+  --muted: #4a4a48;
+  --dark-2: #1c1c1b;
+  --on-dark: #f5f5f3;
+  --on-dark-muted: #b9b9b5;
+  --accent: #16d9a0;
+  /* 기준표 밖의 단계색. 프로토타입 값 그대로, 홈의 단계 막대·책등·캡션 띠에만 쓴다 */
+  --tone-1: #2a2a29;
+  --tone-2: #3a3a38;
+  --tone-3: #56564f;
+  --tone-4: #a3a39d;
+  --tone-5: #cfcfca;
+  --tone-6: #dcdcd7;
+  --accent-hover: #3ff0bb;
+}
+
 body {
   font-family: 'SUIT Variable', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+}
+
+/* 본문 글줄: 한글 낱말 가운데서 끊지 않는다(디자이너 점검 2026-11-03).
+   overflow-wrap은 칸보다 긴 낱말(주소·메일)만 넘칠 때 끊어 가로 넘침을 막는다.
+   가운뎃점(·) 앞뒤는 크롬이 keep-all이어도 끊으므로, 홈·매체 페이지는 KeepDots로 따로 묶는다 */
+p, li, dd, dt, address, figcaption, small {
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 /* GEO 히어로 배경: 잉크 위 도트 그리드 */
@@ -44,9 +75,9 @@ body {
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
+    --sc-muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
+    --sc-accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -67,9 +98,9 @@ body {
     --primary-foreground: 222.2 47.4% 11.2%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
+    --sc-muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
+    --sc-accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
