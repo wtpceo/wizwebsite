@@ -163,7 +163,7 @@ var H4=(function(){
 /* ── 홈 숏폼형 실행부(2026-11-04) — 위 타일·모션·첫 화면 공용 위에 얹는다 ── */
 var SFD = {};
 try { SFD = JSON.parse(document.getElementById('sf-data').textContent); } catch (e) { SFD = {}; }
-if (SFD.svc) SFD.svc.forEach(function (d, i) { var s = S[i]; if (!s || s.k !== d.k) return; s.ln = d.ln; s.first = d.first; s.t1 = d.t1; s.d = d.d; s.rec = d.rec; s.more = d.more; });
+if (SFD.svc) SFD.svc.forEach(function (d, i) { var s = S[i]; if (!s || s.k !== d.k) return; s.n = d.n; s.ln = d.ln; s.first = d.first; s.t1 = d.t1; s.d = d.d; s.rec = d.rec; s.more = d.more; });
 var CHN = ['한 곳', '따로 맡기면', '한 곳에 맡기면', '하는 일', '업종별', '전문 인력', '진행 과정', '인사이트', '문의', '끝'];
 
 /* 첫 화면 — 시안 c1b 를 서버가 그린 목록에 묶음 */
