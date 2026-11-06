@@ -39,7 +39,7 @@ export default function SolutionDoc({ slug }: { slug: string }) {
       <JsonLd data={ld} />
       <section className="dp-hero t-k" aria-label={`${f.n} 소개`}>
         <div className="dp-bg" aria-hidden="true">
-          <div className="bgt" data-wall="" />
+          <div className="bgt" data-wall={slug} />
         </div>
         <div className="dp-veil" aria-hidden="true" />
         <div className="dp-w dp-hero-in">

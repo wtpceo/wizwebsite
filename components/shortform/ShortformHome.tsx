@@ -97,9 +97,6 @@ export default function ShortformHome() {
                   {/* 누르면 그 서비스 상세 쪽으로(11-05) · 마우스를 올리면 휴대폰 고리가 그 일로 돈다(sf.js) */}
                   <Link className="svb" href={`/services/${s.slug}`} data-i={i}>
                     <em className="no" aria-hidden="true">{s.no}</em>
-                    <span className="ic">
-                      <Icon k={s.k} />
-                    </span>
                     <span className="n">{s.n}</span>
                     <span className="l">{s.ln}</span>
                     <i className="pg" />
@@ -326,14 +323,14 @@ export default function ShortformHome() {
                 {s.k === "content" ? (
                   <div className="sa-vis sa-wall" aria-hidden="true">
                     {/* 11-05 사장님 「숏폼이 한 개만 돌아 아쉬움」 — 위 사진 3장, 아래 숏폼 3편이 같이 돈다 */}
-                    {["w1", "w2", "w3", "v:r11", "v:r15", "v:r31"].map((m, i) =>
+                    {["w4", "w5", "w6", "v:b1", "v:f1", "v:r15"].map((m, i) =>
                       m.startsWith("v:") ? (
                         <video key={m} data-src={`/sf/v/${m.slice(2)}.mp4`} poster={`/sf/v/${m.slice(2)}.jpg`} muted loop playsInline preload="none" style={vars({ i })} />
                       ) : (
                         <img key={m} src={`/sf/pf/${m}.jpg`} alt="" loading="lazy" width={720} height={540} style={vars({ i })} />
                       ),
                     )}
-                    <small>직접 찍은 사진 · 숏폼</small>
+                    <small>찍은 사진 · 숏폼 예시</small>
                   </div>
                 ) : null}
                 {s.fx === "iso" ? <div className="sa-vis sa-iso" data-tiles={s.k} data-pick="0,1,2" aria-hidden="true" /> : null}

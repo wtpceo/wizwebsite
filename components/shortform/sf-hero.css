@@ -272,19 +272,35 @@ html.sf-anim .sf .ooh.tv .tv3{animation:sf-tv 9s linear 6s infinite}
 @keyframes sf-cT{0%,20%{transform:scaleX(0)}34%,92%{transform:scaleX(1)}100%{transform:scaleX(0)}}
 @keyframes sf-cP{0%,36%{transform:translateX(0)}90%{transform:translateX(83cqw)}100%{transform:translateX(83cqw);opacity:0}}
 @keyframes sf-cS{0%,52%{opacity:0;transform:scale(.8)}60%,90%{opacity:1;transform:none}100%{opacity:0}}
-.sf .mg-g .gl{left:30cqw;top:8cqw;width:40cqw;height:40cqw;border-radius:50%;overflow:hidden;background:radial-gradient(circle,rgba(124,196,232,.7) .45cqw,transparent .55cqw) 0 0/2.6cqw 2.6cqw,#0F2742;animation:sf-gR 8s linear infinite;box-shadow:inset -6cqw -4cqw 8cqw rgba(0,0,0,.55),inset 2cqw 2cqw 6cqw rgba(255,255,255,.1)}
-.sf .mg-g svg{inset:0;width:100%;height:100%;overflow:visible}
-.sf .mg-g svg path{fill:none;stroke:#7CC4E8;stroke-width:.7;stroke-linecap:round;stroke-dasharray:70;stroke-dashoffset:70;animation:sf-gA 5s var(--eo) infinite}
-.sf .mg-g svg path.p2{animation-delay:.35s}
-.sf .mg-g .pin{left:49cqw;top:26cqw;width:4cqw;height:4cqw;border-radius:50%;background:#fff;box-shadow:0 0 0 1.4cqw rgba(255,255,255,.22)}
-.sf .mg-g .sl{left:44cqw;top:31cqw;font-size:3.2cqw;font-weight:800}
-.sf .mg-g .chip{font-size:3.4cqw;font-weight:800;padding:1.2cqw 2.4cqw;border-radius:2cqw;opacity:0;animation:sf-gC 5s var(--eo) infinite}
-.sf .mg-g .cn{left:4cqw;top:50cqw;background:#FF2442}
-.sf .mg-g .jp{right:4cqw;top:46cqw;background:#06C755;animation-delay:.35s}
+/* 해외 칸(11-06 새로 그림): 손님이 휴대폰으로 먼저 보고 저장 → 비행기가 서울로 온다 */
+.sf .mg-g .rt{left:6cqw;right:6cqw;height:8cqw}
+.sf .mg-g .r1{top:6cqw}
+.sf .mg-g .r2{top:16cqw}
+.sf .mg-g .rt b{top:1.7cqw;font-size:3.5cqw;font-weight:800;line-height:1.3}
+.sf .mg-g .rt .fr{left:0}
+.sf .mg-g .rt .to{right:0;color:#7CC4E8}
+.sf .mg-g .tr{left:14cqw;right:11cqw;top:3.8cqw;height:.45cqw;border-radius:1cqw;background:rgba(255,255,255,.18);overflow:hidden}
+.sf .mg-g .tr i{inset:0;background:#7CC4E8;transform-origin:left;animation:sf-gT 7s var(--eo) infinite backwards}
+.sf .mg-g .pl{left:13cqw;top:1.1cqw;width:5.8cqw;height:5.8cqw;transform:translateX(30cqw) rotate(90deg);animation:sf-gP 7s cubic-bezier(.77,0,.175,1) infinite backwards}
+.sf .mg-g .pl svg{inset:0;width:100%;height:100%;fill:#fff}
+.sf .mg-g .r2 .tr i,.sf .mg-g .r2 .pl{animation-delay:.45s}
+.sf .mg-g .sc{top:29cqw;width:42cqw;height:33cqw;border-radius:2.4cqw;background:#fff;color:#14233A;overflow:hidden;animation:sf-gU 7s var(--eo) infinite backwards}
+.sf .mg-g .xh{left:6cqw}
+.sf .mg-g .ln{right:6cqw;animation-delay:.45s}
+.sf .mg-g .im{left:0;top:0;bottom:0;width:17cqw;background:center/cover no-repeat}
+.sf .mg-g .xh .im{background-image:url(/sf/ex/cosme.jpg)}
+.sf .mg-g .ln .im{background-image:url(/sf/ex/fashion-look.jpg)}
+.sf .mg-g .tg{left:19cqw;top:2.4cqw;font-size:2.7cqw;font-weight:800;line-height:1;padding:1cqw 1.5cqw;border-radius:1cqw;color:#fff}
+.sf .mg-g .xh .tg{background:#FF2442}
+.sf .mg-g .ln .tg{background:#06C755}
+.sf .mg-g .sc p{left:19cqw;right:2cqw;top:8.4cqw;margin:0;font-size:2.8cqw;font-weight:700;line-height:1.35;word-break:keep-all}
+.sf .mg-g .sc em{left:19cqw;bottom:2.6cqw;font-size:3cqw;font-style:normal;font-weight:800;color:#FF2442;animation:sf-gH 7s var(--eo) infinite backwards}
+.sf .mg-g .sc u{left:19cqw;right:2cqw;bottom:2.4cqw;font-size:2.8cqw;font-weight:800;text-align:center;text-decoration:none;line-height:1;padding:1.3cqw 0;border-radius:1cqw;background:#06C755;color:#fff}
 .sf .mg-g .cap{left:0;right:0;text-align:center}
-@keyframes sf-gR{to{background-position:26cqw 0,0 0}}
-@keyframes sf-gA{0%,10%{stroke-dashoffset:70}40%,90%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
-@keyframes sf-gC{0%,38%{opacity:0;transform:translateY(2cqw)}46%,90%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes sf-gU{0%{opacity:0;transform:translateY(3cqw)}12%,92%{opacity:1;transform:none}100%{opacity:0;transform:none}}
+@keyframes sf-gH{0%,14%{opacity:0;transform:scale(.8)}20%,92%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes sf-gT{0%,24%{transform:scaleX(0);opacity:1}70%,92%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:0}}
+@keyframes sf-gP{0%,20%{transform:translateX(0) rotate(90deg);opacity:0}26%{transform:translateX(0) rotate(90deg);opacity:1}70%{transform:translateX(60cqw) rotate(90deg);opacity:1}76%,100%{transform:translateX(60cqw) rotate(90deg);opacity:0}}
 .sf .mg-h .br{left:8cqw;right:8cqw;top:5cqw;height:62cqw;border-radius:2.4cqw;background:#fff;overflow:hidden}
 .sf .mg-h .br *{position:absolute}
 .sf .mg-h .tb{left:0;right:0;top:0;height:6cqw;background:#E9EEF4}
