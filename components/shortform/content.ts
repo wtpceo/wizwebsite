@@ -287,7 +287,7 @@ export const SOLUTIONS: Solution[] = [
     slug: "local",
     n: "로컬 비즈니스",
     who: "매장 · 병원 · 학원 · 전문직",
-    q: "지역 검색에서\n찾히도록.",
+    q: "지역 검색부터\n챙깁니다.",
     img: "beauty-salon",
     alt: "메이크업을 받는 뷰티 매장 예시 사진",
     c: [
