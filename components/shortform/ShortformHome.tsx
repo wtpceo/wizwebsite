@@ -106,13 +106,28 @@ export default function ShortformHome() {
           </div>
         </div>
         {/* 11-06 저녁 대표: 2016년부터라 11년차. 아래로 내리게 끄는 줄 */}
-        <a className="hint" href="#c1b">
+        <a className="hint" href="#c1a">
           <span>11년차 IMC 대행사가 일하는 과정을 살펴보세요</span>
           <Icon k="down" />
         </a>
       </section>
 
       {/* 1-2 여덟 가지 + 휴대폰 고리 — 11-06 밤 대표 「첫 화면은 카피만, 이미지는 다음 섹션에서」. 옛 첫 화면 오른쪽(고리·접근 방식 상자)과 목록을 그대로 옮겼다. sf.js heroInit 가 #svl·#ring·#cf 를 찾는다 */}
+      {/* 1-1 왜 우리인가 — 11-06 밤 대표가 고른 카피(A안, 제목은 대표가 고침). 글만 있는 짧은 컷 */}
+      <Cut id="c1a" no={next()} ch={0} tone="k" label="왜 위즈더플래닝인가" className="c1a">
+        <div className="c1a-in">
+          <p className="eb">WHY WIZ THE PLANNING</p>
+          <p className="cap sz-xl">
+            <Words text={"언제까지 매체마다 다른 회사에 맡기고\n숙제처럼 '다 했습니다'라는 말만\n들으실 건가요?"} />
+          </p>
+          <p className="sm">
+            소재 제작부터 유튜버·인플루언서 섭외, 그 콘텐츠의 2차·3차 활용, 퍼포먼스 광고, SEO·GEO까지.
+            <br />
+            실행이 아니라 성과로 보고하는 회사가 여기 있습니다.
+          </p>
+        </div>
+      </Cut>
+
       <Cut id="c1b" no={next()} ch={0} tone="k" label="하는 일 여덟 가지" className="c1b">
         <div className="c1b-in">
           <div className="c1b-t">
