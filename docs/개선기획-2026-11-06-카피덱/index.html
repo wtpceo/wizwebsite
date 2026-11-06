@@ -1,0 +1,143 @@
+<title>카피덱 v3 개선 기획</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@700&display=swap">
+<style>
+/* 레이아웃: 결론 → 결정 → 가져올 문장 → 안 쓸 문장 → 확인 → 순서로 읽는 한 줄 문서. 회사 파랑을 강조색으로 */
+:root{--bg:#F6F8FB;--panel:#FFFFFF;--fg:#14233A;--sub:#55627A;--line:#D9E2EC;--cob:#0D4F8C;--soft:#E7F0F8;--ok:#0F7A52;--okbg:#E2F4EC;--mid:#9A5B00;--midbg:#FBF0DD;--no:#B23A3A;--nobg:#FAE7E7;--body:"IBM Plex Sans KR",system-ui,sans-serif;--head:"Noto Serif KR","IBM Plex Sans KR",serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1622;--panel:#162132;--fg:#E8EEF5;--sub:#A3B1C4;--line:#2C3B50;--cob:#7CC4E8;--soft:#1C2E45;--ok:#6FDDAE;--okbg:#14342A;--mid:#F2C078;--midbg:#3A2C14;--no:#F2A3A3;--nobg:#3B1E1E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1622;--panel:#162132;--fg:#E8EEF5;--sub:#A3B1C4;--line:#2C3B50;--cob:#7CC4E8;--soft:#1C2E45;--ok:#6FDDAE;--okbg:#14342A;--mid:#F2C078;--midbg:#3A2C14;--no:#F2A3A3;--nobg:#3B1E1E;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.7;word-break:keep-all}
+.w{max-width:940px;margin:0 auto;padding-block:48px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:44px}
+h1{font-family:var(--head);font-size:clamp(28px,5vw,40px);line-height:1.3;margin:8px 0 12px;text-wrap:balance}
+h2{font-family:var(--head);font-size:23px;line-height:1.4;margin:0 0 8px;text-wrap:balance}
+h3{font-size:16px;margin:0 0 4px}
+p{margin:0}.kick{font-size:13px;color:var(--cob);font-weight:700}.sub{color:var(--sub)}
+.lead{font-size:18px;max-width:66ch}
+.tbl{overflow-x:auto;margin-top:12px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px;line-height:1.55}
+th,td{padding:12px;text-align:left;vertical-align:top;border-top:1px solid var(--line)}
+thead th{border-top:0;background:var(--soft);font-size:13px;font-weight:700}
+td b{font-weight:700}
+.score{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.score div{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;min-width:0}
+.score b{display:block;font-family:var(--head);font-size:30px;line-height:1.2;font-variant-numeric:tabular-nums}
+.score .on{border-color:var(--cob);box-shadow:inset 0 0 0 1px var(--cob)}
+.dec{display:grid;gap:12px;margin-top:12px}
+.dec article{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;min-width:0}
+.pill{display:inline-block;font-size:12.5px;font-weight:700;padding:1px 8px;border-radius:5px;background:var(--okbg);color:var(--ok);margin-right:8px}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.hero{background:#0D4F8C;color:#fff;border-radius:8px;padding:24px;min-width:0}
+.hero small{display:block;font-size:12px;letter-spacing:.14em;color:#BFE4F5;margin-bottom:24px}
+.hero strong{display:block;font-size:clamp(24px,3.4vw,31px);line-height:1.25;font-weight:700}
+.hero span{display:block;margin-top:12px;font-size:14.5px;color:#BFE4F5}
+.hero i{display:flex;flex-wrap:wrap;gap:8px;font-style:normal;margin-top:16px}
+.hero em{font-style:normal;font-size:13px;font-weight:700;padding:8px 12px;border-radius:5px;background:#fff;color:#0D4F8C}
+.hero em.k{background:#FEE500;color:#2B2100}
+.hero u{display:block;text-decoration:none;margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.25);font-size:12.5px;color:#DCEEF9}
+.cap{font-size:13.5px;color:var(--sub);margin-top:8px}
+ol.st{margin:12px 0 0;padding-left:20px;display:grid;gap:8px}
+ul.pl{margin:12px 0 0;padding-left:20px;display:grid;gap:4px}
+@media (max-width:640px){.score,.pair{grid-template-columns:minmax(0,1fr)}}
+</style>
+<div class="w">
+
+<header>
+<p class="kick">위즈더플래닝 홈페이지 · 2026.11.06 · 코드 변경 없음</p>
+<h1>카피덱은 통째로 넣지 말고, 잘 쓴 문장만 가져오는 쪽을 권합니다</h1>
+<p class="lead">표의 「현재 문구」가 오늘 고치기 전 사이트라서 그대로 덮으면 오늘 작업이 되돌아갑니다. 말투도 사장님·원장님이 아니라 기업 담당자 쪽으로 옮겨 갑니다. 좋은 문장 7곳과 항목 풀이만 골라 넣고, 기업 말투는 기업 전용 쪽으로 보내는 안을 냈습니다.</p>
+<div class="score">
+<div><b>6점</b>카피덱 그대로 적용. 옛 문구 위에 쓰였고 근거 없는 숫자가 남습니다</div>
+<div class="on"><b>8점</b>이 기획안. 좋은 문장만 가져오고 사실에 맞춥니다</div>
+<div><b>10점</b>아래 결정 4개와 숫자 확인이 끝나면 됩니다</div>
+</div>
+</header>
+
+<section>
+<p class="kick">먼저 정할 것</p>
+<h2>사장님이 정하셔야 하는 네 가지</h2>
+<div class="dec">
+<article><h3>1. 첫 화면의 손님을 누구로 볼까요</h3><p><span class="pill">추천</span>지금처럼 사장님·원장님과 브랜드 담당자를 함께 봅니다. 「전담 AE·고객사·인하우스」는 기업 쪽(<code>/business</code>)에만 씁니다.</p><p class="cap">이유: 프로젝트 규칙이 자영업 경로와 기업 경로를 말로 나누게 되어 있고, 「전담 AE」는 사장님이 바로 이해하기 어렵습니다 [추론]. 첫 화면 전체를 기업 말투로 바꾸려면 이 규칙부터 바꿔야 합니다.</p></article>
+<article><h3>2. 주 버튼 이름을 바꿀까요</h3><p><span class="pill">추천</span>「무료 상담 신청」을 그대로 둡니다.</p><p class="cap">이유: 「마케팅 진단 신청」은 무료라는 말이 빠지고, 이미 있는 무료 진단 쪽(<code>/diagnosis</code>)과 이름이 겹칩니다 [실측].</p></article>
+<article><h3>3. 보조 버튼을 카카오톡에서 기업 제안 요청으로 바꿀까요</h3><p><span class="pill">추천</span>카카오톡을 둡니다. 기업 제안 요청은 지금처럼 문의 메뉴와 문의 칸에 둡니다.</p><p class="cap">이유: 기업 제안 요청이 첫 화면에 오면 매장 손님이 뒤로 밀립니다 [추론]. 첫 화면을 기업 중심으로 정하시면 바꾸는 쪽이 맞습니다.</p></article>
+<article><h3>4. 첫 화면에 신뢰 줄을 넣을까요</h3><p><span class="pill">추천</span>근거가 있는 세 칸만 넣습니다: 사내 5개 팀 · 포커스미디어 공식 총판 · 매주 보고.</p><p class="cap">이유: 「누적 고객사」 숫자는 사장님이 회사소개 한 곳에만 두기로 정하셨고, 덱의 6,600과 사이트의 7,000여가 서로 다릅니다 [실측]. 첫 화면 칸이 이미 꽉 차 있어 실제로 얹어 보고 정해야 합니다.</p></article>
+</div>
+</section>
+
+<section>
+<p class="kick">첫 화면 전후</p>
+<h2>제목은 바꾸고, A to Z는 작은 문구로 남깁니다</h2>
+<div class="pair">
+<div><div class="hero"><small>WIZ THE PLANNING</small><strong>나눠 맡기던 마케팅,<br>A to Z, 한 곳에서.</strong><span>하청 없이 저희 팀이 직접 합니다.</span><i><em>무료 상담 신청</em><em class="k">카카오톡 상담</em></i></div><p class="cap">지금</p></div>
+<div><div class="hero"><small>WIZ THE PLANNING</small><strong>맡긴 곳이<br>직접 합니다.</strong><span>나눠 맡기던 마케팅 A to Z, 하청 없이 저희 팀이.</span><i><em>무료 상담 신청</em><em class="k">카카오톡 상담</em></i><u>사내 5개 팀 · 포커스미디어 공식 총판 · 매주 보고</u></div><p class="cap">바뀐 뒤(제안). 덱의 쉼표는 뺐습니다. 제목에 「마케팅」이 없어 작은 문구가 무엇을 하는 회사인지 받칩니다</p></div>
+</div>
+</section>
+
+<section>
+<p class="kick">가져올 것</p>
+<h2>덱에서 가져오면 지금보다 나아지는 문장</h2>
+<div class="tbl"><table>
+<thead><tr><th style="width:15%">자리</th><th style="width:28%">지금</th><th style="width:28%">카피덱</th><th>제안</th></tr></thead>
+<tbody>
+<tr><td>따로 맡길 때</td><td>업체가 넷이면 연락도 넷.</td><td>대행사 넷, 담당자 넷, 핑계도 넷.</td><td><b>덱 그대로</b></td></tr>
+<tr><td>한 곳에 맡길 때</td><td>하청없이, 우리팀이 직접 책임집니다.</td><td>이제 떠넘길 곳이 없습니다. 그래서 끝까지 합니다.</td><td><b>덱 그대로</b></td></tr>
+<tr><td>업종별 도입</td><td>병원과 고깃집이 같은 순서일 리 없습니다. 안 보이는 곳부터 잡습니다.</td><td>업종과 성장 단계가 다르면, 전략도 달라야 합니다.</td><td><b>미용실과 쇼핑몰이 같은 순서일 리 없습니다.</b> 안 보이는 곳부터 잡습니다. (패션·뷰티 먼저 지시 반영)</td></tr>
+<tr><td>서비스 항목 풀이</td><td>카카오 모먼트 / 당근</td><td>카카오 모먼트 — 카카오톡·다음 지면</td><td><b>풀이를 붙입니다.</b> 엠대시는 콜론으로 바꿉니다</td></tr>
+<tr><td>오프라인 실적</td><td>실적 칸에 공식 총판 표기</td><td>헤드라인 옆 인증 배지</td><td><b>덱 방식.</b> 사실은 같고 자리가 더 맞습니다</td></tr>
+<tr><td>화면 속 작은 말</td><td>하트·댓글·저장 수까지 보고합니다</td><td>좋아요·댓글·저장 수까지 리포트합니다</td><td><b>좋아요·댓글·저장 수까지 보고합니다</b></td></tr>
+<tr><td>사례 아래</td><td>고른 사례라는 안내만 있음</td><td>측정 방식 보기 링크 추가</td><td><b>링크만 추가.</b> 안내 문장은 지금 것을 둡니다</td></tr>
+<tr><td>위쪽 장 이름</td><td>한 곳 / 하는 일 / 끝</td><td>개요 / 과제 / 해법 / 프로세스</td><td><b>처음 / 따로 맡기면 / 한 곳에 맡기면 / 서비스 / 업종별 / 전문 인력 / 진행 과정 / 인사이트 / 자주 묻는 질문 / 문의</b></td></tr>
+<tr><td>섹션 작은 라벨</td><td>없음</td><td>영문 라벨(WHAT WE DO 등)</td><td><b>덱 방식.</b> 큰 제목 위에 작게 넣습니다. 디자인이 바뀌니 시안을 먼저 봅니다</td></tr>
+</tbody></table></div>
+</section>
+
+<section>
+<p class="kick">가져오지 않을 것</p>
+<h2>넣으면 오늘 정한 내용과 부딪히는 문장</h2>
+<div class="tbl"><table>
+<thead><tr><th style="width:38%">카피덱</th><th>이유</th></tr></thead>
+<tbody>
+<tr><td>자체 MCN 채널, @matzip_town, 팔로워 5.1만, MCN 팀의 자체 채널 운영</td><td>오늘 사장님이 빼라고 하셨습니다.</td></tr>
+<tr><td>서비스 이름: 퍼포먼스 광고, 콘텐츠 프로덕션, 바이럴·평판 관리 등</td><td>품목 이름처럼 바꾸라는 지시로 정한 이름을 되돌립니다. 덱의 현재 칸도 그 이름을 쓰고 있어, 바꿀 이유가 약합니다.</td></tr>
+<tr><td>서비스 큰 문구 8개: 「영향력보다, 적합도로 선별합니다.」 등</td><td>오늘 쓴 문구가 더 구체적입니다. 「후보부터 받아 보고 정하세요」는 손님이 받는 것을 말하지만, 덱 문구는 옆 회사도 쓸 수 있습니다.</td></tr>
+<tr><td>운영 구조가 다르면, 결과가 다릅니다.</td><td>결과 약속처럼 읽힙니다. 프로젝트 금지선입니다.</td></tr>
+<tr><td>「예약 기여는 셀 수 없었다」 단서 삭제, 고지문을 일반 문장으로 교체</td><td>지금 사이트의 힘은 불리한 점도 적는 데 있습니다. 「모든 곳이 이만큼 오르지는 않습니다」가 덱 문구보다 믿깁니다 [추론].</td></tr>
+<tr><td>AI 언급률 17% → 93%만 실적으로 표기</td><td>2주 뒤 83%로 내려간 기록이 함께 있습니다 [실측]. 같이 적거나 넣지 않습니다.</td></tr>
+<tr><td>3페이지 사이트가 167페이지 사이트보다 먼저 인용</td><td>치과가 밀리던 출발점이지 저희 실적이 아닙니다 [실측]. 실적 칸에 넣으면 뜻이 뒤집힙니다.</td></tr>
+<tr><td>파편화, 골든타임, 소모됩니다, 데이터 기반, 전략적으로 설계, 고도화</td><td>사장님이 지적하신 AI 티와 같은 종류입니다. 세 단계 설명도 명사 나열이라 지금 문장이 더 읽힙니다.</td></tr>
+<tr><td>문의 폼에 예산 칸 추가</td><td>기업 폼에는 이미 예산 칸이 있습니다 [실측]. 일반 폼은 사장님이 정한 필수 6칸을 둡니다.</td></tr>
+<tr><td>카카오톡 「실시간 채팅 문의」</td><td>지키기 어려운 응답 약속입니다.</td></tr>
+</tbody></table></div>
+<p class="cap">기업 쪽으로 옮겨 쓸 수 있는 문장: 네 곳의 대행사가 하던 일, 다채널 캠페인을 하나의 창구로, 진단 결과 기반 제안서 안내. 「사장님·가게」를 쓰지 않는 기업 쪽 규칙과 잘 맞습니다.</p>
+</section>
+
+<section>
+<p class="kick">사실 확인</p>
+<h2>넣기 전에 사장님 확인이 필요한 말</h2>
+<div class="tbl"><table>
+<thead><tr><th style="width:30%">덱의 말</th><th style="width:40%">지금 찾은 것</th><th>판단</th></tr></thead>
+<tbody>
+<tr><td>누적 고객사 6,600+</td><td>사이트 회사소개는 7,000여 곳 [실측]</td><td>어느 쪽이 맞는지 확인 전 사용 안 함</td></tr>
+<tr><td>10~20년 경력 전문가</td><td>저장소에 근거 없음 [실측]</td><td>확인 전 사용 안 함</td></tr>
+<tr><td>전원 인하우스</td><td>사내 팀 문구는 있음. 블로거·인플루언서는 외부 사람입니다 [추론]</td><td>「사내 5개 팀」까지만 사용</td></tr>
+<tr><td>중간 마진 없는 직접 집행</td><td>지금 사이트는 「중간 단계를 줄임」 [실측]</td><td>더 세게 쓴 말이라 지금 문구 유지</td></tr>
+<tr><td>영업일 [1]일 이내 연락</td><td>운영 기준 없음</td><td>기준을 주시면 넣습니다</td></tr>
+</tbody></table></div>
+<p class="cap">대조 방법: 덱 표 132줄의 「현재 문구」를 사이트 코드와 글자로 맞췄습니다. 75줄 일치, 57줄 불일치입니다. 불일치에는 띄어쓰기나 표기 차이도 섞여 있습니다.</p>
+</section>
+
+<section>
+<p class="kick">승인 뒤 순서</p>
+<h2>정해 주시면 이 순서로 고칩니다</h2>
+<ol class="st">
+<li>첫 화면과 해법·과제·업종 문장을 바꿉니다.</li>
+<li>서비스 8쪽 항목 풀이를 넣습니다.</li>
+<li>장 이름, 오프라인 인증 표시, 측정 방식 링크를 넣습니다.</li>
+<li>영문 작은 라벨은 시안을 보여 드린 뒤 넣습니다.</li>
+<li>기업 쪽 문장을 <code>/business</code>로 옮깁니다.</li>
+<li>같은 문장이 쓰이는 곳을 함께 고칩니다: 바닥글, 공유 미리보기, 검색 설명, 회사소개, <code>llms.txt</code>, 제안서 표지.</li>
+<li>별도 봇 검수 뒤 시험 주소에 올립니다. 운영 반영은 사장님 신호 뒤에 합니다.</li>
+</ol>
+</section>
+
+</div>
