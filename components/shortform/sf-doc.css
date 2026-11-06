@@ -439,3 +439,9 @@ html.sf-anim .sf .gd-hero h1 { animation: sf-rise .6s cubic-bezier(.23,1,.32,1) 
 @media (max-width: 380px) {
   .sf .iq-two { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* 홈 자주 묻는 질문 컷(11-06) */
+.sf .hf { min-height: inherit; padding: var(--pad-t) var(--pad-x) var(--pad-b); display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: 56px; align-items: start; }
+@media (max-width: 820px) {
+  .sf .hf { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+}

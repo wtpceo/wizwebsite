@@ -84,7 +84,7 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
             ))}
           </nav>
           <p className="sfc" aria-hidden="true">
-            <b id="sfcNo">01</b> / 45 <span id="sfcCh">{CHAPTERS[0].n}</span>
+            <b id="sfcNo">01</b> / 46 <span id="sfcCh">{CHAPTERS[0].n}</span>
           </p>
         </>
       ) : null}

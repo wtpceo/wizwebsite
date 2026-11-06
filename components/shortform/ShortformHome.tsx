@@ -15,12 +15,14 @@ import {
   FUNNEL,
   INSIGHT_HREFS,
   CONTACT,
+  HOME_FAQ,
 } from "./content"
 import { MG } from "./mg"
 import { DETAILS } from "./details"
 import { Icon } from "./icons"
 import { Words, Chars, Cut, Ex, vars, Nums } from "./parts"
 import SfContactForm from "./SfContactForm"
+import { Faq } from "./DocParts"
 import WeeklyReport from "./WeeklyReport"
 import { SfHeader, SfMenu, SfFooter, SfDock } from "./SiteChrome"
 import "./sf-hero.css"
@@ -666,8 +668,18 @@ export default function ShortformHome() {
         </div>
       </Cut>
 
-      {/* 9 문의 */}
-      <Cut id="c44" no={next()} ch={8} tone="c" fx="swipe" label="문의하기">
+      {/* 9 자주 묻는 질문(사장님 11-06) */}
+      <Cut id="cfaq" no={next()} ch={8} tone="w" fx="liquid" label="자주 묻는 질문">
+        <div className="hf">
+          <h2 className="cap sz-lg">
+            <Words text={"계약 전에\n많이 물어보시는 질문"} />
+          </h2>
+          <Faq items={HOME_FAQ} />
+        </div>
+      </Cut>
+
+      {/* 10 문의 */}
+      <Cut id="c44" no={next()} ch={9} tone="c" fx="swipe" label="문의하기">
         {/* 옛 쪽(가이드·극장·옛 머리글)의 /#contact 링크가 여기로 온다 */}
         <span id="contact" className="sf-anchor" aria-hidden="true" />
         <div className="ct">
@@ -704,8 +716,8 @@ export default function ShortformHome() {
         </div>
       </Cut>
 
-      {/* 10 끝 — 로고 */}
-      <Cut id="c45" no={next()} ch={9} tone="k" fx="logo" label="끝">
+      {/* 11 끝 — 로고 */}
+      <Cut id="c45" no={next()} ch={10} tone="k" fx="logo" label="끝">
         <div className="lg-rv">
           <div className="lg-mark" aria-hidden="true">
             <img src="/sf/img/wiz-symbol.png" alt="" width={733} height={460} />
