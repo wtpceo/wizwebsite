@@ -36,7 +36,7 @@ export const SERVICES: Service[] = [
     k: "infl",
     slug: "influencer",
     no: "01",
-    n: "유튜버·인스타·틱톡 MCN",
+    n: "유튜브/인스타/틱톡 섭외·공동구매",
     cap: "맞는 계정이\n소개하게",
     ln: "우리 손님이 보는 계정에 우리 브랜드를",
     first: "팔로워 수 말고, 손님이 겹치는 계정부터.",
@@ -57,7 +57,7 @@ export const SERVICES: Service[] = [
     k: "perf",
     slug: "performance",
     no: "02",
-    n: "퍼포먼스",
+    n: "네이버·메타·구글 광고 운영",
     cap: "광고는 마케터가\n직접 돌립니다",
     ln: "네이버·메타·구글·당근, 마케터가 직접 돌립니다",
     first: "시안끼리 붙입니다. 이긴 쪽에 예산을.",
@@ -79,7 +79,7 @@ export const SERVICES: Service[] = [
     k: "search",
     slug: "search",
     no: "03",
-    n: "검색 최적화",
+    n: "네이버 AI·플레이스 / AEO / GEO",
     cap: "AI·지도에서 우리 브랜드가\n먼저 나오게",
     ln: "AI·지도에서 우리 브랜드가 먼저 나오게",
     first: "홈페이지와 지도, 한 글자까지 맞추는 일부터.",
@@ -101,7 +101,7 @@ export const SERVICES: Service[] = [
     k: "content",
     slug: "content",
     no: "04",
-    n: "콘텐츠·미디어",
+    n: "숏폼·영상 제작, 모델",
     cap: "직접 찍고\n자막까지",
     ln: "찍는 날부터 올리는 날까지 저희 몫",
     first: "찍을 날과 찍을 장면부터 못 박습니다.",
@@ -123,7 +123,7 @@ export const SERVICES: Service[] = [
     k: "viral",
     slug: "viral",
     no: "05",
-    n: "바이럴",
+    n: "네이버 블로그·체험단·기자단",
     cap: "블로그 검색\n맨 위로",
     ln: "손님이 칠 검색어 맨 위를 노립니다",
     first: "쓰기 전에 검색어부터 고릅니다.",
@@ -145,7 +145,7 @@ export const SERVICES: Service[] = [
     k: "global",
     slug: "global",
     no: "06",
-    n: "글로벌",
+    n: "중국 / 일본 마케팅",
     cap: "샤오홍슈·LINE에도",
     ln: "샤오홍슈·따중디엔핑·LINE 등에 올림",
     first: "소개와 메뉴부터 중국어·일본어로.",
@@ -189,7 +189,7 @@ export const SERVICES: Service[] = [
     k: "off",
     slug: "offline",
     no: "08",
-    n: "오프라인 미디어",
+    n: "엘리베이터TV·오프라인 광고",
     cap: "엘리베이터TV에도\n띄웁니다",
     ln: "엘리베이터TV·택배차·극장·카카오T",
     first: "업체 반경 안 단지부터 고릅니다.",
@@ -209,19 +209,8 @@ export const SERVICES: Service[] = [
   },
 ]
 
-/** 문의 폼 관심분야(사장님 11-06 로그통 문의 쪽 형식으로). k 는 서비스 쪽에서 미리 골라 둘 때 쓴다 */
-export const INTEREST: [string, string][] = [
-  ["infl", "유튜브/인스타/틱톡 섭외·공동구매"],
-  ["content", "숏폼·영상 제작, 모델"],
-  ["viral", "네이버 블로그·체험단·기자단"],
-  ["search", "네이버 AI·플레이스 / AEO / GEO"],
-  ["perf", "네이버·메타·구글 광고 운영"],
-  ["global", "중국 / 일본 마케팅"],
-  ["home", "홈페이지 제작"],
-  ["off", "엘리베이터TV·오프라인 광고"],
-  ["total", "종합 진단 & 제안"],
-  ["etc", "기타 문의"],
-]
+/** 문의 폼 관심분야 — 서비스 이름과 같은 말. k 는 서비스 쪽에서 미리 골라 둘 때 쓴다 */
+export const INTEREST: [string, string][] = [...SERVICES.map((s): [string, string] => [s.k, s.n]), ["total", "종합 진단 & 제안"], ["etc", "기타 문의"]]
 
 /** 2장 문제 — 따로 맡길 때 */
 export const PROBLEM_VENDORS: [string, string][] = [
