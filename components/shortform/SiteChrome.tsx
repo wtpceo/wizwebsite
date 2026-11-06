@@ -24,16 +24,14 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
         <Link href="/team">전문 인력</Link>
         <Link href="/guide">인사이트</Link>
         <Link href="/contact">문의하기</Link>
-        {/* 11-06 사장님 「마우스 대면 전체 항목이 밑으로 한번에」 — 항목마다 펼치면 긴 이름끼리 겹쳐 넓은 판 하나로 */}
+        {/* 11-06 사장님 「마우스 대면 전체 항목이 밑으로 한번에」 + 「위 메뉴에 맞게 내려와야」 — 칸 시작선을 위 메뉴 글자에 맞춘다(너비는 sf-doc.css --sfmg) */}
         <div className="sfh-mega">
           <div className="sfh-mega-in">
             <div>
-              <p>회사소개</p>
               <Link href="/about">위즈더플래닝 소개</Link>
               <Link href="/about#location">오시는 길</Link>
             </div>
-            <div className="wide">
-              <p>서비스</p>
+            <div>
               {SERVICES.map((s) => (
                 <Link key={s.k} href={`/services/${s.slug}`}>
                   {s.n}
@@ -41,7 +39,6 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
               ))}
             </div>
             <div>
-              <p>업종별 마케팅</p>
               {SOLUTIONS.map((f) => (
                 <Link key={f.slug} href={`/solutions/${f.slug}`}>
                   {f.n}
@@ -50,17 +47,14 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
               <Link href="/medical-diagnosis">병원 무료 AI 검색 진단</Link>
             </div>
             <div>
-              <p>전문 인력</p>
               <Link href="/team">팀과 진행 과정</Link>
             </div>
             <div>
-              <p>인사이트</p>
               <Link href="/guide">마케팅 칼럼</Link>
               <Link href="/theater">위즈 극장</Link>
               <Link href="/how-we-measure">측정 방식</Link>
             </div>
             <div>
-              <p>문의하기</p>
               <Link href="/contact">무료 상담 신청</Link>
               <Link href="/business/contact">기업 제안 요청</Link>
             </div>
