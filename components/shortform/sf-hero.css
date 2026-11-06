@@ -459,12 +459,6 @@ html.sf-anim .sf .ooh.tv .tv3{animation:sf-tv 9s linear 6s infinite}
 .sf .veil{background:radial-gradient(60% 70% at 78% 40%,rgba(59,167,224,.35),rgba(59,167,224,0) 70%),linear-gradient(90deg,rgba(10,62,112,.97) 0%,rgba(13,79,140,.9) 40%,rgba(18,95,160,.62) 70%,rgba(30,120,180,.5) 100%),linear-gradient(180deg,rgba(10,62,112,.5) 0%,rgba(10,62,112,0) 22%,rgba(10,62,112,0) 76%,rgba(10,62,112,.9) 100%)}
 .sf .wrap{position:relative;min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:center;padding:96px 48px 36px}
 .sf .hero h1{font-size:clamp(38px,3.8vw,58px);line-height:1.12}
-.sf .hero h1 .rw{display:block;position:relative;height:1.2em;overflow:hidden;margin-top:.04em}
-.sf .hero h1 .rw span{position:absolute;left:0;top:0;white-space:nowrap;color:#BFE4F5}
-.sf .hero h1 .rw span.in{animation:sf-rin .5s var(--eo) .1s both}
-.sf .hero h1 .rw span.out{animation:sf-rout .3s var(--eo) both}
-@keyframes sf-rin{from{opacity:0;transform:translateY(70%)}to{opacity:1;transform:none}}
-@keyframes sf-rout{from{opacity:1;transform:none}to{opacity:0;transform:translateY(-45%)}}
 .sf .sub{max-width:28em}
 .sf .svl{list-style:none;margin:26px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:600px}
 .sf .svb{position:relative;overflow:hidden;width:100%;display:grid;grid-template-columns:30px 1fr;gap:1px 8px;align-items:center;text-align:left;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);cursor:pointer;transition:background-color .2s ease,border-color .2s ease}

@@ -169,8 +169,8 @@ var CHN = ['한 곳', '따로 맡기면', '한 곳에 맡기면', '하는 일', 
 /* 첫 화면 — 시안 c1b 를 서버가 그린 목록에 묶음 */
 function heroInit() {
   var hero = document.getElementById('c1'); if (!hero) return;
-  var RW = SFD.ends || [], N = S.length, ring = document.getElementById('ring'), rw = document.getElementById('rw');
-  var btns = [].slice.call(document.querySelectorAll('#svl .svb')), cards = [], ctl = [], step = 0, live = false, SL = 1300, shown = 0; /* 휴대폰 화면 한 장 1.3초(11-05 움직임 줄이기 · 전에는 0.9초) */
+  var N = S.length, ring = document.getElementById('ring');
+  var btns = [].slice.call(document.querySelectorAll('#svl .svb')), cards = [], ctl = [], step = 0, live = false, SL = 1300; /* 휴대폰 화면 한 장 1.3초(11-05 움직임 줄이기 · 전에는 0.9초) */
   var play = H4.wall(document.getElementById('bgt'));
   S.forEach(function (s, i) { ring.insertAdjacentHTML('beforeend', H4.phone(i)); });
   /* 서비스 버튼은 상세 쪽 링크(11-05) — 마우스를 올리거나 키보드로 고르면 휴대폰 고리만 그 일로 돌린다 */
@@ -184,17 +184,11 @@ function heroInit() {
   });
   function setZ() { if (cards[0]) ring.style.setProperty('--z', Math.round(cards[0].offsetWidth * 1.72) + 'px'); }
   function idx() { return ((Math.round(step) % N) + N) % N; }
-  function word(a) {
-    if (a === shown || !RW[a]) return; shown = a;
-    var o = rw.querySelector('span.in'); if (o) { o.className = 'out'; setTimeout(function () { o.remove(); }, 320); }
-    var sp = document.createElement('span'); sp.className = 'in'; sp.textContent = RW[a]; rw.appendChild(sp);
-  }
   function place() {
     ring.style.transform = 'translateZ(calc(var(--z) * -1)) rotateY(' + (-step * 360 / N) + 'deg)';
     var a = idx();
     cards.forEach(function (c, i) { c.classList.toggle('on', i === a); if (i !== a) ctl[i].stop(); });
     btns.forEach(function (b, i) { var on = i === a; if (on && live) { b.classList.remove('on'); void b.offsetWidth; } b.classList.toggle('on', on); });
-    word(a);
     document.getElementById('cf').innerHTML = S[a].first + '<small>' + S[a].n + ' · 휴대폰을 누르면 자세히</small>';
     if (live) ctl[a].start(true); else ctl[a].reset();
   }

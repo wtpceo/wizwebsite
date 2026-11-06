@@ -10,11 +10,21 @@ import { CONTACT, INTEREST } from "./content"
 
 const WHEN = ["미정", "최대한 빠르게", "1개월 내", "2개월 내", "2개월 이후"]
 
+type Field = "site" | "company" | "phone" | "email" | "person" | "note"
+
 function Req() {
   return (
     <em className="iq-r" aria-hidden="true">
       *
     </em>
+  )
+}
+
+function FieldErr({ msg }: { msg: string }) {
+  return (
+    <small className="iq-fe" role="alert">
+      {msg}
+    </small>
   )
 }
 
@@ -36,6 +46,7 @@ export default function SfInquiryForm() {
   const [agree, setAgree] = useState(false)
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle")
   const [err, setErr] = useState("")
+  const [bad, setBad] = useState<Field | "">("")
 
   useEffect(() => {
     try {
@@ -49,12 +60,19 @@ export default function SfInquiryForm() {
   async function submit(e: React.FormEvent) {
     e.preventDefault()
     setErr("")
-    if (!site.trim()) return setErr("상품·서비스를 확인할 수 있는 URL이나 검색 키워드를 입력해 주세요.")
-    if (!company.trim()) return setErr("회사명을 입력해 주세요.")
-    if (phone.replace(/\D/g, "").length < 9) return setErr("연락처를 입력해 주세요.")
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) return setErr("이메일 주소를 확인해 주세요.")
-    if (!person.trim()) return setErr("담당자명을 입력해 주세요.")
-    if (!note.trim()) return setErr("문의 내용을 입력해 주세요.")
+    setBad("")
+    // 막힌 칸으로 바로 옮기고, 안내도 그 칸 바로 아래에 띄운다
+    const fail = (k: Field, msg: string) => {
+      setBad(k)
+      setErr(msg)
+      document.getElementById(`iq-${k}`)?.focus()
+    }
+    if (!site.trim()) return fail("site", "URL이나 검색 키워드를 입력해 주세요.")
+    if (!company.trim()) return fail("company", "회사명을 입력해 주세요.")
+    if (phone.replace(/\D/g, "").length < 9) return fail("phone", "연락처를 입력해 주세요.")
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) return fail("email", "이메일 주소를 확인해 주세요.")
+    if (!person.trim()) return fail("person", "담당자명을 입력해 주세요.")
+    if (!note.trim()) return fail("note", "문의 내용을 입력해 주세요.")
     if (!agree) return setErr("개인정보 수집·이용에 동의해 주세요.")
     setStatus("sending")
     const names = INTEREST.filter(([k]) => picked.includes(k)).map(([, n]) => n)
@@ -69,7 +87,7 @@ export default function SfInquiryForm() {
           email: email.trim(),
           storeName: company.trim(),
           message: [
-            "[문의하기 · contact_page]",
+            "[문의하기]",
             agency ? "대행사 여부: 대행사(체크함)" : "",
             `URL·검색 키워드: ${site.trim()}`,
             `관심분야: ${names.length ? names.join(", ") : "고르지 않음"}`,
@@ -115,14 +133,15 @@ export default function SfInquiryForm() {
             <legend>대행사 여부</legend>
             <label className="iq-c">
               <input type="checkbox" checked={agency} onChange={(e) => setAgency(e.target.checked)} />
-              대행사면 체크 부탁드립니다.
+              대행사에서 문의합니다
             </label>
           </fieldset>
           <label className="iq-l">
             <span>
               상품 · 서비스 확인 가능한 URL <Req />
             </span>
-            <input value={site} onChange={(e) => setSite(e.target.value)} placeholder="URL 또는 검색 키워드를 입력해 주세요" autoComplete="url" aria-required="true" />
+            <input id="iq-site" aria-invalid={bad === "site"} value={site} onChange={(e) => setSite(e.target.value)} placeholder="URL 또는 검색 키워드를 입력해 주세요" autoComplete="url" aria-required="true" />
+            {bad === "site" ? <FieldErr msg={err} /> : null}
           </label>
           <fieldset className="iq-line">
             <legend>관심분야 (중복선택 가능)</legend>
@@ -137,7 +156,7 @@ export default function SfInquiryForm() {
           </fieldset>
           <fieldset className="iq-line">
             <legend>오프라인 미팅 신청</legend>
-            <p>담당 마케터를 직접 만나 마케팅 방향을 상담하고 싶으신가요?</p>
+            <p>사무실에서 담당 마케터와 얼굴 보고 이야기하고 싶으시면 체크해 주세요.</p>
             <label className="iq-c">
               <input type="checkbox" checked={meeting} onChange={(e) => setMeeting(e.target.checked)} />
               미팅 신청하기
@@ -150,7 +169,8 @@ export default function SfInquiryForm() {
               <span>
                 회사명 <Req />
               </span>
-              <input value={company} onChange={(e) => setCompany(e.target.value)} placeholder="회사명 입력" autoComplete="organization" aria-required="true" />
+              <input id="iq-company" aria-invalid={bad === "company"} value={company} onChange={(e) => setCompany(e.target.value)} placeholder="회사명 입력" autoComplete="organization" aria-required="true" />
+              {bad === "company" ? <FieldErr msg={err} /> : null}
             </label>
             <label className="iq-l">
               <span>브랜드명</span>
@@ -160,19 +180,22 @@ export default function SfInquiryForm() {
               <span>
                 연락처 <Req />
               </span>
-              <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="010-0000-0000" inputMode="tel" autoComplete="tel" aria-required="true" />
+              <input id="iq-phone" aria-invalid={bad === "phone"} value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="010-0000-0000" inputMode="tel" autoComplete="tel" aria-required="true" />
+              {bad === "phone" ? <FieldErr msg={err} /> : null}
             </label>
             <label className="iq-l">
               <span>
                 이메일 <Req />
               </span>
-              <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="example@email.com" type="email" inputMode="email" autoComplete="email" aria-required="true" />
+              <input id="iq-email" aria-invalid={bad === "email"} value={email} onChange={(e) => setEmail(e.target.value)} placeholder="example@email.com" type="email" inputMode="email" autoComplete="email" aria-required="true" />
+              {bad === "email" ? <FieldErr msg={err} /> : null}
             </label>
             <label className="iq-l">
               <span>
                 담당자명 <Req />
               </span>
-              <input value={person} onChange={(e) => setPerson(e.target.value)} autoComplete="name" aria-required="true" />
+              <input id="iq-person" aria-invalid={bad === "person"} value={person} onChange={(e) => setPerson(e.target.value)} autoComplete="name" aria-required="true" />
+              {bad === "person" ? <FieldErr msg={err} /> : null}
             </label>
             <label className="iq-l">
               <span>직급</span>
@@ -198,11 +221,12 @@ export default function SfInquiryForm() {
             <span>
               문의 내용 <Req />
             </span>
-            <textarea value={note} onChange={(e) => setNote(e.target.value)} rows={4} maxLength={2000} placeholder="문의하고 싶으신 내용을 자유롭게 남겨 주세요." aria-required="true" />
+            <textarea id="iq-note" aria-invalid={bad === "note"} value={note} onChange={(e) => setNote(e.target.value)} rows={4} maxLength={2000} placeholder="궁금한 점이나 지금 고민을 편하게 적어 주세요." aria-required="true" />
+            {bad === "note" ? <FieldErr msg={err} /> : null}
           </label>
           <label className="iq-l">
             <span>브랜드 소개</span>
-            <textarea value={intro} onChange={(e) => setIntro(e.target.value)} rows={4} maxLength={2000} placeholder="브랜드 특장점, 타겟 고객, 강조하고 싶은 메시지 등" />
+            <textarea value={intro} onChange={(e) => setIntro(e.target.value)} rows={4} maxLength={2000} placeholder="어떤 브랜드인지, 주 손님은 누구인지, 꼭 알리고 싶은 말" />
           </label>
         </div>
       </div>
@@ -213,7 +237,7 @@ export default function SfInquiryForm() {
             개인정보 수집·이용에 동의합니다 <a href="/privacy">자세히</a>
           </span>
         </label>
-        {err ? (
+        {err && !bad ? (
           <p className="iq-e" role="alert">
             {err}
           </p>
