@@ -19,31 +19,52 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
       </Link>
       <nav className="sfh-nav" aria-label="주 메뉴">
         <Link href="/about">회사소개</Link>
-        <div className="sfh-dd">
-          <Link href="/services/influencer">서비스</Link>
-          <div className="sfh-ddp">
-            {SERVICES.map((s) => (
-              <Link key={s.k} href={`/services/${s.slug}`}>
-                <Icon k={s.k} />
-                {s.n}
-              </Link>
-            ))}
-          </div>
-        </div>
-        <div className="sfh-dd">
-          <Link href="/solutions/local">업종별 마케팅</Link>
-          <div className="sfh-ddp">
-            {SOLUTIONS.map((f) => (
-              <Link key={f.slug} href={`/solutions/${f.slug}`}>
-                {f.n}
-                <small>{f.who}</small>
-              </Link>
-            ))}
-          </div>
-        </div>
+        <Link href="/services/influencer">서비스</Link>
+        <Link href="/solutions/local">업종별 마케팅</Link>
         <Link href="/team">전문 인력</Link>
         <Link href="/guide">인사이트</Link>
         <Link href="/contact">문의하기</Link>
+        {/* 11-06 사장님 「마우스 대면 전체 항목이 밑으로 한번에」 — 항목마다 펼치면 긴 이름끼리 겹쳐 넓은 판 하나로 */}
+        <div className="sfh-mega">
+          <div className="sfh-mega-in">
+            <div>
+              <p>회사소개</p>
+              <Link href="/about">위즈더플래닝 소개</Link>
+              <Link href="/about#location">오시는 길</Link>
+            </div>
+            <div className="wide">
+              <p>서비스</p>
+              {SERVICES.map((s) => (
+                <Link key={s.k} href={`/services/${s.slug}`}>
+                  {s.n}
+                </Link>
+              ))}
+            </div>
+            <div>
+              <p>업종별 마케팅</p>
+              {SOLUTIONS.map((f) => (
+                <Link key={f.slug} href={`/solutions/${f.slug}`}>
+                  {f.n}
+                </Link>
+              ))}
+            </div>
+            <div>
+              <p>전문 인력</p>
+              <Link href="/team">팀과 진행 과정</Link>
+            </div>
+            <div>
+              <p>인사이트</p>
+              <Link href="/guide">마케팅 칼럼</Link>
+              <Link href="/theater">위즈 극장</Link>
+              <Link href="/how-we-measure">측정 방식</Link>
+            </div>
+            <div>
+              <p>문의하기</p>
+              <Link href="/contact">무료 상담 신청</Link>
+              <Link href="/business/contact">기업 제안 요청</Link>
+            </div>
+          </div>
+        </div>
       </nav>
       <Link className="sfh-cta" href={cta.href}>
         {cta.label}

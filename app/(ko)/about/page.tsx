@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { SERVICES, COMPARE, PROBLEMS, CONTACT } from "@/components/shortform/content"
+import { SERVICES, COMPARE, PROBLEMS, CONTACT, TEAMS } from "@/components/shortform/content"
 import { Icon } from "@/components/shortform/icons"
 import { DocShell, Crumb, Meta, Sec, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "@/components/shortform/DocParts"
 import { ABOUT_PAGE } from "@/components/shortform/details"
@@ -116,6 +116,29 @@ export default function AboutPage() {
             ))}
           </tbody>
         </table>
+      </Sec>
+
+      <Sec q="팀은 어떻게 나뉘어 있나요?">
+        <p>다섯 팀이 사내에 있습니다. 일정은 담당 마케터가 한 표로 챙깁니다.</p>
+        <ul className="dp-items">
+          {TEAMS.map(([k, n, xs]) => (
+            <li key={k}>
+              <b>{n}</b>
+              <span>{xs.join(" · ")}</span>
+            </li>
+          ))}
+        </ul>
+      </Sec>
+
+      <Sec q="저희가 직접 가진 것은 무엇인가요?">
+        <ol className="dp-num">
+          {d.own.map(([t, x]) => (
+            <li key={t}>
+              <b>{t}</b>
+              <span>{x}</span>
+            </li>
+          ))}
+        </ol>
       </Sec>
 
       <Sec id="location" q="어디에 있고, 언제 연락하면 되나요?">

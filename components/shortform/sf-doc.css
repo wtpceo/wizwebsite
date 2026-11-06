@@ -1,15 +1,17 @@
 /* 새 쪽(서비스 8 · 업종별 3 · 전문 인력 · 회사소개) — 읽는 문서형. 홈과 같은 글꼴·색, 움직임은 등장만(.rv → .on).
    숨김은 html.sf-anim 아래에서만. */
 
-/* 머리글 펼침 메뉴(홈·새 쪽 같이) */
-.sf .sfh-dd { position: relative; display: flex; align-items: center; }
-.sf .sfh-ddp { position: absolute; top: 100%; left: -18px; z-index: 5; min-width: 230px; padding: 10px; margin-top: 10px; background: #fff; color: var(--ink); border-radius: 6px; box-shadow: 0 24px 50px -24px rgba(6,26,44,.45); border: 1px solid #E3EAF2; display: grid; gap: 2px; opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity .18s ease, transform .18s ease, visibility 0s linear .18s; }
-.sf .sfh-ddp::before { content: ""; position: absolute; left: 0; right: 0; top: -14px; height: 14px; }
-.sf .sfh-dd:hover .sfh-ddp, .sf .sfh-dd:focus-within .sfh-ddp { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
-.sf .sfh-ddp a { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 4px; font-size: 14.5px; font-weight: 700; opacity: 1; white-space: nowrap; }
-.sf .sfh-ddp a:hover { background: var(--mist); }
-.sf .sfh-ddp a svg { width: 18px; height: 18px; flex: none; fill: none; stroke: var(--b1); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.sf .sfh-ddp small { margin-left: auto; padding-left: 12px; font-size: 12px; font-weight: 500; color: var(--sub); }
+/* 머리글 전체 펼침 메뉴(홈·새 쪽 같이 · 11-06) — 메뉴에 마우스를 대면 넓은 판 하나에 전체 항목이 나온다 */
+.sf .sfh-nav { gap: clamp(28px, 3.2vw, 48px); }
+.sf .sfh-mega { position: absolute; left: 0; right: 0; top: 100%; z-index: 5; background: #fff; color: var(--ink); border-top: 1px solid #E3EAF2; box-shadow: 0 24px 50px -24px rgba(6,26,44,.45); opacity: 0; visibility: hidden; pointer-events: auto; transition: opacity .18s ease, visibility 0s linear .18s; }
+.sf .sfh-mega::before { content: ""; position: absolute; left: 0; right: 0; top: -36px; height: 36px; }
+.sf .sfh-nav:hover .sfh-mega, .sf .sfh-nav:focus-within .sfh-mega { opacity: 1; visibility: visible; transition-delay: 0s; }
+.sf .sfh-mega-in { display: grid; grid-template-columns: 1fr 2.1fr 1fr 1fr 1fr 1fr; gap: 28px; padding: 28px var(--pad-x) 32px; }
+.sf .sfh-mega p { margin: 0 0 10px; font-size: 13px; font-weight: 800; color: var(--b1); }
+.sf .sfh-mega a { display: block; padding: 7px 0; font-size: 14.5px; font-weight: 600; line-height: 1.4; opacity: .9; white-space: normal; word-break: keep-all; }
+.sf .sfh-mega a:hover { opacity: 1; color: var(--b1); }
+.sf .sfh-mega .wide { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; align-content: start; }
+.sf .sfh-mega .wide p { grid-column: 1 / -1; }
 
 /* 새 쪽 머리글 — 흰 바탕 고정(유리 흐림 없음) */
 .sf .sfh-doc { position: sticky; height: 66px; padding-top: 0; background: #fff; border-bottom: 1px solid #E3EAF2; }
