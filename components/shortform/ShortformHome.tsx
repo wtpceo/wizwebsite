@@ -39,7 +39,19 @@ const SVC_TONE = ["k", "c", "k", "c", "k", "c", "k", "c"] as const
 const SA_TILES: Record<string, string> = { perf: "1,0,2", viral: "1,0,3", global: "0,1", off: "0,1" }
 const STEP_TONE = ["w", "k", "w", "k", "w"] as const
 /* 첫 화면 키워드 띠(11-06 밤 대표: 유튜버·메가/마이크로 인플루언서·SEO·GEO·홈페이지 제작이 첫 화면에서 보여야 한다) */
-const HERO_KEYS = ["유튜버 섭외", "메가 인플루언서", "마이크로 인플루언서", "퍼포먼스 광고", "SEO", "GEO", "숏폼 촬영", "블로그·바이럴", "마케팅 홈페이지 제작", "중국·일본 글로벌", "오프라인 미디어"]
+const HERO_KEYS: [string, string][] = [
+  ["유튜버 섭외", "/services/influencer"],
+  ["메가 인플루언서", "/services/influencer"],
+  ["마이크로 인플루언서", "/services/influencer"],
+  ["퍼포먼스 광고", "/services/performance"],
+  ["SEO", "/services/search"],
+  ["GEO", "/services/search"],
+  ["숏폼 촬영", "/services/content"],
+  ["블로그·바이럴", "/services/viral"],
+  ["마케팅 홈페이지 제작", "/services/homepage"],
+  ["중국·일본 글로벌", "/services/global"],
+  ["오프라인 미디어", "/services/offline"],
+]
 
 export default function ShortformHome() {
   const insights = INSIGHT_HREFS.map((h) => GUIDE_ARTICLES.find((a) => a.href === h)).filter(Boolean) as typeof GUIDE_ARTICLES
@@ -65,22 +77,21 @@ export default function ShortformHome() {
             <p className="kick in1">INTEGRATED MARKETING COMMUNICATIONS · IMC</p>
             {/* 2026-11-06 저녁 대표: 진단으로 시작해 성과까지 함께 가는 회사. 메시지 설계는 docs/메시지설계-2026-11-06-대표뜻.md */}
             {/* 11-06 밤 대표: '진단' → '분석', 부제는 퍼널 위치부터 확인해 드린다는 말로 */}
+            {/* 11-07 대표가 고른 제목(1번안): "당신을 분석해서 제안서를 줄 테니 받아 보라"를 받는 쪽 말로 */}
             <h1 className="in2">
-              분석으로 시작해,
+              당신의 브랜드를 분석한
               <br />
-              성과로 보고합니다.
+              제안서부터 받아 보세요.
             </h1>
+            {/* 버튼은 무료 분석 신청 하나 + 카카오. 되돌리기 기준점 5a2e8b8 */}
             <p className="sub in3">
-              지금 우리 브랜드가 마케팅 퍼널의 어디쯤에 있는지 먼저 확인해 드리겠습니다.
+              마케팅 퍼널의 어디쯤에 있는지, 어디가 비어 있는지 먼저 분석합니다.
               <br />
-              그다음 저희 계획을 들어 보세요.
+              그 결과로 짠 계획을 제안서로 보내 드립니다.
             </p>
             <div className="btns in4">
               <a className="b1" href="/contact">
-                마케팅 진단 신청
-              </a>
-              <a className="b2" href="/business/contact">
-                기업 제안 요청 (RFP)
+                무료 분석 신청
               </a>
               {/* 11-06 밤 대표: 카카오 노란 버튼으로 '카카오톡 실시간 상담' */}
               <a className="kk" href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
@@ -89,13 +100,19 @@ export default function ShortformHome() {
               </a>
             </div>
             {/* 11-06 밤 대표: 하는 일이 첫 화면에서 다 보여야 한다 — 키워드 띠가 돈다(CSS만, sf-hero.css .tick) */}
+            {/* 11-07: 띠의 낱말을 누르면 그 매체 상세 페이지로(메인이 입구 노릇). 두 번째 묶음은 이어 붙이기용이라 읽기·탭에서 뺀다 */}
             <div className="tick in3" aria-label="위즈더플래닝이 하는 일">
               <ul>
-                {[...HERO_KEYS, ...HERO_KEYS].map((k, i) => (
-                  <li key={i} aria-hidden={i >= HERO_KEYS.length ? true : undefined}>
-                    {k}
-                  </li>
-                ))}
+                {[...HERO_KEYS, ...HERO_KEYS].map(([k, href], i) => {
+                  const dup = i >= HERO_KEYS.length
+                  return (
+                    <li key={i} aria-hidden={dup ? true : undefined}>
+                      <Link href={href} tabIndex={dup ? -1 : undefined}>
+                        {k}
+                      </Link>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
             <ul className="trust in4" aria-label="위즈더플래닝 운영 체계">

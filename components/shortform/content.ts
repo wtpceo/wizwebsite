@@ -245,7 +245,7 @@ const INTEREST_NAME: Record<SvcKey, string> = {
 export const INTEREST: [string, string][] = [...SERVICES.map((s): [string, string] => [s.k, INTEREST_NAME[s.k]]), ["total", "통합 진단·제안"], ["etc", "기타"]]
 
 /** 첫 화면 신뢰 지표 줄(11-06 대표: 숫자 칸 없이 세 칸만 · 저녁에 '진단 먼저·인하우스·찾아뵙는 보고'로) */
-export const TRUST = ["분석 먼저, 제안은 그다음", "자체 6개 부서 + 전담 AE", "성과 보고는 직접 찾아뵙고"]
+export const TRUST = ["2016년부터", "자체 6개 부서 · 전담 AE", "성과 보고는 직접 찾아뵙고"]
 
 /** 2장 과제 — 따로 맡길 때 */
 export const PROBLEM_VENDORS: [string, string][] = [
