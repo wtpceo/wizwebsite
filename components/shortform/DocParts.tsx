@@ -99,7 +99,7 @@ export function ContactBlock({ title, sub, label, initial = [], source }: { titl
             </a>
           </div>
         </div>
-        <SfContactForm services={SERVICES.map((s) => ({ k: s.k, n: s.n }))} initial={initial} source={source} label={label} />
+        <SfContactForm initial={initial} source={source} label={label} />
       </div>
     </section>
   )

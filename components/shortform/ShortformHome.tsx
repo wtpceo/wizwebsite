@@ -3,7 +3,6 @@ import Link from "next/link"
 import { GUIDE_ARTICLES } from "@/lib/guide-articles"
 import {
   SERVICES,
-  HERO_ENDS,
   PROBLEM_VENDORS,
   PROBLEM_PINGS,
   PROBLEMS,
@@ -78,12 +77,9 @@ export default function ShortformHome() {
             <h1 className="in2">
               나눠 맡기던 마케팅,
               <br />
-              이제 한 곳에서{" "}
-              <span className="rw" id="rw">
-                <span className="in">{HERO_ENDS[0]}</span>
-              </span>
+              A to Z, 한 곳에서.
             </h1>
-            <p className="sub in3">여덟 가지 일을 저희 팀이 직접 합니다. 궁금한 일을 누르면 자세한 설명으로 넘어갑니다.</p>
+            <p className="sub in3">하청 없이 저희 팀이 직접 합니다.</p>
             <div className="btns in4">
               <a className="b1" href="/contact">
                 무료 상담 신청
@@ -429,7 +425,7 @@ export default function ShortformHome() {
       <Cut id="c32" no={next()} ch={3} tone="k" fx="montage" label="여덟 가지 몽타주">
         <div className="mt">
           <p className="cap sz-xl">
-            <Words text="MCN부터 엘리베이터TV까지, 한 곳에서." />
+            <Words text="마케팅 A to Z, 한 곳에서." />
           </p>
           <div className="mt-scr" id="montage" aria-hidden="true">
             <img src="/sf/ex/m-shoot.jpg" alt="" loading="lazy" />
@@ -704,7 +700,7 @@ export default function ShortformHome() {
               </a>
             </div>
           </div>
-          <SfContactForm services={SERVICES.map((s) => ({ k: s.k, n: s.n }))} />
+          <SfContactForm />
         </div>
       </Cut>
 
@@ -728,7 +724,6 @@ export default function ShortformHome() {
         id="sf-data"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            ends: HERO_ENDS,
             svc: SERVICES.map((s) => ({ k: s.k, n: s.n, ln: s.ln, first: s.first, t1: s.t1, d: s.steps, rec: s.rec, more: `/services/${s.slug}` })),
           }).replace(/</g, "\\u003c"),
         }}

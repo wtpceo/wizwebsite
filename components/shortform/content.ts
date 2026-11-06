@@ -209,8 +209,19 @@ export const SERVICES: Service[] = [
   },
 ]
 
-/** 첫 화면 문장 끝말 — 서비스 순서와 같음 */
-export const HERO_ENDS = ["유튜버 MCN까지.", "광고 운영까지.", "AI 검색까지.", "촬영·편집까지.", "블로그까지.", "해외 SNS까지.", "홈페이지까지.", "엘리베이터TV까지."]
+/** 문의 폼 관심분야(사장님 11-06 로그통 문의 쪽 형식으로). k 는 서비스 쪽에서 미리 골라 둘 때 쓴다 */
+export const INTEREST: [string, string][] = [
+  ["infl", "유튜브/인스타/틱톡 섭외·공동구매"],
+  ["content", "숏폼·영상 제작, 모델"],
+  ["viral", "네이버 블로그·체험단·기자단"],
+  ["search", "네이버 AI·플레이스 / AEO / GEO"],
+  ["perf", "네이버·메타·구글 광고 운영"],
+  ["global", "중국 / 일본 마케팅"],
+  ["home", "홈페이지 제작"],
+  ["off", "엘리베이터TV·오프라인 광고"],
+  ["total", "종합 진단 & 제안"],
+  ["etc", "기타 문의"],
+]
 
 /** 2장 문제 — 따로 맡길 때 */
 export const PROBLEM_VENDORS: [string, string][] = [
