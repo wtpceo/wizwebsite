@@ -4,7 +4,9 @@
 /* 머리글 펼침 메뉴(홈·새 쪽 같이 · 11-06) */
 /* 11-06 위 메뉴 글자 간격을 모두 같게, 항목은 메뉴마다 글자 가운데 아래 상자로 */
 @media (min-width: 1181px) {
-  .sf .sfh-nav { position: relative; flex: 1 1 auto; min-width: 0; max-width: 800px; align-self: stretch; display: flex; justify-content: space-between; gap: 0; }
+  /* 11-06 사장님 「문의랑 진단신청이 가까워」: 빈 칸 하나를 끝에 둬서 문의~진단 신청 간격도 메뉴 간격과 같게(머리글 gap 28px은 음수 여백으로 상쇄) */
+  .sf .sfh-nav { position: relative; flex: 1 1 auto; min-width: 0; max-width: 800px; align-self: stretch; display: flex; justify-content: space-between; gap: 0; margin-right: -28px; }
+  .sf .sfh-nav::after { content: ""; }
   .sf .sfh-it { position: relative; display: flex; align-items: center; }
 }
 @media (max-width: 1360px) { .sf .sfc span { display: none; } }
