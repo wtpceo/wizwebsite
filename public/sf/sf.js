@@ -41,11 +41,11 @@
     adm:function(){var r=[['dental','11월 진료 시간 안내','11.03 · 게시 중',1],['derma','사랑니 뽑은 뒤 먹어도 되는 음식','10.30 · 게시 중',1],['academy','추석 연휴 휴원 안내','09.28 · 내림',0],['pension','주차장 위치가 바뀌었어요','09.12 · 게시 중',1]],h='';
       r.forEach(function(x){h+='<div class="row"><img src="'+IMG(x[0])+'" alt="" loading="lazy"><div><b>'+x[1]+'</b><small>'+x[2]+'</small></div><span class="tgl'+(x[3]?'':' off')+'"></span></div>'});
       return '<div class="tile adm">'+TGL+'<div class="hd">소식 관리<span>새 글</span></div>'+h+'</div>'},
-    elev:function(){return '<div class="tile ooh tv"><img class="pic" src="'+IMG('elev-ad1')+'" alt="" loading="lazy"><img class="pic tv2" src="'+IMG('elev-ad2')+'" alt="" loading="lazy"><img class="pic tv3" src="'+IMG('elev-ad3')+'" alt="" loading="lazy">'+TG+'<div class="lb">엘리베이터TV 15초<small>단지·기간을 골라 송출</small></div></div>'},
+    elev:function(){return '<div class="tile ooh"><img class="pic" src="'+IMG('elev-real')+'" alt="" loading="lazy">'+TG+'<div class="lb">엘리베이터TV 15초<small>단지·기간을 골라 송출</small></div></div>'},
     /* 택배차 광고는 짐칸에 합성한 사진(11-05 · 칸 비율마다 덧댄 판이 어긋나던 것) */
     truck:function(){return '<div class="tile ooh"><img class="pic" src="'+IMG('truck-ad')+'" alt="" loading="lazy">'+TG+'<div class="lb">택배차량 광고<small>동네를 매일 지나는 차에 부착</small></div></div>'},
-    cine:function(){return '<div class="tile dark">'+TG+'<div class="cp">극장 광고<b>본편 시작 전 15초</b></div><div class="scr"><img src="'+IMG('fcafe')+'" alt="" loading="lazy"><span>겨울 신메뉴 나왔어요</span></div><div class="seats"></div></div>'},
-    taxi:function(){return '<div class="tile tab">'+TG+'<div class="seat"></div><div class="cp">택시 뒷좌석 화면</div><div class="pad"><img src="'+IMG('derma')+'" alt="" loading="lazy"><span>퇴근길 피부 상담</span></div></div>'}
+    cine:function(){return '<div class="tile ooh"><img class="pic" src="'+IMG('cine-real')+'" alt="" loading="lazy">'+TG+'<div class="lb">극장 광고<small>본편 시작 전 15초</small></div></div>'},
+    taxi:function(){return '<div class="tile ooh"><img class="pic" src="'+IMG('kakao-real')+'" alt="" loading="lazy">'+TG+'<div class="lb">카카오T 광고<small>앱과 택시 뒷좌석 화면</small></div></div>'}
   };
   var S=[
    {k:"infl",n:"유튜버·인스타·틱톡 MCN",ph:"팔로워 많은 계정이<br>소개하게",rec:[],t1:"팔로워 많은 계정이 우리 브랜드를 소개합니다.",d:["업종·손님층에 맞는 계정 찾기","방문 날짜와 올릴 내용 맞추기","게시물 주소와 반응 보고"],
@@ -118,7 +118,7 @@ var H4=(function(){
       viral:['ex/fcafe','ex/pasta','ex/sashimi','ex/fnb-dessert','ex/pension','ex/m-family','ex/bbq','ex/cafe','ex/fnb-dish','ex/beauty-salon','pf/m1','ex/palace'],
       global:['ex/m-tourist','ex/myeong','ex/palace','ex/cosme','ex/makeup','ex/sunscreen','ex/m-shop','ex/fnb-store','v/s5','ex/giftset','ex/beauty-salon','ex/fashion-look'],
       homepage:['ex/m-team','pf/w4','ex/m-phone','ex/seminar','pf/g6','ex/cafe','ex/dental','pf/w5','ex/pension','ex/fnb-store','ex/m-shop','ex/academy'],
-      offline:['ex/elev-ad1','ex/truck-ad','ex/m-elev','ex/elev-ad2','ex/truck','ex/elev','ex/elev-ad3'],
+      offline:['ex/elev-real','ex/truck-ad','ex/cine-real','ex/kakao-real','ex/cine-seat','ex/m-elev','ex/elev-ad1'],
       local:['ex/bbq','ex/salon','ex/cafe','ex/pilates','ex/hanui','ex/pension','ex/academy','ex/m-chef','ex/fcafe','ex/m-salon','ex/m-trainer','ex/fnb-store'],
       growth:['ex/fashion-look','ex/cosme','ex/giftset','ex/m-shop','ex/sunscreen','ex/shop','ex/fashion-detail','ex/beauty-flat','ex/fashion-store','ex/makeup','v/s6','v/f2'],
       enterprise:['ex/seminar','ex/m-team','ex/m-shoot','ex/truck-ad','ex/shootcos','ex/m-elev','ex/fashion-store','ex/m-tourist','ex/giftset','ex/elev-ad1']

@@ -156,11 +156,6 @@
 .sf .ooh .ov b{font-size:4cqw;line-height:1.2;letter-spacing:-.02em}
 .sf .ooh .ov small{font-size:2.4cqw;opacity:.9;margin-top:1cqw}
 /* 엘리베이터TV — 화면 각도에 맞춰 합성한 광고 세 장이 차례로 바뀜(11-05) */
-.sf .ooh.tv .tv2,.sf .ooh.tv .tv3{opacity:0}
-html.sf-anim .sf .ooh.tv .tv2{animation:sf-tv 9s linear 3s infinite}
-html.sf-anim .sf .ooh.tv .tv3{animation:sf-tv 9s linear 6s infinite}
-@keyframes sf-tv{0%{opacity:0}4%,33%{opacity:1}37%,100%{opacity:0}}
-@media (prefers-reduced-motion:reduce){.sf .ooh.tv .tv2,.sf .ooh.tv .tv3{animation:none!important}}
 .sf .ooh .lb{position:absolute;left:4cqw;right:4cqw;bottom:4cqw;z-index:3;background:rgba(255,255,255,.95);border-radius:2.6cqw;padding:3cqw 3.6cqw;font-size:3.6cqw;font-weight:800}
 .sf .ooh .lb small{display:block;font-size:2.8cqw;font-weight:600;color:#55627A;margin-top:.6cqw}
 .sf .dark{background:#0C1018;color:#fff}
@@ -170,13 +165,6 @@ html.sf-anim .sf .ooh.tv .tv3{animation:sf-tv 9s linear 6s infinite}
 .sf .dark .seats{position:absolute;left:0;right:0;bottom:12%;height:22%;background:repeating-linear-gradient(90deg,#1B2230 0 9cqw,#0C1018 9cqw 10cqw);border-radius:50% 50% 0 0/20% 20% 0 0;opacity:.9}
 .sf .dark .cp{position:absolute;left:5cqw;right:5cqw;top:14cqw;font-size:3.4cqw;font-weight:700;color:#9AA7BA}
 .sf .dark .cp b{display:block;font-size:5.4cqw;color:#fff;margin-top:1cqw}
-.sf .tab{background:linear-gradient(180deg,#1E2633,#0C1018);color:#fff}
-.sf .tab .pad{position:absolute;left:8cqw;right:8cqw;top:28%;aspect-ratio:4/3;border-radius:3cqw;border:1.6cqw solid #05070B;overflow:hidden;background:#fff}
-.sf .tab .pad img{width:100%;height:100%;object-fit:cover;display:block}
-.sf .tab .pad span{position:absolute;left:3cqw;right:3cqw;bottom:3cqw;color:#fff;font-size:4.2cqw;font-weight:800;text-shadow:0 .3cqw 1.6cqw rgba(0,0,0,.55)}
-.sf .tab .seat{position:absolute;left:-10%;right:-10%;top:18%;height:70%;border-radius:40% 40% 10% 10%;background:#2A3240;z-index:0}
-.sf .tab .pad{z-index:1}
-.sf .tab .cp{position:absolute;left:5cqw;right:5cqw;top:12cqw;z-index:2;font-size:3.4cqw;font-weight:700;color:#9AA7BA}
 .sf .mg{position:relative;aspect-ratio:4/3;width:100%;overflow:hidden;border-radius:12px;background:radial-gradient(80% 90% at 50% 0%,#17365A,#0B1C31);container-type:inline-size;color:#fff;font-family:var(--f)}
 .sf .mg *{position:absolute}
 .sf .mg .cap{left:5cqw;bottom:4cqw;font-size:3.4cqw;color:#9FB4CA;font-weight:600}
