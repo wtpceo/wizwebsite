@@ -27,8 +27,22 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
             <Link href="/about#location">오시는 길</Link>
           </div>
         </div>
-        <div className="sfh-it">
-          <Link href="/services/influencer">서비스</Link>
+        <div className="sfh-it sfh-it-svc">
+          {/* 11-07 대표: '서비스' 글자 대신 매체 이름이 위로 돌아가며 순환. 보이는 이름을 누르면 그 매체 쪽으로, 마우스를 대면 멈추고 전체 목록이 펼쳐진다 */}
+          <div className="sfh-tick" aria-label="서비스">
+            <span className="sfh-tick-sz" aria-hidden="true">
+              {SERVICES.map((s) => (
+                <span key={s.k}>{s.n}</span>
+              ))}
+            </span>
+            <span className="sfh-tick-roll">
+              {[...SERVICES, SERVICES[0]].map((s, i) => (
+                <Link key={i} href={`/services/${s.slug}`} tabIndex={i === 0 ? 0 : -1} aria-hidden={i !== 0}>
+                  {s.n}
+                </Link>
+              ))}
+            </span>
+          </div>
           <div className="sfh-col">
             {SERVICES.map((s) => (
               <Link key={s.k} href={`/services/${s.slug}`}>

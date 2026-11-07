@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import ServiceDoc from "@/components/shortform/ServiceDoc"
+import PerfDoc from "@/components/shortform/PerfDoc"
 import GeoDoc from "@/components/shortform/GeoDoc"
 import { SERVICES } from "@/components/shortform/content"
 import { DETAILS } from "@/components/shortform/details"
@@ -42,5 +43,6 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   if (!SERVICES.some((s) => s.slug === slug)) notFound()
   // 2026-11-07 대표: AI 검색 최적화(GEO)·SEO 쪽은 새로 짠 GeoDoc(언론 숫자·realGEO 관제실·미디어 믹스). 나머지 7쪽은 ServiceDoc
   if (slug === "search") return <GeoDoc />
+  if (slug === "performance") return <PerfDoc />
   return <ServiceDoc slug={slug} />
 }

@@ -29,3 +29,7 @@ next-env.d.ts
 .DS_Store
 **/.DS_Store
 public/_hero-demo.html
+
+# 디자인 시안(로컬 확인용, 배포 제외)
+public/mock/
+.taste-skill/
