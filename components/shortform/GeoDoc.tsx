@@ -5,8 +5,8 @@ import { DETAILS } from "./details"
 import { DocShell, Crumb, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
 import { Ex, Chars, vars } from "./parts"
 import { Icon } from "./icons"
-import BrandAskBox from "@/components/agency/BrandAskBox"
 import GeoPress from "./GeoPress"
+import GeoToolReel from "./GeoToolReel"
 
 /**
  * /services/search — AI 검색 최적화(GEO)·SEO 상세. 2026-11-07 대표 지시로 매체 페이지 중 첫 번째로 새로 짬.
@@ -28,34 +28,48 @@ const PRESS: [string, string, string, string, string, string, string][] = [
     "같은 조사에서 생성형 AI 이용자 열 명 중 여섯 명이 검색의 절반 이상을 AI로 대신하고 있다고 답했습니다."],
 ]
 
-/** 근거 네 장 — realGEO 실제 화면(고객사명 가림) */
-const EVIDENCE: [string, string, string, string][] = [
-  ["자체 관제 시스템으로 매주 잽니다", "같은 질문을 엔진마다 다시 묻고 이름이 나온 비율을 셉니다.\n감이 아니라 숫자로 봅니다.", "/tools/realgeo-dashboard.jpg", "realGEO 관제실 화면"],
-  ["리포트에 내려간 숫자도 적습니다", "오른 주만 보여 드리지 않습니다.\n지난주 대비 떨어진 질문이 어느 것인지 같이 적습니다.", "/tools/realgeo-weekly-report.jpg", "realGEO 주간 리포트 화면"],
-  ["질문부터 설계합니다", "고객이 실제로 묻는 말로 질문 열 개를 만들고,\n브랜드 이름을 넣은 것과 뺀 것을 나눠 잽니다.", "/tools/realgeo-prompts.jpg", "realGEO 측정 질문 화면"],
-  ["홈페이지를 AI가 읽는지 먼저 진단합니다", "전화번호가 그림 속에 있으면 AI는 못 읽습니다.\n기술 SEO·GEO 점수로 고칠 곳을 먼저 찾습니다.", "/tools/realgeo-site-audit.jpg", "realGEO 사이트 진단 화면"],
+/** 코너벨 열 장 [제목, 두 줄 설명, 그림, 대체문] — 전부 저희 회사 워크스페이스. 고객사명 없음 */
+const REEL: [string, string, string, string][] = [
+  ["관제실: 같은 질문을 엔진마다 매주 다시 묻습니다", "이름이 나온 비율을 셉니다.\n감이 아니라 숫자로 봅니다.", "/tools/realgeo-dashboard.jpg", "realGEO 관제실 화면"],
+  ["전략맵: 키워드마다 검색 순위와 AI 인용을 한 표에", "검색 순위와 AI 답변 인용을 같이 보고 긴급·기회·유지로 나눕니다.\n이번 주 무엇부터 할지가 여기서 정해집니다.", "/tools/realgeo-strategy.jpg", "realGEO 전략맵 화면"],
+  ["콘텐츠 제작소: 긴급 키워드가 그대로 글감이 됩니다", "실측 데이터를 재료로 AI가 인용하기 좋은 구조의 글을 기획하고,\n기획안부터 작성 완료까지 키워드별로 추적합니다.", "/tools/realgeo-content.jpg", "realGEO 콘텐츠 제작소 화면"],
+  ["주간 리포트: 내려간 숫자도 적습니다", "오른 주만 보여 드리지 않습니다.\n지난주 대비 떨어진 질문이 어느 것인지 같이 적습니다.", "/tools/realgeo-weekly-report.jpg", "realGEO 주간 리포트 화면"],
+  ["측정 질문: 고객이 실제로 묻는 말로 설계합니다", "질문 열 개를 만들고,\n브랜드 이름을 넣은 것과 뺀 것을 나눠 잽니다.", "/tools/realgeo-prompts.jpg", "realGEO 측정 질문 화면"],
+  ["포트폴리오 보기: 가로는 검색 순위, 세로는 AI 인용률", "원 하나가 키워드 하나입니다.\n어느 쪽이 비어 있는지 한눈에 보입니다.", "/tools/realgeo-portfolio.jpg", "realGEO 전략맵 포트폴리오 화면"],
+  ["사이트 진단: 홈페이지를 AI가 읽는지 먼저 봅니다", "전화번호가 그림 속에 있으면 AI는 못 읽습니다.\n기술 SEO·GEO 점수로 고칠 곳을 먼저 찾습니다.", "/tools/realgeo-site-audit.jpg", "realGEO 사이트 진단 화면"],
+  ["알림 센터: 월요일 아침이면 주간 브리핑이 와 있습니다", "매주 월요일 새벽 자동 측정이 끝나면\n변화 경고와 추천 액션이 여기로 들어옵니다.", "/tools/realgeo-alerts.jpg", "realGEO 알림 센터 화면"],
+  ["모니터링: 구글이 주는 실측 데이터를 한눈에", "검색 성과와 AI 검색에서 실제로 넘어온 방문을\n같은 화면에서 봅니다.", "/tools/realgeo-monitoring.jpg", "realGEO 모니터링 대시보드 화면"],
+  ["Raw 데이터: 측정 원본을 CSV로 내려받습니다", "숫자를 믿어 달라고 하지 않습니다.\n원본을 드리니 엑셀에서 직접 확인하시면 됩니다.", "/tools/realgeo-raw.jpg", "realGEO Raw 데이터 내려받기 화면"],
 ]
 
-/** realGEO 관제실 — 저희 회사 사이트(wiztheplanning.com)를 잰 실제 값. 2026.9.7 측정, 질문 10개 */
-const RG = {
-  score: 18,
-  tiles: [
-    ["AI 인용 노출률", "18", "%", "카테고리 7% · 브랜드 88%"],
-    ["멘션 노출률", "18", "%", "측정 38건 중 7건 언급"],
-    ["근거 인용률", "40", "%", "측정 질문 10개 중 4개"],
-    ["평균 인용 순위", "2.9", "번째", "인용된 답변 7건의 출처 순번 평균"],
-    ["브랜드 응답 검증", "88", "%", "브랜드 질문 8건 중 7건 확인"],
-    ["AI 브리핑 인용률", "22", "%", "인용 2 · 타사 7 · 없음 1"],
-    ["SEO 점수", "27", "", "최고 1위 · Top10 3개"],
-    ["웹 건강도", "100", "", "기술 SEO 96 · 기술 GEO 94"],
-  ] as [string, string, string, string][],
-  engines: [
-    ["네이버 AI 브리핑", 1, 9],
-    ["Gemini", 2, 10],
-    ["ChatGPT", 2, 10],
-    ["Perplexity", 4, 9],
-  ] as [string, number, number][],
-}
+/** 노하우 섹션 사진 띠 — 섭외·촬영 현장 */
+const MEDIA: [string, string][] = [
+  ["/geo/media-beauty.jpg", "뷰티 크리에이터가 링라이트 앞에서 제품을 소개하는 모습"],
+  ["/geo/media-crew.jpg", "촬영팀이 식당 주방에서 사장님을 촬영하는 모습"],
+  ["/geo/media-fashion.jpg", "패션 크리에이터가 거울 앞에서 코디 영상을 찍는 모습"],
+  ["/geo/media-ai.jpg", "카페에서 AI 답변을 보는 휴대폰 화면"],
+  ["/geo/media-food.jpg", "푸드 유튜버가 카페 디저트를 촬영하는 모습"],
+  ["/geo/media-unbox.jpg", "두 크리에이터가 제품을 개봉하며 촬영하는 모습"],
+  ["/geo/media-fitness.jpg", "피트니스 크리에이터가 운동 팁을 촬영하는 모습"],
+  ["/geo/media-editor.jpg", "편집자가 영상을 편집하는 작업실"],
+]
+
+/** realGEO 메뉴 구성 — 실제 사이드바 순서 그대로 */
+const MENU: [string, string[]][] = [
+  ["진단", ["기본정보", "사이트 진단", "키워드 현황", "키워드 분석"]],
+  ["전략", ["전략맵", "AI 노출 현황", "AI 노출 분석", "AI 답변 원문", "경쟁사 정찰"]],
+  ["실행", ["콘텐츠 제작소", "페르소나", "브랜드·경쟁사 사전"]],
+  ["공통", ["관제실", "대시보드", "알림 센터", "주간 리포트", "Raw 데이터"]],
+]
+
+/** 개발자 + 마케터 */
+const TEAM_MK = ["광고주가 실제로 묻는 말을 측정 질문으로 바꿉니다.", "매주 리포트를 들고 직접 찾아가 설명합니다.", "현장에서 숫자가 안 맞는 지점을 개발팀에 바로 넘깁니다."]
+const TEAM_DEV = ["네 엔진에 매주 자동으로 묻는 측정 파이프라인을 돌립니다.", "판정 기준과 지표 계산을 코드로 고정합니다.", "마케터가 막힌 것을 그 주에 화면에 넣습니다."]
+const TEAM_LOG: [string, string][] = [
+  ["브랜드 이름을 줄여 부르면 AI 답변 속 언급을 못 잡아요.", "자사·경쟁사 별칭 사전을 만들어 사전 기준으로 판정하게 바꿨습니다."],
+  ["계약에서 보장하지 않는 채널이 광고주 리포트에 섞여 나가요.", "광고주에게 나가는 문서마다 그 채널을 빼는 스위치를 넣었습니다."],
+  ["월요일 아침에 숫자가 준비돼 있으면 좋겠어요.", "매주 월요일 새벽에 자동 측정을 돌리고 알림 센터에 주간 브리핑을 띄웁니다."],
+]
 
 /** AI가 고르는 조건 세 가지 */
 const PICKS: [string, string][] = [
@@ -90,15 +104,6 @@ const STEPS: [string, string, string][] = [
   ["출처 넓히기", "섭외 영상·기자단·후기로 AI가 끌어올 바깥 출처를 늘립니다", "1~3개월"],
 ]
 
-/** 사례 — 날짜 붙은 것만, 상호 비공개. [분류, 큰 숫자, 한 줄, 기간, 링크] */
-const CASES: [string, string, string, string, string][] = [
-  ["정형외과 · ChatGPT", "17% → 93%", "환자가 물을 법한 질문 10개 중 이름이 나온 비율. 2주 뒤 83%로 내려간 것도 그대로 적었습니다", "2026.8.6 → 9.28", "/guide/case-orthopedic-chatgpt"],
-  ["지역 매장 · 네이버 지도", "201위 → 1위", "같은 검색어로 매달 다시 잰 네이버 지도 순위", "2025.08 → 2026.10", "/guide/naver-blog-rank-compare"],
-  ["출장세차 · 구글 AI 개요", "2개월", "네이버만 하던 곳이 구글 AI 개요에 나오기까지 걸린 기간", "2026", "/guide/case-mobile-carwash"],
-  ["치과 · 홈페이지", "3쪽이 167쪽을", "분량이 아니라 구조였습니다. AI가 읽는 3쪽짜리가 이겼습니다", "2026.9", "/guide/case-dental-llms-factsheet"],
-]
-
-/** 첫 화면 배경에 흐르는 AI 대화 [질문, 답 앞, 답 뒤] — 가운데 상호 자리는 막대로 가린다. 모두 예시 */
 const CHAT: [string, string, string][] = [
   ["판교역 근처 치과 추천해 줘", "야간 진료가 되고 임플란트 상담 후기가 많은 ", "치과를 많이 찾아요."],
   ["민감성 피부용 선크림, 30대 직장인한테 뭐가 좋아?", "자극이 적고 백탁이 없다는 후기가 많은 ", "선크림이 자주 추천돼요."],
@@ -231,43 +236,40 @@ export default function GeoDoc() {
         <GeoPress items={PRESS} />
       </CSec>
 
-      {/* ③ 근거 네 장 */}
+      {/* ③ 자체 툴 realGEO: 실제 화면 열 장이 원을 그리며 돌아가는 코너벨 (GeoToolReel) */}
       <CSec
-        eb="RELIABILITY & TRUST"
+        id="realgeo"
+        eb="OUR OWN TOOL · realGEO"
         q={
           <>
-            말보다 먼저,
+            실제로 쓰고 있는{" "}
             <br />
-            <span>화면으로 보여 드립니다.</span>
+            <span>자체 툴, realGEO입니다.</span>
           </>
         }
-        sub="2016년부터 광고주와 일해 온 회사가, 자체 관제 시스템 realGEO로 매주 재고 있는 실제 화면입니다."
+        sub={
+          <>
+            2016년부터 광고주와 일해 온 회사가 직접 만들어 매주 재는 AI 검색 관제 시스템입니다.{" "}
+            <br />
+            측정에서 전략맵, 콘텐츠까지 한 툴 안에서 갑니다. 아래는 저희 회사 사이트를 잰 실제 화면입니다.
+          </>
+        }
         tone="mist"
       >
-        <ol className="geo-ev">
-          {EVIDENCE.map(([t, x, img, alt], i) => (
-            <li key={t} style={vars({ i })}>
-              <em>{String(i + 1).padStart(2, "0")}</em>
-              <b>{t}</b>
-              <p>
-                {x.split("\n").map((line, j) => (
-                  <span key={j}>
-                    {j > 0 ? <br /> : null}
-                    {line}
-                  </span>
-                ))}
-              </p>
-              <figure>
-                <img src={img} alt={alt} loading="lazy" width={1600} height={1000} />
-              </figure>
+        <GeoToolReel slides={REEL} />
+        <ul className="geo-menu" aria-label="realGEO 메뉴 구성">
+          {MENU.map(([g, items], i) => (
+            <li key={g} style={vars({ i })}>
+              <b>{g}</b>
+              <span>{items.join(" · ")}</span>
             </li>
           ))}
-        </ol>
-        <p className="geo-note">realGEO 실제 화면 · 고객사명 가림</p>
+        </ul>
       </CSec>
 
       {/* ④ 일반적인 생각 vs 실제 */}
       <CSec
+        tone="mist"
         eb="DATA INSIGHT"
         q={
           <>
@@ -311,108 +313,64 @@ export default function GeoDoc() {
         </ol>
       </CSec>
 
-      {/* ⑤ 자체 툴 realGEO */}
+      {/* ⑥ 개발자와 마케터가 한 팀 + 일반 대행과 다른 자리 */}
       <CSec
-        id="realgeo"
-        tone="k"
-        eb="DATA INTELLIGENCE · realGEO"
+        id="team"
+        eb="ONE TEAM"
         q={
           <>
-            감으로 하지 않습니다.
-            <br />
-            <span>자체 관제 시스템이 매주 잽니다.</span>
-          </>
-        }
-        sub="아래는 저희 회사 사이트를 잰 실제 화면입니다. 낮은 점수도 가리지 않았습니다. 숫자를 꾸미지 않는다는 뜻입니다."
-      >
-        <div className="rg" aria-label="realGEO 관제실 화면 재현">
-          <div className="rg-side" aria-hidden="true">
-            <b>realGEO</b>
-            <span className="on">관제실</span>
-            <span>기본정보</span>
-            <span>사이트 진단</span>
-            <span>키워드 현황</span>
-            <span>전략맵</span>
-            <span>AI 노출 현황</span>
-            <span>AI 답변 원문</span>
-            <span>경쟁사 정찰</span>
-            <span>콘텐츠 제작소</span>
-            <span>브랜드·경쟁사 사전</span>
-          </div>
-          <div className="rg-main">
-            <div className="rg-top">
-              <div>
-                <b>위즈더플래닝 관제 현황</b>
-                <span>검색과 AI가 지금 우리 브랜드를 어떻게 노출하는지 한눈에</span>
-              </div>
-              <em>LIVE MEASURED · 2026.9.7</em>
-            </div>
-            <div className="rg-alert">
-              <b>긴급 키워드 3개</b> 검색과 AI 어디에도 노출되지 않고 있어요
-            </div>
-            <div className="rg-grid">
-              <div className="rg-score">
-                <span>REALGEO 스코어</span>
-                <div className="rg-ring" style={vars({ p: RG.score })}>
-                  <b>{RG.score}</b>
-                  <small>/ 100</small>
-                </div>
-                <p>측정마다 변화 추이가 쌓입니다</p>
-              </div>
-              {RG.tiles.map(([t, n, u, sub], i) => (
-                <div className="rg-k" key={t} style={vars({ i })}>
-                  <span>{t}</span>
-                  <b>
-                    {n}
-                    <small>{u}</small>
-                  </b>
-                  <p>{sub}</p>
-                </div>
-              ))}
-              <div className="rg-k rg-eng">
-                <span>엔진별 인용</span>
-                <ul>
-                  {RG.engines.map(([e, a, b]) => (
-                    <li key={e}>
-                      <i>{e}</i>
-                      <b>
-                        {a}/{b}
-                      </b>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="rg-k">
-                <span>측정 현황</span>
-                <b>
-                  10<small>개 질문</small>
-                </b>
-                <p>매주 자동 · 진단 이슈 13</p>
-              </div>
-            </div>
-          </div>
-          <Ex>저희 회사 사이트를 잰 실제 값 · 2026.9.7</Ex>
-        </div>
-        <div className="geo-ask">
-          <h3>브랜드 이름을 넣어 보세요</h3>
-          <p>저희가 AI에게 실제로 물어볼 질문 열 개가 바로 나옵니다. 점수는 만들어 내지 않고, 재는 계획만 보여 드립니다.</p>
-          <BrandAskBox />
-        </div>
-      </CSec>
-
-      {/* ⑥ 비교표 */}
-      <CSec
-        eb="WHY WIZ THE PLANNING"
-        q={
-          <>
-            재는 사람이 고치면
+            개발자와 마케터가 한 팀이면{" "}
             <br />
             <span>무엇이 다른가요?</span>
           </>
         }
-        sub="측정과 수정을 한 팀이 하니까 결과를 본 사람이 바로 고칩니다. 일반 대행과 다른 자리를 표로 적었습니다."
-        tone="mist"
+        sub={
+          <>
+            측정과 수정을 한 팀이 하니까 결과를 본 사람이 바로 고칩니다.{" "}
+            <br />
+            마케터가 현장에서 막힌 것을 개발자가 그 주에 툴에 넣습니다.
+          </>
+        }
       >
+        <div className="geo-team">
+          <div className="geo-team-col">
+            <b>마케터가 하는 일</b>
+            <ul>
+              {TEAM_MK.map((t) => (
+                <li key={t}>{t}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="geo-team-loop" aria-hidden="true">
+            <span>요청</span>
+            <i />
+            <span>반영</span>
+          </div>
+          <div className="geo-team-col">
+            <b>개발자가 하는 일</b>
+            <ul>
+              {TEAM_DEV.map((t) => (
+                <li key={t}>{t}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <ol className="geo-team-log" aria-label="실제로 이렇게 바뀐 것">
+          {TEAM_LOG.map(([ask, done], i) => (
+            <li key={ask} style={vars({ i })}>
+              <p>
+                <em>마케터</em>
+                {ask}
+              </p>
+              <p>
+                <em>개발자</em>
+                {done}
+              </p>
+            </li>
+          ))}
+        </ol>
+        <p className="geo-note">위 세 가지는 realGEO에 실제로 들어간 변경입니다.</p>
+        <p className="geo-sub-h">그래서 일반 대행과 이 자리가 다릅니다</p>
         <div className="geo-vs" role="table" aria-label="위즈더플래닝과 일반 대행사 비교">
           <div className="geo-vs-h" role="row">
             <span role="columnheader">비교 항목</span>
@@ -437,17 +395,24 @@ export default function GeoDoc() {
         </div>
       </CSec>
 
-      {/* ⑦ 미디어 믹스 */}
+      {/* ⑦ 노하우: 섭외·기자단이 AI 언급을 강하게 만든다 + 섭외 현장 사진 마퀴 */}
       <CSec
-        eb="MEDIA MIX"
+        eb="OUR KNOW-HOW"
         q={
           <>
-            유튜버·인플루언서 영상이 쌓이면
+            GEO를 더 강력하게 만드는{" "}
             <br />
-            <span>AI가 인용할 출처가 생깁니다.</span>
+            <span>위즈더플래닝만의 노하우</span>
           </>
         }
-        sub="AI는 답을 만들 때 유튜브 영상, 후기, 커뮤니티 글, 기사를 끌어다 씁니다. 2026년 조사에서 AI 검색 엔진이 가장 자주 인용한 출처 상위에 레딧과 유튜브가 들었습니다(Peec AI, 3,000만 건 분석, 2026.3)."
+        sub={
+          <>
+            AI는 답을 만들 때 유튜브 영상, 후기, 커뮤니티 글, 기사를 끌어다 씁니다.{" "}
+            <br />
+            저희는 유튜버·인플루언서 섭외와 기자단을 같은 팀이 돌려서 AI가 끌어올 출처를 직접 만듭니다. 그래서 언급이 강해집니다.
+          </>
+        }
+        tone="mist"
       >
         <ol className="geo-flow">
           {FLOW.map(([t, x, k], i) => (
@@ -460,6 +425,16 @@ export default function GeoDoc() {
             </li>
           ))}
         </ol>
+        <p className="geo-note">2026년 조사에서 AI 검색 엔진이 가장 자주 인용한 출처 상위에 레딧과 유튜브가 들었습니다(Peec AI, 3,000만 건 분석, 2026.3).</p>
+        <div className="geo-media" aria-label="섭외·촬영 현장">
+          <div className="geo-media-track">
+            {[...MEDIA, ...MEDIA].map(([src, alt], i) => (
+              <figure key={i} aria-hidden={i >= MEDIA.length}>
+                <img src={src} alt={i < MEDIA.length ? alt : ""} loading="lazy" width={800} height={600} />
+              </figure>
+            ))}
+          </div>
+        </div>
         <p className="geo-note">
           <Link href="/services/influencer">유튜버·인플루언서 섭외 보기 →</Link>
         </p>
@@ -476,7 +451,6 @@ export default function GeoDoc() {
           </>
         }
         sub="시점을 약속하지는 않습니다. 업종과 지금 상태에 따라 다르고, 아래 기간은 보통 걸리는 범위입니다."
-        tone="mist"
       >
         <ol className="geo-steps">
           {STEPS.map(([t, x, when], i) => (
@@ -493,41 +467,40 @@ export default function GeoDoc() {
         </p>
       </CSec>
 
-      {/* ⑨ 사례 */}
-      <CSec
-        eb="CASE RECORD"
-        q={
-          <>
-            계약 전에 잰 숫자와
-            <br />
-            <span>다시 잰 숫자를 나란히 둡니다.</span>
-          </>
-        }
-        sub="날짜가 붙은 기록만 적었습니다. 상호와 지역은 밝히지 않고, 순위나 AI 노출을 보장하지도 않습니다."
-      >
-        <ul className="geo-cases">
-          {CASES.map(([cat, num, line, when, href], i) => (
-            <li key={href} style={vars({ i })}>
-              <Link href={href}>
-                <em>{cat}</em>
-                <b>{num}</b>
-                <span>{line}</span>
-                <small>{when} · 글 보기 →</small>
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <p className="geo-note">
-          {d.recNote} <Link href="/how-we-measure">측정 방식 보기 →</Link>
-        </p>
-      </CSec>
-
       {/* ⑩ FAQ */}
       <CSec eb="FAQ" q="자주 묻는 질문" tone="mist">
         <div className="geo-faq">
           <Faq items={faq} />
         </div>
       </CSec>
+
+      {/* ⑪ 마무리: 당신의 브랜드는 지금 어떤 상태일까요? */}
+      <section className="geo-close" aria-label="마무리">
+        <div className="geo-close-bg" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+        </div>
+        <div className="dp-w">
+          <p className="geo-eb">YOUR BRAND, NOW</p>
+          <h2>
+            당신의 브랜드는{" "}
+            <br />
+            지금 어떤 상태일까요?
+          </h2>
+          <p className="geo-close-s">
+            분석부터 전체적인 마케팅 설계까지,{" "}
+            <br />
+            지금 준비하세요.
+          </p>
+          <div className="geo-close-b">
+            <a href="#contact" className="b1">
+              무료 분석 신청
+            </a>
+            <a href="tel:1670-0704">대표전화 1670-0704</a>
+          </div>
+        </div>
+      </section>
 
       <ContactBlock title="AI 검색 최적화, 무료 진단부터 시작하세요." sub="브랜드 이름만 알려 주시면, 지금 AI가 뭐라고 답하는지 먼저 재서 보내 드리겠습니다." initial={["search"]} source="service_search" />
     </DocShell>
