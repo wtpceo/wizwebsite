@@ -160,6 +160,7 @@ export default function GeoDoc() {
 
   return (
     <DocShell>
+      <div className="gx">
       <JsonLd data={ld} />
 
       {/* ① 첫 화면. 11-07 낮 비평 적용: 주인공은 제목 하나, 키워드 줄은 작게 위로, 카드는 행동 상자, CTA 하나, 전화는 글자 링크 */}
@@ -500,6 +501,7 @@ export default function GeoDoc() {
       </section>
 
       <ContactBlock title="AI 검색 최적화, 무료 AI 노출 진단부터" sub="브랜드 이름만 알려 주시면, 지금 AI가 뭐라고 답하는지 먼저 재서 보내 드리겠습니다." initial={["search"]} source="service_search" />
+      </div>
     </DocShell>
   )
 }

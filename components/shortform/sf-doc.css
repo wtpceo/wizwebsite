@@ -1356,3 +1356,40 @@ html.sf-anim .sf .perf-media li, html.sf-anim .sf .perf-nums li { opacity: 0; an
 .sf .pk h1, .sf .pk h2 { font-family: "PaperlogySF", "PretendardSF", "PretendardSFRest", -apple-system, "Apple SD Gothic Neo", sans-serif; font-weight: 900; letter-spacing: -.025em; }
 .sf .px-hero h1 { letter-spacing: -.03em; line-height: 1.14; }
 .sf .pk-dark h2 { font-weight: 900; }
+
+/* 11-07 밤: GEO 쪽(.gx)에도 사주 색(물·나무·쇠)과 Paperlogy 제목. 코발트·하늘색 토큰을 남색·위즈블루로 덮는다 */
+.sf .gx { --cob: #0A1A33; --cob2: #060F1F; --nk: #0A1A33; --nk2: #0A1A33; --mist: #F2F4F7; --sky: #B3C8FF; --sky2: #5B8CFF; --b1: #0055FF; --b2: #0055FF; --blue: #0055FF; --blue-lo: #0041C2; --navy: #0A1A33; --grad: linear-gradient(90deg, #0055FF, #5B8CFF); --wood: #0E8C7F; }
+.sf:has(.gx) .sfh-doc { background: #0A1A33; border-bottom-color: rgba(255,255,255,.1); color: #fff; }
+.sf:has(.gx) .sfh-doc .sfh-logo img { filter: brightness(0) invert(1); }
+.sf:has(.gx) .sfh-doc .sfh-nav > .sfh-it > a, .sf:has(.gx) .sfh-doc .sfh-tick-roll a, .sf:has(.gx) .sfh-doc .sfh-menu { color: #fff; }
+.sf .gx .geo-hero .dp-veil { background: radial-gradient(62% 58% at 50% 46%, rgba(10,26,51,.97) 0%, rgba(10,26,51,.88) 52%, rgba(10,26,51,.6) 100%), linear-gradient(180deg, rgba(10,26,51,.7) 0%, rgba(10,26,51,0) 22%, rgba(10,26,51,0) 78%, rgba(10,26,51,.85) 100%); }
+.sf .gx .geo-hero .dp-lead { color: #C9D6F2; }
+.sf .gx .gc-a i { color: #0A1A33; }
+.sf .gx .geo-card em, .sf .gx .geo-flow .ic { background: #E8F0FF; }
+.sf .gx .geo-card .dp-btns .p1 { background: #0055FF; }
+.sf .gx .geo-card .dp-btns .p1:hover { background: #0041C2; }
+.sf .gx .geo-stats li::before, .sf .gx .geo-stats li:nth-child(2)::before, .sf .gx .geo-stats li:nth-child(3)::before, .sf .gx .geo-stats li:nth-child(4)::before { background: #0055FF; }
+.sf .gx .geo-stats b, .sf .gx .geo-dlg-n, .sf .gx .geo-cases b, .sf .gx .geo-own span, .sf .gx .geo-vs-r .us b { color: #0055FF; }
+.sf .gx .geo-cmp figcaption em, .sf .gx .geo-cmp figure:nth-child(2) figcaption em, .sf .gx .geo-steps em, .sf .gx .geo-dlg-ok, .sf .gx .geo-reel-nav ol button.on, .sf .gx .geo-flow li:nth-child(4) .ic, .sf .gx .geo-team-log p + p em { background: #0055FF; }
+.sf .gx .geo-cmp-on { border-color: #0E8C7F !important; box-shadow: 0 0 0 3px rgba(14,140,127,.16); }
+.sf .gx .geo-cmp-on figcaption em { background: #0E8C7F; }
+.sf .gx .geo-steps li.on { border-color: #0055FF; box-shadow: 0 0 0 3px rgba(0,85,255,.14); }
+.sf .gx .geo-vs-h .us { background: #0A1A33; }
+.sf .gx .geo-vs-r .us { background: #E8F0FF; }
+.sf .gx .geo-reel-nav > button { color: #0A1A33; }
+.sf .gx .geo-reel-nav > button:hover { background: #0055FF; }
+.sf .gx .geo-reel-stage figure:not(.on)::after { background: linear-gradient(180deg, rgba(242,244,247,.1), rgba(10,26,51,.18)); }
+.sf .gx .geo-close { background: radial-gradient(70% 90% at 50% 100%, #11264A 0%, #0A1A33 45%, #060F1F 100%); }
+.sf .gx .geo-close-bg i { border-color: rgba(91,140,255,.3); }
+.sf .gx .geo-close-b a.b1 { background: #0055FF; color: #fff; border-color: #0055FF; }
+.sf .gx .geo-close-b a.b1:hover { background: #0041C2; }
+.sf .gx .dp-ct { background: #0A1A33; }
+.sf .gx .ct-ways svg { stroke: #5B8CFF; }
+.sf .gx .ct-go { background: #0055FF; background-image: none; color: #fff; }
+.sf .gx .ct-go:hover { background: #0041C2; }
+.sf:has(.gx) .sff { background: #0A1A33; }
+.sf .gx .dp-hero h1, .sf .gx .dp-sec h2, .sf .gx .geo-close h2, .sf .gx .dp-ct h2 { font-family: "PaperlogySF", "PretendardSF", "PretendardSFRest", -apple-system, "Apple SD Gothic Neo", sans-serif; font-weight: 900; letter-spacing: -.025em; }
+@media (max-width: 820px) {
+  .sf .gx .geo-hero .dp-veil { background: radial-gradient(90% 60% at 50% 45%, rgba(10,26,51,.96) 0%, rgba(10,26,51,.86) 60%, rgba(10,26,51,.7) 100%); }
+}
+@media (max-width: 820px) { .sf .gx .geo-hero h1 { font-size: 26px; letter-spacing: -.03em; text-wrap: balance; } }
