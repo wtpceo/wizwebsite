@@ -843,3 +843,45 @@ html.sf-anim .sf .geo-team-log li { opacity: 0; animation: sf-rise .5s cubic-bez
   .sf .geo-media { margin: 18px -16px 0; }
   .sf .geo-close h2 br { display: none; }
 }
+/* 11-07 낮: 첫 화면 비평 적용 (docs/비평-GEO히어로-2026-11-07.md) */
+.sf .geo-kw { margin: 20px 0 8px; font-size: 14px; font-weight: 600; letter-spacing: .02em; color: var(--sky); }
+.sf .geo-hero h1 { font-size: clamp(34px, 4.8vw, 60px); line-height: 1.12; max-width: none; }
+.sf .geo-hero h1 .ln { display: block; }
+.sf .geo-hero .dp-lead { margin-top: 16px; font-size: 17px; max-width: 46em; color: #DCEAF5; text-wrap: balance; }
+.sf .geo-hero .dp-lead b { color: #fff; }
+.sf .geo-card { width: min(640px, 100%); margin: 28px auto 0; padding: 26px 28px 22px; border-radius: 14px; display: flex; flex-direction: column; align-items: center; gap: 0; }
+.sf .geo-card-s { margin: 0; font-size: 16px; line-height: 1.65; color: var(--ink); font-weight: 600; }
+.sf .geo-card .dp-btns { margin-top: 16px; }
+.sf .geo-card .dp-btns .p1 { padding: 15px 30px; font-size: 15.5px; }
+.sf .geo-tel { display: inline-block; margin-top: 12px; font-size: 13px; font-weight: 700; color: var(--b1); text-decoration: underline; text-underline-offset: 3px; }
+.sf .geo-trust { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid #E3EAF2; width: 100%; font-size: 12.5px; color: var(--sub); letter-spacing: .01em; }
+/* 배경: 질문 풍선 반투명, 기울기 0, 베일은 좌우 대칭 */
+.sf .geo-chat { transform: none; opacity: .6; }
+.sf .gc-q { background: rgba(255,255,255,.2); color: #fff; box-shadow: none; border: 1px solid rgba(255,255,255,.22); }
+.sf .gc-a { background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.18); }
+.sf .gc-a i { background: rgba(255,255,255,.85); }
+.sf .gc-you { display: inline-block; color: var(--sky); font-weight: 900; margin-right: 4px; text-decoration: underline; text-decoration-color: var(--sky2); text-underline-offset: 3px; }
+.sf .geo-hero .dp-veil { background: radial-gradient(62% 58% at 50% 46%, rgba(13,79,140,.97) 0%, rgba(13,79,140,.88) 52%, rgba(13,79,140,.6) 100%), linear-gradient(180deg, rgba(13,79,140,.7) 0%, rgba(13,79,140,0) 22%, rgba(13,79,140,0) 78%, rgba(13,79,140,.85) 100%); }
+@media (max-width: 820px) {
+  .sf .geo-hero { padding: 26px 0 44px; }
+  .sf .geo-kw { margin: 14px 0 6px; font-size: 13px; }
+  .sf .geo-hero h1 { font-size: 32px; }
+  .sf .geo-hero .dp-lead { font-size: 15px; margin-top: 12px; }
+  .sf .geo-card { margin-top: 20px; padding: 20px 18px 16px; }
+  .sf .geo-card-s { font-size: 15px; }
+  .sf .geo-card-s br { display: none; }
+  .sf .geo-card .dp-btns .p1 { width: 100%; justify-content: center; text-align: center; padding: 14px 20px; }
+  .sf .geo-tel { display: none; }
+  .sf .geo-trust { font-size: 12px; }
+  .sf .geo-chat { grid-template-columns: 1fr; padding: 0 6%; opacity: .28; }
+  .sf .gc-col:nth-child(2), .sf .gc-col:nth-child(3) { display: none; }
+  .sf .geo-hero .dp-veil { background: radial-gradient(90% 60% at 50% 45%, rgba(13,79,140,.96) 0%, rgba(13,79,140,.86) 60%, rgba(13,79,140,.7) 100%); }
+}
+/* 11-07 오후: 카피 재점검 반영. 흐름 번호 제거, 한국어 머리말, 실측 숫자 띠, 히어로 제목 길이 */
+.sf .geo-flow li::before { display: none; }
+.sf .geo-eb { letter-spacing: .04em; font-size: 13px; }
+.sf .geo-own { margin: 22px auto 0; max-width: 900px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px 14px; padding: 14px 18px; border-radius: 12px; background: #fff; border: 1px solid #E3EAF2; font-size: 13.5px; color: var(--sub); }
+.sf .geo-own b { color: var(--ink); font-weight: 800; margin-right: 2px; }
+.sf .geo-own span { font-weight: 800; color: var(--cob); padding-left: 14px; border-left: 1px solid #D9E2EC; }
+.sf .geo-hero h1 { font-size: clamp(30px, 4vw, 52px); max-width: 20em; }
+@media (max-width: 820px) { .sf .geo-hero h1 { font-size: 27px; } .sf .geo-own { font-size: 12.5px; gap: 6px 10px; } .sf .geo-own span { padding-left: 10px; } }
