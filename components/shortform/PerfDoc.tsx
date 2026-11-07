@@ -2,21 +2,46 @@ import Link from "next/link"
 import { SERVICES } from "./content"
 import { DETAILS } from "./details"
 import { DocShell, Crumb, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
+import PerfBar from "./PerfBar"
 
 /**
- * /services/performance — 퍼포먼스 광고 상세. 2026-11-07 대표 선택: A안 「다크룸」(docs/시안-퍼포먼스-2026-11-07).
- * 한 가지 어두운 바닥 위에 '전시품'이 하나씩 켜진다: 주간 리포트 전표, 소재 A·B·C 보드, 받을 곳 점검표.
- * 남의 사례 대신 우리가 일하는 장면이 증거다. 광고주 상호 없음. 숫자는 펜션 릴스 24일 실측(2026.8.12 글)과 2016년뿐.
- * 스타일: sf-doc.css 의 .pd-* (perf dark). 머리줄은 :has(.pd) 로 어둡게.
+ * /services/performance — 퍼포먼스 광고 상세. 2026-11-07 대표: 색 체계 「먹과 신호」(docs/디자인시스템-색-2026-11-07.md) 방향으로 다시 설계.
+ * 종이 바닥으로 시작하고, 증거(전표·소재 보드)와 마무리는 먹 바닥. 빨강은 화면당 한 번: 주행동 버튼, 움직인 숫자, 제목의 한 어절, 표의 한 줄.
+ * 남의 사례 대신 우리가 일하는 장면이 증거. 광고주 상호 없음. 숫자는 펜션 릴스 24일 실측(2026.8.12 글)과 2016년뿐.
+ * 스타일: sf-doc.css 의 .pk-* (paper & ink).
  */
 
-/** 흔한 광고 대행과 다른 자리 */
-const VS: [string, string, string][] = [
-  ["켜기 전", "받을 곳부터 확인", "받을 곳이 비어 있어도 집행부터"],
-  ["소재", "자체 촬영팀이 찍고 다시 찍음", "광고주 몫 또는 외주 납품 대기"],
-  ["성과가 안 나면", "받을 곳 정비 제안", "예산 증액 제안"],
-  ["보고", "매체 화면 숫자 그대로, 예산 옮긴 이유까지", "집행 완료, 소재 몇 개"],
-  ["계정", "고객사 명의, 저희는 관리자", "대행사 명의, 끝나면 기록도 끝"],
+/** 촬영 현장 사진 띠 — 노하우 띠와 같은 실사풍 생성 사진 8장 */
+const STRIP: [string, string][] = [
+  ["/geo/media-crew.jpg", "촬영팀이 식당 주방에서 사장님을 촬영하는 모습"],
+  ["/geo/media-editor.jpg", "편집자가 영상을 편집하는 작업실"],
+  ["/geo/media-beauty.jpg", "뷰티 크리에이터가 링라이트 앞에서 제품을 소개하는 모습"],
+  ["/geo/media-unbox.jpg", "두 크리에이터가 제품을 개봉하며 촬영하는 모습"],
+  ["/geo/media-food.jpg", "푸드 유튜버가 카페 디저트를 촬영하는 모습"],
+  ["/geo/media-fitness.jpg", "피트니스 크리에이터가 운동 팁을 촬영하는 모습"],
+  ["/geo/media-fashion.jpg", "패션 크리에이터가 거울 앞에서 코디 영상을 찍는 모습"],
+  ["/geo/media-ai.jpg", "카페에서 AI 답변을 보는 휴대폰 화면"],
+]
+
+/** 하나의 설계 사슬 [이름, 한 줄, 우리가 직접 하는 칸인가] */
+const CHAIN: [string, string, boolean][] = [
+  ["소재", "자체 촬영팀이 찍고 편집", true],
+  ["광고", "메타·구글이 타겟팅·최적화", false],
+  ["받을 곳", "플레이스·홈페이지에서 문의·구매로", true],
+  ["2차·3차 활용", "PPL 콘텐츠를 광고와 후기로 다시", true],
+  ["바깥 언급", "후기·영상·기사가 쌓임", true],
+  ["AI 답변", "ChatGPT·네이버 AI 브리핑에 언급", true],
+]
+
+/** 툴이 하는 일 / 사람이 하는 일 */
+const TOOL = ["타겟 고르기", "입찰과 노출 자리", "예산 자동 배분", "소재 조합 테스트"]
+const HUMAN = ["무슨 소재를 넣을지", "클릭 뒤에 어디로 보낼지", "문의·구매가 새는 곳 막기", "숫자를 읽고 그 주에 고치기"]
+
+/** 2차·3차 활용 사슬 */
+const REUSE: [string, string, string][] = [
+  ["1차 · PPL 콘텐츠", "유튜버·인플루언서가 브랜드를 다루는 영상과 글", "/services/influencer"],
+  ["2차 · 광고 소재", "반응 좋은 콘텐츠를 2차 활용 계약으로 메타·구글 광고에 다시 씁니다", ""],
+  ["3차 · 바깥 출처", "영상과 후기가 검색과 AI 답변이 끌어오는 근거가 됩니다", "/services/search"],
 ]
 
 export default function PerfDoc() {
@@ -52,205 +77,248 @@ export default function PerfDoc() {
   return (
     <DocShell>
       <JsonLd data={ld} />
-      <div className="pd">
-        {/* ① 첫 화면: 왼쪽 촬영 현장 사진이 고정, 오른쪽 한 문장, 바닥을 가로지르는 이름 */}
-        <section className="pd-hero" aria-label="퍼포먼스 광고 소개">
-          <div className="pd-ph">
-            <img src="/geo/media-crew.jpg" alt="촬영팀이 식당 주방에서 사장님을 촬영하는 모습" width={1200} height={900} />
-          </div>
-          <div className="pd-hr">
-            <Crumb items={[{ name: "홈", href: "/" }, { name: s.n }]} />
-            <p className="pd-sent">
-              광고를 켜기 전에 받을 곳부터 봅니다. 소재는 저희 촬영팀이 찍고, 보고는 매체 화면 숫자 그대로입니다.
-              <small>2016년부터 · 자체 촬영팀 · 계정은 고객사 명의</small>
-            </p>
-            <a className="pd-act" href="#contact">
-              무료 광고 진단
-            </a>
-            <h1 className="pd-name" aria-label="퍼포먼스 광고">
-              <span aria-hidden="true">
-                퍼포먼스 <b>광고</b>
-              </span>
-            </h1>
-          </div>
-        </section>
-
-        {/* ② 전시 1: 주간 리포트 전표 */}
-        <section className="pd-ex rv" aria-labelledby="pd-h-report">
-          <div className="dp-w pd-g">
-            <div className="pd-slip" data-ui>
-              <h4>
-                <span>주간 리포트 · 메타 릴스 · 24일</span>
-                <span>매체 화면 기준</span>
-              </h4>
-              <div className="pd-row">
-                <span>광고비</span>
-                <b>
-                  131<small>만원</small>
-                </b>
-              </div>
-              <div className="pd-row">
-                <span>클릭</span>
-                <b>
-                  26,456<small>회</small>
-                </b>
-              </div>
-              <div className="pd-row">
-                <span>클릭당 비용</span>
-                <b>
-                  약 50<small>원</small>
-                </b>
-              </div>
-              <div className="pd-row">
-                <span>예약 기여</span>
-                <b className="dim">광고 데이터로 셀 수 없었음</b>
-              </div>
-              <div className="pd-why">
-                <em>다음 주 할 일</em>
-                반응 좋은 세로 소재로 예산을 옮기고, 받을 곳(예약 페이지)을 먼저 손봅니다.
-              </div>
-            </div>
-            <div className="pd-tx">
-              <p className="pd-k">보고</p>
-              <h2 id="pd-h-report">
-                이행 내역이 아니라
-                <br />
-                매체 화면 숫자 그대로
-              </h2>
-              <p>
-                지출, 클릭, 문의 수를 광고 관리자 화면에서 옮겨 적고, 예산을 왜 옮겼는지까지 적습니다. <b>셀 수 없었던 것도 같은 칸에 적습니다.</b> 그래서 다음 주 무엇을 고칠지가 리포트에서 바로 나옵니다.
-              </p>
-              <p className="pd-src">
-                위 숫자는 강원도 계곡 펜션 릴스 광고 24일 실측입니다. <Link href="/guide/case-pension-direct-booking">그 기록 보기 →</Link>
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ③ 전시 2: 소재 보드 */}
-        <section className="pd-ex rv" aria-labelledby="pd-h-creative">
-          <div className="dp-w pd-g pd-g-rv">
-            <div className="pd-tx">
-              <p className="pd-k">소재</p>
-              <h2 id="pd-h-creative">
-                반응이 떨어진 소재는
-                <br />
-                기다리지 않고 다시 찍습니다
-              </h2>
-              <p>
-                여러 소재를 같이 돌리고 반응 좋은 쪽으로 예산을 옮깁니다. 떨어진 소재는 외주 일정을 기다리지 않고 <b>자체 촬영팀이 그 주에 새로 찍어</b> 바꿉니다. 반응 좋은 인플루언서 릴스는 2차 활용 계약을 맺어 광고로 다시 씁니다.
-              </p>
-            </div>
-            <div className="pd-board" aria-label="소재 A·B·C 운영 상태">
-              <figure>
-                <img src="/geo/media-beauty.jpg" alt="소재 A, 뷰티 크리에이터 촬영 컷" width={800} height={1000} loading="lazy" />
-                <figcaption>
-                  A <i>운영 중</i>
-                </figcaption>
-              </figure>
-              <figure className="off">
-                <img src="/geo/media-fashion.jpg" alt="소재 B, 반응이 떨어져 교체 예정" width={800} height={1000} loading="lazy" />
-                <div className="pd-re">반응 ↓ 재촬영</div>
-                <figcaption>
-                  B <i>교체</i>
-                </figcaption>
-              </figure>
-              <figure>
-                <img src="/geo/media-food.jpg" alt="소재 C, 푸드 촬영 컷" width={800} height={1000} loading="lazy" />
-                <figcaption>
-                  C <i>예산 ↑</i>
-                </figcaption>
-              </figure>
-            </div>
-          </div>
-        </section>
-
-        {/* ④ 켜기 전에 하는 일: 부탁과 응답 */}
-        <section className="pd-proc rv" aria-labelledby="pd-h-proc">
+      <div className="pk px">
+        {/* ① 첫 화면 (먹): 툴은 같아졌다, 차이는 소재와 설계. 오른쪽은 '하나의 설계' 사슬 */}
+        <section className="px-hero" aria-label="퍼포먼스 광고 소개">
           <div className="dp-w">
-            <h2 id="pd-h-proc">켜기 전에 하는 일</h2>
-            <div className="pd-col">
-              <div className="pd-x">
-                <b>먼저, 브랜드 이름을 보내 주세요.</b>
-                <div className="pd-call">
-                  <em>받을 곳부터 봅니다.</em> 플레이스, 홈페이지, 지금 쓰는 소재가 고객을 받을 준비가 됐는지 적어 보내 드립니다. 계약 전이고 무료입니다.
+            <Crumb items={[{ name: "홈", href: "/" }, { name: s.n }]} />
+            <div className="px-hero-g">
+              <div className="px-hero-t">
+                <p className="pk-kw">퍼포먼스 광고 · 메타 · 구글·유튜브 · 네이버 · 카카오 · 당근</p>
+                <h1>
+                  광고 툴은 알아서
+                  <br />
+                  최적화합니다.
+                  <br />
+                  차이는 <u>소재와 설계</u>.
+                </h1>
+                <p className="px-lead">타겟팅과 입찰은 이제 메타·구글이 자동으로 합니다. 성과를 가르는 건 어떤 소재를 넣느냐, 클릭 뒤에 문의와 구매까지 어떻게 이어 두느냐입니다. 저희는 그 둘을 합니다.</p>
+                <div className="pk-btns">
+                  <a className="pk-b1" href="#contact">
+                    무료로 소재·설계 점검받기
+                  </a>
+                  <a className="pk-b2 px-b2" href="#px-chain">
+                    설계 한 장 보기
+                  </a>
                 </div>
-                <div className="pd-chk" data-ui aria-label="받을 곳 점검표 예시">
-                  <div>
-                    <b>네이버 플레이스</b>
-                    <s className="ok">준비됨</s>
-                  </div>
-                  <div>
-                    <b>홈페이지 문의 경로</b>
-                    <s className="no">전화번호가 그림 속</s>
-                  </div>
-                  <div>
-                    <b>지금 쓰는 소재</b>
-                    <s>세로 소재 없음</s>
-                  </div>
-                </div>
+                <p className="px-trust">자체 촬영팀 · 전담 AE · 계정은 고객사 명의 · 2016년부터</p>
               </div>
-              <div className="pd-x">
-                <b>그다음, 매체와 예산을 정합니다.</b>
-                <div className="pd-call">
-                  업종과 고객층에 맞는 매체만 고르고, <em>광고비·기간·소재를 확인받은 뒤</em> 켭니다. 계정은 고객사 명의로 만들고 저희는 관리자로만 들어갑니다.
-                </div>
-                <ul className="pd-chips" aria-label="고르는 매체">
-                  {s.items.map(([n]) => (
-                    <li key={n}>{n}</li>
+              <ol className="px-chain" id="px-chain" aria-label="하나의 설계">
+                {CHAIN.map(([t, x, hot], i) => (
+                  <li key={t} className={hot ? "hot" : undefined}>
+                    <em>{String(i + 1).padStart(2, "0")}</em>
+                    <b>{t}</b>
+                    <span>{x}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        {/* ② 툴이 하는 일 / 사람이 하는 일 (종이) */}
+        <section className="px-two rv" aria-labelledby="px-h-two">
+          <div className="dp-w">
+            <p className="pk-k">왜 소재와 설계인가</p>
+            <h2 id="px-h-two">툴이 같아지면 남는 건 둘뿐입니다</h2>
+            <div className="px-two-g">
+              <div className="px-two-c">
+                <h3>이제 툴이 합니다</h3>
+                <ul>
+                  {TOOL.map((t) => (
+                    <li key={t}>{t}</li>
                   ))}
                 </ul>
+                <p>어느 대행사가 돌려도 여기서 나는 차이는 작습니다.</p>
               </div>
-              <div className="pd-x">
-                <b>매주, 숫자 그대로 보고합니다.</b>
-                <div className="pd-call">
-                  지출·클릭·문의 수와 예산을 옮긴 이유. 위에 있는 전표가 그 형식이고, 주기는 견적서에 적습니다.
-                </div>
+              <div className="px-two-c us">
+                <h3>아직 사람이 합니다</h3>
+                <ul>
+                  {HUMAN.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
+                <p>여기서 성과가 갈립니다. 저희 일은 전부 이 칸에 있습니다.</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ⑤ 다른 자리: 다섯 줄 표 */}
-        <section className="pd-vs rv" aria-labelledby="pd-h-vs">
+        {/* ③ 소재 (먹): 자체 촬영팀 */}
+        <section className="pk-dark" aria-labelledby="px-h-content">
           <div className="dp-w">
-            <p className="pd-k">다른 자리</p>
-            <h2 id="pd-h-vs">광고비 올리자는 말부터 하지 않는 대행</h2>
-            <div className="pd-tbl" role="table" aria-label="위즈더플래닝과 흔한 광고 대행 비교">
-              <div className="pd-th" role="row">
-                <span role="columnheader">항목</span>
-                <span role="columnheader" className="us">
-                  위즈더플래닝
-                </span>
-                <span role="columnheader">흔한 광고 대행</span>
+            <div className="pk-ex pk-ex-rv rv">
+              <div className="pk-tx">
+                <p className="pk-k">소재</p>
+                <h2 id="px-h-content">소재는 자체 촬영팀이 찍고, 떨어지면 다시 찍습니다</h2>
+                <p>
+                  소재 여러 개를 같이 돌리고 반응 좋은 쪽으로 예산을 옮깁니다. 떨어진 소재는 외주 납품을 기다리지 않고 <b>촬영팀이 그 주에 새로 찍어</b> 바꿉니다. 소재가 있어야 툴도 일합니다.
+                </p>
               </div>
-              {VS.map(([k, a, b]) => (
-                <div className="pd-tr" role="row" key={k}>
-                  <span role="rowheader">{k}</span>
-                  <span role="cell" className="us">
-                    {a}
-                  </span>
-                  <span role="cell">{b}</span>
-                </div>
-              ))}
+              <div className="pk-board" aria-label="소재 A·B·C 운영 상태">
+                <figure>
+                  <img src="/geo/media-beauty.jpg" alt="소재 A, 뷰티 크리에이터 촬영 컷" width={800} height={1000} loading="lazy" />
+                  <figcaption>
+                    A <i>운영 중</i>
+                  </figcaption>
+                </figure>
+                <figure className="off">
+                  <img src="/geo/media-fashion.jpg" alt="소재 B, 반응이 떨어져 교체 예정" width={800} height={1000} loading="lazy" />
+                  <div className="pk-re">반응 ↓ 재촬영</div>
+                  <figcaption>
+                    B <i>교체</i>
+                  </figcaption>
+                </figure>
+                <figure>
+                  <img src="/geo/media-food.jpg" alt="소재 C, 푸드 촬영 컷" width={800} height={1000} loading="lazy" />
+                  <figcaption>
+                    C <i>예산 ↑</i>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+            <div className="geo-media pk-strip" aria-label="촬영 현장">
+              <div className="geo-media-track">
+                {[...STRIP, ...STRIP].map(([src, alt], i) => (
+                  <figure key={i} aria-hidden={i >= STRIP.length}>
+                    <img src={src} alt={i < STRIP.length ? alt : ""} loading="lazy" width={800} height={600} />
+                  </figure>
+                ))}
+              </div>
+            </div>
+            <p className="pk-strip-cap">자체 촬영팀이 찍은 장면들</p>
+          </div>
+        </section>
+
+        {/* ④ 설계 (종이): 클릭 뒤를 설계한다 */}
+        <section className="px-design rv" aria-labelledby="px-h-design">
+          <div className="dp-w px-design-g">
+            <div>
+              <p className="pk-k">설계</p>
+              <h2 id="px-h-design">클릭 뒤를 먼저 설계합니다</h2>
+              <p className="pk-sub">광고를 켜기 전에 문의와 구매가 어디서 새는지 봅니다. 플레이스, 홈페이지, 지금 쓰는 소재를 점검해 적어 보내 드립니다. 계약 전이고 무료입니다.</p>
+            </div>
+            <div className="px-check px-check-l" data-ui aria-label="소재·설계 점검표 예시">
+              <div className="px-check-h">
+                <span>소재·설계 점검표</span>
+                <span>예시 · 계약 전 무료</span>
+              </div>
+              <div className="px-check-r">
+                <b>네이버 플레이스</b>
+                <span>영업시간·전화 맞음</span>
+                <i className="ok">통과</i>
+              </div>
+              <div className="px-check-r bad">
+                <b>홈페이지 문의 경로</b>
+                <span>전화번호가 그림 속, 눌러도 안 걸림</span>
+                <i>새는 곳</i>
+              </div>
+              <div className="px-check-r bad">
+                <b>지금 쓰는 소재</b>
+                <span>세로 영상 없음, 가로 사진 1장</span>
+                <i>새는 곳</i>
+              </div>
+              <div className="px-check-r">
+                <b>광고 계정</b>
+                <span>대행사 명의, 기록 없음</span>
+                <i className="ok">이전</i>
+              </div>
+              <div className="px-check-f">
+                <b>
+                  새는 곳 <em>2</em>
+                </b>
+                <span>이 둘을 먼저 고친 뒤에 켭니다</span>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ⑥ FAQ */}
-        <section className="pd-faq rv" aria-labelledby="pd-h-faq">
-          <div className="dp-w pd-g">
-            <h2 id="pd-h-faq">자주 묻는 질문</h2>
+        {/* ⑤ AE 체계 (먹): 빠른 보고와 실행 */}
+        <section className="pk-dark" id="px-report" aria-labelledby="pk-h-report">
+          <div className="dp-w">
+            <div className="pk-ex rv">
+              <div className="pk-slip" data-ui>
+                <h4>
+                  <span>주간 리포트 · 메타 릴스 · 24일</span>
+                  <span>매체 화면 기준</span>
+                </h4>
+                <div className="pk-row">
+                  <span>광고비</span>
+                  <b>
+                    131<small>만원</small>
+                  </b>
+                </div>
+                <div className="pk-row">
+                  <span>클릭</span>
+                  <b>
+                    26,456<small>회</small>
+                  </b>
+                </div>
+                <div className="pk-row">
+                  <span>클릭당 비용</span>
+                  <b>
+                    약 50<small>원</small>
+                  </b>
+                </div>
+                <div className="pk-row">
+                  <span>예약 기여</span>
+                  <b className="dim">광고 데이터로 셀 수 없었음</b>
+                </div>
+                <div className="pk-why">
+                  <em>다음 주 할 일</em>
+                  반응 좋은 세로 소재로 예산을 옮기고, 예약 페이지부터 손봅니다.
+                </div>
+              </div>
+              <div className="pk-tx">
+                <p className="pk-k">AE 체계</p>
+                <h2 id="pk-h-report">전담 AE가 보고하고, 그 주에 실행합니다</h2>
+                <p>
+                  계약한 사람이 끝까지 맡습니다. 지출·클릭·문의 수를 매체 화면 숫자 그대로 적고, 예산을 왜 옮겼는지까지 적어 <b>직접 찾아뵙고 설명합니다.</b> 셀 수 없었던 것도 같은 칸에 적습니다. 그래서 다음 주 무엇을 고칠지가 바로 정해집니다.
+                </p>
+                <p className="pk-src">
+                  위 숫자는 강원도 계곡 펜션 릴스 광고 24일 실측입니다. <Link href="/guide/case-pension-direct-booking">그 기록 보기 →</Link>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ⑥ 2차·3차 활용 (종이): 한 번 찍은 콘텐츠를 세 번 쓴다 */}
+        <section className="px-reuse rv" aria-labelledby="px-h-reuse">
+          <div className="dp-w">
+            <p className="pk-k">2차·3차 활용</p>
+            <h2 id="px-h-reuse">한 번 만든 콘텐츠를 세 번 씁니다</h2>
+            <p className="pk-sub px-sub-w">유튜버·인플루언서 PPL로 만든 콘텐츠를 2차 활용 계약으로 광고 소재로 다시 쓰고, 그 후기와 영상이 바깥 출처가 되어 검색과 AI 답변까지 이어집니다. 섭외, 광고, SEO·GEO를 한 팀이 하니까 가능한 설계입니다.</p>
+            <ol className="px-reuse-l">
+              {REUSE.map(([t, x, href]) => (
+                <li key={t}>
+                  <b>{t}</b>
+                  <span>{x}</span>
+                  {href ? <Link href={href}>자세히 →</Link> : null}
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* ⑦ FAQ (종이) */}
+        <section className="pk-faq rv" aria-labelledby="pk-h-faq">
+          <div className="dp-w pk-faq-g">
+            <h2 id="pk-h-faq">바꾸기 전에 걱정되는 것</h2>
             <Faq items={d.faq} />
           </div>
         </section>
 
-        {/* ⑦ 마무리: 한 문장과 밝은 버튼 하나 */}
-        <section className="pd-cta rv" aria-label="문의 안내">
+        {/* ⑧ 마무리 (먹) */}
+        <section className="pk-dark pk-cta rv" aria-label="문의 안내">
           <div className="dp-w">
-            <p>지금 쓰는 소재와 플레이스·홈페이지를 보고 어느 매체부터 켤지 적어 보내 드리겠습니다.</p>
-            <a href="#contact" className="pd-act">
-              무료 광고 진단
+            <p>
+              소재에서 광고, 받을 곳, 2차 활용, 바깥 언급, AI 답변까지.
+              <br />
+              하나로 이어진 설계를 위즈더플래닝에서 경험해 보세요.
+            </p>
+            <a href="#contact" className="pk-b1">
+              무료로 소재·설계 점검받기
             </a>
             <small>
               <a href="tel:16700704" data-tel>
@@ -262,7 +330,8 @@ export default function PerfDoc() {
         </section>
       </div>
 
-      <ContactBlock title="퍼포먼스 광고, 무료 광고 진단부터" sub="받을 곳과 지금 소재를 먼저 보고, 어느 매체부터 켤지 적어 보내 드리겠습니다." initial={["perf"]} source="service_performance" />
+      <PerfBar />
+      <ContactBlock title="퍼포먼스 광고, 소재·설계 점검부터" sub="브랜드 이름만 알려 주시면 지금 소재와 플레이스·홈페이지를 보고 어느 매체부터 켤지 적어 보내 드리겠습니다." initial={["perf"]} source="service_performance" />
     </DocShell>
   )
 }
