@@ -192,7 +192,7 @@ export function SfFooter() {
         </nav>
         <div className="sff-biz">
           <p>
-            <b>위즈더플래닝</b> · 대표 정현우 · 사업자등록번호 668-81-00391{" "}
+            <b>(주)위즈더플래닝</b> · 대표 정현우 · 사업자등록번호 668-81-00391{" "}
             <a href="https://www.ftc.go.kr/bizCommPop.do?wrkr_no=6688100391" target="_blank" rel="noopener noreferrer">
               사업자정보확인
             </a>

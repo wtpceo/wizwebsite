@@ -65,14 +65,14 @@ export default function MedicalHero() {
             variants={fadeIn}
             className="mt-6 max-w-[640px] text-base leading-relaxed text-slate-400 md:text-lg"
           >
-            환자들은 이제 네이버가 아니라 ChatGPT·퍼플렉시티·네이버 AI에게{" "}
+            환자는 이제 네이버 대신 ChatGPT · 퍼플렉시티 · 네이버 AI에게{" "}
             <span className="font-semibold text-slate-200">
-              &ldquo;○○ 잘하는 병원 추천해줘&rdquo;
+              &ldquo;○○ 잘하는 병원 추천해 줘&rdquo;
             </span>
-            라고 묻습니다. AI가 우리 병원을 어떻게 답하는지(혹은 잘못 답하는지) 무료로 진단해
+            라고 묻습니다. AI가 우리 병원을 어떻게 말하는지, 혹시 틀리게 말하는지 무료로 재
             드립니다.{" "}
             <span className="font-semibold text-slate-200">
-              병원·의원만, 조건 없이 무료입니다.
+              병원 · 의원만, 조건 없이 무료입니다.
             </span>
           </motion.p>
 

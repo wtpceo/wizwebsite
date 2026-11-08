@@ -31,7 +31,7 @@ export default function GeneralFaq() {
             사장님들이 자주 묻는 질문
           </h2>
           <p className="mt-5 text-base leading-relaxed text-gray-600 md:text-lg">
-            AI 검색 진단을 신청하기 전에 궁금해하시는 내용을 정리했습니다.
+            신청 전에 많이 물어보시는 것을 모았습니다.
           </p>
         </motion.div>
 
@@ -65,7 +65,7 @@ export default function GeneralFaq() {
           className="mt-14 text-center"
         >
           <p className="text-sm text-gray-600 md:text-base">
-            더 궁금한 점이 있으신가요? 무료 진단을 신청하시면 담당 마케터가 직접 답해 드립니다.
+            더 궁금한 것은 신청 때 적어 주시면 담당 마케터가 같이 답해 드립니다.
           </p>
           <Link href="#apply" className="mt-6 inline-block">
             <Button

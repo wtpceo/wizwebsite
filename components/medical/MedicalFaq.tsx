@@ -32,7 +32,7 @@ export default function MedicalFaq() {
             병원 원장님들이 자주 묻는 질문
           </h2>
           <p className="mt-5 text-base leading-relaxed text-gray-600 md:text-lg">
-            AI 검색 진단을 신청하기 전에 궁금해하시는 내용을 정리했습니다.
+            신청 전에 많이 물어보시는 것을 모았습니다.
           </p>
         </motion.div>
 
@@ -68,14 +68,14 @@ export default function MedicalFaq() {
           className="mt-14 text-center"
         >
           <p className="text-sm text-gray-600 md:text-base">
-            더 궁금한 점이 있으신가요? 무료 진단을 신청하시면 담당 마케터가 직접 답해 드립니다.
+            더 궁금한 것은 신청 때 적어 주시면 담당 마케터가 같이 답해 드립니다.
           </p>
           <Link href="#apply" className="mt-6 inline-block">
             <Button
               size="lg"
               className="gap-1 bg-[#00e5a0] px-8 font-bold text-[#070b14] hover:bg-[#3cf0bb]"
             >
-              무료 AI 검색 진단 신청
+              무료 진단 신청하기
               <ChevronRight className="h-5 w-5" />
             </Button>
           </Link>

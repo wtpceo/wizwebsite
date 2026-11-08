@@ -315,7 +315,7 @@ export default function PerfDoc() {
             <p>
               소재에서 광고, 받을 곳, 2차 활용, 바깥 언급, AI 답변까지.
               <br />
-              하나로 이어진 설계를 위즈더플래닝에서 경험해 보세요.
+              지금 어디가 끊겨 있는지, 계약 전에 무료로 봐 드리겠습니다.
             </p>
             <a href="#contact" className="pk-b1">
               무료로 소재·설계 점검받기

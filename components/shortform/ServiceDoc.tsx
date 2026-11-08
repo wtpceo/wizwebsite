@@ -62,7 +62,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
           <div>
             <Crumb items={[{ name: "홈", href: "/" }, { name: s.n }]} />
             <p className="dp-no">
-              {s.eb} · {s.no} / 08{s.k === "search" ? " · 대표 서비스" : ""}
+              {s.eb} · {s.no} / 08
             </p>
             <h1 aria-label={`${s.n} ${s.cap.replace("\n", " ")}`}>
               <Chars text={s.n} />{" "}
@@ -75,8 +75,9 @@ export default function ServiceDoc({ slug }: { slug: string }) {
               {s.first}
             </p>
             <div className="dp-btns">
+              {/* 11-07 카피 개선안: 섭외 쪽 약속은 '후보 리스트'라 첫 버튼도 그 말로 */}
               <a className="p1" href={`/contact?svc=${s.k}`}>
-                진단 신청
+                {d.ct?.label ?? "진단 신청"}
               </a>
               <a className="p2" href="tel:16700704" data-tel>
                 대표전화 1670-0704
@@ -218,7 +219,8 @@ export default function ServiceDoc({ slug }: { slug: string }) {
         </div>
       </nav>
 
-      <ContactBlock title={`${s.n}, 진단 신청부터 시작하세요.`} initial={[s.k]} source={`service_${s.slug}`} />
+      {/* 문의 칸 제목·부제·버튼은 쪽마다 details.ts ct 로(11-07 카피 개선안). 없으면 공통 글 */}
+      <ContactBlock title={d.ct?.title ?? `${s.n}, 진단 신청부터 시작하세요.`} sub={d.ct?.sub} label={d.ct?.label} initial={[s.k]} source={`service_${s.slug}`} />
     </DocShell>
   )
 }

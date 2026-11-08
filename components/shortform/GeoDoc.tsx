@@ -192,8 +192,9 @@ export default function GeoDoc() {
         <div className="dp-w geo-hero-in">
           <Crumb items={[{ name: "홈", href: "/" }, { name: s.n }]} />
           <p className="geo-kw">AI 검색 최적화 · GEO · SEO</p>
-          <h1 aria-label="AI가 우리 브랜드를 추천하게 만드는, 지금 꼭 필요한 마케팅 GEO">
-            <Chars text={"AI가 우리 브랜드를 추천하게 만드는\n지금 꼭 필요한 마케팅, GEO"} />
+          {/* 11-07 카피 개선안 B안(대표 결정): '지금 꼭 필요한'이 광고 문구로 읽혀 하는 일로 */}
+          <h1 aria-label="고객이 AI에게 물었을 때 우리 브랜드가 나오게 만드는 일, GEO">
+            <Chars text={"고객이 AI에게 물었을 때\n우리 브랜드가 나오게 만드는 일, GEO"} />
           </h1>
           <p className="dp-lead">
             브랜드 이름 하나로 시작하는 무료 측정. 지금 AI가 뭐라고 답하는지 <b>realGEO</b>로 먼저 재서 보내 드립니다.
@@ -401,9 +402,9 @@ export default function GeoDoc() {
         eb="노하우"
         q={
           <>
-            GEO를 더 강력하게 만드는{" "}
+            AI가 끌어올 영상과 후기를{" "}
             <br />
-            <span>위즈더플래닝만의 노하우</span>
+            <span>섭외팀과 바이럴팀이 직접 만듭니다</span>
           </>
         }
         sub={

@@ -60,8 +60,7 @@ export default function WhyMedical() {
             <span className="text-emerald-600">어디를 보나요?</span>
           </h2>
           <p className="mt-5 text-base leading-relaxed text-gray-600 md:text-lg">
-            AI 엔진마다 병원을 판단하는 근거가 다릅니다. 어디를 보는지 알아야, 우리 병원이
-            추천받도록 준비할 수 있습니다.
+            엔진마다 병원을 고르는 근거가 다릅니다. 어디를 보는지 알면 무엇부터 고칠지가 정해집니다.
           </p>
         </motion.div>
 
@@ -103,12 +102,12 @@ export default function WhyMedical() {
             </div>
             <div>
               <h3 className="text-xl font-extrabold tracking-tight text-white md:text-2xl">
-                병원 GEO는 의료광고법과 정면으로 부딪힐 수 있습니다
+                병원 GEO는 의료광고 규정 안에서 합니다
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-400 md:text-base">
-                치료후기·전후사진·&lsquo;무통&rsquo; 같은 표현은 AI에 인용은 될지 몰라도{" "}
-                <span className="font-semibold text-slate-200">위반이 됩니다.</span>{" "}
-                위즈더플래닝은 의료광고 기준을 반영해 진단합니다.
+                치료 후기 · 전후 사진 · &lsquo;무통&rsquo; 같은 표현은{" "}
+                <span className="font-semibold text-slate-200">의료광고 규정에 걸립니다.</span>{" "}
+                저희는 의료광고 기준 안에서 진단합니다.
               </p>
               <Link
                 href="/guide/medical-geo"

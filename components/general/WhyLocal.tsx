@@ -59,9 +59,9 @@ export default function WhyLocal() {
             <span className="text-emerald-600">어디를 보나요?</span>
           </h2>
           <p className="mt-5 text-base leading-relaxed text-gray-600 md:text-lg">
-            AI 엔진마다 가게를 판단하는 근거가 다릅니다.
+            엔진마다 가게를 고르는 근거가 다릅니다.
             <br />
-            어디를 보는지 알아야, 우리 가게가 추천받도록 준비할 수 있습니다.
+            어디를 보는지 알면 무엇부터 고칠지가 정해집니다.
           </p>
         </motion.div>
 
@@ -107,12 +107,11 @@ export default function WhyLocal() {
                 예약도 주문도 앱으로만 들어온다면
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-slate-400 md:text-base">
-                손님이 늘어도 수수료를 빼면 남는 게 크지 않습니다. AI 답변과 검색에 쌓아둔
-                것은{" "}
+                손님이 늘어도 수수료를 빼면 남는 게 크지 않습니다. AI 답변과 검색에 정리해 둔
+                정보로 손님이{" "}
                 <span className="font-semibold text-slate-200">
-                  앱을 거치지 않고 손님이 직접 찾아오는 길
+                  앱을 거치지 않고 직접 찾아오기도 합니다.
                 </span>
-                이 됩니다. 광고를 끈 뒤에도 남는 유입입니다.
               </p>
               <Link
                 href="/guide"

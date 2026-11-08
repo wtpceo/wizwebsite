@@ -84,19 +84,20 @@ export default function ShortformHome() {
               제안서부터 받아 보세요.
             </h1>
             {/* 버튼은 무료 분석 신청 하나 + 카카오. 되돌리기 기준점 5a2e8b8 */}
+            {/* 11-07 카피 개선안: 첫 화면 150자 안에 '무슨 회사인지(IMC 대행사)'를 넣는다 */}
             <p className="sub in3">
-              마케팅 퍼널의 어디쯤에 있는지, 어디가 비어 있는지 먼저 분석합니다.
+              IMC(통합 마케팅) 대행사 위즈더플래닝입니다. 2016년부터 광고주와 일해 왔고, 광고를 켜기 전에 브랜드가 어디까지 알려져 있고 어디서 새는지 먼저 분석해
               <br />
               그 결과로 짠 계획을 제안서로 보내 드립니다.
             </p>
             <div className="btns in4">
               <a className="b1" href="/contact">
-                무료 분석 신청
+                무료 분석 받기
               </a>
-              {/* 11-06 밤 대표: 카카오 노란 버튼으로 '카카오톡 실시간 상담' */}
+              {/* 11-06 밤 대표: 카카오 노란 버튼 */}
               <a className="kk" href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
                 <Icon k="kakao" />
-                카카오톡 실시간 상담
+                카카오톡으로 바로 묻기
               </a>
             </div>
             {/* 11-06 밤 대표: 하는 일이 첫 화면에서 다 보여야 한다 — 키워드 띠가 돈다(CSS만, sf-hero.css .tick) */}
@@ -124,7 +125,7 @@ export default function ShortformHome() {
         </div>
         {/* 11-06 저녁 대표: 2016년부터라 11년차. 아래로 내리게 끄는 줄 */}
         <a className="hint" href="#c1a">
-          <span>11년차 IMC 대행사가 일하는 과정을 살펴보세요</span>
+          <span>11년차 대행사가 일하는 순서 보기</span>
           <Icon k="down" />
         </a>
       </section>
@@ -137,12 +138,12 @@ export default function ShortformHome() {
           <div className="c1a-t">
             <p className="eb">WHY WIZ THE PLANNING</p>
             <p className="cap sz-xl">
-              <Words text={"언제까지 매체마다 다른 회사에 맡기고\n숙제처럼 '다 했습니다'라는 말만\n들으실 건가요?"} />
+              <Words text={"광고는 A사, 바이럴은 B사, 영상은 C사.\n그리고 매달 듣는 말은\n'하기로 한 건 다 했습니다'."} />
             </p>
             <p className="sm">
-              소재 제작부터 유튜버·인플루언서 섭외, 그 콘텐츠의 2차·3차 활용, 퍼포먼스 광고, SEO·GEO까지.
+              캠페인을 기획하고, 인플루언서를 섭외하고, 소재를 찍고, 그 소재를 광고와 후기로 2차·3차로 다시 쓰고, 성과를 재서 검색과 AI 답변까지 잇는 일을 전담 부서들이 한 설계로 합니다.
               <br />
-              {" "}실행이 아니라 성과로 보고하는 회사가 여기 있습니다.
+              {" "}그래서 '했다'가 아니라 숫자로 보고할 수 있습니다.
             </p>
           </div>
           {/* 11-07 대표 「기존 디자인이 훨씬 좋다, 최대한 가져와서 가운데로」: 개발자의 카톡 채팅 목록(대행사마다 방이 쌓이고 안 읽은 숫자가 올라감)을 글 아래 가운데에 둔다 */}
@@ -189,17 +190,17 @@ export default function ShortformHome() {
           <div className="c1c-t">
             <p className="eb">HOW WE WORK</p>
             <p className="cap sz-xl">
-              <Words text={"당신의 퍼널을 확인하고, 브랜드를 공부하고,\n분석 결과로 짠 계획으로 일합니다."} />
+              <Words text={"먼저 어디가 비어 있는지 보고,\n그 자리에 필요한 것만 제안합니다."} />
             </p>
             <p className="sm">
-              마케팅 퍼널의 어디쯤에 있는지부터 확인합니다. 그다음 브랜드를 공부하고, 분석한 결과를 바탕으로 철저하게 설계한 계획으로 움직입니다.
+              노출·검색·홈페이지·문의, 이 네 칸 가운데 어디가 비어 있는지부터 봅니다. 그다음 브랜드를 공부하고, 빈 칸을 채우는 순서로 계획을 짭니다. 정해진 패키지는 없습니다.
             </p>
           </div>
           {/* 11-07 대표 「기존 디자인을 가져와서 가운데로」: 개발자 프로세스 장의 문서 세 장(진단 표 · 제안서 · 주간 리포트)을 한 줄로. 퍼널 확인 → 브랜드 공부·제안 → 성과 리포트 */}
           <div className="docs3" aria-hidden="true">
             <div style={vars({ i: 0 })}>
               <p className="dk">
-                <em>1</em>당신의 퍼널 확인
+                <em>1</em>어디가 비어 있는지 확인
               </p>
               <div className="doc diag">
                 <p className="doc-h">채널별 노출 현황</p>
@@ -227,13 +228,13 @@ export default function ShortformHome() {
                   <div style={vars({ i: 0 })}>
                     <dt>우선 과제</dt>
                     <dd>
-                      유튜버·인플루언서 섭외<small>노출부터 채웁니다. 후보 리스트를 먼저 드립니다</small>
+                      유튜버·인플루언서 섭외로 노출부터 채웁니다<small>후보 리스트를 먼저 드립니다</small>
                     </dd>
                   </div>
                   <div style={vars({ i: 1 })}>
                     <dt>병행 과제</dt>
                     <dd>
-                      홈페이지 첫 화면 보강<small>섭외한 영상을 광고 소재와 검색 콘텐츠로 다시 씁니다</small>
+                      홈페이지 첫 화면 보강<small>섭외한 영상은 광고 소재와 검색 콘텐츠로 다시 씁니다</small>
                     </dd>
                   </div>
                   <div style={vars({ i: 2 })}>
@@ -243,7 +244,7 @@ export default function ShortformHome() {
                     </dd>
                   </div>
                 </dl>
-                <p className="doc-f">비용은 분석 후 맞춤 제안서로 안내해 드립니다.</p>
+                <p className="doc-f">비용은 분석이 끝난 뒤 제안서에 적어 드립니다.</p>
                 <Ex />
               </div>
             </div>
@@ -254,10 +255,10 @@ export default function ShortformHome() {
               <WeeklyReport />
             </div>
           </div>
+          {/* 11-07 카피 개선안: '궁금하지 않으세요?'는 묻지 않아도 될 질문이라 뺐다. 버튼은 무엇을 보는지로 */}
           <p className="c1c-q">
-            <b>궁금하지 않으세요?</b>
             <a href="#c38">
-              일하는 순서 보기 <Icon k="arrow" />
+              일하는 순서 다섯 단계 보기 <Icon k="arrow" />
             </a>
           </p>
         </div>
@@ -273,7 +274,7 @@ export default function ShortformHome() {
               <Words text={"후보 리스트부터\n먼저 보여 드립니다."} />
             </p>
             <p className="sm">
-              자체 섭외 도구 위플루언서로 유튜브·인스타 채널을 카테고리와 구독자, 성장 추이로 거릅니다. 리스트를 보고 고르시면 섭외와 계약, 콘텐츠 가이드까지 같은 팀이 맡고, 그 영상은 광고 소재와 검색 콘텐츠로 다시 씁니다.
+              고객사에 딱 맞는 인플루언서를 찾아 섭외합니다. 자체 도구 위플루언서로 유튜브·인스타 채널을 카테고리·구독자·성장 추이로 거른 리스트를 먼저 드리고, 저희와 연결된 사람에 더해 캠페인마다 새로 섭외합니다. 고르시면 섭외와 계약, 콘텐츠 가이드까지 섭외팀이 맡고, 그 영상은 광고 소재로, 검색과 AI가 읽는 바깥 출처로 다시 씁니다.
             </p>
           </div>
           {/* 11-07 대표 「기존 디자인을 가져와서」: 개발자 인플루언서 컷의 크리에이터 릴스 세 장(AI 예시 사진, 계정 이름 가림)을 가운데에 */}
@@ -315,7 +316,7 @@ export default function ShortformHome() {
           <div className="c1b-t">
             <p className="eb">WHAT WE DO</p>
             <p className="cap sz-lg">
-              <Words text={"여덟 가지를\n한 팀이 합니다."} />
+              <Words text={"한 캠페인으로 묶는\n여덟 가지 일"} />
             </p>
             <p className="sm">마우스를 올리면 그 일의 화면이 돌아갑니다. 휴대폰을 누르면 자세히 볼 수 있습니다.</p>
             <ol className="svl" id="svl" aria-label="위즈더플래닝이 하는 일 여덟 가지">
@@ -393,7 +394,6 @@ export default function ShortformHome() {
                 <p className="sa-no">
                   <span className="eb">{s.eb}</span>
                   <b>{s.no}</b> / 08 · {s.n}
-                  {s.k === "search" ? " · 대표 서비스" : ""}
                 </p>
                 <h2 className="cap sz-xl sa-cap">{s.fx === "flip" || s.fx === "slot" ? <Chars text={s.cap} /> : <Words text={s.cap} />}</h2>
                 {/* 다 보지 않아도 상세 쪽으로(11-05) · 인증 배지는 제목 바로 아래(카피덱: 실적 칸에서 뺌) */}
@@ -543,7 +543,7 @@ export default function ShortformHome() {
           <div className="mt-h">
             <p className="eb">WHAT WE DO</p>
             <p className="cap sz-xl">
-              <Words text={"한 매체가 아니라\n퍼널 전체를 움직이는\n여덟 가지."} />
+              <Words text={"캠페인 기획에서 AI 답변까지,\n한 설계를 이루는\n여덟 가지."} />
             </p>
           </div>
           <div className="mt-scr" id="montage" aria-hidden="true">
@@ -566,9 +566,9 @@ export default function ShortformHome() {
                 <>
                   <p className="eb">INDUSTRIES</p>
                   <p className="so-k">
-                    업종과 성장 단계가 다르면, 전략도 달라야 합니다.
+                    동네 가게와 자사몰, 대기업은 비어 있는 자리가 다릅니다.
                     <br />
-                    진단을 통해 브랜드에 가장 효과적인 채널 조합을 설계합니다.
+                    그래서 진단을 먼저 하고, 필요한 채널만 골라 묶습니다.
                   </p>
                 </>
               ) : null}
@@ -630,7 +630,7 @@ export default function ShortformHome() {
               ))}
             </ul>
           </div>
-          <p className="sm">영업 따로, 실행 따로가 아닙니다. 각자 전문성을 가진 부서가 외주 없이 직접 움직입니다.</p>
+          <p className="sm">영업 따로, 실행 따로가 아닙니다. 계약 자리에 있던 사람이 실행도 챙기고, 여섯 부서가 외주 없이 직접 움직입니다.</p>
         </div>
       </Cut>
 
@@ -712,13 +712,13 @@ export default function ShortformHome() {
                     <div style={vars({ i: 0 })}>
                       <dt>우선 과제</dt>
                       <dd>
-                        지도·홈페이지 정보 일원화<small>AI 답변이 같은 정보를 읽게 합니다</small>
+                        지도·홈페이지 정보를 같은 말로<small>AI가 같은 정보를 읽게 합니다</small>
                       </dd>
                     </div>
                     <div style={vars({ i: 1 })}>
                       <dt>병행 과제</dt>
                       <dd>
-                        블로그 체험단<small>검색한 고객이 읽을 후기를 확보합니다</small>
+                        블로그 체험단<small>검색한 고객이 읽을 후기를 모읍니다</small>
                       </dd>
                     </div>
                     <div style={vars({ i: 2 })}>
@@ -728,7 +728,7 @@ export default function ShortformHome() {
                       </dd>
                     </div>
                   </dl>
-                  <p className="doc-f">비용은 진단 후 맞춤 제안서로 안내해 드립니다.</p>
+                  <p className="doc-f">비용은 진단이 끝난 뒤 제안서에 적어 드립니다.</p>
                   <Ex />
                 </div>
               ) : null}
@@ -766,7 +766,7 @@ export default function ShortformHome() {
                       </div>
                     ))}
                   </div>
-                  <p className="doc-f">문의 단계 이탈이 크면, CTA와 첫 문장부터 다시 설계합니다.</p>
+                  <p className="doc-f">문의 직전에 많이 빠지면, 버튼 글자와 첫 문장부터 다시 씁니다.</p>
                   <a className="loop" href="#c38">
                     <Icon k="loop" />
                     최적화 이후, 다시 진단으로
@@ -786,7 +786,7 @@ export default function ShortformHome() {
             <div>
               <p className="eb">INSIGHTS</p>
               <p className="cap sz-lg">
-                <Words text={"직접 집행하고, 직접 측정한\n데이터로 씁니다."} />
+                <Words text={"저희가 직접 집행하고\n직접 잰 숫자로만 씁니다."} />
               </p>
             </div>
             <Link className="ins-all" href="/guide">
@@ -828,18 +828,18 @@ export default function ShortformHome() {
           <div className="ct-t">
             <p className="eb">CONTACT</p>
             <h2 className="cap sz-lg">
-              <Words text={"브랜드의 다음 단계는,\n정확한 진단에서 시작됩니다."} />
+              <Words text={"지금 어디가 비어 있는지,\n먼저 같이 보겠습니다."} />
             </h2>
-            <p className="sm">문의를 남겨 주시면 전담 AE가 연락드려 채널별 현황 진단을 진행합니다. 비용은 진단 결과를 바탕으로 한 맞춤 제안서로 안내해 드립니다.</p>
+            <p className="sm">문의를 남겨 주시면 전담 AE가 연락드리고, 검색·AI 답변·홈페이지·채널이 지금 어떻게 나오는지 같이 봅니다. 비용은 그 결과로 짠 제안서에 적어 드립니다.</p>
             <p className="sm ct-n">
-              대기업·프랜차이즈·브랜드사는 <a href="/business/contact">기업 제안 요청</a>을 통해 RFP 및 제안서를 요청하실 수 있습니다.
+              대기업·프랜차이즈·브랜드사는 <a href="/business/contact">기업 제안 요청</a>에서 RFP와 제안서를 요청하시면 됩니다.
             </p>
             <p className="sm ct-n">
-              매장·병원·학원 등은{" "}
+              매장·병원·학원은{" "}
               <a href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
                 카카오톡
               </a>
-              으로도 간편하게 문의하실 수 있습니다.
+              으로 먼저 물어보셔도 됩니다.
             </p>
             <div className="ct-ways">
               <a href={CONTACT.telHref} data-tel>

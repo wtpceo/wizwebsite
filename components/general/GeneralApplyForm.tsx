@@ -138,8 +138,8 @@ export default function GeneralApplyForm({
             {heading ?? "무료 AI 검색 진단 신청"}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-400 md:text-lg">
-            {description ?? <>아래 정보를 남겨주시면 담당 마케터가 네이버 AI·ChatGPT·제미나이 진단 리포트를 만들어
-            직접 설명해 드립니다. <strong className="font-semibold text-white">영업시간 내 신청하시면 5분 안에</strong> 결과가 준비되고, 담당 마케터가 연락드립니다.</>}
+            {description ?? <>상호와 연락처를 남겨 주시면 담당 마케터가 네이버 AI · ChatGPT · 제미나이에 물어본 결과를 리포트로 만들어
+            전화로 설명해 드립니다. <strong className="font-semibold text-white">영업시간 안에 신청하시면 5분 안에</strong> 결과가 나오고, 그다음 담당 마케터가 연락드립니다.</>}
           </p>
         </motion.div>
 

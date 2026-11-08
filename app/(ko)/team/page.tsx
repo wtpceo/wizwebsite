@@ -55,9 +55,9 @@ export default function TeamPage() {
           <div>
             <Crumb items={[{ name: "홈", href: "/" }, { name: "전문팀" }]} />
             <p className="dp-no">OUR TEAM · HOW WE WORK</p>
-            <h1 aria-label="여섯 개의 부서가 직접 수행합니다. 부서는 여섯, 창구는 하나.">
-              <Chars text={"여섯 개의 부서가\n직접 수행합니다."} />{" "}
-              <small>부서는 여섯, 창구는 하나.</small>
+            <h1 aria-label="부서는 여섯, 창구는 하나. 외주 없이 직접 합니다.">
+              <Chars text={"부서는 여섯,\n창구는 하나."} />{" "}
+              <small>외주 없이 직접 합니다.</small>
             </h1>
             <p className="dp-lead">{d.lead}</p>
             <div className="dp-btns">
@@ -148,7 +148,7 @@ export default function TeamPage() {
         <Faq items={d.faq} />
       </Sec>
 
-      <ContactBlock title="첫 미팅부터 성과 리포트까지, 전담 AE가 맡습니다." source="team" />
+      <ContactBlock title="첫 미팅부터 성과 리포트까지, 전담 AE가 맡습니다." sub="전담 AE가 보고 연락드리겠습니다. 비용은 진단이 끝난 뒤 제안서에 적어 드립니다." source="team" />
     </DocShell>
   )
 }

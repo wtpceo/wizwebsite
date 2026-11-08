@@ -63,12 +63,12 @@ export default function GeneralHero() {
             variants={fadeIn}
             className="mt-6 max-w-[640px] text-base leading-relaxed text-slate-400 md:text-lg"
           >
-            손님들은 이제 검색창이 아니라 ChatGPT·퍼플렉시티·네이버 AI에게{" "}
+            손님은 이제 검색창 대신 ChatGPT · 퍼플렉시티 · 네이버 AI에게{" "}
             <span className="font-semibold text-slate-200">
-              &ldquo;성수동 브런치 카페 추천해줘&rdquo;
+              &ldquo;성수동 브런치 카페 추천해 줘&rdquo;
             </span>
-            라고 묻습니다. 그 답변에 우리 가게가 나오는지, 혹시 틀린 정보를 안내하고 있지는
-            않은지 무료로 진단해 드립니다.{" "}
+            라고 묻습니다. 그 답에 우리 가게가 나오는지, 혹시 틀린 정보를 말하고 있지는
+            않은지 무료로 재 드립니다.{" "}
             <span className="font-semibold text-slate-200">
               업종은 가리지 않습니다.
             </span>

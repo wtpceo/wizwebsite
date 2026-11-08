@@ -150,7 +150,7 @@ export default function SolutionDoc({ slug }: { slug: string }) {
           source={`solution_${f.slug}`}
         />
       ) : (
-        <ContactBlock title={`${f.n}, 어떤 순서가 맞는지 진단합니다.`} initial={keys} source={`solution_${f.slug}`} />
+        <ContactBlock title={d.ct?.title ?? `${f.n}, 어떤 순서가 맞는지 진단합니다.`} initial={keys} source={`solution_${f.slug}`} />
       )}
     </DocShell>
   )

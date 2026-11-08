@@ -78,7 +78,7 @@ const RIVAL_TRAITS = [
 const ACTIONS = [
   "H1·H2로 콘텐츠 구조화",
   "방문후기(치료후기 아님) 섹션 추가",
-  "시술·서비스 정보 명확·투명하게",
+  "진료 과목 · 진료시간 · 위치를 글자로 정확히",
   "가격 정보 표시",
   "FAQ 섹션 추가",
   "예약·상담 기능 통합",
@@ -160,7 +160,7 @@ export default function ReportPreview() {
           viewport={{ once: true, margin: "-60px" }}
           className="mx-auto mt-8 max-w-4xl text-center text-xs tracking-wide text-slate-500"
         >
-          아래는 샘플 병원(안과) 진단 예시입니다. 모든 수치는 형식을 보여주기 위한 샘플 리포트 예시입니다.
+          아래는 안과 한 곳을 가정한 견본입니다. 숫자는 양식을 보여 드리려고 넣은 것이고 실제 측정값이 아닙니다.
         </motion.p>
 
         {/* 진단서 블록들 */}
@@ -219,7 +219,7 @@ export default function ReportPreview() {
               ))}
             </ul>
             <p className="mt-5 text-xs leading-relaxed text-slate-500">
-              AI가 틀린 정보를 환자에게 말하면 즉시 교정 대상입니다.
+              AI가 환자에게 틀린 정보를 말하면 가장 먼저 고칩니다.
             </p>
           </GlassCard>
 
@@ -271,7 +271,7 @@ export default function ReportPreview() {
               ))}
             </ul>
             <p className="mt-5 text-xs leading-relaxed text-slate-500">
-              인용 비중이 큰 채널 중 &lsquo;공략 대상&rsquo;을 우선 확보해 AI 인용 가능성을 높입니다.
+              AI가 많이 끌어오는 채널 가운데 비어 있는 곳(공략 대상)부터 채웁니다.
             </p>
           </GlassCard>
 
@@ -307,7 +307,7 @@ export default function ReportPreview() {
               </div>
             </div>
             <p className="mt-4 text-xs leading-relaxed text-slate-500">
-              리뷰 격차 약 2.9배: AI가 신뢰하는 &lsquo;누적 근거&rsquo;에서 밀리고 있습니다.
+              리뷰 격차 약 2.9배. AI가 근거로 삼는 후기 양에서 밀리고 있다는 뜻입니다.
             </p>
           </GlassCard>
 
@@ -333,9 +333,9 @@ export default function ReportPreview() {
                   <Lock className="h-3.5 w-3.5" />
                 </span>
                 <span className="text-sm leading-relaxed text-slate-400">
-                  나머지 {ACTIONS.length - 3}개 항목은{" "}
+                  나머지 {ACTIONS.length - 3}개는{" "}
                   <strong className="font-semibold text-slate-200">
-                    담당 마케터가 우리 병원 상황에 맞춰 우선순위와 함께 직접 설명
+                    담당 마케터가 우리 병원 상황에 맞춰 순서대로 설명
                   </strong>
                   해 드립니다
                 </span>

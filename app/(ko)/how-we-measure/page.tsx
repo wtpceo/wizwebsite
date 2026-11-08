@@ -7,7 +7,7 @@ import { DocShell } from "@/components/shortform/DocParts"
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 → 현재 33자
 const TITLE = "측정 방식: 자체 개발 GEO 관제 시스템으로 매주 재는 것"
 const DESC =
-  "위즈더플래닝은 AI 검색 노출을 감이 아니라 자체 개발한 GEO 관제 시스템으로 매주 측정합니다. 관제 화면 6장을 그대로 공개합니다. 우리 회사 점수는 2026년 10월 19일 측정에서 100점 만점에 16점으로, 9월 7일 18점보다 내려갔습니다. 외부에 판매하지 않고, 광고주께는 계정이 아니라 정리된 주간 리포트를 드립니다."
+  "AI 검색 노출을 감이 아니라 자체 GEO 관제 시스템으로 매주 잽니다. 관제 화면 6장과 저희 회사 점수(10월 19일 16점, 9월 7일 18점)까지 그대로 공개합니다. 외부에 팔지 않고 광고주께는 주간 리포트로 드립니다."
 const URL = "https://wiztheplanning.com/how-we-measure"
 const PUBLISHED = "2026-09-09"
 
@@ -120,7 +120,7 @@ export default function Page() {
               HOW WE MEASURE
             </span>
             <h1 className="mt-6 text-[clamp(2rem,4.4vw,3.6rem)] font-extrabold leading-[1.15] tracking-tight text-white">
-              말 대신 관제 화면으로<br className="hidden sm:block" /> 보여드립니다
+              말 대신 관제 화면으로<br className="hidden sm:block" /> 보여 드립니다
             </h1>
             <p className="mt-5 max-w-2xl text-[clamp(1rem,1.4vw,1.25rem)] leading-relaxed text-slate-400">
               AI 검색은 순위표가 없어서 &ldquo;잘되고 있다&rdquo;는 말로 넘어가기 쉽습니다. 저희는 AI 답변을
@@ -194,7 +194,7 @@ export default function Page() {
                 {
                   icon: ListChecks,
                   title: "멘션과 인용을 분리",
-                  body: "답변 본문에 이름이 나온 것(멘션)과 출처로 링크된 것(인용), 답의 근거로 쓰인 것(근거)은 다른 일입니다. 셋을 질문마다 따로 기록합니다. 인용이 손님을 데려옵니다.",
+                  body: "답변 본문에 이름이 나온 것(멘션)과 출처로 링크된 것(인용), 답의 근거로 쓰인 것(근거)은 다른 일입니다. 셋을 질문마다 따로 기록합니다.",
                 },
                 {
                   icon: Stethoscope,

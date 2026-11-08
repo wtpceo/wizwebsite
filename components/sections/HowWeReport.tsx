@@ -7,7 +7,7 @@ const STEPS = [
     icon: Search,
     step: "1",
     title: "질문 세트를 먼저 만듭니다",
-    body: "손님이 실제로 던질 법한 질문을 업종·지역 기준으로 뽑습니다. “OO동 OO 잘하는 곳 추천해줘”처럼 실제 말투 그대로입니다. 여기가 틀리면 뒤 측정이 전부 무의미해집니다.",
+    body: "손님이 실제로 던질 법한 질문을 업종 · 지역 기준으로 뽑습니다. “○○동 ○○ 잘하는 곳 추천해 줘”처럼 실제 말투 그대로입니다. 여기가 틀리면 뒤 측정이 전부 헛일이 됩니다.",
   },
   {
     icon: Radar,
@@ -19,7 +19,7 @@ const STEPS = [
     icon: FileText,
     step: "3",
     title: "주 1회 리포트를 드립니다",
-    body: "같은 기준으로 계속 재기 때문에 지난주 대비 무엇이 올라갔고 무엇이 그대로인지를 숫자로 보여드립니다. 좋아진 것만 보내지 않습니다.",
+    body: "같은 기준으로 계속 재니까 지난주보다 무엇이 올라갔고 무엇이 그대로인지 숫자로 보여 드립니다. 좋아진 것만 보내지 않습니다.",
   },
   {
     icon: Wrench,
@@ -37,7 +37,11 @@ const REPORT_ITEMS = [
   "이번 주에 실행한 작업과 다음 주 우선순위",
 ]
 
-export default function HowWeReport() {
+// 병원 페이지에서는 '손님·업종' 대신 '환자·진료과'로 읽히게 한다(11/7 카피 개선안 22-5·23-5).
+export default function HowWeReport({ medical = false }: { medical?: boolean } = {}) {
+  const steps = medical
+    ? STEPS.map((st, i) => (i === 0 ? { ...st, body: st.body.replace("손님이 실제로", "환자가 실제로").replace("업종 · 지역", "진료과 · 지역") } : st))
+    : STEPS
   return (
     <section className="bg-slate-50 py-16 md:py-20">
       <div className="mx-auto max-w-5xl px-5">
@@ -47,12 +51,12 @@ export default function HowWeReport() {
         </h2>
         <p className="mt-3 max-w-2xl text-base leading-relaxed text-gray-600">
           AI 검색은 순위표가 없어서 &ldquo;잘되고 있다&rdquo;는 말로 넘어가기 쉽습니다. 저희는 같은
-          기준으로 계속 측정하고, 그 숫자를 <strong className="text-gray-900">주 1회</strong> 그대로
-          보여드립니다.
+          기준으로 계속 재고, 그 숫자를 <strong className="text-gray-900">주 1회</strong> 그대로
+          보여 드립니다.
         </p>
 
         <div className="mt-10 grid gap-4 md:grid-cols-2">
-          {STEPS.map((s) => {
+          {steps.map((s) => {
             const Icon = s.icon
             return (
               <div key={s.step} className="rounded-2xl border border-gray-200 bg-white p-6">
@@ -89,7 +93,7 @@ export default function HowWeReport() {
               사내에서 씁니다.
             </p>
             <p className="mt-3 text-sm leading-relaxed text-gray-500">
-              외부에 판매하지 않습니다. 광고주께는 시스템 계정이 아니라{" "}
+              외부에 팔지 않습니다. 광고주께는 시스템 계정이 아니라{" "}
               <strong className="text-gray-700">정리된 리포트와 해석</strong>을 드립니다. 도구를 배우실
               필요가 없습니다.
             </p>
@@ -106,9 +110,9 @@ export default function HowWeReport() {
           </h3>
           <p className="mt-3 text-sm leading-relaxed text-gray-600">
             아래는 <strong className="text-gray-900">위즈더플래닝이 저희 자신에게 발행한 실제 주간
-            보고서</strong>입니다(2026년 8월 3주차). 광고주께 드리는 것과 같은 양식이고, 숫자도 손대지
-            않았습니다. <strong className="text-gray-900">AI 검색을 통한 방문은 3명</strong>이었습니다.
-            작다고 빼지 않습니다. 그래야 다음 주에 늘었는지 줄었는지를 말할 수 있습니다.
+            보고서</strong>입니다(2026년 8월 3주차). 광고주께 드리는 것과 같은 양식이고 숫자도 손대지
+            않았습니다. <strong className="text-gray-900">AI 검색으로 들어온 방문은 3명</strong>이었는데,
+            작다고 빼지 않습니다. 그래야 다음 주에 늘었는지 줄었는지 말할 수 있으니까요.
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             <img
@@ -146,8 +150,8 @@ export default function HowWeReport() {
         </div>
 
         <p className="mt-6 text-sm leading-relaxed text-gray-500">
-          AI 답변은 같은 질문에도 매번 달라집니다. 그래서 한 번 잘 나온 화면을 캡처해 보내는 대신,
-          반복 측정한 값의 변화를 보여드립니다. 측정 방법은{" "}
+          AI 답변은 같은 질문에도 매번 달라집니다. 그래서 한 번 잘 나온 화면을 캡처해 보내는 대신
+          반복해서 잰 값의 변화를 보여 드립니다. 측정 방법은{" "}
           <a href="/guide/measure-ai-traffic" className="font-semibold text-emerald-700 underline">
             AI 검색 유입 측정: 4단계로 나눠 세기
           </a>

@@ -23,12 +23,12 @@ const POINTS = [
   {
     icon: Swords,
     title: "경쟁 병원과 격차 대조",
-    desc: "AI가 추천하는 경쟁 병원과 항목별로 나란히 비교해, 어디서 밀리는지 정확히 찾아냅니다.",
+    desc: "AI가 추천하는 경쟁 병원과 항목별로 나란히 놓고, 어느 항목에서 차이가 나는지 보여 드립니다.",
   },
   {
     icon: ShieldCheck,
     title: "의료광고법 안전 범위 안내",
-    desc: "인용은 되지만 위반이 되는 표현을 걸러내고, 안전하게 개선할 수 있는 범위를 짚어드립니다.",
+    desc: "인용은 돼도 위반이 되는 표현을 걸러 내고, 고칠 수 있는 범위를 짚어 드립니다.",
   },
 ]
 
@@ -63,10 +63,10 @@ export default function WhyFree() {
           <p className="mt-5 text-base leading-relaxed text-slate-400 md:text-lg">
             진단은 우리 병원이 AI 검색에서 지금 어떤 상태인지{" "}
             <span className="font-semibold text-slate-200">
-              &lsquo;보여드리는 것&rsquo;까지 무료
+              보여 드리는 데까지 무료
             </span>
-            입니다. 실제 개선(콘텐츠·홈페이지·플레이스 정비)은 유료지만, 진단 없이 시작하지
-            않습니다. 병원·의원에 한해 조건 없이 무료로 드립니다.
+            입니다. 고치는 일(콘텐츠 · 홈페이지 · 플레이스 정비)은 유료지만, 진단 없이 시작하지는
+            않습니다. 병원 · 의원이면 조건 없이 무료로 드립니다.
           </p>
           {/* 2026-11-03 대표 결정: 병원 대행 가격(월 80만원·최소 6개월)은 싣지 않고 진단 뒤 제안서로 드린다 */}
           <p className="mx-auto mt-6 inline-flex flex-wrap items-center justify-center gap-x-2 rounded-full border border-[#00e5a0]/30 bg-[#00e5a0]/10 px-5 py-2 text-sm text-slate-200">

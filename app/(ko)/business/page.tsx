@@ -13,9 +13,9 @@ import { DocShell } from "@/components/shortform/DocParts"
 // - CTA는 무료 진단이 아니라 제안 요청(/business/contact)
 // - 기준(최소 3개월, 온보딩 별도)을 페이지에 적어 스스로 걸러지게 한다 · 금액은 적지 않고 진단 뒤 제안서로(사장님 11-04)
 // 수치는 공개된 자사 사례에서만 가져온다. 보장 문구는 쓰지 않는다.
-const TITLE = "기업 마케팅: AI 검색·SEO·콘텐츠를 한 곳에서 | 위즈더플래닝"
+const TITLE = "기업 마케팅: 캠페인 기획부터 광고·콘텐츠·SEO·GEO까지 | 위즈더플래닝"
 const DESC =
-  "마케팅 담당자가 있는 조직을 위한 대행 서비스입니다. ChatGPT·네이버 AI·구글에서 브랜드가 어떻게 인용되는지 매주 같은 기준으로 측정하고, 홈페이지·콘텐츠·광고까지 한 곳에서 실행합니다. 금액은 제안서로 안내하고, 계약은 최소 3개월입니다."
+  "마케팅 담당자가 있는 조직을 위한 대행입니다. 캠페인 기획과 인플루언서 섭외, 콘텐츠 제작, 메타·구글 광고, 홈페이지, SEO·GEO 가운데 필요한 것을 맡기실 수 있습니다. 금액은 제안서로 안내하고, 계약은 최소 3개월입니다."
 const URL = "https://wiztheplanning.com/business"
 
 export const metadata: Metadata = {
@@ -39,7 +39,7 @@ const SCOPE = [
 ]
 
 const STEPS = [
-  { n: "01", t: "기준선 측정", d: "계약 전에 지금 상태부터 기록합니다. 어떤 질문에 어떤 브랜드 이름이 나오는지, 우리 사이트가 출처로 달리는지 적습니다. 뒤에 나오는 숫자는 모두 이 기록과 견줍니다의 기준이 됩니다." },
+  { n: "01", t: "기준선 측정", d: "계약 전에 지금 상태부터 기록합니다. 어떤 질문에 어떤 브랜드 이름이 나오는지, 우리 사이트가 출처로 달리는지 적습니다. 뒤에 나오는 숫자는 모두 이 기록과 견줍니다." },
   { n: "02", t: "우선순위 합의", d: "고칠 것을 순서대로 정리해 드립니다. 무엇을 먼저 하고 무엇을 뒤로 미룰지, 왜 그런지까지 적습니다." },
   { n: "03", t: "실행", d: "사이트, 콘텐츠, 광고를 실행합니다. 광고 계정과 도메인은 고객사 명의를 원칙으로 합니다." },
   { n: "04", t: "주간 재측정", d: "같은 질문을 매주 다시 물어 변화를 봅니다. 자체 개발한 관제 시스템으로 측정하고, 시스템 자체는 판매하지 않습니다." },
@@ -47,7 +47,7 @@ const STEPS = [
 
 const PROOF = [
   { k: "17% → 93%", v: "수도권 정형외과의 ChatGPT 언급률. 같은 질문 10개를 3번씩 물은 답변 30개 기준으로 계약 전 5개, 39일 뒤 28개에 병원 이름이 나왔습니다. 2주 뒤 25개(83%)로 내려간 회차도 그대로 적었습니다.", href: "/guide/case-orthopedic-chatgpt" },
-  { k: "3쪽 vs 167쪽", v: "167쪽짜리 치과 사이트가 인근 3쪽짜리 사이트에 밀려 인용되지 않던 사례. 분량이 아니라 읽히는 구조의 문제였습니다.", href: "/guide/case-dental-llms-factsheet" },
+  { k: "3쪽 vs 167쪽", v: "167쪽짜리 치과 사이트보다 인근 3쪽짜리 사이트가 먼저 ChatGPT에 인용됐습니다. AI 안내 파일을 목차형에서 팩트시트형으로 바꾼 뒤 이 치과도 답변에 나왔습니다.", href: "/guide/case-dental-llms-factsheet" },
   { k: "16 / 100", v: "2026년 10월 19일에 잰 우리 자신의 AI 검색 점수입니다. 9월 7일 18점에서 2점 내려간 것까지 그대로 적습니다.", href: "/how-we-measure" },
 ]
 
@@ -149,11 +149,13 @@ export default function Page() {
           <div className="container relative mx-auto max-w-4xl px-4 md:px-6">
             <p className="text-xs font-bold tracking-[0.2em] text-[#00e5a0]">기업 마케팅</p>
             <h1 className="mt-4 text-[clamp(2rem,4.4vw,3.25rem)] font-extrabold leading-[1.15] tracking-tight text-white">
-              고객이 AI에게 물었을 때 브랜드 이름이 나오는지, 매주 재고 고칩니다
+              기업 마케팅 대행,
+              <br />
+              캠페인 기획부터 검색·AI 노출까지
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">
-              마케팅 담당자가 있는 조직을 위한 대행입니다. ChatGPT·네이버 AI·구글에서 브랜드가 어떻게
-              인용되는지 매주 같은 기준으로 측정하고, 홈페이지·콘텐츠·광고까지 한 곳에서 실행합니다.
+              마케팅 담당자가 있는 조직을 위한 대행입니다. 캠페인 기획과 인플루언서 섭외, 콘텐츠 제작, 광고,
+              홈페이지, SEO·GEO 가운데 필요한 것을 골라 맡기실 수 있습니다.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href="/business/contact">

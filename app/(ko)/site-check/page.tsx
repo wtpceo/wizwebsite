@@ -6,7 +6,7 @@ import { DocShell } from "@/components/shortform/DocParts"
 
 const TITLE = "무료 홈페이지 SEO·GEO 진단: 주소만 넣으면 즉시 확인"
 const DESC =
-  "우리 홈페이지가 검색과 AI에 잘 노출되는 구조인지 주소만 입력하면 즉시 진단해 드립니다. AI 크롤러 접근 여부, 구조화 데이터(Schema.org), 제목·모바일 대응 등 SEO·GEO 기초 요소를 실제로 검사하고 부족한 부분을 알려드립니다."
+  "홈페이지 주소만 넣으면 AI 크롤러가 읽을 수 있는지, 구조화 데이터와 제목·모바일 대응이 돼 있는지 바로 검사해 알려 드립니다. 검색과 AI에 보이는 홈페이지의 기초 상태를 확인하세요."
 const URL = "https://wiztheplanning.com/site-check"
 
 export const metadata: Metadata = {
@@ -66,9 +66,9 @@ export default function Page() {
                 AI와 검색에 잘 보이나요?
               </h1>
               <p className="mx-auto mt-5 max-w-2xl text-[clamp(1rem,1.4vw,1.25rem)] leading-relaxed text-slate-400">
-                주소만 넣으면 SEO·GEO 기초 상태를 즉시 진단해 드립니다.
+                주소만 넣으면 SEO·GEO 기초 상태를 바로 검사해 드립니다.
                 <br className="hidden md:block" />
-                AI 크롤러가 우리 사이트를 읽을 수 있는지부터 확인하세요.
+                AI 크롤러가 우리 사이트를 읽을 수 있는지부터 보세요.
               </p>
             </div>
 
@@ -94,9 +94,9 @@ export default function Page() {
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             {[
               { tag: "GEO", title: "AI 크롤러 접근 허용", desc: "GPTBot·ClaudeBot 등이 차단돼 있으면 홈페이지가 열려도 AI가 읽지 못해 인용·추천에서 제외됩니다." },
-              { tag: "GEO", title: "구조화 데이터(Schema.org)", desc: "AI가 '무엇을 하는 곳인지' 구조적으로 이해하는 핵심 요소입니다." },
+              { tag: "GEO", title: "구조화 데이터(Schema.org)", desc: "AI가 '무엇을 하는 곳인지' 읽어 내는 데 쓰는 표시입니다." },
               { tag: "SEO", title: "제목·설명·H1 구조", desc: "검색 결과 노출과 콘텐츠 구조의 기본입니다." },
-              { tag: "SEO", title: "사이트맵·공유 미리보기", desc: "크롤러 발견성과 SNS 공유 시 미리보기를 확인합니다." },
+              { tag: "SEO", title: "사이트맵·공유 미리보기", desc: "크롤러가 페이지를 찾을 수 있는지, 카톡·SNS에 공유할 때 미리보기가 뜨는지 봅니다." },
               { tag: "기술", title: "HTTPS·모바일 대응", desc: "검색엔진이 신뢰하는 기본 조건입니다." },
               { tag: "기술", title: "첫 응답 속도", desc: "느린 사이트는 이탈과 순위에 불리합니다." },
             ].map((item) => (
@@ -110,16 +110,16 @@ export default function Page() {
 
           <div className="mt-8 rounded-2xl border border-gray-200 bg-[#f9fafb] p-6">
             <p className="text-base leading-[1.85] text-gray-700">
-              이 진단은 홈페이지의 <strong>구조와 기술 상태</strong>를 확인합니다. 하지만 실제로 AI가
-              우리를 추천하는지, 채널별 정보가 일치하는지는 사람이 직접 측정해야 합니다. 관련해서{" "}
+              이 검사는 홈페이지의 <strong>구조와 기술 상태</strong>를 봅니다. 실제로 AI가
+              우리를 추천하는지, 채널별 정보가 맞는지는 사람이 따로 재야 합니다.{" "}
               <Link href="/guide/check-hospital-ai-visibility" className="font-bold text-emerald-600 underline-offset-4 hover:underline">
                 우리 병원이 ChatGPT에 나오는지 확인하는 법
               </Link>
               과{" "}
               <Link href="/guide/case-urology-clinic" className="font-bold text-emerald-600 underline-offset-4 hover:underline">
-                크롤러 차단으로 ChatGPT에 안 뜨던 실제 사례
+                크롤러 차단으로 ChatGPT에 안 뜨던 사례
               </Link>
-              를 함께 읽어보시면 도움이 됩니다.
+              를 같이 읽어 보세요.
             </p>
           </div>
         </section>

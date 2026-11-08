@@ -16,7 +16,7 @@ const PAGE_URL = `${BASE_URL}/medical-diagnosis`
 export const metadata: Metadata = {
   title: "병원 무료 AI 검색 진단 | ChatGPT·네이버 AI에 우리 병원이 나올까요?",
   description:
-    "병원·의원 전용 무료 AI 검색 진단. 네이버 AI·ChatGPT·제미나이가 우리 병원을 추천하는지, 잘못된 정보를 안내하는지, 경쟁 병원과 격차가 얼마인지 실측 리포트로 알려드립니다. 병원만, 조건 없이 무료.",
+    "병원 · 의원 전용 무료 AI 검색 진단. 네이버 AI · ChatGPT · 제미나이가 우리 병원을 추천하는지, 틀린 정보를 말하는지, 경쟁 병원과 얼마나 차이 나는지 재서 알려 드립니다. 병원만, 조건 없이 무료.",
   keywords: [
     "병원 AI 검색 최적화", "병원 GEO", "의원 마케팅", "ChatGPT 병원 추천",
     "네이버 AI 병원", "병원 무료 진단", "의료 마케팅", "병원 검색 최적화",
@@ -99,7 +99,7 @@ export default function MedicalDiagnosisPage() {
       <WhyMedical />
       <ReportPreview />
       <WhyFree />
-      <HowWeReport />
+      <HowWeReport medical />
       <DiagnosisApplyForm />
       <MedicalFaq />
     </div>

@@ -134,7 +134,7 @@ export default function SiteCheckTool() {
             {loading ? (
               <><Loader2 className="h-5 w-5 animate-spin" /> 진단 중…</>
             ) : (
-              <>무료 진단 <ChevronRight className="h-5 w-5" /></>
+              <>주소 넣고 바로 검사 <ChevronRight className="h-5 w-5" /></>
             )}
           </Button>
         </form>

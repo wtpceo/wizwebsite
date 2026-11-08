@@ -34,7 +34,7 @@ export const WORKS: Record<string, Works> = {
     ],
   },
   viral: {
-    lead: "목표는 검색 결과 상단을 겨냥한 콘텐츠입니다. 블로그·기사·체험단 글이 실제 검색 화면에서 어떻게 보이는지 예시로 보여 드립니다.",
+    lead: "블로그·기사·체험단 글이 실제 검색 화면에서 어떻게 보이는지 예시로 보여 드립니다.",
     tag: "예시 화면",
     items: [
       { tiles: "viral", pick: "0", cap: "블로그 탭 맨 위 「인기글」 자리" },
@@ -98,7 +98,7 @@ export const WORKS: Record<string, Works> = {
   },
   growth: {
     q: "성장 브랜드는 어떤 결과물을 받나요?",
-    lead: "광고 소재와 수치, 숏폼, 해외 채널 콘텐츠를 같은 전담 AE가 통합 관리합니다.",
+    lead: "광고 숫자, 소재, 숏폼, 해외 채널 콘텐츠를 전담 AE 한 사람이 리포트 한 부로 모읍니다.",
     tag: "예시 화면",
     items: [
       { tiles: "perf", pick: "0", cap: "광고 한 달 결과(실제 숫자)" },
