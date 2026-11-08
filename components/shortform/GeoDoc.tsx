@@ -2,10 +2,9 @@ import Link from "next/link"
 import type { ReactNode } from "react"
 import { SERVICES } from "./content"
 import { DETAILS } from "./details"
-import { DocShell, Crumb, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
+import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
 import { Ex, Chars, vars } from "./parts"
 import { Icon } from "./icons"
-import GeoPress from "./GeoPress"
 import GeoToolReel from "./GeoToolReel"
 
 /**
@@ -31,19 +30,19 @@ const PRESS: [string, string, string, string, string, string, string][] = [
     "챗GPT 이용자 열 명 중 아홉 명은 네이버도 씁니다. 같은 기사에 따르면 두 서비스를 함께 쓰는 사람은 1,646만 명으로 1년 새 41.9% 늘었습니다."],
 ]
 
-/** 11-08 새 칸 「두 번째 검색」: 세 칸 그림 [이름, 한 줄, 아이콘] — 가운데 칸 강조 */
-const TWICE: [string, string, "search" | "viral" | "chat"][] = [
-  ["AI에게 추천받기", "후보 서너 곳이 이름으로 나옵니다", "chat"],
-  ["포털에서 이름 다시 치기", "네이버·구글에 그 이름을 그대로 칩니다", "search"],
-  ["후기와 리뷰 보고 결정", "첫 화면에 보이는 글로 마음을 정합니다", "viral"],
+
+/** 마무리 세 갈래 [이름, 한 줄, 사진] */
+const ONE: [string, string, string][] = [
+  ["인플루언서 활용", "브랜드 핏에 맞는 유튜버·인플루언서가 콘텐츠를 만듭니다", "/sf/pf/infl-beauty.jpg"],
+  ["외부 언급", "기사와 체험 후기, 커뮤니티에 같은 사실이 쌓입니다", "/geo/media-editor.jpg"],
+  ["퍼포먼스", "광고로 더 많은 사람이 그 이름을 보고 다시 검색합니다", "/sf/ex/shootcos.jpg"],
 ]
 
 /** 포털 첫 화면 예시 칸 [칸 이름, 예시 줄, 저희가 맡는 일] */
 const SERP: [string, string, string][] = [
   ["블로그 후기", "OO 한 달 써 본 솔직 후기 · 사진 12장", "실제 이용 후기가 위에 보이게 합니다"],
-  ["플레이스", "★ 4.7 · 방문자 리뷰 312 · 영업 중", "정보와 리뷰 응대를 정리합니다"],
+  ["쇼핑", "★ 4.8 · 리뷰 1,204 · 공식 스토어", "상품 정보와 리뷰 응대를 정리합니다"],
   ["기사", "OO, 2016년 시작한 브랜드가 걸어온 길", "사실에 맞는 브랜드 소개를 남깁니다"],
-  ["자동완성", "OO 후기 · OO 단점 · OO 환불", "고객이 붙여 치는 말에 답이 되는 글을 둡니다"],
 ]
 
 /** 11-08 새 칸 「브랜드 평판」 세 가지 */
@@ -191,11 +190,11 @@ export default function GeoDoc() {
 
   return (
     <DocShell>
-      <div className="gx">
+      <div className="gx ix gxl">
       <JsonLd data={ld} />
 
       {/* ① 첫 화면. 11-07 낮 비평 적용: 주인공은 제목 하나, 키워드 줄은 작게 위로, 카드는 행동 상자, CTA 하나, 전화는 글자 링크 */}
-      <section className="dp-hero geo-hero" aria-label="AI 검색 최적화 소개">
+      <section className="dp-hero geo-hero ix-hero gx-hero" aria-label="AI 검색 최적화 소개">
         {/* 배경: AI와 주고받는 대화가 흐른다. 열마다 한 쌍은 가린 막대 대신 "당신의 브랜드"를 띄워 제목과 잇는다 */}
         <div className="geo-chat" aria-hidden="true">
           {[0, 1, 2].map((c) => (
@@ -221,113 +220,264 @@ export default function GeoDoc() {
         </div>
         <div className="dp-veil" aria-hidden="true" />
         <div className="dp-w geo-hero-in">
-          <Crumb items={[{ name: "홈", href: "/" }, { name: s.n }]} />
-          {/* 11-08 카피 세션: 키워드 머리말은 H1 안 <small>(인플루언서·퍼포먼스와 같은 구조). 시대 머리말은 제목 아래 굵은 한 줄 */}
-          <h1 aria-label="AI 검색 최적화(GEO) 대행: 추천은 AI가, 확신은 검색이 만듭니다">
-            <small className="geo-h1-kw">AI 검색 최적화(GEO) 대행</small>{" "}
-            <Chars text={"추천은 AI가,\n확신은 검색이 만듭니다"} />
+          {/* 11-08 대표 「인플루언서·퍼포먼스와 같은 컨셉, 왼쪽 정렬」: 키워드 머리말 H1 안, 큰 제목에 파란 띠, 시대 한 줄, 부제, 버튼 하나, 스크롤 유도 */}
+          {/* 11-08 대표: 메인은 「2027년 꼭 해야 할 마케팅, GEO 검색엔진 최적화」, 부제는 「AI에 뜨기만 해서는 안 되고 포털에서 2차 검증」 논리 */}
+          <h1 aria-label="AI 검색 최적화(GEO) 대행: 2027년 꼭 해야 할 마케팅, GEO 검색엔진 최적화">
+            <small className="ix-kw">AI 검색 최적화(GEO) 대행</small>{" "}
+            <Chars text={"2027년 꼭 해야 할 마케팅,\nGEO 검색엔진 최적화"} mark="GEO" />
           </h1>
-          <p className="geo-era">AI로 고르고, 포털에서 확인하는 시대</p>
-          <p className="dp-lead">그래서 저희는 AI 답변에 브랜드 이름을 올리는 일과, <span className="nw">그 이름을</span> 검색했을 때 포털 첫 화면을 믿을 만한 글로 채우는 일을 같이 합니다.</p>
-          <div className="geo-card">
-            <p className="geo-card-s">
-              AI가 먼저 인용하는 건 이미 쌓인 출처.{" "}
-              <br />
-              시작이 늦을수록 노출은 어려워집니다.
-            </p>
-            <div className="dp-btns">
-              <a className="p1" href="/contact?svc=search">
-                무료 AI 노출·평판 진단
-              </a>
-            </div>
-            <a className="geo-tel" href="tel:16700704" data-tel>
-              전화 문의 1670-0704
+          <p className="dp-lead">
+            다만 AI 답변에 뜨기만 해서는 부족합니다. 고객은 AI가 추천한 이름을 <span className="nw">네이버·구글에</span> 다시 쳐서 확인합니다.
+            <br />
+            <b>그래서 저희는 AI 답변과 포털 첫 화면, 두 번의 검증을 같이 잡습니다.</b>
+          </p>
+          <div className="dp-btns">
+            <a className="p1" href="#contact">
+              무료 AI 노출·평판 진단
             </a>
-            <p className="geo-trust">2016년부터 · 자체 측정 툴 realGEO · 계약 전 기준선 측정 무료</p>
           </div>
         </div>
+        <a className="ix-cue" href="#twice" aria-label="두 번째 검색으로 내려가기">
+          <span>위즈더플래닝은 이렇게 일해요</span>
+          <i aria-hidden="true" />
+        </a>
       </section>
 
-      {/* ② 왜 지금 */}
-      <CSec
-        eb="왜 지금인가"
-        q={
-          <>
-            AI에게 묻는 사람이 늘어도,{" "}
-            <br />
-            <span>포털을 떠나지는 않습니다</span>
-          </>
-        }
-        sub="기사 원문을 확인한 숫자만. 날짜와 출처를 같이 적었습니다."
-      >
-        <GeoPress items={PRESS} />
-        <p className="geo-own" aria-label="저희 사이트 실측값">
-          <b>저희 사이트를 잰 값</b> realGEO · 2026.9.7 · 질문 10개
-          <span>근거 인용률 40%</span>
-          <span>AI 브리핑 인용률 22%</span>
-          <span>웹 건강도 100</span>
-        </p>
-      </CSec>
-
-      {/* ②-1 11-08 새 칸 「두 번째 검색」: AI 추천 → 포털에서 이름 다시 치기 → 후기 보고 결정. 아래는 포털 첫 화면 예시(코드)와 칸마다 저희가 맡는 일 */}
-      <CSec
-        id="twice"
-        eb="두 번째 검색"
-        q={
-          <>
-            AI 추천에서 이겨도,{" "}
-            <br />
-            <span>두 번째 검색에서 질 수 있습니다</span>
-          </>
-        }
-        tone="mist"
-      >
-        <blockquote className="geo-quote">
-          <p>"네이버·구글 같은 검색 엔진으로 정보를 교차 검증하는 사례가 증가"</p>
-          <cite>
-            <a href="https://www.etnews.com/20261026000292" target="_blank" rel="noopener noreferrer">
-              전자신문, 2026. 10. 26.
-            </a>
-          </cite>
-        </blockquote>
-        <ol className="geo-twice" aria-label="고객이 브랜드를 고르는 세 걸음">
-          {TWICE.map(([t, x, k], i) => (
-            <li key={t} className={i === 1 ? "on" : undefined} style={vars({ i })}>
-              <span className="ic">
-                <Icon k={k} />
-              </span>
-              <em>{String(i + 1).padStart(2, "0")}</em>
-              <b>{t}</b>
-              <span className="tx">{x}</span>
-            </li>
-          ))}
-        </ol>
-        <div className="geo-serp">
-          <div className="geo-serp-box" aria-label="브랜드 이름을 검색했을 때 포털 첫 화면 예시">
-            <div className="geo-serp-q">
-              <i aria-hidden="true" />
-              <span>OO 후기</span>
-            </div>
-            <div className="geo-serp-ai">
-              <em>AI 요약</em>
-              <span>블로그 후기에서는 품질과 응대가 좋다는 평이 많아요.</span>
-            </div>
-            {SERP.map(([k, line, ours], i) => (
-              <div className="geo-serp-r" key={k} style={vars({ i })}>
-                <div className="geo-serp-l">
-                  <small>{k}</small>
-                  <span>{line}</span>
+      {/* ② 두 번째 검색(11-08 대표: 두 번째 자리로, 「제로클릭의 시대라지만」). AI에게 묻기 → 포털에서 다시 검색 → 확인하고 결정을 실제 화면 흐름으로. 아래는 포털 첫 화면 예시(코드)와 칸마다 저희가 맡는 일 */}
+      <section className="dp-sec geo-sec rv gt" id="twice">
+        <div className="dp-w gt-head">
+          <div>
+            <p className="geo-eb">두 번째 검색</p>
+            <h2>
+              제로클릭의 시대라지만,{" "}
+              <br />
+              <span>고객은 한 번 더 검색합니다</span>
+            </h2>
+          </div>
+          <div className="gt-side">
+            <p className="geo-lead">
+              AI 답변에서 브랜드 이름을 알게 된 고객은 거기서 바로 결정하지 않습니다. 네이버·구글에 그 이름을 다시 쳐서 후기와 리뷰로 확인한 뒤에 움직입니다.
+            </p>
+              <blockquote className="geo-quote">
+                <p>"네이버·구글 같은 검색 엔진으로 정보를 교차 검증하는 사례가 증가"</p>
+                <cite>
+                  <a href="https://www.etnews.com/20261026000292" target="_blank" rel="noopener noreferrer">
+                    전자신문, 2026. 10. 26.
+                  </a>
+                </cite>
+              </blockquote>
+          </div>
+        </div>
+        <div className="gt-stage">
+          <div className="dp-w">
+            <ol className="gj" aria-label="고객이 브랜드를 고르는 세 화면, 예시">
+              <li className="gj-step" style={vars({ i: 0 })}>
+                <p className="gj-lb">
+                  <em>01</em> AI에게 묻기
+                  <small>AI가 후보 서너 곳을 골라 줍니다</small>
+                </p>
+                <div className="gj-ph" aria-hidden="true">
+                  <div className="gj-sb"><b>9:41</b><span /></div>
+                  <div className="gj-scr gj-chat">
+                    <div className="gj-appbar"><i className="gj-menu" /><b>AI 검색</b><i className="gj-new" /></div>
+                    <div className="gj-body">
+                      <p className="gj-me">민감한 피부에 쓸 보습 크림 추천해 줘</p>
+                      <div className="gj-src">
+                        <small>출처 6곳</small>
+                        <div><span><i>B</i>민감 피부 보습 크림 정리</span><span><i>S</i>쇼핑 · 리뷰 많은 크림</span><span><i>N</i>보습 크림 고르는 법 기사</span></div>
+                      </div>
+                      <div className="gj-ans">
+                        <p>순한 보습 크림을 찾으신다면 이런 제품이 자주 언급돼요.</p>
+                        <ol>
+                          <li><b className="hit">OO 수분크림</b><span>향이 없고 흡수가 빠르다는 평이 많아요</span></li>
+                          <li><b>△△ 시카크림</b><span>가볍게 바르기 좋아요</span></li>
+                          <li><b>□□ 장벽크림</b><span>건조한 계절에 많이 찾아요</span></li>
+                        </ol>
+                        <p className="gj-more">OO 수분크림은 끈적이지 않아서 아침에 쓰기 좋다는 후기가 많아요.</p>
+                      </div>
+                    </div>
+                    <div className="gj-input"><span>무엇이든 물어보세요</span><i /></div>
+                  </div>
                 </div>
-                <p className="geo-serp-ours">{ours}</p>
-              </div>
-            ))}
+              </li>
+              <li className="gj-step" style={vars({ i: 1 })}>
+                <p className="gj-lb">
+                  <em>02</em> 포털에서 다시 검색
+                  <small>그 이름을 네이버·구글에 다시 칩니다</small>
+                </p>
+                <div className="gj-ph" aria-hidden="true">
+                  <div className="gj-sb"><b>9:41</b><span /></div>
+                  <div className="gj-scr gj-portal">
+                    <div className="gj-search"><i className="gj-mag" /><span>OO 수분크림 후기<em className="gj-caret" /></span></div>
+                    <div className="gj-tabs"><b>통합</b><span>블로그</span><span>쇼핑</span><span>이미지</span><span>뉴스</span></div>
+                    <div className="gj-body">
+                      <div className="gj-brief"><small>AI 요약</small><p>후기에서는 순하고 흡수가 빠르다는 평이 많아요.</p></div>
+                      <div className="gj-place-card">
+                        <div className="gj-pc-h"><b>OO 수분크림 50ml</b><small>공식 스토어</small></div>
+                        <p className="gj-pc-m"><em>★ 4.8</em> 리뷰 1,204 · <strong>32,000원</strong></p>
+                        <div className="gj-pics"><img src="/sf/ex/giftset.jpg" alt="" loading="lazy" decoding="async" /><span className="gj-zoom gj-lo"><img src="/sf/ex/cosme.jpg" alt="" loading="lazy" decoding="async" /></span><span className="gj-zoom"><img src="/sf/ex/giftset.jpg" alt="" loading="lazy" decoding="async" /></span></div>
+                      </div>
+                      <div className="gj-blog">
+                        <div><small>뷰티 기록 · 2일 전</small><b>예민한 피부로 OO 수분크림 한 통 다 써 본 후기</b><p>향이 없고 금방 스며들어서 아침 화장 전에도 밀리지 않았어요.</p></div>
+                        <span className="gj-zoom gj-lo"><img src="/sf/ex/cosme.jpg" alt="" loading="lazy" decoding="async" /></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li className="gj-step" style={vars({ i: 2 })}>
+                <p className="gj-lb">
+                  <em>03</em> 확인하고 구매
+                  <small>후기와 리뷰를 보고 나서 삽니다</small>
+                </p>
+                <div className="gj-ph" aria-hidden="true">
+                  <div className="gj-sb gj-sb-on"><b>9:41</b><span /></div>
+                  <div className="gj-scr gj-place">
+                    <div className="gj-hero"><img src="/sf/ex/giftset.jpg" alt="" loading="lazy" decoding="async" /><small>1 / 12</small></div>
+                    <div className="gj-body">
+                      <p className="gj-brand">OO 공식 스토어</p>
+                      <div className="gj-pl-h"><b>OO 수분크림 50ml</b></div>
+                      <p className="gj-pc-m"><em>★ 4.8</em> 리뷰 1,204</p>
+                      <p className="gj-price"><b>32,000원</b><span>오늘 출발 · 무료배송</span></p>
+                      <div className="gj-acts"><span><i className="a1" />문의</span><span><i className="a2" />찜</span><span><i className="a3" />매장 찾기</span><span><i className="a4" />공유</span></div>
+                      <div className="gj-kw"><small>이런 점이 좋았어요</small><p><span style={vars({ w: 92 })}>촉촉해요<b>512</b></span><span style={vars({ w: 72 })}>순해요<b>388</b></span><span style={vars({ w: 48 })}>흡수가 빨라요<b>241</b></span></p></div>
+                    </div>
+                    <div className="gj-cta"><span>구매하기</span></div>
+                  </div>
+                </div>
+              </li>
+            </ol>
             <Ex>예시 화면</Ex>
           </div>
         </div>
-        <p className="geo-stmt">
-          두 번째 검색에서도 네이버 AI 브리핑과 구글 AI 개요가 먼저 요약해 줍니다. <span>그 요약의 재료는 블로그 후기입니다.</span>
-        </p>
-      </CSec>
+        <div className="dp-w gt-ours">
+          <h3>
+            두 번째 검색에서 고객이 보는 세 곳도{" "}
+            <span className="nw">함께 설계해야 합니다</span>
+          </h3>
+          <ol>
+            {SERP.map(([k, line, ours], i) => (
+              <li key={k} style={vars({ i })}>
+                <small>{k}</small>
+                <b>{ours}</b>
+                <span>예: {line}</span>
+              </li>
+            ))}
+          </ol>
+          <p className="geo-stmt">
+            두 번째 검색에서도 네이버 AI 브리핑과 구글 AI 개요가 먼저 요약해 줍니다. <span>그 요약의 재료는 외부 언급입니다.</span>
+          </p>
+        </div>
+      </section>
+
+      {/* ③ 왜 지금(11-08 대표 「퍼포먼스 페이지처럼 기사처럼」): 퍼포먼스 근거 칸(pp-*) 부품으로 콜라주.
+          왼쪽 큰 카드 = 91.4%(포털을 떠나지 않는다), 가운데 = 한국경제 기사 스크랩, 오른쪽 = 구글 블로그 화면, 아래 = 과기정통부 조사 막대와 저희 실측. 숫자는 PRESS(원문 확인 11-07) 그대로 */}
+      <section className="dp-sec geo-sec rv gw" id="why">
+        <div className="dp-w">
+          <div className="gt-head">
+            <div>
+              <p className="geo-eb">왜 지금인가</p>
+              <h2>
+                AI에게 묻는 사람이 늘어도,{" "}
+                <br />
+                <span>포털을 떠나지는 않습니다</span>
+              </h2>
+            </div>
+            <p className="pp-note gw-note">기사 원문을 확인한 숫자만 옮겼습니다. 카드를 누르면 원문으로 갑니다.</p>
+          </div>
+          <div className="pp-grid gw-grid">
+            <a className="pp-card pp-stat gw-stat" href={PRESS[4][5]} target="_blank" rel="noopener noreferrer">
+              <div className="pp-cover" aria-hidden="true">
+                <span>MOBILE INDEX</span>
+                <span>2026</span>
+              </div>
+              <em className="pp-tag">모바일인덱스 · 전자신문</em>
+              <p className="pp-big">
+                91.4<small>%</small>
+              </p>
+              <p className="gw-cap">챗GPT 이용자 열 명 중 아홉 명은 네이버도 씁니다.</p>
+              <div className="gw-venn" aria-hidden="true">
+                <i className="a"><span>챗GPT</span></i>
+                <i className="b"><span>네이버</span></i>
+              </div>
+              <p className="gw-both">
+                둘 다 쓰는 사람 <b>1,646만 명</b>
+                <span>1년 새 41.9% 늘었습니다</span>
+              </p>
+              <span className="pp-src">전자신문 · 2026. 10. 26. 원문 보기 ↗</span>
+            </a>
+
+            <a className="pp-card pp-news gw-news" href={PRESS[0][5]} target="_blank" rel="noopener noreferrer">
+              <i className="pp-tape" aria-hidden="true" />
+              <div className="pp-mast">
+                <b>한국경제</b>
+                <span>2026. 11. 4.</span>
+              </div>
+              <p className="pp-kicker">와이즈앱·리테일 조사</p>
+              <p className="pp-head-q">
+                9월 챗GPT 앱 월간 사용자 <em>2,470만 명</em>, AI 앱 가운데 가장 많았습니다
+              </p>
+              <div className="pp-lines" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+                <i />
+              </div>
+              <span className="pp-read">기사 원문 보기 ↗</span>
+            </a>
+
+            <a className="pp-card pp-win gw-google" href={PRESS[1][5]} target="_blank" rel="noopener noreferrer">
+              <div className="pp-bar" aria-hidden="true">
+                <i />
+                <i />
+                <i />
+                <span>blog.google/intl/ko-kr</span>
+              </div>
+              <em className="pp-tag">구글 공식 · 2026. 8. 12.</em>
+              <p className="pp-big sm">
+                10<small>억 명</small>
+              </p>
+              <p className="gw-txt">제미나이 앱 월간 활성 이용자가 10억 명을 넘었다고 구글이 공식 블로그에서 밝혔습니다.</p>
+              <span className="pp-src">구글코리아 블로그 ↗</span>
+            </a>
+
+            <a className="pp-card gw-report" href={PRESS[2][5]} target="_blank" rel="noopener noreferrer">
+              <em className="pp-tag">과학기술정보통신부 실태조사 · 만 19~69세 2,500명</em>
+              <ul className="gw-bars">
+                <li style={vars({ v: 78.1, i: 0 })}>
+                  <span>생성형 AI를 써 본 사람</span>
+                  <i aria-hidden="true" />
+                  <b>78.1%</b>
+                </li>
+                <li style={vars({ v: 60, i: 1 })}>
+                  <span>그중 검색의 절반 이상을 AI로 대신한다</span>
+                  <i aria-hidden="true" />
+                  <b>60%</b>
+                </li>
+              </ul>
+              <span className="pp-src">「2025년 부가통신사업 실태조사」, 파이낸셜투데이 · 2026. 6. 3. ↗</span>
+            </a>
+
+            <div className="pp-card gw-own" aria-label="저희 사이트 실측값">
+              <p>
+                <b>저희 사이트를 잰 값</b>
+                <span>realGEO · 2026. 9. 7. · 질문 10개</span>
+              </p>
+              <ul>
+                <li>
+                  근거 인용률 <b>40%</b>
+                </li>
+                <li>
+                  AI 브리핑 인용률 <b>22%</b>
+                </li>
+                <li>
+                  웹 건강도 <b>100</b>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ③ 자체 툴 realGEO: 실제 화면 열 장이 원을 그리며 돌아가는 코너벨 (GeoToolReel) */}
       <CSec
@@ -359,75 +509,6 @@ export default function GeoDoc() {
           ))}
         </ul>
         <p className="geo-note geo-menu-note">브랜드 검색 첫 화면도 점검해 따로 적어 드립니다.</p>
-      </CSec>
-
-      {/* ④ 일반적인 생각 vs 실제 */}
-      <CSec
-        tone="mist"
-        eb="순위와 AI 답변"
-        q={
-          <>
-            검색 1위면
-            <br />
-            <span>AI도 우리를 추천할까요?</span>
-          </>
-        }
-        sub="검색 결과와 AI 답변은 고르는 방식이 다릅니다. 순위가 높아도 AI 답에 이름이 없는 곳이 많습니다."
-      >
-        <div className="geo-cmp" aria-hidden="true">
-          <figure>
-            <figcaption>
-              <em>일반적인 생각</em>
-              <b>검색 결과</b>
-              <span>열 개가 목록으로 보입니다. "1위니까 AI도 우리를 말하겠지?"</span>
-            </figcaption>
-            <div className="deck" data-tiles="viral" data-pick="0" />
-          </figure>
-          <figure className="geo-cmp-on">
-            <figcaption>
-              <em>실제 AI 답변</em>
-              <b>문장 하나, 서너 곳만</b>
-              <span>AI는 순위가 아니라 '읽을 수 있는 정보'가 있는 곳을 고릅니다.</span>
-            </figcaption>
-            <div className="deck" data-tiles="search" data-pick="0" />
-          </figure>
-          <Ex>예시 화면</Ex>
-        </div>
-        <p className="geo-stmt">
-          순위에 속지 마세요. <span>AI는 '같은 정보·답이 되는 글·바깥 출처'가 있는 곳을 고릅니다.</span>
-        </p>
-        <ol className="geo-three">
-          {PICKS.map(([t, x], i) => (
-            <li key={t} style={vars({ i })}>
-              <b>{t}</b>
-              <span>{x}</span>
-            </li>
-          ))}
-        </ol>
-      </CSec>
-
-      {/* ④-1 11-08 새 칸 「브랜드 평판」. '밀어낸다·지워 드린다'는 쓰지 않음(어뷰징으로 읽히고 할 수 없는 일을 약속하게 됨) */}
-      <CSec
-        id="reputation"
-        eb="브랜드 평판"
-        q={
-          <>
-            부정적인 글보다{" "}
-            <br />
-            <span>사실에 맞는 글이 먼저 보이게 합니다</span>
-          </>
-        }
-        sub="브랜드 이름을 쳤을 때 오래된 불만 글이 맨 위에 있으면, AI 추천으로 데려온 고객도 거기서 돌아섭니다. 저희는 실제 이용 후기와 정확한 브랜드 정보를 꾸준히 올려 첫 화면을 채웁니다."
-      >
-        <ol className="geo-rep" aria-label="첫 화면 평판을 채우는 세 가지">
-          {REP.map(([t, x], i) => (
-            <li key={t} style={vars({ i })}>
-              <em>{String(i + 1).padStart(2, "0")}</em>
-              <b>{t}</b>
-              <span>{x}</span>
-            </li>
-          ))}
-        </ol>
       </CSec>
 
       {/* ⑥ 개발자와 마케터가 같은 회사 + 일반 대행과 다른 자리('한 팀' 표현은 11-03 기준으로 뺌) */}
@@ -557,65 +638,85 @@ export default function GeoDoc() {
         </p>
       </CSec>
 
-      {/* ⑧ 진행 순서 */}
-      <CSec
-        eb="진행 순서"
-        q={
-          <>
-            계약 전 측정부터 주간 리포트까지,
-            <br />
-            <span>다섯 단계</span>
-          </>
-        }
-        sub="시점을 약속하지는 않습니다. 업종과 지금 상태에 따라 다르고, 아래 기간은 보통 걸리는 범위입니다."
-      >
-        <ol className="geo-steps">
-          {STEPS.map(([t, x, when], i) => (
-            <li key={t} className={i === 0 ? "on" : undefined} style={vars({ i })}>
-              <em>{String(i + 1).padStart(2, "0")}</em>
-              <b>{t}</b>
-              <span>{x}</span>
-              <small>{when}</small>
-            </li>
-          ))}
-        </ol>
-      </CSec>
-
-      {/* ⑩ FAQ */}
-      <CSec eb="자주 묻는 질문" q="자주 묻는 질문" tone="mist">
-        <div className="geo-faq">
-          <Faq items={faq} />
-        </div>
-      </CSec>
-
-      {/* ⑪ 마무리: 당신의 브랜드는 지금 어떤 상태일까요? */}
-      <section className="geo-close" aria-label="마무리">
-        <div className="geo-close-bg" aria-hidden="true">
-          <i />
-          <i />
-          <i />
-        </div>
+      {/* ⑧ 마무리(11-08 대표): 인플루언서 활용 → 외부 언급 → 퍼포먼스를 한 회사에서 해야 GEO에 강하게 잡힌다. 세 갈래가 하나의 결과(AI 답변·포털 첫 화면)로 모이는 그림 */}
+      <section className="dp-sec geo-sec rv gf" id="one">
         <div className="dp-w">
-          <p className="geo-eb">지금 상태</p>
-          <h2>
-            당신의 브랜드는{" "}
-            <br />
-            지금 어떤 상태일까요?
-          </h2>
-          <p className="geo-close-s">
-            분석부터 전체적인 마케팅 설계까지,{" "}
-            <br />
-            지금 준비하세요.
-          </p>
-          <p className="geo-close-s2">AI가 뭐라고 답하는지, 이름을 검색하면 무엇이 먼저 보이는지 같이 재서 보내 드립니다.</p>
-          <div className="geo-close-b">
-            <a href="#contact" className="b1">
-              무료 AI 노출·평판 진단
-            </a>
-            <a href="tel:1670-0704">대표전화 1670-0704</a>
+          <div className="gt-head">
+            <div>
+              <p className="geo-eb">한 회사에서</p>
+              <h2>
+                인플루언서부터 퍼포먼스까지,{" "}
+                <br />
+                <span>
+                  한 회사에서 해야{" "}
+                  <br />
+                  GEO에 강하게 잡힙니다
+                </span>
+              </h2>
+            </div>
+            <div className="gt-side">
+              <p className="geo-lead">
+                인플루언서 콘텐츠로 이름이 알려지고, 기사와 후기로 외부 언급이 쌓이고, 퍼포먼스 광고가 그 이름을 더 많은 사람에게 보여 줍니다. 세 곳에 나눠 맡기면 말이 갈라지는데, 한 회사가 하면 같은 이름과 같은 사실로 쌓입니다.
+              </p>
+              <div className="dp-btns">
+                <a className="p1" href="#contact">
+                  무료 AI 노출·평판 진단
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="gf-map">
+            <ol className="gf-src">
+              {ONE.map(([t, x, img], i) => (
+                <li key={t} style={vars({ i })}>
+                  <img src={img} alt="" loading="lazy" decoding="async" />
+                  <div>
+                    <em>{String(i + 1).padStart(2, "0")}</em>
+                    <b>{t}</b>
+                    <span>{x}</span>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <svg className="gf-lines" viewBox="0 0 200 420" preserveAspectRatio="none" aria-hidden="true">
+              {["M0 70 C 110 70, 90 210, 200 210", "M0 210 L 200 210", "M0 350 C 110 350, 90 210, 200 210"].map((d, i) => (
+                <g key={d}>
+                  <path d={d} />
+                  <circle r="4">
+                    <animateMotion dur="2.4s" begin={`${i * 0.5}s`} repeatCount="indefinite" path={d} />
+                  </circle>
+                </g>
+              ))}
+            </svg>
+            <div className="gf-out">
+              <p className="gf-out-h">같은 이름이 두 검색에 함께 잡힙니다</p>
+              <div className="gf-ai">
+                <small>AI 답변</small>
+                <p>
+                  순한 보습 크림으로는 <b>OO 수분크림</b>이 자주 언급돼요.
+                </p>
+                <span>출처 · 유튜브 리뷰 · 기사 · 블로그 후기</span>
+              </div>
+              <div className="gf-portal">
+                <small>포털 첫 화면</small>
+                <div className="gf-q">
+                  <i aria-hidden="true" />
+                  OO 수분크림 후기
+                </div>
+                <p>
+                  <span>블로그 후기</span>
+                  <span>쇼핑 ★ 4.8</span>
+                  <span>기사</span>
+                </p>
+              </div>
+              <Ex>예시 화면</Ex>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* ⑩ FAQ: 퍼포먼스·인플루언서와 같은 부품 */}
+      <FaqBlock items={faq} note="여기 없는 질문은 문의로 남겨 주세요. 담당자가 답해 드립니다." />
 
       <ContactBlock title="AI 검색 최적화, 무료 AI 노출·평판 진단부터" label="무료 AI 노출·평판 진단" sub="브랜드 이름만 알려 주시면, 지금 AI가 뭐라고 답하는지 먼저 재서 보내 드리겠습니다." initial={["search"]} source="service_search" />
       </div>

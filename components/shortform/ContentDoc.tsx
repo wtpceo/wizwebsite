@@ -2,7 +2,7 @@ import Link from "next/link"
 import type { ReactNode } from "react"
 import { SERVICES } from "./content"
 import { DETAILS, MORE } from "./details"
-import { DocShell, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
+import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
 import { Ex, Chars, Nums, vars } from "./parts"
 import { Icon } from "./icons"
 import { WORKS } from "./Works"
@@ -14,13 +14,74 @@ import { NotFit, Reads } from "./DocMore"
  * 화면 문법은 인플루언서·바이럴 쪽(.gx.ix)과 같음. 장면 수·비율은 노하우 비공개라 쓰지 않음.
  */
 
-/** 외주로 찍을 때 / 저희가 찍을 때 — 왼쪽 칸은 특정 회사를 가리키지 않게 조건으로만 */
-const VS: [string, string, string][] = [
-  ["무엇을 찍을지", "브리프를 보고 감독이 정함", "광고를 돌릴 퍼포먼스팀이 반응 올 장면을 먼저 정함"],
-  ["반응이 떨어지면", "새 견적과 새 일정", "반응을 보고 다음 촬영을 다시 짬"],
-  ["찍은 소스", "납품한 영상 한 편", "광고·블로그·지도·홈페이지에 쓸 장면을 미리 나눠 찍음"],
-  ["끝난 뒤", "납품으로 끝", "조회수와 광고 반응을 같이 봄"],
+/** 하는 일 네 단계 [이름, 한 줄, 아이콘] */
+const PIPE: [string, string, "plan" | "content" | "infl" | "perf"][] = [
+  ["기획", "촬영 장면 목록을 먼저 만듭니다", "plan"],
+  ["촬영", "자체 촬영팀이 현장에 갑니다", "content"],
+  ["편집", "자막과 음악을 넣어 다듬습니다", "infl"],
+  ["게시", "릴스·쇼츠·블로그·지도에 나눠 올립니다", "perf"],
 ]
+
+/** 하루 촬영 납품 폴더(예시) [이름, 파일 종류, 쓸 곳] */
+const KIT: [string, string, string][] = [
+  ["숏폼 편집본", "MP4", "릴스·쇼츠·광고"],
+  ["원본 소스", "RAW", "다음 편집용"],
+  ["자막 파일", "SRT", "영상마다"],
+  ["썸네일", "JPG", "영상마다"],
+  ["제목 후보·설명 문구", "TXT", "게시할 때"],
+  ["보정 사진", "JPG", "지도·블로그·인스타"],
+]
+
+/** 세부 상품 사진 — 저희 촬영분 위주 */
+const PROD_IMG: Record<string, string> = {
+  "브랜디드 바이럴 영상": "/sf/pf/w6.jpg",
+  "숏폼 제작": "/sf/v/r15.jpg",
+  "방송·드라마 PPL": "/sf/ex/m-shoot.jpg",
+  "모델 캐스팅": "/sf/ex/fashion-look.jpg",
+  "SNS 채널 운영": "/sf/v/r31.jpg",
+  "제품·공간 포토그래피": "/sf/pf/w4.jpg",
+}
+
+/** 직접 찍은 숏폼 [파일, 업종] — 업체명·간판 보이는 편은 뺌 */
+const REELS: [string, string][] = [
+  ["r31", "고깃집"],
+  ["r15", "생선구이·회"],
+  ["r11", "소갈비"],
+  ["r22", "보양식"],
+  ["r03", "스크린골프"],
+]
+
+/** 직접 찍은 현장 사진 [파일, 설명] */
+const PHOTOS: [string, string][] = [
+  ["w1", "고깃집 한상"],
+  ["w4", "미용실 공간"],
+  ["w6", "토치로 마무리하는 장면"],
+  ["w2", "회 한 점"],
+  ["g6", "매장 공간"],
+  ["w5", "필라테스 공간"],
+  ["g2", "고기 손질"],
+  ["w3", "찜기 메뉴"],
+  ["m1", "찌개 메뉴"],
+  ["m3", "구이 메뉴"],
+  ["m2", "볶음 메뉴"],
+]
+
+/** 맨 뒤 예시(생성 장면) */
+const EX_REELS: [string, string][] = [
+  ["b1", "세럼 후기"],
+  ["f1", "출근룩"],
+  ["b2", "메이크업"],
+]
+
+/** 자체 촬영팀 두 칸 사진·표시 */
+const DIFF_IMG = ["/sf/pf/w1.jpg", "/sf/ex/m-shoot.jpg"]
+const DIFF_TAGS = [
+  ["광고", "블로그", "지도", "홈페이지"],
+  ["퍼포먼스팀 촬영 회의 참여"],
+]
+
+/** 같이 하면 사진 */
+const PAIR_IMG: Record<string, string> = { infl: "/sf/pf/infl-beauty.jpg", perf: "/sf/ex/m-shop.jpg" }
 
 /** 촬영 장면 목록 예시 [장면, 그림, 쓸 곳들] — 사진은 저희 촬영 예시 컷 */
 const SCENES: [string, string, string[]][] = [
@@ -94,66 +155,22 @@ export default function ContentDoc() {
             </h1>
             <p className="vx-era">광고 소재는 금방 닳습니다</p>
             <p className="dp-lead">
-              어떤 장면에 반응이 오는지 퍼포먼스팀이 먼저 알려 주고, 자체 촬영팀이 그 장면을 찍습니다.
+              어떤 장면에 반응이 오는지 퍼포먼스팀이 먼저 <span className="nw">알려 주고,</span>{" "}
               <br />
-              광고 반응을 보고 <span className="nw">다음 촬영을 다시 짭니다.</span>
-            </p>
-            <p className="vx-first">
-              <span>접근 방식</span>
-              촬영 날짜를 잡기 전에, 그날 찍은 장면을 어디에 쓸지부터 정합니다.
+              자체 촬영팀이 <span className="nw">그 장면을 찍습니다.</span>
             </p>
             <div className="dp-btns">
               <a className="p1" href="#contact">
-                지금 쓰는 소재 무료 점검
-              </a>
-              <a className="p2 vx-tel" href="tel:16700704" data-tel>
-                대표전화 1670-0704
+                문의하기
               </a>
             </div>
             <p className="vx-trust">자체 촬영팀 · 퍼포먼스팀 촬영 회의 참여 · <span className="nw">숏폼 360편 넘게 · 전담 AE</span></p>
           </div>
-          <a className="ix-cue" href="#outsourced" aria-label="외주 촬영과 다른 점으로 내려가기">
-            <span>외주 촬영과 다른 점</span>
+          <a className="ix-cue" href="#shotlist" aria-label="촬영 장면 목록으로 내려가기">
+            <span>위즈더플래닝은 이렇게 일해요</span>
             <i aria-hidden="true" />
           </a>
         </section>
-
-        {/* ② 외주로 찍을 때(어두운 바탕): 비교표 */}
-        <div className="ix-dark">
-          <CSec
-            id="outsourced"
-            eb="외주로 찍을 때"
-            tone="k"
-            cls="ix-fit cx-out"
-            q={
-              <>
-                외주 촬영은 납품 날 끝나고,{" "}
-                <br />
-                <span>광고는 그날 시작합니다</span>
-              </>
-            }
-            sub="광고 성과는 소재를 올린 다음부터 보입니다. 저희는 그 숫자를 보는 퍼포먼스팀과 찍는 촬영팀이 같은 회사에 있어서, 반응을 보고 다음 촬영을 바로 고칩니다."
-          >
-            <div className="px-vs-t vx-vs" role="table" aria-label="외주로 찍을 때와 저희가 찍을 때">
-              <div className="px-vs-h" role="row">
-                <span role="columnheader" aria-label="구분" />
-                <span role="columnheader">외주로 찍을 때</span>
-                <span role="columnheader" className="us">
-                  저희가 찍을 때
-                </span>
-              </div>
-              {VS.map(([k, a, b]) => (
-                <div className="px-vs-r" role="row" key={k}>
-                  <b role="rowheader">{k}</b>
-                  <span role="cell">{a}</span>
-                  <span role="cell" className="us">
-                    {b}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </CSec>
-        </div>
 
         {/* ③ 한 번 찍는 날: 장면 목록 예시 보드 */}
         <CSec
@@ -161,14 +178,14 @@ export default function ContentDoc() {
           eb="촬영 장면 목록"
           q={
             <>
-              촬영하는 날,{" "}
+              저희 촬영팀은{" "}
               <br />
               <span>
-                <span className="nw">쓸 곳을</span> 다 정해 갑니다
+                <span className="nw">어디에 쓸지</span> 알고 찍습니다
               </span>
             </>
           }
-          sub="촬영 전에 장면 목록을 만들고, 장면마다 어디에 쓸지 적어 갑니다. 그래서 하루 촬영으로 광고 소재 여러 버전과 지도 대표 사진, 블로그·체험단 가이드 사진, 홈페이지 사진까지 나옵니다."
+          sub="외주가 아니라 같은 회사 촬영팀이라, 이 장면이 광고 소재가 될지 지도 대표 사진이 될지 블로그 가이드에 들어갈지 찍기 전에 압니다. 그래서 하루 촬영에서 여러 소재로 나눠 쓸 수 있는 콘텐츠 재료를 함께 찍어 옵니다."
         >
           <div className="cx-board" aria-label="촬영 장면 목록 예시">
             <div className="cx-board-h">
@@ -196,98 +213,224 @@ export default function ContentDoc() {
           </div>
         </CSec>
 
-        {/* ④ 무엇을 하나요(첫 문단만 고침) */}
-        <CSec id="what" eb="하는 일" tone="mist" q={d.q1}>
-          <ol className="vx-what">
-            {d.overview.map((p, i) => (
-              <li key={p} style={vars({ i })}>
-                <em>{String(i + 1).padStart(2, "0")}</em>
-                <p>{p}</p>
-              </li>
-            ))}
-          </ol>
-        </CSec>
-
-        {/* ⑤ 세부 상품(그대로) + 실제 결과물 */}
-        <CSec id="items" eb="세부 상품" q={`${s.n}에는 어떤 상품이 있나요?`} sub={d.itemsLead}>
-          <ul className="vx-items">
-            {s.items.map(([n, t], i) => (
-              <li key={n} style={vars({ i })}>
-                <b>{n}</b>
-                <span>{d.itemNotes?.[n] || t}</span>
-              </li>
-            ))}
-          </ul>
-          {w ? (
-            <>
-              <p className="vx-sub-h">{w.q || "실제로 어떤 결과물이 나오나요?"}</p>
-              <p className="vx-sub-p">{w.lead}</p>
-              <ul className="dp-works">
-                {w.items.map((it, i) => {
-                  if ("tiles" in it) {
-                    return (
-                      <li key={i} className="wk-tl" style={vars({ n: i })}>
-                        <div className="wk-dk" data-tiles={it.tiles} data-pick={it.pick} aria-hidden="true" />
-                        <span>{it.cap}</span>
-                      </li>
-                    )
-                  }
-                  if ("video" in it) {
-                    return (
-                      <li key={i} className="wk-v" style={vars({ n: i })}>
-                        <video data-src={it.video} poster={it.poster} muted loop playsInline preload="none" aria-label={it.cap} />
-                        <span>{it.cap}</span>
-                      </li>
-                    )
-                  }
-                  return (
-                    <li key={i} className={it.wide ? "wk-w" : it.tall ? "wk-tall" : it.reel ? "wk-r" : it.img.startsWith("/sf/pf/") ? "wk-p" : undefined} style={vars({ n: i })}>
-                      <img src={it.img} alt={it.cap} width={it.w} height={it.h} loading="lazy" decoding="async" />
-                      <span>{it.cap}</span>
+        {/* ④ 하는 일(11-08 대표 「디자인」): 기획 → 촬영 → 편집 → 게시 네 칸 + 하루 촬영 납품 폴더(예시) + 채널 소유 */}
+        <section className="dp-sec geo-sec geo-sec-mist rv cw-what" id="what">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">하는 일</p>
+                <h2>
+                  기획부터 게시까지,{" "}
+                  <br />
+                  <span>외주 없이 저희가 합니다</span>
+                </h2>
+              </div>
+              <p className="geo-lead">{d.overview[0]}</p>
+            </div>
+            <ol className="cw-pipe" aria-label="콘텐츠가 만들어지는 네 단계">
+              {PIPE.map(([t, x, k], i) => (
+                <li key={t} style={vars({ i })}>
+                  <span className="ic" aria-hidden="true">
+                    <Icon k={k} />
+                  </span>
+                  <em>{String(i + 1).padStart(2, "0")}</em>
+                  <b>{t}</b>
+                  <span className="tx">{x}</span>
+                </li>
+              ))}
+            </ol>
+            <div className="cw-what-grid">
+              <div className="cw-kit" aria-label="촬영 하루치 납품 폴더 예시">
+                <div className="cw-kit-h">
+                  <i aria-hidden="true" />
+                  <b>촬영 하루치 납품 폴더</b>
+                  <Ex>예시</Ex>
+                </div>
+                <ul>
+                  {KIT.map(([n, t, use]) => (
+                    <li key={n}>
+                      <span className="cw-file" data-t={t} aria-hidden="true">
+                        {t}
+                      </span>
+                      <b>{n}</b>
+                      <small>{use}</small>
                     </li>
-                  )
-                })}
+                  ))}
+                </ul>
+              </div>
+              <div className="cw-notes">
+                <div className="cw-note">
+                  <em>한 번 찍고 여러 곳에</em>
+                  <p>한 번 촬영한 소스를 지도 대표 사진, 블로그, 인스타, 광고에 나눠 씁니다. 영상마다 제목 후보와 썸네일, 설명, 자막 파일까지 준비합니다.</p>
+                </div>
+                <div className="cw-note cw-note-k">
+                  <em>채널은 고객사 소유</em>
+                  <p>{d.overview[2]}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ⑤ 세부 상품(11-08 대표 「디자인」): 여섯 상품을 사진 카드로. 사진은 저희 촬영분 위주 */}
+        <section className="dp-sec geo-sec rv cw-items" id="items">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">세부 상품</p>
+                <h2>
+                  {s.n}에는{" "}
+                  <br />
+                  <span>이런 상품이 있습니다</span>
+                </h2>
+              </div>
+              <p className="geo-lead">필요한 것만 골라 맡기시면 됩니다. 여러 개를 같이 맡기시면 한 번 촬영으로 나눠 만듭니다.</p>
+            </div>
+            <ul className="cw-prod">
+              {s.items.map(([n, t], i) => (
+                <li key={n} style={vars({ i })}>
+                  <figure>
+                    <img src={PROD_IMG[n] ?? "/sf/pf/w1.jpg"} alt="" loading="lazy" decoding="async" />
+                  </figure>
+                  <div>
+                    <em>{String(i + 1).padStart(2, "0")}</em>
+                    <b>{n}</b>
+                    <span>{d.itemNotes?.[n] || t}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* ⑥ 직접 찍은 결과물(11-08 대표 「큰 예시 세 장은 뒤로, 우리 레퍼런스를 더」): 릴스 다섯 편 → 현장 사진 열한 장 → 맨 뒤에 뷰티·패션 예시 세 편(작게) */}
+        <section className="dp-sec geo-sec rv cw-works" id="works">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">직접 찍은 결과물</p>
+                <h2>
+                  저희 촬영팀이{" "}
+                  <br />
+                  <span>현장에서 찍은 것들입니다</span>
+                </h2>
+              </div>
+              <p className="geo-lead">숏폼은 지금까지 360편 넘게 만들었습니다. 업체 이름과 간판이 보이는 장면은 빼고 골랐습니다.</p>
+            </div>
+            <ul className="dp-works cw-reels">
+              {REELS.map(([v, cap], i) => (
+                <li key={v} className="wk-v" style={vars({ n: i })}>
+                  <video data-src={`/sf/v/${v}.mp4`} poster={`/sf/v/${v}.jpg`} muted loop playsInline preload="none" aria-label={`숏폼: ${cap}`} />
+                  <span>{cap}</span>
+                </li>
+              ))}
+            </ul>
+            <ul className="cw-photos">
+              {PHOTOS.map(([f, cap], i) => (
+                <li key={f} style={vars({ i })}>
+                  <img src={`/sf/pf/${f}.jpg`} alt={cap} loading="lazy" decoding="async" />
+                  <span>{cap}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="cw-ex">
+              <p>
+                <b>뷰티·패션 숏폼</b>
+                <span>이런 장면은 예시로 보여 드립니다.</span>
+              </p>
+              <ul className="dp-works cw-ex-list">
+                {EX_REELS.map(([v, cap], i) => (
+                  <li key={v} className="wk-v" style={vars({ n: i })}>
+                    <video data-src={`/sf/v/${v}.mp4`} poster={`/sf/v/${v}.jpg`} muted loop playsInline preload="none" aria-label={`숏폼 예시: ${cap}`} />
+                    <span>예시 · {cap}</span>
+                  </li>
+                ))}
               </ul>
-            </>
-          ) : null}
-        </CSec>
+            </div>
+          </div>
+        </section>
 
-        {/* ⑥ 자체 팀이 촬영하면(둘째 항목 첫 문장 고침, 퍼포먼스 쪽 소재 칸과 같은 말) */}
-        <CSec id="diff" eb="자체 촬영팀" tone="mist" q={d.q3}>
-          <ol className="vx-diff">
-            {d.diff.map(([t, x], i) => (
-              <li key={t} style={vars({ i })}>
-                <em>{String(i + 1).padStart(2, "0")}</em>
-                <b>{t}</b>
-                <span>{x}</span>
-              </li>
-            ))}
-          </ol>
-        </CSec>
-
-        {/* ⑦ 브랜드 채널과 인플루언서(새 칸) */}
-        <CSec
-          id="channel"
-          eb="브랜드 채널과 인플루언서"
-          q={
-            <>
-              브랜드 채널 숏폼과 인플루언서 영상을{" "}
+        {/* ⑦ 자체 팀이 촬영하면: 두 장 사진 카드 */}
+        <section className="dp-sec geo-sec rv cw-diff" id="diff">
+          <div className="dp-w">
+            <p className="geo-eb">자체 촬영팀</p>
+            <h2>
+              자체 팀이 촬영하면{" "}
               <br />
-              <span>한 설계로 찍습니다</span>
-            </>
-          }
-          sub="브랜드 채널에 올릴 숏폼과 인플루언서가 올릴 영상을 따로 기획하지 않습니다. 같은 장면 목록에서 나누고, 반응 좋은 영상은 2차 활용 계약을 거쳐 광고 소재로 다시 씁니다."
-        >
-          <p className="vx-more">
-            <Link href="/services/influencer">한 번 찍은 콘텐츠가 쉬지 않고 일하는 방식</Link> 보기 →
-          </p>
-        </CSec>
+              <span>무엇이 다른가요?</span>
+            </h2>
+            <ol className="cw-diff-g">
+              {d.diff.map(([t, x], i) => (
+                <li key={t} style={vars({ i })}>
+                  <figure>
+                    <img src={DIFF_IMG[i]} alt="" loading="lazy" decoding="async" />
+                    <figcaption>{DIFF_TAGS[i].map((g) => <span key={g}>{g}</span>)}</figcaption>
+                  </figure>
+                  <div>
+                    <em>{String(i + 1).padStart(2, "0")}</em>
+                    <b>{t}</b>
+                    <p>{x}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* ⑧ 브랜드 채널과 인플루언서: 같은 장면 목록에서 두 계정으로, 반응 좋은 영상은 광고 소재로 */}
+        <section className="dp-sec geo-sec geo-sec-mist rv cw-ch" id="channel">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">브랜드 채널과 인플루언서</p>
+                <h2>
+                  브랜드 채널 숏폼과 인플루언서 영상을{" "}
+                  <br />
+                  <span>한 설계로 찍습니다</span>
+                </h2>
+              </div>
+              <div className="gt-side">
+                <p className="geo-lead">브랜드 채널에 올릴 숏폼과 인플루언서가 올릴 영상을 따로 기획하지 않습니다. 같은 장면 목록에서 나누고, 반응 좋은 영상은 2차 활용 계약을 거쳐 광고 소재로 다시 씁니다.</p>
+                <p className="vx-more">
+                  <Link href="/services/influencer">한 번 찍은 콘텐츠가 쉬지 않고 일하는 방식</Link> 보기 →
+                </p>
+              </div>
+            </div>
+            <div className="cw-ch-map" aria-hidden="true">
+              <div className="cw-ch-list">
+                <b>촬영 장면 목록</b>
+                <span>장면 A · 대표 메뉴</span>
+                <span>장면 B · 손질하는 손</span>
+                <span>장면 C · 매장 분위기</span>
+              </div>
+              <i className="cw-ch-ar" />
+              <div className="cw-ch-ph">
+                <div className="cw-phone">
+                  <img src="/sf/v/r31.jpg" alt="" loading="lazy" decoding="async" />
+                </div>
+                <small>브랜드 채널</small>
+              </div>
+              <div className="cw-ch-ph">
+                <div className="cw-phone">
+                  <img src="/sf/pf/infl-food.jpg" alt="" loading="lazy" decoding="async" />
+                </div>
+                <small>인플루언서 계정</small>
+              </div>
+              <i className="cw-ch-ar" />
+              <div className="cw-ch-ad">
+                <small>2차 활용 계약 뒤</small>
+                <b>광고 소재로 다시</b>
+                <span>반응 좋은 영상만</span>
+              </div>
+            </div>
+            <Ex>예시 화면</Ex>
+          </div>
+        </section>
 
         {/* ⑧ 진행 순서·리포트(그대로) */}
         <CSec
           id="process"
           eb="진행 순서"
-          tone="mist"
           q={
             <>
               장면 목록부터 게시·리포트까지,{" "}
@@ -326,38 +469,51 @@ export default function ContentDoc() {
           </div>
         </CSec>
 
-        {/* ⑨ 같이 하면(그대로) */}
-        <CSec id="pairs" eb="같이 하면" q={`${s.n}과 같이 하면 좋은 서비스는 무엇인가요?`} sub={d.pairsLead}>
-          <ul className="dp-pairs vx-pairs">
-            {d.pairs.map(([k, why]) => {
-              const o = SERVICES.find((x) => x.k === k)!
-              return (
-                <li key={k}>
-                  <Link href={`/services/${o.slug}`}>
-                    <span className="ic">
-                      <Icon k={o.k} />
-                    </span>
-                    <span>
-                      <b>{o.n}</b>
-                      <span>{why}</span>
-                    </span>
-                    <Icon k="arrow" className="ar" />
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
-        </CSec>
+        {/* ⑨ 같이 하면(11-08 디자인): 사진 카드 두 장 */}
+        <section className="dp-sec geo-sec geo-sec-mist rv cw-pairs" id="pairs">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">같이 하면</p>
+                <h2>
+                  찍은 영상은{" "}
+                  <br />
+                  <span>여기에도 씁니다</span>
+                </h2>
+              </div>
+              <p className="geo-lead">브랜드 채널에 올린 숏폼을 인플루언서 계정에도 같이 올리고, 반응 좋은 영상은 광고 소재로 씁니다.</p>
+            </div>
+            <ul className="cw-pair">
+              {d.pairs.map(([k, why]) => {
+                const o = SERVICES.find((x) => x.k === k)!
+                return (
+                  <li key={k}>
+                    <Link href={`/services/${o.slug}`}>
+                      <img src={PAIR_IMG[k] ?? "/sf/pf/w1.jpg"} alt="" loading="lazy" decoding="async" />
+                      <span className="cw-pair-tx">
+                        <b>{o.n}</b>
+                        <span>{why}</span>
+                      </span>
+                      <span className="cw-pair-ar" aria-hidden="true">
+                        <Icon k="arrow" />
+                      </span>
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        </section>
 
         <NotFit items={m.notFit} />
 
-        {/* ⑩ FAQ(그대로) */}
-        <CSec id="faq" eb="자주 묻는 질문" tone="mist" q={`${s.n} 자주 묻는 질문`}>
-          <div className="geo-faq">
-            <Faq items={d.faq} />
+        {/* ⑩ FAQ: 퍼포먼스·인플루언서·GEO와 같은 부품 */}
+        <FaqBlock items={d.faq} note="여기 없는 질문은 문의로 남겨 주세요. 담당자가 답해 드립니다." />
+        {m.reads ? (
+          <div className="dp-w">
+            <Reads items={m.reads} />
           </div>
-          {m.reads ? <Reads items={m.reads} /> : null}
-        </CSec>
+        ) : null}
 
         {/* ⑪ 문의 */}
         <ContactBlock title={d.ct?.title ?? `${s.n}, 진단 신청부터 시작하세요.`} sub={d.ct?.sub} label={d.ct?.label} initial={[s.k]} source={`service_${s.slug}`} />

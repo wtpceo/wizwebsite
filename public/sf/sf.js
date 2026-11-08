@@ -114,7 +114,7 @@ var H4=(function(){
       influencer:['v/b1','pf/infl-fashion','v/s6','pf/infl-food','v/f1','pf/infl-beauty','v/s1','ex/m-reel','v/f2','ex/fcafe','v/b2','ex/m-phone'],
       performance:['ex/cosme','ex/fashion-look','ex/sunscreen','ex/m-shop','ex/giftset','ex/fashion-detail','ex/makeup','ex/shop','ex/beauty-flat','ex/fnb-dessert','ex/fashion-store','ex/m-phone'],
       search:['ex/fnb-store','ex/dental','ex/cafe','ex/hanui','ex/salon','ex/pasta','ex/derma','ex/pilates','ex/bbq','ex/academy','ex/m-dental','ex/ortho'],
-      content:['ex/m-shoot','v/r31','ex/shootcos','v/s3','ex/m-chef','v/b2','ex/m-reel','v/r15','ex/m-salon','v/s4','ex/makeup','v/f1'],
+      content:['v/r31','pf/w1','ex/m-shoot','v/r15','pf/w6','v/r11','pf/w4','v/r22','ex/shootcos','pf/w2','v/r03','pf/g2'], /* 11-08 대표 「배경을 우리 레퍼런스로」: 12장 중 10장이 저희가 직접 찍은 릴스·현장 사진, 촬영 현장 예시 2장만 남김 */
       viral:['ex/fcafe','ex/pasta','ex/sashimi','ex/fnb-dessert','ex/pension','ex/m-family','ex/bbq','ex/cafe','ex/fnb-dish','ex/beauty-salon','pf/m1','ex/palace'],
       global:['ex/m-tourist','ex/myeong','ex/palace','ex/cosme','ex/makeup','ex/sunscreen','ex/m-shop','ex/fnb-store','v/s5','ex/giftset','ex/beauty-salon','ex/fashion-look'],
       homepage:['ex/m-team','pf/w4','ex/m-phone','ex/seminar','pf/g6','ex/cafe','ex/dental','pf/w5','ex/pension','ex/fnb-store','ex/m-shop','ex/academy'],
