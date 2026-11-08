@@ -32,35 +32,67 @@ export function Words({ text, start = 0 }: { text: string; start?: number }) {
   )
 }
 
-/** 글자 하나씩 올라오는 자막 */
-export function Chars({ text, start = 0 }: { text: string; start?: number }) {
+/** 글자 하나씩 올라오는 자막.
+ *  mark를 주면 그 어구(예: "쉬지 않고")의 낱말들을 <span class="mk"> 하나로 묶는다. 강조 띠를 한 상자에 그리려고(낱말마다 그리면 대체 글꼴 탓에 높이가 달라 띠가 어긋남). mark가 없으면 예전과 똑같이 그린다 */
+export function Chars({ text, start = 0, mark }: { text: string; start?: number; mark?: string }) {
   let i = start
   const lines = text.split("\n")
+  const mw = mark ? mark.split(" ") : []
+  const word = (w: string) => (
+    // 낱말 안에서는 줄이 꺾이지 않게 한 덩어리로
+    <span className="wd">
+      {Array.from(w).map((c, ci) => {
+        const n = i++
+        return (
+          <span key={ci} className="ch" style={{ "--i": n } as V}>
+            {c}
+          </span>
+        )
+      })}
+    </span>
+  )
   return (
     <>
-      {lines.map((line, li) => (
-        <Fragment key={li}>
-        <span className="ln">
-          {line.split(" ").map((word, wi, words) => (
-            <span key={wi}>
-              {/* 낱말 안에서는 줄이 꺾이지 않게 한 덩어리로 */}
-              <span className="wd">
-                {Array.from(word).map((c, ci) => {
-                  const n = i++
-                  return (
-                    <span key={ci} className="ch" style={{ "--i": n } as V}>
-                      {c}
+      {lines.map((line, li) => {
+        const words = line.split(" ")
+        let k = -1
+        if (mw.length) k = words.findIndex((_, x) => mw.every((m, y) => words[x + y] === m))
+        const out: ReactNode[] = []
+        words.forEach((w, wi) => {
+          const tail = wi < words.length - 1 ? " " : null
+          if (k >= 0 && wi === k) {
+            const grp = words.slice(k, k + mw.length)
+            out.push(
+              <span key={wi}>
+                <span className="mk">
+                  {grp.map((g, gi) => (
+                    <span key={gi}>
+                      {word(g)}
+                      {gi < grp.length - 1 ? " " : null}
                     </span>
-                  )
-                })}
-              </span>
-              {wi < words.length - 1 ? " " : null}
-            </span>
-          ))}
-        </span>
-        {li < lines.length - 1 ? " " : null}
-        </Fragment>
-      ))}
+                  ))}
+                </span>
+                {k + mw.length < words.length ? " " : null}
+              </span>,
+            )
+          } else if (k >= 0 && wi > k && wi < k + mw.length) {
+            return
+          } else {
+            out.push(
+              <span key={wi}>
+                {word(w)}
+                {tail}
+              </span>,
+            )
+          }
+        })
+        return (
+          <Fragment key={li}>
+            <span className="ln">{out}</span>
+            {li < lines.length - 1 ? " " : null}
+          </Fragment>
+        )
+      })}
     </>
   )
 }

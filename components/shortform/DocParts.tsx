@@ -79,7 +79,7 @@ export function Faq({ items }: { items: [string, string][] }) {
   )
 }
 
-export function ContactBlock({ title, sub, label, initial = [], source, pt }: { title: string; sub?: string; label?: string; initial?: string[]; source: string; pt?: boolean }) {
+export function ContactBlock({ title, sub, label, initial = [], source, pt }: { title: string; sub?: ReactNode; label?: string; initial?: string[]; source: string; pt?: boolean }) {
   return (
     <section className="dp-ct" id="contact" aria-label="문의하기">
       <div className="dp-w dp-ct-in">

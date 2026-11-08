@@ -162,7 +162,7 @@ export default function InflDoc() {
             {/* 11-08 대표: 첫 화면 위 경로 표시(홈 › 서비스명)는 뺌. 구조화 데이터의 BreadcrumbList는 그대로 */}
             <p className="geo-kw">인플루언서 협업, 한 번으로 끝내셨나요?</p>
             <h1 aria-label="한 번 찍은 콘텐츠가 쉬지 않고 일합니다">
-              <Chars text={"한 번 찍은 콘텐츠가\n쉬지 않고 일합니다"} />
+              <Chars text={"한 번 찍은 콘텐츠가\n쉬지 않고 일합니다"} mark="쉬지 않고" />
             </h1>
             {/* 11-08 대표: 제목과 부제 사이에 매체 이름이 눈에 띄게 */}
             <ol className="ix-tags" aria-label="맡는 매체">
@@ -206,7 +206,7 @@ export default function InflDoc() {
           cls="ix-fit"
           q={
             <>
-              용도별로 핏에 맞는{" "}
+              브랜드 핏에 맞는{" "}
               <br />
               <span>인플루언서를 섭외합니다</span>
             </>
@@ -429,7 +429,13 @@ export default function InflDoc() {
         {/* ⑨ 문의 */}
         <ContactBlock
           title="인플루언서 협업, 제안 요청부터"
-          sub="첫 미팅은 가능한 결정권자가 동행해 주시길 부탁드립니다. 빠른 시일 안에 연락드리겠습니다."
+          sub={
+            <>
+              첫 미팅은 가능한 결정권자가 동행해 주시길 부탁드립니다.
+              <br />
+              빠른 시일 안에 연락드리겠습니다.
+            </>
+          }
           label="제안 요청 보내기"
           initial={["infl"]}
           source="service_influencer"
