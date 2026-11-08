@@ -79,6 +79,26 @@ export function Faq({ items }: { items: [string, string][] }) {
   )
 }
 
+/** 11-08 대표가 고른 FAQ 디자인(퍼포먼스 → 인플루언서도 같게): 왼쪽 「자주 묻는 질문」 제목·문의 안내(스크롤 따라옴), 오른쪽 번호 붙은 질문 카드. 스타일은 sf-doc.css .px-faq */
+export function FaqBlock({ items, note = "여기 없는 질문은 문의로 남겨 주세요. 전담 AE가 답해 드립니다." }: { items: [string, string][]; note?: string }) {
+  const [before, after] = note.includes("문의") ? note.split("문의") : [note, ""]
+  return (
+    <section className="px-faq rv" aria-labelledby="faq-h">
+      <div className="dp-w fq-g">
+        <div className="fq-head">
+          <h2 id="faq-h">자주 묻는 질문</h2>
+          <p className="fq-more">
+            {before}
+            {after !== "" || note.includes("문의") ? <a href="#contact">문의</a> : null}
+            {after}
+          </p>
+        </div>
+        <Faq items={items} />
+      </div>
+    </section>
+  )
+}
+
 export function ContactBlock({ title, sub, label, initial = [], source, pt }: { title: string; sub?: ReactNode; label?: string; initial?: string[]; source: string; pt?: boolean }) {
   return (
     <section className="dp-ct" id="contact" aria-label="문의하기">

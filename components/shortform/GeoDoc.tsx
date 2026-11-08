@@ -26,6 +26,37 @@ const PRESS: [string, string, string, string, string, string, string][] = [
     "과학기술정보통신부가 만 19~69세 2,500명을 조사한 결과, 생성형 AI를 써 본 사람이 78.1%였습니다."],
   ["60", "%", "생성형 AI 이용자 중 '검색의 절반 이상을 AI로 대체했다'고 답한 비율", "같은 조사", "2026.6.3", "https://www.ftoday.co.kr/news/articleView.html?idxno=359909",
     "같은 조사에서 생성형 AI 이용자 열 명 중 여섯 명이 검색의 절반 이상을 AI로 대신하고 있다고 답했습니다."],
+  // 11-08 카피 세션: 앞의 네 장(AI로 옮겨 간다)을 뒤집는 다리. 기사에 '지난달'로만 적혀 있어 월은 쓰지 않고 보도 날짜만
+  ["91.4", "%", "챗GPT 이용자 가운데 네이버도 쓰는 비율", "아이지에이웍스 모바일인덱스, 전자신문", "2026.10.26", "https://www.etnews.com/20261026000292",
+    "챗GPT 이용자 열 명 중 아홉 명은 네이버도 씁니다. 같은 기사에 따르면 두 서비스를 함께 쓰는 사람은 1,646만 명으로 1년 새 41.9% 늘었습니다."],
+]
+
+/** 11-08 새 칸 「두 번째 검색」: 세 칸 그림 [이름, 한 줄, 아이콘] — 가운데 칸 강조 */
+const TWICE: [string, string, "search" | "viral" | "chat"][] = [
+  ["AI에게 추천받기", "후보 서너 곳이 이름으로 나옵니다", "chat"],
+  ["포털에서 이름 다시 치기", "네이버·구글에 그 이름을 그대로 칩니다", "search"],
+  ["후기와 리뷰 보고 결정", "첫 화면에 보이는 글로 마음을 정합니다", "viral"],
+]
+
+/** 포털 첫 화면 예시 칸 [칸 이름, 예시 줄, 저희가 맡는 일] */
+const SERP: [string, string, string][] = [
+  ["블로그 후기", "OO 한 달 써 본 솔직 후기 · 사진 12장", "실제 이용 후기가 위에 보이게 합니다"],
+  ["플레이스", "★ 4.7 · 방문자 리뷰 312 · 영업 중", "정보와 리뷰 응대를 정리합니다"],
+  ["기사", "OO, 2016년 시작한 브랜드가 걸어온 길", "사실에 맞는 브랜드 소개를 남깁니다"],
+  ["자동완성", "OO 후기 · OO 단점 · OO 환불", "고객이 붙여 치는 말에 답이 되는 글을 둡니다"],
+]
+
+/** 11-08 새 칸 「브랜드 평판」 세 가지 */
+const REP: [string, string][] = [
+  ["실제 이용 후기", "체험단·인플루언서 후기를 협찬 표시를 지켜 꾸준히 쌓습니다"],
+  ["정확한 브랜드 정보", "홈페이지·플레이스·기사에 같은 사실을 적습니다"],
+  ["신고 절차 안내", "허위 사실이나 명예훼손 글은 플랫폼 신고 절차를 안내해 드립니다"],
+]
+
+/** 11-08 FAQ 추가 두 개 */
+const FAQ_MORE: [string, string][] = [
+  ["AI 추천만 받으면 되지 않나요?", "추천받은 고객은 네이버나 구글에서 이름을 다시 찾아봅니다. 챗GPT 이용자 열 명 중 아홉 명은 네이버도 쓴다는 조사가 있습니다(전자신문, 2026. 10. 26.). 그때 보이는 후기와 리뷰가 결정을 가릅니다."],
+  ["부정적인 글을 지워 주나요?", "지워 드리지는 않습니다. 사실에 맞는 후기와 브랜드 정보가 먼저 보이도록 채우고, 허위 사실이나 명예훼손 글은 플랫폼 신고 절차를 안내해 드립니다."],
 ]
 
 /** 코너벨 열 장 [제목, 두 줄 설명, 그림, 대체문] — 전부 저희 회사 워크스페이스. 고객사명 없음 */
@@ -80,9 +111,9 @@ const PICKS: [string, string][] = [
 
 /** 비교표 — 우리 vs 일반 대행사 */
 const VS: [string, [string, string], [string, string]][] = [
-  ["재는 범위", ["SEO와 GEO를 한 팀이", "검색 순위와 AI 답변을 같이 봅니다"], ["둘 중 하나만", "AI 답변은 보지 않거나 다른 회사에 맡깁니다"]],
+  ["재는 범위", ["SEO와 GEO를 한 설계로", "검색 순위와 AI 답변을 같이 봅니다"], ["둘 중 하나만", "AI 답변은 보지 않거나 다른 회사에 맡깁니다"]],
   ["보고 기준", ["성과 숫자", "언급률, 출처 인용 횟수, 순위 변화를 매주 표로"], ["이행 내역", "글 몇 건 발행, 작업 몇 건 완료"]],
-  ["출처 만들기", ["같은 팀이 섭외·기자단까지", "AI가 끌어올 영상·후기·기사를 직접 만듭니다"], ["외주 또는 없음", "바깥 출처는 광고주 몫으로 남습니다"]],
+  ["출처 만들기", ["섭외팀·바이럴팀이 직접", "AI가 끌어올 영상·후기·기사를 직접 만듭니다"], ["외주 또는 없음", "바깥 출처는 광고주 몫으로 남습니다"]],
   ["솔직함", ["보장하지 않습니다", "계약 전 숫자와 다시 잰 숫자를 나란히 보여 드립니다"], ["상위 노출 약속", "답을 정하는 건 엔진인데 결과를 약속합니다"]],
 ]
 
@@ -121,7 +152,7 @@ const CHAT: [string, string, string][] = [
 /** 가운데 정렬 칸: 영문 머리말 → 두 줄 제목(둘째 줄 파랑) → 한 줄 부제 → 보조 자료 */
 function CSec({ id, eb, q, sub, children, tone }: { id?: string; eb: string; q: ReactNode; sub?: ReactNode; children?: ReactNode; tone?: "k" | "mist" }) {
   return (
-    <section className={`dp-sec geo-sec${tone ? ` geo-sec-${tone}` : ""}`} id={id}>
+    <section className={`dp-sec geo-sec rv${tone ? ` geo-sec-${tone}` : ""}`} id={id}>
       <div className="dp-w">
         <p className="geo-eb">{eb}</p>
         <h2>{q}</h2>
@@ -135,7 +166,7 @@ function CSec({ id, eb, q, sub, children, tone }: { id?: string; eb: string; q: 
 export default function GeoDoc() {
   const s = SERVICES.find((x) => x.k === "search")!
   const d = DETAILS.search
-  const faq = d.faq.slice(0, 4)
+  const faq = [...d.faq.slice(0, 4), ...FAQ_MORE]
   const crumbs = [
     { name: "홈", path: "/" },
     { name: s.n, path: `/services/${s.slug}` },
@@ -191,14 +222,13 @@ export default function GeoDoc() {
         <div className="dp-veil" aria-hidden="true" />
         <div className="dp-w geo-hero-in">
           <Crumb items={[{ name: "홈", href: "/" }, { name: s.n }]} />
-          <p className="geo-kw">AI 검색 최적화 · GEO · SEO</p>
-          {/* 11-07 카피 개선안 B안(대표 결정): '지금 꼭 필요한'이 광고 문구로 읽혀 하는 일로 */}
-          <h1 aria-label="고객이 AI에게 물었을 때 우리 브랜드가 나오게 만드는 일, GEO">
-            <Chars text={"고객이 AI에게 물었을 때\n우리 브랜드가 나오게 만드는 일, GEO"} />
+          {/* 11-08 카피 세션: 키워드 머리말은 H1 안 <small>(인플루언서·퍼포먼스와 같은 구조). 시대 머리말은 제목 아래 굵은 한 줄 */}
+          <h1 aria-label="AI 검색 최적화(GEO) 대행: 추천은 AI가, 확신은 검색이 만듭니다">
+            <small className="geo-h1-kw">AI 검색 최적화(GEO) 대행</small>{" "}
+            <Chars text={"추천은 AI가,\n확신은 검색이 만듭니다"} />
           </h1>
-          <p className="dp-lead">
-            브랜드 이름 하나로 시작하는 무료 측정. 지금 AI가 뭐라고 답하는지 <b>realGEO</b>로 먼저 재서 보내 드립니다.
-          </p>
+          <p className="geo-era">AI로 고르고, 포털에서 확인하는 시대</p>
+          <p className="dp-lead">그래서 저희는 AI 답변에 브랜드 이름을 올리는 일과, <span className="nw">그 이름을</span> 검색했을 때 포털 첫 화면을 믿을 만한 글로 채우는 일을 같이 합니다.</p>
           <div className="geo-card">
             <p className="geo-card-s">
               AI가 먼저 인용하는 건 이미 쌓인 출처.{" "}
@@ -207,7 +237,7 @@ export default function GeoDoc() {
             </p>
             <div className="dp-btns">
               <a className="p1" href="/contact?svc=search">
-                무료 AI 노출 진단
+                무료 AI 노출·평판 진단
               </a>
             </div>
             <a className="geo-tel" href="tel:16700704" data-tel>
@@ -223,9 +253,9 @@ export default function GeoDoc() {
         eb="왜 지금인가"
         q={
           <>
-            검색 대신 AI에게 묻는 사람,
+            AI에게 묻는 사람이 늘어도,{" "}
             <br />
-            <span>이미 절반 이상</span>
+            <span>포털을 떠나지는 않습니다</span>
           </>
         }
         sub="기사 원문을 확인한 숫자만. 날짜와 출처를 같이 적었습니다."
@@ -236,6 +266,66 @@ export default function GeoDoc() {
           <span>근거 인용률 40%</span>
           <span>AI 브리핑 인용률 22%</span>
           <span>웹 건강도 100</span>
+        </p>
+      </CSec>
+
+      {/* ②-1 11-08 새 칸 「두 번째 검색」: AI 추천 → 포털에서 이름 다시 치기 → 후기 보고 결정. 아래는 포털 첫 화면 예시(코드)와 칸마다 저희가 맡는 일 */}
+      <CSec
+        id="twice"
+        eb="두 번째 검색"
+        q={
+          <>
+            AI 추천에서 이겨도,{" "}
+            <br />
+            <span>두 번째 검색에서 질 수 있습니다</span>
+          </>
+        }
+        tone="mist"
+      >
+        <blockquote className="geo-quote">
+          <p>"네이버·구글 같은 검색 엔진으로 정보를 교차 검증하는 사례가 증가"</p>
+          <cite>
+            <a href="https://www.etnews.com/20261026000292" target="_blank" rel="noopener noreferrer">
+              전자신문, 2026. 10. 26.
+            </a>
+          </cite>
+        </blockquote>
+        <ol className="geo-twice" aria-label="고객이 브랜드를 고르는 세 걸음">
+          {TWICE.map(([t, x, k], i) => (
+            <li key={t} className={i === 1 ? "on" : undefined} style={vars({ i })}>
+              <span className="ic">
+                <Icon k={k} />
+              </span>
+              <em>{String(i + 1).padStart(2, "0")}</em>
+              <b>{t}</b>
+              <span className="tx">{x}</span>
+            </li>
+          ))}
+        </ol>
+        <div className="geo-serp">
+          <div className="geo-serp-box" aria-label="브랜드 이름을 검색했을 때 포털 첫 화면 예시">
+            <div className="geo-serp-q">
+              <i aria-hidden="true" />
+              <span>OO 후기</span>
+            </div>
+            <div className="geo-serp-ai">
+              <em>AI 요약</em>
+              <span>블로그 후기에서는 품질과 응대가 좋다는 평이 많아요.</span>
+            </div>
+            {SERP.map(([k, line, ours], i) => (
+              <div className="geo-serp-r" key={k} style={vars({ i })}>
+                <div className="geo-serp-l">
+                  <small>{k}</small>
+                  <span>{line}</span>
+                </div>
+                <p className="geo-serp-ours">{ours}</p>
+              </div>
+            ))}
+            <Ex>예시 화면</Ex>
+          </div>
+        </div>
+        <p className="geo-stmt">
+          두 번째 검색에서도 네이버 AI 브리핑과 구글 AI 개요가 먼저 요약해 줍니다. <span>그 요약의 재료는 블로그 후기입니다.</span>
         </p>
       </CSec>
 
@@ -268,6 +358,7 @@ export default function GeoDoc() {
             </li>
           ))}
         </ul>
+        <p className="geo-note geo-menu-note">브랜드 검색 첫 화면도 점검해 따로 적어 드립니다.</p>
       </CSec>
 
       {/* ④ 일반적인 생각 vs 실제 */}
@@ -315,20 +406,44 @@ export default function GeoDoc() {
         </ol>
       </CSec>
 
-      {/* ⑥ 개발자와 마케터가 한 팀 + 일반 대행과 다른 자리 */}
+      {/* ④-1 11-08 새 칸 「브랜드 평판」. '밀어낸다·지워 드린다'는 쓰지 않음(어뷰징으로 읽히고 할 수 없는 일을 약속하게 됨) */}
       <CSec
-        id="team"
-        eb="한 팀"
+        id="reputation"
+        eb="브랜드 평판"
         q={
           <>
-            개발자와 마케터가 한 팀이면{" "}
+            부정적인 글보다{" "}
+            <br />
+            <span>사실에 맞는 글이 먼저 보이게 합니다</span>
+          </>
+        }
+        sub="브랜드 이름을 쳤을 때 오래된 불만 글이 맨 위에 있으면, AI 추천으로 데려온 고객도 거기서 돌아섭니다. 저희는 실제 이용 후기와 정확한 브랜드 정보를 꾸준히 올려 첫 화면을 채웁니다."
+      >
+        <ol className="geo-rep" aria-label="첫 화면 평판을 채우는 세 가지">
+          {REP.map(([t, x], i) => (
+            <li key={t} style={vars({ i })}>
+              <em>{String(i + 1).padStart(2, "0")}</em>
+              <b>{t}</b>
+              <span>{x}</span>
+            </li>
+          ))}
+        </ol>
+      </CSec>
+
+      {/* ⑥ 개발자와 마케터가 같은 회사 + 일반 대행과 다른 자리('한 팀' 표현은 11-03 기준으로 뺌) */}
+      <CSec
+        id="team"
+        eb="한 회사"
+        q={
+          <>
+            개발자와 마케터가 같은 회사에 있으면{" "}
             <br />
             <span>무엇이 다른가요?</span>
           </>
         }
         sub={
           <>
-            측정과 수정이 한 팀 안에서.{" "}
+            재는 사람 옆에 고치는 사람이 있습니다.{" "}
             <br />
             결과를 본 사람이 바로 고치고, 마케터가 현장에서 막힌 것은 개발자가 그 주에 툴에 넣습니다.
           </>
@@ -399,19 +514,19 @@ export default function GeoDoc() {
 
       {/* ⑦ 노하우: 섭외·기자단이 AI 언급을 강하게 만든다 + 섭외 현장 사진 마퀴 */}
       <CSec
-        eb="노하우"
+        eb="외부 언급"
         q={
           <>
-            AI가 끌어올 영상과 후기를{" "}
+            한 번 만든 외부 언급이{" "}
             <br />
-            <span>섭외팀과 바이럴팀이 직접 만듭니다</span>
+            <span>두 검색에 다 걸립니다</span>
           </>
         }
         sub={
           <>
-            AI가 답을 만들 때 끌어다 쓰는 건 유튜브 영상, 후기, 커뮤니티 글, 기사.{" "}
+            유튜브 영상, 체험 후기, 기사는 AI가 답을 만들 때 끌어다 쓰는 출처이면서,{" "}
             <br />
-            저희는 유튜버·인플루언서 섭외와 기자단을 같은 팀이 돌려 그 출처를 직접 만듭니다. 언급이 강해지는 이유입니다.
+            포털에서 브랜드를 다시 찾았을 때 보이는 콘텐츠입니다. 저희는 섭외팀과 바이럴팀이 이 출처를 직접 만듭니다.
           </>
         }
         tone="mist"
@@ -492,16 +607,17 @@ export default function GeoDoc() {
             <br />
             지금 준비하세요.
           </p>
+          <p className="geo-close-s2">AI가 뭐라고 답하는지, 이름을 검색하면 무엇이 먼저 보이는지 같이 재서 보내 드립니다.</p>
           <div className="geo-close-b">
             <a href="#contact" className="b1">
-              무료 AI 노출 진단
+              무료 AI 노출·평판 진단
             </a>
             <a href="tel:1670-0704">대표전화 1670-0704</a>
           </div>
         </div>
       </section>
 
-      <ContactBlock title="AI 검색 최적화, 무료 AI 노출 진단부터" sub="브랜드 이름만 알려 주시면, 지금 AI가 뭐라고 답하는지 먼저 재서 보내 드리겠습니다." initial={["search"]} source="service_search" />
+      <ContactBlock title="AI 검색 최적화, 무료 AI 노출·평판 진단부터" label="무료 AI 노출·평판 진단" sub="브랜드 이름만 알려 주시면, 지금 AI가 뭐라고 답하는지 먼저 재서 보내 드리겠습니다." initial={["search"]} source="service_search" />
       </div>
     </DocShell>
   )

@@ -2,7 +2,7 @@ import type { ReactNode } from "react"
 import Link from "next/link"
 import { SERVICES } from "./content"
 import { DETAILS } from "./details"
-import { DocShell, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
+import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
 import { Ex, Chars, vars } from "./parts"
 import GeoToolReel from "./GeoToolReel"
 import { Icon } from "./icons"
@@ -438,11 +438,7 @@ export default function InflDoc() {
         </section>
 
         {/* ⑧ FAQ */}
-        <CSec eb="자주 묻는 질문" q="자주 묻는 질문">
-          <div className="geo-faq">
-            <Faq items={FAQ} />
-          </div>
-        </CSec>
+        <FaqBlock items={FAQ} note="여기 없는 질문은 문의로 남겨 주세요. 담당자가 답해 드립니다." />
 
         {/* ⑨ 문의 */}
         <ContactBlock

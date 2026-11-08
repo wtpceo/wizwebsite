@@ -4,6 +4,11 @@ import ServiceDoc from "@/components/shortform/ServiceDoc"
 import PerfDoc from "@/components/shortform/PerfDoc"
 import GeoDoc from "@/components/shortform/GeoDoc"
 import InflDoc from "@/components/shortform/InflDoc"
+import ViralDoc from "@/components/shortform/ViralDoc"
+import ContentDoc from "@/components/shortform/ContentDoc"
+import SiteDoc from "@/components/shortform/SiteDoc"
+import GlobalDoc from "@/components/shortform/GlobalDoc"
+import OffDoc from "@/components/shortform/OffDoc"
 import { SERVICES } from "@/components/shortform/content"
 import { DETAILS } from "@/components/shortform/details"
 import { OG_TIMESTAMP as timestamp } from "@/lib/site-metadata"
@@ -47,5 +52,10 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   if (slug === "performance") return <PerfDoc />
   // 2026-11-08 대표: 인플루언서 쪽도 새로 짠 InflDoc(원본 한 편 → 2차 광고·3차 자산 흐름, 비교표, 예시 리포트·AI 답변)
   if (slug === "influencer") return <InflDoc />
+  if (slug === "viral") return <ViralDoc />
+  if (slug === "content") return <ContentDoc />
+  if (slug === "homepage") return <SiteDoc />
+  if (slug === "global") return <GlobalDoc />
+  if (slug === "offline") return <OffDoc />
   return <ServiceDoc slug={slug} />
 }

@@ -56,12 +56,16 @@ export function Chars({ text, start = 0, mark }: { text: string; start?: number;
       {lines.map((line, li) => {
         const words = line.split(" ")
         let k = -1
-        if (mw.length) k = words.findIndex((_, x) => mw.every((m, y) => words[x + y] === m))
+        // 마지막 낱말은 앞부분만 맞아도 됨(예: mark "소재 싸움" → 「싸움입니다」의 「싸움」까지만 띠, 「입니다」는 띠 밖에 바로 붙임)
+        if (mw.length) k = words.findIndex((_, x) => mw.every((m, y) => (y === mw.length - 1 ? (words[x + y] ?? "").startsWith(m) : words[x + y] === m)))
         const out: ReactNode[] = []
         words.forEach((w, wi) => {
           const tail = wi < words.length - 1 ? " " : null
           if (k >= 0 && wi === k) {
             const grp = words.slice(k, k + mw.length)
+            const last = grp[grp.length - 1]
+            const rest = last.slice(mw[mw.length - 1].length)
+            grp[grp.length - 1] = mw[mw.length - 1]
             out.push(
               <span key={wi}>
                 <span className="mk">
@@ -72,6 +76,7 @@ export function Chars({ text, start = 0, mark }: { text: string; start?: number;
                     </span>
                   ))}
                 </span>
+                {rest ? word(rest) : null}
                 {k + mw.length < words.length ? " " : null}
               </span>,
             )
