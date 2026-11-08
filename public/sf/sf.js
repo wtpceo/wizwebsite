@@ -48,7 +48,7 @@
     taxi:function(){return '<div class="tile ooh"><img class="pic" src="'+IMG('kakao-real')+'" alt="" loading="lazy">'+TG+'<div class="lb">카카오T 광고<small>앱과 택시 뒷좌석 화면</small></div></div>'}
   };
   var S=[
-   {k:"infl",n:"인플루언서 · 유튜버 섭외 · 공동구매",ph:"후보 리스트부터<br>먼저 보여 드립니다.",rec:[],t1:"자체 섭외 도구 위플루언서로 유튜브·인스타 채널을 카테고리와 구독자, 성장 추이로 거르고, 타깃이 실제로 보는 크리에이터 후보 리스트를 먼저 드립니다. 섭외와 계약, 콘텐츠 가이드, 광고 소재 활용까지 같은 팀이 맡습니다.",d:["위플루언서로 카테고리·구독자·성장 추이 선별","섭외·계약·콘텐츠 가이드","조회·댓글·저장 성과 리포트"],
+   {k:"infl",n:"인플루언서 · 유튜버 섭외 · PPL",ph:"후보 리스트부터<br>먼저 보여 드립니다.",rec:[],t1:"자체 섭외 도구 위플루언서로 유튜브·인스타 채널을 카테고리와 구독자, 성장 추이로 거르고, 타깃이 실제로 보는 크리에이터 후보 리스트를 먼저 드립니다. 섭외와 계약, 콘텐츠 가이드, 광고 소재 활용까지 같은 팀이 맡습니다.",d:["위플루언서로 카테고리·구독자·성장 추이 선별","섭외·계약·콘텐츠 가이드","조회·댓글·저장 성과 리포트"],
     tiles:[["reel",{img:"fashion-look",cap:"출근룩 트렌치 이렇게 입어요",lk:"2.4만",cm:"612"}],["reel",{img:"beauty-salon",cap:"메이크업 받고 바로 촬영 갑니다",lk:"1.1만",cm:"342"}],["reel",{img:"fnb-dessert",cap:"성수 카페 여기 진짜 조용해요",lk:"8,412",cm:"205"}],["reel",{img:"fnb-dish",cap:"돌솥 비빔밥에 반찬이 여섯 가지",lk:"6,930",cm:"117"}]]},
    {k:"perf",n:"퍼포먼스 광고",ph:"데이터가 증명한 소재에,<br>예산을 집중합니다.",rec:["펜션 메타 릴스 캠페인 24일 · 클릭 26,456회 · CPC 약 50원(사례 글 2026.8.12)"],t1:"네이버·메타·구글·카카오·당근 등 주요 매체를 전담 AE가 직접 운영합니다.",d:["매체 세팅 및 측정 설정","다중 소재 A/B 테스트","성과 기반 예산 재배분"],
     tiles:[["ads",{}],["reel",{img:"derma",cap:"첫 상담 예약 받아요",lk:"3,208",cm:"96",ad:"예약하기"}],["reel",{img:"beauty-flat",cap:"민감한 피부도 순하게",lk:"1.2만",cm:"231",ad:"구매하기"}],["reel",{img:"fashion-detail",cap:"가을 신상 니트 입고됐어요",lk:"5,420",cm:"188",ad:"구매하기"}]]},
@@ -124,7 +124,7 @@ var H4=(function(){
       enterprise:['ex/seminar','ex/m-team','ex/m-shoot','ex/truck-ad','ex/shootcos','ex/m-elev','ex/fashion-store','ex/m-tourist','ex/giftset','ex/elev-ad1']
     };
     var L=(key&&W[key])||R,MAXP=key?2:3,PLAY=key?null:{'v/f1':1,'v/s1':1,'v/b1':1},n=0;while(L.length<12)L=L.concat(L);
-    var CAP={'v/s1':'세럼 한 달 써 봤어요','v/s2':'국물 한 숟갈이면 끝','v/s3':'허리 말고 엉덩이로 드세요','v/s4':'오늘의 손님 몽이','v/s5':'올레길 걸어 봤어요','v/s6':'공구 라이브 시작합니다'};
+    var CAP={'v/s1':'세럼 한 달 써 봤어요','v/s2':'국물 한 숟갈이면 끝','v/s3':'허리 말고 엉덩이로 드세요','v/s4':'오늘의 손님 몽이','v/s5':'올레길 걸어 봤어요','v/s6':'냄비 뚜껑 열어 볼게요'};
     var it=[],seen={};L.forEach(function(r){var isv=r.indexOf('v/')===0,has=isv&&r!=='v/s2'&&r!=='v/s4'&&r!=='v/s6',pl=has&&(PLAY?PLAY[r]:1)&&n<MAXP&&!reduce&&!seen[r],c=CAP[r]?'<p class="scp">'+CAP[r]+'</p>':'';seen[r]=1;if(pl)n++;it.push(pl?'<div class="rl"><video src="/sf/'+r+'.mp4" poster="/sf/'+r+'.jpg" muted loop playsinline autoplay preload="metadata"></video>'+c+'</div>':'<div class="rl"><img src="/sf/'+r+'.jpg" alt="" loading="lazy" decoding="async">'+c+'</div>');});
     var c=['','','','','',''];it.forEach(function(h,k){c[k%6]+=h});
     el.innerHTML=c.map(function(h){return '<div class="bgc"><div class="bgk">'+h+h.replace(/ autoplay/g,'')+'</div></div>'}).join('');

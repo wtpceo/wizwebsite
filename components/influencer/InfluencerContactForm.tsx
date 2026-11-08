@@ -12,7 +12,7 @@ import { trackInfluencerProposalSubmit } from "@/lib/analytics"
 //     상품은 페이지의 상품 목록에서 'influencer:pick' 이벤트로 미리 골라 올 수 있다. 고른 값은 generate_lead 의 product, 메일 제목에 붙는다.
 //  2) 어느 구간을 골라도 막지 않고 그대로 접수한다. '아직 정하지 않았어요'에만 짧은 안내를 띄운다. 예산은 generate_lead 의 lead_budget 으로만 남는다(2026-11-03 대표 지시).
 //  3) /api/contact 로 보내되 language="IMC·인플루언서 섭외" 태그를 붙여 관리자 메일 제목에서 구분한다.
-export const NEEDS = ["브랜드 캠페인 섭외", "공구·판매형 섭외", "중국 관광객 마케팅", "숏폼 제작", "아직 모르겠어요"]
+export const NEEDS = ["브랜드 캠페인 섭외", "중국 관광객 마케팅", "숏폼 제작", "아직 모르겠어요"]
 const BUDGETS = ["1,000만 원 미만", "1,000만 원 이상 ~ 3,000만 원 미만", "3,000만 원 이상", "아직 정하지 않았어요"]
 
 const inputCls =
