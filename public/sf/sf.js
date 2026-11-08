@@ -127,7 +127,9 @@ var H4=(function(){
     var CAP={'v/s1':'세럼 한 달 써 봤어요','v/s2':'국물 한 숟갈이면 끝','v/s3':'허리 말고 엉덩이로 드세요','v/s4':'오늘의 손님 몽이','v/s5':'올레길 걸어 봤어요','v/s6':'냄비 뚜껑 열어 볼게요'};
     var it=[],seen={};L.forEach(function(r){var isv=r.indexOf('v/')===0,has=isv&&r!=='v/s2'&&r!=='v/s4'&&r!=='v/s6',pl=has&&(PLAY?PLAY[r]:1)&&n<MAXP&&!reduce&&!seen[r],c=CAP[r]?'<p class="scp">'+CAP[r]+'</p>':'';seen[r]=1;if(pl)n++;it.push(pl?'<div class="rl"><video src="/sf/'+r+'.mp4" poster="/sf/'+r+'.jpg" muted loop playsinline autoplay preload="metadata"></video>'+c+'</div>':'<div class="rl"><img src="/sf/'+r+'.jpg" alt="" loading="lazy" decoding="async">'+c+'</div>');});
     var c=['','','','','',''];it.forEach(function(h,k){c[k%6]+=h});
-    el.innerHTML=c.map(function(h){return '<div class="bgc"><div class="bgk">'+h+h.replace(/ autoplay/g,'')+'</div></div>'}).join('');
+    /* 11-08 툭툭 끊김 수정: ① 복사본은 영상 대신 포스터 사진으로(영상 디코더 절약) ② 소개 쪽 벽은 반 바퀴 분량을 두 벌로 늘려 기둥이 화면보다 길게(끝에 빈 자리 안 생김). 이어 붙는 지점(-50%)이 딱 맞는 건 CSS(.bgk gap 0 + .rl margin) */
+    function still(h){return h.replace(/<video src="[^"]*" poster="([^"]*)"[^>]*><\/video>/g,'<img src="$1" alt="" loading="lazy" decoding="async">')}
+    el.innerHTML=c.map(function(h){var half=key?h+still(h):h;return '<div class="bgc"><div class="bgk">'+half+still(half)+'</div></div>'}).join('');
     var vids=[].slice.call(el.querySelectorAll('video'));vids.forEach(function(v){v.muted=true});
     return function(on){vids.forEach(function(v){if(on&&v.hasAttribute('autoplay')){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause();})};}
 

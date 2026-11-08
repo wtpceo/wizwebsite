@@ -726,3 +726,7 @@ html.sf-anim .sf .c1d.is-on .c1d-steps li{animation:sf-rise .45s cubic-bezier(.2
 .sf .tick a:hover,.sf .tick a:focus-visible{text-decoration:underline}
 .sf .tick:hover ul,.sf .tick:focus-within ul{animation-play-state:paused}
 .sf .tick{pointer-events:auto}
+
+/* 11-08 벽 이음새: gap 14px 때문에 -50% 지점이 두 번째 벌 시작보다 7px 어긋나 한 바퀴마다 툭 튀던 것 → 간격을 타일 아래 여백으로 바꿔 딱 맞춤 */
+.sf .bgk{gap:0}
+.sf .bgk .rl{margin-bottom:14px}
