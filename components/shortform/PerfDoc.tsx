@@ -2,7 +2,6 @@ import Link from "next/link"
 import { SERVICES } from "./content"
 import { DETAILS } from "./details"
 import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
-import PerfBar from "./PerfBar"
 import { Chars } from "./parts"
 import { Icon } from "./icons"
 
@@ -567,7 +566,6 @@ export default function PerfDoc() {
 
       </div>
 
-      <PerfBar />
       <ContactBlock title="퍼포먼스 광고, 소재·설계 점검부터" sub="브랜드 이름만 알려 주시면 지금 소재와 플레이스·홈페이지를 보고 어느 매체부터 켤지 적어 보내 드리겠습니다." initial={["perf"]} source="service_performance" />
     </DocShell>
   )
