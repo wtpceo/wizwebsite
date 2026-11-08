@@ -1110,3 +1110,16 @@ html.sf-anim .sf .cut.is-on .orb-c { animation: sf-fade .5s ease-out .1s both, s
   100% { transform: translateY(-12em); }
 }
 @media (prefers-reduced-motion: reduce) { .sf .sfh-tick-roll { animation: none; } }
+
+/* 11-08 문의 폼 요청 유형(제안 요청 / 제안 PT 요청) — 위즈블루 채움으로 고른 것 표시 */
+.sf .ct-kind { margin: 0; padding: 0; border: 0; display: grid; gap: 8px; }
+.sf .ct-kind legend { font-size: 13.5px; font-weight: 800; color: var(--ink); margin-bottom: 6px; }
+.sf .ct-kind-g { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.sf .ct-kind-g label { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 10px; border-radius: 8px; border: 1.5px solid #D9E2EC; font-size: 14.5px; font-weight: 800; color: var(--ink); cursor: pointer; background: #fff; transition: background .2s, border-color .2s, color .2s; }
+.sf .ct-kind-g label input { position: absolute; opacity: 0; width: 0; height: 0; }
+.sf .ct-kind-g label.on { background: #0A1A33; border-color: #0A1A33; color: #fff; }
+.sf .ct-kind-h { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--sub); }
+.sf .ct-kind-h.pt { padding: 12px 14px; border-radius: 8px; background: #E8F0FF; color: #0A1A33; font-size: 13.5px; font-weight: 600; }
+/* 11-08 대표: 제안 PT 요청 칸은 색을 달리(파란 테두리·글자, 고르면 위즈블루 채움). 제안 요청은 남색 */
+.sf .ct-kind-g label:nth-child(2) { border-color: #0055FF; color: #0055FF; background: #F2F6FF; }
+.sf .ct-kind-g label:nth-child(2).on { background: #0055FF; border-color: #0055FF; color: #fff; }
