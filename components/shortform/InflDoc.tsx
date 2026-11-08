@@ -100,7 +100,7 @@ const FAQ: [string, string][] = [
 /** 가운데 정렬 칸: 머리말 → 제목(둘째 줄 파랑) → 부제 → 보조 자료 (GEO 쪽과 같은 문법) */
 function CSec({ id, eb, q, sub, children, tone, cls }: { id?: string; eb: string; q: ReactNode; sub?: ReactNode; children?: ReactNode; tone?: "mist" | "k"; cls?: string }) {
   return (
-    <section className={`dp-sec geo-sec${tone ? ` geo-sec-${tone}` : ""}${cls ? ` ${cls}` : ""}`} id={id}>
+    <section className={`dp-sec geo-sec rv${tone ? ` geo-sec-${tone}` : ""}${cls ? ` ${cls}` : ""}`} id={id}>
       <div className="dp-w">
         <p className="geo-eb">{eb}</p>
         <h2>{q}</h2>
@@ -141,6 +141,15 @@ export default function InflDoc() {
         provider: { "@id": ORG_ID },
         areaServed: { "@type": "Country", name: "대한민국" },
         url: `${SITE}/services/${s.slug}`,
+        // 11-08 GEO 점검: 맡는 매체 네 가지를 구조화 데이터에도 적어 AI가 서비스 범위를 정확히 읽게
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "인플루언서 섭외 매체",
+          itemListElement: SCOPE.map(([t, en, x]) => ({
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: t === "PPL" ? "PPL(간접광고) 섭외" : `${t} 인플루언서 섭외`, alternateName: en, description: x },
+          })),
+        },
       },
       breadcrumbLd(crumbs),
       faqLd(FAQ),
@@ -160,8 +169,9 @@ export default function InflDoc() {
           <div className="dp-veil" aria-hidden="true" />
           <div className="dp-w geo-hero-in">
             {/* 11-08 대표: 첫 화면 위 경로 표시(홈 › 서비스명)는 뺌. 구조화 데이터의 BreadcrumbList는 그대로 */}
-            <p className="geo-kw">인플루언서 협업, 한 번으로 끝내셨나요?</p>
-            <h1 aria-label="한 번 찍은 콘텐츠가 쉬지 않고 일합니다">
+            {/* 11-08 대표(카피 세션 안 승인): 머리말을 「인플루언서 마케팅 대행」으로 바꿔 H1 안에 넣는다 — 검색엔진이 읽는 H1에 핵심 키워드가 들어가게. 큰 글은 대표가 고른 문구 그대로. 다른 서비스 쪽(ServiceDoc)과 같은 h1 + small 구조 */}
+            <h1 aria-label="인플루언서 마케팅 대행: 한 번 찍은 콘텐츠가 쉬지 않고 일합니다">
+              <small className="ix-kw">인플루언서 마케팅 대행</small>{" "}
               <Chars text={"한 번 찍은 콘텐츠가\n쉬지 않고 일합니다"} mark="쉬지 않고" />
             </h1>
             {/* 11-08 대표: 제목과 부제 사이에 매체 이름이 눈에 띄게 */}
@@ -180,7 +190,7 @@ export default function InflDoc() {
               ))}
             </ol>
             <p className="dp-lead">
-              브랜드에 딱 맞는 인플루언서를 섭외하고, 그 콘텐츠가 AI 답변(GEO)과 퍼포먼스 성과로 이어지게 설계합니다.
+              브랜드에 딱 맞는 인플루언서를 섭외하고, <span className="nw">그 콘텐츠가</span> AI 답변(GEO)과 퍼포먼스 성과로 이어지게 설계합니다.
               <br />
               <b>이게 바로 IMC에 일을 맡기는 이유입니다.</b>
             </p>
@@ -235,7 +245,7 @@ export default function InflDoc() {
           cls="ix-fit ix-use"
           q={
             <>
-              올라간 영상이 광고가 되고,{" "}
+              올라간 영상이 <span className="nw">광고가 되고,</span>{" "}
               <br />
               <span>AI의 답이 됩니다</span>
             </>
@@ -266,6 +276,9 @@ export default function InflDoc() {
                   <b>반응 온 장면이 광고 소재가 됩니다</b>
                   <p>{CLAIM_SECOND_USE}</p>
                   <p>소재마다 문의와 매출이 얼마나 나왔는지 매달 숫자로 보고합니다.</p>
+                  <Link className="ix-use-more" href="/services/performance">
+                    퍼포먼스 광고 대행 자세히 보기
+                  </Link>
                 </div>
                 <div className="ix-use-vis">
                   <figure className="ix-ad">
@@ -305,8 +318,11 @@ export default function InflDoc() {
               <div className="ix-use-pane">
                 <div className="ix-use-txt">
                   <em>3차 · GEO</em>
-                  <b>AI가 브랜드를 설명할 때 근거가 됩니다</b>
+                  <b>AI가 브랜드를 <span className="nw">설명할 때</span> <span className="nw">근거가 됩니다</span></b>
                   <p>"OO은 어떤 브랜드야?"라고 물으면 인플루언서들이 자주 소개하는 브랜드로 설명되게 설계합니다. 같은 콘텐츠를 홈페이지와 블로그에도 옮겨 검색과 AI 답변에 남깁니다.</p>
+                  <Link className="ix-use-more" href="/services/search">
+                    AI 검색 최적화(GEO) 자세히 보기
+                  </Link>
                 </div>
                 <div className="ix-use-vis">
                   <div className="ix-chat" aria-label="AI 답변 예시">
@@ -335,15 +351,17 @@ export default function InflDoc() {
           eb="자체 섭외 도구 위플루언서"
           q={
             <>
-              채널 하나하나를 집중 분석해,{" "}
+              채널 하나하나를 <span className="nw">집중 분석해,</span>{" "}
               <br />
-              <span>성장하는 채널인지 데이터로 보여 드립니다</span>
+              <span>
+                <span className="nw">성장하는 채널인지</span> <span className="nw">데이터로 보여 드립니다</span>
+              </span>
             </>
           }
           sub="당신의 브랜드를 성장시킬 수 있는 인플루언서인지, 확실한 근거를 제시하겠습니다."
         >
           <GeoToolReel slides={WIPLU} />
-          <p className="geo-stmt ix-stmt">위플루언서는 내부에서 쓰는 툴입니다. 미팅에서 실제 화면으로 자세히 보여 드리겠습니다.</p>
+          <p className="geo-stmt ix-stmt">위플루언서는 내부에서 쓰는 툴입니다. 미팅에서 실제 화면으로 자세히 <span className="nw">보여 드리겠습니다.</span></p>
         </CSec>
 
         {/* ⑤ 광고주 공유 채널 분석 리포트 (11-08 대표: 툴 칸과 따로, 리포트 전체를 길게 보여 줌) */}
@@ -384,7 +402,7 @@ export default function InflDoc() {
           eb="진행 순서"
           q={
             <>
-              미팅부터 결과 보고까지,{" "}
+              미팅부터 <span className="nw">결과 보고까지,</span>{" "}
               <br />
               <span>일곱 단계</span>
             </>
@@ -407,7 +425,7 @@ export default function InflDoc() {
         </CSec>
 
         {/* ⑦ 해외 인플루언서는 글로벌 페이지로 (2026-11-08 대표: 중국·일본은 /services/global에서 설명, 여기는 띠 하나. 비용 안내 칸은 같은 날 뺌 → 진행 순서 바로 아래) */}
-        <section className="ix-global" aria-label="해외 인플루언서 안내">
+        <section className="ix-global rv" aria-label="해외 인플루언서 안내">
           <div className="dp-w">
             <div className="ix-gl">
               <div>
