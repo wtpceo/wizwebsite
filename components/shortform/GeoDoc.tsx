@@ -363,17 +363,49 @@ export default function GeoDoc() {
             두 번째 검색에서 보는{" "}
             <span className="nw">포털 첫 화면의 세 가지 영역</span>
           </h3>
-          <ol>
-            {SERP.map(([k, line, ours], i) => (
-              <li key={k} style={vars({ i })}>
-                <small>{k}</small>
-                <b>{ours}</b>
-                <span>예: {line}</span>
-              </li>
-            ))}
-          </ol>
+          {/* 11-09 대표 「시각적으로」: 포털 검색 결과 화면 한 장 — 맨 위 AI 요약이 아래 세 영역을 출처로 가져다 쓰는 모습 */}
+          <div className="gt-serp" aria-label="포털 검색 결과 예시 화면">
+            <div className="gt-serp-bar">
+              <i aria-hidden="true" />
+              <span>OO 브랜드 후기</span>
+              <em aria-hidden="true">검색</em>
+            </div>
+            <div className="gt-serp-ai">
+              <small>
+                <i aria-hidden="true" />
+                AI 브리핑 · AI 개요
+              </small>
+              <p>OO는 실제 사용 후기와 공식 스토어 평점, 언론 보도에서 꾸준히 확인되는 브랜드예요.</p>
+              <ul aria-label="AI 요약의 출처">
+                {SERP.map(([k], i) => (
+                  <li key={k} style={vars({ i })}>
+                    <b>{i + 1}</b>
+                    {k}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <ol className="gt-serp-g">
+              {SERP.map(([k, line, ours], i) => (
+                <li key={k} style={vars({ i })} className={`gt-serp-${i}`}>
+                  <div className="gt-serp-mock" aria-hidden="true">
+                    <em>{i + 1}</em>
+                    <i className="ph" />
+                    <span className="ln">{line}</span>
+                    <i className="l1" />
+                    <i className="l2" />
+                  </div>
+                  <small>{k}</small>
+                  <b>{ours}</b>
+                </li>
+              ))}
+            </ol>
+            <Ex>예시 화면</Ex>
+          </div>
           <p className="geo-stmt">
-            포털에 다시 검색할 때도 네이버 AI 브리핑과 구글 AI 개요가 맨 위에 뜹니다. <span>이 요약을 만드는 근거도 결국 외부 출처입니다.</span>
+            포털에 다시 검색할 때도 네이버 AI 브리핑과 구글 AI 개요가 맨 위에 뜹니다.{" "}
+            <br />
+            <span>이 요약을 만드는 근거도 결국 외부 출처입니다.</span>
           </p>
         </div>
       </section>
@@ -540,39 +572,68 @@ export default function GeoDoc() {
           </>
         }
       >
-        <div className="geo-team">
+        {/* 11-09 대표 「글이 많다, 시각적으로」: 두 사람(아이콘) + 가운데 돌아가는 고리, 아래는 실제 요청·반영을 메신저 대화처럼 */}
+        <div className="geo-team geo-team2">
           <div className="geo-team-col">
-            <b>마케터 담당 영역</b>
-            <ul>
-              {TEAM_MK.map((t) => (
-                <li key={t}>{t}</li>
+            <p className="geo-team-who">
+              <span className="av" aria-hidden="true">
+                <Icon k="person" />
+              </span>
+              <b>마케터 담당 영역</b>
+            </p>
+            <ol>
+              {TEAM_MK.map((t, i) => (
+                <li key={t}>
+                  <em>{i + 1}</em>
+                  {t}
+                </li>
               ))}
-            </ul>
+            </ol>
           </div>
           <div className="geo-team-loop" aria-hidden="true">
-            <span>요청</span>
-            <i />
-            <span>반영</span>
+            <svg viewBox="0 0 120 120">
+              <path className="a" d="M20 60 A40 40 0 0 1 100 60" />
+              <path className="b" d="M100 60 A40 40 0 0 1 20 60" />
+              <circle className="d1" r="5">
+                <animateMotion dur="2.4s" repeatCount="indefinite" path="M20 60 A40 40 0 0 1 100 60" />
+              </circle>
+              <circle className="d2" r="5">
+                <animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M100 60 A40 40 0 0 1 20 60" />
+              </circle>
+            </svg>
+            <span className="t">요청</span>
+            <span className="b">반영</span>
           </div>
-          <div className="geo-team-col">
-            <b>개발자 담당 영역</b>
-            <ul>
-              {TEAM_DEV.map((t) => (
-                <li key={t}>{t}</li>
+          <div className="geo-team-col dev">
+            <p className="geo-team-who">
+              <span className="av" aria-hidden="true">
+                <Icon k="home" />
+              </span>
+              <b>개발자 담당 영역</b>
+            </p>
+            <ol>
+              {TEAM_DEV.map((t, i) => (
+                <li key={t}>
+                  <em>{i + 1}</em>
+                  {t}
+                </li>
               ))}
-            </ul>
+            </ol>
           </div>
         </div>
-        <ol className="geo-team-log" aria-label="실제로 이렇게 바뀐 것">
+        <ol className="geo-team-chat" aria-label="실제로 이렇게 바뀐 것">
           {TEAM_LOG.map(([ask, done], i) => (
             <li key={ask} style={vars({ i })}>
-              <p>
-                <em>마케터</em>
-                {ask}
+              <p className="q">
+                <small>마케터</small>
+                <span>{ask}</span>
               </p>
-              <p>
-                <em>개발자</em>
-                {done}
+              <i className="arr" aria-hidden="true" />
+              <p className="a">
+                <small>
+                  개발자 <em>반영 완료</em>
+                </small>
+                <span>{done}</span>
               </p>
             </li>
           ))}

@@ -4919,3 +4919,112 @@ html.sf-anim .sf .ix.aw .dp-sec.aw-close.rv.on .dp-w > .aw-close-name { animatio
 html.sf-anim .sf .ix .rv:not(.on) .ix-mc > li { opacity: 0; }
 html.sf-anim .sf .ix .rv.on .ix-mc > li { animation: sf-rise .6s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.1s + var(--i, 0) * 90ms); }
 @media (max-width: 900px) { .sf .ix .ix-mc { grid-template-columns: 1fr; } }
+
+/* 퍼포먼스 11-09 대표: 데이터 근거 보조 문장은 한 줄로, 기사 카드 3분의 2 지점 위에 바짝 붙인다 · 부제는 문장마다 줄바꿈 */
+@media (min-width: 1101px) {
+  .sf .px-proof .pp-head { position: relative; }
+  .sf .px-proof .pp-note { position: absolute; left: calc(58.333% - 1.5px); bottom: -42px; white-space: nowrap; }
+}
+.sf .px-team .pk-sub { max-width: none; }
+.sf .cl-sub { max-width: none; }
+
+/* ===== GEO 페이지 11-09 대표 4차 ===== */
+/* 1) 포털 첫 화면 세 영역: 검색 결과 화면 한 장 */
+.sf .gt-serp { position: relative; margin-top: 26px; padding: clamp(18px, 2vw, 28px); border-radius: 24px; background: #F4F7FB; border: 1px solid #E3E8EF; box-shadow: 0 30px 60px -44px rgba(10,26,51,.45); }
+.sf .gt-serp-bar { display: flex; align-items: center; gap: 12px; padding: 12px 14px 12px 18px; border-radius: 999px; background: #fff; border: 2px solid #0055FF; max-width: 560px; }
+.sf .gt-serp-bar > i { width: 16px; height: 16px; border-radius: 50%; border: 2.5px solid #0A1A33; position: relative; flex: none; }
+.sf .gt-serp-bar > i::after { content: ""; position: absolute; right: -6px; bottom: -6px; width: 7px; height: 2.5px; background: #0A1A33; transform: rotate(45deg); border-radius: 2px; }
+.sf .gt-serp-bar span { flex: 1; font-size: 16px; font-weight: 700; color: #0A1A33; }
+.sf .gt-serp-bar em { font-style: normal; font-size: 13px; font-weight: 800; color: #fff; background: #0055FF; padding: 6px 14px; border-radius: 999px; }
+.sf .gt-serp-ai { margin-top: 16px; padding: 18px 22px; border-radius: 18px; background: #0A1A33; color: #fff; background-image: radial-gradient(60% 120% at 100% 0%, rgba(0,85,255,.45), transparent 70%); }
+.sf .gt-serp-ai small { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 800; color: #8FB0FF; }
+.sf .gt-serp-ai small i { width: 9px; height: 9px; border-radius: 50%; background: #5B8CFF; box-shadow: 0 0 0 0 rgba(91,140,255,.6); animation: gt-ping 2s ease-out infinite; }
+@keyframes gt-ping { to { box-shadow: 0 0 0 10px rgba(91,140,255,0); } }
+.sf .gt-serp-ai p { margin: 8px 0 0; font-size: clamp(16px, 1.3vw, 19px); font-weight: 700; line-height: 1.55; word-break: keep-all; }
+.sf .gt-serp-ai ul { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.sf .gt-serp-ai li { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px 5px 5px; border-radius: 999px; background: rgba(255,255,255,.1); border: 1px solid rgba(143,176,255,.35); font-size: 13px; font-weight: 700; color: #DCE6FF; }
+.sf .gt-serp-ai li b { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: #0055FF; font-size: 11.5px; color: #fff; }
+.sf .gt .gt-ours ol.gt-serp-g, .sf .gt-serp-g { list-style: none; margin: 16px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; border-top: 0; }
+.sf .gt-ours .gt-serp-g li, .sf .gt-ours .gt-serp-g li:first-child { padding: 18px; border-left: 0; border-radius: 18px; background: #fff; border: 1px solid #E3E8EF; display: flex; flex-direction: column; gap: 8px; transition: transform .35s cubic-bezier(.23,1,.32,1), box-shadow .35s, border-color .35s; }
+.sf .gt-ours .gt-serp-g li:hover { transform: translateY(-4px); border-color: #5B8CFF; box-shadow: 0 24px 44px -30px rgba(0,85,255,.55); }
+.sf .gt-serp-mock { position: relative; display: grid; grid-template-columns: 64px 1fr; grid-template-rows: auto auto auto; column-gap: 12px; row-gap: 7px; padding: 14px; border-radius: 12px; background: #F4F7FB; margin-bottom: 6px; }
+.sf .gt-serp-mock em { position: absolute; right: 10px; top: 10px; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: #0055FF; color: #fff; font-style: normal; font-size: 12px; font-weight: 900; }
+.sf .gt-serp-mock .ph { grid-row: 1 / 4; width: 64px; height: 64px; border-radius: 10px; background: linear-gradient(135deg, #C9D8FF, #8FB0FF); }
+.sf .gt-serp-mock .ln { font-size: 13.5px; font-weight: 800; color: #0A1A33; line-height: 1.4; padding-right: 26px; word-break: keep-all; }
+.sf .gt-serp-mock .l1, .sf .gt-serp-mock .l2 { display: block; height: 7px; border-radius: 4px; background: #DCE4EF; }
+.sf .gt-serp-mock .l2 { width: 62%; }
+.sf .gt-serp-1 .gt-serp-mock .ph { background: linear-gradient(135deg, #E9EEF7, #C9D8FF); }
+.sf .gt-serp-1 .gt-serp-mock .ln { color: #0055FF; }
+.sf .gt-serp-2 .gt-serp-mock .ph { background: linear-gradient(135deg, #0A1A33, #1F3A6B); }
+.sf .gt-ours .gt-serp-g li small { font-size: 13px; font-weight: 800; color: #0055FF; }
+.sf .gt-ours .gt-serp-g li b { font-size: clamp(16px, 1.2vw, 18px); font-weight: 800; line-height: 1.45; color: #0A1A33; word-break: keep-all; }
+.sf .gt-serp > .ex, .sf .gt-serp > [class*="ex"] { position: absolute; right: 18px; top: 18px; }
+@media (max-width: 820px) { .sf .gt .gt-ours ol.gt-serp-g, .sf .gt-serp-g { grid-template-columns: 1fr; } }
+@media (min-width: 1024px) { .sf .gxl .gt-ours .geo-stmt { max-width: none; } .sf .gxl .gt-ours .geo-stmt { text-wrap: nowrap; } }
+
+/* 2) 시장 데이터 보조 문장: 한 줄, 기사 카드 3분의 2 지점 위 */
+@media (min-width: 1101px) {
+  .sf .gw .gt-head { position: relative; }
+  .sf .gw .gw-note { position: absolute; left: calc(58.333% - 1.5px); bottom: calc(-1 * var(--gw-gap, 52px) + 10px); max-width: none; white-space: nowrap; text-align: left; margin: 0; }
+}
+
+/* 3) realGEO 메뉴 네 칸: 가운데, 음영, 마우스 올리면 떠오름 */
+.sf .gxl .geo-menu, .sf .geo-sec .geo-menu { margin-left: auto; margin-right: auto; max-width: 1100px; gap: 14px; }
+.sf .geo-menu li { padding: 20px 22px; border-radius: 18px; background: #fff; border: 1px solid #E3E8EF; box-shadow: 0 18px 36px -30px rgba(10,26,51,.4); transition: transform .35s cubic-bezier(.23,1,.32,1), box-shadow .35s, border-color .35s; cursor: default; }
+.sf .geo-menu li:hover { transform: translateY(-6px); border-color: #5B8CFF; box-shadow: 0 28px 48px -30px rgba(0,85,255,.55); }
+.sf .geo-menu li b { font-size: 14px; letter-spacing: .02em; }
+.sf .geo-menu li span { font-size: 14.5px; }
+.sf .gxl .geo-menu-note { margin-left: auto; margin-right: auto; text-align: center; }
+
+/* 4) 내부 협업: 두 사람 + 돌아가는 고리, 아래는 메신저 대화 */
+.sf .geo-team2 .geo-team-who { margin: 0 0 18px; display: flex; align-items: center; gap: 12px; }
+.sf .geo-team2 .geo-team-who .av { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 14px; background: #EEF3FF; color: #0055FF; flex: none; }
+.sf .geo-team2 .dev .geo-team-who .av { background: #0A1A33; color: #8FB0FF; }
+.sf .geo-team2 .geo-team-who .av svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.sf .geo-team2 .geo-team-who b { margin: 0; font-size: 17px; letter-spacing: 0; color: #0A1A33; }
+.sf .geo-team2 ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.sf .geo-team2 ol li { display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: start; font-size: 15.5px; line-height: 1.55; font-weight: 600; color: #0A1A33; word-break: keep-all; }
+.sf .geo-team2 ol li em { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 8px; background: #EEF3FF; color: #0055FF; font-style: normal; font-size: 13px; font-weight: 900; }
+.sf .geo-team2 .dev ol li em { background: #0A1A33; color: #8FB0FF; }
+.sf .geo-team2 .geo-team-col { transition: transform .35s cubic-bezier(.23,1,.32,1), box-shadow .35s; }
+.sf .geo-team2 .geo-team-col:hover { transform: translateY(-4px); box-shadow: 0 28px 48px -30px rgba(0,85,255,.45); }
+.sf .geo-team2 .geo-team-loop { position: relative; }
+.sf .geo-team2 .geo-team-loop svg { width: 112px; height: 112px; overflow: visible; }
+.sf .geo-team2 .geo-team-loop path { fill: none; stroke: #C9D8FF; stroke-width: 3; stroke-dasharray: 6 7; animation: gt-dash 1.6s linear infinite; }
+@keyframes gt-dash { to { stroke-dashoffset: -26; } }
+.sf .geo-team2 .geo-team-loop .d1 { fill: #0055FF; }
+.sf .geo-team2 .geo-team-loop .d2 { fill: #0A1A33; }
+.sf .geo-team2 .geo-team-loop span { position: absolute; left: 50%; transform: translateX(-50%); font-size: 13px; font-weight: 800; color: #0055FF; }
+.sf .geo-team2 .geo-team-loop span.t { top: calc(50% - 74px); }
+.sf .geo-team2 .geo-team-loop span.b { bottom: calc(50% - 74px); color: #0A1A33; }
+.sf .geo-team-chat { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 16px; }
+.sf .geo-team-chat li { display: grid; grid-template-columns: minmax(0, 1fr) 54px minmax(0, 1fr); align-items: center; }
+.sf .geo-team-chat p { margin: 0; position: relative; padding: 16px 20px; border-radius: 20px; display: flex; flex-direction: column; gap: 6px; }
+.sf .geo-team-chat p small { font-size: 12.5px; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+.sf .geo-team-chat p span { font-size: 15.5px; line-height: 1.55; word-break: keep-all; }
+.sf .geo-team-chat .q { background: #fff; border: 1px solid #E3E8EF; border-bottom-left-radius: 6px; color: #34405A; }
+.sf .geo-team-chat .q small { color: #6B7A90; }
+.sf .geo-team-chat .a { background: #0055FF; color: #fff; border-bottom-right-radius: 6px; box-shadow: 0 20px 40px -26px rgba(0,85,255,.7); }
+.sf .geo-team-chat .a small { color: #DCE6FF; }
+.sf .geo-team-chat .a small em { font-style: normal; font-size: 11.5px; padding: 2px 8px; border-radius: 999px; background: rgba(255,255,255,.18); color: #fff; }
+.sf .geo-team-chat .a span { font-weight: 700; }
+.sf .geo-team-chat .arr { height: 2px; margin: 0 8px; background: linear-gradient(90deg, #C9D8FF, #0055FF); position: relative; }
+.sf .geo-team-chat .arr::after { content: ""; position: absolute; right: -2px; top: -5px; border: 6px solid transparent; border-left: 8px solid #0055FF; border-right: 0; }
+html.sf-anim .sf .gx .dp-sec.rv:not(.on) .geo-team-chat li { opacity: 0; }
+html.sf-anim .sf .gx .dp-sec.rv.on .geo-team-chat li .q { animation: sf-rise .5s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.2s + var(--i) * 260ms); }
+html.sf-anim .sf .gx .dp-sec.rv.on .geo-team-chat li .arr { animation: sf-rise .4s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.35s + var(--i) * 260ms); }
+html.sf-anim .sf .gx .dp-sec.rv.on .geo-team-chat li .a { animation: sf-rise .5s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.45s + var(--i) * 260ms); }
+@media (max-width: 820px) {
+  .sf .geo-team-chat li { grid-template-columns: 1fr; gap: 8px; }
+  .sf .geo-team-chat .arr { width: 2px; height: 18px; margin: 0 auto; background: linear-gradient(180deg, #C9D8FF, #0055FF); }
+  .sf .geo-team-chat .arr::after { right: -5px; top: auto; bottom: -6px; border: 6px solid transparent; border-top: 8px solid #0055FF; border-bottom: 0; }
+  .sf .geo-team2 .geo-team-loop svg { width: 72px; height: 72px; }
+  .sf .geo-team2 .geo-team-loop span.t { top: auto; left: calc(50% - 70px); bottom: 50%; transform: translateY(50%); }
+  .sf .geo-team2 .geo-team-loop span.b { bottom: auto; left: calc(50% + 70px); top: 50%; transform: translate(-100%, -50%); }
+}
+@media (prefers-reduced-motion: reduce) { .sf .geo-team2 .geo-team-loop path, .sf .gt-serp-ai small i { animation: none; } .sf .geo-team2 .geo-team-loop circle { display: none; } }
+.sf .gt-ours .gt-serp-ai li, .sf .gt-ours .gt-serp-ai li:first-child { flex-direction: row; padding: 5px 12px 5px 5px; border-left: 1px solid rgba(143,176,255,.35); gap: 6px; }
+@media (min-width: 1101px) { .sf .gw .gw-note { font-size: 14px; letter-spacing: -.015em; } }
+.sf .geo-team2 .geo-team-col li { padding-left: 0; }
+.sf .geo-team2 .geo-team-col li::before { display: none; }
+.sf .geo-team2 .geo-team-loop path { stroke: #8FB0FF; stroke-width: 3.5; }
