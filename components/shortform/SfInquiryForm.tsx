@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { readAttribution } from "@/lib/attribution"
 import { trackContactSubmit } from "@/lib/analytics"
 import { CONTACT, INTEREST } from "./content"
+import { useFormGuard } from "@/components/forms/FormGuard"
 
 // /contact 긴 폼(사장님 11-06 「로그통 문의 쪽 그대로」) — 칸 이름·순서·필수 표시를 그쪽에 맞췄다. 개인정보 동의만 우리가 더한다.
 // 보내는 곳은 다른 폼과 같은 /api/contact(Resend → 대표 메일). /contact?svc=search 로 오면 그 서비스가 골라져 있다.
@@ -29,6 +30,7 @@ function FieldErr({ msg }: { msg: string }) {
 }
 
 export default function SfInquiryForm() {
+  const { guardFields, guardValues } = useFormGuard()
   const [agency, setAgency] = useState(false)
   const [site, setSite] = useState("")
   const [picked, setPicked] = useState<string[]>([])
@@ -82,6 +84,8 @@ export default function SfInquiryForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           attribution: readAttribution(),
+          // 스팸 방지 숨은 값(허니팟·폼 연 시각). 없으면 서버가 조용히 버린다(lib/spam-guard.ts)
+          ...guardValues(),
           name: `${company.trim()} · ${person.trim()}`,
           phone: phone.trim(),
           email: email.trim(),
@@ -124,6 +128,7 @@ export default function SfInquiryForm() {
 
   return (
     <form className="iq-f" onSubmit={submit} noValidate aria-label="문의하기">
+      {guardFields}
       <p className="iq-note">
         <em aria-hidden="true">*</em> 표시는 필수 입력사항입니다.
       </p>

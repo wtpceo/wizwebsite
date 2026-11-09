@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { readAttribution } from "@/lib/attribution"
 import { trackContactSubmit } from "@/lib/analytics"
 import { INTEREST } from "./content"
+import { useFormGuard } from "@/components/forms/FormGuard"
 
 // 홈 문의 컷(44)·소개 쪽 문의 칸 — 회사명·연락처·회사 이메일(선택, 11-05)·관심분야. 보내는 곳은 다른 폼과 같은 /api/contact(Resend → 대표 메일).
 // /contact 쪽 긴 폼은 SfInquiryForm(11-06)
@@ -13,6 +14,7 @@ import { INTEREST } from "./content"
 const BUDGETS = ["월 300만원 미만", "월 300~500만원", "월 500~1,000만원", "월 1,000~3,000만원", "월 3,000만원 이상", "아직 미정"]
 
 export default function SfContactForm({ initial = [], source = "home_shortform", label = "진단 신청하기" }: { initial?: string[]; source?: string; label?: string }) {
+  const { guardFields, guardValues } = useFormGuard()
   const [company, setCompany] = useState("")
   const [phone, setPhone] = useState("")
   const [person, setPerson] = useState("") // 담당자명·직책(11-08 대표)
@@ -51,6 +53,8 @@ export default function SfContactForm({ initial = [], source = "home_shortform",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           attribution: readAttribution(),
+          // 스팸 방지 숨은 값(허니팟·폼 연 시각). 없으면 서버가 조용히 버린다(lib/spam-guard.ts)
+          ...guardValues(),
           name: person.trim() ? `${person.trim()} (${company.trim()})` : company.trim(),
           phone: phone.trim(),
           email: email.trim() || undefined,
@@ -92,6 +96,7 @@ export default function SfContactForm({ initial = [], source = "home_shortform",
 
   return (
     <form className="ct-f" onSubmit={submit} noValidate aria-label={label}>
+      {guardFields}
       <label className="ct-l">
         <span>회사명 *</span>
         <input value={company} onChange={(e) => setCompany(e.target.value)} placeholder="회사명을 적어 주세요" autoComplete="organization" />

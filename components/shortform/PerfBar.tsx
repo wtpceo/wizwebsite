@@ -3,6 +3,7 @@ import { useState } from "react"
 import { readAttribution } from "@/lib/attribution"
 import { trackContactSubmit } from "@/lib/analytics"
 import { CONTACT } from "./content"
+import { useFormGuard } from "@/components/forms/FormGuard"
 
 /**
  * 퍼포먼스 쪽 데스크톱 하단 고정 바. 11-07 대표 「착한전수처럼」: 어느 화면에서든 전화번호와 짧은 폼이 보이고 바로 보낸다.
@@ -11,6 +12,7 @@ import { CONTACT } from "./content"
 const MEDIA = ["매체 상담 후 결정", "메타(인스타그램·페이스북)", "네이버 검색·디스플레이", "구글·유튜브", "카카오 모먼트", "당근 광고", "타겟핏 문자"]
 
 export default function PerfBar() {
+  const { guardFields, guardValues } = useFormGuard()
   const [company, setCompany] = useState("")
   const [phone, setPhone] = useState("")
   const [media, setMedia] = useState(MEDIA[0])
@@ -31,6 +33,8 @@ export default function PerfBar() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           attribution: readAttribution(),
+          // 스팸 방지 숨은 값(허니팟·폼 연 시각). 없으면 서버가 조용히 버린다(lib/spam-guard.ts)
+          ...guardValues(),
           name: company.trim(),
           phone: phone.trim(),
           storeName: company.trim(),
@@ -59,6 +63,7 @@ export default function PerfBar() {
         </p>
       ) : (
         <form className="pk-bar-f" onSubmit={submit} noValidate aria-label="무료 광고 진단 신청">
+      {guardFields}
           <input value={company} onChange={(e) => setCompany(e.target.value)} placeholder="회사명" aria-label="회사명" autoComplete="organization" />
           <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="연락처" aria-label="연락처" inputMode="tel" autoComplete="tel" />
           <select value={media} onChange={(e) => setMedia(e.target.value)} aria-label="켜고 싶은 매체">

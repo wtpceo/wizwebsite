@@ -52,6 +52,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "병원 개원 준비, 마케팅은 언제부터: 개원 90일 전부터 첫 달까지",
     desc: "개원일에 맞춰 마케팅을 시작하면 늦습니다. 홈페이지가 검색과 AI에 반영되는 데 시간이 걸리기 때문입니다. 90일 전 이름·도메인부터 60일 전 홈페이지, 심의 일정, 개원 첫 달 기준선 측정까지 역산해 정리했습니다.",
     date: "2026. 9. 28",
+    updated: "2026. 11. 3",
     related: ["/guide/hospital-marketing-cost", "/guide/check-hospital-ai-visibility", "/guide/medical-geo"],
   },
   {
@@ -311,7 +312,7 @@ export const GUIDE_ARTICLES: GuideArticle[] = [
     title: "GEO 대행사 추천을 믿기 전에: 업체 고르는 법과 계약 전 7가지 질문",
     desc: "'AI 노출 보장', '업체 추천 TOP3': 어디까지 믿어야 할까요. 견적 단계에서 업체 수준이 드러나는 7가지 질문과, 검색에서 만나는 '추천 글'이 제3자 비교인지 업체의 자기 광고인지 10초 만에 확인하는 도메인 판별법까지 정리했습니다.",
     date: "2026. 7. 28",
-    updated: "2026. 8. 21",
+    updated: "2026. 11. 3",
     related: ["/guide/is-geo-abuse", "/guide/ranked-but-not-in-chatgpt", "/guide/platform-ai-crawler-status"],
   },
   {

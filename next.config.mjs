@@ -24,6 +24,12 @@ const nextConfig = {
     return [
       // 11-09 대표: 기업 제안 요청 폼을 문의(/contact) 하나로 합침. 운영에서 쓰던 주소라 영구 이동
       { source: '/business/contact', destination: '/contact', permanent: true },
+      // 11-10 대표 「합치고 배포」: 운영에서 11/6 색인을 연 매체 페이지 5곳은 새 서비스 페이지로 영구 이동
+      { source: '/search-ai', destination: '/services/search', permanent: true },
+      { source: '/meta-ads', destination: '/services/performance', permanent: true },
+      { source: '/google-ads', destination: '/services/performance', permanent: true },
+      { source: '/shortform', destination: '/services/content', permanent: true },
+      { source: '/website', destination: '/services/homepage', permanent: true },
       {
         source: '/:path*',
         has: [{ type: 'host', value: 'www.wiztheplanning.com' }],

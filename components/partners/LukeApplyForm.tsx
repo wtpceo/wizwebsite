@@ -5,11 +5,13 @@ import { Loader2, CheckCircle2, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { trackContactSubmit } from "@/lib/analytics"
 import { readAttribution } from "@/lib/attribution"
+import { useFormGuard } from "@/components/forms/FormGuard"
 
 // 루크코리아 제휴 병원 신청 폼 — 기존 /api/contact 재사용, 관리자 메일에 [루크코리아 제휴] 태그로 도착
 export default function LukeApplyForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "done">("idle")
   const [error, setError] = useState<string | null>(null)
+  const { guardFields, guardValues } = useFormGuard()
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -23,6 +25,7 @@ export default function LukeApplyForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          ...guardValues(),
           attribution: readAttribution(),
           name: String(fd.get("name") || ""),
           phone: String(fd.get("phone") || ""),
@@ -54,7 +57,7 @@ export default function LukeApplyForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="grid gap-4 rounded-2xl border border-gray-200 bg-white p-6 md:p-8">
+    <form onSubmit={onSubmit} className="relative grid gap-4 rounded-2xl border border-gray-200 bg-white p-6 md:p-8">
       <div className="grid gap-4 sm:grid-cols-2">
         <Field name="hospital" label="병원명" required placeholder="○○의원" />
         <Field name="name" label="성함" required placeholder="원장님 또는 담당자" />
@@ -105,6 +108,7 @@ export default function LukeApplyForm() {
       <p className="text-center text-xs text-gray-400">
         입력하신 정보는 상담 목적으로만 사용됩니다.
       </p>
+      {guardFields}
     </form>
   )
 }

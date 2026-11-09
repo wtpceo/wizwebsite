@@ -1,19 +1,33 @@
 import { NextResponse } from "next/server"
 import { Resend } from "resend"
 import { MAIL_FROM, ADMIN_EMAILS } from "@/lib/email"
+import {
+  normalizeContactInput,
+  detectSpam,
+  getClientIp,
+  isRateLimited,
+  isPhoneOk,
+  emailAcceptsMail,
+} from "@/lib/spam-guard"
 
 // 전체 사례(유료분) 열람 신청 API
 // - 사업자등록증 파일을 첨부받아 관리자 메일로 전달한다.
 // - 대행사 차단을 위해 "사업자 본인" 여부를 사람이 수동 심사하는 것이 목적.
 // - 문의 폼(/api/contact)과 달리 multipart/form-data + 파일 첨부를 처리한다.
+// - 스팸 장치(IP 횟수·허니팟·제출 시간·무작위 문자열)는 /api/contact 와 같다 (lib/spam-guard.ts).
+//   스팸이면 메일 없이 200 을 주고, 형식 오류는 400 과 안내로 돌려준다.
+// - 로컬 테스트: CONTACT_DRY_RUN=1 이면 Resend 를 부르지 않는다.
 
 const MAX_FILE_BYTES = 8 * 1024 * 1024 // 8MB (Resend 첨부 여유 한도 내)
 const ALLOWED_MIME = ["image/png", "image/jpeg", "image/jpg", "image/webp", "application/pdf"]
 
+const DRY_RUN = process.env.CONTACT_DRY_RUN === "1"
+
 export async function POST(req: Request) {
+  const ip = getClientIp(req)
   try {
     const apiKey = process.env.RESEND_API_KEY
-    if (!apiKey) {
+    if (!apiKey && !DRY_RUN) {
       return NextResponse.json({ error: "메일 발송 설정이 없습니다" }, { status: 500 })
     }
 
@@ -33,9 +47,28 @@ export async function POST(req: Request) {
     const caseKey = String(form.get("caseKey") || "").trim().slice(0, 80)
     const file = form.get("file")
 
+    if (await isRateLimited(ip, "case-access")) {
+      console.warn("[case-access] rate-limited", { ip })
+      return NextResponse.json({ error: "짧은 시간에 요청이 많습니다. 잠시 뒤 다시 시도해 주세요." }, { status: 429 })
+    }
+
+    // 스팸 판정 (허니팟·제출 시간·무작위 문자열). 봇에게는 성공처럼 보이게 200
+    const guarded = normalizeContactInput({
+      name, phone, email, storeName: businessName, message,
+      company_website: form.get("company_website"), openedAt: form.get("openedAt"),
+    })
+    const verdict = detectSpam(guarded)
+    if (verdict.spam) {
+      console.warn("[case-access] spam blocked", { ip, reasons: verdict.reasons, caseKey })
+      return NextResponse.json({ ok: true })
+    }
+
     // 필수값 검증
     if (!name || !phone || !businessName) {
       return NextResponse.json({ error: "이름·업체명·연락처는 필수입니다" }, { status: 400 })
+    }
+    if (!isPhoneOk(phone, false)) {
+      return NextResponse.json({ error: "연락처 형식을 확인해 주세요 (예: 010-0000-0000)" }, { status: 400 })
     }
 
     // 첨부파일 검증 (선택 — 없으면 번호로 1차 심사, 있으면 서류 첨부)
@@ -62,7 +95,7 @@ export async function POST(req: Request) {
       )
     }
 
-    const resend = new Resend(apiKey)
+    const resend = apiKey ? new Resend(apiKey) : null
 
     const adminHtml = `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
@@ -82,14 +115,18 @@ export async function POST(req: Request) {
     `
 
     try {
-      await resend.emails.send({
-        from: MAIL_FROM,
-        to: ADMIN_EMAILS,
-        subject: `[위즈더플래닝][열람신청${caseKey ? " · " + caseKey : ""}] ${businessName} · ${name}님`,
-        html: adminHtml,
-        replyTo: email || undefined,
-        attachments: attachments.length ? attachments : undefined,
-      })
+      if (DRY_RUN || !resend) {
+        console.log("[case-access] dry-run: 관리자 메일 생략", { caseKey, attachments: attachments.length })
+      } else {
+        await resend.emails.send({
+          from: MAIL_FROM,
+          to: ADMIN_EMAILS,
+          subject: `[위즈더플래닝][열람신청${caseKey ? " · " + caseKey : ""}] ${businessName} · ${name}님`,
+          html: adminHtml,
+          replyTo: email || undefined,
+          attachments: attachments.length ? attachments : undefined,
+        })
+      }
     } catch (error) {
       return NextResponse.json(
         { error: "신청 접수 중 오류가 발생했습니다", details: error instanceof Error ? error.message : String(error) },
@@ -97,8 +134,8 @@ export async function POST(req: Request) {
       )
     }
 
-    // 신청자 확인 메일 (이메일이 있는 경우, 운영 환경에서만 실제 발송)
-    if (email) {
+    // 신청자 확인 메일. 형식이 맞고 도메인에 MX 가 있는 주소에만 보낸다 (가짜 주소로 우리 이름의 메일이 나가지 않게)
+    if (email && (await emailAcceptsMail(email))) {
       const userHtml = `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color:#070b14;">열람 신청이 접수되었습니다</h2>
@@ -109,12 +146,16 @@ export async function POST(req: Request) {
       `
       const target = process.env.NODE_ENV === "production" ? email : "ceo@wiztheplanning.com"
       try {
-        await resend.emails.send({
-          from: MAIL_FROM,
-          to: target,
-          subject: "[위즈더플래닝] 전체 사례 열람 신청이 접수되었습니다",
-          html: userHtml,
-        })
+        if (DRY_RUN || !resend) {
+          console.log("[case-access] dry-run: 확인 메일 생략")
+        } else {
+          await resend.emails.send({
+            from: MAIL_FROM,
+            to: target,
+            subject: "[위즈더플래닝] 전체 사례 열람 신청이 접수되었습니다",
+            html: userHtml,
+          })
+        }
       } catch {
         // 확인 메일 실패는 전체 프로세스를 막지 않는다.
       }
