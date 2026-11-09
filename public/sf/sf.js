@@ -121,7 +121,8 @@ var H4=(function(){
       offline:['ex/elev-real','ex/truck-ad','ex/cine-real','ex/kakao-real','ex/cine-seat','ex/m-elev','ex/elev-ad1'],
       local:['ex/bbq','ex/salon','ex/cafe','ex/pilates','ex/hanui','ex/pension','ex/academy','ex/m-chef','ex/fcafe','ex/m-salon','ex/m-trainer','ex/fnb-store'],
       growth:['ex/fashion-look','ex/cosme','ex/giftset','ex/m-shop','ex/sunscreen','ex/shop','ex/fashion-detail','ex/beauty-flat','ex/fashion-store','ex/makeup','v/s6','v/f2'],
-      enterprise:['ex/seminar','ex/m-team','ex/m-shoot','ex/truck-ad','ex/shootcos','ex/m-elev','ex/fashion-store','ex/m-tourist','ex/giftset','ex/elev-ad1']
+      team:['ex/m-team','ex/m-shoot','v/r31','ex/seminar','ex/shootcos','pf/w1','ex/m-reel','v/r15','pf/infl-beauty','ex/m-chef','pf/w4','ex/m-salon'], /* 11-08 전문팀: 엘리베이터 TV 장면 없이 팀이 일하는 장면 위주 */
+      enterprise:['ex/seminar','ex/m-team','ex/m-shoot','ex/truck-ad','ex/shootcos','ex/cine-real','ex/fashion-store','ex/m-tourist','ex/giftset','ex/fashion-look'] /* 11-08 엘리베이터 TV 장면 뺌 */
     };
     var L=(key&&W[key])||R,MAXP=key?2:3,PLAY=key?null:{'v/f1':1,'v/s1':1,'v/b1':1},n=0;while(L.length<12)L=L.concat(L);
     var CAP={'v/s1':'세럼 한 달 써 봤어요','v/s2':'국물 한 숟갈이면 끝','v/s3':'허리 말고 엉덩이로 드세요','v/s4':'오늘의 손님 몽이','v/s5':'올레길 걸어 봤어요','v/s6':'냄비 뚜껑 열어 볼게요'};

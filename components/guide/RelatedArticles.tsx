@@ -15,7 +15,7 @@ export default function RelatedArticles({ currentHref }: { currentHref: string }
     >
       <div className="border-t border-gray-200 pt-10">
         <h2 className="mb-5 flex items-center gap-3 text-lg font-extrabold tracking-tight text-gray-900">
-          <span className="h-5 w-1 bg-[#2A93C2]" />
+          <span className="h-5 w-1 bg-[#0055FF]" />
           이어서 읽기
         </h2>
 
@@ -26,7 +26,7 @@ export default function RelatedArticles({ currentHref }: { currentHref: string }
               <Link
                 key={a.href}
                 href={a.href}
-                className="group flex flex-col overflow-hidden rounded-lg border border-[#E3EAF2] bg-[#F3F7FB] transition-colors hover:border-[#2A93C2]"
+                className="group flex flex-col overflow-hidden rounded-lg border border-[#E3EAF2] bg-[#F3F7FB] transition-colors hover:border-[#0055FF]"
               >
                 <span className="block aspect-[16/9] overflow-hidden bg-slate-100">
                   <img
@@ -39,13 +39,13 @@ export default function RelatedArticles({ currentHref }: { currentHref: string }
                   />
                 </span>
                 <span className="flex flex-1 flex-col p-4">
-                  <span className="text-[11px] font-bold text-[#1E6C9F]" data-cat={cat?.key}>
+                  <span className="text-[11px] font-bold text-[#0055FF]" data-cat={cat?.key}>
                     {a.kicker}
                   </span>
-                  <span className="mt-1 line-clamp-3 text-sm font-bold leading-snug text-gray-900 group-hover:text-[#1E6C9F]">
+                  <span className="mt-1 line-clamp-3 text-sm font-bold leading-snug text-gray-900 group-hover:text-[#0055FF]">
                     {a.title}
                   </span>
-                  <span className="mt-auto pt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#4B5565] transition-colors group-hover:text-[#1E6C9F]">
+                  <span className="mt-auto pt-3 inline-flex items-center gap-1 text-xs font-semibold text-[#4B5565] transition-colors group-hover:text-[#0055FF]">
                     읽기
                     <ArrowRight className="h-3.5 w-3.5" />
                   </span>
@@ -57,7 +57,7 @@ export default function RelatedArticles({ currentHref }: { currentHref: string }
 
         <p className="mt-6 text-center text-sm text-[#4B5565]">
           더 많은 글은{" "}
-          <Link href="/guide" className="font-bold text-[#1E6C9F] underline underline-offset-4">
+          <Link href="/guide" className="font-bold text-[#0055FF] underline underline-offset-4">
             마케팅 칼럼 전체 보기
           </Link>
         </p>

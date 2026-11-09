@@ -1,7 +1,9 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import GuideGrid from "@/components/guide/GuideGrid"
-import { DocShell, Crumb } from "@/components/shortform/DocParts"
+import { DocShell } from "@/components/shortform/DocParts"
+import InsightHero from "@/components/shortform/InsightHero"
+import { coverFor } from "@/lib/guide-cover"
 import { GUIDE_ARTICLES } from "@/lib/guide-articles"
 
 export const metadata: Metadata = {
@@ -17,28 +19,36 @@ export const metadata: Metadata = {
   },
 }
 
-// 2026-11-05 사장님 「인사이트도 새 디자인으로」 — 제목·검색 설명·주소는 그대로, 쪽 모양만 회사 홈 새 디자인으로
+// 2026-11-05 사장님 「인사이트도 새 디자인으로」 → 11-08 대표 「인사이트 메뉴도 서비스 페이지와 디자인 통일」: 사진 벽 첫 화면 + 새 카드
 export default function GuidePage() {
+  const covers = GUIDE_ARTICLES.slice(0, 24).map((g) => coverFor(g.href))
   return (
     <DocShell>
-      <section className="dp-hero gd-hero" aria-label="마케팅 칼럼">
-        <div className="dp-w gd-hero-in">
-          <Crumb items={[{ name: "홈", href: "/" }, { name: "마케팅 칼럼" }]} />
-          <p className="dp-no">마케팅 칼럼 · {GUIDE_ARTICLES.length}편</p>
-          <h1>저희가 직접 재고 쓴 글입니다.</h1>
-          <p className="dp-lead">
-            ChatGPT·네이버 AI·구글에 우리 브랜드가 어떻게 나오는지 직접 물어보고 잰 기록, 업체명을 가린 실제 사례, 업종별로 먼저 할 일을 올립니다.
-          </p>
-        </div>
-      </section>
+      <div className="gx ix vx cx ig">
+        <InsightHero
+          label="마케팅 칼럼"
+          kw="마케팅 칼럼"
+          text={"저희가 직접 재고\n쓴 글입니다"}
+          mark="직접 재고"
+          era={`인사이트 리포트 ${GUIDE_ARTICLES.length}편`}
+          lead={
+            <>
+              ChatGPT·네이버 AI·구글에 브랜드가 어떻게 나오는지 <span className="nw">직접 물어보고 잰 기록,</span>
+              <br />
+              업체명을 가린 실제 사례, <span className="nw">업종별로 먼저 할 일을 올립니다.</span>
+            </>
+          }
+          imgs={covers}
+          cue={{ href: "#list", label: "글 목록" }}
+        />
 
-      {/* 상단 홍보 배너(PromoBanner)는 2026-11-03 기업 전용 전환으로 끈다 */}
+        {/* 상단 홍보 배너(PromoBanner)는 2026-11-03 기업 전용 전환으로 끈다 */}
+        <GuideGrid />
 
-      <GuideGrid />
-
-      <p className="gd-note">
-        궁금한 주제가 있으면 <Link href="/contact">무료 상담 신청</Link>에 적어 주세요.
-      </p>
+        <p className="gd-note">
+          궁금한 주제가 있으면 <Link href="/contact">문의</Link>에 적어 주세요. 다음 글로 재서 올리겠습니다.
+        </p>
+      </div>
     </DocShell>
   )
 }

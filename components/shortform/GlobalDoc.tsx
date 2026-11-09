@@ -1,12 +1,11 @@
 import Link from "next/link"
 import type { ReactNode } from "react"
 import { SERVICES } from "./content"
-import { DETAILS, MORE } from "./details"
-import { DocShell, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
-import { Ex, Chars, Nums, vars } from "./parts"
+import { DETAILS } from "./details"
+import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
+import { Chars, vars } from "./parts"
 import { Icon } from "./icons"
 import { WORKS } from "./Works"
-import { NotFit, Reads } from "./DocMore"
 
 /**
  * /services/global — 글로벌 마케팅(중국·일본) 상세. 2026-11-08 카피 세션 안(docs/카피개선-글로벌-2026-11-08.md)으로 새로 짬.
@@ -22,6 +21,22 @@ const PATH: [string, string, "infl" | "plan" | "search" | "viral"][] = [
   ["한국에 와서 지도로 찾음", "도착해서 지도 앱으로 가는 길을 찾습니다", "search"],
   ["방문하고 후기를 남김", "그 후기가 다음 여행자의 검색에 걸립니다", "viral"],
 ]
+
+/** 두 나라 카드 [나라, 쓰는 앱, 사진, 이 나라 상품 이름들] */
+const LANDS: [string, string, string, string[]][] = [
+  ["중국", "샤오홍슈 · 도우인 · 따중디엔핑", "/sf/ex/m-tourist.jpg", ["샤오홍슈 · 도우인 · 콰이쇼우", "따중디엔핑", "왕홍 라이브커머스"]],
+  ["일본", "인스타그램 · LINE", "/sf/ex/myeong.jpg", ["일본 인스타그램 인플루언서", "LINE 공식계정 · LINE 광고"]],
+]
+
+/** 국내 팀과 같이 세 칸 사진·표시 */
+const DIFF_IMG = ["/sf/ex/m-team.jpg", "/sf/ex/m-shoot.jpg", "/sf/ex/palace.jpg"]
+const DIFF_TAGS = [["국내", "해외", "한 리포트"], ["국내 촬영분 다시 쓰기"], ["관광객이 오는 지역"]]
+
+/** 진행 순서 사진 */
+const PROC_IMG = ["/geo/media-editor.jpg", "/sf/ex/shop.jpg", "/geo/media-unbox.jpg", "/sf/img/report.jpg"]
+
+/** 같이 하면 사진 */
+const PAIR_IMG: Record<string, string> = { infl: "/sf/pf/infl-fashion.jpg", search: "/geo/media-ai.jpg" }
 
 /** 왼쪽 정렬 칸(인플루언서 쪽 CSec과 같은 문법) */
 function CSec({ id, eb, q, sub, children, tone, cls }: { id?: string; eb: string; q: ReactNode; sub?: ReactNode; children?: ReactNode; tone?: "mist" | "k"; cls?: string }) {
@@ -40,7 +55,6 @@ function CSec({ id, eb, q, sub, children, tone, cls }: { id?: string; eb: string
 export default function GlobalDoc() {
   const s = SERVICES.find((x) => x.k === "global")!
   const d = DETAILS.global
-  const m = MORE.global
   const w = WORKS.global
   const crumbs = [
     { name: "홈", path: "/" },
@@ -83,24 +97,17 @@ export default function GlobalDoc() {
           <div className="dp-w geo-hero-in">
             <h1 aria-label="중국·일본 마케팅 대행: 한국에 오기 전에, 갈 곳은 이미 정해집니다">
               <small className="ix-kw">중국·일본 마케팅 대행</small>{" "}
-              <Chars text={"한국에 오기 전에,\n갈 곳은 이미 정해집니다"} mark="이미" />
+              <Chars text={"한국에 오기 전에,\n갈 곳은 이미 정해집니다"} mark="이미 정해집니다" />
             </h1>
-            <p className="vx-era">중국·일본 소비자가 한국 여행을 준비하는 곳</p>
+            <p className="vx-era">중국·일본 고객은 여행 전에 현지 앱에서 고릅니다</p>
             <p className="dp-lead">
-              중국 소비자는 샤오홍슈와 도우인에서, 일본 소비자는 인스타그램과 LINE에서 찾아보고 옵니다.
+              샤오홍슈·도우인과 일본 인스타그램·LINE에 <span className="nw">브랜드를 올리고,</span>{" "}
               <br />
-              그 화면에 현지 크리에이터와 함께 브랜드를 올리고, 한국에 도착해 지도를 열었을 때도 같은 정보가 나오게 맞춥니다.
-            </p>
-            <p className="vx-first">
-              <span>접근 방식</span>
-              {s.first}
+              한국에 와서 지도를 열어도 <span className="nw">같은 정보가 나오게 맞춥니다.</span>
             </p>
             <div className="dp-btns">
               <a className="p1" href="#contact">
-                해외 고객 유입 무료 상담
-              </a>
-              <a className="p2 vx-tel" href="tel:16700704" data-tel>
-                대표전화 1670-0704
+                문의하기
               </a>
             </div>
             <p className="vx-trust">현지 크리에이터 섭외 · 중국어·일본어 현지화 · <span className="nw">국내와 같은 전담 AE</span> · <span className="nw">국내외 한 리포트</span></p>
@@ -142,170 +149,179 @@ export default function GlobalDoc() {
           </CSec>
         </div>
 
-        {/* ④ 무엇을 하나요(그대로) */}
-        <CSec id="what" eb="하는 일" tone="mist" q={d.q1}>
-          <ol className="vx-what">
-            {d.overview.map((p, i) => (
-              <li key={p} style={vars({ i })}>
-                <em>{String(i + 1).padStart(2, "0")}</em>
-                <p>{p}</p>
-              </li>
-            ))}
-          </ol>
-        </CSec>
-
-        {/* ③-1 현지 크리에이터(새 칸). 위플루언서는 쓴다고 적지 않음(기본값) */}
-        <CSec
-          id="creators"
-          eb="현지 크리에이터"
-          q={
-            <>
-              국내 섭외와 같은 기준으로{" "}
-              <br />
-              <span>현지 크리에이터를 고릅니다</span>
-            </>
-          }
-          sub="팔로워 숫자보다 우리 고객층이 실제로 보는 계정인지, 최근 반응이 오르고 있는지를 봅니다. 후보는 고른 이유를 붙여 리스트로 먼저 드리고, 고객사가 고른 뒤에 섭외합니다."
-        >
-          <p className="vx-more">
-            <Link href="/services/influencer">국내 인플루언서·유튜버 섭외</Link> 보기 →
-          </p>
-        </CSec>
-
-        {/* ⑤ 세부 상품(그대로) + 실제 결과물 */}
-        <CSec id="items" eb="세부 상품" q="글로벌 마케팅에는 어떤 상품이 있나요?" sub={d.itemsLead}>
-          <ul className="vx-items">
-            {s.items.map(([n, t], i) => (
-              <li key={n} style={vars({ i })}>
-                <b>{n}</b>
-                <span>{d.itemNotes?.[n] || t}</span>
-              </li>
-            ))}
-          </ul>
-          {w ? (
-            <>
-              <p className="vx-sub-h">{w.q || "실제로 어떤 결과물이 나오나요?"}</p>
-              <p className="vx-sub-p">{w.lead}</p>
-              <ul className="dp-works">
-                {w.items.map((it, i) => {
-                  if ("tiles" in it) {
-                    return (
+        {/* ③ 하는 일 + 세부 상품 + 현지 크리에이터를 한 칸으로(11-08 대표 「없앨 것 없애고 리디자인」): 중국·일본 두 나라 카드 + 올라간 화면 예시 */}
+        <section className="dp-sec geo-sec geo-sec-mist rv gb-what" id="what">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">하는 일</p>
+                <h2>
+                  중국과 일본은{" "}
+                  <br />
+                  <span>쓰는 앱이 다릅니다</span>
+                </h2>
+              </div>
+              <p className="geo-lead">나라마다 고객이 여행을 준비하는 앱에 브랜드를 현지 말로 소개합니다. 브랜드 소개와 메뉴를 중국어·일본어로 옮기는 일부터 합니다.</p>
+            </div>
+            <div className="gb-land">
+              {LANDS.map(([name, sub, img, keys], li) => (
+                <article key={name} style={vars({ i: li })}>
+                  <figure>
+                    <img src={img} alt="" loading="lazy" decoding="async" />
+                    <figcaption>
+                      <b>{name}</b>
+                      <span>{sub}</span>
+                    </figcaption>
+                  </figure>
+                  <ul>
+                    {s.items
+                      .filter(([n]) => keys.includes(n))
+                      .map(([n, t]) => (
+                        <li key={n}>
+                          <b>{n}</b>
+                          <span>{d.itemNotes?.[n] || t}</span>
+                        </li>
+                      ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+            <div className="gb-pick">
+              <em>현지 크리에이터 고르는 기준</em>
+              <p>팔로워 숫자보다 우리 고객층이 실제로 보는 계정인지, 최근 반응이 오르고 있는지를 봅니다. 후보는 고른 이유를 붙여 리스트로 먼저 드리고, 고객사가 고른 뒤에 섭외합니다.</p>
+            </div>
+            {w ? (
+              <div className="vw-works">
+                <p className="vx-sub-h">현지 앱에는 이렇게 올라갑니다</p>
+                <p className="vx-sub-p">{w.lead}</p>
+                <ul className="dp-works">
+                  {w.items.map((it, i) =>
+                    "tiles" in it ? (
                       <li key={i} className="wk-tl" style={vars({ n: i })}>
                         <div className="wk-dk" data-tiles={it.tiles} data-pick={it.pick} aria-hidden="true" />
                         <span>{it.cap}</span>
                       </li>
-                    )
-                  }
-                  if ("video" in it) {
-                    return (
-                      <li key={i} className="wk-v" style={vars({ n: i })}>
-                        <video data-src={it.video} poster={it.poster} muted loop playsInline preload="none" aria-label={it.cap} />
-                        <span>{it.cap}</span>
-                      </li>
-                    )
-                  }
-                  return (
-                    <li key={i} className={it.wide ? "wk-w" : it.tall ? "wk-tall" : it.reel ? "wk-r" : it.img.startsWith("/sf/pf/") ? "wk-p" : undefined} style={vars({ n: i })}>
-                      <img src={it.img} alt={it.cap} width={it.w} height={it.h} loading="lazy" decoding="async" />
-                      <span>{it.cap}</span>
-                    </li>
-                  )
-                })}
-              </ul>
-            </>
-          ) : null}
-        </CSec>
+                    ) : null,
+                  )}
+                </ul>
+              </div>
+            ) : null}
+          </div>
+        </section>
 
-        {/* ⑥ 국내 팀이 같이 하면(그대로) */}
-        <CSec id="diff" eb="국내 팀과 같이" tone="mist" q={d.q3}>
-          <ol className="vx-diff">
-            {d.diff.map(([t, x], i) => (
-              <li key={t} style={vars({ i })}>
-                <em>{String(i + 1).padStart(2, "0")}</em>
-                <b>{t}</b>
-                <span>{x}</span>
-              </li>
-            ))}
-          </ol>
-        </CSec>
-
-        {/* ⑧ 진행 순서·리포트(그대로) */}
-        <CSec
-          id="process"
-          eb="진행 순서"
-          tone="mist"
-          q={
-            <>
-              현지 말로 옮기는 일부터 리포트까지,{" "}
+        {/* ④ 국내 팀과 같이: 사진 카드 세 장 */}
+        <section className="dp-sec geo-sec rv cw-diff gb-diff" id="diff">
+          <div className="dp-w">
+            <p className="geo-eb">국내 팀과 같이</p>
+            <h2>
+              국내 팀이 같이 하면{" "}
               <br />
-              <span>네 단계</span>
-            </>
-          }
-        >
-          <ol className="ix-steps2 vx-steps2" aria-label="진행 네 단계">
-            {d.process.map(([t, x], i) => (
-              <li key={t} className={i === 0 ? "on" : undefined} style={vars({ i })}>
-                <span className="ic" aria-hidden="true">
-                  <Icon k={(["global", "content", "infl", "perf"] as const)[i] ?? "plan"} />
-                </span>
-                <em>{String(i + 1).padStart(2, "0")}</em>
-                <b>{t}</b>
-                <span className="tx">{x}</span>
-              </li>
-            ))}
-          </ol>
-          <div className="vx-rep">
-            <div>
-              <h3>리포트 항목</h3>
+              <span>무엇이 다른가요?</span>
+            </h2>
+            <ol className="cw-diff-g">
+              {d.diff.map(([t, x], i) => (
+                <li key={t} style={vars({ i })}>
+                  <figure>
+                    <img src={DIFF_IMG[i]} alt="" loading="lazy" decoding="async" />
+                    <figcaption>
+                      {DIFF_TAGS[i].map((g) => (
+                        <span key={g}>{g}</span>
+                      ))}
+                    </figcaption>
+                  </figure>
+                  <div>
+                    <em>{String(i + 1).padStart(2, "0")}</em>
+                    <b>{t}</b>
+                    <p>{x}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* ⑤ 진행 순서: 사진 네 단계 + 리포트 띠 */}
+        <section className="dp-sec geo-sec geo-sec-mist rv cw-proc" id="process">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">진행 순서</p>
+                <h2>
+                  현지 말로 옮기는 일부터,{" "}
+                  <br />
+                  <span>네 단계로 진행합니다</span>
+                </h2>
+              </div>
+              <p className="geo-lead">국내 캠페인과 같은 전담 AE가 같은 리포트 틀로 해외 채널까지 챙깁니다.</p>
+            </div>
+            <ol className="cw-proc-g" aria-label="진행 네 단계">
+              {d.process.map(([t, x], i) => (
+                <li key={t} style={vars({ i })}>
+                  <figure>
+                    <img src={PROC_IMG[i]} alt="" loading="lazy" decoding="async" />
+                    <em>STEP {String(i + 1).padStart(2, "0")}</em>
+                  </figure>
+                  <div>
+                    <b>{t}</b>
+                    <span>{x}</span>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <div className="cw-rep">
+              <b>리포트에 들어가는 것</b>
               <ul>
                 {d.report.map((r) => (
                   <li key={r}>
-                    <Nums text={r} />
+                    <i aria-hidden="true" />
+                    {r}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="dp-deck">
-              <div className="deck" data-tiles={s.k} />
-              <Ex>예시 화면</Ex>
+          </div>
+        </section>
+
+        {/* ⑥ 같이 하면: 사진 카드 두 장 */}
+        <section className="dp-sec geo-sec rv cw-pairs" id="pairs">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">같이 하면</p>
+                <h2>
+                  해외 고객도 결국{" "}
+                  <br />
+                  <span>한국에서 지도를 엽니다</span>
+                </h2>
+              </div>
+              <p className="geo-lead">현지 앱에서 본 브랜드를 한국에 와서 찾을 때, 지도와 국내 후기까지 같은 정보로 이어지게 합니다.</p>
             </div>
+            <ul className="cw-pair">
+              {d.pairs.map(([k, why]) => {
+                const o = SERVICES.find((x) => x.k === k)!
+                return (
+                  <li key={k}>
+                    <Link href={`/services/${o.slug}`}>
+                      <img src={PAIR_IMG[k] ?? "/sf/pf/w1.jpg"} alt="" loading="lazy" decoding="async" />
+                      <span className="cw-pair-tx">
+                        <b>{o.n}</b>
+                        <span>{why}</span>
+                      </span>
+                      <span className="cw-pair-ar" aria-hidden="true">
+                        <Icon k="arrow" />
+                      </span>
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
-        </CSec>
+        </section>
 
-        {/* ⑨ 같이 하면(그대로) */}
-        <CSec id="pairs" eb="같이 하면" q="글로벌 마케팅과 같이 하면 좋은 서비스는 무엇인가요?" sub={d.pairsLead}>
-          <ul className="dp-pairs vx-pairs">
-            {d.pairs.map(([k, why]) => {
-              const o = SERVICES.find((x) => x.k === k)!
-              return (
-                <li key={k}>
-                  <Link href={`/services/${o.slug}`}>
-                    <span className="ic">
-                      <Icon k={o.k} />
-                    </span>
-                    <span>
-                      <b>{o.n}</b>
-                      <span>{why}</span>
-                    </span>
-                    <Icon k="arrow" className="ar" />
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
-        </CSec>
+        {/* ⑦ FAQ: 공통 부품 */}
+        <FaqBlock items={d.faq} note="여기 없는 질문은 문의로 남겨 주세요. 담당자가 답해 드립니다." />
 
-        <NotFit items={m.notFit} />
-
-        {/* ⑩ FAQ(그대로) */}
-        <CSec id="faq" eb="자주 묻는 질문" tone="mist" q="글로벌 마케팅 자주 묻는 질문">
-          <div className="geo-faq">
-            <Faq items={d.faq} />
-          </div>
-          {m.reads ? <Reads items={m.reads} /> : null}
-        </CSec>
-
-        {/* ⑪ 문의 */}
+        {/* ⑧ 문의 */}
         <ContactBlock title={d.ct?.title ?? `${s.n}, 진단 신청부터 시작하세요.`} sub={d.ct?.sub} label={d.ct?.label} initial={[s.k]} source={`service_${s.slug}`} />
       </div>
     </DocShell>

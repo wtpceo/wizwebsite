@@ -6,7 +6,6 @@ import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, 
 import { Ex, Chars, Nums, vars } from "./parts"
 import { Icon } from "./icons"
 import { WORKS } from "./Works"
-import { Reads } from "./DocMore"
 
 /**
  * /services/content — 콘텐츠 프로덕션 상세. 2026-11-08 카피 세션 안(docs/카피개선-콘텐츠-2026-11-08.md)으로 새로 짬.
@@ -494,11 +493,6 @@ export default function ContentDoc() {
 
         {/* ⑩ FAQ: 퍼포먼스·인플루언서·GEO와 같은 부품 */}
         <FaqBlock items={d.faq} note="여기 없는 질문은 문의로 남겨 주세요. 담당자가 답해 드립니다." />
-        {m.reads ? (
-          <div className="dp-w">
-            <Reads items={m.reads} />
-          </div>
-        ) : null}
 
         {/* ⑪ 문의 */}
         <ContactBlock title={d.ct?.title ?? `${s.n}, 진단 신청부터 시작하세요.`} sub={d.ct?.sub} label={d.ct?.label} initial={[s.k]} source={`service_${s.slug}`} />

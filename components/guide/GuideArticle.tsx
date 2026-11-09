@@ -87,7 +87,7 @@ export default function GuideArticle({
       </p>
 
       {/* 본문. 링크가 일반 글자처럼 보이지 않게 색과 밑줄을 준다. 버튼처럼 class를 직접 준 링크는 건드리지 않는다 */}
-      <article className="gd-body container mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16 [&>h2]:mt-12 [&>h2]:text-2xl [&>h2]:font-extrabold [&>h2]:tracking-tight [&>h2]:text-[#0F1B2D] [&>h3]:mt-8 [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-[#0F1B2D] [&>p]:mt-4 [&>p]:text-base [&>p]:leading-[1.85] [&>p]:text-[#34405A] [&>ul]:mt-4 [&>ul]:space-y-2 [&>ul]:pl-1 [&>ol]:mt-4 [&>ol]:space-y-3 [&>ol]:pl-1 [&_a:not([class])]:font-semibold [&_a:not([class])]:text-[#1E6C9F] [&_a:not([class])]:underline [&_a:not([class])]:underline-offset-4">
+      <article className="gd-body container mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16 [&>h2]:mt-12 [&>h2]:text-2xl [&>h2]:font-extrabold [&>h2]:tracking-tight [&>h2]:text-[#0F1B2D] [&>h3]:mt-8 [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-[#0F1B2D] [&>p]:mt-4 [&>p]:text-base [&>p]:leading-[1.85] [&>p]:text-[#34405A] [&>ul]:mt-4 [&>ul]:space-y-2 [&>ul]:pl-1 [&>ol]:mt-4 [&>ol]:space-y-3 [&>ol]:pl-1 [&_a:not([class])]:font-semibold [&_a:not([class])]:text-[#0055FF] [&_a:not([class])]:underline [&_a:not([class])]:underline-offset-4">
         {children}
       </article>
 
@@ -127,7 +127,7 @@ export default function GuideArticle({
 export function CheckItem({ children }: { children: React.ReactNode }) {
   return (
     <li className="flex items-start gap-2.5 text-base leading-relaxed text-[#34405A]">
-      <span className="mt-2 h-2 w-2 shrink-0 bg-[#2A93C2]" />
+      <span className="mt-2 h-2 w-2 shrink-0 bg-[#0055FF]" />
       <span>{children}</span>
     </li>
   )
@@ -136,7 +136,7 @@ export function CheckItem({ children }: { children: React.ReactNode }) {
 // 강조 콜아웃 박스
 export function Callout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mt-6 border-l-4 border-[#2A93C2] bg-[#F3F7FB] px-5 py-4 text-base leading-relaxed text-[#1F2937]">
+    <div className="mt-6 border-l-4 border-[#0055FF] bg-[#F3F7FB] px-5 py-4 text-base leading-relaxed text-[#1F2937]">
       {children}
     </div>
   )

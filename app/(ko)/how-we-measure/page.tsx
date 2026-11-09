@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ChevronRight, Radar, Bell, FileText, Stethoscope, BarChart3, ListChecks } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { DocShell } from "@/components/shortform/DocParts"
+import { DocShell, FaqBlock } from "@/components/shortform/DocParts"
+import InsightHero from "@/components/shortform/InsightHero"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 → 현재 33자
 const TITLE = "측정 방식: 자체 개발 GEO 관제 시스템으로 매주 재는 것"
@@ -102,214 +102,183 @@ const faqJsonLd = {
   mainEntity: FAQ.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
 }
 
+// 11-08 대표 「인사이트 메뉴도 디자인 통일」: 청록 → 남색·위즈블루, 서비스 페이지와 같은 첫 화면·칸 문법. 숫자·문장·구조화 데이터는 그대로
+const METRICS = [
+  { icon: BarChart3, title: "상호 없는 질문만 대표 지표로", body: "“위즈더플래닝 어때?”처럼 이름을 대고 물으면 AI는 당연히 답합니다. 그래서 대표 지표인 카테고리 점유율은 상호가 없는 질문만 셉니다. 브랜드 질문은 따로 검증하고 경고에만 씁니다." },
+  { icon: ListChecks, title: "멘션과 인용을 분리", body: "답변 본문에 이름이 나온 것(멘션)과 출처로 링크된 것(인용), 답의 근거로 쓰인 것(근거)은 다른 일입니다. 셋을 질문마다 따로 기록합니다." },
+  { icon: Stethoscope, title: "홈페이지 상태를 점수로", body: "봇 접근성, 구조화 데이터, 콘텐츠 품질, 신뢰도, 기술 건강도를 축별로 점수화합니다. AI가 읽지 못하는 홈페이지는 콘텐츠를 아무리 만들어도 인용되지 않기 때문에 이것을 먼저 봅니다." },
+]
+const NOT_DO = [
+  { title: "외부에 팔지 않습니다", body: "광고주 관리에 쓰려고 만들었고 사내에서만 씁니다. 도구 문의는 받지 않습니다." },
+  { title: "계정을 드리지 않습니다", body: "전문 도구라 해석이 필요합니다. 광고주께는 담당 매니저가 해석을 붙인 주간 리포트를 드립니다." },
+  { title: "노출을 보장하지 않습니다", body: "AI 답변은 엔진과 시점마다 다릅니다. 보장 대신 같은 기준으로 계속 재서 변화를 숫자로 보고합니다." },
+]
+const STATS = [
+  { n: "4개", d: "측정 엔진" },
+  { n: "주 1회", d: "자동 재측정·리포트" },
+  { n: "16점", d: "우리 회사 종합 점수(10월 19일, 직전 18점)" },
+  { n: "0", d: "외부 판매 계정" },
+]
+
 export default function Page() {
   return (
-    // 2026-11-05 사장님 「여기도 아직 이전 페이지」 — 머리글·바닥글만 새 틀(DocShell)로, 본문은 그대로
     <DocShell>
-    <div className="flex min-h-screen flex-col bg-white">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
-      <div className="flex-1">
-        {/* 히어로 */}
-        <section className="relative overflow-hidden bg-[#070b14] py-20 md:py-28">
-          <div className="geo-grid-bg absolute inset-0 opacity-60" />
-          <div className="absolute -right-32 top-1/4 h-[420px] w-[560px] rounded-full bg-[#00e5a0]/[0.07] blur-3xl" />
-          <div className="container relative mx-auto max-w-5xl px-4 md:px-6">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#00e5a0]/30 bg-[#00e5a0]/10 px-4 py-1.5 text-xs font-bold tracking-wide text-[#00e5a0]">
-              <Radar className="h-3.5 w-3.5" />
-              HOW WE MEASURE
-            </span>
-            <h1 className="mt-6 text-[clamp(2rem,4.4vw,3.6rem)] font-extrabold leading-[1.15] tracking-tight text-white">
-              말 대신 관제 화면으로<br className="hidden sm:block" /> 보여 드립니다
-            </h1>
-            <p className="mt-5 max-w-2xl text-[clamp(1rem,1.4vw,1.25rem)] leading-relaxed text-slate-400">
-              AI 검색은 순위표가 없어서 &ldquo;잘되고 있다&rdquo;는 말로 넘어가기 쉽습니다. 저희는 AI 답변을
-              반복 측정하고 인용 출처를 기록하는 <span className="font-semibold text-slate-200">GEO 관제 시스템을
-              직접 개발해</span> 사내에서 씁니다. 아래는 그 화면 6장입니다. 전부 저희 회사 자신을 측정한 것이라
-              가린 것이 없습니다. 관제 대시보드는 2026년 10월 19일 측정 화면이고, 나머지 다섯 장은 9월에 이 페이지를
-              처음 열 때 찍은 화면입니다.
-            </p>
-            <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 text-sm sm:grid-cols-4">
-              {[
-                { n: "4개", d: "측정 엔진" },
-                { n: "주 1회", d: "자동 재측정·리포트" },
-                { n: "16점", d: "우리 회사 종합 점수 (10월 19일 측정, 직전 18점)" },
-                { n: "0", d: "외부 판매 계정" },
-              ].map((s) => (
-                <div key={s.d}>
-                  <p className="text-xl font-extrabold text-[#00e5a0]">{s.n}</p>
-                  <p className="mt-0.5 text-slate-500">{s.d}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* 화면 6장 */}
-        <section className="container mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-20">
-          <p className="text-xs font-bold tracking-[0.25em] text-emerald-600">SCREENS</p>
-          <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
-            관제 화면 6장, 2026년 9월·10월 캡처
-          </h2>
-          <p className="mt-3 max-w-2xl text-base text-gray-600">
-            측정 대상은 위즈더플래닝 자신입니다. 광고주 화면은 광고주 것이라 공개하지 않습니다.
-          </p>
-          <div className="mt-10 space-y-14">
-            {SCREENS.map((s, i) => (
-              <figure key={s.src} className="grid items-start gap-6 md:grid-cols-5">
-                <div className={`md:col-span-3 ${i % 2 === 1 ? "md:order-2" : ""}`}>
-                  <img
-                    src={s.src}
-                    alt={s.alt}
-                    width={s.w ?? 1800}
-                    height={s.h ?? 1053}
-                    loading={i === 0 ? "eager" : "lazy"}
-                    className="w-full rounded-2xl border border-gray-200 shadow-lg shadow-gray-200/60"
-                  />
-                </div>
-                <figcaption className={`md:col-span-2 ${i % 2 === 1 ? "md:order-1" : ""}`}>
-                  <p className="font-mono text-xs font-bold text-emerald-600">0{i + 1}</p>
-                  <h3 className="mt-1 text-xl font-extrabold tracking-tight text-gray-900">{s.title}</h3>
-                  <p className="mt-3 text-sm leading-[1.85] text-gray-600 md:text-base">{s.body}</p>
-                </figcaption>
-              </figure>
+      <div className="gx ix vx cx mw">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+        <InsightHero
+          label="측정 방식 소개"
+          kw="측정 방식 · 자체 개발 GEO 관제 시스템"
+          text={"말 대신 관제 화면으로\nAI 노출을 보여 드립니다"}
+          mark="관제 화면으로"
+          era="AI 검색은 순위표가 없어서 '잘되고 있다'는 말로 넘어가기 쉽습니다"
+          lead={
+            <>
+              저희는 AI 답변을 반복 측정하고 인용 출처를 기록하는 <span className="nw">GEO 관제 시스템을 직접 개발해</span> 사내에서 씁니다.
+              <br />
+              아래 화면은 전부 저희 회사 자신을 잰 것이라 <span className="nw">가린 것이 없습니다.</span>
+            </>
+          }
+          imgs={SCREENS.map((s) => s.src)}
+          cue={{ href: "#screens", label: "관제 화면" }}
+        >
+          <ul className="mw-stats">
+            {STATS.map((s) => (
+              <li key={s.d}>
+                <b>{s.n}</b>
+                <span>{s.d}</span>
+              </li>
             ))}
-          </div>
-        </section>
+          </ul>
+        </InsightHero>
 
-        {/* 지표 정의 */}
-        <section className="bg-[#f6f8f7] py-16 md:py-20">
-          <div className="container mx-auto max-w-5xl px-4 md:px-6">
-            <p className="text-xs font-bold tracking-[0.25em] text-emerald-600">METRICS</p>
-            <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
-              숫자가 부풀려지지 않도록 나눠서 셉니다
-            </h2>
-            <div className="mt-8 grid gap-4 md:grid-cols-3">
-              {[
-                {
-                  icon: BarChart3,
-                  title: "상호 없는 질문만 대표 지표로",
-                  body: "“위즈더플래닝 어때?”처럼 이름을 대고 물으면 AI는 당연히 답합니다. 그래서 대표 지표인 카테고리 점유율은 상호가 없는 질문만 셉니다. 브랜드 질문은 따로 검증하고 경고에만 씁니다.",
-                },
-                {
-                  icon: ListChecks,
-                  title: "멘션과 인용을 분리",
-                  body: "답변 본문에 이름이 나온 것(멘션)과 출처로 링크된 것(인용), 답의 근거로 쓰인 것(근거)은 다른 일입니다. 셋을 질문마다 따로 기록합니다.",
-                },
-                {
-                  icon: Stethoscope,
-                  title: "홈페이지 상태를 점수로",
-                  body: "봇 접근성, 구조화 데이터, 콘텐츠 품질, 신뢰도, 기술 건강도를 축별로 점수화합니다. AI가 읽지 못하는 홈페이지는 콘텐츠를 아무리 만들어도 인용되지 않기 때문에 이것을 먼저 봅니다.",
-                },
-              ].map((m) => (
-                <div key={m.title} className="rounded-2xl border border-gray-200 bg-white p-6">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 ring-1 ring-emerald-100">
-                    <m.icon className="h-5 w-5" />
-                  </span>
-                  <h3 className="mt-4 text-lg font-extrabold tracking-tight text-gray-900">{m.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{m.body}</p>
-                </div>
-              ))}
+        <section className="dp-sec geo-sec rv mw-screens" id="screens">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">관제 화면</p>
+                <h2>
+                  관제 화면 6장,{" "}
+                  <br />
+                  <span>2026년 9월·10월 캡처</span>
+                </h2>
+              </div>
+              <p className="geo-lead">측정 대상은 위즈더플래닝 자신입니다. 관제 대시보드는 2026년 10월 19일 측정 화면이고, 나머지 다섯 장은 9월에 이 페이지를 처음 열 때 찍었습니다. 광고주 화면은 광고주 것이라 공개하지 않습니다.</p>
             </div>
-            <p className="mt-6 text-sm text-gray-500">
-              측정 도구를 고를 때 무엇을 먼저 정해야 하는지는{" "}
-              <Link href="/guide/geo-measurement-tools" className="font-semibold text-emerald-700 underline-offset-4 hover:underline">
-                GEO 측정 도구 고르는 법
-              </Link>
-              에, 유입까지 세는 방법은{" "}
-              <Link href="/guide/measure-ai-traffic" className="font-semibold text-emerald-700 underline-offset-4 hover:underline">
-                AI 검색 유입 측정: 4단계로 나눠 세기
-              </Link>
-              에 적어 두었습니다.
-            </p>
-          </div>
-        </section>
-
-        {/* 주간 루틴 */}
-        <section className="container mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-20">
-          <p className="text-xs font-bold tracking-[0.25em] text-emerald-600">ROUTINE</p>
-          <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
-            매주 이 순서로 돌아갑니다
-          </h2>
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
-            {ROUTINE.map((r, i) => (
-              <div key={r.title} className="flex gap-4 rounded-2xl border border-gray-200 bg-white p-5 md:p-6">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gray-900 text-sm font-bold text-white">{i + 1}</span>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <r.icon className="h-4 w-4 text-emerald-600" />
-                    <h3 className="text-base font-bold text-gray-900">{r.title}</h3>
+            <ol className="mw-list">
+              {SCREENS.map((s, i) => (
+                <li key={s.src} className={i % 2 ? "rev" : undefined}>
+                  <figure>
+                    <img src={s.src} alt={s.alt} width={s.w ?? 1800} height={s.h ?? 1053} loading={i === 0 ? "eager" : "lazy"} decoding="async" />
+                  </figure>
+                  <div>
+                    <em>{String(i + 1).padStart(2, "0")}</em>
+                    <h3>{s.title}</h3>
+                    <p>{s.body}</p>
                   </div>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-600">{r.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 하지 않는 것 */}
-        <section className="bg-[#070b14] py-16 md:py-20">
-          <div className="container mx-auto max-w-5xl px-4 md:px-6">
-            <p className="text-xs font-bold tracking-[0.25em] text-[#00e5a0]">NOT FOR SALE</p>
-            <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-white md:text-3xl">
-              이 시스템으로 하지 않는 것
-            </h2>
-            <div className="mt-8 grid gap-4 md:grid-cols-3">
-              {[
-                { title: "외부에 팔지 않습니다", body: "광고주 관리에 쓰려고 만들었고 사내에서만 씁니다. 도구 문의는 받지 않습니다." },
-                { title: "계정을 드리지 않습니다", body: "전문 도구라 해석이 필요합니다. 광고주께는 담당 매니저가 해석을 붙인 주간 리포트를 드립니다." },
-                { title: "노출을 보장하지 않습니다", body: "AI 답변은 엔진과 시점마다 다릅니다. 보장 대신 같은 기준으로 계속 재서 변화를 숫자로 보고합니다." },
-              ].map((h) => (
-                <div key={h.title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6">
-                  <h3 className="text-lg font-extrabold tracking-tight text-white">{h.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-400">{h.body}</p>
-                </div>
+                </li>
               ))}
-            </div>
+            </ol>
           </div>
         </section>
 
-        {/* FAQ */}
-        <section className="container mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-20">
-          <p className="text-xs font-bold tracking-[0.25em] text-emerald-600">FAQ</p>
-          <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">자주 묻는 질문</h2>
-          <div className="mt-8 space-y-4">
-            {FAQ.map((f, i) => (
-              <div key={f.q} className="rounded-2xl border border-gray-200 bg-[#f9fafb] p-5 md:p-6">
-                <p className="flex gap-2 text-lg font-bold leading-snug text-gray-900">
-                  <span className="shrink-0 text-[#00b57f]">Q{i + 1}.</span>
-                  <span>{f.q}</span>
-                </p>
-                <p className="mt-3 text-base leading-[1.85] text-gray-700">{f.a}</p>
+        <section className="dp-sec geo-sec geo-sec-mist rv mw-metrics" id="metrics">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">지표</p>
+                <h2>
+                  숫자가 부풀려지지 않도록{" "}
+                  <br />
+                  <span>나눠서 셉니다</span>
+                </h2>
               </div>
-            ))}
+              <p className="geo-lead">
+                도구를 고를 때 먼저 정할 것은 <Link href="/guide/geo-measurement-tools">GEO 측정 도구 고르는 법</Link>에, 유입까지 세는 방법은 <Link href="/guide/measure-ai-traffic">AI 검색 유입 측정: 4단계로 나눠 세기</Link>에 적어 두었습니다.
+              </p>
+            </div>
+            <ul className="mw-cards">
+              {METRICS.map((m) => (
+                <li key={m.title}>
+                  <span className="ic" aria-hidden="true">
+                    <m.icon />
+                  </span>
+                  <b>{m.title}</b>
+                  <p>{m.body}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="container mx-auto max-w-5xl px-4 pb-20 md:px-6">
-          <div className="rounded-3xl bg-gradient-to-r from-[#0b1220] to-[#101b2e] px-8 py-12 text-center shadow-xl">
-            <h2 className="text-xl font-extrabold text-white md:text-3xl">우리 브랜드는 지금 AI 검색에서 어떻게 보이는지부터</h2>
-            <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-slate-400 md:text-base">
-              같은 시스템으로 현재 상태를 먼저 측정해 드립니다. 진단 결과만 받아보시고 마무리하셔도 됩니다.
-            </p>
-            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-              <Link href="/business/contact">
-                <Button size="lg" className="w-full gap-1 bg-[#00e5a0] px-8 py-6 text-base font-bold text-[#070b14] hover:bg-[#3cf0bb] sm:w-auto">
-                  제안 요청 보내기
-                  <ChevronRight className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="/medical-diagnosis">
-                <Button size="lg" variant="outline" className="w-full border-slate-700 bg-transparent px-8 py-6 text-base text-slate-300 hover:border-slate-500 hover:bg-white/5 hover:text-white sm:w-auto">
-                  병원·의원은 여기로
-                </Button>
-              </Link>
+        <section className="dp-sec geo-sec rv mw-routine" id="routine">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">주간 루틴</p>
+                <h2>
+                  매주 이 순서로{" "}
+                  <br />
+                  <span>돌아갑니다</span>
+                </h2>
+              </div>
+              <p className="geo-lead">월요일 새벽 자동 측정부터 우선순위대로 고치는 일까지, 무엇을 왜 고쳤는지는 다음 리포트에 남습니다.</p>
             </div>
+            <ol className="mw-steps">
+              {ROUTINE.map((r, i) => (
+                <li key={r.title}>
+                  <span className="ic" aria-hidden="true">
+                    <r.icon />
+                  </span>
+                  <em>{String(i + 1).padStart(2, "0")}</em>
+                  <b>{r.title}</b>
+                  <p>{r.body}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <section className="dp-sec geo-sec rv mw-k" id="not-for-sale">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">하지 않는 것</p>
+                <h2>
+                  이 시스템으로{" "}
+                  <br />
+                  <span>하지 않는 것</span>
+                </h2>
+              </div>
+              <p className="geo-lead">도구를 팔기 위한 페이지가 아닙니다. 저희가 어떤 근거로 일하는지 보여 드리려고 엽니다.</p>
+            </div>
+            <ul className="mw-not">
+              {NOT_DO.map((h) => (
+                <li key={h.title}>
+                  <b>{h.title}</b>
+                  <p>{h.body}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <FaqBlock items={FAQ.map((f) => [f.q, f.a] as [string, string])} note="여기 없는 질문은 문의로 남겨 주세요. 담당자가 답해 드립니다." />
+
+        <section className="ig-cta" id="contact" aria-label="제안 요청">
+          <div className="dp-w ig-cta-in">
+            <div>
+              <h2>우리 브랜드는 지금 AI 검색에서 어떻게 보이는지부터</h2>
+              <p>
+                같은 시스템으로 현재 상태를 먼저 재 드립니다. 진단 결과만 받아 보시고 마무리하셔도 됩니다. 병·의원은 <Link href="/medical-diagnosis">병원 AI 검색 무료 진단</Link>으로 오시면 됩니다.
+              </p>
+            </div>
+            <Link className="p1" href="/business/contact">
+              제안 요청 보내기 <ChevronRight aria-hidden="true" />
+            </Link>
           </div>
         </section>
       </div>
-    </div>
     </DocShell>
   )
 }

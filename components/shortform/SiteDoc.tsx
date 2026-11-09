@@ -2,11 +2,10 @@ import Link from "next/link"
 import type { ReactNode } from "react"
 import { SERVICES } from "./content"
 import { DETAILS, MORE } from "./details"
-import { DocShell, Faq, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
-import { Ex, Chars, Nums, vars } from "./parts"
+import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
+import { Ex, Chars, vars } from "./parts"
 import { Icon } from "./icons"
-import { WORKS } from "./Works"
-import { CaseBox, TimeBox, SampleBox, NotFit, Reads } from "./DocMore"
+import { CaseBox, TimeBox, SampleBox } from "./DocMore"
 
 /**
  * /services/homepage — 웹사이트 구축 상세. 2026-11-08 카피 세션 안(docs/카피개선-웹사이트-2026-11-08.md)으로 새로 짬.
@@ -20,13 +19,33 @@ const GUESTS: [string, "person" | "search", string[]][] = [
   ["AI에게 필요한 것", "search", ["글자로 된 전화·주소·가격", "페이지마다 다른 제목과 설명", "고객 질문에 답하는 글", "구조화 데이터"]],
 ]
 
-/** 따로 맡길 때 / 이어서 할 때 — 왼쪽 칸은 특정 회사를 가리키지 않게 조건으로만 */
-const VS: [string, string, string][] = [
-  ["광고 받을 페이지", "광고를 시작하고 나서 따로 붙임", "설계 때 광고가 보낼 페이지를 같이 만듦"],
-  ["지도 정보", "홈페이지와 지도 앱 표기가 따로 놂", "주소·전화·영업시간을 같은 표기로 맞춤"],
-  ["오픈 뒤", "오픈으로 끝", "문의와 AI 인용을 다시 잼"],
-  ["고칠 때", "요청하고 견적을 기다림", "월간 유지관리로 바로 반영"],
+/** AI가 읽는 글자(예시) [항목, 값] */
+const FACTS: [string, string][] = [
+  ["상호", "OO치과"],
+  ["전화", "02-000-0000"],
+  ["주소", "서울시 OO구 OO로 00"],
+  ["진료 시간", "평일 09:30~21:00"],
+  ["가격", "스케일링 15,000원"],
+  ["자주 묻는 질문", "22문항"],
 ]
+
+/** 세부 상품 사진 */
+const PROD_IMG: Record<string, string> = {
+  "신규 구축": "/sf/ex/m-team.jpg",
+  "정보 고도화": "/sf/ex/dental.jpg",
+  "월간 유지관리": "/sf/ex/m-phone.jpg",
+  "FAQ·콘텐츠 발행": "/sf/ex/seminar.jpg",
+}
+
+/** 검색 팀과 같이 네 칸 사진·표시 */
+const DIFF_IMG = ["/geo/media-ai.jpg", "/sf/ex/m-tourist.jpg", "/sf/img/report.jpg", "/sf/ex/m-team.jpg"]
+const DIFF_TAGS = [["구조화 데이터", "질문형 글"], ["지도 표기 맞춤"], ["오픈 뒤 다시 측정"], ["옛 주소 연결"]]
+
+/** 진행 순서 사진 */
+const PROC_IMG = ["/sf/ex/m-team.jpg", "/sf/ex/seminar.jpg", "/geo/media-editor.jpg", "/sf/img/report.jpg"]
+
+/** 같이 하면 사진 */
+const PAIR_IMG: Record<string, string> = { search: "/geo/media-ai.jpg", content: "/sf/ex/m-shoot.jpg" }
 
 /** 왼쪽 정렬 칸(인플루언서 쪽 CSec과 같은 문법) */
 function CSec({ id, eb, q, sub, children, tone, cls }: { id?: string; eb: string; q: ReactNode; sub?: ReactNode; children?: ReactNode; tone?: "mist" | "k"; cls?: string }) {
@@ -46,7 +65,6 @@ export default function SiteDoc() {
   const s = SERVICES.find((x) => x.k === "home")!
   const d = DETAILS.home
   const m = MORE.home
-  const w = WORKS.home
   const crumbs = [
     { name: "홈", path: "/" },
     { name: s.n, path: `/services/${s.slug}` },
@@ -88,256 +106,257 @@ export default function SiteDoc() {
           <div className="dp-w geo-hero-in">
             <h1 aria-label="홈페이지 제작 대행: 마지막 설득은 홈페이지가 합니다">
               <small className="ix-kw">홈페이지 제작 대행</small>{" "}
-              <Chars text={"마지막 설득은\n홈페이지가 합니다"} mark="홈페이지가" />
+              <Chars text={"마지막 설득은\n홈페이지가 합니다"} mark="홈페이지가 합니다" />
             </h1>
-            <p className="vx-era">광고가 데려오고, AI가 소개한 다음</p>
+            <p className="vx-era">광고와 AI가 데려온 고객이 마지막에 닿는 곳</p>
             <p className="dp-lead">
-              광고를 누른 사람도, AI 답변의 링크를 누른 사람도 결국 홈페이지에 닿습니다.
+              광고를 누른 사람도, AI 답변 링크를 누른 사람도 <span className="nw">결국 홈페이지에서 정합니다.</span>{" "}
               <br />
-              그래서 AI 답변을 재는 GEO팀이 설계부터 같이 봅니다.
-            </p>
-            <p className="vx-first">
-              <span>접근 방식</span>
-              {s.first}
+              사람과 AI가 둘 다 읽는 홈페이지를 <span className="nw">새로 만들거나 고쳐 드립니다.</span>
             </p>
             <div className="dp-btns">
               <a className="p1" href="#contact">
-                지금 홈페이지 무료 점검
-              </a>
-              <a className="p2 vx-tel" href="tel:16700704" data-tel>
-                대표전화 1670-0704
+                문의하기
               </a>
             </div>
             <p className="vx-trust">홈페이지 30곳 넘게 · GEO팀 설계 참여 · <span className="nw">고객사가 직접 고치는 관리 화면</span> · <span className="nw">옛 주소 검색 기록 연결</span></p>
           </div>
           <a className="ix-cue" href="#guests" aria-label="홈페이지를 읽는 쪽으로 내려가기">
-            <span>홈페이지를 읽는 쪽</span>
+            <span>위즈더플래닝은 이렇게 일해요</span>
             <i aria-hidden="true" />
           </a>
         </section>
 
-        {/* ② 손님이 둘(어두운 바탕): 사람 / AI 두 칸 */}
-        <div className="ix-dark">
-          <CSec
-            id="guests"
-            eb="홈페이지를 읽는 쪽"
-            tone="k"
-            cls="ix-fit hx-guests"
-            q={
-              <>
-                홈페이지 손님은 둘입니다.{" "}
-                <br />
-                <span>사람과 AI</span>
-              </>
-            }
-          >
-            <div className="hx-two">
-              {GUESTS.map(([t, ic, items], i) => (
-                <div key={t} className={i === 1 ? "hx-g ai" : "hx-g"} style={vars({ i })}>
-                  <span className="ic" aria-hidden="true">
-                    <Icon k={ic} />
-                  </span>
-                  <b>{t}</b>
-                  <ul>
-                    {items.map((x) => (
-                      <li key={x}>{x}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-            <p className="vx-leak">사람만 보고 만들면 AI가 우리 번호를 답하지 못하고, AI만 보고 만들면 사람이 문의 버튼 앞에서 나갑니다. 두 쪽을 처음 설계에 같이 넣습니다.</p>
-          </CSec>
-        </div>
-
-        {/* ③ 따로 맡길 때: 비교표 */}
-        <CSec
-          id="apart"
-          eb="따로 맡길 때"
-          q={
-            <>
-              홈페이지 일은{" "}
-              <br />
-              <span>오픈한 다음부터입니다</span>
-            </>
-          }
-          sub="홈페이지는 광고와 검색이 데려온 사람을 받는 곳입니다. 만든 곳과 광고하는 곳이 다르면 오픈한 날 일이 끝나기 쉽습니다."
-        >
-          <div className="px-vs-t vx-vs" role="table" aria-label="따로 맡길 때와 이어서 할 때">
-            <div className="px-vs-h" role="row">
-              <span role="columnheader" aria-label="구분" />
-              <span role="columnheader">따로 맡길 때</span>
-              <span role="columnheader" className="us">
-                이어서 할 때
-              </span>
-            </div>
-            {VS.map(([k, a, b]) => (
-              <div className="px-vs-r" role="row" key={k}>
-                <b role="rowheader">{k}</b>
-                <span role="cell">{a}</span>
-                <span role="cell" className="us">
-                  {b}
-                </span>
+        {/* ② 손님이 둘(11-08 대표 「리디자인」): 같은 홈페이지를 사람이 보는 화면 / AI가 읽는 글자로 나란히 */}
+        <section className="dp-sec geo-sec rv hw-two" id="guests">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">홈페이지를 읽는 쪽</p>
+                <h2>
+                  홈페이지 손님은 둘입니다.{" "}
+                  <br />
+                  <span>사람과 AI</span>
+                </h2>
               </div>
-            ))}
+              <p className="geo-lead">사람만 보고 만들면 AI가 우리 번호를 답하지 못하고, AI만 보고 만들면 사람이 문의 버튼 앞에서 나갑니다. 두 쪽을 처음 설계에 같이 넣습니다.</p>
+            </div>
+            <div className="hw-view">
+              <div className="hw-side">
+                <p className="hw-tag">
+                  <Icon k="person" /> 사람이 보는 화면
+                </p>
+                <div className="hw-br" aria-hidden="true">
+                  <div className="hw-bar">
+                    <i />
+                    <i />
+                    <i />
+                    <span>oo-dental.co.kr</span>
+                  </div>
+                  <div className="hw-page">
+                    <div className="hw-nav">
+                      <b>OO치과</b>
+                      <span>진료 안내</span>
+                      <span>오시는 길</span>
+                      <span>자주 묻는 질문</span>
+                    </div>
+                    <div className="hw-hero">
+                      <img src="/sf/ex/m-dental.jpg" alt="" loading="lazy" decoding="async" />
+                      <div>
+                        <b>
+                          평일 밤 9시까지
+                          <br />
+                          진료합니다
+                        </b>
+                        <span>주차 2시간 무료</span>
+                        <i>진료 예약</i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <ul className="hw-need">
+                  {GUESTS[0][2].map((x) => (
+                    <li key={x}>{x}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="hw-side ai">
+                <p className="hw-tag">
+                  <Icon k="search" /> AI가 읽는 글자
+                </p>
+                <div className="hw-code" aria-hidden="true">
+                  {FACTS.map(([k, v], i) => (
+                    <p key={k} style={vars({ i })}>
+                      <span>{k}</span>
+                      <b>{v}</b>
+                      <i />
+                    </p>
+                  ))}
+                </div>
+                <ul className="hw-need">
+                  {GUESTS[1][2].map((x) => (
+                    <li key={x}>{x}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <Ex>예시 화면</Ex>
           </div>
-        </CSec>
+        </section>
 
-        {/* ④ 무엇을 하나요(그대로): 「전화번호와 가격이 그림 속에만 있으면 AI가 읽지 못합니다」가 이 쪽의 근거 */}
-        <CSec id="what" eb="하는 일" tone="mist" q={d.q1}>
-          <ol className="vx-what">
-            {d.overview.map((p, i) => (
-              <li key={p} style={vars({ i })}>
-                <em>{String(i + 1).padStart(2, "0")}</em>
-                <p>{p}</p>
-              </li>
-            ))}
-          </ol>
-        </CSec>
+        {/* ③ 세부 상품: 네 장 사진 카드 + 얼마나 걸리나요 */}
+        <section className="dp-sec geo-sec rv cw-items hw-items" id="items">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">세부 상품</p>
+                <h2>
+                  새로 만들지, 고쳐 쓸지{" "}
+                  <br />
+                  <span>보고 정합니다</span>
+                </h2>
+              </div>
+              <p className="geo-lead">지금 홈페이지를 먼저 봅니다. 전화번호와 가격이 그림 속에만 있으면 AI가 읽지 못해서, 글자로 넣고 지도 정보와 맞추는 것부터 합니다.</p>
+            </div>
+            <ul className="cw-prod">
+              {s.items.map(([n, t], i) => (
+                <li key={n} style={vars({ i })}>
+                  <figure>
+                    <img src={PROD_IMG[n] ?? "/sf/ex/m-team.jpg"} alt="" loading="lazy" decoding="async" />
+                  </figure>
+                  <div>
+                    <em>{String(i + 1).padStart(2, "0")}</em>
+                    <b>{n}</b>
+                    <span>{d.itemNotes?.[n] || t}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            {m.time ? <TimeBox t={m.time} /> : null}
+          </div>
+        </section>
 
-        {/* ⑤ 세부 상품(그대로) + 실제 결과물 */}
-        <CSec id="items" eb="세부 상품" q={`${s.n}에는 어떤 상품이 있나요?`} sub={d.itemsLead}>
-          <ul className="vx-items">
-            {s.items.map(([n, t], i) => (
-              <li key={n} style={vars({ i })}>
-                <b>{n}</b>
-                <span>{d.itemNotes?.[n] || t}</span>
-              </li>
-            ))}
-          </ul>
-          {w ? (
-            <>
-              <p className="vx-sub-h">{w.q || "실제로 어떤 결과물이 나오나요?"}</p>
-              <p className="vx-sub-p">{w.lead}</p>
-              <ul className="dp-works">
-                {w.items.map((it, i) => {
-                  if ("tiles" in it) {
-                    return (
-                      <li key={i} className="wk-tl" style={vars({ n: i })}>
-                        <div className="wk-dk" data-tiles={it.tiles} data-pick={it.pick} aria-hidden="true" />
-                        <span>{it.cap}</span>
-                      </li>
-                    )
-                  }
-                  if ("video" in it) {
-                    return (
-                      <li key={i} className="wk-v" style={vars({ n: i })}>
-                        <video data-src={it.video} poster={it.poster} muted loop playsInline preload="none" aria-label={it.cap} />
-                        <span>{it.cap}</span>
-                      </li>
-                    )
-                  }
-                  return (
-                    <li key={i} className={it.wide ? "wk-w" : it.tall ? "wk-tall" : it.reel ? "wk-r" : it.img.startsWith("/sf/pf/") ? "wk-p" : undefined} style={vars({ n: i })}>
-                      <img src={it.img} alt={it.cap} width={it.w} height={it.h} loading="lazy" decoding="async" />
-                      <span>{it.cap}</span>
-                    </li>
-                  )
-                })}
-              </ul>
-            </>
-          ) : null}
-        </CSec>
-
-        {/* ⑥ 검색 팀이 만들면(그대로, 질문 확대는 대표 확인 뒤) */}
-        <CSec id="diff" eb="검색 팀과 같이" tone="mist" q={d.q3}>
-          <ol className="vx-diff">
-            {d.diff.map(([t, x], i) => (
-              <li key={t} style={vars({ i })}>
-                <em>{String(i + 1).padStart(2, "0")}</em>
-                <b>{t}</b>
-                <span>{x}</span>
-              </li>
-            ))}
-          </ol>
-        </CSec>
-
-        {/* ⑧ 진행 순서·리포트(그대로) */}
-        <CSec
-          id="process"
-          eb="진행 순서"
-          tone="mist"
-          q={
-            <>
-              기획부터 오픈 점검까지,{" "}
+        {/* ④ 검색 팀이 만들면: 사진 카드 네 장 */}
+        <section className="dp-sec geo-sec geo-sec-mist rv cw-diff hw-diff" id="diff">
+          <div className="dp-w">
+            <p className="geo-eb">검색 팀과 같이</p>
+            <h2>
+              검색 팀이 만들면{" "}
               <br />
-              <span>네 단계</span>
-            </>
-          }
-        >
-          <ol className="ix-steps2 vx-steps2" aria-label="진행 네 단계">
-            {d.process.map(([t, x], i) => (
-              <li key={t} className={i === 0 ? "on" : undefined} style={vars({ i })}>
-                <span className="ic" aria-hidden="true">
-                  <Icon k={(["plan", "content", "home", "search"] as const)[i] ?? "plan"} />
-                </span>
-                <em>{String(i + 1).padStart(2, "0")}</em>
-                <b>{t}</b>
-                <span className="tx">{x}</span>
-              </li>
-            ))}
-          </ol>
-          {m.time ? <TimeBox t={m.time} /> : null}
-          <div className="vx-rep">
-            <div>
-              <h3>리포트 항목</h3>
+              <span>무엇이 다른가요?</span>
+            </h2>
+            <ol className="cw-diff-g">
+              {d.diff.map(([t, x], i) => (
+                <li key={t} style={vars({ i })}>
+                  <figure>
+                    <img src={DIFF_IMG[i]} alt="" loading="lazy" decoding="async" />
+                    <figcaption>
+                      {DIFF_TAGS[i].map((g) => (
+                        <span key={g}>{g}</span>
+                      ))}
+                    </figcaption>
+                  </figure>
+                  <div>
+                    <em>{String(i + 1).padStart(2, "0")}</em>
+                    <b>{t}</b>
+                    <p>{x}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* ⑤ 진행 순서: 사진 네 단계 + 리포트 띠 + 적용 확인표 견본 */}
+        <section className="dp-sec geo-sec rv cw-proc" id="process">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">진행 순서</p>
+                <h2>
+                  기획부터 오픈 점검까지,{" "}
+                  <br />
+                  <span>네 단계로 진행합니다</span>
+                </h2>
+              </div>
+              <p className="geo-lead">단계마다 확인을 받고 넘어갑니다. 오픈 전에 기존 주소를 새 주소로 하나씩 연결해 검색 기록을 지킵니다.</p>
+            </div>
+            <ol className="cw-proc-g" aria-label="진행 네 단계">
+              {d.process.map(([t, x], i) => (
+                <li key={t} style={vars({ i })}>
+                  <figure>
+                    <img src={PROC_IMG[i]} alt="" loading="lazy" decoding="async" />
+                    <em>STEP {String(i + 1).padStart(2, "0")}</em>
+                  </figure>
+                  <div>
+                    <b>{t}</b>
+                    <span>{x}</span>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <div className="cw-rep">
+              <b>리포트에 들어가는 것</b>
               <ul>
                 {d.report.map((r) => (
                   <li key={r}>
-                    <Nums text={r} />
+                    <i aria-hidden="true" />
+                    {r}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="dp-deck">
-              <div className="deck" data-tiles={s.k} />
-              <Ex>예시 화면 · 고객사명 가림</Ex>
-            </div>
+            {m.sample ? <SampleBox s={m.sample} /> : null}
           </div>
-          {m.sample ? <SampleBox s={m.sample} /> : null}
-        </CSec>
+        </section>
 
-        {/* ⑧ 사례(그대로): 167쪽 치과. 「두 사이트를 견준 결과라 일반 법칙으로 말하지 않는다」 주석까지 */}
+        {/* ⑥ 사례(그대로): 167쪽 치과 */}
         {m.case ? (
-          <CSec id="cases" eb="사례" q="맡은 홈페이지가 AI 답에 나온 기록">
+          <CSec id="cases" eb="사례" tone="mist" q="맡은 홈페이지가 AI 답에 나온 기록">
             <CaseBox c={m.case} down={m.down} recs={[]} recNote={d.recNote} />
           </CSec>
         ) : null}
 
-        {/* ⑨ 같이 하면(그대로) */}
-        <CSec id="pairs" eb="같이 하면" q={`${s.n}과 같이 하면 좋은 서비스는 무엇인가요?`} sub={d.pairsLead}>
-          <ul className="dp-pairs vx-pairs">
-            {d.pairs.map(([k, why]) => {
-              const o = SERVICES.find((x) => x.k === k)!
-              return (
-                <li key={k}>
-                  <Link href={`/services/${o.slug}`}>
-                    <span className="ic">
-                      <Icon k={o.k} />
-                    </span>
-                    <span>
-                      <b>{o.n}</b>
-                      <span>{why}</span>
-                    </span>
-                    <Icon k="arrow" className="ar" />
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
-        </CSec>
-
-        <NotFit items={m.notFit} />
-
-        {/* ⑩ FAQ(그대로) */}
-        <CSec id="faq" eb="자주 묻는 질문" tone="mist" q={`${s.n} 자주 묻는 질문`}>
-          <div className="geo-faq">
-            <Faq items={d.faq} />
+        {/* ⑦ 같이 하면: 사진 카드 두 장 */}
+        <section className="dp-sec geo-sec rv cw-pairs" id="pairs">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">같이 하면</p>
+                <h2>
+                  홈페이지는 광고와 검색이{" "}
+                  <br />
+                  <span>데려온 사람을 받는 곳입니다</span>
+                </h2>
+              </div>
+              <p className="geo-lead">만든 뒤에 AI 답변과 지도 순위를 다시 재고, 홈페이지에 쓸 사진은 촬영팀이 찍습니다.</p>
+            </div>
+            <ul className="cw-pair">
+              {d.pairs.map(([k, why]) => {
+                const o = SERVICES.find((x) => x.k === k)!
+                return (
+                  <li key={k}>
+                    <Link href={`/services/${o.slug}`}>
+                      <img src={PAIR_IMG[k] ?? "/sf/pf/w1.jpg"} alt="" loading="lazy" decoding="async" />
+                      <span className="cw-pair-tx">
+                        <b>{o.n}</b>
+                        <span>{why}</span>
+                      </span>
+                      <span className="cw-pair-ar" aria-hidden="true">
+                        <Icon k="arrow" />
+                      </span>
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
-          {m.reads ? <Reads items={m.reads} /> : null}
-        </CSec>
+        </section>
 
-        {/* ⑪ 문의 */}
+        {/* ⑧ FAQ: 공통 부품 */}
+        <FaqBlock items={d.faq} note="여기 없는 질문은 문의로 남겨 주세요. 담당자가 답해 드립니다." />
+
+        {/* ⑨ 문의 */}
         <ContactBlock title={d.ct?.title ?? `${s.n}, 진단 신청부터 시작하세요.`} sub={d.ct?.sub} label={d.ct?.label} initial={[s.k]} source={`service_${s.slug}`} />
       </div>
     </DocShell>

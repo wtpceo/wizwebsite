@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { ChevronLeft, Clapperboard, ArrowRight } from "lucide-react"
+import { ArrowRight } from "lucide-react"
+import InsightHero from "@/components/shortform/InsightHero"
 import { DocShell } from "@/components/shortform/DocParts"
 import { EPISODES, SERIES_NAME, SERIES_DESC } from "@/lib/theater-episodes"
 
@@ -27,95 +28,96 @@ const jsonLd = {
   publisher: { "@id": "https://wiztheplanning.com/#organization" },
 }
 
+// 11-08 대표 「인사이트 메뉴도 디자인 통일」: 청록 무대 → 서비스 페이지와 같은 남색·위즈블루. 포스터 벽 첫 화면, 에피소드 카드, 진단 띠
 export default function Page() {
+  const posters = EPISODES.map((e) => e.poster)
   return (
-    // 2026-11-05 인사이트 새 디자인: 머리글·바닥글만 새 것으로, 극장 무대(어두운 바탕·포스터)는 그대로
     <DocShell>
-    <div className="flex flex-col bg-[#070b14]">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <div className="flex-1">
-        {/* 극장 헤더 */}
-        <section className="relative overflow-hidden py-16 md:py-24">
-          <div className="geo-grid-bg absolute inset-0 opacity-40" />
-          <div className="absolute -top-24 left-1/3 h-[300px] w-[500px] rounded-full bg-[#00e5a0]/[0.08] blur-3xl" />
-          <div className="container relative mx-auto max-w-5xl px-4 md:px-6">
-            <Link href="/" className="inline-flex items-center gap-1 text-sm text-slate-400 transition-colors hover:text-[#00e5a0]">
-              <ChevronLeft className="h-4 w-4" /> 홈으로
-            </Link>
-            <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#00e5a0]/30 bg-[#00e5a0]/10 px-4 py-1.5 text-xs font-bold tracking-wide text-[#00e5a0]">
-              <Clapperboard className="h-3.5 w-3.5" />
-              WIZ THEATER · 시리즈
+      <div className="gx ix vx cx it">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <InsightHero
+          label="위즈 극장 소개"
+          kw="WIZ Theater · 위즈 극장"
+          text={"AI 부엉이 위즈가\nGEO를 풀어 드립니다"}
+          mark="GEO를 풀어"
+          era="모든 에피소드는 저희가 직접 잰 사실이 원작입니다"
+          lead={
+            <>
+              밤마다 웹을 읽으러 다니는 AI 부엉이 위즈(Wiz)의 이야기로,
+              <br />
+              GEO(AI 검색 최적화)가 무엇이고 <span className="nw">무엇을 해야 하는지 쉽게 풀어냅니다.</span>
+            </>
+          }
+          imgs={[...posters, ...posters, ...posters]}
+          cue={{ href: "#episodes", label: "에피소드" }}
+        />
+
+        <section className="dp-sec geo-sec rv it-eps" id="episodes">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">에피소드</p>
+                <h2>
+                  {SERIES_NAME},{" "}
+                  <br />
+                  <span>한 편씩 보세요</span>
+                </h2>
+              </div>
+              <p className="geo-lead">
+                편마다 GEO에서 자주 막히는 일 하나를 다룹니다. 원작이 된 실측 기록은 <Link href="/guide">마케팅 칼럼</Link>에 있습니다.
+              </p>
             </div>
-            <h1 className="mt-5 text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold leading-tight tracking-tight text-white">
-              위즈 극장
-            </h1>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">
-              밤마다 웹을 읽으러 다니는 AI 부엉이 <strong className="text-[#00e5a0]">위즈(Wiz)</strong>.
-              위즈의 이야기로 GEO(AI 검색 최적화)가 무엇이고 무엇을 해야 하는지 쉽게 풀어냅니다.
-              모든 에피소드는 저희가 <Link href="/guide" className="underline underline-offset-4 hover:text-white">직접 실측한 사실</Link>을 원작으로 합니다.
-            </p>
+            <ul className="it-grid">
+              {EPISODES.map((e, i) =>
+                e.status === "published" ? (
+                  <li key={e.slug} style={{ ["--i" as string]: i }}>
+                    <Link href={`/theater/${e.slug}`}>
+                      <figure>
+                        <img src={e.poster} alt={e.title} loading={i < 3 ? "eager" : "lazy"} decoding="async" />
+                        <em>EP.{e.ep}</em>
+                      </figure>
+                      <div>
+                        <b>{e.title}</b>
+                        <span>{e.logline}</span>
+                        <span className="it-go">
+                          감상하기 <ArrowRight aria-hidden="true" />
+                        </span>
+                      </div>
+                    </Link>
+                  </li>
+                ) : (
+                  <li key={e.slug} className="soon" style={{ ["--i" as string]: i }}>
+                    <div className="it-card">
+                      <figure>
+                        <img src={e.poster} alt={e.title} loading="lazy" decoding="async" />
+                        <em>EP.{e.ep} · 준비 중</em>
+                      </figure>
+                      <div>
+                        <b>{e.title}</b>
+                        <span>{e.logline}</span>
+                      </div>
+                    </div>
+                  </li>
+                ),
+              )}
+            </ul>
           </div>
         </section>
 
-        {/* 에피소드 목록 */}
-        <section className="container mx-auto max-w-5xl px-4 pb-24 md:px-6">
-          <div className="grid gap-6 md:grid-cols-2">
-            {EPISODES.map((e) =>
-              e.status === "published" ? (
-                <Link
-                  key={e.slug}
-                  href={`/theater/${e.slug}`}
-                  className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] transition-all hover:border-[#00e5a0]/40 hover:bg-white/[0.06]"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={e.poster} alt={e.title} className="aspect-video w-full object-cover" />
-                  <div className="p-6">
-                    <p className="text-xs font-bold tracking-[0.2em] text-[#00e5a0]">EP.{e.ep}</p>
-                    <h2 className="mt-2 text-lg font-extrabold leading-snug text-white group-hover:text-[#00e5a0]">
-                      {e.title}
-                    </h2>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-400">{e.logline}</p>
-                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-[#00e5a0]">
-                      감상하기 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                    </span>
-                  </div>
-                </Link>
-              ) : (
-                <div key={e.slug} className="overflow-hidden rounded-3xl border border-white/5 bg-white/[0.02] opacity-70">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={e.poster} alt={e.title} className="aspect-video w-full object-cover opacity-40 grayscale" />
-                  <div className="p-6">
-                    <p className="text-xs font-bold tracking-[0.2em] text-slate-500">EP.{e.ep} · COMING SOON</p>
-                    <h2 className="mt-2 text-lg font-extrabold leading-snug text-slate-300">{e.title}</h2>
-                    <p className="mt-2 text-sm leading-relaxed text-slate-500">{e.logline}</p>
-                  </div>
-                </div>
-              ),
-            )}
-          </div>
-
-          {/* CTA */}
-          <div className="mt-14 rounded-3xl bg-gradient-to-r from-[#0b1220] to-[#101b2e] px-8 py-10 text-center">
-            <h2 className="text-xl font-extrabold text-white md:text-2xl">
-              위즈가 우리 가게 문은 열 수 있을까요?
-            </h2>
-            <p className="mt-2 text-sm text-slate-400 md:text-base">
-              무료 사이트 진단으로 AI 크롤러가 우리 홈페이지를 읽을 수 있는지 1분 만에 확인하세요.
-            </p>
-            <Link
-              href="/site-check"
-              className="mt-6 inline-flex items-center gap-1 rounded-xl bg-[#00e5a0] px-8 py-3.5 font-bold text-[#070b14] transition-colors hover:bg-[#3cf0bb]"
-            >
-              무료 사이트 진단 <ArrowRight className="h-4 w-4" />
+        <section className="ig-cta" aria-label="무료 진단">
+          <div className="dp-w ig-cta-in">
+            <div>
+              <h2>위즈가 우리 가게 문은 열 수 있을까요?</h2>
+              <p>
+                무료 사이트 진단으로 AI 크롤러가 우리 홈페이지를 읽을 수 있는지 1분 만에 확인하세요. 어느 편이 우리 가게 이야기 같다면 <Link href="/#c44">무료 AI 검색 진단</Link>을 신청해 보세요. ChatGPT·네이버 AI·제미나이가 우리 가게를 실제로 추천하는지 리포트로 보내 드립니다.
+              </p>
+            </div>
+            <Link className="p1" href="/site-check">
+              무료 사이트 진단 <ArrowRight aria-hidden="true" />
             </Link>
-            {/* /site-check는 연락처가 남지 않아 리드로 잡히지 않는다. 연락처가 남는 진단으로 한 줄 더 보낸다 (2026-10-29) */}
-            <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-slate-300">
-              어느 편이 우리 가게 이야기 같다면 <Link href="/#c44" className="font-semibold text-[#00e5a0] underline underline-offset-4">무료 AI 검색 진단</Link>을 신청해 보세요. ChatGPT·네이버 AI·제미나이가 우리 가게를 실제로 추천하는지 리포트로 보내 드립니다.
-            </p>
           </div>
         </section>
       </div>
-    </div>
     </DocShell>
   )
 }

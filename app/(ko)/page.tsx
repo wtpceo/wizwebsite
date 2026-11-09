@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import ShortformHome from "@/components/shortform/ShortformHome"
+import HomeDoc from "@/components/shortform/HomeDoc"
 import { OG_TIMESTAMP as timestamp } from "@/lib/site-metadata"
 
 // 2026-11-04 홈 리뉴얼: 숏폼 한 편처럼 넘겨 보는 46컷 홈(기획 intent/plan-회사홈페이지-리뉴얼-2026-11-04.md).
@@ -41,6 +41,7 @@ export const metadata: Metadata = {
   },
 }
 
+// 2026-11-08 대표 「메인을 함축해서 필요한 것만」: 45컷 숏폼 홈(ShortformHome) → 아홉 칸(HomeDoc). 옛 파일은 남겨 둠
 export default function Home() {
-  return <ShortformHome />
+  return <HomeDoc />
 }
