@@ -585,7 +585,7 @@ export default function PerfDoc() {
 
       </div>
 
-      <ContactBlock title="퍼포먼스 광고, 소재·랜딩 설계 점검부터 시작하세요." sub="브랜드명을 알려 주시면 지금 쓰는 광고 소재와 웹사이트 현황을 살펴보고 먼저 집행할 매체와 개선안을 제안해 드립니다." initial={["perf"]} source="service_performance" />
+      <ContactBlock title="퍼포먼스 광고, 소재·랜딩 설계 점검부터 시작하세요." sub="브랜드명을 알려 주시면 지금 쓰는 광고 소재와 웹사이트 현황을 살펴보고 먼저 집행할 매체와 개선안을 제안해 드립니다." label="무료로 소재·설계 점검받기" initial={["perf"]} source="service_performance" />
     </DocShell>
   )
 }

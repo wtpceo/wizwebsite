@@ -126,7 +126,7 @@ export default function ViralDoc() {
             </p>
             <div className="dp-btns">
               <a className="p1" href="#contact">
-                문의하기
+                검색 첫 화면 무료 진단
               </a>
             </div>
             <p className="vx-trust">블로그 상위노출 · 체험단 · 기자단 · 언론 보도자료</p>

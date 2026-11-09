@@ -117,7 +117,7 @@ export default function OffDoc() {
             </p>
             <div className="dp-btns">
               <a className="p1" href="#contact">
-                문의하기
+                상권 맞춤 매체 제안 받기
               </a>
             </div>
             <p className="vx-trust">인하우스 촬영팀 시안 제작 · 송출·부착 사진 리포트 · <span className="nw">전담 AE 통합 관리</span></p>

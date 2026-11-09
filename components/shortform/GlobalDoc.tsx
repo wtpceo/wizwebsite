@@ -107,7 +107,7 @@ export default function GlobalDoc() {
             </p>
             <div className="dp-btns">
               <a className="p1" href="#contact">
-                문의하기
+                타깃 국가 · 상권 적합성 진단
               </a>
             </div>
             <p className="vx-trust">현지 크리에이터 섭외 · 중국어·일본어 현지화 · <span className="nw">국내외 동일 전담 AE</span> · <span className="nw">국내외 통합 리포트</span></p>

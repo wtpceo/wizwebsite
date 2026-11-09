@@ -373,7 +373,7 @@ export default function InflDoc() {
             </p>
             <div className="dp-btns">
               <a className="p1" href="#contact">
-                제안 요청 보내기
+                맞춤 후보 리스트 받기
               </a>
             </div>
           </div>
@@ -663,7 +663,7 @@ export default function InflDoc() {
               문의를 남겨 주시면 전담 AE가 빠르게 연락드리겠습니다.
             </>
           }
-          label="제안 요청 보내기"
+          label="맞춤 후보 리스트 받기"
           initial={["infl"]}
           source="service_influencer"
         />

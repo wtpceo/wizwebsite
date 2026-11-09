@@ -116,7 +116,7 @@ export default function SiteDoc() {
             </p>
             <div className="dp-btns">
               <a className="p1" href="#contact">
-                문의하기
+                현재 웹사이트 무료 진단
               </a>
             </div>
             <p className="vx-trust">누적 30곳 이상 구축 · SEO·GEO팀 설계 참여 · <span className="nw">고객사 직접 운영 관리자 화면</span> · <span className="nw">기존 URL 검색 이력 보존</span></p>

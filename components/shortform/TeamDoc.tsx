@@ -384,7 +384,7 @@ export default function TeamDoc() {
             </p>
             <div className="dp-btns">
               <a className="p1" href="#contact">
-                문의하기
+                1:1 전담 AE에게 진단 요청
               </a>
             </div>
             <p className="vx-trust">
@@ -557,7 +557,7 @@ export default function TeamDoc() {
         <ContactBlock
           title="첫 미팅부터 주간 리포트까지 전담 AE가 1:1로 책임집니다."
           sub="문의를 남겨 주시면 전담 AE가 확인하고 바로 연락드리겠습니다."
-          label="문의하기"
+          label="1:1 전담 AE에게 진단 요청"
           source="team"
         />
       </div>

@@ -1,3 +1,4 @@
+import type { CSSProperties, ReactNode } from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { SERVICES, CONTACT, TEAMS } from "@/components/shortform/content"
@@ -25,12 +26,59 @@ const FACTS: [string, string, string][] = [
   ["1:1", "전담 AE 한 사람이 창구", "처음 상담부터 주간 리포트까지 같은 사람이 맡습니다."],
 ]
 
+/** 나눠 맡길 때 설계도: [맡은 곳, 가로 %, 세로 %] — 문제 네 가지(PROBLEMS)와 같은 순서 */
+const SPLIT_NODES: [string, number, number][] = [
+  ["광고 대행사", 14, 16],
+  ["바이럴 업체", 86, 16],
+  ["촬영 외주", 14, 84],
+  ["웹 제작사", 86, 84],
+]
+/** 가운데(500,220)에서 네 곳으로 가다 중간에 끊기는 선 [앞 토막, 뒤 토막] */
+const SPLIT_LINES: [string, string][] = [
+  ["M430 190 L290 120", "M250 100 L190 76"],
+  ["M570 190 L710 120", "M750 100 L810 76"],
+  ["M430 250 L290 320", "M250 340 L190 364"],
+  ["M570 250 L710 320", "M750 340 L810 364"],
+]
+/** 선이 끊기는 자리 [가로 %, 세로 %] — 앞 토막 끝 바로 바깥 */
+const SPLIT_GAPS: [number, number][] = [[29.5, 28], [70.5, 28], [29.5, 72], [70.5, 72]]
+/** 자체 솔루션 [종류, 이름 글자, 링크, 실제 화면, 화면 설명] */
+const TOOLS: [string, ReactNode, string, string, string][] = [
+  [
+    "자체 캐스팅 도구",
+    <b key="w" className="aw-wm aw-wm-wiplu">
+      위플루언서<span>WIPLUENCER</span>
+    </b>,
+    "/services/influencer#wiplu",
+    "/tools/wiplu-youtube-clean.jpg",
+    "위플루언서 채널 찾기 실제 화면(채널명 가림)",
+  ],
+  [
+    "자체 GEO 측정 도구",
+    <b key="w" className="aw-wm aw-wm-geo">
+      <i>real</i>GEO<span>AI SEARCH MONITORING</span>
+    </b>,
+    "/services/search",
+    "/tools/realgeo-dashboard.jpg",
+    "realGEO 관제 현황 실제 화면(저희 웹사이트 측정)",
+  ],
+]
+
+/** 첫 화면 설명(11-09 대표: 첫 문장 한 줄 + 줄바꿈). 원문은 details.ts ABOUT_PAGE.lead */
+const [LEAD1, LEAD2] = (() => {
+  const t = ABOUT_PAGE.lead
+  const k = t.indexOf(". ")
+  return k > 0 ? [t.slice(0, k + 1), t.slice(k + 2)] : [t, ""]
+})()
+const MAP_URL = "https://map.naver.com/p/search/" + encodeURIComponent("서울 금천구 디지털로 178 퍼블릭가산")
+
 /** 부서가 일하는 장면. 이미지 생성 모델로 만든 연출 사진이라 실존 인물·고객사가 아니다 */
+/* 11-09 대표 「사람 나오는 AI 사진은 어설프다, 캐릭터 느낌의 사물 그림이 낫다」: 부서 일을 사물로 그린 3D 그림 */
 const PHOTOS: [string, string, string][] = [
-  ["/geo/media-crew.jpg", "촬영팀 · 현장 촬영", "촬영팀이 식당 주방에서 사장님을 촬영하는 모습"],
-  ["/geo/media-editor.jpg", "촬영팀 · 편집", "편집자가 영상을 편집하는 작업실"],
-  ["/geo/media-unbox.jpg", "섭외팀 · 크리에이터 콘텐츠", "두 크리에이터가 제품을 개봉하며 촬영하는 모습"],
-  ["/geo/media-ai.jpg", "GEO팀 · AI 답변 확인", "카페에서 AI 답변을 보는 휴대폰 화면"],
+  ["/sf/gen/about-shoot.jpg", "촬영팀 · 현장 촬영", "음식을 찍는 카메라와 조명을 그린 3D 그림"],
+  ["/sf/gen/about-edit.jpg", "촬영팀 · 편집", "영상 편집 화면이 켜진 모니터를 그린 3D 그림"],
+  ["/sf/gen/about-creator.jpg", "섭외팀 · 크리에이터 콘텐츠", "링라이트와 휴대폰으로 제품을 찍는 장면을 그린 3D 그림"],
+  ["/sf/gen/about-geo.jpg", "GEO팀 · AI 답변 확인", "AI 답변 말풍선이 뜬 휴대폰과 돋보기를 그린 3D 그림"],
 ]
 import { Icon } from "@/components/shortform/icons"
 import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "@/components/shortform/DocParts"
@@ -87,13 +135,20 @@ export default function AboutPage() {
               <small className="ix-kw">회사소개</small> <Chars text={"8가지 통합 마케팅\n한 곳에서 직접"} mark="한 곳에서 직접" />
             </h1>
             <p className="vx-era">외주 없이 6개 부서가 직접, 1:1 전담 AE가 챙깁니다.</p>
-            <p className="dp-lead">{d.lead}</p>
-            <div className="dp-btns">
+            {/* 11-09 대표: 첫 문장은 한 줄로, 줄을 바꿔 나머지 */}
+            <p className="dp-lead aw-lead">
+              <span className="aw-l1">{LEAD1}</span>{" "}
+              <br />
+              {LEAD2}
+            </p>
+            <div className="dp-btns aw-btns">
               <a className="p1" href="#contact">
-                문의하기
+                무료 진단 · 제안서 받기
               </a>
               <a className="p2" href={CONTACT.telHref} data-tel>
-                대표전화 {CONTACT.tel}
+                <Icon k="phone" />
+                <span>대표전화</span>
+                <b>{CONTACT.tel}</b>
               </a>
             </div>
             <p className="vx-trust">
@@ -109,14 +164,18 @@ export default function AboutPage() {
         {/* ② 기업 개요 + 여덟 가지 일 */}
         <section className="dp-sec geo-sec rv aw-over" id="overview">
           <div className="dp-w">
-            <div className="gt-head">
-              <div>
+            {/* 11-09 대표: 왼쪽 빈자리를 제목 판으로 채우고 가운데에 */}
+            <div className="aw-over-g">
+              <div className="aw-over-h">
                 <p className="geo-eb">{d.q1}</p>
                 <h2>
-                  하나의 메시지로{" "}
+                  하나의 메시지로
                   <br />
-                  <span>여덟 가지 일을 직접 합니다</span>
+                  <span>여덟 가지 일을</span>
+                  <br />
+                  <span>직접 합니다</span>
                 </h2>
+                <i aria-hidden="true" />
               </div>
               <dl className="aw-facts" aria-label="위즈더플래닝 한눈에 보기">
                 {FACTS.map(([k, t, x], i) => (
@@ -130,22 +189,21 @@ export default function AboutPage() {
                 ))}
               </dl>
             </div>
-            <ul className="aw-svc" aria-label="위즈더플래닝이 하는 일 여덟 가지">
+            {/* 11-09 대표 「네모 박스가 AI 디자인 같다」: 아이콘 타일·그림자 카드 대신 번호와 굵은 윗줄의 목록 */}
+            <ol className="aw-svc2" aria-label="위즈더플래닝이 하는 일 여덟 가지">
               {SERVICES.map((s, i) => (
                 <li key={s.k} style={vars({ i })}>
                   <Link href={`/services/${s.slug}`}>
-                    <span className="ic" aria-hidden="true">
-                      <Icon k={s.k} />
-                    </span>
+                    <em>{String(i + 1).padStart(2, "0")}</em>
                     <b>{s.n}</b>
                     <small>{s.ln}</small>
-                    <span className="go" aria-hidden="true">
-                      <Icon k="arrow" />
+                    <span className="go">
+                      자세히 보기 <Icon k="arrow" />
                     </span>
                   </Link>
                 </li>
               ))}
-            </ul>
+            </ol>
           </div>
         </section>
 
@@ -197,15 +255,53 @@ export default function AboutPage() {
               </div>
               <p className="geo-lead">일을 여러 곳에 쪼개서 맡기면 브랜드 이야기가 흩어지고 돈과 시간만 낭비하기 쉽습니다.</p>
             </div>
-            <ol className="aw-prob-g" style={vars({ n: PROBLEMS.length })}>
-              {PROBLEMS.map(([t, x], i) => (
-                <li key={t} style={vars({ i })}>
-                  <em>{String(i + 1).padStart(2, "0")}</em>
-                  <b>{t}</b>
-                  <p>{x}</p>
-                </li>
-              ))}
-            </ol>
+            {/* 11-09 대표 「글이 너무 많다, 설계도·그림·모션으로」: 브랜드 하나를 네 곳이 나눠 잡으면 선이 끊긴다 */}
+            <div className="aw-split">
+              <div className="aw-split-stage" aria-hidden="true">
+                <svg viewBox="0 0 1000 440" preserveAspectRatio="none">
+                  {SPLIT_LINES.map(([a], i) => (
+                    <g key={i} className="aw-split-ln" style={vars({ i })}>
+                      <path d={a} />
+                      <circle r="5" className="dot">
+                        <animateMotion dur="2.6s" begin={`${i * 0.5}s`} repeatCount="indefinite" path={a} />
+                      </circle>
+                    </g>
+                  ))}
+                </svg>
+                {/* 11-09 대표 「✕가 버튼 같다」: 끊어진 고리 + '연결 끊김' 표지로 */}
+                {SPLIT_GAPS.map(([x, y], i) => (
+                  <span key={`${x}-${y}`} className="aw-split-cut" style={{ left: `${x}%`, top: `${y}%`, ...vars({ i }) }}>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M9.5 14.5 7.8 16.2a3 3 0 0 1-4.2-4.2l2.6-2.6a3 3 0 0 1 4 -.2" />
+                      <path d="M14.5 9.5l1.7-1.7a3 3 0 0 1 4.2 4.2l-2.6 2.6a3 3 0 0 1-4 .2" />
+                      <path d="M8 4.5 9 7M4.5 8 7 9M16 19.5 15 17M19.5 16 17 15" />
+                    </svg>
+                    연결 끊김
+                  </span>
+                ))}
+                <div className="aw-split-core">
+                  <b>브랜드</b>
+                  <span>메시지 하나</span>
+                </div>
+                {SPLIT_NODES.map(([who, x, y], i) => (
+                  <div key={who} className="aw-split-node" style={{ left: `${x}%`, top: `${y}%`, ...vars({ i }) }}>
+                    <b>{who}</b>
+                    <span>
+                      <em>{String(i + 1).padStart(2, "0")}</em>
+                      {PROBLEMS[i]?.[0]}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <ol className="aw-split-list" aria-label="대행사를 나눠 맡길 때 생기는 문제">
+                {PROBLEMS.map(([t, x], i) => (
+                  <li key={t} title={x}>
+                    <em>{String(i + 1).padStart(2, "0")}</em>
+                    {t}
+                  </li>
+                ))}
+              </ol>
+            </div>
           </div>
         </section>
 
@@ -223,23 +319,30 @@ export default function AboutPage() {
               </div>
               <p className="geo-lead">전담 AE 한 사람이 처음부터 끝까지 챙기니까 답답하게 같은 말을 반복하지 않으셔도 됩니다.</p>
             </div>
-            <div className="aw-cmp-t" role="table" aria-label="채널별 대행과 위즈더플래닝 비교">
-              <div className="aw-cmp-h" role="row">
-                <span role="columnheader">구분</span>
-                <span role="columnheader">채널별 대행</span>
-                <span role="columnheader">위즈더플래닝</span>
+            {/* 11-09 대표 「표가 눈에 안 들어온다」: 표 대신 두 칸을 나란히, 위즈더플래닝 칸을 남색으로 띄운다 */}
+            <div className="aw-vs" aria-label="채널별 대행과 위즈더플래닝 비교">
+              <div className="aw-vs-col aw-vs-them">
+                <p className="aw-vs-h">채널별 대행</p>
+                <ul>
+                  {COMPARE.map(([k, a]) => (
+                    <li key={k}>
+                      <small>{k}</small>
+                      <span>{a}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              {COMPARE.map(([k, a, b], i) => (
-                <div className="aw-cmp-r" role="row" key={k} style={vars({ i })}>
-                  <b role="rowheader">{k}</b>
-                  <span role="cell" data-l="채널별 대행">
-                    {a}
-                  </span>
-                  <strong role="cell" data-l="위즈더플래닝">
-                    {b}
-                  </strong>
-                </div>
-              ))}
+              <div className="aw-vs-col aw-vs-us">
+                <p className="aw-vs-h">위즈더플래닝</p>
+                <ul>
+                  {COMPARE.map(([k, , b], i) => (
+                    <li key={k} style={vars({ i })}>
+                      <small>{k}</small>
+                      <b>{b}</b>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </section>
@@ -266,9 +369,7 @@ export default function AboutPage() {
             <ul className="aw-team-g">
               {TEAMS.map(([k, n, xs, en], i) => (
                 <li key={k} style={vars({ i })}>
-                  <span className="ic" aria-hidden="true">
-                    <Icon k={k} />
-                  </span>
+                  <em aria-hidden="true">{String(i + 1).padStart(2, "0")}</em>
                   <small>{en}</small>
                   <b>{n}</b>
                   <span className="jobs">{xs.join(" · ")}</span>
@@ -301,15 +402,50 @@ export default function AboutPage() {
               </div>
               <p className="geo-lead">인플루언서를 찾고 성과를 잴 때 쓰는 도구도 저희가 직접 만들었습니다.</p>
             </div>
-            <ol className="aw-own-g">
-              {d.own.map(([t, x], i) => (
-                <li key={t} style={vars({ i })}>
-                  <em>{String(i + 1).padStart(2, "0")}</em>
-                  <b>{t}</b>
-                  <p>{x}</p>
+            {/* 11-09 대표 「참고 자료 제일 좋은 걸로 한 장씩, 이름을 멋지게」 */}
+            <ol className="aw-tools">
+              {TOOLS.map(([kind, mark, href, shot, cap], i) => (
+                <li key={kind} className={`aw-tool aw-tool-${i}`} style={vars({ i })}>
+                  <Link href={href}>
+                    <div className="aw-tool-tx">
+                      <small>
+                        {String(i + 1).padStart(2, "0")} · {kind}
+                      </small>
+                      {mark}
+                      <p>{d.own[i]?.[1]}</p>
+                    </div>
+                    <figure className="aw-tool-shot">
+                      <span className="bar" aria-hidden="true">
+                        <i />
+                        <i />
+                        <i />
+                      </span>
+                      <img src={shot} alt={cap} loading="lazy" decoding="async" />
+                      <figcaption>{cap}</figcaption>
+                    </figure>
+                  </Link>
                 </li>
               ))}
             </ol>
+          </div>
+        </section>
+
+        {/* 11-09 대표: 오시는 길 바로 위 클로징 문장. 흩어진 세 일이 한 줄로 모였다가 회사 이름으로 닫힌다 */}
+        <section className="dp-sec rv aw-close" aria-label="위즈더플래닝 한 줄 소개">
+          <div className="aw-close-ghost" aria-hidden="true">
+            <span>WIZ THE PLANNING · WIZ THE PLANNING · WIZ THE PLANNING · </span>
+            <span>WIZ THE PLANNING · WIZ THE PLANNING · WIZ THE PLANNING · </span>
+          </div>
+          <div className="dp-w aw-close-in">
+            <p className="aw-close-three">
+              <span style={{ "--i": 0 } as CSSProperties}>인플루언서 섭외</span>
+              <span style={{ "--i": 1 } as CSSProperties}>마케팅</span>
+              <span style={{ "--i": 2 } as CSSProperties}>개발까지</span>
+            </p>
+            <p className="aw-close-one">모두 한 곳에서,</p>
+            <p className="aw-close-name">
+              위즈더플래닝<i aria-hidden="true">.</i>
+            </p>
           </div>
         </section>
 
@@ -327,38 +463,63 @@ export default function AboutPage() {
               </div>
               <p className="geo-lead">{d.where}</p>
             </div>
-            <dl className="aw-info">
-              <div className="w2">
-                <dt>주소</dt>
-                <dd>서울시 금천구 디지털로 178 퍼블릭가산 A동 2518호·2519호</dd>
-              </div>
-              {d.access ? (
-                <div className="w2">
-                  <dt>오시는 길</dt>
-                  <dd>{d.access}</dd>
-                </div>
-              ) : null}
-              <div>
-                <dt>대표전화</dt>
-                <dd>
-                  <a href={CONTACT.telHref} data-tel>
-                    {CONTACT.tel}
+            {/* 11-09 대표 「좀 더 전문적이고 한눈에」: 회사 카드 한 장(왼쪽 남색 주소·바로가기, 오른쪽 정보 목록) */}
+            <div className="aw-card">
+              <div className="aw-card-main">
+                <small>WIZ THE PLANNING</small>
+                <b>(주)위즈더플래닝</b>
+                <p>
+                  서울시 금천구 디지털로 178
+                  <br />
+                  퍼블릭가산 A동 2518호·2519호
+                </p>
+                <div className="aw-card-btns">
+                  <a href={MAP_URL} target="_blank" rel="noopener noreferrer">
+                    네이버 지도로 길찾기
                   </a>
-                </dd>
+                  <a href={CONTACT.telHref} data-tel>
+                    전화 걸기
+                  </a>
+                </div>
               </div>
-              <div>
-                <dt>이메일</dt>
-                <dd>{CONTACT.email}</dd>
-              </div>
-              <div className="w2">
-                <dt>운영 시간</dt>
-                <dd>평일 10:00–18:00 · 점심시간 12:15–13:30 · 주말 및 공휴일 휴무</dd>
-              </div>
-              <div className="w2">
-                <dt>대표</dt>
-                <dd>정현우 · 사업자등록번호 668-81-00391</dd>
-              </div>
-            </dl>
+              <dl className="aw-card-dl">
+                <div>
+                  <dt>대표전화</dt>
+                  <dd>
+                    <a href={CONTACT.telHref} data-tel>
+                      {CONTACT.tel}
+                    </a>
+                  </dd>
+                </div>
+                <div>
+                  <dt>이메일</dt>
+                  <dd>
+                    <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+                  </dd>
+                </div>
+                <div>
+                  <dt>운영 시간</dt>
+                  <dd>
+                    평일 10:00–18:00
+                    <small>점심시간 12:15–13:30 · 주말·공휴일 휴무</small>
+                  </dd>
+                </div>
+                {d.access ? (
+                  <div>
+                    <dt>오시는 길</dt>
+                    <dd>{d.access}</dd>
+                  </div>
+                ) : null}
+                <div>
+                  <dt>대표</dt>
+                  <dd>정현우</dd>
+                </div>
+                <div>
+                  <dt>사업자등록번호</dt>
+                  <dd>668-81-00391</dd>
+                </div>
+              </dl>
+            </div>
           </div>
         </section>
 
@@ -369,7 +530,7 @@ export default function AboutPage() {
         <ContactBlock
           title="상담은 무료입니다. 문의 남겨 주시면 전담 AE가 연락드릴게요."
           sub="전담 AE가 지금 상황을 먼저 살펴보고 연락드리겠습니다. 비용은 진단이 끝나면 제안서로 꼼꼼히 챙겨 드립니다."
-          label="문의하기"
+          label="무료 진단 · 제안서 받기"
           source="about"
         />
       </div>

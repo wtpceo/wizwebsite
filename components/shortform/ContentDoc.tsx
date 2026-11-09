@@ -162,7 +162,7 @@ export default function ContentDoc() {
             </p>
             <div className="dp-btns">
               <a className="p1" href="#contact">
-                문의하기
+                촬영 구성 · 견적 받아보기
               </a>
             </div>
             <p className="vx-trust">인하우스 촬영팀 · 모델 캐스팅 · <span className="nw">누적 숏폼 360편 이상 · 전담 AE</span></p>
