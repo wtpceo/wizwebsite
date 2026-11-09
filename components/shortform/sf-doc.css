@@ -4896,3 +4896,26 @@ html.sf-anim .sf .ix.aw .dp-sec.aw-close.rv.on .dp-w > .aw-close-name { animatio
 }
 /* 고객사 화면(11-09 대표 「플라잉닥터스로」, 상호 가림): 위 기준으로 채운다 */
 .sf .hm2-proof-lay .hm2-proof-main img { object-position: center top; background: #F6F7F9; }
+/* 인플루언서 첫 화면 부제(11-09 대표): '섭외하고,'에서 줄을 바꾸고 다음 문장은 넓은 화면에서 한 줄 */
+@media (min-width: 1100px) { .sf .ix .ix-hero .dp-lead { max-width: none; } .sf .ix .ix-hero .ix-l2 { white-space: nowrap; } }
+
+/* 인플루언서 '매체별 맞춤 섭외' 카드(11-09 대표 다시 짜기): 남색 바탕 위 흰 카드, 위 3D 그림, 아래 매체 비교 세 줄 */
+.sf .ix .ix-mc { list-style: none; margin: clamp(36px, 4vw, 56px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(16px, 1.6vw, 24px); }
+.sf .ix .ix-mc > li { display: flex; flex-direction: column; border-radius: 24px; overflow: hidden; background: #fff; color: #0A1A33; box-shadow: 0 30px 60px -34px rgba(0,0,0,.6); transition: transform .4s cubic-bezier(.23,1,.32,1), box-shadow .4s; }
+.sf .ix .ix-mc > li:hover { transform: translateY(-4px); box-shadow: 0 40px 70px -34px rgba(0,85,255,.55); }
+.sf .ix .ix-mc figure { margin: 0; aspect-ratio: 3 / 2; overflow: hidden; background: #EDF1F7; }
+.sf .ix .ix-mc figure img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.23,1,.32,1); }
+.sf .ix .ix-mc > li:hover figure img { transform: scale(1.04); }
+.sf .ix .ix-mc-body { flex: 1; display: flex; flex-direction: column; gap: 10px; padding: clamp(22px, 2vw, 30px); }
+.sf .ix .ix-mc-h { margin: 0; display: flex; align-items: center; gap: 10px; }
+.sf .ix .ix-mc-h em { font-style: normal; font-family: "PaperlogySF", "PretendardSF", sans-serif; font-weight: 900; font-size: 15px; color: #0055FF; }
+.sf .ix .ix-mc-h small { font-size: 13px; font-weight: 700; letter-spacing: .02em; color: #6B7A90; }
+.sf .ix .ix-mc-body > b { font-size: clamp(24px, 2vw, 30px); font-weight: 900; letter-spacing: -.03em; line-height: 1.2; word-break: keep-all; }
+.sf .ix .ix-mc-body > span { font-size: 15.5px; line-height: 1.65; color: #4A5568; word-break: keep-all; }
+.sf .ix .ix-mc dl { margin: auto 0 0; padding-top: 18px; border-top: 1px solid #E3E8EF; display: grid; gap: 10px; }
+.sf .ix .ix-mc dl > div { display: grid; grid-template-columns: 6.2em 1fr; gap: 12px; align-items: baseline; }
+.sf .ix .ix-mc dt { font-size: 13px; font-weight: 800; color: #0055FF; }
+.sf .ix .ix-mc dd { margin: 0; font-size: 15px; font-weight: 700; color: #0A1A33; word-break: keep-all; }
+html.sf-anim .sf .ix .rv:not(.on) .ix-mc > li { opacity: 0; }
+html.sf-anim .sf .ix .rv.on .ix-mc > li { animation: sf-rise .6s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.1s + var(--i, 0) * 90ms); }
+@media (max-width: 900px) { .sf .ix .ix-mc { grid-template-columns: 1fr; } }
