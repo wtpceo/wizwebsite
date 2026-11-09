@@ -79,7 +79,8 @@ const DIFF_TAGS = [
 ]
 
 /** 진행 순서 사진 */
-const PROC_IMG = ["/sf/gen/content-storyboard.jpg", "/sf/gen/content-bts.jpg", "/geo/media-editor.jpg", "/sf/img/report.jpg"]
+/* 11-09 대표: 진행 순서 네 칸은 홈·회사소개와 같은 3D 그림으로 */
+const PROC_IMG = ["/sf/gen/content-step-plan.jpg", "/sf/gen/content-step-shoot.jpg", "/sf/gen/content-step-edit.jpg", "/sf/gen/content-step-report.jpg"]
 
 /** 같이 하면 사진 */
 const PAIR_IMG: Record<string, string> = { infl: "/sf/pf/infl-beauty.jpg", perf: "/sf/ex/m-shop.jpg" }
@@ -140,7 +141,7 @@ export default function ContentDoc() {
 
   return (
     <DocShell>
-      <div className="gx ix vx cx">
+      <div className="gx ix vx cx cxp">
         <JsonLd data={ld} />
 
         {/* ① 첫 화면 */}
@@ -186,7 +187,13 @@ export default function ContentDoc() {
               </span>
             </>
           }
-          sub="저희 촬영팀이 직접 찍어서 광고나 지도, 블로그 중 어디에 쓸지 기획 단계부터 정합니다. 하루만 촬영해도 모든 채널에 올릴 원본을 얻을 수 있습니다."
+          sub={
+            <>
+              저희 촬영팀이 직접 찍어서 광고나 지도, 블로그 중 어디에 쓸지 기획 단계부터 정합니다.{" "}
+              <br />
+              하루만 촬영해도 모든 채널에 올릴 원본을 얻을 수 있습니다.
+            </>
+          }
         >
           <div className="cx-board" aria-label="촬영 장면 목록 예시">
             <div className="cx-board-h">
@@ -226,7 +233,11 @@ export default function ContentDoc() {
                   <span>알맞게 편집해 올려 드립니다</span>
                 </h2>
               </div>
-              <p className="geo-lead">찍은 사진과 영상을 릴스·쇼츠, 블로그, 지도, 광고 크기에 맞춰 편집합니다. 다 만든 콘텐츠는 저희가 직접 채널에 올려 드립니다.</p>
+              <p className="geo-lead">
+                찍은 사진과 영상을 릴스·쇼츠, 블로그, 지도, 광고 크기에 맞춰 편집합니다.{" "}
+                <br />
+                다 만든 콘텐츠는 저희가 직접 채널에 올려 드립니다.
+              </p>
             </div>
             <ol className="cw-pipe" aria-label="콘텐츠가 만들어지는 네 단계">
               {PIPE.map(([t, x, k], i) => (
@@ -277,7 +288,11 @@ export default function ContentDoc() {
               <h2>
                 {s.n} <span>세부 서비스</span>
               </h2>
-              <p className="geo-lead">필요한 것만 따로 맡기셔도 됩니다. 여러 개를 같이 하시면 한 번에 찍어 비용과 시간을 아껴 드립니다.</p>
+              <p className="geo-lead">
+                필요한 것만 따로 맡기셔도 됩니다.{" "}
+                <br />
+                여러 개를 같이 하시면 한 번에 촬영하여 비용과 시간을 아껴 드립니다.
+              </p>
             </div>
             <ul className="cw-prod">
               {s.items.map(([n, t], i) => (
@@ -373,7 +388,11 @@ export default function ContentDoc() {
               <h2>
                 기획부터 채널 반영까지 <span>네 단계로 진행합니다</span>
               </h2>
-              <p className="geo-lead">단계마다 확인을 받고 다음으로 넘어갑니다. 전담 AE가 처음부터 끝까지 1:1로 챙겨 드립니다.</p>
+              <p className="geo-lead">
+                단계마다 확인을 받고 다음으로 넘어갑니다.{" "}
+                <br />
+                전담 AE가 처음부터 끝까지 1:1로 챙겨 드립니다.
+              </p>
             </div>
             <ol className="cw-proc-g" aria-label="진행 네 단계">
               {d.process.map(([t, x], i) => (
@@ -414,7 +433,11 @@ export default function ContentDoc() {
                 <br className="cw-br" />
                 <span>광고와 인플루언서까지</span>
               </h2>
-              <p className="geo-lead">공식 채널에 올린 숏폼을 인플루언서 콘텐츠로도 씁니다. 여기서 반응이 좋은 영상은 퍼포먼스 광고 소재로 바로 돌립니다.</p>
+              <p className="geo-lead">
+                공식 채널에 올린 숏폼을 인플루언서 콘텐츠로도 씁니다.{" "}
+                <br />
+                여기서 반응이 좋은 영상은 퍼포먼스 광고 소재로 바로 돌립니다.
+              </p>
             </div>
             {/* 11-08 대표 「비주얼 개선」: 가운데 저희가 찍은 숏폼 한 편 → 왼쪽 인플루언서 게시물, 오른쪽 광고로 다시 쓰이는 그림 */}
             <div className="cw-hub">
@@ -440,7 +463,7 @@ export default function ContentDoc() {
                             <b>creator_00</b>
                             <small>협찬</small>
                           </div>
-                          <img src="/sf/v/r31.jpg" alt="" loading="lazy" decoding="async" />
+                          <img src="/sf/v/cx-hub.jpg" alt="" loading="lazy" decoding="async" />
                           <div className="cw-post-f">
                             <span>♡ 좋아요</span>
                             <span>댓글</span>
@@ -454,7 +477,7 @@ export default function ContentDoc() {
                             <b>브랜드 계정</b>
                             <small>광고</small>
                           </div>
-                          <img src="/sf/v/r31.jpg" alt="" loading="lazy" decoding="async" />
+                          <img src="/sf/v/cx-hub.jpg" alt="" loading="lazy" decoding="async" />
                           <div className="cw-ad-cta">
                             <span>자세히 보기</span>
                             <i>›</i>
@@ -476,7 +499,7 @@ export default function ContentDoc() {
               <div className="cw-hub-core">
                 <small>저희가 만든 숏폼 원본</small>
                 <div className="cw-hub-phone">
-                  <video src="/sf/v/r31.mp4" poster="/sf/v/r31.jpg" muted loop playsInline autoPlay preload="none" aria-label="저희가 찍은 고깃집 숏폼" />
+                  <video src="/sf/v/cx-hub.mp4" poster="/sf/v/cx-hub.jpg" muted loop playsInline autoPlay preload="none" aria-label="저희가 찍은 덮밥집 숏폼" />
                 </div>
                 <span>브랜드 공식 채널에 먼저 올립니다</span>
               </div>

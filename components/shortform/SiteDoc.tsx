@@ -139,7 +139,11 @@ export default function SiteDoc() {
                   <span>사람과 AI 엔진</span>
                 </h2>
               </div>
-              <p className="geo-lead">디자인에만 치중하면 AI가 핵심 정보를 읽지 못하고 텍스트만 늘어놓으면 방문객이 바로 나갑니다. 처음부터 둘을 함께 고려해 설계합니다.</p>
+              <p className="geo-lead">
+디자인에만 치중하면 AI가 핵심 정보를 읽지 못하고 텍스트만 늘어놓으면 방문객이 바로 나갑니다.{" "}
+<br />
+처음부터 둘을 함께 고려해 설계합니다.
+</p>
             </div>
             <div className="hw-view">
               <div className="hw-side">
@@ -216,7 +220,11 @@ export default function SiteDoc() {
                   <span>신규 구축과 정보 고도화</span>
                 </h2>
               </div>
-              <p className="geo-lead">지금 있는 웹사이트 구조부터 봅니다. 전화번호나 가격이 이미지라 AI가 못 읽는다면 텍스트로 바꾸고 지도 정보와 맞추는 일부터 시작합니다.</p>
+              <p className="geo-lead">
+지금 있는 웹사이트 구조부터 봅니다.{" "}
+<br />
+전화번호나 가격이 이미지라 AI가 못 읽는다면 텍스트로 바꾸고 지도 정보와 맞추는 일부터 시작합니다.
+</p>
             </div>
             <ul className="cw-prod">
               {s.items.map(([n, t], i) => (
@@ -279,7 +287,11 @@ export default function SiteDoc() {
                   <span>웹사이트 제작 순서</span>
                 </h2>
               </div>
-              <p className="geo-lead">단계마다 고객사 확인을 받고 다음으로 넘어갑니다. 오픈하기 전에 예전 URL을 새 주소로 1:1 연결해 기존 검색 자산을 그대로 지켜 드립니다.</p>
+              <p className="geo-lead">
+단계마다 고객사 확인을 받고 다음으로 넘어갑니다.{" "}
+<br />
+오픈하기 전에 예전 URL을 새 주소로 1:1 연결해 기존 검색 자산을 그대로 지켜 드립니다.
+</p>
             </div>
             <ol className="cw-proc-g" aria-label="진행 네 단계">
               {d.process.map(([t, x], i) => (
@@ -329,7 +341,11 @@ export default function SiteDoc() {
                   <span>검색 최적화와 콘텐츠 촬영</span>
                 </h2>
               </div>
-              <p className="geo-lead">사이트를 열고 나서 AI 답변 인용률과 지도 순위를 정기적으로 측정합니다. 웹사이트 신뢰도를 높이는 공간과 제품 사진은 내부 촬영팀이 직접 찍어 드립니다.</p>
+              <p className="geo-lead">
+사이트를 열고 나서 AI 답변 인용률과 지도 순위를 정기적으로 측정합니다.{" "}
+<br />
+웹사이트 신뢰도를 높이는 공간과 제품 사진은 내부 촬영팀이 직접 찍어 드립니다.
+</p>
             </div>
             <ul className="cw-pair">
               {d.pairs.map(([k, why]) => {

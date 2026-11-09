@@ -168,7 +168,11 @@ export default function OffDoc() {
                   <span>매체 선별과 기간 설계</span>
                 </h2>
               </div>
-              <p className="geo-lead">매장 위치와 고객 동선에 맞춰 매체를 고릅니다. 매체 규격에 맞는 영상과 인쇄 시안은 저희 제작팀이 직접 만듭니다.</p>
+              <p className="geo-lead">
+매장 위치와 고객 동선에 맞춰 매체를 고릅니다.{" "}
+<br />
+매체 규격에 맞는 영상과 인쇄 시안은 저희 제작팀이 직접 만듭니다.
+</p>
             </div>
             <ul className="cw-prod">
               {s.items.map(([n, t], i) => (
@@ -244,7 +248,11 @@ export default function OffDoc() {
                   <span>네 단계로 진행합니다</span>
                 </h2>
               </div>
-              <p className="geo-lead">광고가 나가면 부착·송출 사진을 바로 보내 드립니다. 끝날 때는 그동안의 문의 추이를 보고 연장할지 같이 정합니다.</p>
+              <p className="geo-lead">
+광고가 나가면 부착·송출 사진을 바로 보내 드립니다.{" "}
+<br />
+끝날 때는 그동안의 문의 추이를 보고 연장할지 같이 정합니다.
+</p>
             </div>
             <ol className="cw-proc-g" aria-label="진행 네 단계">
               {d.process.map(([t, x], i) => (
@@ -311,7 +319,11 @@ export default function OffDoc() {
                   <span>지도·후기·콘텐츠 설계</span>
                 </h2>
               </div>
-              <p className="geo-lead">광고를 내보내기 전에 지도 정보와 후기를 먼저 다듬습니다. 송출용 영상은 숏폼을 찍을 때 같이 만들어 비용을 아낍니다.</p>
+              <p className="geo-lead">
+광고를 내보내기 전에 지도 정보와 후기를 먼저 다듬습니다.{" "}
+<br />
+송출용 영상은 숏폼을 찍을 때 같이 만들어 비용을 아낍니다.
+</p>
             </div>
             <ul className="cw-pair">
               {d.pairs.map(([k, why]) => {

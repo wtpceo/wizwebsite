@@ -5028,3 +5028,14 @@ html.sf-anim .sf .gx .dp-sec.rv.on .geo-team-chat li .a { animation: sf-rise .5s
 .sf .geo-team2 .geo-team-col li { padding-left: 0; }
 .sf .geo-team2 .geo-team-col li::before { display: none; }
 .sf .geo-team2 .geo-team-loop path { stroke: #8FB0FF; stroke-width: 3.5; }
+
+/* 콘텐츠 페이지 11-09 대표: 부제는 제목 아래로(회사소개와 같게), 문장마다 줄바꿈 */
+.sf .cxp .gt-head { grid-template-columns: 1fr; gap: 18px; align-items: start; }
+.sf .cxp .gt-head .geo-lead, .sf .cxp .cw-items-head .geo-lead, .sf .cxp .geo-sec > .dp-w > .geo-lead { max-width: none; margin-left: 0; }
+.sf .cxp .gx-br { display: inline; }
+@media (max-width: 640px) { .sf .cxp .geo-lead br { display: none; } }
+
+/* 바이럴·글로벌·홈페이지 구축·오프라인·전문팀(11-09 대표): 제목 옆 부제를 제목 아래로, 문장마다 줄바꿈 — 회사소개·콘텐츠와 같게 */
+.sf :is(.vw, .gb, .hx, .ox, .tw) .gt-head { grid-template-columns: 1fr; gap: 18px; align-items: start; }
+.sf :is(.vw, .gb, .hx, .ox, .tw) .gt-head .geo-lead { max-width: none; margin: 0; justify-self: start; text-align: left; }
+@media (max-width: 640px) { .sf :is(.vw, .gb, .hx, .ox, .tw) :is(.gt-head, .cw-items-head) .geo-lead br { display: none; } }

@@ -410,8 +410,10 @@ export default function TeamDoc() {
                 </h2>
               </div>
               <p className="geo-lead">
-                영업 담당을 거치지 않고 실무를 총괄하는 전담 AE와 직접 소통합니다. 기획 회의부터 주간 리포트까지 한 사람이 맡아 여섯 부서 일정을 관리합니다.
-              </p>
+영업 담당을 거치지 않고 실무를 총괄하는 전담 AE와 직접 소통합니다.{" "}
+<br />
+기획 회의부터 주간 리포트까지 한 사람이 맡아 여섯 부서 일정을 관리합니다.
+</p>
             </div>
             <div className="tw-hub">
               {TEAMS.map(([k, n, jobs, en], i) => (
@@ -449,7 +451,9 @@ export default function TeamDoc() {
                   <span>여섯 개 전담 부서</span>
                 </h2>
               </div>
-              <p className="geo-lead">{d.teamsLead} 카드를 누르면 부서별 서비스 페이지로 이동합니다.</p>
+              <p className="geo-lead">{d.teamsLead}{" "}
+<br />
+카드를 누르면 부서별 서비스 페이지로 이동합니다.</p>
             </div>
             <ul className="cw-prod">
               {TEAMS.map(([k, n, jobs, en], i) => (
@@ -487,8 +491,10 @@ export default function TeamDoc() {
                 </h2>
               </div>
               <p className="geo-lead">
-                지표가 멈춘 구간을 찾아 고치고 다시 진단을 이어 갑니다. 정해진 패키지 없이 브랜드에 꼭 필요한 채널만 골라 설계합니다.
-              </p>
+지표가 멈춘 구간을 찾아 고치고 다시 진단을 이어 갑니다.{" "}
+<br />
+정해진 패키지 없이 브랜드에 꼭 필요한 채널만 골라 설계합니다.
+</p>
             </div>
             <ol className="cw-proc-g" aria-label="일하는 다섯 단계">
               {STEPS.map((st, i) => (
@@ -533,8 +539,10 @@ export default function TeamDoc() {
                 </h2>
               </div>
               <p className="geo-lead">
-                이번 주 실행 내역과 결과, 다음 주 할 일을 리포트 한 장에 담습니다. 전담 AE가 직접 찾아가 설명해 드립니다.
-              </p>
+이번 주 실행 내역과 결과, 다음 주 할 일을 리포트 한 장에 담습니다.{" "}
+<br />
+전담 AE가 직접 찾아가 설명해 드립니다.
+</p>
             </div>
             <ul className="tw-rep-g">
               {REPORTS.map(([src, cap], i) => (

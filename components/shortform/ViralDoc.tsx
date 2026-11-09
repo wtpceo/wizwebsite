@@ -295,7 +295,11 @@ export default function ViralDoc() {
                   <span>네 단계로 진행합니다</span>
                 </h2>
               </div>
-              <p className="geo-lead">게시물 제목 전체를 쳐야 나오는 글은 성과로 치지 않습니다. 소비자가 실제로 검색하는 키워드에서 몇 번째로 나오는지 화면을 캡처해 보여 드립니다.</p>
+              <p className="geo-lead">
+게시물 제목 전체를 쳐야 나오는 글은 성과로 치지 않습니다.{" "}
+<br />
+소비자가 실제로 검색하는 키워드에서 몇 번째로 나오는지 화면을 캡처해 보여 드립니다.
+</p>
             </div>
             <ol className="cw-proc-g" aria-label="진행 네 단계">
               {d.process.map(([t, x], i) => (
@@ -345,7 +349,11 @@ export default function ViralDoc() {
                   <span>확장되는 후기와 기사</span>
                 </h2>
               </div>
-              <p className="geo-lead">체험단 후기와 기사는 포털 검색뿐 아니라 생성형 AI가 답변을 만들 때 쓰는 근거가 됩니다. 글 후기를 쌓은 뒤에는 릴스나 쇼츠 같은 영상 리뷰로 접점을 넓혀 보세요.</p>
+              <p className="geo-lead">
+체험단 후기와 기사는 포털 검색뿐 아니라 생성형 AI가 답변을 만들 때 쓰는 근거가 됩니다.{" "}
+<br />
+글 후기를 쌓은 뒤에는 릴스나 쇼츠 같은 영상 리뷰로 접점을 넓혀 보세요.
+</p>
             </div>
             <ul className="cw-pair">
               {d.pairs.map(([k, why]) => {

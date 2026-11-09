@@ -161,7 +161,11 @@ export default function GlobalDoc() {
                   <span>현지 앱 맞춤 운영</span>
                 </h2>
               </div>
-              <p className="geo-lead">소비자가 한국에 오기 전 찾아보는 현지 앱에 브랜드를 소개합니다. 브랜드와 메뉴 정보를 중국어·일본어로 바꾸는 작업부터 시작합니다.</p>
+              <p className="geo-lead">
+소비자가 한국에 오기 전 찾아보는 현지 앱에 브랜드를 소개합니다.{" "}
+<br />
+브랜드와 메뉴 정보를 중국어·일본어로 바꾸는 작업부터 시작합니다.
+</p>
             </div>
             <div className="gb-land">
               {LANDS.map(([name, sub, img, keys], li) => (
