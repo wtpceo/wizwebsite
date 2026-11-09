@@ -84,7 +84,7 @@ export async function POST(req: Request) {
         <p><strong>이름:</strong> ${esc(name)}</p>
         <p><strong>연락처:</strong> ${esc(phone) || '미입력'}</p>
         ${email ? `<p><strong>이메일:</strong> ${esc(email)}</p>` : ''}
-        ${storeName ? `<p><strong>가게명:</strong> ${esc(storeName)}</p>` : ''}
+        ${storeName ? `<p><strong>회사명:</strong> ${esc(storeName)}</p>` : ''}
         <div style="margin:16px 0;padding:12px;border-left:3px solid #4338ca;background:#f8f8ff;">
           <p style="margin:0 0 6px;font-weight:bold;">📊 유입 경로</p>
           <p style="margin:0;font-size:15px;">${esc(formatAttribution(attribution))}</p>
