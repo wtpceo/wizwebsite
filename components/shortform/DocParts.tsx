@@ -80,7 +80,7 @@ export function Faq({ items }: { items: [string, string][] }) {
 }
 
 /** 11-08 대표가 고른 FAQ 디자인(퍼포먼스 → 인플루언서도 같게): 왼쪽 「자주 묻는 질문」 제목·문의 안내(스크롤 따라옴), 오른쪽 번호 붙은 질문 카드. 스타일은 sf-doc.css .px-faq */
-export function FaqBlock({ items, note = "여기 없는 질문은 문의로 남겨 주세요. 전담 AE가 답해 드립니다." }: { items: [string, string][]; note?: string }) {
+export function FaqBlock({ items, note = "여기 없는 질문은 문의로 남겨 주세요. 전담 AE가 답변해 드리겠습니다." }: { items: [string, string][]; note?: string }) {
   const [before, after] = note.includes("문의") ? note.split("문의") : [note, ""]
   return (
     <section className="px-faq rv" aria-labelledby="faq-h">
@@ -105,7 +105,7 @@ export function ContactBlock({ title, sub, label, initial = [], source, pt }: { 
       <div className="dp-w dp-ct-in">
         <div>
           <h2>{title}</h2>
-          <p className="sm">{sub || "전담 AE가 보고 연락드리겠습니다. 비용은 진단이 끝난 뒤 제안서에 적어 드립니다."}</p>
+          <p className="sm">{sub || "전담 AE가 확인하고 연락드리겠습니다."}</p>
           <div className="ct-ways">
             <a href={CONTACT.telHref} data-tel>
               <Icon k="phone" />

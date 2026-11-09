@@ -16,10 +16,10 @@ import { WORKS } from "./Works"
 
 /** 해외 소비자의 동선 [이름, 한 줄, 아이콘] — 셋째(한국 지도)가 놓치기 쉬운 자리 */
 const PATH: [string, string, "infl" | "plan" | "search" | "viral"][] = [
-  ["현지 앱에서 발견", "샤오홍슈 노트, 도우인 영상, 일본 인스타그램 게시물", "infl"],
-  ["저장하고 일정에 넣음", "가고 싶은 곳을 저장해 여행 일정에 넣습니다", "plan"],
-  ["한국에 와서 지도로 찾음", "도착해서 지도 앱으로 가는 길을 찾습니다", "search"],
-  ["방문하고 후기를 남김", "그 후기가 다음 여행자의 검색에 걸립니다", "viral"],
+  ["현지 플랫폼 탐색", "샤오홍슈 노트, 도우인 숏폼, 일본 인스타그램 리뷰를 봅니다", "infl"],
+  ["방문 일정에 넣기", "가고 싶은 매장을 저장해 한국 여행 일정에 넣습니다", "plan"],
+  ["한국에서 지도 앱 검색", "한국에 도착하면 지도 앱을 열어 정확한 위치와 가는 길을 찾습니다", "search"],
+  ["매장 방문과 후기 남기기", "방문하고 남긴 현지어 리뷰가 다음 여행자의 검색 결과에 쌓입니다", "viral"],
 ]
 
 /** 두 나라 카드 [나라, 쓰는 앱, 사진, 이 나라 상품 이름들] */
@@ -29,11 +29,11 @@ const LANDS: [string, string, string, string[]][] = [
 ]
 
 /** 국내 팀과 같이 세 칸 사진·표시 */
-const DIFF_IMG = ["/sf/ex/m-team.jpg", "/sf/ex/m-shoot.jpg", "/sf/ex/palace.jpg"]
-const DIFF_TAGS = [["국내", "해외", "한 리포트"], ["국내 촬영분 다시 쓰기"], ["관광객이 오는 지역"]]
+const DIFF_IMG = ["/sf/gen/global-meeting.jpg", "/sf/ex/m-shoot.jpg", "/sf/ex/palace.jpg"]
+const DIFF_TAGS = [["국내", "해외", "통합 리포트"], ["국내 촬영 원본 활용"], ["방한 핵심 상권 분석"]]
 
 /** 진행 순서 사진 */
-const PROC_IMG = ["/geo/media-editor.jpg", "/sf/ex/shop.jpg", "/geo/media-unbox.jpg", "/sf/img/report.jpg"]
+const PROC_IMG = ["/sf/gen/global-translate.jpg", "/sf/ex/shop.jpg", "/geo/media-unbox.jpg", "/sf/gen/global-report.jpg"]
 
 /** 같이 하면 사진 */
 const PAIR_IMG: Record<string, string> = { infl: "/sf/pf/infl-fashion.jpg", search: "/geo/media-ai.jpg" }
@@ -99,21 +99,21 @@ export default function GlobalDoc() {
               <small className="ix-kw">중국·일본 마케팅 대행</small>{" "}
               <Chars text={"한국에 오기 전에,\n갈 곳은 이미 정해집니다"} mark="이미 정해집니다" />
             </h1>
-            <p className="vx-era">중국·일본 고객은 여행 전에 현지 앱에서 고릅니다</p>
+            <p className="vx-era">한국에 오기 전 현지 앱에서 방문을 결정합니다</p>
             <p className="dp-lead">
-              샤오홍슈·도우인과 일본 인스타그램·LINE에 <span className="nw">브랜드를 올리고,</span>{" "}
+              샤오홍슈·도우인과 일본 인스타그램·LINE에 <span className="nw">브랜드 콘텐츠를 퍼뜨리고</span>{" "}
               <br />
-              한국에 와서 지도를 열어도 <span className="nw">같은 정보가 나오게 맞춥니다.</span>
+              한국에 도착해 지도 앱을 열었을 때도 <span className="nw">같은 정보가 보이게 만듭니다.</span>
             </p>
             <div className="dp-btns">
               <a className="p1" href="#contact">
                 문의하기
               </a>
             </div>
-            <p className="vx-trust">현지 크리에이터 섭외 · 중국어·일본어 현지화 · <span className="nw">국내와 같은 전담 AE</span> · <span className="nw">국내외 한 리포트</span></p>
+            <p className="vx-trust">현지 크리에이터 섭외 · 중국어·일본어 현지화 · <span className="nw">국내외 동일 전담 AE</span> · <span className="nw">국내외 통합 리포트</span></p>
           </div>
           <a className="ix-cue" href="#path" aria-label="해외 소비자의 동선으로 내려가기">
-            <span>해외 소비자의 동선</span>
+            <span>해외 소비자의 탐색 동선</span>
             <i aria-hidden="true" />
           </a>
         </section>
@@ -122,14 +122,14 @@ export default function GlobalDoc() {
         <div className="ix-dark">
           <CSec
             id="path"
-            eb="해외 소비자의 동선"
+            eb="해외 소비자 동선"
             tone="k"
             cls="ix-fit vx-order gb-path"
             q={
               <>
-                발견은 현지 앱에서,{" "}
+                발견은 현지 앱에서{" "}
                 <br />
-                <span>길 찾기는 한국 지도에서</span>
+                <span>방문은 한국 지도 앱에서</span>
               </>
             }
           >
@@ -145,7 +145,7 @@ export default function GlobalDoc() {
                 </li>
               ))}
             </ol>
-            <p className="vx-leak">현지 앱에만 올리고 한국 지도 정보가 비어 있으면, 찾아온 사람을 문 앞에서 놓칩니다. 그래서 두 쪽을 같이 봅니다.</p>
+            <p className="vx-leak">현지 앱에만 콘텐츠를 올리고 국내 지도 정보가 없으면 방문 직전의 고객을 놓칩니다. 현지 확산과 지도 정비를 같이 해야 하는 이유입니다.</p>
           </CSec>
         </div>
 
@@ -154,14 +154,14 @@ export default function GlobalDoc() {
           <div className="dp-w">
             <div className="gt-head">
               <div>
-                <p className="geo-eb">하는 일</p>
+                <p className="geo-eb">국가별 솔루션</p>
                 <h2>
-                  중국과 일본은{" "}
+                  중국·일본 소비자가 쓰는{" "}
                   <br />
-                  <span>쓰는 앱이 다릅니다</span>
+                  <span>현지 앱 맞춤 운영</span>
                 </h2>
               </div>
-              <p className="geo-lead">나라마다 고객이 여행을 준비하는 앱에 브랜드를 현지 말로 소개합니다. 브랜드 소개와 메뉴를 중국어·일본어로 옮기는 일부터 합니다.</p>
+              <p className="geo-lead">소비자가 한국에 오기 전 찾아보는 현지 앱에 브랜드를 소개합니다. 브랜드와 메뉴 정보를 중국어·일본어로 바꾸는 작업부터 시작합니다.</p>
             </div>
             <div className="gb-land">
               {LANDS.map(([name, sub, img, keys], li) => (
@@ -187,12 +187,12 @@ export default function GlobalDoc() {
               ))}
             </div>
             <div className="gb-pick">
-              <em>현지 크리에이터 고르는 기준</em>
-              <p>팔로워 숫자보다 우리 고객층이 실제로 보는 계정인지, 최근 반응이 오르고 있는지를 봅니다. 후보는 고른 이유를 붙여 리스트로 먼저 드리고, 고객사가 고른 뒤에 섭외합니다.</p>
+              <em>현지 크리에이터 선별 기준</em>
+              <p>팔로워 수보다 타깃 고객이 실제로 반응하는 계정인지 최근 게시물 참여율이 오르고 있는지 봅니다. 이유를 적은 후보 리스트를 먼저 보여 드리고 확인을 받으면 섭외하겠습니다.</p>
             </div>
             {w ? (
               <div className="vw-works">
-                <p className="vx-sub-h">현지 앱에는 이렇게 올라갑니다</p>
+                <p className="vx-sub-h">현지 플랫폼 게시 화면 예시</p>
                 <p className="vx-sub-p">{w.lead}</p>
                 <ul className="dp-works">
                   {w.items.map((it, i) =>
@@ -212,11 +212,11 @@ export default function GlobalDoc() {
         {/* ④ 국내 팀과 같이: 사진 카드 세 장 */}
         <section className="dp-sec geo-sec rv cw-diff gb-diff" id="diff">
           <div className="dp-w">
-            <p className="geo-eb">국내 팀과 같이</p>
+            <p className="geo-eb">국내외 통합 운영</p>
             <h2>
-              국내 팀이 같이 하면{" "}
+              국내 전담 부서와 함께{" "}
               <br />
-              <span>무엇이 다른가요?</span>
+              <span>글로벌 캠페인 통합 운영</span>
             </h2>
             <ol className="cw-diff-g">
               {d.diff.map(([t, x], i) => (
@@ -247,12 +247,12 @@ export default function GlobalDoc() {
               <div>
                 <p className="geo-eb">진행 순서</p>
                 <h2>
-                  현지 말로 옮기는 일부터,{" "}
+                  현지화 번역부터 성과 분석까지{" "}
                   <br />
                   <span>네 단계로 진행합니다</span>
                 </h2>
               </div>
-              <p className="geo-lead">국내 캠페인과 같은 전담 AE가 같은 리포트 틀로 해외 채널까지 챙깁니다.</p>
+              <p className="geo-lead">국내 캠페인을 맡은 전담 AE가 해외 채널 성과까지 같은 기준으로 관리하고 리포트를 드립니다.</p>
             </div>
             <ol className="cw-proc-g" aria-label="진행 네 단계">
               {d.process.map(([t, x], i) => (
@@ -269,7 +269,7 @@ export default function GlobalDoc() {
               ))}
             </ol>
             <div className="cw-rep">
-              <b>리포트에 들어가는 것</b>
+              <b>결과 리포트 포함 항목</b>
               <ul>
                 {d.report.map((r) => (
                   <li key={r}>
@@ -287,14 +287,14 @@ export default function GlobalDoc() {
           <div className="dp-w">
             <div className="gt-head">
               <div>
-                <p className="geo-eb">같이 하면</p>
+                <p className="geo-eb">연계 서비스</p>
                 <h2>
-                  해외 고객도 결국{" "}
+                  현지 탐색을 방문으로 잇는{" "}
                   <br />
-                  <span>한국에서 지도를 엽니다</span>
+                  <span>지도·인플루언서 연계</span>
                 </h2>
               </div>
-              <p className="geo-lead">현지 앱에서 본 브랜드를 한국에 와서 찾을 때, 지도와 국내 후기까지 같은 정보로 이어지게 합니다.</p>
+              <p className="geo-lead">현지 앱에서 브랜드를 본 관광객이 한국에 와서 검색할 때 지도 앱과 국내 리뷰에서도 같은 정보를 보도록 잇습니다.</p>
             </div>
             <ul className="cw-pair">
               {d.pairs.map(([k, why]) => {
@@ -319,7 +319,7 @@ export default function GlobalDoc() {
         </section>
 
         {/* ⑦ FAQ: 공통 부품 */}
-        <FaqBlock items={d.faq} note="여기 없는 질문은 문의로 남겨 주세요. 담당자가 답해 드립니다." />
+        <FaqBlock items={d.faq} note="더 궁금한 점은 문의로 남겨 주세요. 전담 AE가 자세히 알려 드리겠습니다." />
 
         {/* ⑧ 문의 */}
         <ContactBlock title={d.ct?.title ?? `${s.n}, 진단 신청부터 시작하세요.`} sub={d.ct?.sub} label={d.ct?.label} initial={[s.k]} source={`service_${s.slug}`} />

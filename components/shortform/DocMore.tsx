@@ -105,7 +105,7 @@ export function SampleBox({ s }: { s: NonNullable<More["sample"]> }) {
 
 export function NotFit({ items }: { items: [string, string][] }) {
   return (
-    <Sec q="어떤 경우에는 맡기지 않으시는 편이 낫나요?">
+    <Sec q="진행이 어려운 경우">
       <ul className="dp-nf">
         {items.map(([t, x]) => (
           <li key={t}>
@@ -135,7 +135,7 @@ export function Reads({ items }: { items: [string, string][] }) {
 
 export function Consult({ items }: { items?: [string, string][] }) {
   return (
-    <Sec q="문의하면 무엇부터 하나요?">
+    <Sec q="문의 후 진행 순서">
       {items ? null : <p>{CONSULT_LEAD}</p>}
       <ol className="dp-num">
         {(items || CONSULT).map(([t, x]) => (
@@ -152,7 +152,7 @@ export function Consult({ items }: { items?: [string, string][] }) {
 /** 업종별 순서 — 로컬 쪽 */
 export function Month({ m }: { m: NonNullable<More["month"]> }) {
   return (
-    <Sec q="업종마다 무엇부터 하나요?">
+    <Sec q="업종별 먼저 할 일">
       <ul className="dp-mon">
         {m.rows.map(([k, seq, x]) => (
           <li key={k}>

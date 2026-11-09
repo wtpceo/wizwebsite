@@ -15,30 +15,30 @@ import { WORKS } from "./Works"
 
 /** 하는 일 네 단계 [이름, 한 줄, 아이콘] — 11-08 대표 「촬영에서 끝나지 않고 필요한 곳에 적용까지」 */
 const PIPE: [string, string, "plan" | "content" | "infl" | "perf"][] = [
-  ["기획", "어디에 쓸지 정하고 장면 목록을 만듭니다", "plan"],
-  ["촬영", "자체 촬영팀이 현장에 갑니다", "content"],
-  ["편집", "쓸 곳마다 길이와 크기를 맞춥니다", "infl"],
-  ["적용", "필요한 곳에 직접 올립니다", "perf"],
+  ["기획", "어디에 올릴지 먼저 정하고 장면을 구성합니다", "plan"],
+  ["촬영", "저희 촬영팀이 현장에 나가 직접 찍습니다", "content"],
+  ["편집", "올릴 곳의 크기와 분위기에 맞춰 편집합니다", "infl"],
+  ["채널 반영", "광고, 지도, 블로그, SNS 등 필요한 곳에 바로 올립니다", "perf"],
 ]
 
 /** 촬영 하루치가 올라가는 곳(예시) [파일 종류, 찍어 온 것, 올라가는 곳] */
 const FLOW: [string, string, string][] = [
-  ["MP4", "숏폼 편집본", "릴스·쇼츠"],
-  ["MP4", "광고용 짧은 버전", "광고 소재"],
-  ["JPG", "대표 사진", "지도 대표 사진"],
-  ["JPG", "보정 사진·설명 문구", "블로그"],
-  ["JPG", "메인 사진", "홈페이지"],
-  ["SRT", "자막·제목 후보·썸네일", "영상마다 함께"],
+  ["MP4", "세로형 숏폼 편집본", "인스타그램 릴스·유튜브 쇼츠"],
+  ["MP4", "광고용 하이라이트 버전", "퍼포먼스 광고 소재"],
+  ["JPG", "매장·공간 대표 컷", "네이버 플레이스·지도 대표 사진"],
+  ["JPG", "상세 보정 컷·설명 문구", "브랜드 블로그 콘텐츠"],
+  ["JPG", "고해상도 메인 비주얼", "공식 웹사이트"],
+  ["SRT", "자막·제목 후보안·썸네일", "영상 콘텐츠별 일괄 제공"],
 ]
 
 /** 세부 상품 사진 — 저희 촬영분 위주 */
 const PROD_IMG: Record<string, string> = {
-  "브랜디드 바이럴 영상": "/sf/pf/w6.jpg",
+  "브랜디드 바이럴 영상": "/geo/media-unbox.jpg",
   "숏폼 제작": "/sf/v/r15.jpg",
   "방송·드라마 PPL": "/sf/ex/m-shoot.jpg",
   "모델 캐스팅": "/sf/ex/makeup.jpg",
   "SNS 채널 운영": "/sf/ex/m-reel.jpg",
-  "제품·공간 포토그래피": "/sf/pf/w4.jpg",
+  "제품·공간 포토그래피": "/sf/gen/content-product.jpg",
 }
 
 /** 숏폼 목록 [파일, 이름표, 예시 여부, 화면 자막] — 11-08 대표 「예시 영상도 자막 넣어 위 목록에 섞어」.
@@ -72,14 +72,14 @@ const PHOTOS: [string, string][] = [
 ]
 
 /** 자체 촬영팀 두 칸 사진·표시 */
-const DIFF_IMG = ["/sf/pf/w1.jpg", "/sf/ex/m-shoot.jpg"]
+const DIFF_IMG = ["/geo/media-crew.jpg", "/sf/gen/content-meet.jpg"]
 const DIFF_TAGS = [
   ["광고", "블로그", "지도", "홈페이지"],
   ["퍼포먼스팀 촬영 회의 참여"],
 ]
 
 /** 진행 순서 사진 */
-const PROC_IMG = ["/sf/ex/m-team.jpg", "/sf/ex/m-shoot.jpg", "/geo/media-editor.jpg", "/sf/img/report.jpg"]
+const PROC_IMG = ["/sf/gen/content-storyboard.jpg", "/sf/gen/content-bts.jpg", "/geo/media-editor.jpg", "/sf/img/report.jpg"]
 
 /** 같이 하면 사진 */
 const PAIR_IMG: Record<string, string> = { infl: "/sf/pf/infl-beauty.jpg", perf: "/sf/ex/m-shop.jpg" }
@@ -89,7 +89,7 @@ const SCENES: [string, string, string[]][] = [
   ["장면 A · 제품 클로즈업", "/sf/ex/beauty-flat.jpg", ["광고 소재", "홈페이지 메인"]],
   ["장면 B · 매장 안 자리", "/sf/ex/cafe.jpg", ["지도 대표 사진", "블로그 가이드"]],
   ["장면 C · 제품을 다루는 장면", "/sf/ex/shootcos.jpg", ["릴스·쇼츠", "광고 소재"]],
-  ["장면 D · 대표 메뉴", "/sf/pf/w3.jpg", ["지도 메뉴 사진", "홈페이지 메뉴 안내"]],
+  ["장면 D · 대표 메뉴", "/sf/ex/fnb-dish.jpg", ["지도 메뉴 사진", "홈페이지 메뉴 안내"]],
 ]
 
 /** 왼쪽 정렬 칸(인플루언서 쪽 CSec과 같은 문법) */
@@ -154,21 +154,21 @@ export default function ContentDoc() {
               <small className="ix-kw">콘텐츠 제작 대행</small>{" "}
               <Chars text={"저희 촬영은\n납품에서 끝나지 않습니다"} mark="끝나지 않습니다" />
             </h1>
-            <p className="vx-era">반응이 오는 소재를 만듭니다</p>
+            <p className="vx-era">전환을 일으키는 콘텐츠 제작</p>
             <p className="dp-lead">
-              모델 섭외부터 <span className="nw">숏폼·쇼츠·롱폼까지,</span>{" "}
+              모델 캐스팅부터 <span className="nw">숏폼·쇼츠·브랜디드 영상까지,</span>{" "}
               <br />
-              자체 촬영팀이 <span className="nw">기획하고 찍고 편집합니다.</span>
+              저희 촬영팀이 <span className="nw">기획부터 배포까지 모두 맡습니다.</span>
             </p>
             <div className="dp-btns">
               <a className="p1" href="#contact">
                 문의하기
               </a>
             </div>
-            <p className="vx-trust">자체 촬영팀 · 모델 섭외 · <span className="nw">숏폼 360편 넘게 · 전담 AE</span></p>
+            <p className="vx-trust">인하우스 촬영팀 · 모델 캐스팅 · <span className="nw">누적 숏폼 360편 이상 · 전담 AE</span></p>
           </div>
           <a className="ix-cue" href="#shotlist" aria-label="촬영 장면 목록으로 내려가기">
-            <span>위즈더플래닝은 이렇게 일해요</span>
+            <span>위즈더플래닝의 콘텐츠 프로덕션</span>
             <i aria-hidden="true" />
           </a>
         </section>
@@ -176,21 +176,21 @@ export default function ContentDoc() {
         {/* ③ 한 번 찍는 날: 장면 목록 예시 보드 */}
         <CSec
           id="shotlist"
-          eb="촬영 장면 목록"
+          eb="통합 촬영 설계"
           q={
             <>
-              다양한 곳에서 활용 가능한{" "}
+              한 번 찍어 여러 곳에 쓰는{" "}
               <br />
               <span>
-                <span className="nw">사진과 영상을</span> 촬영합니다
+                <span className="nw">사진·영상</span> 기획
               </span>
             </>
           }
-          sub="외주가 아니라 같은 회사 촬영팀이라, 이 장면이 광고 소재가 될지 지도 대표 사진이 될지 블로그 가이드에 들어갈지 찍기 전에 압니다. 그래서 하루 촬영에서 여러 소재로 나눠 쓸 수 있는 콘텐츠 재료를 함께 촬영해 옵니다."
+          sub="저희 촬영팀이 직접 찍어서 광고나 지도, 블로그 중 어디에 쓸지 기획 단계부터 정합니다. 하루만 촬영해도 모든 채널에 올릴 원본을 얻을 수 있습니다."
         >
           <div className="cx-board" aria-label="촬영 장면 목록 예시">
             <div className="cx-board-h">
-              <span>촬영 장면 목록</span>
+              <span>촬영 장면 구성안</span>
               <em>예시</em>
             </div>
             <ol>
@@ -203,7 +203,7 @@ export default function ContentDoc() {
                   <span className="cx-arrow" aria-hidden="true">
                     →
                   </span>
-                  <ul aria-label="쓸 곳">
+                  <ul aria-label="활용 채널">
                     {uses.map((u) => (
                       <li key={u}>{u}</li>
                     ))}
@@ -219,14 +219,14 @@ export default function ContentDoc() {
           <div className="dp-w">
             <div className="gt-head">
               <div>
-                <p className="geo-eb">하는 일</p>
+                <p className="geo-eb">운영 범위</p>
                 <h2>
-                  찍고 끝나지 않고,{" "}
+                  찍고 끝내지 않고{" "}
                   <br />
-                  <span>필요한 곳에 올려 드립니다</span>
+                  <span>알맞게 편집해 올려 드립니다</span>
                 </h2>
               </div>
-              <p className="geo-lead">촬영한 사진과 영상을 릴스·쇼츠, 블로그, 지도, 광고, 홈페이지에 맞게 다듬어 올리는 것까지 저희가 맡습니다.</p>
+              <p className="geo-lead">찍은 사진과 영상을 릴스·쇼츠, 블로그, 지도, 광고 크기에 맞춰 편집합니다. 다 만든 콘텐츠는 저희가 직접 채널에 올려 드립니다.</p>
             </div>
             <ol className="cw-pipe" aria-label="콘텐츠가 만들어지는 네 단계">
               {PIPE.map(([t, x, k], i) => (
@@ -242,13 +242,13 @@ export default function ContentDoc() {
             </ol>
             <div className="cw-flow" aria-label="촬영 하루치 결과물이 올라가는 곳, 예시">
               <div className="cw-flow-h">
-                <b>촬영 하루치, 이렇게 나눠 올립니다</b>
+                <b>한 번 찍은 결과물이 올라가는 곳</b>
                 <Ex>예시</Ex>
               </div>
               <div className="cw-flow-cols" aria-hidden="true">
-                <span>찍어 온 것</span>
+                <span>제작 산출물</span>
                 <span />
-                <span>올라가는 곳</span>
+                <span>반영 채널</span>
               </div>
               <ul>
                 {FLOW.map(([t, n, to], i) => (
@@ -271,16 +271,13 @@ export default function ContentDoc() {
         {/* ⑤ 세부 상품(11-08 대표 「디자인」): 여섯 상품을 사진 카드로. 사진은 저희 촬영분 위주 */}
         <section className="dp-sec geo-sec rv cw-items" id="items">
           <div className="dp-w">
-            <div className="gt-head">
-              <div>
-                <p className="geo-eb">세부 상품</p>
-                <h2>
-                  {s.n}에는{" "}
-                  <br />
-                  <span>이런 상품이 있습니다</span>
-                </h2>
-              </div>
-              <p className="geo-lead">필요한 것만 골라 맡기시면 됩니다. 여러 개를 같이 맡기시면 한 번 촬영으로 나눠 만듭니다.</p>
+            {/* 11-09 대표: 제목은 「콘텐츠 프로덕션의 서비스」 한 줄, 부제는 제목 바로 아래 한 줄로 붙인다 */}
+            <div className="cw-items-head">
+              <p className="geo-eb">세부 서비스</p>
+              <h2>
+                {s.n} <span>세부 서비스</span>
+              </h2>
+              <p className="geo-lead">필요한 것만 따로 맡기셔도 됩니다. 여러 개를 같이 하시면 한 번에 찍어 비용과 시간을 아껴 드립니다.</p>
             </div>
             <ul className="cw-prod">
               {s.items.map(([n, t], i) => (
@@ -302,16 +299,17 @@ export default function ContentDoc() {
         {/* ⑥ 직접 찍은 결과물(11-08 대표 「큰 예시 세 장은 뒤로, 우리 레퍼런스를 더」): 릴스 다섯 편 → 현장 사진 열한 장 → 맨 뒤에 뷰티·패션 예시 세 편(작게) */}
         <section className="dp-sec geo-sec rv cw-works" id="works">
           <div className="dp-w">
-            <div className="gt-head">
-              <div>
-                <p className="geo-eb">직접 찍은 결과물</p>
-                <h2>
-                  저희 촬영팀이{" "}
-                  <br />
-                  <span>현장에서 찍은 것들입니다</span>
-                </h2>
-              </div>
-              <p className="geo-lead">숏폼은 지금까지 360편 넘게 만들었습니다. 업체 이름과 간판이 보이는 장면은 빼고 골랐고, 뷰티·패션·제품 장면은 예시로 함께 보여 드립니다.</p>
+            {/* 11-09 대표: 제목은 「레퍼런스」로 간단히. 짧은 제목이라 부제는 제목 아래로 붙인다 */}
+            <div className="cw-items-head">
+              <p className="geo-eb">제작 포트폴리오</p>
+              <h2>
+                저희가 직접 찍은 <span>레퍼런스</span>
+              </h2>
+              <p className="geo-lead cw-lead-2">
+                지금까지 360편 넘는 숏폼을 직접 만들었습니다.{" "}
+                <br className="gx-br" />
+                상호가 안 보이는 장면만 추렸고 <span className="nw">뷰티·패션·제품</span> 연출 컷은 예시로 넣었습니다.
+              </p>
             </div>
             <ul className="dp-works cw-reels">
               {REELS.map(([v, cap, ex, sub], i) => (
@@ -344,9 +342,9 @@ export default function ContentDoc() {
           <div className="dp-w">
             <p className="geo-eb">자체 촬영팀</p>
             <h2>
-              자체 팀이 촬영하면{" "}
+              마케팅팀과 같이 일하는{" "}
               <br />
-              <span>무엇이 다른가요?</span>
+              <span>자체 촬영팀이 좋은 이유</span>
             </h2>
             <ol className="cw-diff-g">
               {d.diff.map(([t, x], i) => (
@@ -369,16 +367,13 @@ export default function ContentDoc() {
         {/* ⑧ 진행 순서(11-08 대표 「리디자인」): 사진이 붙은 네 단계 + 리포트에 들어가는 것 */}
         <section className="dp-sec geo-sec geo-sec-mist rv cw-proc" id="process">
           <div className="dp-w">
-            <div className="gt-head">
-              <div>
-                <p className="geo-eb">진행 순서</p>
-                <h2>
-                  장면 목록부터 리포트까지,{" "}
-                  <br />
-                  <span>네 단계로 진행합니다</span>
-                </h2>
-              </div>
-              <p className="geo-lead">단계마다 고객사 확인을 받고 다음으로 넘어갑니다. 전담 AE 한 명이 처음부터 끝까지 연락을 맡습니다.</p>
+            {/* 11-09 대표: 제목은 「진행 프로세스 네 단계」로 간단히, 부제는 제목 아래 한 줄 */}
+            <div className="cw-items-head">
+              <p className="geo-eb">진행 순서</p>
+              <h2>
+                기획부터 채널 반영까지 <span>네 단계로 진행합니다</span>
+              </h2>
+              <p className="geo-lead">단계마다 확인을 받고 다음으로 넘어갑니다. 전담 AE가 처음부터 끝까지 1:1로 챙겨 드립니다.</p>
             </div>
             <ol className="cw-proc-g" aria-label="진행 네 단계">
               {d.process.map(([t, x], i) => (
@@ -395,7 +390,7 @@ export default function ContentDoc() {
               ))}
             </ol>
             <div className="cw-rep">
-              <b>월말 리포트에 들어가는 것</b>
+              <b>월간 결과 리포트에 들어가는 내용</b>
               <ul>
                 {d.report.map((r) => (
                   <li key={r}>
@@ -411,16 +406,15 @@ export default function ContentDoc() {
         {/* ⑨ 같이 하면(11-08 대표 「리디자인」): 찍은 영상이 인플루언서 게시물·광고로 다시 쓰이는 모습 */}
         <section className="dp-sec geo-sec rv cw-next" id="pairs">
           <div className="dp-w">
-            <div className="gt-head">
-              <div>
-                <p className="geo-eb">같이 하면</p>
-                <h2>
-                  찍은 영상은{" "}
-                  <br />
-                  <span>여기에도 씁니다</span>
-                </h2>
-              </div>
-              <p className="geo-lead">브랜드 채널에 올린 숏폼을 인플루언서 계정에도 같이 올리고, 반응 좋은 영상은 광고 소재로 씁니다.</p>
+            {/* 11-09 대표: 제목 「촬영한 영상은 사용 가능한 모든 곳에 게시」. 부제는 제목 아래로 */}
+            <div className="cw-items-head">
+              <p className="geo-eb">콘텐츠 활용</p>
+              <h2>
+                잘 찍은 영상 하나로{" "}
+                <br className="cw-br" />
+                <span>광고와 인플루언서까지</span>
+              </h2>
+              <p className="geo-lead">공식 채널에 올린 숏폼을 인플루언서 콘텐츠로도 씁니다. 여기서 반응이 좋은 영상은 퍼포먼스 광고 소재로 바로 돌립니다.</p>
             </div>
             {/* 11-08 대표 「비주얼 개선」: 가운데 저희가 찍은 숏폼 한 편 → 왼쪽 인플루언서 게시물, 오른쪽 광고로 다시 쓰이는 그림 */}
             <div className="cw-hub">
@@ -480,11 +474,11 @@ export default function ContentDoc() {
                 )
               })}
               <div className="cw-hub-core">
-                <small>저희가 찍은 숏폼 한 편</small>
+                <small>저희가 만든 숏폼 원본</small>
                 <div className="cw-hub-phone">
                   <video src="/sf/v/r31.mp4" poster="/sf/v/r31.jpg" muted loop playsInline autoPlay preload="none" aria-label="저희가 찍은 고깃집 숏폼" />
                 </div>
-                <span>브랜드 채널에 먼저 올립니다</span>
+                <span>브랜드 공식 채널에 먼저 올립니다</span>
               </div>
             </div>
             <Ex>예시 화면</Ex>
@@ -492,7 +486,7 @@ export default function ContentDoc() {
         </section>
 
         {/* ⑩ FAQ: 퍼포먼스·인플루언서·GEO와 같은 부품 */}
-        <FaqBlock items={d.faq} note="여기 없는 질문은 문의로 남겨 주세요. 담당자가 답해 드립니다." />
+        <FaqBlock items={d.faq} note="더 궁금한 점이 있으시면 문의를 남겨 주세요. 전담 AE가 자세히 알려 드리겠습니다." />
 
         {/* ⑪ 문의 */}
         <ContactBlock title={d.ct?.title ?? `${s.n}, 진단 신청부터 시작하세요.`} sub={d.ct?.sub} label={d.ct?.label} initial={[s.k]} source={`service_${s.slug}`} />

@@ -16,35 +16,35 @@ import { TimeBox, SampleBox } from "./DocMore"
 
 /** 걸고 나서 생기는 일 [이름, 한 줄, 아이콘] — 셋째(받습니다)가 저희가 같이 맞추는 자리 */
 const AFTER: [string, string, "off" | "search" | "phone"][] = [
-  ["봅니다", "택배차 옆면, 극장 스크린, 택시 뒷좌석 화면", "off"],
-  ["나중에 찾습니다", "브랜드 이름이나 「동네+업종」을 검색", "search"],
-  ["받습니다", "지도 정보·후기·홈페이지를 보고 문의", "phone"],
+  ["오프라인 노출", "택배차량 측면, 극장 스크린, 택시 뒷좌석 화면에서 반복 인지", "off"],
+  ["포털·지도 재검색", "기억에 남은 브랜드명이나 「지역명+업종」 키워드로 검색", "search"],
+  ["온라인 정보 확인 및 전환", "정비된 지도 정보·후기·웹사이트를 확인하고 방문·문의 결정", "phone"],
 ]
 
 /** 세부 상품 사진 */
 const PROD_IMG: Record<string, string> = {
   "택배차량 광고": "/sf/ex/truck.jpg",
   "극장 스크린 광고": "/sf/ex/cine-seat.jpg",
-  "카카오T 모빌리티 광고": "/sf/ex/m-tourist.jpg",
-  "인쇄 매체": "/sf/ex/fnb-store.jpg",
+  "카카오T 모빌리티 광고": "/sf/ex/kakao-real.jpg",
+  "인쇄 매체": "/sf/gen/off-print.jpg",
   "배달앱 운영 관리": "/sf/ex/m-phone.jpg",
 }
 
 /** 자체 팀이 직접 세 칸 사진·표시 */
-const DIFF_IMG = ["/sf/ex/m-shoot.jpg", "/sf/img/report.jpg", "/sf/ex/truck-ad.jpg"]
-const DIFF_TAGS = [["자체 촬영·편집"], ["지도 검색·문의 같이 보기"], ["송출·부착 사진"]]
+const DIFF_IMG = ["/geo/media-crew.jpg", "/sf/gen/sol-growth.jpg", "/sf/gen/off-proof.jpg"]
+const DIFF_TAGS = [["인하우스 영상·시안 제작"], ["지도 검색·문의 추이 통합 점검"], ["송출·부착 인증 리포트"]]
 
 /** 진행 순서 사진 */
-const PROC_IMG = ["/sf/ex/m-team.jpg", "/geo/media-editor.jpg", "/sf/ex/cine-real.jpg", "/sf/img/report.jpg"]
+const PROC_IMG = ["/sf/gen/off-map.jpg", "/geo/media-editor.jpg", "/sf/ex/cine-real.jpg", "/sf/gen/off-report.jpg"]
 
 /** 같이 하면 사진 */
 const PAIR_IMG: Record<string, string> = { content: "/sf/ex/m-shoot.jpg", search: "/geo/media-ai.jpg", viral: "/sf/ex/fnb-dessert.jpg" }
 
 /** 측정할 수 있는 것 / 없는 것 */
 const MEASURE: [string, string, boolean][] = [
-  ["택배차량·극장", "우리 광고만 본 사람 수는 따로 셀 수 없습니다. 송출·부착 사진과 광고 기간의 문의 기록으로 보고합니다.", false],
-  ["카카오T", "화면이 있는 매체라 노출·클릭 수를 그대로 드립니다.", true],
-  ["매체사 공개 숫자", "저희 성과가 아니라서 가져다 쓰지 않습니다.", false],
+  ["택배차량·극장", "개별 광고 열람 인원은 따로 집계할 수 없습니다. 실제 송출·부착 사진과 집행 기간의 문의 추이로 보고서를 드립니다.", false],
+  ["카카오T", "디지털 화면 매체이므로 집계된 노출 수와 클릭 수를 매체 데이터 그대로 보내 드립니다.", true],
+  ["매체사 공개 지표", "매체사가 발표하는 평균 유동인구는 저희가 낸 성과가 아니므로 결과 수치로 쓰지 않습니다.", false],
 ]
 
 /** 왼쪽 정렬 칸: 머리말 → 두 줄 제목(둘째 줄 파랑) → 부제 → 보조 자료. 인플루언서 쪽 CSec과 같은 문법 */
@@ -110,21 +110,20 @@ export default function OffDoc() {
               <small className="ix-kw">오프라인 광고 대행</small>{" "}
               <Chars text={"길에서 본 광고,\n검색에서 마무리합니다"} mark="검색에서 마무리합니다" />
             </h1>
-            <p className="vx-era">고객이 매일 지나는 자리에 반복해서 보입니다</p>
+            <p className="vx-era">타깃 고객의 일상 동선에서 만나는 반복 노출</p>
             <p className="dp-lead">
-              택배차량·극장·카카오T에 광고를 걸고,{" "}
-              <br />
-              본 사람이 검색했을 때 <span className="nw">지도·블로그·홈페이지가</span> <span className="nw">받도록 같이 맞춥니다.</span>
+              택배차량·극장 스크린·카카오T에 광고를 걸고,{" "}<br />
+              이를 본 소비자가 검색했을 때 <span className="nw">지도·블로그·웹사이트로</span> <span className="nw">이어지게 만듭니다.</span>
             </p>
             <div className="dp-btns">
               <a className="p1" href="#contact">
                 문의하기
               </a>
             </div>
-            <p className="vx-trust">자체 촬영팀 시안 제작 · 송출·부착 사진 리포트 · <span className="nw">전담 AE가 온라인과 같이 봄</span></p>
+            <p className="vx-trust">인하우스 촬영팀 시안 제작 · 송출·부착 사진 리포트 · <span className="nw">전담 AE 통합 관리</span></p>
           </div>
           <a className="ix-cue" href="#after" aria-label="걸고 나서 생기는 일로 내려가기">
-            <span>위즈더플래닝은 이렇게 일해요</span>
+            <span>위즈더플래닝의 오프라인 미디어 설계</span>
             <i aria-hidden="true" />
           </a>
         </section>
@@ -133,14 +132,13 @@ export default function OffDoc() {
         <div className="ix-dark">
           <CSec
             id="after"
-            eb="걸고 나서 생기는 일"
+            eb="노출 이후 전환 여정"
             tone="k"
             cls="ix-fit vx-order ox-after"
             q={
               <>
-                광고를 본 사람은 그 자리에서 사지 않고,{" "}
-                <br />
-                <span>나중에 검색합니다</span>
+                길에서 본 브랜드를{" "}<br />
+                <span>온라인으로 확인하는 동선</span>
               </>
             }
           >
@@ -164,14 +162,13 @@ export default function OffDoc() {
           <div className="dp-w">
             <div className="gt-head">
               <div>
-                <p className="geo-eb">세부 상품</p>
+                <p className="geo-eb">세부 솔루션</p>
                 <h2>
-                  매장 반경 안에서{" "}
-                  <br />
-                  <span>매체와 기간을 고릅니다</span>
+                  상권 반경에 맞춘{" "}<br />
+                  <span>매체 선별과 기간 설계</span>
                 </h2>
               </div>
-              <p className="geo-lead">매장 위치와 고객층에 맞춰 매체를 고르고, 규격에 맞는 광고 영상과 시안은 자체 촬영팀이 만듭니다.</p>
+              <p className="geo-lead">매장 위치와 고객 동선에 맞춰 매체를 고릅니다. 매체 규격에 맞는 영상과 인쇄 시안은 저희 제작팀이 직접 만듭니다.</p>
             </div>
             <ul className="cw-prod">
               {s.items.map(([n, t], i) => (
@@ -189,7 +186,7 @@ export default function OffDoc() {
             </ul>
             {w ? (
               <div className="vw-works">
-                <p className="vx-sub-h">{w.q || "실제로 어떤 결과물이 나오나요?"}</p>
+                <p className="vx-sub-h">{w.q || "매체별 집행 화면 예시"}</p>
                 <p className="vx-sub-p">{w.lead}</p>
                 <ul className="dp-works">
                   {w.items.map((it, i) =>
@@ -209,11 +206,10 @@ export default function OffDoc() {
         {/* ④ 자체 팀이 직접: 사진 카드 세 장 */}
         <section className="dp-sec geo-sec geo-sec-mist rv cw-diff gb-diff" id="diff">
           <div className="dp-w">
-            <p className="geo-eb">자체 팀이 직접</p>
+            <p className="geo-eb">인하우스 운영</p>
             <h2>
-              자체 팀이 만들고 직접 잡으면{" "}
-              <br />
-              <span>무엇이 다른가요?</span>
+              제작부터 온라인 연계까지{" "}<br />
+              <span>직접 챙기는 캠페인</span>
             </h2>
             <ol className="cw-diff-g">
               {d.diff.map(([t, x], i) => (
@@ -244,12 +240,11 @@ export default function OffDoc() {
               <div>
                 <p className="geo-eb">진행 순서</p>
                 <h2>
-                  매체 고르기부터 리포트까지,{" "}
-                  <br />
+                  매체 선정부터 결과 보고까지{" "}<br />
                   <span>네 단계로 진행합니다</span>
                 </h2>
               </div>
-              <p className="geo-lead">송출이 시작되면 송출·부착 사진을 보내 드리고, 끝날 때 광고 기간의 문의 기록과 함께 연장 여부를 정합니다.</p>
+              <p className="geo-lead">광고가 나가면 부착·송출 사진을 바로 보내 드립니다. 끝날 때는 그동안의 문의 추이를 보고 연장할지 같이 정합니다.</p>
             </div>
             <ol className="cw-proc-g" aria-label="진행 네 단계">
               {d.process.map(([t, x], i) => (
@@ -267,7 +262,7 @@ export default function OffDoc() {
             </ol>
             {m.time ? <TimeBox t={m.time} /> : null}
             <div className="cw-rep">
-              <b>리포트에 들어가는 것</b>
+              <b>결과 리포트 포함 항목</b>
               <ul>
                 {d.report.map((r) => (
                   <li key={r}>
@@ -284,21 +279,20 @@ export default function OffDoc() {
         {/* ⑥ 측정할 수 있는 것, 없는 것(그대로) */}
         <CSec
           id="measure"
-          eb="리포트"
+          eb="성과 보고 기준"
           tone="mist"
           q={
             <>
-              측정할 수 없는 숫자는{" "}
-              <br />
-              <span>쓰지 않습니다</span>
+              측정할 수 있는 데이터만{" "}<br />
+              <span>기록하는 리포트 기준</span>
             </>
           }
-          sub="택배차량·극장 광고는 우리 광고만 본 사람 수를 따로 셀 수 없습니다. 그래서 송출·부착 사진과 광고 기간의 문의 기록으로 보고하고, 카카오T처럼 화면이 있는 매체는 노출·클릭 수를 그대로 드립니다."
+          sub="택배차량과 극장 광고는 열람 인원을 따로 집계할 수 없어 송출 사진과 문의 기록으로 보고서를 드립니다. 카카오T 같은 디지털 매체는 노출·클릭 수를 그대로 보내 드립니다."
         >
           <ul className="ox-measure">
             {MEASURE.map(([t, x, ok], i) => (
               <li key={t} className={ok ? "ok" : undefined} style={vars({ i })}>
-                <em>{ok ? "그대로 드림" : "숫자로 쓰지 않음"}</em>
+                <em>{ok ? "실측 수치 제공" : "추정치 미사용"}</em>
                 <b>{t}</b>
                 <span>{x}</span>
               </li>
@@ -311,14 +305,13 @@ export default function OffDoc() {
           <div className="dp-w">
             <div className="gt-head">
               <div>
-                <p className="geo-eb">같이 하면</p>
+                <p className="geo-eb">연계 서비스</p>
                 <h2>
-                  동네 광고를 본 고객은{" "}
-                  <br />
-                  <span>지도를 엽니다</span>
+                  오프라인 인지를 방문으로 잇는{" "}<br />
+                  <span>지도·후기·콘텐츠 설계</span>
                 </h2>
               </div>
-              <p className="geo-lead">광고를 걸기 전에 지도 정보와 후기를 먼저 맞춰 두고, 걸 영상은 숏폼 촬영 때 같이 찍습니다.</p>
+              <p className="geo-lead">광고를 내보내기 전에 지도 정보와 후기를 먼저 다듬습니다. 송출용 영상은 숏폼을 찍을 때 같이 만들어 비용을 아낍니다.</p>
             </div>
             <ul className="cw-pair">
               {d.pairs.map(([k, why]) => {
@@ -343,7 +336,7 @@ export default function OffDoc() {
         </section>
 
         {/* ⑧ FAQ: 공통 부품 */}
-        <FaqBlock items={faq} note="여기 없는 질문은 문의로 남겨 주세요. 담당자가 답해 드립니다." />
+        <FaqBlock items={faq} note="추가로 궁금하신 점은 문의로 남겨 주세요. 전담 AE가 상세히 안내해 드립니다." />
 
         {/* ⑨ 문의 */}
         <ContactBlock title={d.ct?.title ?? `${s.n}, 진단 신청부터 시작하세요.`} sub={d.ct?.sub} label={d.ct?.label} initial={[s.k]} source={`service_${s.slug}`} />

@@ -7,7 +7,7 @@ import { BUSINESS_ARTICLES } from "@/lib/business-articles"
 
 const TITLE = "기업 마케팅 인사이트 | 위즈더플래닝"
 const DESC =
-  "마케팅 담당자를 위한 글입니다. 대행사 선정과 RFP, 예산과 성과 측정, AI 검색 대응처럼 조직에서 결정해야 하는 문제를 실측과 실제 진행 경험으로 정리합니다."
+  "마케팅 실무자와 의사결정권자를 위한 인사이트 칼럼입니다. 대행사 선정과 RFP, 예산 편성과 성과 측정, AI 검색 대응 등 조직 내 주요 의사결정 과제를 실측 데이터와 수행 경험을 바탕으로 정리합니다."
 const URL = "https://wiztheplanning.com/business/insights"
 
 export const metadata: Metadata = {
@@ -38,9 +38,9 @@ export default function Page() {
         <div className="dp-w gd-hero-in">
           <Crumb items={[{ name: "기업 마케팅", href: "/business" }, { name: "인사이트" }]} />
           <p className="dp-no">기업 마케팅 인사이트</p>
-          <h1>조직에서 결정해야 하는 문제들</h1>
+          <h1>기업 마케팅 의사결정을 위한 실무 가이드</h1>
           <p className="dp-lead">
-            대행사 선정과 RFP, 예산과 성과 측정, AI 검색 대응. 마케팅 담당자가 사내 설득에 쓸 수 있게 근거를 붙여 씁니다.
+            대행사 선정과 RFP, 예산 편성과 성과 측정, 생성형 AI 검색 대응까지. 마케팅 담당자가 사내 의사결정과 보고에 즉시 활용할 수 있도록 실측 근거를 바탕으로 정리했습니다.
           </p>
         </div>
       </section>
@@ -68,7 +68,7 @@ export default function Page() {
       <section className="gd-cta" id="contact" aria-label="제안 요청">
         <div className="dp-w gd-cta-in">
           <div>
-            <h2>제안이 필요하시면 바로 요청하셔도 됩니다</h2>
+            <h2>맞춤 캠페인 제안 요청</h2>
           </div>
           <div className="gd-cta-b">
             <Link className="p1" href="/business/contact">

@@ -53,19 +53,19 @@ const PROOF: [string, string, string, string][] = [
 
 /** 진짜 실력 세 묶음 [이름, 한 줄, SKILL 시작 번호] */
 const PHASES: [string, string, number][] = [
-  ["측정", "매체가 배울 신호를 바로잡습니다", 0],
-  ["소재", "사람이 반응할 장면과 사람을 고릅니다", 2],
-  ["성장", "매출까지 보고 키울 곳을 정합니다", 4],
+  ["측정", "매체 알고리즘이 학습할 전환 신호를 설계합니다", 0],
+  ["소재", "타깃이 반응할 주요 장면과 크리에이터를 찾습니다", 2],
+  ["성장", "매출 기여도를 추적해 넓혀갈 영역을 정합니다", 4],
 ]
 
 /** 진짜 실력 여섯 단계 [이름, 한 줄, 구분] */
 const SKILL: [string, string, string][] = [
-  ["픽셀·전환 API 심기", "매체가 배울 신호부터 바로잡습니다", "측정"],
-  ["전환 추적 설계", "문의·예약·구매를 단계별 이벤트로 나눕니다", "측정"],
-  ["소재 크리에이티브", "반응 올 장면을 자체 촬영팀이 찍습니다", "소재"],
-  ["누구를 섭외할지", "브랜드 핏에 맞는 인플루언서를 데이터로 고릅니다", "소재"],
-  ["GA4로 끝까지 추적", "어느 채널이 실제 매출에 닿았는지 봅니다", "분석"],
-  ["그로스로 키우기", "늘릴 곳과 줄일 곳을 정해 다음 분기로 잇습니다", "성장"],
+  ["픽셀·전환 API 구축", "매체 알고리즘이 학습할 전환 신호부터 바로잡습니다", "측정"],
+  ["전환 이벤트 설계", "문의·예약·구매를 퍼널 단계별로 나눕니다", "측정"],
+  ["소재 크리에이티브", "전환을 이끄는 주요 장면을 자체 촬영팀이 만듭니다", "소재"],
+  ["크리에이터 캐스팅", "브랜드에 맞는 인플루언서를 데이터로 찾습니다", "소재"],
+  ["GA4 기반 성과 추적", "어느 유입 채널이 실제 매출로 이어졌는지 검증합니다", "분석"],
+  ["그로스 확장 설계", "예산을 모을 곳과 고칠 곳을 찾아 다음 분기로 잇습니다", "성장"],
 ]
 
 /** 연결선(가로 560 × 세로 460 기준): 왼쪽 위·오른쪽 위·아래 상자에서 가운데 퍼포먼스로 */
@@ -73,9 +73,9 @@ const FLOWS = ["M120 78 C 150 150, 200 170, 232 196", "M440 78 C 410 150, 360 17
 
 /** 퍼포먼스로 모이는 세 부서 [이름, 맡는 몫, 아이콘] */
 const FEED: [string, string, "infl" | "viral" | "search"][] = [
-  ["인플루언서 섭외", "광고에 쓸 소재", "infl"],
-  ["바이럴", "검색 첫 화면", "viral"],
-  ["SEO·GEO", "AI 답변", "search"],
+  ["인플루언서 섭외", "검증된 광고 소재 확보", "infl"],
+  ["바이럴", "포털 검색 첫 화면 구축", "viral"],
+  ["SEO·GEO", "AI 답변 인용 설계", "search"],
 ]
 
 /** AE 칸 리포트 숫자 [항목, 값, 단위] — 펜션 릴스 24일 실측 */
@@ -86,9 +86,9 @@ const AE_KPI: [string, string, string][] = [
 ]
 /** AE 칸 세 줄 [제목, 설명] — 기존 본문을 나눈 것 */
 const AE_PTS: [string, string][] = [
-  ["계약한 사람이 끝까지", "담당이 중간에 바뀌지 않습니다. 계약한 AE가 끝까지 맡습니다."],
-  ["매체 화면 숫자 그대로", "지출·클릭·문의 수를 그대로 적고, 셀 수 없었던 것도 같은 칸에 적습니다."],
-  ["직접 찾아뵙고 설명", "예산을 왜 옮겼는지까지 설명드리니, 다음 주 무엇을 고칠지가 바로 정해집니다."],
+  ["기획부터 실행까지 1:1 전담", "담당자가 중간에 바뀌지 않습니다. 처음 기획한 전담 AE가 캠페인 끝까지 책임집니다."],
+  ["매체 원본 데이터 그대로 공개", "비용과 클릭, 문의 수치를 매체 화면 그대로 적습니다. 측정하기 어려운 항목도 솔직하게 밝힙니다."],
+  ["대면 리포트와 예산 개선", "예산을 다시 나누는 근거를 설명해 드립니다. 다음 주에 고칠 소재와 랜딩 과제도 함께 정합니다."],
 ]
 
 /** 필름 사진 위 표시 [글, 종류] — 사진 순서(STRIP)와 맞춤. 소재 보드(A·B·C)의 뜻을 사진 위로 옮김 */
@@ -105,10 +105,10 @@ const TAGS: ([string, "on" | "off" | "up"] | null)[] = [
 
 /** 11-08 소재가 도는 네 단계 [이름, 누가·무엇] — 4에서 1로 다시 돈다 */
 const LOOP: [string, string][] = [
-  ["반응 올 장면 정하기", "퍼포먼스팀"],
-  ["찍기", "인플루언서와 자체 촬영팀"],
-  ["같이 돌리기", "반응 온 소재로 예산 이동"],
-  ["다음 촬영에 넣기", "반응 온 장면을 그대로"],
+  ["주요 소구 장면 기획", "퍼포먼스팀"],
+  ["맞춤 촬영·제작", "인플루언서·인하우스 촬영팀"],
+  ["다중 소재 테스트", "성과가 좋은 소재에 예산 집중"],
+  ["차기 촬영 반영", "전환 데이터로 다음 촬영 기획"],
 ]
 
 
@@ -184,9 +184,9 @@ export default function PerfDoc() {
                 ))}
               </ol>
               <p className="dp-lead">
-                메타·구글이 이제 광고 최적화를 알아서 해 줍니다.
+                메타·구글 등 주요 매체의 타겟팅과 입찰은 자동화되었습니다.
                 <br />
-                <b>그렇다면 차이는 소재에서 나야 하지 않을까요?</b>
+                <b>결국 성과는 크리에이티브 소재와 전환 설계에서 갈립니다.</b>
               </p>
               <div className="dp-btns">
                 <a className="p1" href="#contact">
@@ -195,7 +195,7 @@ export default function PerfDoc() {
               </div>
             </div>
             <a className="ix-cue" href="#proof" aria-label="근거로 내려가기">
-              <span>위즈더플래닝은 이렇게 일해요</span>
+              <span>위즈더플래닝의 퍼포먼스 설계</span>
               <i aria-hidden="true" />
             </a>
           </section>
@@ -208,17 +208,17 @@ export default function PerfDoc() {
           <div className="dp-w">
             <div className="pp-head">
               <div>
-                <p className="pk-k">근거</p>
+                <p className="pk-k">데이터 근거</p>
                 <h2 id="px-h-proof">
-                  소재가 성과를 가른다는 건,{" "}
+                  광고 성과를 가르는 기준,{" "}
                   <br />
-                  <span>매체사도 하는 말입니다</span>
+                  <span>데이터가 증명하는 소재의 힘</span>
                 </h2>
               </div>
               <p className="pp-note">
-                조사 보고서와 매체사 공식 자료,{" "}
+                조사 보고서와 매체사 공식 발표,{" "}
                 <br />
-                기사에서 원문을 확인한 문장과 숫자만 옮겼습니다.
+                언론 보도에서 원문을 직접 확인한 수치만 썼습니다.
               </p>
             </div>
             <div className="pp-grid">
@@ -312,7 +312,7 @@ export default function PerfDoc() {
                 <p className="pp-big sm">
                   11<small>%</small>
                 </p>
-                <p>같은 조사에서 타겟팅이 만든 몫. 소재의 4분의 1이 안 됩니다.</p>
+                <p>같은 조사에서 타겟팅이 만든 몫은 소재의 4분의 1이 안 됩니다.</p>
               </div>
 
               {/* 문의 */}
@@ -330,15 +330,15 @@ export default function PerfDoc() {
             아래 NDA 띠: 계약 전 비밀유지계약, 계정은 고객사 명의(투명성) + 데이터는 밖으로 안 냄(비밀 유지) */}
         <section className="px-skill rv" id="skill" aria-labelledby="px-h-skill">
           <div className="dp-w">
-            <p className="pk-k">진짜 실력</p>
+            <p className="pk-k">퍼포먼스 설계</p>
             <h2 id="px-h-skill">
-              툴이 같아진 지금,{" "}
+              자동화된 광고 툴 시대,{" "}
               <br />
-              <span>실력은 여기서 갈립니다</span>
+              <span>성과를 가르는 6단계 설계</span>
             </h2>
-            <p className="pk-sub px-sub-w">광고를 켜기 전과 켠 뒤에 사람이 하는 일입니다.{" "}
+            <p className="pk-sub px-sub-w">광고 집행 전후로 마케터와 엔지니어가 직접 설계하는 영역입니다.{" "}
               <br className="px-br" />
-              측정이 바로 서야 소재도, 섭외도, 예산도 근거를 갖고 움직입니다.
+              먼저 전환을 정확히 측정해야 소재 기획과 예산 배분이 근거를 갖춥니다.
             </p>
             {/* 11-08 대표 「대각선 선·계단 박스 아니다」: 선 없앰. 여섯 단계를 측정 → 소재 → 성장 세 기둥으로 묶고 위를 가지런히 */}
             <ol className="sk-cols" aria-label="성과를 만드는 세 묶음, 여섯 단계">
@@ -367,7 +367,7 @@ export default function PerfDoc() {
                       </div>
                     ) : pi === 1 ? (
                       <div className="sk-shots">
-                        {["/sf/ex/shootcos.jpg", "/sf/pf/infl-beauty.jpg", "/geo/media-crew.jpg"].map((src) => (
+                        {["/sf/ex/shootcos.jpg", "/sf/pf/infl-beauty.jpg", "/sf/gen/content-bts.jpg"].map((src) => (
                           <img decoding="async" key={src} src={src} alt="" loading="lazy" width={400} height={600} />
                         ))}
                       </div>
@@ -435,17 +435,13 @@ export default function PerfDoc() {
         <section className="px-team rv" id="team" aria-labelledby="px-h-team">
           <div className="dp-w tm-g">
             <div className="tm-tx">
-              <p className="pk-k">퍼포먼스를 중심으로, 한 팀</p>
+              <p className="pk-k">통합 캠페인 실행</p>
               <h2 id="px-h-team">
-                퍼포먼스 마케팅에{" "}
+                섭외부터 AI 답변까지{" "}
                 <br />
-                이 모든 게 연결되어{" "}
-                <br />
-                한 팀이 집행한다면,{" "}
-                <br />
-                <span>결과가 궁금하지 않으세요?</span>
+                <span>퍼포먼스로 모이는 통합 구조</span>
               </h2>
-              <p className="pk-sub">인플루언서 섭외로 소재를 만들고, 바이럴로 검색 첫 화면을 채우고, SEO·GEO로 AI 답변까지 잇습니다. 이 모든 게 퍼포먼스 광고의 전환으로 모입니다.</p>
+              <p className="pk-sub">인플루언서 섭외로 소재를 얻고 바이럴로 검색 첫 화면을 잡습니다. 여기에 SEO·GEO로 AI 답변을 이어 모든 접점을 퍼포먼스 전환으로 모읍니다.</p>
             </div>
             {/* 11-08 대표 「오른쪽 리포트 상자 삭제, 연결 흐름 모션을 그 자리에」: 세 부서에서 빛 점이 선을 타고 가운데 퍼포먼스로 흘러듦 */}
             <div className="tm-hub" aria-label="인플루언서 섭외·바이럴·SEO·GEO가 퍼포먼스 광고로 모이는 구조">
@@ -487,15 +483,15 @@ export default function PerfDoc() {
         <section className="pk-dark px-close" aria-labelledby="px-h-close">
           <div className="dp-w">
             <div className="cl-head rv">
-              <p className="pk-k">한 팀의 설계</p>
+              <p className="pk-k">소재 순환 고리</p>
               <h2 id="px-h-close">
                 {/* 11-09 대표: 위 칸이 「한 팀으로 움직이면?」 질문으로 끝나니, 그 답으로 시작 */}
-                각 부서가 한 팀이 되어{" "}
+                전담 부서가 함께 움직여{" "}
                 <br />
-                <span>설계하는 퍼포먼스</span>
+                <span>크리에이티브 퍼포먼스 완성</span>
               </h2>
               <p className="cl-sub">
-                팔리는 소재는 광고를 돌려 본 사람이 압니다. 그래서 퍼포먼스팀이 촬영 회의부터 들어가고, 어느 장면에서 반응이 오고 떨어졌는지 <b>숫자로 확인한 뒤 다음 촬영</b>을 짭니다.
+                전환을 이끄는 소재는 실제 광고 데이터를 다루는 마케터가 가장 잘 압니다. 퍼포먼스팀이 촬영 기획부터 참여해 장면별 반응을 <b>수치로 검증하고 다음 촬영</b>에 바로 반영합니다.
               </p>
             </div>
           </div>
@@ -523,7 +519,7 @@ export default function PerfDoc() {
               ))}
               <i className="cl-runner" aria-hidden="true" />
             </ol>
-            <p className="cl-again">4에서 1로, 다시 돕니다</p>
+            <p className="cl-again">데이터 검증 후 4단계에서 1단계로 순환</p>
           </div>
         </section>
 
@@ -532,11 +528,11 @@ export default function PerfDoc() {
         <section className="pk-dark px-ae" id="px-report" aria-labelledby="pk-h-report">
           <div className="dp-w">
             <div className="ae-head rv">
-              <p className="pk-k">AE 체계</p>
+              <p className="pk-k">전담 AE 시스템</p>
               <h2 id="pk-h-report">
-                전담 AE가 보고하고,{" "}
+                전담 AE의 데이터 보고와{" "}
                 <br />
-                <span>직접 설계합니다</span>
+                <span>주간 예산·소재 개선 설계</span>
               </h2>
             </div>
             <div className="ae-g rv">
@@ -564,11 +560,11 @@ export default function PerfDoc() {
                   <b>광고 데이터로 셀 수 없었음</b>
                 </div>
                 <div className="ae-next">
-                  <em>다음 주 할 일</em>
-                  <p>반응 좋은 세로 소재로 예산을 옮기고, 예약 페이지부터 손봅니다.</p>
+                  <em>다음 주 개선 과제</em>
+                  <p>전환 반응이 좋은 세로형 소재에 예산을 모으고 예약 랜딩 페이지를 고치겠습니다.</p>
                 </div>
                 <figcaption>
-                  강원도 계곡 펜션 릴스 광고 24일 실측 · <Link href="/guide/case-pension-direct-booking">그 기록 보기 →</Link>
+                  강원도 계곡 펜션 릴스 광고 24일 실측 · <Link href="/guide/case-pension-direct-booking">사례 리포트 보기 →</Link>
                 </figcaption>
               </figure>
               <ol className="ae-pts">
@@ -590,7 +586,7 @@ export default function PerfDoc() {
 
       </div>
 
-      <ContactBlock title="퍼포먼스 광고, 소재·설계 점검부터" sub="브랜드 이름만 알려 주시면 지금 소재와 플레이스·홈페이지를 보고 어느 매체부터 켤지 적어 보내 드리겠습니다." initial={["perf"]} source="service_performance" />
+      <ContactBlock title="퍼포먼스 광고, 소재·랜딩 설계 점검부터 시작하세요." sub="브랜드명을 알려 주시면 지금 쓰는 광고 소재와 웹사이트 현황을 살펴보고 먼저 집행할 매체와 개선안을 제안해 드립니다." initial={["perf"]} source="service_performance" />
     </DocShell>
   )
 }

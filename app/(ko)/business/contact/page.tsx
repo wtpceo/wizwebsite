@@ -7,7 +7,7 @@ import { DocShell, Crumb } from "@/components/shortform/DocParts"
 
 const TITLE = "기업 제안 요청 | 위즈더플래닝"
 const DESC =
-  "기업 마케팅 대행 제안을 요청하는 곳입니다. 회사와 목표, 예산 구간을 알려 주시면 담당자가 회사 메일로 회신드립니다. 금액은 회신하는 제안서에 적고, 계약은 최소 3개월입니다."
+  "기업 마케팅 대행 맞춤 제안서를 신청하는 페이지입니다. 기업 현황과 캠페인 목표, 가용 예산 범위를 남겨 주시면 전담 AE가 기업 이메일로 제안서를 회신해 드립니다. 최소 계약 기간은 3개월입니다."
 const URL = "https://wiztheplanning.com/business/contact"
 
 export const metadata: Metadata = {
@@ -29,9 +29,9 @@ const contactJsonLd = {
 }
 
 const HELP = [
-  { icon: FileCheck2, t: "제안서 형식이 정해져 있다면", d: "평가 항목과 제출 기한을 적어 주세요. 그 형식에 맞춰 작성합니다. 보안 서약이 필요하면 먼저 체결한 뒤 자료를 받습니다." },
-  { icon: Clock, t: "지금 상태를 모르셔도 됩니다", d: "회신 때 기준선 측정을 먼저 제안드립니다. 어떤 질문에 어떤 브랜드 이름이 나오는지부터 적습니다." },
-  { icon: Mail, t: "회신은 회사 메일로", d: "전화 영업을 하지 않습니다. 남겨 주신 메일로 회신드리고, 통화가 필요하면 시간을 먼저 맞춥니다." },
+  { icon: FileCheck2, t: "지정된 RFP 양식이 있는 경우", d: "평가 항목과 제출 기한을 함께 기재해 주시면 해당 양식에 맞춰 제안서를 작성합니다. 비밀유지협약(NDA)이 필요한 경우 사전 체결 후 자료를 교류합니다." },
+  { icon: Clock, t: "초기 현황 진단부터 필요한 경우", d: "회신 시 초기 기준선 측정을 먼저 제안해 드립니다. 주요 탐색 질문별 브랜드 언급 현황부터 정량적으로 파악합니다." },
+  { icon: Mail, t: "기업 이메일 기반의 공식 회신", d: "불필요한 전화 영업을 지양합니다. 기재해 주신 이메일로 제안서를 먼저 회신해 드리며, 유선 미팅이 필요한 경우 일정을 사전 조율합니다." },
 ]
 
 export default function Page() {
@@ -45,13 +45,13 @@ export default function Page() {
           <div className="dp-cq-t">
             <Crumb items={[{ name: "기업 마케팅", href: "/business" }, { name: "제안 요청" }]} />
             <p className="dp-no">기업 제안 요청</p>
-            <h1>회사와 목표를 알려 주세요</h1>
+            <h1>맞춤 캠페인 제안 요청</h1>
             <p className="dp-lead">
-              담당자가 내용을 보고 회사 메일로 회신드립니다. 금액은 제안서에 적어 드리고, 계약은 최소 3개월 기준입니다.{" "}
+              전담 AE가 요청 내용을 검토한 뒤 기업 이메일로 제안서를 회신해 드립니다. 세부 견적은 맞춤 제안서에 명시하며, 최소 계약 기간은 3개월 기준입니다.{" "}
               <Link href="/business" className="bz-lk">
                 기업 마케팅 안내
               </Link>
-              에서 범위와 보고 방식을 먼저 보셔도 됩니다.
+              에서 수행 과업 범위와 리포트 체계를 먼저 확인하실 수 있습니다.
             </p>
             <ol className="dp-cq-steps bz-help" aria-label="회신을 빠르게 받으려면">
               {HELP.map(({ t, d }, i) => (

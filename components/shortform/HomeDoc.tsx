@@ -1,31 +1,70 @@
 import Link from "next/link"
 import { GUIDE_ARTICLES } from "@/lib/guide-articles"
 import { coverFor } from "@/lib/guide-cover"
-import { SERVICES, SOLUTIONS, TEAMS, STEPS, HOME_FAQ, PROBLEM_PINGS, INSIGHT_HREFS, CONTACT } from "./content"
+import { SERVICES, SOLUTIONS, TEAMS, STEPS, HOME_FAQ, PROBLEM_PINGS, COMPARE, INSIGHT_HREFS, CONTACT } from "./content"
 import { TEAM_PAGE } from "./details"
 import { DocShell, FaqBlock, ContactBlock, JsonLd, faqLd } from "./DocParts"
+import { DeptStage, StepStage } from "./TeamDoc"
 import { Chars, vars } from "./parts"
 import { Icon } from "./icons"
 
 /**
- * 메인(/) — 11-08 대표 「전체를 다 아니까 메인을 함축해서, 필요한 것만」.
- * 45컷이던 숏폼형 홈(ShortformHome)을 서비스·업종·전문팀·인사이트 페이지와 같은 문법의 아홉 칸으로 줄였다.
- * 첫 화면 → 왜(대행사가 쪼개져 있을 때) → 여덟 가지 → 한 창구(전담 AE + 여섯 부서) → 일하는 순서 → 업종별 → 인사이트 → 자주 묻는 질문 → 문의.
- * 서비스마다 세 컷씩 있던 소개는 서비스 페이지가 맡으므로 카드 한 장씩으로 잇는다. 옛 홈 파일은 되돌릴 수 있게 남겨 둔다.
+ * 메인(/) — 2026-11-09 리디자인 & 섹션 순서 개편본
+ * 이전 버전 백업: ./HomeDoc.backup.tsx (언제든 교체 가능)
+ *
+ * 섹션 순서(고객 의사결정 흐름):
+ * ① 첫 화면 (Hero + 4대 핵심 신뢰 지표 바)
+ * ② 핵심 솔루션 (8대 인하우스 마케팅 솔루션 · 퍼널 역할별 태그 + 세부 과업 칩)
+ * ③ 인하우스 통합 구조 (Before 분리 대행의 한계 vs After 1:1 전담 AE + 6개 인하우스 부서 통합 허브)
+ * ④ 업종별 맞춤 로드맵 (로컬·병의원 / 커머스·브랜드 / 기업·프랜차이즈 우선순위 및 채널 결합 순서)
+ * ⑤ 실측 데이터와 리포트 (realGEO 관제 화면 · 주간 리포트 실물 + 3대 투명성 원칙)
+ * ⑥ 진행 프로세스 (진단 → 설계 → 제작 → 집행 → 리포트 5단계 순환 구조)
+ * ⑦ 인사이트 리포트 (실측 데이터 기반 마케팅 칼럼 6선)
+ * ⑧ 자주 묻는 질문 (FaqBlock)
+ * ⑨ 무료 브랜드 분석 신청 (ContactBlock)
  */
 
-/** 서비스 카드 사진 */
-const SVC_IMG: Record<string, string> = {
-  infl: "/sf/pf/infl-beauty.jpg",
-  perf: "/sf/ex/m-shop.jpg",
-  search: "/geo/media-ai.jpg",
-  content: "/sf/ex/m-shoot.jpg",
-  viral: "/sf/ex/fnb-dessert.jpg",
-  global: "/sf/ex/m-tourist.jpg",
-  home: "/sf/ex/m-team.jpg",
-  off: "/sf/ex/truck-ad.jpg",
+const SVC_ROLE: Record<string, string> = {
+  infl: "인지 · 확산",
+  perf: "유입 · 전환",
+  search: "검증 · 노출",
+  content: "소재 · 제작",
+  viral: "평판 · 신뢰",
+  global: "해외 · 인바운드",
+  home: "랜딩 · 구조화",
+  off: "생활권 · 인지",
 }
-const STEP_IMG = ["/sf/ex/m-team.jpg", "/sf/ex/seminar.jpg", "/sf/ex/m-shoot.jpg", "/sf/img/report.jpg", "/geo/media-editor.jpg"]
+
+const HERO_KPIS = [
+  { n: "2016년 설립", d: "10년 차 IMC 통합 대행사" },
+  { n: "6개 전담 부서", d: "외주 없는 인하우스 조직" },
+  { n: "8대 주요 채널", d: "기획·촬영·광고·GEO 직접 실행" },
+      { n: "1:1 전담 AE", d: "한 명이 소통과 성과 보고를 맡습니다" },
+]
+
+const IND_FLOW: Record<string, string[]> = {
+  local: ["매장·공간 촬영", "네이버·구글 지도 정비", "블로그·체험단 후기", "GEO·지역 타깃 광고"],
+  growth: ["전환 랜딩·상세 점검", "인플루언서 릴스·쇼츠", "2차 활용 메타·구글 광고", "브랜드 재검색 방어"],
+  enterprise: ["초기 기준선 실측(GEO)", "IMC 통합 미디어 설계", "온·오프라인 동시 집행", "주간·월간 통합 리포트"],
+}
+
+const PROOF_RULES = [
+  {
+    no: "01",
+    t: "착수 전 초기 기준선 기록",
+    d: "캠페인 시작 전 현재 검색 순위, AI 답변 언급률, 웹사이트 기술 점수를 기록해 비교 기준선을 세웁니다.",
+  },
+  {
+    no: "02",
+    t: "원본 수치 그대로 보고",
+    d: "realGEO와 네이버·메타·구글 매체 화면의 실측 지표를 가공 없이 주간·월간 리포트로 보내 드립니다.",
+  },
+  {
+    no: "03",
+    t: "떨어진 지표도 그대로 기록",
+    d: "유리한 수치만 고르지 않습니다. 순위가 떨어지거나 인용에서 빠진 항목도 공유하고 보강 과제를 실행합니다.",
+  },
+]
 
 export default function HomeDoc() {
   const insights = [
@@ -33,26 +72,28 @@ export default function HomeDoc() {
     ...GUIDE_ARTICLES.filter((a) => !INSIGHT_HREFS.includes(a.href)).slice(0, 3),
   ].slice(0, 6) as typeof GUIDE_ARTICLES
   const slug = (k: string) => SERVICES.find((s) => s.k === k)?.slug ?? ""
+
   return (
     <DocShell>
-      <div className="gx ix vx cx hm">
+      <div className="gx ix vx cx hm hm2">
         <JsonLd data={{ "@context": "https://schema.org", ...faqLd(HOME_FAQ) }} />
 
-        {/* ① 첫 화면 */}
-        <section className="dp-hero geo-hero ix-hero" aria-label="첫 화면">
+        {/* ① 첫 화면 (Hero + 핵심 신뢰 지표 바) */}
+        <section className="dp-hero geo-hero ix-hero hm2-hero" aria-label="첫 화면">
           <div className="dp-bg" aria-hidden="true">
             <div className="bgt" data-wall="main" />
           </div>
           <div className="dp-veil" aria-hidden="true" />
           <div className="dp-w geo-hero-in">
             <h1 aria-label="IMC 통합 마케팅 대행 위즈더플래닝: 당신의 브랜드를 분석한 제안서부터 받아 보세요">
-              <small className="ix-kw">IMC 통합 마케팅 대행 · 위즈더플래닝</small> <Chars text={"당신의 브랜드를 분석한\n제안서부터 받아 보세요"} mark="분석한" />
+              <small className="ix-kw">IMC 통합 마케팅 대행 · 위즈더플래닝</small>{" "}
+              <Chars text={"당신의 브랜드를 분석한\n제안서부터 받아 보세요"} mark="분석한" />
             </h1>
-            <p className="vx-era">2016년부터 · 자체 6개 부서 · 전담 AE</p>
+            <p className="vx-era">2016년부터 · 인하우스 6개 부서 · 1:1 전담 AE</p>
             <p className="dp-lead">
-              광고를 켜기 전에 브랜드가 어디까지 알려져 있고 <span className="nw">어디서 새는지 먼저 분석하고,</span>{" "}
+              광고를 시작하기 전에 브랜드 인지도와 <span className="nw">퍼널의 누수 지점부터 꼼꼼히 짚어봅니다.</span>{" "}
               <br />
-              그 결과로 짠 계획을 <span className="nw">제안서로 보내 드립니다.</span>
+              이 결과를 바탕으로 짠 맞춤 전략을 <span className="nw">제안서로 보내 드립니다.</span>
             </p>
             <div className="dp-btns">
               <a className="p1" href="#contact">
@@ -60,71 +101,73 @@ export default function HomeDoc() {
               </a>
               <a className="hm-kk" href={CONTACT.kakao} target="_blank" rel="noopener noreferrer" data-kakao>
                 <Icon k="kakao" />
-                카카오톡으로 묻기
+                카카오톡 상담하기
               </a>
             </div>
+
+            <ul className="hm2-kpis" aria-label="위즈더플래닝 핵심 지표">
+              {HERO_KPIS.map((k) => (
+                <li key={k.n}>
+                  <b>{k.n}</b>
+                  <span>{k.d}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <a className="ix-cue" href="#why" aria-label="왜 위즈더플래닝인가로 내려가기">
-            <span>위즈더플래닝은 이렇게 일해요</span>
+          <a className="ix-cue" href="#services" aria-label="제공 서비스로 내려가기">
+            <span>여덟 가지 인하우스 솔루션</span>
             <i aria-hidden="true" />
           </a>
         </section>
 
-        {/* ② 왜: 대행사가 쪼개져 있을 때 듣는 말 */}
-        <section className="dp-sec geo-sec rv hm-why" id="why">
-          <div className="dp-w">
-            <div className="hm-why-in">
-              <div>
-                <p className="geo-eb">왜 위즈더플래닝인가</p>
-                <h2>
-                  광고는 A사, 바이럴은 B사.{" "}
-                  <br />
-                  <span>매달 듣는 말은 &lsquo;다 했습니다&rsquo;</span>
-                </h2>
-                <p className="geo-lead">
-                  캠페인 기획, 인플루언서 섭외, 촬영, 광고, 검색과 AI 답변까지 저희 전담 부서들이 한 설계로 합니다. 그래서 &lsquo;했다&rsquo;가 아니라 숫자로 보고할 수 있습니다.
-                </p>
-              </div>
-              <ul className="hm-chat" aria-label="대행사를 따로 둘 때 자주 듣는 말">
-                {PROBLEM_PINGS.map((t, i) => (
-                  <li key={t} style={vars({ i })} className={i === PROBLEM_PINGS.length - 1 ? "me" : undefined}>
-                    <small>{i === PROBLEM_PINGS.length - 1 ? "담당자" : ["광고 대행사", "영상 프로덕션", "광고 대행사", "바이럴 대행사", "광고 대행사"][i]}</small>
-                    <span>{t}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* ③ 여덟 가지 */}
-        <section className="dp-sec geo-sec geo-sec-mist rv hm-svc" id="services">
+        {/* ② 여덟 가지 인하우스 솔루션 (가장 먼저 수행 역량을 제시) */}
+        <section className="dp-sec geo-sec rv hm-svc hm2-svc" id="services">
           <div className="dp-w">
             <div className="gt-head">
               <div>
-                <p className="geo-eb">하는 일</p>
+                <p className="geo-eb">인하우스 솔루션</p>
                 <h2>
                   캠페인 기획에서 AI 답변까지,{" "}
                   <br />
-                  <span>여덟 가지를 직접 합니다</span>
+                  <span>직접 실행하는 8대 솔루션</span>
                 </h2>
               </div>
-              <p className="geo-lead">하나만 맡기셔도 되고 묶어서 맡기셔도 됩니다. 카드를 누르면 서비스마다 자세히 볼 수 있습니다.</p>
+              <div className="gt-side">
+                <p className="geo-lead">
+                  브랜드를 처음 접하는 숏폼부터 포털 평판과 AI 답변(GEO), 전환이 일어나는 웹사이트와 퍼포먼스 광고까지 다룹니다. 이 모든 과정을 인하우스에서 직접 실행합니다.
+                </p>
+                <div className="hm2-funnel-tags" aria-label="마케팅 퍼널 영역">
+                  <span>
+                    <i>01</i> 인지 · 확산
+                  </span>
+                  <span>
+                    <i>02</i> 검증 · 평판
+                  </span>
+                  <span>
+                    <i>03</i> 유입 · 전환
+                  </span>
+                </div>
+              </div>
             </div>
-            <ul className="hm-svc-g">
+
+            <ul className="hm2-svc-g">
               {SERVICES.map((s, i) => (
                 <li key={s.k} style={vars({ i })}>
-                  <Link href={`/services/${s.slug}`}>
-                    <figure>
-                      <img src={SVC_IMG[s.k] ?? "/sf/ex/m-team.jpg"} alt="" loading="lazy" decoding="async" />
-                      <span className="ic" aria-hidden="true">
-                        <Icon k={s.k} />
-                      </span>
+                  <Link href={`/services/${s.slug}`} className="hm2-svc-card">
+                    <figure className="tw-fig-stage">
+                      <DeptStage k={s.k} no={s.no} en={SVC_ROLE[s.k]} />
                     </figure>
-                    <div>
-                      <em>{s.no}</em>
+                    <div className="hm2-svc-body">
                       <b>{s.n}</b>
-                      <span>{s.ln}</span>
+                      <p>{s.ln}</p>
+                      <ul className="hm2-svc-chips" aria-label={`${s.n} 세부 항목`}>
+                        {s.items.slice(0, 4).map((it) => (
+                          <li key={it[0]}>{it[0]}</li>
+                        ))}
+                      </ul>
+                      <span className="hm2-svc-go">
+                        상세 솔루션 보기 <Icon k="arrow" />
+                      </span>
                     </div>
                   </Link>
                 </li>
@@ -133,71 +176,244 @@ export default function HomeDoc() {
           </div>
         </section>
 
-        {/* ④ 한 창구 */}
-        <section className="dp-sec geo-sec rv tw-ae hm-team" id="team">
+        {/* ③ 왜 위즈더플래닝인가 + 인하우스 통합 구조 (Before 분리 대행 vs After 통합 허브) */}
+        <section className="dp-sec geo-sec rv tw-ae hm2-arch" id="why">
           <div className="dp-w">
             <div className="gt-head">
               <div>
-                <p className="geo-eb">전문팀</p>
+                <p className="geo-eb">인하우스 통합 구조</p>
                 <h2>
-                  부서는 여섯,{" "}
+                  분리 대행의 한계를 깬{" "}
                   <br />
-                  <span>창구는 하나입니다</span>
+                  <span>전담 AE와 인하우스 6개 부서</span>
                 </h2>
               </div>
               <div className="gt-side">
-                <p className="geo-lead">{TEAM_PAGE.marketer[1]}</p>
+                <p className="geo-lead">
+                  광고, 바이럴, 촬영을 따로 맡기면 데이터가 끊기고 책임이 흐려집니다. 위즈더플래닝은 전담 AE가 6개 인하우스 부서를 이끌며 하나의 전략과 리포트로 움직입니다.
+                </p>
                 <p className="hm-more">
-                  <Link href="/team">전문팀과 일하는 방식 보기 →</Link>
+                  <Link href="/team">전담 조직과 협업 구조 자세히 보기 →</Link>
                 </p>
               </div>
             </div>
-            <div className="tw-hub">
-              {TEAMS.map(([k, n, jobs, en], i) => (
-                <Link key={n} href={`/services/${slug(k)}`} className="tw-node" style={vars({ i })}>
-                  <span className="ic" aria-hidden="true">
-                    <Icon k={k} />
-                  </span>
-                  <span className="tw-node-tx">
-                    <small>{en}</small>
-                    <b>{n}</b>
-                    <span>{jobs[0]}</span>
-                  </span>
-                </Link>
-              ))}
-              <div className="tw-core">
-                <span className="ic" aria-hidden="true">
-                  <Icon k="person" />
-                </span>
-                <b>전담 AE</b>
-                <span>고객사마다 한 사람</span>
+
+            <div className="hm2-vs-grid">
+              {/* 왼쪽: 분리 대행의 현실 */}
+              <div className="hm2-vs-bad">
+                <div className="hm2-vs-head">
+                  <em>FRAGMENTED AGENCIES</em>
+                  <b>대행사를 분리 운영할 때 반복되는 문제</b>
+                </div>
+                <ul className="hm-chat" aria-label="대행사를 따로 둘 때 자주 듣는 말">
+                  {PROBLEM_PINGS.map((t, i) => (
+                    <li key={t} style={vars({ i })} className={i === PROBLEM_PINGS.length - 1 ? "me" : undefined}>
+                      <small>{i === PROBLEM_PINGS.length - 1 ? "고객사 담당자" : ["광고 대행사", "영상 프로덕션", "광고 대행사", "바이럴 대행사", "광고 대행사"][i]}</small>
+                      <span>{t}</span>
+                    </li>
+                  ))}
+                </ul>
+                <ul className="hm2-vs-pts">
+                  {COMPARE.map((row) => row[1]).map((b) => (
+                    <li key={b}>{b}</li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* 오른쪽: 위즈더플래닝 통합 허브 */}
+              <div className="hm2-vs-good" id="team">
+                <div className="hm2-vs-head">
+                  <em>WIZ IN-HOUSE SYSTEM</em>
+                  <b>1:1 전담 AE 중심의 6개 인하우스 부서 직결</b>
+                </div>
+
+                <div className="hm2-hub">
+                  <div className="hm2-core">
+                    <span className="ic" aria-hidden="true">
+                      <Icon k="person" />
+                    </span>
+                    <div>
+                      <small>SINGLE POINT OF CONTACT</small>
+                      <b>1:1 전담 AE</b>
+                      <span>캠페인 통합 설계 · 부서 조율 · 주간 성과 보고</span>
+                    </div>
+                  </div>
+
+                  <div className="hm2-nodes">
+                    {TEAMS.map(([k, n, jobs, en], i) => (
+                      <Link key={n} href={`/services/${slug(k)}`} className="hm2-node" style={vars({ i })}>
+                        <span className="ic" aria-hidden="true">
+                          <Icon k={k} />
+                        </span>
+                        <span className="hm2-node-tx">
+                          <small>{en}</small>
+                          <b>{n}</b>
+                          <span>{jobs.slice(0, 2).join(" · ")}</span>
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+
+                  <div className="hm2-tech">
+                    <span>자체 보유 솔루션</span>
+                    <b>realGEO (AI 검색 관제 시스템)</b>
+                    <i>·</i>
+                    <b>위플루언서 (데이터 기반 캐스팅 플랫폼)</b>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ⑤ 일하는 순서 */}
-        <section className="dp-sec geo-sec rv cw-proc tw-proc" id="process">
+        {/* ④ 업종별 맞춤 로드맵 */}
+        <section className="dp-sec geo-sec geo-sec-mist rv hm-ind hm2-ind" id="industries">
           <div className="dp-w">
             <div className="gt-head">
               <div>
-                <p className="geo-eb">일하는 순서</p>
+                <p className="geo-eb">업종별 맞춤 전략</p>
                 <h2>
-                  분석에서 최적화까지,{" "}
+                  비즈니스 환경에 맞춘{" "}
                   <br />
-                  <span>성과가 날 때까지 돕니다</span>
+                  <span>업종별 우선순위와 채널 설계</span>
                 </h2>
               </div>
-              <p className="geo-lead">정해진 패키지는 없습니다. 비어 있는 자리에 필요한 채널만 골라 제안하고, 숫자가 움직이지 않는 칸에서 다시 시작합니다.</p>
+              <p className="geo-lead">
+                업종과 성장 단계에 따라 먼저 쓸 채널이 다릅니다. 로컬 매장과 병·의원부터 커머스 브랜드, 기업 캠페인까지 전환이 잘 나오는 순서로 조합합니다.
+              </p>
+            </div>
+
+            <ul className="hm2-ind-g">
+              {SOLUTIONS.map((f, i) => (
+                <li key={f.slug} style={vars({ i })}>
+                  <Link href={`/solutions/${f.slug}`} className="hm2-ind-card">
+                    <figure>
+                      <img src={`/sf/ex/${f.img}.jpg`} alt="" loading="lazy" decoding="async" />
+                      <div className="hm2-ind-top">
+                        <small>{f.who}</small>
+                        <b>{f.n}</b>
+                        <span>{f.q.replace("\n", " ")}</span>
+                      </div>
+                    </figure>
+                    <div className="hm2-ind-body">
+                      <div className="hm2-ind-first">
+                        <em>초기 주요 과제</em>
+                        <p>{f.c[0]?.[2]}</p>
+                      </div>
+                      <div className="hm2-ind-flow">
+                        <em>권장 채널 결합 순서</em>
+                        <ol>
+                          {(IND_FLOW[f.slug] ?? []).map((step, idx) => (
+                            <li key={step}>
+                              <i>0{idx + 1}</i>
+                              <span>{step}</span>
+                            </li>
+                          ))}
+                        </ol>
+                      </div>
+                      <span className="hm2-ind-go">
+                        업종별 맞춤 전략 보기 <Icon k="arrow" />
+                      </span>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* ⑤ 실측 데이터와 투명한 리포트 체계 */}
+        <section className="dp-sec geo-sec rv hm2-proof" id="proof">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">실측 기반 리포트</p>
+                <h2>
+                  추측과 과장을 덜어낸{" "}
+                  <br />
+                  <span>실측 데이터와 숨김없는 리포트</span>
+                </h2>
+              </div>
+              <div className="gt-side">
+                <p className="geo-lead">
+                  ‘노출이 잘되고 있습니다’ 같은 모호한 말 대신 계약 전과 비교해 실제 수치가 어떻게 변했는지 매주·매월 보고합니다. 자체 개발한 GEO 관제 시스템과 매체 대시보드 원본 데이터를 기준으로 삼습니다.
+                </p>
+                <p className="hm-more">
+                  <Link href="/how-we-measure">자체 개발 GEO 관제 시스템과 측정 방식 보기 →</Link>
+                </p>
+              </div>
+            </div>
+
+            <div className="hm2-proof-g">
+              <ol className="hm2-proof-rules">
+                {PROOF_RULES.map((r) => (
+                  <li key={r.no}>
+                    <em>{r.no}</em>
+                    <div>
+                      <b>{r.t}</b>
+                      <p>{r.d}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+
+              <div className="hm2-proof-vis">
+                <figure className="hm2-proof-main">
+                  <div className="hm2-proof-bar">
+                    <span>
+                      <i /> realGEO 자체 관제 대시보드 · 주간 리포트
+                    </span>
+                    <em>실제 측정 화면</em>
+                  </div>
+                  <img
+                    src="/tools/realgeo-dashboard.jpg"
+                    alt="위즈더플래닝 자체 개발 GEO 관제 대시보드 화면"
+                    width={1546}
+                    height={672}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="hm2-proof-badges">
+                    <div>
+                      <small>AI 검색 관제</small>
+                      <b>4대 엔진 주간 반복 측정</b>
+                    </div>
+                    <div>
+                      <small>계정 소유권 원칙</small>
+                      <b>광고·웹·지도 고객사 명의</b>
+                    </div>
+                    <div>
+                      <small>2016년 이래</small>
+                      <b>고객사 법적 분쟁 0건</b>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ⑥ 다섯 단계 순환 프로세스 */}
+        <section className="dp-sec geo-sec geo-sec-mist rv cw-proc tw-proc hm2-proc" id="process">
+          <div className="dp-w">
+            <div className="gt-head">
+              <div>
+                <p className="geo-eb">진행 프로세스</p>
+                <h2>
+                  진단에서 개선까지,{" "}
+                  <br />
+                  <span>결과를 만드는 다섯 단계</span>
+                </h2>
+              </div>
+              <p className="geo-lead">
+                똑같은 패키지는 제안하지 않습니다. 브랜드에 꼭 필요한 채널만 골라 설계하고, 집행 후 지표가 멈춘 구간을 찾아 바로 소재와 구조를 고칩니다.
+              </p>
             </div>
             <ol className="cw-proc-g" aria-label="일하는 다섯 단계">
               {STEPS.map((st, i) => (
                 <li key={st.w} style={vars({ i })}>
-                  <figure>
-                    <img src={STEP_IMG[i]} alt="" loading="lazy" decoding="async" />
-                    <em>
-                      {String(i + 1).padStart(2, "0")} {st.en}
-                    </em>
+                  <figure className="tw-step-fig">
+                    <StepStage idx={i} en={st.en} w={st.w} />
                   </figure>
                   <div>
                     <b>{st.w}</b>
@@ -209,54 +425,22 @@ export default function HomeDoc() {
           </div>
         </section>
 
-        {/* ⑥ 업종별 */}
-        <section className="dp-sec geo-sec geo-sec-mist rv hm-ind" id="industries">
-          <div className="dp-w">
-            <div className="gt-head">
-              <div>
-                <p className="geo-eb">업종별 전략</p>
-                <h2>
-                  업종마다{" "}
-                  <br />
-                  <span>먼저 할 일이 다릅니다</span>
-                </h2>
-              </div>
-              <p className="geo-lead">매장·병원부터 자사몰, 대기업 캠페인까지 업종에 맞는 순서로 묶습니다.</p>
-            </div>
-            <ul className="hm-ind-g">
-              {SOLUTIONS.map((f, i) => (
-                <li key={f.slug} style={vars({ i })}>
-                  <Link href={`/solutions/${f.slug}`}>
-                    <img src={`/sf/ex/${f.img}.jpg`} alt="" loading="lazy" decoding="async" />
-                    <span className="hm-ind-tx">
-                      <small>{f.who}</small>
-                      <b>{f.n}</b>
-                      <span>{f.q.replace("\n", " ")}</span>
-                    </span>
-                    <span className="cw-pair-ar" aria-hidden="true">
-                      <Icon k="arrow" />
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        {/* ⑦ 인사이트 */}
+        {/* ⑦ 인사이트 리포트 */}
         <section className="dp-sec geo-sec rv hm-ins" id="insights">
           <div className="dp-w">
             <div className="gt-head">
               <div>
                 <p className="geo-eb">인사이트</p>
                 <h2>
-                  직접 집행하고{" "}
+                  직접 집행하고 측정한{" "}
                   <br />
-                  <span>직접 잰 숫자로만 씁니다</span>
+                  <span>실측 데이터 리포트</span>
                 </h2>
               </div>
               <div className="gt-side">
-                <p className="geo-lead">ChatGPT·네이버 AI·구글에 브랜드가 어떻게 나오는지 직접 재 본 기록과 업체명을 가린 실제 사례입니다.</p>
+                <p className="geo-lead">
+                  ChatGPT·네이버 AI·구글 검색에서 브랜드가 어떻게 노출되는지 직접 측정했습니다. 실제 캠페인 사례도 익명으로 담았습니다.
+                </p>
                 <p className="hm-more">
                   <Link href="/guide">인사이트 리포트 전체 보기 →</Link>
                 </p>
@@ -285,12 +469,12 @@ export default function HomeDoc() {
         </section>
 
         {/* ⑧ 자주 묻는 질문 */}
-        <FaqBlock items={HOME_FAQ} note="여기 없는 질문은 문의로 남겨 주세요. 전담 AE가 답해 드립니다." />
+        <FaqBlock items={HOME_FAQ} note="추가로 궁금하신 점은 문의로 남겨 주세요. 전담 AE가 상세히 안내해 드립니다." />
 
         {/* ⑨ 문의 */}
         <ContactBlock
-          title="지금 어디가 비어 있는지, 먼저 같이 보겠습니다."
-          sub="문의를 남겨 주시면 전담 AE가 연락드리고, 검색·AI 답변·홈페이지·채널이 지금 어떻게 나오는지 같이 봅니다. 비용은 그 결과로 짠 제안서에 적어 드립니다."
+          title="브랜드의 현재 진단부터 함께 시작하겠습니다."
+          sub="문의를 남겨 주시면 전담 AE가 검색·AI 답변·웹사이트·채널 현황을 점검하고 맞춤 제안서로 연락드리겠습니다."
           label="무료 분석 받기"
           source="home"
         />

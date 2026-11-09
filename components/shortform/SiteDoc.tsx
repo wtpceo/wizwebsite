@@ -15,8 +15,8 @@ import { CaseBox, TimeBox, SampleBox } from "./DocMore"
 
 /** 손님 둘 [누구, 아이콘, 필요한 것] */
 const GUESTS: [string, "person" | "search", string[]][] = [
-  ["사람에게 필요한 것", "person", ["첫 화면에서 무엇을 하는 곳인지", "가격과 위치", "헤매지 않고 닿는 문의 버튼"]],
-  ["AI에게 필요한 것", "search", ["글자로 된 전화·주소·가격", "페이지마다 다른 제목과 설명", "고객 질문에 답하는 글", "구조화 데이터"]],
+  ["방문 고객에게 필요한 요소", "person", ["첫 화면에서 바로 보이는 핵심 가치", "정확한 가격과 위치 안내", "바로 이어지는 문의·예약 동선"]],
+  ["AI 엔진에게 필요한 요소", "search", ["텍스트로 구조화된 전화번호·주소·가격", "페이지별 고유 메타 제목과 설명", "고객 질문에 답하는 FAQ 콘텐츠", "표준 구조화 데이터(Schema)"]],
 ]
 
 /** AI가 읽는 글자(예시) [항목, 값] */
@@ -31,18 +31,18 @@ const FACTS: [string, string][] = [
 
 /** 세부 상품 사진 */
 const PROD_IMG: Record<string, string> = {
-  "신규 구축": "/sf/ex/m-team.jpg",
+  "신규 구축": "/sf/gen/home-sitemap.jpg",
   "정보 고도화": "/sf/ex/dental.jpg",
   "월간 유지관리": "/sf/ex/m-phone.jpg",
-  "FAQ·콘텐츠 발행": "/sf/ex/seminar.jpg",
+  "FAQ·콘텐츠 발행": "/sf/gen/home-faq.jpg",
 }
 
 /** 검색 팀과 같이 네 칸 사진·표시 */
-const DIFF_IMG = ["/geo/media-ai.jpg", "/sf/ex/m-tourist.jpg", "/sf/img/report.jpg", "/sf/ex/m-team.jpg"]
-const DIFF_TAGS = [["구조화 데이터", "질문형 글"], ["지도 표기 맞춤"], ["오픈 뒤 다시 측정"], ["옛 주소 연결"]]
+const DIFF_IMG = ["/tools/realgeo-site-audit.jpg", "/sf/gen/sol-local.jpg", "/sf/gen/sol-growth.jpg", "/sf/gen/home-code.jpg"]
+const DIFF_TAGS = [["구조화 데이터", "FAQ 콘텐츠"], ["지도 플랫폼 정보 일치"], ["오픈 후 노출 재측정"], ["기존 URL 검색 이력 보존"]]
 
 /** 진행 순서 사진 */
-const PROC_IMG = ["/sf/ex/m-team.jpg", "/sf/ex/seminar.jpg", "/geo/media-editor.jpg", "/sf/img/report.jpg"]
+const PROC_IMG = ["/sf/gen/home-wire.jpg", "/sf/gen/home-design.jpg", "/sf/gen/home-build.jpg", "/sf/gen/home-launch.jpg"]
 
 /** 같이 하면 사진 */
 const PAIR_IMG: Record<string, string> = { search: "/geo/media-ai.jpg", content: "/sf/ex/m-shoot.jpg" }
@@ -108,21 +108,21 @@ export default function SiteDoc() {
               <small className="ix-kw">홈페이지 제작 대행</small>{" "}
               <Chars text={"마지막 설득은\n홈페이지가 합니다"} mark="홈페이지가 합니다" />
             </h1>
-            <p className="vx-era">광고와 AI가 데려온 고객이 마지막에 닿는 곳</p>
+            <p className="vx-era">광고와 AI 추천으로 들어온 고객의 최종 도착지</p>
             <p className="dp-lead">
-              광고를 누른 사람도, AI 답변 링크를 누른 사람도 <span className="nw">결국 홈페이지에서 정합니다.</span>{" "}
+              광고를 누른 사람도 AI 답변 링크를 누른 사람도 <span className="nw">최종 결정은 웹사이트에서 내립니다.</span>{" "}
               <br />
-              사람과 AI가 둘 다 읽는 홈페이지를 <span className="nw">새로 만들거나 고쳐 드립니다.</span>
+              방문객을 설득하고 AI 엔진도 잘 읽도록 웹사이트를 <span className="nw">새로 짓거나 고쳐 드립니다.</span>
             </p>
             <div className="dp-btns">
               <a className="p1" href="#contact">
                 문의하기
               </a>
             </div>
-            <p className="vx-trust">홈페이지 30곳 넘게 · GEO팀 설계 참여 · <span className="nw">고객사가 직접 고치는 관리 화면</span> · <span className="nw">옛 주소 검색 기록 연결</span></p>
+            <p className="vx-trust">누적 30곳 이상 구축 · SEO·GEO팀 설계 참여 · <span className="nw">고객사 직접 운영 관리자 화면</span> · <span className="nw">기존 URL 검색 이력 보존</span></p>
           </div>
           <a className="ix-cue" href="#guests" aria-label="홈페이지를 읽는 쪽으로 내려가기">
-            <span>위즈더플래닝은 이렇게 일해요</span>
+            <span>위즈더플래닝의 웹사이트 설계</span>
             <i aria-hidden="true" />
           </a>
         </section>
@@ -132,19 +132,19 @@ export default function SiteDoc() {
           <div className="dp-w">
             <div className="gt-head">
               <div>
-                <p className="geo-eb">홈페이지를 읽는 쪽</p>
+                <p className="geo-eb">이중 설계 기준</p>
                 <h2>
-                  홈페이지 손님은 둘입니다.{" "}
+                  웹사이트를 찾는 두 손님{" "}
                   <br />
-                  <span>사람과 AI</span>
+                  <span>사람과 AI 엔진</span>
                 </h2>
               </div>
-              <p className="geo-lead">사람만 보고 만들면 AI가 우리 번호를 답하지 못하고, AI만 보고 만들면 사람이 문의 버튼 앞에서 나갑니다. 두 쪽을 처음 설계에 같이 넣습니다.</p>
+              <p className="geo-lead">디자인에만 치중하면 AI가 핵심 정보를 읽지 못하고 텍스트만 늘어놓으면 방문객이 바로 나갑니다. 처음부터 둘을 함께 고려해 설계합니다.</p>
             </div>
             <div className="hw-view">
               <div className="hw-side">
                 <p className="hw-tag">
-                  <Icon k="person" /> 사람이 보는 화면
+                  <Icon k="person" /> 방문 고객이 보는 화면
                 </p>
                 <div className="hw-br" aria-hidden="true">
                   <div className="hw-bar">
@@ -182,7 +182,7 @@ export default function SiteDoc() {
               </div>
               <div className="hw-side ai">
                 <p className="hw-tag">
-                  <Icon k="search" /> AI가 읽는 글자
+                  <Icon k="search" /> AI 엔진이 인식하는 구조화 텍스트
                 </p>
                 <div className="hw-code" aria-hidden="true">
                   {FACTS.map(([k, v], i) => (
@@ -209,14 +209,14 @@ export default function SiteDoc() {
           <div className="dp-w">
             <div className="gt-head">
               <div>
-                <p className="geo-eb">세부 상품</p>
+                <p className="geo-eb">세부 솔루션</p>
                 <h2>
-                  새로 만들지, 고쳐 쓸지{" "}
+                  사이트 진단으로 결정하는{" "}
                   <br />
-                  <span>보고 정합니다</span>
+                  <span>신규 구축과 정보 고도화</span>
                 </h2>
               </div>
-              <p className="geo-lead">지금 홈페이지를 먼저 봅니다. 전화번호와 가격이 그림 속에만 있으면 AI가 읽지 못해서, 글자로 넣고 지도 정보와 맞추는 것부터 합니다.</p>
+              <p className="geo-lead">지금 있는 웹사이트 구조부터 봅니다. 전화번호나 가격이 이미지라 AI가 못 읽는다면 텍스트로 바꾸고 지도 정보와 맞추는 일부터 시작합니다.</p>
             </div>
             <ul className="cw-prod">
               {s.items.map(([n, t], i) => (
@@ -239,11 +239,11 @@ export default function SiteDoc() {
         {/* ④ 검색 팀이 만들면: 사진 카드 네 장 */}
         <section className="dp-sec geo-sec geo-sec-mist rv cw-diff hw-diff" id="diff">
           <div className="dp-w">
-            <p className="geo-eb">검색 팀과 같이</p>
+            <p className="geo-eb">SEO·GEO 설계</p>
             <h2>
-              검색 팀이 만들면{" "}
+              검색 최적화 팀이 만드는{" "}
               <br />
-              <span>무엇이 다른가요?</span>
+              <span>웹사이트의 다른 점</span>
             </h2>
             <ol className="cw-diff-g">
               {d.diff.map(([t, x], i) => (
@@ -272,14 +272,14 @@ export default function SiteDoc() {
           <div className="dp-w">
             <div className="gt-head">
               <div>
-                <p className="geo-eb">진행 순서</p>
+                <p className="geo-eb">진행 프로세스</p>
                 <h2>
-                  기획부터 오픈 점검까지,{" "}
+                  구조 기획부터 오픈까지{" "}
                   <br />
-                  <span>네 단계로 진행합니다</span>
+                  <span>웹사이트 제작 순서</span>
                 </h2>
               </div>
-              <p className="geo-lead">단계마다 확인을 받고 넘어갑니다. 오픈 전에 기존 주소를 새 주소로 하나씩 연결해 검색 기록을 지킵니다.</p>
+              <p className="geo-lead">단계마다 고객사 확인을 받고 다음으로 넘어갑니다. 오픈하기 전에 예전 URL을 새 주소로 1:1 연결해 기존 검색 자산을 그대로 지켜 드립니다.</p>
             </div>
             <ol className="cw-proc-g" aria-label="진행 네 단계">
               {d.process.map(([t, x], i) => (
@@ -296,7 +296,7 @@ export default function SiteDoc() {
               ))}
             </ol>
             <div className="cw-rep">
-              <b>리포트에 들어가는 것</b>
+              <b>결과 리포트 포함 항목</b>
               <ul>
                 {d.report.map((r) => (
                   <li key={r}>
@@ -312,7 +312,7 @@ export default function SiteDoc() {
 
         {/* ⑥ 사례(그대로): 167쪽 치과 */}
         {m.case ? (
-          <CSec id="cases" eb="사례" tone="mist" q="맡은 홈페이지가 AI 답에 나온 기록">
+          <CSec id="cases" eb="실제 사례" tone="mist" q="AI 답변에 인용된 실제 사례">
             <CaseBox c={m.case} down={m.down} recs={[]} recNote={d.recNote} />
           </CSec>
         ) : null}
@@ -322,14 +322,14 @@ export default function SiteDoc() {
           <div className="dp-w">
             <div className="gt-head">
               <div>
-                <p className="geo-eb">같이 하면</p>
+                <p className="geo-eb">연계 서비스</p>
                 <h2>
-                  홈페이지는 광고와 검색이{" "}
+                  고객의 전환을 완성하는{" "}
                   <br />
-                  <span>데려온 사람을 받는 곳입니다</span>
+                  <span>검색 최적화와 콘텐츠 촬영</span>
                 </h2>
               </div>
-              <p className="geo-lead">만든 뒤에 AI 답변과 지도 순위를 다시 재고, 홈페이지에 쓸 사진은 촬영팀이 찍습니다.</p>
+              <p className="geo-lead">사이트를 열고 나서 AI 답변 인용률과 지도 순위를 정기적으로 측정합니다. 웹사이트 신뢰도를 높이는 공간과 제품 사진은 내부 촬영팀이 직접 찍어 드립니다.</p>
             </div>
             <ul className="cw-pair">
               {d.pairs.map(([k, why]) => {
@@ -354,7 +354,7 @@ export default function SiteDoc() {
         </section>
 
         {/* ⑧ FAQ: 공통 부품 */}
-        <FaqBlock items={d.faq} note="여기 없는 질문은 문의로 남겨 주세요. 담당자가 답해 드립니다." />
+        <FaqBlock items={d.faq} note="추가로 궁금하신 점은 문의로 남겨 주세요. 전담 AE가 상세히 답변해 드리겠습니다." />
 
         {/* ⑨ 문의 */}
         <ContactBlock title={d.ct?.title ?? `${s.n}, 진단 신청부터 시작하세요.`} sub={d.ct?.sub} label={d.ct?.label} initial={[s.k]} source={`service_${s.slug}`} />

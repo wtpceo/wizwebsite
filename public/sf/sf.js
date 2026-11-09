@@ -122,6 +122,7 @@ var H4=(function(){
       local:['ex/bbq','ex/salon','ex/cafe','ex/pilates','ex/hanui','ex/pension','ex/academy','ex/m-chef','ex/fcafe','ex/m-salon','ex/m-trainer','ex/fnb-store'],
       growth:['ex/fashion-look','ex/cosme','ex/giftset','ex/m-shop','ex/sunscreen','ex/shop','ex/fashion-detail','ex/beauty-flat','ex/fashion-store','ex/makeup','v/s6','v/f2'],
       team:['ex/m-team','ex/m-shoot','v/r31','ex/seminar','ex/shootcos','pf/w1','ex/m-reel','v/r15','pf/infl-beauty','ex/m-chef','pf/w4','ex/m-salon'], /* 11-08 전문팀: 엘리베이터 TV 장면 없이 팀이 일하는 장면 위주 */
+      about:['ex/m-team','ex/m-shoot','pf/infl-beauty','ex/seminar','ex/cosme','v/r31','ex/dental','pf/w4','ex/truck-ad','ex/m-reel','ex/fnb-store','ex/m-tourist'], /* 11-09 회사소개: 여덟 가지 일이 한 벽에 보이게 */
       enterprise:['ex/seminar','ex/m-team','ex/m-shoot','ex/truck-ad','ex/shootcos','ex/cine-real','ex/fashion-store','ex/m-tourist','ex/giftset','ex/fashion-look'] /* 11-08 엘리베이터 TV 장면 뺌 */
     };
     var L=(key&&W[key])||R,MAXP=key?2:3,PLAY=key?null:{'v/f1':1,'v/s1':1,'v/b1':1},n=0;while(L.length<12)L=L.concat(L);

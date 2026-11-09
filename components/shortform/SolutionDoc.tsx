@@ -19,8 +19,17 @@ const SVC_IMG: Record<string, string> = {
   off: "/sf/ex/truck-ad.jpg",
   plan: "/sf/ex/seminar.jpg",
 }
+/** 같은 종류 카드가 두 장일 때 두 번째 카드 사진(11-09 점검: 로컬 검색 카드 두 장이 같은 사진이던 것) */
+const SVC_IMG2: Record<string, string> = { search: "/tools/realgeo-dashboard.jpg" }
+/** 업종별로 카드 사진을 바꿀 때(11-09 2차 점검: 성장 브랜드의 제품 검색 카드에 로컬용 케이크 사진이 나오던 것) */
+const SVC_BY_SLUG: Record<string, Partial<Record<string, string>>> = { growth: { viral: "/sf/ex/cosme.jpg" } }
 /** 진행 단계 사진 */
-const PROC_IMG = ["/sf/ex/m-team.jpg", "/geo/media-editor.jpg", "/sf/ex/m-shoot.jpg", "/sf/img/report.jpg"]
+/** 진행 단계 사진: 업종마다 단계 내용에 맞춰(11-09 점검: 세 쪽이 같은 네 장을 돌려 쓰던 것을 나눔) */
+const PROC_IMG: Record<string, string[]> = {
+  local: ["/sf/gen/sol-local.jpg", "/sf/ex/m-phone.jpg", "/sf/gen/viral-guide.jpg", "/sf/img/report.jpg"],
+  growth: ["/sf/gen/sol-growth.jpg", "/sf/ex/shootcos.jpg", "/geo/media-unbox.jpg", "/report/weekly-report-1.jpg"],
+  enterprise: ["/sf/gen/sol-ent.jpg", "/sf/gen/global-meeting.jpg", "/geo/media-crew.jpg", "/report/weekly-report-1.jpg"],
+}
 
 /**
  * 업종별 솔루션 3쪽(/solutions/local·growth·enterprise). 11-08 대표 「업종 전략도 서비스 페이지와 같은 디자인으로」.
@@ -80,7 +89,7 @@ export default function SolutionDoc({ slug }: { slug: string }) {
             </div>
           </div>
           <a className="ix-cue" href="#pains" aria-label="이런 고민으로 내려가기">
-            <span>위즈더플래닝은 이렇게 일해요</span>
+            <span>위즈더플래닝의 업종별 맞춤 설계</span>
             <i aria-hidden="true" />
           </a>
         </section>
@@ -90,11 +99,11 @@ export default function SolutionDoc({ slug }: { slug: string }) {
           <div className="dp-w">
             <div className="gt-head">
               <div>
-                <p className="geo-eb">이런 고민</p>
+                <p className="geo-eb">주요 과제</p>
                 <h2>
-                  이런 고민이 있는 곳에{" "}
+                  현장에서 자주 겪는{" "}
                   <br />
-                  <span>맞습니다</span>
+                  <span>마케팅 고민</span>
                 </h2>
               </div>
               <p className="geo-lead">{d.comboLead}</p>
@@ -117,11 +126,11 @@ export default function SolutionDoc({ slug }: { slug: string }) {
             <div className="dp-w">
               <div className="gt-head">
                 <div>
-                  <p className="geo-eb">업종마다</p>
+                  <p className="geo-eb">업종별 우선순위</p>
                   <h2>
-                    업종마다{" "}
+                    업종 특성에 맞춘{" "}
                     <br />
-                    <span>먼저 할 일이 다릅니다</span>
+                    <span>초기 실행 순서</span>
                   </h2>
                 </div>
                 <p className="geo-lead">{m.month.src}</p>
@@ -144,14 +153,14 @@ export default function SolutionDoc({ slug }: { slug: string }) {
           <div className="dp-w">
             <div className="gt-head">
               <div>
-                <p className="geo-eb">묶는 순서</p>
+                <p className="geo-eb">솔루션 구성</p>
                 <h2>
-                  {f.n}에는{" "}
+                  {f.n}에 맞춘{" "}
                   <br />
-                  <span>이 순서로 묶습니다</span>
+                  <span>채널 결합 순서</span>
                 </h2>
               </div>
-              <p className="geo-lead">카드를 누르면 그 서비스를 자세히 볼 수 있습니다.</p>
+              <p className="geo-lead">카드를 누르면 서비스 상세 내용을 볼 수 있습니다.</p>
             </div>
             <ol className="sw-combo-g" style={vars({ n: f.c.length })}>
               {f.c.map(([k, n, why], i) => {
@@ -159,7 +168,7 @@ export default function SolutionDoc({ slug }: { slug: string }) {
                 const inner = (
                   <>
                     <figure>
-                      <img src={SVC_IMG[k] ?? "/sf/ex/m-team.jpg"} alt="" loading="lazy" decoding="async" />
+                      <img src={SVC_BY_SLUG[slug]?.[k] || (f.c.findIndex((x) => x[0] === k) !== i && SVC_IMG2[k]) || SVC_IMG[k] || "/sf/ex/m-team.jpg"} alt="" loading="lazy" decoding="async" />
                       <em>STEP {String(i + 1).padStart(2, "0")}</em>
                     </figure>
                     <div>
@@ -215,18 +224,18 @@ export default function SolutionDoc({ slug }: { slug: string }) {
               <div>
                 <p className="geo-eb">진행 순서</p>
                 <h2>
-                  {d.process[0][0]}부터 리포트까지,{" "}
+                  {d.process[0][0]}부터 리포트까지{" "}
                   <br />
                   <span>네 단계로 진행합니다</span>
                 </h2>
               </div>
-              <p className="geo-lead">전담 AE 한 사람이 처음부터 끝까지 연락을 맡고, 결과는 매주 한 장의 리포트로 모읍니다.</p>
+              <p className="geo-lead">전담 AE가 기획부터 실행까지 1:1로 맡습니다. 모든 채널 성과는 매주 통합 리포트 한 장으로 정리해 드립니다.</p>
             </div>
             <ol className="cw-proc-g" aria-label="진행 네 단계">
               {d.process.map(([t, x], i) => (
                 <li key={t} style={vars({ i })}>
                   <figure>
-                    <img src={PROC_IMG[i] ?? PROC_IMG[0]} alt="" loading="lazy" decoding="async" />
+                    <img src={(PROC_IMG[slug] ?? PROC_IMG.local)[i] ?? PROC_IMG.local[0]} alt="" loading="lazy" decoding="async" />
                     <em>STEP {String(i + 1).padStart(2, "0")}</em>
                   </figure>
                   <div>
@@ -264,13 +273,13 @@ export default function SolutionDoc({ slug }: { slug: string }) {
         {isLocal ? (
           <ContactBlock
             title={`${f.n}, 어떤 순서가 맞을지 상담해 드립니다.`}
-            sub="매장·병원·학원 등은 아래 신청이나 전화·카카오톡으로도 간편하게 문의하실 수 있습니다. 비용은 상담 후 맞춤 제안서로 안내해 드립니다."
+            sub="매장·병원·학원 등은 아래 양식이나 전화, 카카오톡으로 편하게 문의해 주세요. 비용은 상담 뒤에 맞춤 제안서로 보내 드립니다."
             label="문의하기"
             initial={keys}
             source={`solution_${f.slug}`}
           />
         ) : (
-          <ContactBlock title={d.ct?.title ?? `${f.n}, 어떤 순서가 맞는지 진단합니다.`} label="문의하기" initial={keys} source={`solution_${f.slug}`} />
+          <ContactBlock title={d.ct?.title ?? `${f.n}, 어떤 순서가 맞는지 짚어 드립니다.`} label="문의하기" initial={keys} source={`solution_${f.slug}`} />
         )}
       </div>
     </DocShell>

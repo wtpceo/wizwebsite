@@ -6,6 +6,10 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // 11-09 기술 점검: Next 15는 기본 목록에 없는 봇에게 title·description·og를 <head> 밖(본문)으로 늦게 보낸다.
+  // 자바스크립트를 실행하지 않는 카카오톡 미리보기·AI 수집봇이 메타를 놓치지 않게, Next 기본 목록에 이 봇들을 더한다.
+  htmlLimitedBots:
+    /[\w-]+-Google|Google-[\w-]+|Googlebot|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight|kakaotalk|Daum|GPTBot|ChatGPT-User|OAI-SearchBot|ClaudeBot|Claude-User|Claude-SearchBot|anthropic-ai|PerplexityBot|Perplexity-User|CCBot|Amazonbot|Bytespider|TelegramBot|\bLine\//i,
   images: {
     unoptimized: true,
     remotePatterns: [

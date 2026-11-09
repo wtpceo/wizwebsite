@@ -9,7 +9,7 @@ import { GUIDE_ARTICLES } from "@/lib/guide-articles"
 export const metadata: Metadata = {
   title: "마케팅 가이드: AI 검색 최적화·플레이스 실전 노하우",
   description:
-    "AI 검색 최적화(GEO), 네이버 플레이스, 업종별 마케팅 실전 가이드. 위즈더플래닝이 쌓아 온 노하우를 사장님 눈높이로 정리했습니다.",
+    "AI 검색 최적화(GEO), 네이버 플레이스, 업종별 마케팅 실전 가이드. 위즈더플래닝이 축적한 실측 데이터와 캠페인 운영 노하우를 정리했습니다.",
   alternates: { canonical: "/guide" },
   openGraph: {
     title: "마케팅 가이드 | 위즈더플래닝",
@@ -28,14 +28,14 @@ export default function GuidePage() {
         <InsightHero
           label="마케팅 칼럼"
           kw="마케팅 칼럼"
-          text={"저희가 직접 재고\n쓴 글입니다"}
-          mark="직접 재고"
+          text={"직접 측정하고 검증한\n실전 마케팅 기록"}
+          mark="직접 측정하고"
           era={`인사이트 리포트 ${GUIDE_ARTICLES.length}편`}
           lead={
             <>
-              ChatGPT·네이버 AI·구글에 브랜드가 어떻게 나오는지 <span className="nw">직접 물어보고 잰 기록,</span>
+              ChatGPT·네이버 AI·구글에서 브랜드가 인용되는 현황을 <span className="nw">직접 측정한 데이터와</span>
               <br />
-              업체명을 가린 실제 사례, <span className="nw">업종별로 먼저 할 일을 올립니다.</span>
+              익명 처리한 실제 캠페인 사례, <span className="nw">업종별 실행 우선순위를 다룹니다.</span>
             </>
           }
           imgs={covers}
@@ -46,7 +46,7 @@ export default function GuidePage() {
         <GuideGrid />
 
         <p className="gd-note">
-          궁금한 주제가 있으면 <Link href="/contact">문의</Link>에 적어 주세요. 다음 글로 재서 올리겠습니다.
+          다루어 주기를 희망하는 주제가 있다면 <Link href="/contact">문의하기</Link>로 남겨 주세요. 실측 데이터를 바탕으로 다음 칼럼에서 다루겠습니다.
         </p>
       </div>
     </DocShell>

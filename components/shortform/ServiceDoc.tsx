@@ -101,7 +101,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
         ))}
       </Sec>
 
-      <Sec q={`${s.n}에는 어떤 상품이 있나요?`}>
+      <Sec q={`${s.n} 세부 솔루션`}>
         <p>{d.itemsLead}</p>
         <ul className="dp-items">
           {s.items.map(([n, t]) => (
@@ -126,7 +126,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
         </ol>
       </Sec>
 
-      <Sec q="어떤 순서로 진행하고 무엇을 리포트받나요?">
+      <Sec q="진행 프로세스와 결과 리포트">
         <ol className="dp-num">
           {d.process.map(([t, x]) => (
             <li key={t}>
@@ -174,7 +174,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
         ) : null}
       </Sec>
 
-      <Sec q={`${s.n}${wa(s.n)} 같이 하면 좋은 서비스는 무엇인가요?`}>
+      <Sec q={`${s.n}${wa(s.n)} 시너지를 내는 연계 서비스`}>
         <p>{d.pairsLead}</p>
         <ul className="dp-pairs">
           {d.pairs.map(([k, why]) => {
