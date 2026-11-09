@@ -153,7 +153,7 @@ export default function AgencyHero() {
 
             <motion.div variants={fadeIn} className="mt-7 flex flex-col gap-3 min-[400px]:flex-row md:mt-9">
               {/* 2026-11-03 기업 전용 전환: 주 버튼을 /diagnosis 에서 기업 제안 요청으로 바꿨다 */}
-              <Link href="/business/contact">
+              <Link href="/contact">
                 <Button
                   size="lg"
                   className="gap-1 rounded-md bg-[#00e5a0] px-8 py-6 text-lg font-bold text-[#070b14] transition-colors duration-200 hover:bg-[#3cf0bb]"

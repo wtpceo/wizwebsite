@@ -71,7 +71,7 @@ export default function Page() {
             <h2>맞춤 캠페인 제안 요청</h2>
           </div>
           <div className="gd-cta-b">
-            <Link className="p1" href="/business/contact">
+            <Link className="p1" href="/contact">
               제안 요청 보내기 <Icon k="arrow" />
             </Link>
           </div>

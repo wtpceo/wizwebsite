@@ -19,7 +19,7 @@ type GuideCta = {
 export const BUSINESS_CTA: GuideCta = {
   title: "광고 예산이 있는 기업이라면, 검색 결과부터 확인해 보세요",
   body: "네이버·구글 검색과 AI 답변에 브랜드가 어떻게 나오는지 같이 보고, 담당자님과 목표부터 정하겠습니다.",
-  href: "/business/contact",
+  href: "/contact",
   label: "제안 요청 보내기",
 }
 const DEFAULT_CTA = BUSINESS_CTA

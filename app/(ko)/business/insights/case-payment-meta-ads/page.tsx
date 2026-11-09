@@ -201,7 +201,7 @@ export default function Page() {
         </p>
 
         <BizContactNote>
-          이 사례의 지면별·구간별 숫자와 최종 보고서의 구성은 <a href="/business/contact">기업 제안 요청 양식</a>으로
+          이 사례의 지면별·구간별 숫자와 최종 보고서의 구성은 <a href="/contact">기업 제안 요청 양식</a>으로
           문의를 주시면 회신 메일에서 보여 드리겠습니다.
         </BizContactNote>
 

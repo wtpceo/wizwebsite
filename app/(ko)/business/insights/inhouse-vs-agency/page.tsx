@@ -220,7 +220,7 @@ export default function Page() {
         </p>
 
         <BizContactNote>
-          어느 쪽에 걸리는지 애매하다면 지금 팀에 누가 있고 무엇을 맡기려는지 <a href="/business/contact">기업 제안 요청 양식</a>에 적어 주세요. 안에 둘 일과 밖에 맡길 일을 나눠서 답장드리겠습니다.
+          어느 쪽에 걸리는지 애매하다면 지금 팀에 누가 있고 무엇을 맡기려는지 <a href="/contact">기업 제안 요청 양식</a>에 적어 주세요. 안에 둘 일과 밖에 맡길 일을 나눠서 답장드리겠습니다.
         </BizContactNote>
 
         <h2>마케팅팀 구성: 첫 한 명은 누구를 뽑을까</h2>

@@ -10,7 +10,7 @@ import { DocShell } from "@/components/shortform/DocParts"
 
 // 기업 마케팅 허브. 자영업 페이지와 말과 경로를 분리한다.
 // - "사장님·가게" 대신 "담당자·브랜드·조직"
-// - CTA는 무료 진단이 아니라 제안 요청(/business/contact)
+// - CTA는 무료 진단이 아니라 제안 요청(/contact)
 // - 기준(최소 3개월, 온보딩 별도)을 페이지에 적어 스스로 걸러지게 한다 · 금액은 적지 않고 진단 뒤 제안서로(사장님 11-04)
 // 수치는 공개된 자사 사례에서만 가져온다. 보장 문구는 쓰지 않는다.
 const TITLE = "기업 마케팅: 캠페인 기획부터 광고·콘텐츠·SEO·GEO까지 | 위즈더플래닝"
@@ -158,7 +158,7 @@ export default function Page() {
               웹사이트 구축, SEO·GEO 중 필요한 과업을 선택하여 의뢰하실 수 있습니다.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/business/contact">
+              <Link href="/contact">
                 <Button size="lg" className="w-full gap-1 bg-[#00e5a0] px-8 py-6 text-base font-bold text-[#070b14] hover:bg-[#3cf0bb] sm:w-auto">
                   제안 요청 보내기 <ArrowRight className="h-4 w-4" />
                 </Button>
@@ -350,7 +350,7 @@ export default function Page() {
             <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-400 md:text-base">
               조직 현황과 캠페인 목표를 남겨 주시면 전담 AE가 기업 이메일로 맞춤 제안서를 회신해 드립니다. 평가 항목이 지정된 RFP 양식에도 맞춰 작성합니다.
             </p>
-            <Link href="/business/contact" className="mt-7 inline-flex items-center gap-1.5 rounded-full bg-[#00e5a0] px-7 py-3.5 text-sm font-bold text-[#070b14] hover:bg-[#3cf0bb]">
+            <Link href="/contact" className="mt-7 inline-flex items-center gap-1.5 rounded-full bg-[#00e5a0] px-7 py-3.5 text-sm font-bold text-[#070b14] hover:bg-[#3cf0bb]">
               제안 요청 보내기 <ArrowRight className="h-4 w-4" />
             </Link>
           </div>

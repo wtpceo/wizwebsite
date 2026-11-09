@@ -273,7 +273,7 @@ export default function Page() {
                 동일한 관제 시스템으로 현재 브랜드의 노출 상태를 먼저 측정해 드립니다. 진단 결과만 확인하셔도 무방하며, 병·의원은 <Link href="/medical-diagnosis">병원 AI 검색 무료 진단</Link>을 이용해 주세요.
               </p>
             </div>
-            <Link className="p1" href="/business/contact">
+            <Link className="p1" href="/contact">
               제안 요청 보내기 <ChevronRight aria-hidden="true" />
             </Link>
           </div>

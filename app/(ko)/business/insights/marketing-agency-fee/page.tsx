@@ -206,7 +206,7 @@ export default function Page() {
         </p>
 
         <BizContactNote>
-          어느 구조가 맞는지 아직 정하지 못하셨다면 예산 구간과 기간만 <a href="/business/contact">기업 제안 요청 양식</a>에 적어 주셔도 됩니다. 저희가 구조부터 맞춰 보고 회신드리겠습니다.
+          어느 구조가 맞는지 아직 정하지 못하셨다면 예산 구간과 기간만 <a href="/contact">기업 제안 요청 양식</a>에 적어 주셔도 됩니다. 저희가 구조부터 맞춰 보고 회신드리겠습니다.
         </BizContactNote>
 
         <h2>계약서에서 확인할 여섯 가지</h2>

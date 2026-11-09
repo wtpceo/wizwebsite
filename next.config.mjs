@@ -22,6 +22,8 @@ const nextConfig = {
   // www → non-www 301 리다이렉트 (중복 도메인 정리, 단일 canonical 신호)
   async redirects() {
     return [
+      // 11-09 대표: 기업 제안 요청 폼을 문의(/contact) 하나로 합침. 운영에서 쓰던 주소라 영구 이동
+      { source: '/business/contact', destination: '/contact', permanent: true },
       {
         source: '/:path*',
         has: [{ type: 'host', value: 'www.wiztheplanning.com' }],

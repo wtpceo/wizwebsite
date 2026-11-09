@@ -336,7 +336,7 @@ export default function Header() {
                 </li>
               ))}
             </ul>
-            <Link href="/business/contact" onClick={() => setOpen(false)} className="mt-4 block">
+            <Link href="/contact" onClick={() => setOpen(false)} className="mt-4 block">
               <Button className="w-full bg-[#00e5a0] py-6 text-base font-bold text-[#070b14] hover:bg-[#3cf0bb]">
                 광고 상담 받기
               </Button>

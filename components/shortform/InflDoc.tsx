@@ -22,11 +22,96 @@ const CLAIM_SECOND_USE = "저희가 반응이 좋은 장면을 골라 15초 광�
 /** 섭외 전략 네 장 [이름, 영문, 한 줄, 배경 사진, 매체인지] — PPL은 매체가 아니라 협업 방식.
  *  배경은 2026-11-08 위즈스튜디오 레퍼런스(references 저장소)의 실제 촬영 사진: 스크린골프 스윙·네일숍·마라탕 음식점·안경 든 손(대표 「틱톡은 음식점으로」). 네 장 모두 같은 톤으로 보정(scratchpad grade.py: 자동 대비·채도·그림자 남색). 얼굴·간판 없는 컷만 골랐고 상호는 쓰지 않음 */
 const SCOPE: [string, string, string, string, boolean][] = [
-  ["유튜브", "YouTube", "심층 리뷰와 브이로그 콘텐츠가 검색 결과에 오래 남습니다.", "/infl/scope-youtube.jpg", true],
-  ["인스타그램", "Instagram", "릴스와 피드 콘텐츠로 원하는 고객에게 빠르게 퍼집니다.", "/infl/scope-instagram.jpg", true],
-  ["틱톡", "TikTok", "숏폼 영상으로 젊은 소비층의 빠른 반응을 이끌어 냅니다.", "/infl/scope-tiktok.jpg", true],
-  ["PPL", "Product Placement", "인기 채널의 원래 흐름에 맞춰 제품을 자연스럽게 보여 줍니다.", "/infl/scope-ppl.jpg", false],
+  ["유튜버", "YouTube", "심층 리뷰와 브이로그 콘텐츠가 검색 결과에 오래 남습니다.", "/infl/scope-youtube.jpg", true],
+  ["인스타그램 인플루언서", "Instagram", "릴스와 피드 콘텐츠로 원하는 고객에게 빠르게 퍼집니다.", "/infl/scope-instagram.jpg", true],
+  ["틱톡커", "TikTok", "숏폼 영상으로 젊은 소비층의 빠른 반응을 이끌어 냅니다.", "/infl/scope-tiktok.jpg", true],
 ]
+/* 11-09 대표: 카드 제목을 매체 이름이 아니라 사람(유튜버·인스타그램 인플루언서·틱톡커)으로, PPL 카드는 뺌 */
+const SCOPE_LD: Record<string, string> = { YouTube: "유튜버 섭외", Instagram: "인스타그램 인플루언서 섭외", TikTok: "틱톡커 섭외" }
+
+/* 11-09 대표 「협업 결과를 홈페이지·쇼핑몰 상세페이지·뉴스·블로그·플레이스 등에 쓰는 걸 상상하게」: 같은 협업 콘텐츠가 들어간 여섯 군데를 코드 화면으로 그린다.
+   상호·로고·실적 숫자는 넣지 않는다(모두 예시). 쓸 곳과 기간은 섭외 계약에서 정한다는 문장을 같이 둔다. */
+const USES: [string, string, string][] = [
+  ["web", "자사 홈페이지", "첫 화면과 제품 소개에 실제 사용 장면을 올립니다"],
+  ["shop", "쇼핑몰 상세페이지", "구매 직전에 보는 상세페이지에 크리에이터 후기를 넣습니다"],
+  ["place", "지도·플레이스", "네이버 플레이스와 지도 대표 사진, 소식에 올립니다"],
+  ["news", "뉴스 기사", "보도자료에 협업 장면을 실어 언론 기사로 내보냅니다"],
+  ["blog", "블로그", "블로그 체험·정보 글에 원본 사진과 영상을 씁니다"],
+  ["pop", "매장 POP·전단", "매장 안 POP와 전단, 배너 시안에 씁니다"],
+]
+const UW = "/infl/original.jpg"
+const UT = "/sf/pf/infl-beauty.jpg"
+function UseMock({ k }: { k: string }) {
+  if (k === "web")
+    return (
+      <div className="ixu-m ixu-web" aria-hidden="true">
+        <div className="ixu-bar"><i /><i /><i /><span>브랜드 공식 홈페이지</span></div>
+        <div className="ixu-web-hero">
+          <div>
+            <small>크리에이터가 먼저 써 본</small>
+            <b>OO 세럼</b>
+            <p><i /><i /></p>
+            <span className="ixu-btn">제품 보기</span>
+          </div>
+          <figure><img src={UW} alt="" loading="lazy" decoding="async" /><i className="ixu-play" /></figure>
+        </div>
+      </div>
+    )
+  if (k === "shop")
+    return (
+      <div className="ixu-m ixu-shop" aria-hidden="true">
+        <div className="ixu-phone">
+          <figure><img src={UT} alt="" loading="lazy" decoding="async" /><span className="ixu-tag">크리에이터 리뷰</span></figure>
+          <div className="ixu-shop-in">
+            <small>OO 브랜드</small>
+            <b>OO 세럼 50ml</b>
+            <p><i /><i /><i /></p>
+            <div className="ixu-shop-rv"><img src={UW} alt="" loading="lazy" decoding="async" /><span>“3주 써 보고 솔직하게 말합니다”</span></div>
+            <span className="ixu-btn">구매하기</span>
+          </div>
+        </div>
+      </div>
+    )
+  if (k === "place")
+    return (
+      <div className="ixu-m ixu-place" aria-hidden="true">
+        <div className="ixu-place-h"><b>OO 매장</b><small>홈 · 소식 · 사진 · 리뷰</small></div>
+        <div className="ixu-place-g">
+          <img src={UW} alt="" loading="lazy" decoding="async" />
+          <img src={UT} alt="" loading="lazy" decoding="async" />
+          <img src="/geo/media-beauty.jpg" alt="" loading="lazy" decoding="async" />
+        </div>
+        <span className="ixu-place-l">대표 사진</span>
+      </div>
+    )
+  if (k === "news")
+    return (
+      <div className="ixu-m ixu-news" aria-hidden="true">
+        <div className="ixu-news-h"><b>OO일보</b><small>유통 · 뷰티</small></div>
+        <p className="ixu-news-t">OO 브랜드, 크리에이터와 함께 만든 사용 후기 공개</p>
+        <figure><img src={UW} alt="" loading="lazy" decoding="async" /></figure>
+        <p className="ixu-lines"><i /><i /><i /></p>
+      </div>
+    )
+  if (k === "blog")
+    return (
+      <div className="ixu-m ixu-blog" aria-hidden="true">
+        <div className="ixu-blog-h"><i /><span>블로그</span></div>
+        <p className="ixu-blog-t">OO 세럼 한 달 써 본 솔직 후기</p>
+        <figure><img src={UW} alt="" loading="lazy" decoding="async" /><i className="ixu-play" /></figure>
+        <p className="ixu-lines"><i /><i /></p>
+      </div>
+    )
+  return (
+    <div className="ixu-m ixu-pop" aria-hidden="true">
+      <div className="ixu-pop-card">
+        <img src={UT} alt="" loading="lazy" decoding="async" />
+        <div><small>CREATOR PICK</small><b>OO 세럼</b></div>
+      </div>
+      <i className="ixu-pop-foot" />
+    </div>
+  )
+}
 
 /* 11-09 대표 「실제 유튜브·인스타·틱톡·방송 화면처럼」: 사진 위에 플랫폼 화면 요소를 코드로 얹는다.
    로고·상표는 넣지 않고, 실적처럼 읽히는 숫자도 넣지 않는다. 카드 아래쪽은 설명 글 자리라 위쪽에만 둔다. */
@@ -239,7 +324,7 @@ export default function InflDoc() {
           name: "인플루언서 섭외 매체",
           itemListElement: SCOPE.map(([t, en, x]) => ({
             "@type": "Offer",
-            itemOffered: { "@type": "Service", name: t === "PPL" ? "PPL(간접광고) 섭외" : `${t} 인플루언서 섭외`, alternateName: en, description: x },
+            itemOffered: { "@type": "Service", name: SCOPE_LD[en] ?? `${t} 섭외`, alternateName: en, description: x },
           })),
         },
       },
@@ -438,6 +523,43 @@ export default function InflDoc() {
         </CSec>
         </div>
 
+        {/* ③-2 2차 활용처 (11-09 대표): 같은 협업 콘텐츠가 들어가는 여섯 군데를 화면으로 */}
+        <CSec
+          id="uses"
+          eb="2차 활용처"
+          tone="mist"
+          cls="ixu"
+          q={
+            <>
+              한 번 받은 협업 콘텐츠,{" "}
+              <br />
+              <span>이렇게 다시 씁니다</span>
+            </>
+          }
+          sub={
+            <>
+              크리에이터가 찍은 영상과 사진을 홈페이지, 쇼핑몰 상세페이지, 지도, 기사, 블로그, 매장 POP에 다시 씁니다.{" "}
+              <span className="nw">어디에 얼마 동안 쓸지는 섭외 계약 때 크리에이터와 미리 정합니다.</span>
+            </>
+          }
+        >
+          <ul className="ixu-g" aria-label="협업 콘텐츠를 다시 쓰는 곳">
+            {USES.map(([k, t, x], i) => (
+              <li key={k} className={`ixu-${k}-li`} style={vars({ i })}>
+                <UseMock k={k} />
+                <div className="ixu-tx">
+                  <em>{String(i + 1).padStart(2, "0")}</em>
+                  <b>{t}</b>
+                  <span>{x}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <p className="ixu-note">
+            <Ex>모두 예시 화면</Ex> 상호·제품명은 OO로 가렸습니다. 실제 활용 범위는 크리에이터 계약 조건을 따릅니다.
+          </p>
+        </CSec>
+
         {/* ④ 자체 섭외 도구 위플루언서 (11-08 대표: 비교표 대신 실제 툴 화면으로. GEO 쪽 realGEO 칸과 같은 문법) */}
         <CSec
           id="wiplu"
@@ -544,7 +666,6 @@ export default function InflDoc() {
           label="제안 요청 보내기"
           initial={["infl"]}
           source="service_influencer"
-          pt
         />
       </div>
     </DocShell>

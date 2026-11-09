@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { GUIDE_ARTICLES } from "@/lib/guide-articles"
 import { coverFor } from "@/lib/guide-cover"
-import { SERVICES, SOLUTIONS, TEAMS, STEPS, HOME_FAQ, PROBLEM_PINGS, COMPARE, INSIGHT_HREFS, CONTACT } from "./content"
+import { SERVICES, TEAMS, STEPS, HOME_FAQ, PROBLEM_PINGS, COMPARE, INSIGHT_HREFS, CONTACT } from "./content"
 import { TEAM_PAGE } from "./details"
 import { DocShell, FaqBlock, ContactBlock, JsonLd, faqLd } from "./DocParts"
 import { DeptStage, StepStage } from "./TeamDoc"
@@ -16,7 +16,6 @@ import { Icon } from "./icons"
  * ① 첫 화면 (Hero + 4대 핵심 신뢰 지표 바)
  * ② 핵심 솔루션 (8대 인하우스 마케팅 솔루션 · 퍼널 역할별 태그 + 세부 과업 칩)
  * ③ 인하우스 통합 구조 (Before 분리 대행의 한계 vs After 1:1 전담 AE + 6개 인하우스 부서 통합 허브)
- * ④ 업종별 맞춤 로드맵 (로컬·병의원 / 커머스·브랜드 / 기업·프랜차이즈 우선순위 및 채널 결합 순서)
  * ⑤ 실측 데이터와 리포트 (realGEO 관제 화면 · 주간 리포트 실물 + 3대 투명성 원칙)
  * ⑥ 진행 프로세스 (진단 → 설계 → 제작 → 집행 → 리포트 5단계 순환 구조)
  * ⑦ 인사이트 리포트 (실측 데이터 기반 마케팅 칼럼 6선)
@@ -39,14 +38,8 @@ const HERO_KPIS = [
   { n: "2016년 설립", d: "10년 차 IMC 통합 대행사" },
   { n: "6개 전담 부서", d: "외주 없는 인하우스 조직" },
   { n: "8대 주요 채널", d: "기획·촬영·광고·GEO 직접 실행" },
-      { n: "1:1 전담 AE", d: "한 명이 소통과 성과 보고를 맡습니다" },
+  { n: "1:1 전담 AE", d: "한 명이 소통과 성과 보고를 맡습니다" },
 ]
-
-const IND_FLOW: Record<string, string[]> = {
-  local: ["매장·공간 촬영", "네이버·구글 지도 정비", "블로그·체험단 후기", "GEO·지역 타깃 광고"],
-  growth: ["전환 랜딩·상세 점검", "인플루언서 릴스·쇼츠", "2차 활용 메타·구글 광고", "브랜드 재검색 방어"],
-  enterprise: ["초기 기준선 실측(GEO)", "IMC 통합 미디어 설계", "온·오프라인 동시 집행", "주간·월간 통합 리포트"],
-}
 
 const PROOF_RULES = [
   {
@@ -263,62 +256,6 @@ export default function HomeDoc() {
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* ④ 업종별 맞춤 로드맵 */}
-        <section className="dp-sec geo-sec geo-sec-mist rv hm-ind hm2-ind" id="industries">
-          <div className="dp-w">
-            <div className="gt-head">
-              <div>
-                <p className="geo-eb">업종별 맞춤 전략</p>
-                <h2>
-                  비즈니스 환경에 맞춘{" "}
-                  <br />
-                  <span>업종별 우선순위와 채널 설계</span>
-                </h2>
-              </div>
-              <p className="geo-lead">
-                업종과 성장 단계에 따라 먼저 쓸 채널이 다릅니다. 로컬 매장과 병·의원부터 커머스 브랜드, 기업 캠페인까지 전환이 잘 나오는 순서로 조합합니다.
-              </p>
-            </div>
-
-            <ul className="hm2-ind-g">
-              {SOLUTIONS.map((f, i) => (
-                <li key={f.slug} style={vars({ i })}>
-                  <Link href={`/solutions/${f.slug}`} className="hm2-ind-card">
-                    <figure>
-                      <img src={`/sf/ex/${f.img}.jpg`} alt="" loading="lazy" decoding="async" />
-                      <div className="hm2-ind-top">
-                        <small>{f.who}</small>
-                        <b>{f.n}</b>
-                        <span>{f.q.replace("\n", " ")}</span>
-                      </div>
-                    </figure>
-                    <div className="hm2-ind-body">
-                      <div className="hm2-ind-first">
-                        <em>초기 주요 과제</em>
-                        <p>{f.c[0]?.[2]}</p>
-                      </div>
-                      <div className="hm2-ind-flow">
-                        <em>권장 채널 결합 순서</em>
-                        <ol>
-                          {(IND_FLOW[f.slug] ?? []).map((step, idx) => (
-                            <li key={step}>
-                              <i>0{idx + 1}</i>
-                              <span>{step}</span>
-                            </li>
-                          ))}
-                        </ol>
-                      </div>
-                      <span className="hm2-ind-go">
-                        업종별 맞춤 전략 보기 <Icon k="arrow" />
-                      </span>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </ul>
           </div>
         </section>
 

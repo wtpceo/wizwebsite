@@ -230,7 +230,7 @@ export default function Page() {
         <BizContactNote>
           <strong>저희와 같이 시작하신다면</strong>
           <br />
-          과제와 예산 구간을 <a href="/business/contact">기업 제안 요청 양식</a>에 적어 주세요. 이 여섯 단계 가운데
+          과제와 예산 구간을 <a href="/contact">기업 제안 요청 양식</a>에 적어 주세요. 이 여섯 단계 가운데
           어디서 막혀 있는지 확인해 저희가 맡을 범위와 못 하는 일을 적어 회사 메일로 보내 드리겠습니다.
         </BizContactNote>
 

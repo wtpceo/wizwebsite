@@ -10,7 +10,7 @@ export { BIZ_CTA }
 export { CheckItem, Callout } from "@/components/guide/GuideArticle"
 
 // 본문 중간 행동 유도 문단. 글 하단 박스까지 내려가지 않고 떠나는 담당자를 위해 글마다 한 곳에 둔다.
-// 문구 안에 /business/contact 링크를 직접 넣는다(자영업 경로 링크 금지).
+// 문구 안에 /contact 링크를 직접 넣는다(자영업 경로 링크 금지).
 export function BizContactNote({ children }: { children: React.ReactNode }) {
   return (
     <aside className="mt-8 border-l-4 border-[#2A93C2] bg-[#F3F7FB] px-5 py-4 text-base leading-[1.85] text-[#1F2937]">
@@ -20,7 +20,7 @@ export function BizContactNote({ children }: { children: React.ReactNode }) {
 }
 
 // 기업 경로 글 레이아웃. 본문 스타일 규칙은 가이드 글과 같게 두되,
-// CTA는 무료 진단이 아니라 제안 요청(/business/contact)으로만 보낸다.
+// CTA는 무료 진단이 아니라 제안 요청(/contact)으로만 보낸다.
 export default function BizArticle({
   href,
   kicker,
@@ -95,7 +95,7 @@ export default function BizArticle({
             <p>{ctaBody}</p>
           </div>
           <div className="gd-cta-b">
-            <Link className="p1" href="/business/contact">
+            <Link className="p1" href="/contact">
               제안 요청 보내기 <Icon k="arrow" />
             </Link>
           </div>

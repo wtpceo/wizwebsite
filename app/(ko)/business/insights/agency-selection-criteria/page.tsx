@@ -185,7 +185,7 @@ export default function Page() {
         </ul>
 
         <BizContactNote>
-          저희 제안서도 이 네 가지로 보시면 됩니다. 과제와 예산 구간을 <a href="/business/contact">기업 제안 요청 양식</a>에 적어 주시면 저희가 못 하는 일까지 적어서 회신하겠습니다.
+          저희 제안서도 이 네 가지로 보시면 됩니다. 과제와 예산 구간을 <a href="/contact">기업 제안 요청 양식</a>에 적어 주시면 저희가 못 하는 일까지 적어서 회신하겠습니다.
         </BizContactNote>
 
         <h2>레퍼런스는 재현 가능성으로 확인합니다</h2>

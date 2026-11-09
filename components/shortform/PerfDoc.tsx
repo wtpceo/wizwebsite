@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { SERVICES } from "./content"
 import { DETAILS } from "./details"
 import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
@@ -564,7 +563,7 @@ export default function PerfDoc() {
                   <p>전환 반응이 좋은 세로형 소재에 예산을 모으고 예약 랜딩 페이지를 고치겠습니다.</p>
                 </div>
                 <figcaption>
-                  강원도 계곡 펜션 릴스 광고 24일 실측 · <Link href="/guide/case-pension-direct-booking">사례 리포트 보기 →</Link>
+                  강원도 계곡 펜션 릴스 광고 24일 실측
                 </figcaption>
               </figure>
               <ol className="ae-pts">

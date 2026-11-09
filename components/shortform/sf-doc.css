@@ -1427,7 +1427,7 @@ html.sf-anim .sf .perf-media li, html.sf-anim .sf .perf-nums li { opacity: 0; an
 .sf .ix .ix-hero .dp-btns .p1:hover { background: #0041C2; }
 .sf .ix .ix-tel { color: #B3C8FF; }
 /* ② 맡는 범위: 세로 큰 칸 네 장, 배경은 생성 사진 + 남색 그라데이션. PPL(협업 방식)은 파란 기운을 더해 구분 (11-08 대표 「큼지막하게, 이미지 배경으로」) */
-.sf .ix .ix-scope { list-style: none; margin: 36px auto 0; padding: 0; max-width: 1240px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; text-align: left; }
+.sf .ix .ix-scope { list-style: none; margin: 36px auto 0; padding: 0; max-width: 1240px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; text-align: left; }
 .sf .ix .ix-scope li { position: relative; aspect-ratio: 3 / 4; min-height: 480px; border-radius: 20px; overflow: hidden; background: #0A1A33; border: 1px solid rgba(255,255,255,.08); box-shadow: 0 30px 60px -36px rgba(10,26,51,.6); isolation: isolate; }
 .sf .ix .ix-scope-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; transform: scale(1.02); transition: transform .8s cubic-bezier(.23,1,.32,1); }
 .sf .ix .ix-scope li:hover .ix-scope-bg { transform: scale(1.07); }
@@ -1527,7 +1527,6 @@ html.sf-anim .sf .ix .ix-vs-r { opacity: 0; animation: sf-rise .45s cubic-bezier
   .sf .ix .ix-src .ix-th-wide { width: min(420px, 100%); }
   .sf .ix .ix-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .sf .ix .ix-steps li:not(:last-child)::after { display: none; }
-  .sf .ix .ix-scope { grid-template-columns: 1fr 1fr; }
   .sf .ix .ix-scope li { min-height: 380px; }
 }
 @media (max-width: 820px) {
@@ -2948,6 +2947,8 @@ html.sf-anim .sf .gxl .vx-era { animation: sf-rise .6s cubic-bezier(.23,1,.32,1)
 .sf .gxl .geo-chat { opacity: .8; }
 .sf .gxl :is(.geo-stats, .geo-own, .geo-quote, .geo-twice, .geo-serp, .geo-stmt, .geo-reel, .geo-menu, .geo-menu-note, .geo-cmp, .geo-three, .geo-rep, .geo-team, .geo-team-log, .geo-sub-h, .geo-vs, .geo-flow, .geo-media, .geo-steps, .geo-note, .geo-lead) { margin-left: 0; margin-right: 0; text-align: left; }
 .sf .gxl .geo-sec .geo-note { max-width: 48em; }
+/* 11-09 대표: realGEO 화면 묶음은 위플루언서 쪽처럼 칸 전체 폭으로 가운데에 */
+.sf .gxl .geo-reel { max-width: none; }
 .sf .gxl .geo-stats { max-width: none; grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .sf .gxl .geo-sec .geo-stats li:nth-child(5) { grid-column: 1 / -1; }
 .sf .gxl .geo-quote { max-width: 44em; }
@@ -4541,3 +4542,93 @@ html.sf-anim .sf .cx .dp-sec.rv.on :is(.aw-info > div, .aw-note) { animation: sf
 html.sf-anim .sf .cx .dp-sec.rv:not(.on) .aw-facts > div { opacity: 0; }
 html.sf-anim .sf .cx .dp-sec.rv.on .aw-facts > div { animation: sf-rise .6s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.25s + var(--i, 0) * 90ms); }
 @media (max-width: 820px) { .sf .aw-facts > div { grid-template-columns: 84px 1fr; gap: 14px; } }
+
+/* ===== 인플루언서 ③-2 2차 활용처(11-09 대표) — 같은 협업 콘텐츠가 들어간 여섯 화면 ===== */
+.sf .ix .ixu-g { list-style: none; margin: clamp(36px, 4vw, 56px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: auto; gap: 18px; text-align: left; }
+.sf .ix .ixu-g > li { display: flex; flex-direction: column; border-radius: 22px; background: #fff; border: 1px solid #DDE3EA; box-shadow: 0 18px 40px -34px rgba(10,26,51,.4); overflow: hidden; }
+.sf .ix .ixu-web-li { grid-column: span 2; }
+.sf .ix .ixu-shop-li { grid-row: span 2; }
+.sf .ix .ixu-tx { display: grid; gap: 4px; padding: 18px 22px 22px; border-top: 1px solid #EEF1F5; margin-top: auto; }
+.sf .ix .ixu-tx em { font-style: normal; font-family: "PaperlogySF", "PretendardSF", sans-serif; font-size: 14px; font-weight: 900; color: #0055FF; letter-spacing: .04em; }
+.sf .ix .ixu-tx b { font-size: clamp(18px, 1.35vw, 21px); font-weight: 900; color: #0A1A33; letter-spacing: -.02em; }
+.sf .ix .ixu-tx span { font-size: 14.5px; line-height: 1.6; color: #5B6573; word-break: keep-all; }
+.sf .ix .ixu-note { margin: 18px 0 0; font-size: 13.5px; color: #5B6573; }
+.sf .ix .ixu-note .ex { position: static; margin-right: 8px; padding: 3px 9px; border-radius: 999px; background: #0A1A33; color: #fff; font-size: 12px; font-weight: 800; }
+/* 화면 공통 */
+.sf .ix .ixu-m { position: relative; height: 230px; padding: 16px; background: #F2F4F7; overflow: hidden; }
+.sf .ix .ixu-m img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.sf .ix .ixu-m figure { position: relative; margin: 0; overflow: hidden; border-radius: 10px; background: #13264A; }
+.sf .ix .ixu-play { position: absolute; left: 50%; top: 50%; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; background: rgba(10,26,51,.72); }
+.sf .ix .ixu-play::after { content: ""; position: absolute; left: 16px; top: 12px; border-left: 12px solid #fff; border-top: 8px solid transparent; border-bottom: 8px solid transparent; }
+.sf .ix .ixu-btn { display: inline-block; padding: 7px 14px; border-radius: 8px; background: #0055FF; color: #fff; font-size: 12px; font-weight: 800; }
+.sf .ix .ixu-lines, .sf .ix .ixu-web-hero p, .sf .ix .ixu-shop-in p { display: grid; gap: 6px; margin: 0; }
+.sf .ix .ixu-lines i, .sf .ix .ixu-web-hero p i, .sf .ix .ixu-shop-in p i { display: block; height: 6px; border-radius: 3px; background: #DDE3EA; }
+.sf .ix .ixu-lines i:last-child, .sf .ix .ixu-web-hero p i:last-child, .sf .ix .ixu-shop-in p i:last-child { width: 62%; }
+/* 홈페이지 */
+.sf .ix .ixu-web { display: flex; flex-direction: column; padding: 16px 18px 0; }
+.sf .ix .ixu-bar { display: flex; align-items: center; gap: 6px; padding: 9px 12px; border-radius: 10px 10px 0 0; background: #0A1A33; }
+.sf .ix .ixu-bar i { width: 8px; height: 8px; border-radius: 50%; background: #5B8CFF; opacity: .6; }
+.sf .ix .ixu-bar span { margin-left: 10px; padding: 3px 10px; border-radius: 6px; background: rgba(255,255,255,.1); color: #C9D4E6; font-size: 11px; }
+.sf .ix .ixu-web-hero { flex: 1; display: grid; grid-template-columns: 1fr 1.25fr; gap: 16px; align-items: center; padding: 16px; background: #fff; }
+.sf .ix .ixu-web-hero > div { display: grid; gap: 8px; align-content: center; }
+.sf .ix .ixu-web-hero small { font-size: 12px; font-weight: 700; color: #0055FF; }
+.sf .ix .ixu-web-hero b { font-family: "PaperlogySF", "PretendardSF", sans-serif; font-size: 24px; font-weight: 900; color: #0A1A33; }
+.sf .ix .ixu-web-hero .ixu-btn { justify-self: start; margin-top: 4px; }
+.sf .ix .ixu-web-hero figure { height: 150px; }
+/* 쇼핑몰 상세페이지(휴대폰) */
+.sf .ix .ixu-shop { height: auto; flex: 1; display: grid; place-items: center; padding: 22px 16px; background: linear-gradient(180deg, #F2F4F7, #E8EEF8); }
+.sf .ix .ixu-phone { width: min(230px, 100%); border-radius: 26px; padding: 8px; background: #0A1A33; box-shadow: 0 24px 40px -24px rgba(10,26,51,.6); }
+.sf .ix .ixu-phone > figure { height: 220px; border-radius: 18px 18px 6px 6px; }
+.sf .ix .ixu-tag { position: absolute; left: 10px; bottom: 10px; padding: 4px 9px; border-radius: 999px; background: #0055FF; color: #fff; font-size: 11px; font-weight: 800; }
+.sf .ix .ixu-shop-in { display: grid; gap: 8px; padding: 12px 10px 12px; margin-top: 6px; border-radius: 6px 6px 18px 18px; background: #fff; }
+.sf .ix .ixu-shop-in small { font-size: 11px; color: #5B6573; }
+.sf .ix .ixu-shop-in b { font-size: 16px; font-weight: 900; color: #0A1A33; }
+.sf .ix .ixu-shop-rv { display: grid; grid-template-columns: 56px 1fr; gap: 8px; align-items: center; padding: 8px; border-radius: 10px; background: #F2F4F7; }
+.sf .ix .ixu-shop-rv img { height: 40px; border-radius: 6px; }
+.sf .ix .ixu-shop-rv span { font-size: 11.5px; font-weight: 700; color: #0A1A33; line-height: 1.4; }
+.sf .ix .ixu-shop-in .ixu-btn { text-align: center; padding: 9px; }
+/* 지도·플레이스 */
+.sf .ix .ixu-place { display: grid; grid-template-rows: auto 1fr; gap: 10px; }
+.sf .ix .ixu-place-h { display: grid; gap: 2px; padding: 10px 12px; border-radius: 10px; background: #fff; }
+.sf .ix .ixu-place-h b { font-size: 15px; font-weight: 900; color: #0A1A33; }
+.sf .ix .ixu-place-h small { font-size: 11.5px; color: #5B6573; }
+.sf .ix .ixu-place-g { display: grid; grid-template-columns: 1.4fr 1fr; grid-template-rows: 1fr 1fr; gap: 6px; min-height: 0; }
+.sf .ix .ixu-place-g img { border-radius: 8px; min-height: 0; }
+.sf .ix .ixu-place-g img:first-child { grid-row: span 2; }
+.sf .ix .ixu-place-l { position: absolute; left: 26px; bottom: 26px; padding: 4px 9px; border-radius: 999px; background: rgba(10,26,51,.78); color: #fff; font-size: 11px; font-weight: 800; }
+/* 뉴스 */
+.sf .ix .ixu-news { display: grid; grid-template-rows: auto auto 1fr auto; gap: 8px; background: #fff; }
+.sf .ix .ixu-news-h { display: flex; align-items: baseline; justify-content: space-between; padding-bottom: 8px; border-bottom: 2px solid #0A1A33; }
+.sf .ix .ixu-news-h b { font-family: "PaperlogySF", "PretendardSF", sans-serif; font-size: 16px; font-weight: 900; color: #0A1A33; }
+.sf .ix .ixu-news-h small { font-size: 11px; color: #5B6573; }
+.sf .ix .ixu-news-t { margin: 0; font-size: 14px; font-weight: 900; line-height: 1.4; color: #0A1A33; word-break: keep-all; }
+.sf .ix .ixu-news figure { min-height: 0; border-radius: 6px; }
+/* 블로그 */
+.sf .ix .ixu-blog { display: grid; grid-template-rows: auto auto 1fr auto; gap: 8px; background: #fff; }
+.sf .ix .ixu-blog-h { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800; color: #5B6573; }
+.sf .ix .ixu-blog-h i { width: 22px; height: 22px; border-radius: 50%; background: #5B8CFF; }
+.sf .ix .ixu-blog-t { margin: 0; font-size: 15px; font-weight: 900; color: #0A1A33; }
+.sf .ix .ixu-blog figure { min-height: 0; border-radius: 8px; }
+/* 매장 POP */
+.sf .ix .ixu-pop { display: grid; place-items: center; background: linear-gradient(180deg, #E8EEF8, #F2F4F7); }
+.sf .ix .ixu-pop-card { position: relative; width: 132px; height: 178px; border-radius: 6px; overflow: hidden; background: #0A1A33; box-shadow: 0 18px 30px -18px rgba(10,26,51,.55); transform: perspective(500px) rotateY(-8deg); }
+.sf .ix .ixu-pop-card img { position: absolute; inset: 0; }
+.sf .ix .ixu-pop-card > div { position: absolute; left: 0; right: 0; bottom: 0; display: grid; gap: 2px; padding: 22px 10px 10px; background: linear-gradient(transparent, rgba(10,26,51,.92) 45%); }
+.sf .ix .ixu-pop-card small { font-size: 9px; font-weight: 800; letter-spacing: .1em; color: #5B8CFF; }
+.sf .ix .ixu-pop-card b { font-size: 15px; font-weight: 900; color: #fff; }
+.sf .ix .ixu-pop-foot { width: 90px; height: 10px; margin-top: -6px; border-radius: 4px; background: #0A1A33; opacity: .85; }
+/* 모션 */
+html.sf-anim .sf .ix .dp-sec.rv:not(.on) .ixu-g > li { opacity: 0; }
+html.sf-anim .sf .ix .dp-sec.rv.on .ixu-g > li { animation: sf-rise .6s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.2s + var(--i, 0) * 80ms); }
+@media (hover: hover) { .sf .ix .ixu-g > li { transition: transform .35s cubic-bezier(.23,1,.32,1), box-shadow .35s; } .sf .ix .ixu-g > li:hover { transform: translateY(-4px); box-shadow: 0 26px 50px -34px rgba(0,85,255,.4); } }
+@media (max-width: 1100px) {
+  .sf .ix .ixu-g { grid-template-columns: 1fr 1fr; }
+  .sf .ix .ixu-shop-li { grid-row: span 2; }
+}
+@media (max-width: 820px) {
+  .sf .ix .ixu-g { grid-template-columns: 1fr; }
+  .sf .ix .ixu-web-li, .sf .ix .ixu-shop-li { grid-column: auto; grid-row: auto; }
+  .sf .ix .ixu-web-hero { grid-template-columns: 1fr 1.1fr; }
+  .sf .ix .ixu-web-hero b { font-size: 20px; }
+  .sf .ix .ixu-web-hero figure { height: 120px; }
+}

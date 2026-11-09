@@ -1,14 +1,14 @@
 import Link from "next/link"
-import { SERVICES, SOLUTIONS, CHAPTERS, CONTACT } from "./content"
+import { SERVICES, CHAPTERS, CONTACT } from "./content"
 import { Icon } from "./icons"
 
 // 홈(숏폼형)과 새 쪽(서비스·업종별·전문 인력·회사소개)이 같이 쓰는 머리글·메뉴·바닥글·아래 바.
 // home = 장 막대와 「NN / 46」이 붙고 컷 바탕색을 따라 글자색이 바뀐다. doc = 흰 바탕 고정 머리글.
 
-/** 신청 버튼 — 기본은 진단 신청, 기업 경로(/business/*)는 제안 요청(CLAUDE.md 기업 경로 정책) */
+/** 신청 버튼 — 기본은 진단 신청, 기업 경로(/business/*)는 '제안 요청' 이름으로. 11-09 대표: 기업 제안 요청 폼을 문의(/contact)로 합침 */
 export type SfCta = { href: string; label: string }
 const DEFAULT_CTA: SfCta = { href: "/contact", label: "진단 신청" }
-export const BIZ_CTA: SfCta = { href: "/business/contact", label: "제안 요청 보내기" }
+export const BIZ_CTA: SfCta = { href: "/contact", label: "제안 요청 보내기" }
 
 export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; cta?: SfCta }) {
   return (
@@ -52,17 +52,6 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
           </div>
         </div>
         <div className="sfh-it">
-          <Link href="/solutions/local">업종별 전략</Link>
-          <div className="sfh-col">
-            {SOLUTIONS.map((f) => (
-              <Link key={f.slug} href={`/solutions/${f.slug}`}>
-                {f.n}
-              </Link>
-            ))}
-            <Link href="/medical-diagnosis">병원 AI 검색 무료 진단</Link>
-          </div>
-        </div>
-        <div className="sfh-it">
           <Link href="/team">전문팀</Link>
           <div className="sfh-col">
             <Link href="/team">전문팀과 프로세스</Link>
@@ -80,7 +69,7 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
           <Link href="/contact">문의</Link>
           <div className="sfh-col">
             <Link href="/contact">진단 신청</Link>
-            <Link href="/business/contact">기업 제안 요청</Link>
+            <Link href="/medical-diagnosis">병원 AI 검색 무료 진단</Link>
           </div>
         </div>
       </nav>
@@ -122,16 +111,9 @@ export function SfMenu() {
             </Link>
           ))}
         </div>
-        <p className="sfm-h">업종별 전략</p>
-        {SOLUTIONS.map((f) => (
-          <Link key={f.slug} href={`/solutions/${f.slug}`}>
-            {f.n}
-          </Link>
-        ))}
         <p className="sfm-h">인사이트 · 문의</p>
         <Link href="/guide">인사이트 리포트</Link>
         <Link href="/contact">진단 신청</Link>
-        <Link href="/business/contact">기업 제안 요청</Link>
       </div>
     </div>
   )
@@ -163,14 +145,6 @@ export function SfFooter() {
             ))}
           </div>
           <div>
-            <p>업종별 전략</p>
-            {SOLUTIONS.map((f) => (
-              <Link key={f.slug} href={`/solutions/${f.slug}`}>
-                {f.n}
-              </Link>
-            ))}
-          </div>
-          <div>
             <p>인사이트</p>
             <Link href="/guide">인사이트 리포트</Link>
             <Link href="/business/insights">기업 인사이트</Link>
@@ -180,7 +154,6 @@ export function SfFooter() {
           <div>
             <p>문의</p>
             <Link href="/contact">진단 신청</Link>
-            <Link href="/business/contact">기업 제안 요청</Link>
             <Link href="/medical-diagnosis">병원 AI 검색 무료 진단</Link>
           </div>
           <div>

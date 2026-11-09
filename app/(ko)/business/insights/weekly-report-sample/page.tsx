@@ -210,7 +210,7 @@ export default function Page() {
         </p>
 
         <BizContactNote>
-          이 글에 나온 6쪽짜리 보고서는 PDF로 보내 드릴 수 있습니다. <a href="/business/contact">기업 제안 요청 양식</a>으로
+          이 글에 나온 6쪽짜리 보고서는 PDF로 보내 드릴 수 있습니다. <a href="/contact">기업 제안 요청 양식</a>으로
           문의를 주시면 회신 메일에 샘플을 같이 넣어 드리겠습니다.
         </BizContactNote>
 

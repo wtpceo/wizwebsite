@@ -99,7 +99,7 @@ export function FaqBlock({ items, note = "여기 없는 질문은 문의로 남�
   )
 }
 
-export function ContactBlock({ title, sub, label, initial = [], source, pt }: { title: string; sub?: ReactNode; label?: string; initial?: string[]; source: string; pt?: boolean }) {
+export function ContactBlock({ title, sub, label, initial = [], source }: { title: string; sub?: ReactNode; label?: string; initial?: string[]; source: string }) {
   return (
     <section className="dp-ct" id="contact" aria-label="문의하기">
       <div className="dp-w dp-ct-in">
@@ -119,7 +119,7 @@ export function ContactBlock({ title, sub, label, initial = [], source, pt }: { 
             </a>
           </div>
         </div>
-        <SfContactForm initial={initial} source={source} label={label} pt={pt} />
+        <SfContactForm initial={initial} source={source} label={label} />
       </div>
     </section>
   )

@@ -9,19 +9,18 @@ import { INTEREST } from "./content"
 // /contact 쪽 긴 폼은 SfInquiryForm(11-06)
 
 // label: 신청 이름(버튼·폼 이름·메일 머리) — 11-06 대표 카피덱 「진단 신청하기」. language 값은 메일 제목 꼬리표라 그대로 둔다
-/** 요청 유형 두 가지(11-08 대표: 비딩·기업·여러 관계자 앞 발표는 '제안 PT 요청'으로 따로 받고 메일에 표시) */
-const KINDS: [string, string][] = [
-  ["제안 요청", "전담 AE와 사전 미팅을 진행하고 맞춤 제안서를 받아 봅니다"],
-  ["제안 PT 요청", "차기 분기 및 연간 마케팅 예산을 수립하는 자리라면 제안 PT를 요청해 주세요. 의사결정권자와 유관 부서가 함께 자리한 미팅에서 최신 마케팅 트렌드와 위즈더플래닝만의 통합 실행 전략을 직접 발표합니다. 경쟁 비딩 참여도 가능합니다."],
-]
+/** 11-09 대표: '제안 PT 요청' 유형은 빼고, 예산(선택)·홈페이지 링크(선택)·미팅 요청 체크를 넣는다. 예산 구간은 옛 기업 제안 폼과 같다 */
+const BUDGETS = ["월 300만원 미만", "월 300~500만원", "월 500~1,000만원", "월 1,000~3,000만원", "월 3,000만원 이상", "아직 미정"]
 
-export default function SfContactForm({ initial = [], source = "home_shortform", label = "진단 신청하기", pt = false }: { initial?: string[]; source?: string; label?: string; pt?: boolean }) {
+export default function SfContactForm({ initial = [], source = "home_shortform", label = "진단 신청하기" }: { initial?: string[]; source?: string; label?: string }) {
   const [company, setCompany] = useState("")
   const [phone, setPhone] = useState("")
   const [person, setPerson] = useState("") // 담당자명·직책(11-08 대표)
   const [email, setEmail] = useState("")
   const [picked, setPicked] = useState<string[]>(initial)
-  const [kind, setKind] = useState<string>(KINDS[0][0])
+  const [site, setSite] = useState("")
+  const [budget, setBudget] = useState("")
+  const [meeting, setMeeting] = useState(false)
   const [agree, setAgree] = useState(false)
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle")
   const [err, setErr] = useState("")
@@ -31,7 +30,7 @@ export default function SfContactForm({ initial = [], source = "home_shortform",
       const sp = new URLSearchParams(window.location.search)
       const q = sp.get("svc")
       if (q && INTEREST.some(([k]) => k === q)) setPicked((p) => (p.includes(q) ? p : [...p, q]))
-      if (pt && sp.get("pt") === "1") setKind(KINDS[1][0])
+      if (sp.get("meet") === "1") setMeeting(true)
     } catch {}
   }, [])
 
@@ -56,21 +55,25 @@ export default function SfContactForm({ initial = [], source = "home_shortform",
           phone: phone.trim(),
           email: email.trim() || undefined,
           storeName: company.trim(),
+          // 메일 제목 앞에 [예산]이 붙는다(/api/contact)
+          budget: budget || undefined,
           message: [
             source === "home_shortform" ? `[홈 ${label}]` : `[${label} · ${source}]`,
-            pt ? `요청 유형: ${kind}` : "",
+            meeting ? "미팅 요청: 요청함" : "",
             person.trim() ? `담당자: ${person.trim()}` : "",
+            site.trim() ? `홈페이지: ${site.trim()}` : "",
+            budget ? `월 예산: ${budget}` : "",
             `관심분야: ${names.length ? names.join(", ") : "고르지 않음"}`,
           ]
             .filter(Boolean)
             .join("\n"),
-          // 메일 제목 꼬리표: 제안 PT 요청이면 제목에서 바로 보이게
-          language: pt && kind === KINDS[1][0] ? "제안 PT 요청" : source === "home_shortform" ? "홈 무료 상담" : "서비스 쪽 무료 상담",
+          // 메일 제목 꼬리표: 미팅 요청이면 제목에서 바로 보이게
+          language: meeting ? "미팅 요청" : source === "home_shortform" ? "홈 무료 상담" : "서비스 쪽 무료 상담",
         }),
       })
       if (!res.ok) throw new Error("failed")
       // industry 칸은 기업·병원·그 밖을 가르는 값이라 넣지 않는다(서비스 이름은 메일 본문에) · 어느 쪽 폼인지는 GA 쪽 주소로 갈린다
-      trackContactSubmit()
+      trackContactSubmit({ source, budget: budget || undefined })
       setStatus("done")
     } catch {
       setStatus("error")
@@ -89,20 +92,6 @@ export default function SfContactForm({ initial = [], source = "home_shortform",
 
   return (
     <form className="ct-f" onSubmit={submit} noValidate aria-label={label}>
-      {pt ? (
-        <fieldset className="ct-kind">
-          <legend>요청 유형</legend>
-          <div className="ct-kind-g" role="radiogroup" aria-label="요청 유형">
-            {KINDS.map(([k]) => (
-              <label key={k} className={kind === k ? "on" : ""}>
-                <input type="radio" name="kind" value={k} checked={kind === k} onChange={() => setKind(k)} />
-                {k}
-              </label>
-            ))}
-          </div>
-          <p className={`ct-kind-h${kind === KINDS[1][0] ? " pt" : ""}`}>{KINDS.find(([k]) => k === kind)?.[1]}</p>
-        </fieldset>
-      ) : null}
       <label className="ct-l">
         <span>회사명 *</span>
         <input value={company} onChange={(e) => setCompany(e.target.value)} placeholder="회사명을 적어 주세요" autoComplete="organization" />
@@ -123,6 +112,25 @@ export default function SfContactForm({ initial = [], source = "home_shortform",
         </span>
         <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="자료를 받으실 회사 메일" type="email" inputMode="email" autoComplete="email" />
       </label>
+      <label className="ct-l">
+        <span>
+          홈페이지 링크 <small>선택</small>
+        </span>
+        <input value={site} onChange={(e) => setSite(e.target.value)} placeholder="https:// (없으면 비워 두세요)" type="url" inputMode="url" autoComplete="url" />
+      </label>
+      <label className="ct-l">
+        <span>
+          월 예산 <small>선택</small>
+        </span>
+        <select value={budget} onChange={(e) => setBudget(e.target.value)} className={budget ? "" : "ph"}>
+          <option value="">예산 범위를 골라 주세요</option>
+          {BUDGETS.map((b) => (
+            <option key={b} value={b}>
+              {b}
+            </option>
+          ))}
+        </select>
+      </label>
       <fieldset className="ct-s">
         <legend>
           관심 분야 <small>복수 선택</small>
@@ -136,6 +144,13 @@ export default function SfContactForm({ initial = [], source = "home_shortform",
           ))}
         </div>
       </fieldset>
+      <label className={`ct-meet${meeting ? " on" : ""}`}>
+        <input type="checkbox" checked={meeting} onChange={(e) => setMeeting(e.target.checked)} />
+        <span>
+          <b>미팅 요청하기</b>
+          <small>전담 AE와 직접 만나 현황을 듣고 제안을 받아 보시려면 체크해 주세요</small>
+        </span>
+      </label>
       <label className="ct-a">
         <input type="checkbox" checked={agree} onChange={(e) => setAgree(e.target.checked)} />
         <span>
@@ -148,7 +163,7 @@ export default function SfContactForm({ initial = [], source = "home_shortform",
         </p>
       ) : null}
       <button type="submit" className="ct-go" disabled={status === "sending"}>
-        {status === "sending" ? "보내는 중" : pt && kind === KINDS[1][0] ? "제안 PT 요청 보내기" : label}
+        {status === "sending" ? "보내는 중" : label}
       </button>
     </form>
   )
