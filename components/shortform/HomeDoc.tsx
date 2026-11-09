@@ -4,7 +4,6 @@ import { coverFor } from "@/lib/guide-cover"
 import { SERVICES, TEAMS, STEPS, HOME_FAQ, PROBLEM_PINGS, COMPARE, INSIGHT_HREFS, CONTACT } from "./content"
 import { TEAM_PAGE } from "./details"
 import { DocShell, FaqBlock, ContactBlock, JsonLd, faqLd } from "./DocParts"
-import { DeptStage, StepStage } from "./TeamDoc"
 import { Chars, vars } from "./parts"
 import { Icon } from "./icons"
 
@@ -59,6 +58,20 @@ const PROOF_RULES = [
   },
 ]
 
+/** 11-09 대표: 박스 안 문장도 마침표에서 줄을 바꾼다 */
+function Lines({ t }: { t: string }) {
+  const parts = t.split(/(?<=[.?!])\s+/)
+  return (
+    <>
+      {parts.map((x, i) => (
+        <span key={i}>
+          {i > 0 ? <br /> : null}
+          {x}
+        </span>
+      ))}
+    </>
+  )
+}
 export default function HomeDoc() {
   const insights = [
     ...INSIGHT_HREFS.map((h) => GUIDE_ARTICLES.find((a) => a.href === h)).filter(Boolean),
@@ -84,7 +97,7 @@ export default function HomeDoc() {
             </h1>
             <p className="vx-era">2016년부터 · 인하우스 6개 부서 · 1:1 전담 AE</p>
             <p className="dp-lead">
-              광고를 시작하기 전에 브랜드 인지도와 <span className="nw">퍼널의 누수 지점부터 꼼꼼히 짚어봅니다.</span>{" "}
+              <span className="hm2-l1">광고를 시작하기 전에 브랜드 인지도와 퍼널의 누수 지점부터 꼼꼼히 짚어봅니다.</span>{" "}
               <br />
               이 결과를 바탕으로 짠 맞춤 전략을 <span className="nw">제안서로 보내 드립니다.</span>
             </p>
@@ -127,7 +140,11 @@ export default function HomeDoc() {
               </div>
               <div className="gt-side">
                 <p className="geo-lead">
-                  브랜드를 처음 접하는 숏폼부터 포털 평판과 AI 답변(GEO), 전환이 일어나는 웹사이트와 퍼포먼스 광고까지 다룹니다. 이 모든 과정을 인하우스에서 직접 실행합니다.
+                  브랜드를 처음 접하는 숏폼부터 포털 평판과 AI 답변(GEO),{" "}
+                  <br />
+                  전환이 일어나는 웹사이트와 퍼포먼스 광고까지 다룹니다.{" "}
+                  <br />
+                  이 모든 과정을 인하우스에서 직접 실행합니다.
                 </p>
                 <div className="hm2-funnel-tags" aria-label="마케팅 퍼널 영역">
                   <span>
@@ -147,12 +164,19 @@ export default function HomeDoc() {
               {SERVICES.map((s, i) => (
                 <li key={s.k} style={vars({ i })}>
                   <Link href={`/services/${s.slug}`} className="hm2-svc-card">
-                    <figure className="tw-fig-stage">
-                      <DeptStage k={s.k} no={s.no} en={SVC_ROLE[s.k]} />
+                    {/* 11-09 대표: 글자로 짠 화면 대신 회사소개와 같은 3D 그림 */}
+                    <figure className="tw-fig-stage hm2-fig">
+                      <img src={`/sf/gen/hm-svc-${s.k}.jpg`} alt="" width={1200} height={800} loading="lazy" decoding="async" />
+                      <span className="hm2-fig-tag" aria-hidden="true">
+                        <i>{s.no}</i>
+                        {SVC_ROLE[s.k]}
+                      </span>
                     </figure>
                     <div className="hm2-svc-body">
                       <b>{s.n}</b>
-                      <p>{s.ln}</p>
+                      <p>
+                        <Lines t={s.ln} />
+                      </p>
                       <ul className="hm2-svc-chips" aria-label={`${s.n} 세부 항목`}>
                         {s.items.slice(0, 4).map((it) => (
                           <li key={it[0]}>{it[0]}</li>
@@ -183,7 +207,9 @@ export default function HomeDoc() {
               </div>
               <div className="gt-side">
                 <p className="geo-lead">
-                  광고, 바이럴, 촬영을 따로 맡기면 데이터가 끊기고 책임이 흐려집니다. 위즈더플래닝은 전담 AE가 6개 인하우스 부서를 이끌며 하나의 전략과 리포트로 움직입니다.
+                  광고, 바이럴, 촬영을 따로 맡기면 데이터가 끊기고 책임이 흐려집니다.{" "}
+                  <br />
+                  위즈더플래닝은 전담 AE가 6개 인하우스 부서를 이끌며 하나의 전략과 리포트로 움직입니다.
                 </p>
                 <p className="hm-more">
                   <Link href="/team">전담 조직과 협업 구조 자세히 보기 →</Link>
@@ -247,6 +273,13 @@ export default function HomeDoc() {
                     ))}
                   </div>
 
+                  {/* 11-09 대표: 남는 자리에 회사 이름, 회사소개 클로징처럼 빛이 위→닝으로 지나감 */}
+                  <p className="hm2-sign" aria-hidden="true">
+                    <b>
+                      위즈더플래닝<i>.</i>
+                    </b>
+                  </p>
+
                   <div className="hm2-tech">
                     <span>자체 보유 솔루션</span>
                     <b>realGEO (AI 검색 관제 시스템)</b>
@@ -262,37 +295,44 @@ export default function HomeDoc() {
         {/* ⑤ 실측 데이터와 투명한 리포트 체계 */}
         <section className="dp-sec geo-sec rv hm2-proof" id="proof">
           <div className="dp-w">
-            <div className="gt-head">
-              <div>
-                <p className="geo-eb">실측 기반 리포트</p>
-                <h2>
-                  추측과 과장을 덜어낸{" "}
-                  <br />
-                  <span>실측 데이터와 숨김없는 리포트</span>
-                </h2>
+            {/* 11-09 대표: 오른쪽 화면은 제목 줄에 맞추고, 왼쪽 원칙 3개는 화면 아래 끝에 맞춘다 */}
+            <div className="hm2-proof-g hm2-proof-lay">
+              <div className="hm2-proof-l">
+              <div className="gt-head">
+                <div>
+                  <p className="geo-eb">실측 기반 리포트</p>
+                  <h2>
+                    추측과 과장을 덜어낸{" "}
+                    <br />
+                    <span>실측 데이터와 숨김없는 리포트</span>
+                  </h2>
+                </div>
+                <div className="gt-side">
+                  <p className="geo-lead">
+                    ‘노출이 잘되고 있습니다’ 같은 모호한 말 대신 계약 전과 비교해 실제 수치가 어떻게 변했는지 매주·매월 보고합니다.{" "}
+                    <br />
+                    자체 개발한 GEO 관제 시스템과 매체 대시보드 원본 데이터를 기준으로 삼습니다.
+                  </p>
+                  <p className="hm-more">
+                    <Link href="/how-we-measure">자체 개발 GEO 관제 시스템과 측정 방식 보기 →</Link>
+                  </p>
+                </div>
               </div>
-              <div className="gt-side">
-                <p className="geo-lead">
-                  ‘노출이 잘되고 있습니다’ 같은 모호한 말 대신 계약 전과 비교해 실제 수치가 어떻게 변했는지 매주·매월 보고합니다. 자체 개발한 GEO 관제 시스템과 매체 대시보드 원본 데이터를 기준으로 삼습니다.
-                </p>
-                <p className="hm-more">
-                  <Link href="/how-we-measure">자체 개발 GEO 관제 시스템과 측정 방식 보기 →</Link>
-                </p>
-              </div>
-            </div>
 
-            <div className="hm2-proof-g">
               <ol className="hm2-proof-rules">
                 {PROOF_RULES.map((r) => (
                   <li key={r.no}>
                     <em>{r.no}</em>
                     <div>
                       <b>{r.t}</b>
-                      <p>{r.d}</p>
+                      <p>
+                        <Lines t={r.d} />
+                      </p>
                     </div>
                   </li>
                 ))}
               </ol>
+              </div>
 
               <div className="hm2-proof-vis">
                 <figure className="hm2-proof-main">
@@ -303,10 +343,10 @@ export default function HomeDoc() {
                     <em>실제 측정 화면</em>
                   </div>
                   <img
-                    src="/tools/realgeo-dashboard.jpg"
-                    alt="위즈더플래닝 자체 개발 GEO 관제 대시보드 화면"
-                    width={1546}
-                    height={672}
+                    src="/tools/realgeo-client-dashboard.jpg"
+                    alt="realGEO 관제 대시보드 실제 화면(고객사 상호 가림)"
+                    width={730}
+                    height={674}
                     loading="lazy"
                     decoding="async"
                   />
@@ -343,18 +383,26 @@ export default function HomeDoc() {
                 </h2>
               </div>
               <p className="geo-lead">
-                똑같은 패키지는 제안하지 않습니다. 브랜드에 꼭 필요한 채널만 골라 설계하고, 집행 후 지표가 멈춘 구간을 찾아 바로 소재와 구조를 고칩니다.
+                똑같은 패키지는 제안하지 않습니다.{" "}
+                <br />
+                브랜드에 꼭 필요한 채널만 골라 설계하고, 집행 후 지표가 멈춘 구간을 찾아 바로 소재와 구조를 고칩니다.
               </p>
             </div>
             <ol className="cw-proc-g" aria-label="일하는 다섯 단계">
               {STEPS.map((st, i) => (
                 <li key={st.w} style={vars({ i })}>
-                  <figure className="tw-step-fig">
-                    <StepStage idx={i} en={st.en} w={st.w} />
+                  <figure className="tw-step-fig hm2-fig">
+                    <img src={`/sf/gen/hm-step-${st.en.toLowerCase()}.jpg`} alt="" width={1200} height={800} loading="lazy" decoding="async" />
+                    <span className="hm2-fig-tag" aria-hidden="true">
+                      <i>{String(i + 1).padStart(2, "0")}</i>
+                      {st.en}
+                    </span>
                   </figure>
                   <div>
                     <b>{st.w}</b>
-                    <span>{TEAM_PAGE.steps[i]}</span>
+                    <span>
+                      <Lines t={TEAM_PAGE.steps[i]} />
+                    </span>
                   </div>
                 </li>
               ))}
@@ -376,7 +424,9 @@ export default function HomeDoc() {
               </div>
               <div className="gt-side">
                 <p className="geo-lead">
-                  ChatGPT·네이버 AI·구글 검색에서 브랜드가 어떻게 노출되는지 직접 측정했습니다. 실제 캠페인 사례도 익명으로 담았습니다.
+                  ChatGPT·네이버 AI·구글 검색에서 브랜드가 어떻게 노출되는지 직접 측정했습니다.{" "}
+                  <br />
+                  실제 캠페인 사례도 익명으로 담았습니다.
                 </p>
                 <p className="hm-more">
                   <Link href="/guide">인사이트 리포트 전체 보기 →</Link>

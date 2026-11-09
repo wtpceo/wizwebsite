@@ -4831,9 +4831,9 @@ html.sf-anim .sf .cx .dp-sec.rv.on .aw-split-stage { animation: sf-rise .7s cubi
 .sf .aw .aw-close-three span { display: inline-flex; align-items: center; gap: clamp(10px, 1.4vw, 22px); }
 .sf .aw .aw-close-three span + span::before { content: ""; width: clamp(18px, 2.4vw, 40px); height: 2px; border-radius: 2px; background: #5B8CFF; }
 .sf .aw .aw-close-one { margin: clamp(22px, 2.4vw, 36px) 0 0; font-family: "PaperlogySF", "PretendardSF", sans-serif; font-weight: 900; font-size: clamp(44px, 6.4vw, 104px); line-height: 1.08; letter-spacing: -.035em; color: #fff; word-break: keep-all; }
-.sf .aw .aw-close-name { margin: clamp(6px, .8vw, 12px) 0 0; font-family: "PaperlogySF", "PretendardSF", sans-serif; font-weight: 900; font-size: clamp(52px, 8vw, 132px); line-height: 1.04; letter-spacing: -.04em; color: #fff; background: linear-gradient(100deg, #fff 0%, #fff 40%, #9DB8FF 50%, #fff 60%, #fff 100%); background-size: 250% 100%; background-position: 100% 0; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.sf .aw .aw-close-name { margin: clamp(6px, .8vw, 12px) 0 0; font-family: "PaperlogySF", "PretendardSF", sans-serif; font-weight: 900; font-size: clamp(52px, 8vw, 132px); line-height: 1.04; letter-spacing: -.04em; color: #fff; background: linear-gradient(105deg, #fff 0%, #fff 41%, #BFD2FF 45%, #5B8CFF 50%, #BFD2FF 55%, #fff 59%, #fff 100%); background-size: 300% 100%; background-position: 100% 0; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .sf .aw .aw-close-name i { font-style: normal; color: #0055FF; -webkit-text-fill-color: #0055FF; }
-/* 움직임: 세 일은 양옆에서 모이고 → 한 곳에서 → 이름(빛이 한 번 지나감) */
+/* 움직임(.ix .dp-w > * 의 공통 떠오름보다 앞서도록 선택자를 길게 씀): 세 일은 양옆에서 모이고 → 한 곳에서 → 이름(빛이 한 번 지나감) */
 html.sf-anim .sf .aw .aw-close.rv:not(.on) { opacity: 1; transform: none; }
 html.sf-anim .sf .aw .aw-close:not(.on) .aw-close-three span, html.sf-anim .sf .aw .aw-close:not(.on) .aw-close-one, html.sf-anim .sf .aw .aw-close:not(.on) .aw-close-name { opacity: 0; }
 html.sf-anim .sf .aw .aw-close.on .aw-close-three span { animation: aw-gather .9s cubic-bezier(.23,1,.32,1) both; animation-delay: calc(.1s + var(--i) * 90ms); }
@@ -4841,10 +4841,11 @@ html.sf-anim .sf .aw .aw-close.on .aw-close-three span:nth-child(1) { --from: -9
 html.sf-anim .sf .aw .aw-close.on .aw-close-three span:nth-child(2) { --from: 0px; }
 html.sf-anim .sf .aw .aw-close.on .aw-close-three span:nth-child(3) { --from: 90px; }
 @keyframes aw-gather { from { opacity: 0; transform: translate(var(--from, 0), 14px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
-html.sf-anim .sf .aw .aw-close.on .aw-close-one { animation: sf-rise .8s cubic-bezier(.23,1,.32,1) .55s both; }
-html.sf-anim .sf .aw .aw-close.on .aw-close-name { animation: aw-name 1s cubic-bezier(.23,1,.32,1) .85s both, aw-shine 1.8s ease-in-out 1.6s both; }
+html.sf-anim .sf .ix.aw .dp-sec.aw-close.rv.on .dp-w > .aw-close-one { animation: sf-rise .8s cubic-bezier(.23,1,.32,1) .55s both; }
+html.sf-anim .sf .ix.aw .dp-sec.aw-close.rv.on .dp-w > .aw-close-name { animation: aw-name 1s cubic-bezier(.23,1,.32,1) .85s both, aw-shine 4.5s cubic-bezier(.45,0,.25,1) 1.7s infinite; }
 @keyframes aw-name { from { opacity: 0; transform: translateY(26px) scale(.97); letter-spacing: .02em; } to { opacity: 1; transform: none; letter-spacing: -.04em; } }
-@keyframes aw-shine { from { background-position: 100% 0; } to { background-position: 0% 0; } }
+/* 11-09 대표 「위에서 닝까지 빛이 쥬르륵」: 1.4초 동안 왼쪽→오른쪽으로 한 번 지나가고 3초 쉬었다 다시 */
+@keyframes aw-shine { 0% { background-position: 100% 0; } 32%, 100% { background-position: 0% 0; } }
 @media (max-width: 640px) {
   .sf .aw .aw-close { padding: 92px 0; }
   .sf .aw .aw-close-three { flex-direction: column; align-items: center; gap: 8px; }
@@ -4854,3 +4855,44 @@ html.sf-anim .sf .aw .aw-close.on .aw-close-name { animation: aw-name 1s cubic-b
 @media (prefers-reduced-motion: reduce) { .sf .aw .aw-close-ghost { animation: none; } }
 /* 좁은 화면에서는 네 업체 칸이 목록으로 바뀌므로 '연결 끊김' 표지도 감춘다(가운데 원과 겹침) */
 @media (max-width: 820px) { .sf .aw .aw-split-cut { display: none; } }
+@media (prefers-reduced-motion: reduce) { html.sf-anim .sf .ix.aw .dp-sec.aw-close.rv.on .dp-w > .aw-close-name { animation: none; } }
+
+/* 홈 11-09 대표 3차: 부제는 제목 아래로(회사소개와 같게), 문장마다 줄바꿈 · 히어로 부제 첫 문장은 넓은 화면에서 한 줄 */
+.sf .hm2 .gt-head { grid-template-columns: 1fr; gap: 18px; align-items: start; }
+.sf .hm2 .gt-head .geo-lead { max-width: none; margin: 0; }
+.sf .hm2 .gt-head .gt-side { max-width: 52em; }
+@media (min-width: 1024px) { .sf .hm2-hero .dp-lead { max-width: none; } .sf .hm2-hero .hm2-l1 { white-space: nowrap; } }
+/* 6개 부서 박스 아래 남는 자리: 회사 이름에 빛이 '위'에서 '닝'까지 지나감(4.5초마다) */
+.sf .hm2-sign { flex: 1; min-height: 120px; margin: 0; display: flex; align-items: center; justify-content: center; }
+.sf .hm2-sign b { font-family: "PaperlogySF", "PretendardSF", sans-serif; font-weight: 900; font-size: clamp(44px, 4.6vw, 76px); line-height: 1; letter-spacing: -.04em; background: linear-gradient(105deg, #fff 0%, #fff 41%, #BFD2FF 45%, #5B8CFF 50%, #BFD2FF 55%, #fff 59%, #fff 100%); background-size: 300% 100%; background-position: 100% 0; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: aw-shine 4.5s cubic-bezier(.45,0,.25,1) 1s infinite; }
+.sf .hm2-sign i { font-style: normal; -webkit-text-fill-color: #0055FF; color: #0055FF; }
+.sf .hm2-hub .hm2-tech { margin-top: 0; }
+@media (max-width: 760px) { .sf .hm2-sign { min-height: 0; padding: 18px 0 6px; } .sf .hm2-sign b { font-size: 40px; } }
+@media (prefers-reduced-motion: reduce) { .sf .hm2-sign b { animation: none; } }
+/* 홈 서비스·프로세스 카드 윗칸: 3D 그림 + 번호 꼬리표(11-09 대표 「사진조차 텍스트」) */
+.sf .hm2 .hm2-fig { background: #EDF1F7 !important; border-bottom: 1px solid #E3E8EF; }
+.sf .hm2 .hm2-fig img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.23,1,.32,1); }
+.sf .hm2 .hm2-svc-card:hover .hm2-fig img { transform: scale(1.04); }
+.sf .hm2 .hm2-fig-tag { position: absolute; left: 14px; top: 14px; display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px 5px 5px; border-radius: 999px; background: rgba(10,26,51,.86); color: #fff; font-size: 12.5px; font-weight: 800; letter-spacing: -.01em; backdrop-filter: blur(6px); }
+.sf .hm2 .hm2-fig-tag i { font-style: normal; display: inline-grid; place-items: center; min-width: 28px; height: 22px; padding: 0 6px; border-radius: 999px; background: #0055FF; font-size: 12px; font-weight: 900; }
+/* 리포트 섹션(11-09 대표): 오른쪽 화면 윗선 = 제목 윗선, 왼쪽 원칙 3개 아랫선 = 화면 아랫선 */
+.sf .hm2-proof-lay { margin-top: 0; align-items: stretch; }
+@media (max-width: 1023px) { .sf .hm2-proof-lay { grid-template-columns: 1fr; } }
+.sf .hm2-proof-l { display: flex; flex-direction: column; gap: clamp(28px, 3vw, 40px); min-width: 0; }
+.sf .hm2-proof-l .hm2-proof-rules { margin-top: auto; }
+.sf .hm2-proof-lay > .hm2-proof-vis { align-self: start; margin-top: var(--hm2-eb, 0px); }
+@media (max-width: 1023px) { .sf .hm2-proof-lay > .hm2-proof-vis { margin-top: 0; } }
+.sf .hm2-proof-lay > .hm2-proof-vis { align-self: stretch; display: flex; }
+.sf .hm2-proof-lay .hm2-proof-main { flex: 1; display: flex; flex-direction: column; }
+.sf .hm2-proof-lay .hm2-proof-main img { flex: 1 1 0; min-height: 320px; height: auto; object-fit: cover; object-position: left top; }
+.sf .hm2-proof-l .hm2-proof-rules { gap: 12px; }
+.sf .hm2-proof-l .hm2-proof-rules li { padding: 18px 22px; }
+@media (max-width: 1023px) { .sf .hm2-proof-lay .hm2-proof-main img { flex: none; min-height: 0; } }
+/* 작은 제목(geo-eb) 한 줄 높이 + 아래 여백만큼 내려서 화면 윗선을 큰 제목 윗선에 맞춘다 */
+@media (min-width: 1024px) { .sf .hm2-proof-lay > .hm2-proof-vis { margin-top: calc(1.5 * clamp(16px, 1.3vw, 19px) + 20px); } }
+@media (min-width: 1024px) {
+  .sf .hm2-proof-lay { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+  .sf .ix .hm2-proof .hm2-proof-l h2 { font-size: clamp(36px, 3.7vw, 54px); }
+}
+/* 고객사 화면(11-09 대표 「플라잉닥터스로」, 상호 가림): 위 기준으로 채운다 */
+.sf .hm2-proof-lay .hm2-proof-main img { object-position: center top; background: #F6F7F9; }
