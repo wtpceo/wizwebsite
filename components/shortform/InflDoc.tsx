@@ -28,6 +28,98 @@ const SCOPE: [string, string, string, string, boolean][] = [
   ["PPL", "Product Placement", "인기 채널의 콘텐츠 안에 제품이 자연스럽게 들어갑니다.", "/infl/scope-ppl.jpg", false],
 ]
 
+/* 11-09 대표 「실제 유튜브·인스타·틱톡·방송 화면처럼」: 사진 위에 플랫폼 화면 요소를 코드로 얹는다.
+   로고·상표는 넣지 않고, 실적처럼 읽히는 숫자도 넣지 않는다. 카드 아래쪽은 설명 글 자리라 위쪽에만 둔다. */
+const UI_ICON = {
+  heart: "M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2Z",
+  talk: "M4.5 11.5a7.5 7 0 1 1 3.6 6L4.5 19l1.1-3.4a6.8 6.8 0 0 1-1.1-4.1Z",
+  send: "M20.5 4 3.5 10.8l6.6 2.6 2.6 6.6L20.5 4Zm-10.4 9.4 4.6-4.6",
+  share: "M13.5 5.5 20 11.5l-6.5 6v-3.6c-4.6 0-7.4 1.2-9.5 4.6.6-5.3 3.4-9.1 9.5-9.6V5.5Z",
+  save: "M6.5 4.5h11v15l-5.5-4-5.5 4v-15Z",
+  note: "M9 17.5V6.5l10-2v11M9 17.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Zm10-2a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z",
+} as const
+function UiIcon({ d }: { d: keyof typeof UI_ICON }) {
+  return (
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round" aria-hidden="true">
+      <path d={UI_ICON[d]} />
+    </svg>
+  )
+}
+function ScopeUI({ k }: { k: number }) {
+  if (k === 0)
+    return (
+      <div className="ix-ui ix-ui-yt" aria-hidden="true">
+        <p className="ix-ui-thumb">
+          3주 써 보고
+          <br />
+          <mark>솔직하게 말합니다</mark>
+        </p>
+        <i className="ix-ui-play" />
+        <span className="ix-ui-dur">12:08</span>
+        <span className="ix-ui-bar">
+          <i />
+        </span>
+      </div>
+    )
+  if (k === 1)
+    return (
+      <div className="ix-ui ix-ui-ig" aria-hidden="true">
+        <span className="ix-ui-top">릴스</span>
+        <p className="ix-ui-cap">
+          <span>이 색 조합,</span>
+          <br />
+          <span>요즘 제일 많이 찾아요</span>
+        </p>
+        <span className="ix-ui-side">
+          <UiIcon d="heart" />
+          <UiIcon d="talk" />
+          <UiIcon d="send" />
+          <UiIcon d="save" />
+        </span>
+        <span className="ix-ui-who">
+          <i />
+          @brand.nail
+        </span>
+      </div>
+    )
+  if (k === 2)
+    return (
+      <div className="ix-ui ix-ui-tt" aria-hidden="true">
+        <span className="ix-ui-tabs">
+          <span>팔로잉</span>
+          <b>추천</b>
+        </span>
+        <p className="ix-ui-big">
+          불맛
+          <br />
+          미쳤다
+        </p>
+        <span className="ix-ui-side">
+          <i className="ix-ui-av" />
+          <UiIcon d="heart" />
+          <UiIcon d="talk" />
+          <UiIcon d="share" />
+        </span>
+        <span className="ix-ui-tag">
+          <b>@brand.eats</b> #점심메뉴 #불향
+          <em>
+            <UiIcon d="note" /> 오리지널 사운드
+          </em>
+        </span>
+      </div>
+    )
+  return (
+    <div className="ix-ui ix-ui-tv" aria-hidden="true">
+      <span className="ix-ui-notice">간접광고 포함</span>
+      <span className="ix-ui-bug">WIZ</span>
+      <span className="ix-ui-lower">
+        <small>촬영 내내 쓴 바로 그것</small>
+        <b>그 선글라스, 어디 거예요?</b>
+      </span>
+    </div>
+  )
+}
+
 /** 자체 섭외 도구 위플루언서 화면 다섯 장 [제목, 두 줄 설명, 그림, 대체문] — 2026-11-08 로컬에서 찍은 실제 화면. 채널명·얼굴·브랜드명은 흐림 처리(남의 채널 초상·상표) */
 const WIPLU: [string, string, string, string][] = [
   ["채널 찾기: 카테고리·규모·조회율로 거릅니다", "한국 유튜브 채널 6,740곳을 카테고리·구독자·최근 업로드로 거르고,\n최근 영상 10개의 평균 조회수가 구독자의 몇 %인지까지 봅니다.", "/tools/wiplu-youtube.jpg", "위플루언서 유튜브 채널 찾기 화면"],
@@ -226,6 +318,7 @@ export default function InflDoc() {
             {SCOPE.map(([t, en, x, bg, isMedia], i) => (
               <li key={t} className={isMedia ? undefined : "ix-ppl"} style={vars({ i })}>
                 <img className="ix-scope-bg" src={bg} alt="" loading="lazy" width={1400} height={933} />
+                <ScopeUI k={i} />
                 <div className="ix-scope-in">
                   <em>{String(i + 1).padStart(2, "0")}</em>
                   <b>{t}</b>

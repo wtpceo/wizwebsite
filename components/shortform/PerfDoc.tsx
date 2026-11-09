@@ -3,6 +3,7 @@ import { SERVICES } from "./content"
 import { DETAILS } from "./details"
 import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
 import { Chars } from "./parts"
+import { ProofModal } from "./ProofModal"
 import { Icon } from "./icons"
 
 /**
@@ -155,9 +156,23 @@ export default function PerfDoc() {
             </div>
             <div className="dp-veil" aria-hidden="true" />
             <div className="dp-w geo-hero-in">
-              <h1 aria-label="퍼포먼스 광고 대행: 퍼포먼스는 소재 싸움입니다">
+              <h1 aria-label="퍼포먼스 광고 대행: 퍼포먼스는 이제 소재 싸움입니다">
                 <small className="ix-kw">퍼포먼스 광고 대행</small>{" "}
-                <Chars text={"퍼포먼스는\n소재 싸움입니다"} mark="소재 싸움" />
+                {/* 11-09 대표: 「이제」를 교정 부호(V)로 「퍼포먼스는」 뒤에 끼워 「퍼포먼스는 이제 소재 싸움입니다」로 읽히게 */}
+                <span className="px-hl">
+                  <span className="px-l1">
+                    <Chars text="퍼포먼스는" />
+                    <span className="px-ins" aria-hidden="true">
+                      <span className="px-ins-in">
+                        <span className="px-ins-t">이제</span>
+                        <svg className="px-ins-v" viewBox="0 0 40 30" fill="none" aria-hidden="true">
+                          <path d="M4 4 20 26 36 4" />
+                        </svg>
+                      </span>
+                    </span>
+                  </span>{" "}
+                  <Chars text="소재 싸움입니다" start={5} mark="소재 싸움" />
+                </span>
               </h1>
               <ol className="ix-tags" aria-label="맡는 매체">
                 {MEDIA.map(([t, en], i) => (
@@ -200,7 +215,11 @@ export default function PerfDoc() {
                   <span>매체사도 하는 말입니다</span>
                 </h2>
               </div>
-              <p className="pp-note">조사 보고서와 매체사 공식 자료, 기사에서 원문을 확인한 문장과 숫자만 옮겼습니다.</p>
+              <p className="pp-note">
+                조사 보고서와 매체사 공식 자료,{" "}
+                <br />
+                기사에서 원문을 확인한 문장과 숫자만 옮겼습니다.
+              </p>
             </div>
             <div className="pp-grid">
               {/* 49% */}
@@ -223,13 +242,13 @@ export default function PerfDoc() {
                     </li>
                   ))}
                 </ul>
-                <a className="pp-src" href={NCS_URL} target="_blank" rel="noopener noreferrer">
+                <a className="pp-src" href={NCS_URL} target="_blank" rel="noopener noreferrer" data-pm-src={NCS_URL} data-pm-who="NCSolutions 조사 보고서 · 2023" data-pm-title="Five Keys to Advertising Effectiveness" data-pm-embed="0" data-pm-note="광고가 만든 추가 매출을 나눠 보면 소재 49% · 브랜드 21% · 도달 14% · 타겟팅 11% · 노출 시점 5%였습니다." data-pm-why="원문은 미국 소비재 광고를 분석한 영문 PDF 보고서입니다.">
                   「Five Keys to Advertising Effectiveness」 2023 업데이트 · 미국 소비재 광고 분석
                 </a>
               </figure>
 
               {/* 기사 스크랩 */}
-              <a className="pp-card pp-news" href={PROOF[2][3]} target="_blank" rel="noopener noreferrer">
+              <a className="pp-card pp-news" href={PROOF[2][3]} target="_blank" rel="noopener noreferrer" data-pm-src={PROOF[2][3]} data-pm-who="AI매터스 · 2026. 8. 4." data-pm-title="“이제 크리에이티브가 곧 타깃팅이다”">
                 <i className="pp-tape" aria-hidden="true" />
                 <div className="pp-mast">
                   <b>AI매터스</b>
@@ -248,7 +267,7 @@ export default function PerfDoc() {
               </a>
 
               {/* 메타 설정 화면 */}
-              <a className="pp-card pp-meta pp-win" href={PROOF[0][3]} target="_blank" rel="noopener noreferrer">
+              <a className="pp-card pp-meta pp-win" href={PROOF[0][3]} target="_blank" rel="noopener noreferrer" data-pm-src={PROOF[0][3]} data-pm-who="Meta 뉴스룸 · 2025. 4. 23." data-pm-title="Meta Advantage+ 빠르게 이해하기" data-pm-embed="0" data-pm-quote="광고가 전환 가능성이 높은 잠재 고객에게 노출될 수 있도록 지원합니다.">
                 <div className="pp-bar" aria-hidden="true">
                   <i />
                   <i />
@@ -270,7 +289,7 @@ export default function PerfDoc() {
               </a>
 
               {/* 구글 화면 */}
-              <a className="pp-card pp-google pp-win" href={PROOF[1][3]} target="_blank" rel="noopener noreferrer">
+              <a className="pp-card pp-google pp-win" href={PROOF[1][3]} target="_blank" rel="noopener noreferrer" data-pm-src={PROOF[1][3]} data-pm-who="Google Ads 고객센터" data-pm-title="실적 최대화 캠페인에 대한 정보" data-pm-quote={PROOF[1][1]} data-pm-embed="0">
                 <div className="pp-bar" aria-hidden="true">
                   <i />
                   <i />
@@ -304,6 +323,7 @@ export default function PerfDoc() {
               </a>
             </div>
           </div>
+          <ProofModal scope=".px-proof" />
         </section>
 
         {/* ② 진짜 실력(11-08 대표 지시로 「툴은 누구나 같고」 칸을 지우고 새로 넣음). 픽셀 → 전환 추적 → 소재 → 섭외 → GA4 → 그로스 여섯 단계가 계단처럼 올라감.
@@ -316,7 +336,10 @@ export default function PerfDoc() {
               <br />
               <span>실력은 여기서 갈립니다</span>
             </h2>
-            <p className="pk-sub px-sub-w">광고를 켜기 전과 켠 뒤에 사람이 하는 일입니다. 측정이 바로 서야 소재도, 섭외도, 예산도 근거를 갖고 움직입니다.</p>
+            <p className="pk-sub px-sub-w">광고를 켜기 전과 켠 뒤에 사람이 하는 일입니다.{" "}
+              <br className="px-br" />
+              측정이 바로 서야 소재도, 섭외도, 예산도 근거를 갖고 움직입니다.
+            </p>
             {/* 11-08 대표 「대각선 선·계단 박스 아니다」: 선 없앰. 여섯 단계를 측정 → 소재 → 성장 세 기둥으로 묶고 위를 가지런히 */}
             <ol className="sk-cols" aria-label="성과를 만드는 세 묶음, 여섯 단계">
               {PHASES.map(([name, cap, from], pi) => (
@@ -464,11 +487,12 @@ export default function PerfDoc() {
         <section className="pk-dark px-close" aria-labelledby="px-h-close">
           <div className="dp-w">
             <div className="cl-head rv">
-              <p className="pk-k">소재</p>
+              <p className="pk-k">한 팀의 설계</p>
               <h2 id="px-h-close">
-                반응 온 장면이{" "}
+                {/* 11-09 대표: 위 칸이 「한 팀으로 움직이면?」 질문으로 끝나니, 그 답으로 시작 */}
+                각 부서가 한 팀이 되어{" "}
                 <br />
-                <span>다음 촬영이 됩니다</span>
+                <span>설계하는 퍼포먼스</span>
               </h2>
               <p className="cl-sub">
                 팔리는 소재는 광고를 돌려 본 사람이 압니다. 그래서 퍼포먼스팀이 촬영 회의부터 들어가고, 어느 장면에서 반응이 오고 떨어졌는지 <b>숫자로 확인한 뒤 다음 촬영</b>을 짭니다.
@@ -512,7 +536,7 @@ export default function PerfDoc() {
               <h2 id="pk-h-report">
                 전담 AE가 보고하고,{" "}
                 <br />
-                <span>직접 실행합니다</span>
+                <span>직접 설계합니다</span>
               </h2>
             </div>
             <div className="ae-g rv">

@@ -6,6 +6,7 @@ import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, 
 import { Ex, Chars, vars } from "./parts"
 import { Icon } from "./icons"
 import GeoToolReel from "./GeoToolReel"
+import { ProofModal } from "./ProofModal"
 
 /**
  * /services/search — AI 검색 최적화(GEO)·SEO 상세. 2026-11-07 대표 지시로 매체 페이지 중 첫 번째로 새로 짬.
@@ -227,9 +228,11 @@ export default function GeoDoc() {
             <Chars text={"2027년 꼭 해야 할 마케팅,\nGEO 검색엔진 최적화"} mark="GEO" />
           </h1>
           <p className="dp-lead">
-            다만 AI 답변에 뜨기만 해서는 부족합니다. 고객은 AI가 추천한 이름을 <span className="nw">네이버·구글에</span> 다시 쳐서 확인합니다.
+            다만 AI 답변에 뜨기만 해서는 부족합니다.{" "}
+            <br className="gx-br" />
+            고객은 AI가 추천한 이름을 <span className="nw">네이버·구글에</span> 다시 쳐서 확인합니다.
             <br />
-            <b>그래서 저희는 AI 답변과 포털 첫 화면, 두 번의 검증을 같이 잡습니다.</b>
+            <b>그래서 저희는 AI 답변과 포털 첫 화면, 두 번의 <span className="nw">고객 경로를</span> 설계합니다.</b>
           </p>
           <div className="dp-btns">
             <a className="p1" href="#contact">
@@ -253,19 +256,27 @@ export default function GeoDoc() {
               <br />
               <span>고객은 한 번 더 검색합니다</span>
             </h2>
-          </div>
-          <div className="gt-side">
-            <p className="geo-lead">
-              AI 답변에서 브랜드 이름을 알게 된 고객은 거기서 바로 결정하지 않습니다. 네이버·구글에 그 이름을 다시 쳐서 후기와 리뷰로 확인한 뒤에 움직입니다.
+            <p className="geo-lead gt-lead">
+              AI 답변에서 브랜드 이름을 알게 된 고객은 거기서 바로 결정하지 않습니다.{" "}
+              <br className="gx-br" />
+              네이버·구글에 그 이름을 다시 쳐서 후기와 리뷰로 확인한 뒤에 움직입니다.
             </p>
-              <blockquote className="geo-quote">
-                <p>"네이버·구글 같은 검색 엔진으로 정보를 교차 검증하는 사례가 증가"</p>
-                <cite>
-                  <a href="https://www.etnews.com/20261026000292" target="_blank" rel="noopener noreferrer">
-                    전자신문, 2026. 10. 26.
-                  </a>
-                </cite>
+          </div>
+          {/* 11-09 대표 「텍스트만으로 가되 디자인·정렬」: 설명 두 문장을 끊고, 기사 인용은 신문 스크랩 카드로 */}
+          <div className="gt-side gt-side-clip">
+            <figure className="gt-clip">
+              <figcaption className="gt-clip-top">
+                <b>전자신문</b>
+                <span>2026. 10. 26.</span>
+              </figcaption>
+              <blockquote>
+                <p>“네이버·구글 같은 검색 엔진으로 정보를 교차 검증하는 사례가 증가”</p>
               </blockquote>
+              <a className="gt-clip-a" href="https://www.etnews.com/20261026000292" target="_blank" rel="noopener noreferrer" data-pm-src="https://www.etnews.com/20261026000292" data-pm-who="전자신문 · 2026. 10. 26." data-pm-title="“네이버·구글 같은 검색 엔진으로 정보를 교차 검증하는 사례가 증가”">
+                기사 원문 보기 ↗
+              </a>
+            </figure>
+            <ProofModal scope="#twice" />
           </div>
         </div>
         <div className="gt-stage">
