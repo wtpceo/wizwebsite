@@ -43,7 +43,7 @@ export default function PerfBar() {
         }),
       })
       if (!res.ok) throw new Error("failed")
-      trackContactSubmit()
+      trackContactSubmit({ lead: true })
       setStatus("done")
     } catch {
       setStatus("error")

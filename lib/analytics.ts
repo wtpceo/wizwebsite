@@ -16,9 +16,16 @@ declare global {
 
 type EventParams = Record<string, string | number | boolean | undefined>
 
+/** 개발 주소(localhost·127.0.0.1)인지. 11/9 127.0.0.1 시험 제출이 GA4에 섞여 들어가서 막는다(2026-11-10) */
+export function isLocalHost() {
+  if (typeof window === "undefined") return false
+  return /^(localhost|127\.0\.0\.1|\[::1\]|0\.0\.0\.0)$/.test(window.location.hostname)
+}
+
 /** GA4 전송 */
 function gaEvent(eventName: string, params: EventParams = {}) {
   if (typeof window === "undefined" || typeof window.gtag !== "function") return
+  if (isLocalHost()) return
   try {
     window.gtag("event", eventName, {
       // 어느 페이지에서 전환됐는지 — 글별 성과 분석용
@@ -76,8 +83,11 @@ export function trackDiagnosisSubmit(
   )
 }
 
-/** 일반 문의 폼 제출 완료 → Meta `Lead` ★ 주 전환 */
-export function trackContactSubmit(params: { industry?: string; source?: string; budget?: string } = {}) {
+/** 일반 문의 폼 제출 완료 → Meta `Lead` ★ 주 전환
+ *  lead: true 인 폼(새 사이트 국문 상담 폼: /contact, 홈·서비스 쪽 아래 폼)은 GA4 generate_lead(form=contact)도 한 번 더 보낸다.
+ *  대표 결정(2026-11-10): 구글 애즈는 GA4 주요 이벤트(generate_lead)를 가져와 전환으로 쓴다. contact_submit 을 통째로
+ *  주요 이벤트로 바꾸면 소상공인·제휴 폼과 시험 제출이 섞여서, 국문 상담 폼에만 더한다. contact_submit 은 그대로 둔다. */
+export function trackContactSubmit(params: { industry?: string; source?: string; budget?: string; lead?: boolean } = {}) {
   gaEvent("contact_submit", {
     form_type: "general_contact",
     // 기업 / 병원 / 그 밖. 측정 세션이 이 폼에서 기업·병원 문의를 가른다(2026-11-03)
@@ -85,6 +95,14 @@ export function trackContactSubmit(params: { industry?: string; source?: string;
     lead_source: params.source || "미응답",
     lead_budget: params.budget || "미응답",
   })
+  if (params.lead) {
+    gaEvent("generate_lead", {
+      form: "contact",
+      // 직전에 본 페이지. 기업 제안 요청(form=business)과 같은 함수
+      source_path: readSourcePath(),
+      lead_budget: params.budget || "미응답",
+    })
+  }
   fbEvent("Lead", { content_name: "무료 상담 신청", content_category: params.industry || "미응답", lead_budget: params.budget || "미응답" }, true)
 }
 

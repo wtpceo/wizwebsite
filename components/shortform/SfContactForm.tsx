@@ -77,7 +77,7 @@ export default function SfContactForm({ initial = [], source = "home_shortform",
       })
       if (!res.ok) throw new Error("failed")
       // industry 칸은 기업·병원·그 밖을 가르는 값이라 넣지 않는다(서비스 이름은 메일 본문에) · 어느 쪽 폼인지는 GA 쪽 주소로 갈린다
-      trackContactSubmit({ source, budget: budget || undefined })
+      trackContactSubmit({ source, budget: budget || undefined, lead: true })
       setStatus("done")
     } catch {
       setStatus("error")
