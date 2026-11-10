@@ -19,6 +19,13 @@ export default function RootShell({
   return (
     <html lang={lang}>
       <body>
+        {/* 개발 주소에서는 GA4 페이지뷰·이벤트를 끈다(구글 공식 끄기 값). gtag 가 뜨기 전에 먼저 돈다(2026-11-10).
+            <html> 바로 아래에 두면 React 하이드레이션 오류가 나서 <body> 맨 앞에 둔다 */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "if(/^(localhost|127\\.0\\.0\\.1|\\[::1\\]|0\\.0\\.0\\.0)$/.test(location.hostname)){window['ga-disable-G-CF8977QJ2V']=true}",
+          }}
+        />
         {jsonLd && (
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         )}
@@ -28,12 +35,6 @@ export default function RootShell({
         <ChatWidget />
         {/* 전역 무료 진단 팝업(DiagnosisPopup)은 2026-11-03 기업 전용 전환으로 끈다. 파일은 남겨 둔다 */}
       </body>
-      {/* 개발 주소에서는 GA4 페이지뷰·이벤트를 끈다(구글 공식 끄기 값). gtag 가 뜨기 전에 먼저 돈다(2026-11-10) */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: "if(/^(localhost|127\\.0\\.0\\.1|\\[::1\\]|0\\.0\\.0\\.0)$/.test(location.hostname)){window['ga-disable-G-CF8977QJ2V']=true}",
-        }}
-      />
       <GoogleAnalytics gaId="G-CF8977QJ2V" />
       {/* 픽셀 ID가 없으면 렌더되지 않는다 → 환경변수 미설정 시 조용히 비활성 */}
       <MetaPixel pixelId={process.env.NEXT_PUBLIC_META_PIXEL_ID} />

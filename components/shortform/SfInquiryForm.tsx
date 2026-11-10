@@ -10,8 +10,10 @@ import { useFormGuard } from "@/components/forms/FormGuard"
 // 보내는 곳은 다른 폼과 같은 /api/contact(Resend → 대표 메일). /contact?svc=search 로 오면 그 서비스가 골라져 있다.
 
 const WHEN = ["미정", "최대한 빠르게", "1개월 내", "2개월 내", "2개월 이후"]
+// 문의하시는 곳. 옛 상담 폼(contact-form)과 같은 값이라 측정 세션이 GA4 industry 로 기업·병원·그 밖을 가른다(대표 11-10 「추가해」)
+const ORG = ["기업", "병원", "그 밖"]
 
-type Field = "site" | "company" | "phone" | "email" | "person" | "note"
+type Field = "org" | "site" | "company" | "phone" | "email" | "person" | "note"
 
 function Req() {
   return (
@@ -32,6 +34,7 @@ function FieldErr({ msg }: { msg: string }) {
 export default function SfInquiryForm() {
   const { guardFields, guardValues } = useFormGuard()
   const [agency, setAgency] = useState(false)
+  const [org, setOrg] = useState("")
   const [site, setSite] = useState("")
   const [picked, setPicked] = useState<string[]>([])
   const [meeting, setMeeting] = useState(false)
@@ -69,6 +72,7 @@ export default function SfInquiryForm() {
       setErr(msg)
       document.getElementById(`iq-${k}`)?.focus()
     }
+    if (!org) return fail("org", "문의하시는 곳을 골라 주세요.")
     if (!site.trim()) return fail("site", "URL이나 검색 키워드를 입력해 주세요.")
     if (!company.trim()) return fail("company", "회사명을 입력해 주세요.")
     if (phone.replace(/\D/g, "").length < 9) return fail("phone", "연락처를 입력해 주세요.")
@@ -92,6 +96,7 @@ export default function SfInquiryForm() {
           storeName: company.trim(),
           message: [
             "[문의하기]",
+            `구분: ${org}`,
             agency ? "대행사 여부: 대행사(체크함)" : "",
             `URL·검색 키워드: ${site.trim()}`,
             `관심분야: ${names.length ? names.join(", ") : "고르지 않음"}`,
@@ -109,7 +114,7 @@ export default function SfInquiryForm() {
         }),
       })
       if (!res.ok) throw new Error("failed")
-      trackContactSubmit({ lead: true })
+      trackContactSubmit({ industry: org, lead: true })
       setStatus("done")
     } catch {
       setStatus("error")
@@ -134,7 +139,21 @@ export default function SfInquiryForm() {
       </p>
       <div className="iq-cols">
         <div className="iq-col">
-          <fieldset>
+          <fieldset className="iq-org">
+            <legend>
+              문의하시는 곳 <Req />
+            </legend>
+            <div className="iq-rd" role="radiogroup" aria-required="true" aria-invalid={bad === "org"}>
+              {ORG.map((o, i) => (
+                <label key={o} className="iq-c">
+                  <input id={i === 0 ? "iq-org" : undefined} type="radio" name="iq-org" checked={org === o} onChange={() => setOrg(o)} />
+                  {o}
+                </label>
+              ))}
+            </div>
+            {bad === "org" ? <FieldErr msg={err} /> : null}
+          </fieldset>
+          <fieldset className="iq-line">
             <legend>대행사 여부</legend>
             <label className="iq-c">
               <input type="checkbox" checked={agency} onChange={(e) => setAgency(e.target.checked)} />
