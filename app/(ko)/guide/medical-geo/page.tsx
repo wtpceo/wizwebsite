@@ -178,7 +178,7 @@ export default function Page() {
           <a href="/guide/check-hospital-ai-visibility">원장님이 5분 만에 직접 확인하는 법</a>으로 먼저
           보시고, 직접 볼 시간이 없으시면 <a href="/medical-diagnosis">병원 무료 AI 검색 진단</a>을 신청해 주세요.
           맡기는 쪽을 검토하신다면{" "}
-          <a href="/medical-geo-agency">병원 GEO 대행 안내</a>에서 진행 순서와 주간 보고 방식을
+          <a href="/medical-geo-agency">병원 GEO 대행 안내</a>에서 진행 순서와 월간 보고 방식을
           확인하세요.
         </p>
         <p>

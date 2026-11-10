@@ -228,7 +228,7 @@ export default function Page() {
           <Link href="/medical-geo-agency" className="font-bold text-emerald-600 underline-offset-4 hover:underline">
             병원 GEO 대행 안내
           </Link>
-          에 진행 순서와 주간 보고 방식을 적어 두었습니다.
+          에 진행 순서와 월간 보고 방식을 적어 두었습니다.
         </p>
         <p>
           치과에 국한하지 않고 GEO 자체가 무엇인지, 어떤 순서로 진행하는지 먼저 보고 싶으시면{" "}
