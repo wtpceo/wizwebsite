@@ -460,8 +460,13 @@ export default function TeamDoc() {
               {TEAMS.map(([k, n, jobs, en], i) => (
                 <li key={n} className="rv" style={vars({ i })}>
                   <Link href={`/services/${slug(k)}`}>
-                    <figure className="tw-fig-stage">
-                      <DeptStage k={k} no={String(i + 1).padStart(2, "0")} en={en} />
+                    {/* 11-10 대표 「박스 사진칸이 안 들어감 · AI 사진 말고 3D로」: 도식(DeptStage) 대신 홈 서비스 카드와 같은 3D 그림 */}
+                    <figure className="tw-ph">
+                      <img src={`/sf/gen/hm-svc-${k}.webp`} alt="" width={800} height={533} loading="lazy" decoding="async" />
+                      <span className="tw-ph-tag" aria-hidden="true">
+                        <i>{String(i + 1).padStart(2, "0")}</i>
+                        {en}
+                      </span>
                     </figure>
                     <div>
                       <em>{en}</em>
@@ -500,8 +505,12 @@ export default function TeamDoc() {
             <ol className="cw-proc-g" aria-label="일하는 다섯 단계">
               {STEPS.map((st, i) => (
                 <li key={st.w} style={vars({ i })}>
-                  <figure className="tw-step-fig">
-                    <StepStage idx={i} en={st.en} w={st.w} />
+                  <figure className="tw-ph tw-ph-step">
+                    <img src={`/sf/gen/hm-step-${st.en.toLowerCase()}.webp`} alt="" width={800} height={533} loading="lazy" decoding="async" />
+                    <span className="tw-ph-tag" aria-hidden="true">
+                      <i>{String(i + 1).padStart(2, "0")}</i>
+                      {st.en}
+                    </span>
                   </figure>
                   <div>
                     <b>{st.w}</b>

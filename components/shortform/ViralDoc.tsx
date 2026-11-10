@@ -36,20 +36,21 @@ const PATH: [string, string, string, string[], "search" | "viral" | "chat" | "pe
 
 /** 세부 상품 사진 */
 const PROD_IMG: Record<string, string> = {
-  "블로그 상위노출": "/sf/pf/w3.jpg",
-  "블로그 체험단": "/sf/ex/fnb-dessert.jpg",
-  "기자단": "/sf/gen/viral-reporter.jpg",
-  "커뮤니티 바이럴": "/sf/ex/m-phone.jpg",
-  "언론 보도자료 배포": "/sf/gen/viral-press.jpg",
-  "온라인 평판 관리": "/sf/gen/viral-reputation.jpg",
+  "블로그 상위노출": "/sf/gen/c3-viral-prod-1.webp",
+  "블로그 체험단": "/sf/gen/c3-viral-prod-2.webp",
+  "기자단": "/sf/gen/c3-viral-prod-3.webp",
+  "커뮤니티 바이럴": "/sf/gen/c3-viral-prod-4.webp",
+  "언론 보도자료 배포": "/sf/gen/c3-viral-prod-5.webp",
+  "온라인 평판 관리": "/sf/gen/c3-viral-prod-6.webp",
 }
 
 /** 검색 담당과 같이 두 칸 사진·표시 */
-const DIFF_IMG = ["/sf/gen/sol-local.jpg", "/sf/img/report.jpg"]
+// 11-10 대표 「AI 사진 말고 3D로」: 세부 서비스·이유·단계 카드 그림을 홈과 같은 3D 그림으로 바꿨다(public/sf/gen/c3-*.webp)
+const DIFF_IMG = ["/sf/gen/c3-viral-diff-1.webp", "/sf/gen/c3-viral-diff-2.webp"]
 const DIFF_TAGS = [["지도", "AI 검색", "통합 키워드 설계"], ["노출 위치 캡처 리포트"]]
 
 /** 진행 순서 사진 */
-const PROC_IMG = ["/sf/gen/viral-keyword.jpg", "/sf/gen/viral-guide.jpg", "/sf/gen/home-faq.jpg", "/sf/gen/global-report.jpg"]
+const PROC_IMG = ["/sf/gen/c3-viral-proc-1.webp", "/sf/gen/c3-viral-proc-2.webp", "/sf/gen/c3-viral-proc-3.webp", "/sf/gen/c3-viral-proc-4.webp"]
 
 /** 같이 하면 사진 */
 const PAIR_IMG: Record<string, string> = { search: "/geo/media-ai.jpg", infl: "/sf/pf/infl-food.jpg" }

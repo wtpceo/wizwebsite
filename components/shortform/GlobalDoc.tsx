@@ -30,11 +30,12 @@ const LANDS: [string, string, string, string[]][] = [
 ]
 
 /** 국내 팀과 같이 세 칸 사진·표시 */
-const DIFF_IMG = ["/sf/gen/global-meeting.jpg", "/sf/ex/m-shoot.jpg", "/sf/ex/palace.jpg"]
+// 11-10 대표 「AI 사진 말고 3D로」: 세부 서비스·이유·단계 카드 그림을 홈과 같은 3D 그림으로 바꿨다(public/sf/gen/c3-*.webp)
+const DIFF_IMG = ["/sf/gen/c3-global-diff-1.webp", "/sf/gen/c3-global-diff-2.webp", "/sf/gen/c3-global-diff-3.webp"]
 const DIFF_TAGS = [["국내", "해외", "통합 리포트"], ["국내 촬영 원본 활용"], ["방한 핵심 상권 분석"]]
 
 /** 진행 순서 사진 */
-const PROC_IMG = ["/sf/gen/global-translate.jpg", "/sf/ex/shop.jpg", "/geo/media-unbox.jpg", "/sf/gen/global-report.jpg"]
+const PROC_IMG = ["/sf/gen/c3-global-proc-1.webp", "/sf/gen/c3-global-proc-2.webp", "/sf/gen/c3-global-proc-3.webp", "/sf/gen/c3-global-proc-4.webp"]
 
 /** 같이 하면 사진 */
 const PAIR_IMG: Record<string, string> = { infl: "/sf/pf/infl-fashion.jpg", search: "/geo/media-ai.jpg" }

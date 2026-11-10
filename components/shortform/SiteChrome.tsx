@@ -94,26 +94,65 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
 
 export function SfMenu() {
   return (
+    // 11-10 대표 「메뉴 눌렀을 때 인터페이스 이게 맞나」: 뒤 화면이 비치던 반투명 판을 불투명 남색으로, 머리글과 같은 자리에 로고·닫기,
+    // 서비스는 두 줄로 꺾이던 2칸을 아이콘이 붙은 한 줄 목록으로, 빠져 있던 메뉴(기업 인사이트·WIZ Theater·측정 방식·병원 진단)를 넣고 아래에 전화·진단 버튼.
     <div className="sfm" id="sfm" hidden>
-      <div className="sfm-in">
+      <div className="sfm-top">
+        <Link className="sfm-logo" href="/" aria-label="위즈더플래닝 홈">
+          <i aria-hidden="true" />
+          <b>WIZ THE PLANNING</b>
+        </Link>
         <button type="button" className="sfm-x" id="sfmX" aria-label="메뉴 닫기">
           <Icon k="close" />
         </button>
-        <p className="sfm-h">회사</p>
-        <Link href="/about">위즈더플래닝 소개</Link>
-        <Link href="/team">전문팀 · 프로세스</Link>
-        <Link href="/about#location">오시는 길</Link>
-        <p className="sfm-h">서비스</p>
-        <div className="sfm-g">
-          {SERVICES.map((s) => (
-            <Link key={s.k} href={`/services/${s.slug}`}>
-              {s.n}
-            </Link>
-          ))}
+      </div>
+      <nav className="sfm-in" aria-label="전체 메뉴">
+        <div className="sfm-sec">
+          <p className="sfm-h">서비스</p>
+          <div className="sfm-svc">
+            {SERVICES.map((s) => (
+              <Link key={s.k} href={`/services/${s.slug}`}>
+                <span className="ic" aria-hidden="true">
+                  <Icon k={s.k} />
+                </span>
+                <b>{s.n}</b>
+                <Icon k="arrow" />
+              </Link>
+            ))}
+          </div>
         </div>
-        <p className="sfm-h">인사이트 · 문의</p>
-        <Link href="/guide">인사이트 리포트</Link>
-        <Link href="/contact">진단 신청</Link>
+        <div className="sfm-sec">
+          <p className="sfm-h">회사</p>
+          <div className="sfm-row">
+            <Link href="/about">위즈더플래닝 소개</Link>
+            <Link href="/team">전문팀 · 프로세스</Link>
+            <Link href="/about#location">오시는 길</Link>
+          </div>
+        </div>
+        <div className="sfm-sec sfm-2">
+          <div>
+            <p className="sfm-h">인사이트</p>
+            <Link href="/guide">인사이트 리포트</Link>
+            <Link href="/business/insights">기업 인사이트</Link>
+            <Link href="/theater">WIZ Theater</Link>
+            <Link href="/how-we-measure">측정 방식</Link>
+          </div>
+          <div>
+            <p className="sfm-h">문의</p>
+            <Link href="/contact">진단 신청</Link>
+            <Link href="/medical-diagnosis">병원 AI 검색 무료 진단</Link>
+          </div>
+        </div>
+      </nav>
+      <div className="sfm-cta">
+        <a href={CONTACT.telHref} data-tel>
+          <Icon k="phone" />
+          {CONTACT.tel}
+        </a>
+        <Link href="/contact" className="p">
+          진단 신청
+          <Icon k="arrow" />
+        </Link>
       </div>
     </div>
   )

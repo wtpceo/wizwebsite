@@ -34,12 +34,12 @@ const FLOW: [string, string, string][] = [
 
 /** 세부 상품 사진 — 저희 촬영분 위주 */
 const PROD_IMG: Record<string, string> = {
-  "브랜디드 바이럴 영상": "/geo/media-unbox.jpg",
-  "숏폼 제작": "/sf/v/r15.jpg",
-  "방송·드라마 PPL": "/sf/ex/m-shoot.jpg",
-  "모델 캐스팅": "/sf/ex/makeup.jpg",
-  "SNS 채널 운영": "/sf/ex/m-reel.jpg",
-  "제품·공간 포토그래피": "/sf/gen/content-product.jpg",
+  "브랜디드 바이럴 영상": "/sf/gen/c3-content-prod-1.webp",
+  "숏폼 제작": "/sf/gen/c3-content-prod-2.webp",
+  "방송·드라마 PPL": "/sf/gen/c3-content-prod-3.webp",
+  "모델 캐스팅": "/sf/gen/c3-content-prod-4.webp",
+  "SNS 채널 운영": "/sf/gen/c3-content-prod-5.webp",
+  "제품·공간 포토그래피": "/sf/gen/c3-content-prod-6.webp",
 }
 
 /** 숏폼 목록 [파일, 이름표, 예시 여부, 화면 자막] — 11-08 대표 「예시 영상도 자막 넣어 위 목록에 섞어」.
@@ -73,7 +73,8 @@ const PHOTOS: [string, string][] = [
 ]
 
 /** 자체 촬영팀 두 칸 사진·표시 */
-const DIFF_IMG = ["/geo/media-crew.jpg", "/sf/gen/content-meet.jpg"]
+// 11-10 대표 「AI 사진 말고 3D로」: 세부 서비스·이유·단계 카드 그림을 홈과 같은 3D 그림으로 바꿨다(public/sf/gen/c3-*.webp)
+const DIFF_IMG = ["/sf/gen/c3-content-diff-1.webp", "/sf/gen/c3-content-diff-2.webp"]
 const DIFF_TAGS = [
   ["광고", "블로그", "지도", "홈페이지"],
   ["퍼포먼스팀 촬영 회의 참여"],
@@ -81,7 +82,7 @@ const DIFF_TAGS = [
 
 /** 진행 순서 사진 */
 /* 11-09 대표: 진행 순서 네 칸은 홈·회사소개와 같은 3D 그림으로 */
-const PROC_IMG = ["/sf/gen/content-step-plan.jpg", "/sf/gen/content-step-shoot.jpg", "/sf/gen/content-step-edit.jpg", "/sf/gen/content-step-report.jpg"]
+const PROC_IMG = ["/sf/gen/c3-content-proc-1.webp", "/sf/gen/c3-content-proc-2.webp", "/sf/gen/c3-content-proc-3.webp", "/sf/gen/c3-content-proc-4.webp"]
 
 /** 같이 하면 사진 */
 const PAIR_IMG: Record<string, string> = { infl: "/sf/pf/infl-beauty.jpg", perf: "/sf/ex/m-shop.jpg" }

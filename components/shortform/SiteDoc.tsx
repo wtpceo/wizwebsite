@@ -32,18 +32,19 @@ const FACTS: [string, string][] = [
 
 /** 세부 상품 사진 */
 const PROD_IMG: Record<string, string> = {
-  "신규 구축": "/sf/gen/home-sitemap.jpg",
-  "정보 고도화": "/sf/ex/dental.jpg",
-  "월간 유지관리": "/sf/ex/m-phone.jpg",
-  "FAQ·콘텐츠 발행": "/sf/gen/home-faq.jpg",
+  "신규 구축": "/sf/gen/c3-site-prod-1.webp",
+  "정보 고도화": "/sf/gen/c3-site-prod-2.webp",
+  "월간 유지관리": "/sf/gen/c3-site-prod-3.webp",
+  "FAQ·콘텐츠 발행": "/sf/gen/c3-site-prod-4.webp",
 }
 
 /** 검색 팀과 같이 네 칸 사진·표시 */
-const DIFF_IMG = ["/tools/realgeo-site-audit.jpg", "/sf/gen/sol-local.jpg", "/sf/gen/sol-growth.jpg", "/sf/gen/home-code.jpg"]
+// 11-10 대표 「AI 사진 말고 3D로」: 세부 서비스·이유·단계 카드 그림을 홈과 같은 3D 그림으로 바꿨다(public/sf/gen/c3-*.webp)
+const DIFF_IMG = ["/sf/gen/c3-site-diff-1.webp", "/sf/gen/c3-site-diff-2.webp", "/sf/gen/c3-site-diff-3.webp", "/sf/gen/c3-site-diff-4.webp"]
 const DIFF_TAGS = [["구조화 데이터", "FAQ 콘텐츠"], ["지도 플랫폼 정보 일치"], ["오픈 후 노출 재측정"], ["기존 URL 검색 이력 보존"]]
 
 /** 진행 순서 사진 */
-const PROC_IMG = ["/sf/gen/home-wire.jpg", "/sf/gen/home-design.jpg", "/sf/gen/home-build.jpg", "/sf/gen/home-launch.jpg"]
+const PROC_IMG = ["/sf/gen/c3-site-proc-1.webp", "/sf/gen/c3-site-proc-2.webp", "/sf/gen/c3-site-proc-3.webp", "/sf/gen/c3-site-proc-4.webp"]
 
 /** 같이 하면 사진 */
 const PAIR_IMG: Record<string, string> = { search: "/geo/media-ai.jpg", content: "/sf/ex/m-shoot.jpg" }
