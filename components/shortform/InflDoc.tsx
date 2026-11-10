@@ -539,7 +539,7 @@ export default function InflDoc() {
           sub={
             <>
               크리에이터가 찍은 영상과 사진을 홈페이지, 쇼핑몰 상세페이지, 지도, 기사, 블로그, 매장 POP에 다시 씁니다.{" "}
-              <span className="nw">어디에 얼마 동안 쓸지는 섭외 계약 때 크리에이터와 미리 정합니다.</span>
+              <span className="nw nw-d">어디에 얼마 동안 쓸지는 섭외 계약 때 크리에이터와 미리 정합니다.</span>
             </>
           }
         >

@@ -270,7 +270,7 @@ export default function GeoDoc() {
                 <p>“네이버·구글 같은 검색 엔진으로 정보를 교차 검증하는 사례가 증가”</p>
               </blockquote>
               <a className="gt-clip-a" href="https://www.etnews.com/20261026000292" target="_blank" rel="noopener noreferrer" data-pm-src="https://www.etnews.com/20261026000292" data-pm-who="전자신문 · 2026. 10. 26." data-pm-title="“네이버·구글 같은 검색 엔진으로 정보를 교차 검증하는 사례가 증가”">
-                기사 원문 보기 ↗
+                기사 원문 보기 ↗
               </a>
             </figure>
             <ProofModal scope="#twice" />
@@ -444,7 +444,7 @@ export default function GeoDoc() {
                 둘 다 쓰는 사람 <b>1,646만 명</b>
                 <span>1년 새 41.9% 늘었습니다</span>
               </p>
-              <span className="pp-src">전자신문 · 2026. 10. 26. 원문 보기 ↗</span>
+              <span className="pp-src">전자신문 · 2026. 10. 26. 원문 보기 ↗</span>
             </a>
 
             <a className="pp-card pp-news gw-news" href={PRESS[0][5]} target="_blank" rel="noopener noreferrer" data-pm-src={PRESS[0][5]} data-pm-who="한국경제 · 2026. 11. 4." data-pm-title="9월 챗GPT 앱 월간 사용자 2,470만 명" data-pm-note={PRESS[0][6]}>
@@ -463,7 +463,7 @@ export default function GeoDoc() {
                 <i />
                 <i />
               </div>
-              <span className="pp-read">기사 원문 보기 ↗</span>
+              <span className="pp-read">기사 원문 보기 ↗</span>
             </a>
 
             <a className="pp-card pp-win gw-google" href={PRESS[1][5]} target="_blank" rel="noopener noreferrer" data-pm-src={PRESS[1][5]} data-pm-who="구글코리아 블로그 · 2026. 8. 12." data-pm-title="제미나이 앱 월간 이용자 10억 명" data-pm-note={PRESS[1][6]} data-pm-embed="0">
@@ -478,7 +478,7 @@ export default function GeoDoc() {
                 10<small>억 명</small>
               </p>
               <p className="gw-txt">제미나이 앱 월간 활성 이용자가 10억 명을 넘었다고 구글이 공식 블로그에서 밝혔습니다.</p>
-              <span className="pp-src">구글코리아 블로그 ↗</span>
+              <span className="pp-src">구글코리아 블로그 ↗</span>
             </a>
 
             <a className="pp-card gw-report" href={PRESS[2][5]} target="_blank" rel="noopener noreferrer" data-pm-src={PRESS[2][5]} data-pm-who="파이낸셜투데이 · 2026. 6. 3." data-pm-title="2025년 부가통신사업 실태조사" data-pm-note={PRESS[2][6]} data-pm-embed="0">
@@ -495,7 +495,7 @@ export default function GeoDoc() {
                   <b>60%</b>
                 </li>
               </ul>
-              <span className="pp-src">「2025년 부가통신사업 실태조사」, 파이낸셜투데이 · 2026. 6. 3. ↗</span>
+              <span className="pp-src">「2025년 부가통신사업 실태조사」, 파이낸셜투데이 · 2026. 6. 3. ↗</span>
             </a>
 
             <div className="pp-card gw-own" aria-label="저희 사이트 실측값">

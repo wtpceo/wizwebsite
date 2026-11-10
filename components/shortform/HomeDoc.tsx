@@ -95,7 +95,7 @@ export default function HomeDoc() {
               <small className="ix-kw">IMC 통합 마케팅 대행 · 위즈더플래닝</small>{" "}
               <Chars text={"당신의 브랜드를 분석한\n제안서부터 받아 보세요"} mark="분석한" />
             </h1>
-            <p className="vx-era">2016년부터 · 인하우스 6개 부서 · 1:1 전담 AE</p>
+            <p className="vx-era">2016년부터 · 인하우스 6개 부서 · <span className="nw">1:1 전담 AE</span></p>
             <p className="dp-lead">
               <span className="hm2-l1">광고를 시작하기 전에 브랜드 인지도와 퍼널의 누수 지점부터 꼼꼼히 짚어봅니다.</span>{" "}
               <br />

@@ -260,7 +260,7 @@ export default function PerfDoc() {
                   <i />
                   <i />
                 </div>
-                <span className="pp-read">기사 원문 보기 ↗</span>
+                <span className="pp-read">기사 원문 보기 ↗</span>
               </a>
 
               {/* 메타 설정 화면 */}
@@ -282,7 +282,7 @@ export default function PerfDoc() {
                   ))}
                 </div>
                 <blockquote>“광고가 전환 가능성이 높은 잠재 고객에게 노출될 수 있도록 지원합니다.”</blockquote>
-                <span className="pp-src">Meta 뉴스룸 「Meta Advantage+ 빠르게 이해하기」 ↗</span>
+                <span className="pp-src">Meta 뉴스룸 「Meta Advantage+ 빠르게 이해하기」 ↗</span>
               </a>
 
               {/* 구글 화면 */}
@@ -301,7 +301,7 @@ export default function PerfDoc() {
                   ))}
                 </ul>
                 <blockquote>“목표에 따라 자동으로 최적화되어 최적의 전환과 가치를 창출합니다.”</blockquote>
-                <span className="pp-src">Google Ads 고객센터 ↗</span>
+                <span className="pp-src">Google Ads 고객센터 ↗</span>
               </a>
 
               {/* 11% */}

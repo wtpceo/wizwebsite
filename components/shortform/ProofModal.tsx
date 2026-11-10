@@ -60,7 +60,7 @@ export function ProofModal({ scope }: { scope: string }) {
             <b id="pm-title">{doc.title}</b>
           </div>
           <a className="pm-open" href={doc.src} target="_blank" rel="noopener noreferrer">
-            원문 사이트에서 열기 ↗
+            원문 사이트에서 열기 ↗
           </a>
           <button ref={closeRef} type="button" className="pm-x" onClick={() => setDoc(null)} aria-label="닫기">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
