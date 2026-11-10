@@ -13,6 +13,14 @@ export type BizArticle = {
 
 export const BUSINESS_ARTICLES: BizArticle[] = [
   {
+    href: "/business/insights/imc-marketing",
+    kicker: "기업 마케팅 · IMC",
+    title: "IMC 마케팅이란: 뜻과 전략 수립 5단계, 실무 예시까지",
+    desc: "IMC 마케팅은 광고, 인플루언서, 콘텐츠, 검색에 하나의 캠페인 메시지를 같게 가져가는 방식입니다. IMC 뜻과 전략 수립 5단계, 측정 기준을 정하는 법을 실무 기록으로 정리했습니다.",
+    date: "2026. 11. 10",
+    cover: "/covers/business-imc-marketing.jpg",
+  },
+  {
     href: "/business/insights/enterprise-geo-adoption",
     kicker: "도입 준비",
     title: "기업 GEO 도입 순서: 법무·홍보 검토부터 보고 체계까지 6단계",

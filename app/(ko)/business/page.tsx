@@ -336,6 +336,11 @@ export default function Page() {
             <h2 className="text-xl font-extrabold tracking-tight text-gray-900 md:text-2xl">기업 마케팅 실무 인사이트</h2>
             <p className="mt-3 text-sm leading-relaxed text-gray-600 md:text-base">
               대행사 선정 기준, RFP 작성법, 예산 편성 및 성과 측정 등 의사결정에 필요한 실무 가이드를 다룹니다.
+              IMC가 처음이라면{" "}
+              <Link href="/business/insights/imc-marketing" className="font-semibold text-gray-900 underline underline-offset-4">
+                IMC 마케팅의 뜻과 전략 수립 5단계
+              </Link>
+              부터 보시면 됩니다.
             </p>
             <Link href="/business/insights" className="mt-5 inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-bold text-gray-900 hover:border-gray-400">
               기업 마케팅 인사이트 보기 <ArrowRight className="h-4 w-4" />
