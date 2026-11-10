@@ -5251,3 +5251,23 @@ html.sf-anim .sf .tw .dp-sec.rv.on :is(.tw-node, .tw-core, .cw-proc-g li, .tw-re
 @media (max-width: 820px) {
   .sf .hm2-node-tx span { white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.45; }
 }
+/* 홈 '진행 4단계' 카드(11-10 대표 모바일 화면 지적): 820px 이하에선 공통 규칙이 그림 120px + 글 두 칸으로 바꾸는데,
+   홈 그림 안 '01 Diagnose' 꼬리표가 120px보다 넓어 그림이 칸 밖으로 밀려 글을 덮었다. 홈은 그림 위·글 아래로 쌓는다 */
+@media (max-width: 820px) {
+  .sf .hm2 .cw-proc-g li { display: flex; flex-direction: column; }
+  .sf .hm2 .cw-proc-g .hm2-fig { aspect-ratio: 16 / 9 !important; height: auto; min-width: 0; } /* .tw-step-fig 가 4/3 !important 라 덮어쓴다 */
+  .sf .hm2 .cw-proc-g li > div { padding: 20px 20px 22px; }
+}
+@media (min-width: 561px) and (max-width: 820px) {
+  .sf .hm2 .cw-proc-g { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* 전문팀 '일하는 다섯 단계' 카드도 같은 문제(그림 칸 120px인데 안쪽 화면 그림이 넓어 글을 덮음). 그림 위·글 아래로 쌓는다.
+   그림 안 화면 모형이 4:3 기준이라 비율은 그대로 둔다 */
+@media (max-width: 820px) {
+  .sf .tw-proc .cw-proc-g li { display: flex; flex-direction: column; }
+  .sf .tw-proc .cw-proc-g .tw-step-fig { height: auto; min-width: 0; }
+  .sf .tw-proc .cw-proc-g li > div { padding: 20px 20px 22px; }
+}
+@media (min-width: 561px) and (max-width: 820px) {
+  .sf .tw-proc .cw-proc-g { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

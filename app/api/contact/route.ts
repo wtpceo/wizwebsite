@@ -11,6 +11,8 @@ import {
   emailAcceptsMail,
   escapeHtml as esc,
 } from '@/lib/spam-guard'
+import { saveLead, pickOrgType } from '@/lib/crm/leads'
+import { sendLeadSms, leadSmsText } from '@/lib/crm/lead-sms'
 
 // 문의 폼 공통 접수 라우트. 모든 폼(메인 상담·기업 제안·영문·인플루언서·진단·루크·외국어)이 여기로 보낸다.
 //
@@ -75,6 +77,26 @@ export async function POST(req: Request) {
     }
     const resend = apiKey ? new Resend(apiKey) : null
 
+    // 3.5) CRM 저장(/admin/leads)과 문자 알림. 메일보다 먼저 저장해 메일이 실패해도 문의가 남게 한다.
+    //      둘 다 실패해도 접수는 계속한다. 운영이 아닌 곳·시험 실행에서 들어온 건 is_test 로 표시하고 문자는 보내지 않는다
+    const isTest = DRY_RUN || process.env.VERCEL_ENV !== 'production'
+    const orgType = pickOrgType(message)
+    await saveLead({
+      form: language || null,
+      name: name || null,
+      company: storeName || null,
+      phone: phone || null,
+      email: email || null,
+      org_type: orgType,
+      budget: budget || null,
+      message: message || null,
+      landing: attribution.landing || null,
+      referrer: attribution.referrer || null,
+      attribution: (attribution as Record<string, string>) || null,
+      source_text: formatAttribution(attribution) || null,
+      is_test: isTest,
+    })
+
     // UTM·입력값은 전부 조작할 수 있는 값이다. 메일 HTML 에 그대로 넣지 않는다.
     const adminHtml = `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
@@ -121,6 +143,10 @@ export async function POST(req: Request) {
         error: '이메일 전송 실패',
         details: error instanceof Error ? error.message : String(error)
       }, { status: 500 })
+    }
+
+    if (!isTest) {
+      await sendLeadSms(leadSmsText({ company: storeName, name, phone, orgType, budget, form: language }))
     }
 
     // 5) 고객 자동 회신. 형식이 맞고 도메인이 메일을 받는 주소에만 보낸다.
