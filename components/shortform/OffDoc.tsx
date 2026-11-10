@@ -189,7 +189,7 @@ export default function OffDoc() {
               ))}
             </ul>
             {w ? (
-              <div className="vw-works">
+              <div className="vw-works rv">
                 <p className="vx-sub-h">{w.q || "매체별 집행 화면 예시"}</p>
                 <p className="vx-sub-p">{w.lead}</p>
                 <ul className="dp-works">
@@ -269,7 +269,7 @@ export default function OffDoc() {
               ))}
             </ol>
             {m.time ? <TimeBox t={m.time} /> : null}
-            <div className="cw-rep">
+            <div className="cw-rep rv">
               <b>결과 리포트 포함 항목</b>
               <ul>
                 {d.report.map((r) => (

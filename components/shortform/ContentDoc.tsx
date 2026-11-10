@@ -251,7 +251,7 @@ export default function ContentDoc() {
                 </li>
               ))}
             </ol>
-            <div className="cw-flow" aria-label="촬영 하루치 결과물이 올라가는 곳, 예시">
+            <div className="cw-flow rv" aria-label="촬영 하루치 결과물이 올라가는 곳, 예시">
               <div className="cw-flow-h">
                 <b>한 번 찍은 결과물이 올라가는 곳</b>
                 <Ex>예시</Ex>
@@ -341,7 +341,7 @@ export default function ContentDoc() {
                 </li>
               ))}
             </ul>
-            <ul className="cw-photos">
+            <ul className="cw-photos rv">
               {PHOTOS.map(([f, cap], i) => (
                 <li key={f} style={vars({ i })}>
                   <img src={`/sf/pf/${f}.jpg`} alt={cap} loading="lazy" decoding="async" />
@@ -408,7 +408,7 @@ export default function ContentDoc() {
                 </li>
               ))}
             </ol>
-            <div className="cw-rep">
+            <div className="cw-rep rv">
               <b>월간 결과 리포트에 들어가는 내용</b>
               <ul>
                 {d.report.map((r) => (
@@ -440,7 +440,7 @@ export default function ContentDoc() {
               </p>
             </div>
             {/* 11-08 대표 「비주얼 개선」: 가운데 저희가 찍은 숏폼 한 편 → 왼쪽 인플루언서 게시물, 오른쪽 광고로 다시 쓰이는 그림 */}
-            <div className="cw-hub">
+            <div className="cw-hub rv">
               <svg className="cw-hub-lines" viewBox="0 0 1000 400" preserveAspectRatio="none" aria-hidden="true">
                 {["M500 200 C 420 200, 400 120, 300 120", "M500 200 C 580 200, 600 120, 700 120"].map((dd, i) => (
                   <g key={dd}>

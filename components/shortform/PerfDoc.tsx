@@ -510,7 +510,7 @@ export default function PerfDoc() {
             </div>
           </div>
           <div className="dp-w">
-            <ol className="cl-loop" aria-label="소재가 도는 네 단계, 4에서 1로 다시 돕니다">
+            <ol className="cl-loop rv" aria-label="소재가 도는 네 단계, 4에서 1로 다시 돕니다">
               {LOOP.map(([t, x], i) => (
                 <li key={t} style={{ ["--i" as string]: i }}>
                   <em>{String(i + 1).padStart(2, "0")}</em>

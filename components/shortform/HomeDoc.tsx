@@ -112,8 +112,8 @@ export default function HomeDoc() {
             </div>
 
             <ul className="hm2-kpis" aria-label="위즈더플래닝 핵심 지표">
-              {HERO_KPIS.map((k) => (
-                <li key={k.n}>
+              {HERO_KPIS.map((k, i) => (
+                <li key={k.n} style={vars({ i })}>
                   <b>{k.n}</b>
                   <span>{k.d}</span>
                 </li>
@@ -162,7 +162,7 @@ export default function HomeDoc() {
 
             <ul className="hm2-svc-g">
               {SERVICES.map((s, i) => (
-                <li key={s.k} style={vars({ i })}>
+                <li key={s.k} className="rv" style={vars({ i })}>
                   <Link href={`/services/${s.slug}`} className="hm2-svc-card">
                     {/* 11-09 대표: 글자로 짠 화면 대신 회사소개와 같은 3D 그림 */}
                     <figure className="tw-fig-stage hm2-fig">
@@ -320,8 +320,8 @@ export default function HomeDoc() {
               </div>
 
               <ol className="hm2-proof-rules">
-                {PROOF_RULES.map((r) => (
-                  <li key={r.no}>
+                {PROOF_RULES.map((r, i) => (
+                  <li key={r.no} style={vars({ i })}>
                     <em>{r.no}</em>
                     <div>
                       <b>{r.t}</b>
@@ -435,7 +435,7 @@ export default function HomeDoc() {
             </div>
             <ul className="ig-grid">
               {insights.map((g) => (
-                <li key={g.href}>
+                <li key={g.href} className="rv">
                   <Link href={g.href}>
                     <figure>
                       <img src={coverFor(g.href)} alt={g.title} width={1200} height={675} loading="lazy" decoding="async" />

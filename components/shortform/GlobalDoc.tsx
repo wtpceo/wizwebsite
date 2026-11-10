@@ -190,12 +190,12 @@ export default function GlobalDoc() {
                 </article>
               ))}
             </div>
-            <div className="gb-pick">
+            <div className="gb-pick rv">
               <em>현지 크리에이터 선별 기준</em>
               <p>팔로워 수보다 타깃 고객이 실제로 반응하는 계정인지 최근 게시물 참여율이 오르고 있는지 봅니다. 이유를 적은 후보 리스트를 먼저 보여 드리고 확인을 받으면 섭외하겠습니다.</p>
             </div>
             {w ? (
-              <div className="vw-works">
+              <div className="vw-works rv">
                 <p className="vx-sub-h">현지 플랫폼 게시 화면 예시</p>
                 <p className="vx-sub-p">{w.lead}</p>
                 <ul className="dp-works">
@@ -272,7 +272,7 @@ export default function GlobalDoc() {
                 </li>
               ))}
             </ol>
-            <div className="cw-rep">
+            <div className="cw-rep rv">
               <b>결과 리포트 포함 항목</b>
               <ul>
                 {d.report.map((r) => (

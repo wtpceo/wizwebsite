@@ -176,7 +176,7 @@ export default function ViralDoc() {
               ))}
             </ol>
             <p className="vx-sub-h vw-serp-h">설계된 검색 결과 첫 화면</p>
-            <div className="vw-serp" aria-label="검색 첫 화면을 채우는 상품, 예시">
+            <div className="vw-serp rv" aria-label="검색 첫 화면을 채우는 상품, 예시">
               <div className="vw-serp-box">
                 <div className="vw-serp-q">
                   <i aria-hidden="true" />
@@ -234,7 +234,7 @@ export default function ViralDoc() {
               ))}
             </ul>
             {w ? (
-              <div className="vw-works">
+              <div className="vw-works rv">
                 <p className="vx-sub-h">검색 결과 노출 화면 예시</p>
                 <p className="vx-sub-p">{w.lead}</p>
                 <ul className="dp-works">
@@ -315,7 +315,7 @@ export default function ViralDoc() {
                 </li>
               ))}
             </ol>
-            <div className="cw-rep">
+            <div className="cw-rep rv">
               <b>결과 리포트 포함 항목</b>
               <ul>
                 {d.report.map((r) => (

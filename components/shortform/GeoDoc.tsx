@@ -364,7 +364,7 @@ export default function GeoDoc() {
             <span className="nw">포털 첫 화면의 세 가지 영역</span>
           </h3>
           {/* 11-09 대표 「시각적으로」: 포털 검색 결과 화면 한 장 — 맨 위 AI 요약이 아래 세 영역을 출처로 가져다 쓰는 모습 */}
-          <div className="gt-serp" aria-label="포털 검색 결과 예시 화면">
+          <div className="gt-serp rv" aria-label="포털 검색 결과 예시 화면">
             <div className="gt-serp-bar">
               <i aria-hidden="true" />
               <span>OO 브랜드 후기</span>
@@ -541,7 +541,7 @@ export default function GeoDoc() {
         tone="mist"
       >
         <GeoToolReel slides={REEL} />
-        <ul className="geo-menu" aria-label="realGEO 메뉴 구성">
+        <ul className="geo-menu rv" aria-label="realGEO 메뉴 구성">
           {MENU.map(([g, items], i) => (
             <li key={g} style={vars({ i })}>
               <b>{g}</b>
@@ -573,7 +573,7 @@ export default function GeoDoc() {
         }
       >
         {/* 11-09 대표 「글이 많다, 시각적으로」: 두 사람(아이콘) + 가운데 돌아가는 고리, 아래는 실제 요청·반영을 메신저 대화처럼 */}
-        <div className="geo-team geo-team2">
+        <div className="geo-team geo-team2 rv">
           <div className="geo-team-col">
             <p className="geo-team-who">
               <span className="av" aria-hidden="true">
@@ -621,7 +621,7 @@ export default function GeoDoc() {
             </ol>
           </div>
         </div>
-        <ol className="geo-team-chat" aria-label="실제로 이렇게 바뀐 것">
+        <ol className="geo-team-chat rv" aria-label="실제로 이렇게 바뀐 것">
           {TEAM_LOG.map(([ask, done], i) => (
             <li key={ask} style={vars({ i })}>
               <p className="q">
@@ -683,7 +683,7 @@ export default function GeoDoc() {
         }
         tone="mist"
       >
-        <ol className="geo-flow">
+        <ol className="geo-flow rv">
           {FLOW.map(([t, x, k], i) => (
             <li key={t} style={vars({ i })}>
               <span className="ic">

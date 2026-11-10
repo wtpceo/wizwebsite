@@ -146,7 +146,7 @@ export default function SiteDoc() {
 </p>
             </div>
             <div className="hw-view">
-              <div className="hw-side">
+              <div className="hw-side rv">
                 <p className="hw-tag">
                   <Icon k="person" /> 방문 고객이 보는 화면
                 </p>
@@ -184,7 +184,7 @@ export default function SiteDoc() {
                   ))}
                 </ul>
               </div>
-              <div className="hw-side ai">
+              <div className="hw-side ai rv">
                 <p className="hw-tag">
                   <Icon k="search" /> AI 엔진이 인식하는 구조화 텍스트
                 </p>
@@ -307,7 +307,7 @@ export default function SiteDoc() {
                 </li>
               ))}
             </ol>
-            <div className="cw-rep">
+            <div className="cw-rep rv">
               <b>결과 리포트 포함 항목</b>
               <ul>
                 {d.report.map((r) => (

@@ -457,7 +457,7 @@ export default function TeamDoc() {
             </div>
             <ul className="cw-prod">
               {TEAMS.map(([k, n, jobs, en], i) => (
-                <li key={n} style={vars({ i })}>
+                <li key={n} className="rv" style={vars({ i })}>
                   <Link href={`/services/${slug(k)}`}>
                     <figure className="tw-fig-stage">
                       <DeptStage k={k} no={String(i + 1).padStart(2, "0")} en={en} />
@@ -509,7 +509,7 @@ export default function TeamDoc() {
                 </li>
               ))}
             </ol>
-            <div className="tw-diag">
+            <div className="tw-diag rv">
               <div className="tw-diag-h">
                 <b>초기 진단 주요 점검 항목</b>
                 <small>예시</small>
