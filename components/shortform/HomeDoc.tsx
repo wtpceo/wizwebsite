@@ -92,8 +92,8 @@ export default function HomeDoc() {
           </div>
           <div className="dp-veil" aria-hidden="true" />
           <div className="dp-w geo-hero-in">
-            <h1 aria-label="IMC 통합 마케팅 대행 위즈더플래닝: 당신의 브랜드를 분석한 제안서부터 받아 보세요">
-              <small className="ix-kw">IMC 통합 마케팅 대행 · 위즈더플래닝</small>{" "}
+            <h1 aria-label="IMC 통합 마케팅 대행사 위즈더플래닝: 당신의 브랜드를 분석한 제안서부터 받아 보세요">
+              <small className="ix-kw">IMC 통합 마케팅 대행사 · 위즈더플래닝</small>{" "}
               <Chars text={"당신의 브랜드를 분석한\n제안서부터 받아 보세요"} mark="분석한" />
             </h1>
             <p className="vx-era">2016년부터 · 인하우스 6개 부서 · <span className="nw">1:1 전담 AE</span></p>

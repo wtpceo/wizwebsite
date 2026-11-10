@@ -39,9 +39,13 @@ const REPORT_ITEMS = [
 
 // 병원 페이지에서는 '손님·업종' 대신 '환자·진료과'로 읽히게 한다(11/7 카피 개선안 22-5·23-5).
 export default function HowWeReport({ medical = false }: { medical?: boolean } = {}) {
+  // 11-10 대표: 병원 GEO 대행은 보고 주기가 월 1회다(11-09 결정). 병원 페이지에서만 주 → 월로 읽히게 한다.
+  // 아래 실제 보고서 견본은 저희가 저희에게 발행한 주간 보고서라 '주간'이라는 사실 표기를 그대로 둔다.
+  const monthly = (t: string) => t.replace("주 1회", "월 1회").replace("지난주", "지난달").replace("이번 주", "이번 달").replace("다음 주", "다음 달")
   const steps = medical
-    ? STEPS.map((st, i) => (i === 0 ? { ...st, body: st.body.replace("손님이 실제로", "환자가 실제로").replace("업종 · 지역", "진료과 · 지역") } : st))
+    ? STEPS.map((st, i) => (i === 0 ? { ...st, body: st.body.replace("손님이 실제로", "환자가 실제로").replace("업종 · 지역", "진료과 · 지역") } : { ...st, title: monthly(st.title), body: monthly(st.body) }))
     : STEPS
+  const reportItems = medical ? REPORT_ITEMS.map(monthly) : REPORT_ITEMS
   return (
     <section className="bg-slate-50 py-16 md:py-20">
       <div className="mx-auto max-w-5xl px-5">
@@ -51,7 +55,7 @@ export default function HowWeReport({ medical = false }: { medical?: boolean } =
         </h2>
         <p className="mt-3 max-w-2xl text-base leading-relaxed text-gray-600">
           AI 검색은 순위표가 없어서 &ldquo;잘되고 있다&rdquo;는 말로 넘어가기 쉽습니다. 저희는 같은
-          기준으로 계속 재고, 그 숫자를 <strong className="text-gray-900">주 1회</strong> 그대로
+          기준으로 계속 재고, 그 숫자를 <strong className="text-gray-900">{medical ? "월 1회" : "주 1회"}</strong> 그대로
           보여 드립니다.
         </p>
 
@@ -75,9 +79,9 @@ export default function HowWeReport({ medical = false }: { medical?: boolean } =
 
         <div className="mt-8 grid gap-6 rounded-2xl border border-gray-200 bg-white p-6 md:grid-cols-2 md:p-8">
           <div>
-            <h3 className="text-lg font-extrabold text-gray-900">주간 리포트에 담기는 것</h3>
+            <h3 className="text-lg font-extrabold text-gray-900">{medical ? "월간" : "주간"} 리포트에 담기는 것</h3>
             <ul className="mt-4 space-y-2.5">
-              {REPORT_ITEMS.map((t) => (
+              {reportItems.map((t) => (
                 <li key={t} className="flex items-start gap-2 text-sm leading-relaxed text-gray-700">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500" />
                   {t}

@@ -176,7 +176,7 @@ export default function GeoDoc() {
       {
         "@type": "Service",
         "@id": `${SITE}/services/${s.slug}#service`,
-        name: "AI 검색 최적화(GEO)·SEO 대행",
+        name: "SEO·GEO(AI 검색 최적화) 대행",
         serviceType: "AI 검색 최적화(GEO)·SEO",
         description: d.desc,
         provider: { "@id": ORG_ID },
@@ -222,8 +222,8 @@ export default function GeoDoc() {
         <div className="dp-w geo-hero-in">
           {/* 11-08 대표 「인플루언서·퍼포먼스와 같은 컨셉, 왼쪽 정렬」: 키워드 머리말 H1 안, 큰 제목에 파란 띠, 시대 한 줄, 부제, 버튼 하나, 스크롤 유도 */}
           {/* 11-08 대표: 메인은 「2027년 꼭 해야 할 마케팅, GEO 검색엔진 최적화」, 부제는 「AI에 뜨기만 해서는 안 되고 포털에서 2차 검증」 논리 */}
-          <h1 aria-label="AI 검색 최적화(GEO) 대행: 2027년 꼭 해야 할 마케팅, GEO 검색엔진 최적화">
-            <small className="ix-kw">AI 검색 최적화(GEO) 대행</small>{" "}
+          <h1 aria-label="SEO·GEO(AI 검색 최적화) 대행: 2027년 꼭 해야 할 마케팅, GEO 검색엔진 최적화">
+            <small className="ix-kw">SEO·GEO(AI 검색 최적화) 대행</small>{" "}
             <Chars text={"2027년 꼭 해야 할 마케팅,\nGEO 검색엔진 최적화"} mark="GEO" />
           </h1>
           <p className="dp-lead">

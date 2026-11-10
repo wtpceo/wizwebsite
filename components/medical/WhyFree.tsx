@@ -72,7 +72,7 @@ export default function WhyFree() {
           <p className="mx-auto mt-6 inline-flex flex-wrap items-center justify-center gap-x-2 rounded-full border border-[#00e5a0]/30 bg-[#00e5a0]/10 px-5 py-2 text-sm text-slate-200">
             <span className="font-bold text-[#00e5a0]">개선 작업 비용</span>
             <span>대행 비용은 진단 결과를 보고 제안서로 드립니다</span>
-            <span className="whitespace-nowrap">· 주 1회 성과 보고서</span>
+            <span className="whitespace-nowrap">· 월 1회 성과 보고서</span>
           </p>
         </motion.div>
 

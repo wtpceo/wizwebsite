@@ -26,9 +26,9 @@ const GUIDE_DATES = new Map<string, string>(
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; lastmod?: string }[] = [
-    { path: "", priority: 1.0, changeFrequency: "weekly", lastmod: "2026-11-04" },
+    { path: "", priority: 1.0, changeFrequency: "weekly", lastmod: "2026-11-10" }, // 11-10 제목·설명 변경
     // 2026-11-04 리뉴얼 새 쪽 — 서비스 8 · 업종별 3 · 전문 인력 · 회사소개
-    ...["search", "performance", "viral", "influencer", "content", "global", "homepage", "offline"].map((s) => ({ path: `/services/${s}`, priority: 0.9, changeFrequency: "monthly" as const, lastmod: s === "influencer" ? "2026-11-08" : "2026-11-04" })), // influencer: 11-08 칸 구성 전체 개편
+    ...["search", "performance", "viral", "influencer", "content", "global", "homepage", "offline"].map((s) => ({ path: `/services/${s}`, priority: 0.9, changeFrequency: "monthly" as const, lastmod: s === "influencer" ? "2026-11-08" : s === "search" || s === "homepage" ? "2026-11-10" : "2026-11-04" })), // search·homepage: 11-10 제목·설명 변경, // influencer: 11-08 칸 구성 전체 개편
     { path: "/team", priority: 0.7, changeFrequency: "monthly", lastmod: "2026-11-04" },
     { path: "/about", priority: 0.8, changeFrequency: "monthly", lastmod: "2026-11-04" },
     { path: "/contact", priority: 0.6, changeFrequency: "monthly", lastmod: "2026-11-05" },
@@ -49,7 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/focusmedia", priority: 0.8, changeFrequency: "monthly" },
     { path: "/medical-diagnosis", priority: 0.9, changeFrequency: "monthly" },
     { path: "/diagnosis", priority: 0.9, changeFrequency: "monthly" },
-    { path: "/medical-geo-agency", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-09-08" },
+    { path: "/medical-geo-agency", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-11-10" }, // 11-10 보고 주기 월 1회로
     { path: "/site-check", priority: 0.9, changeFrequency: "monthly" },
     { path: "/how-we-measure", priority: 0.8, changeFrequency: "monthly", lastmod: "2026-09-09" },
     { path: "/business", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-11-04" },

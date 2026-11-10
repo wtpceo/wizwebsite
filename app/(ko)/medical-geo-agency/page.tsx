@@ -11,11 +11,11 @@ import { GUIDE_ARTICLES } from "@/lib/guide-articles"
 import { DocShell } from "@/components/shortform/DocParts"
 
 const PUBLISHED = "2026-07-23"
-const UPDATED = "2026-09-08"
+const UPDATED = "2026-11-10"
 
 const TITLE = "병원 GEO 대행사: 병원 · 의원 AI 검색 최적화"
 const DESC =
-  "환자가 ChatGPT · 네이버 AI에 병원을 물었을 때 우리 병원이 나오게 만듭니다. 진단은 병원 · 의원이면 무료, 그 뒤는 주 1회 같은 기준으로 다시 재서 보고합니다. 실측 사례: 언급률 17%에서 93%."
+  "환자가 ChatGPT · 네이버 AI에 병원을 물었을 때 우리 병원이 나오게 만듭니다. 진단은 병원 · 의원이면 무료, 그 뒤는 월 1회 같은 기준으로 다시 재서 보고합니다. 실측 사례: 언급률 17%에서 93%."
 const URL = "https://wiztheplanning.com/medical-geo-agency"
 
 export const metadata: Metadata = {
@@ -61,15 +61,15 @@ const SCOPE = [
   {
     icon: BarChart3,
     step: "05",
-    title: "주간 리포트·재측정",
-    desc: "엔진별 노출 변화를 매주 같은 기준으로 다시 측정해 주 1회 보고합니다. 자체 개발한 GEO 관제 시스템으로 측정하고, 담당 매니저가 직접 설명드립니다.",
+    title: "월간 리포트·재측정",
+    desc: "엔진별 노출 변화를 매주 같은 기준으로 다시 측정해 월 1회 보고합니다. 자체 개발한 GEO 관제 시스템으로 측정하고, 담당 매니저가 직접 설명드립니다.",
   },
 ] as const
 
 const FAQ = [
   {
     q: "병원 GEO 대행은 무엇을 해주는 건가요?",
-    a: "환자가 ChatGPT · 네이버 AI에 '○○ 잘하는 병원 추천해 줘'라고 물었을 때 우리 병원이 답에 들어가게 만드는 일 전체를 맡습니다. AI 검색 진단, 홈페이지 크롤러 점검, 채널별 병원 정보 맞추기, 환자 말로 쓴 콘텐츠와 구조화 데이터, 주 1회 재측정 리포트까지입니다.",
+    a: "환자가 ChatGPT · 네이버 AI에 '○○ 잘하는 병원 추천해 줘'라고 물었을 때 우리 병원이 답에 들어가게 만드는 일 전체를 맡습니다. AI 검색 진단, 홈페이지 크롤러 점검, 채널별 병원 정보 맞추기, 환자 말로 쓴 콘텐츠와 구조화 데이터, 월 1회 재측정 리포트까지입니다.",
   },
   {
     q: "비용은 얼마인가요?",
@@ -210,7 +210,7 @@ export default function Page() {
               {[
                 { n: "2016~", d: "마케팅 대행" },
                 { n: "3개", d: "AI 엔진 실측 진단" },
-                { n: "주 1회", d: "측정 리포트" },
+                { n: "월 1회", d: "측정 리포트" },
                 { n: `${GUIDE_ARTICLES.length}편`, d: "실측 가이드 공개" },
               ].map((s) => (
                 <div key={s.d}>
@@ -442,7 +442,7 @@ export default function Page() {
             ))}
           </div>
           <p className="mt-6 text-xs text-gray-400">
-            2026년 9월 8일 갱신: 보고 주기를 월 1회에서 주 1회로 바꾸고, 실제 주간 보고서 양식과 공개 가이드 수를 반영했습니다.
+            2026년 11월 10일 갱신: 보고 주기를 주 1회에서 월 1회로 바꿨습니다.
           </p>
         </section>
 

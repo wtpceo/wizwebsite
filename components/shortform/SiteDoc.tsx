@@ -77,7 +77,7 @@ export default function SiteDoc() {
       {
         "@type": "Service",
         "@id": `${SITE}/services/${s.slug}#service`,
-        name: "홈페이지 제작 대행",
+        name: "홈페이지·웹사이트 제작",
         serviceType: s.n,
         description: d.desc,
         provider: { "@id": ORG_ID },
@@ -106,8 +106,8 @@ export default function SiteDoc() {
           </div>
           <div className="dp-veil" aria-hidden="true" />
           <div className="dp-w geo-hero-in">
-            <h1 aria-label="홈페이지 제작 대행: 마지막 설득은 홈페이지가 합니다">
-              <small className="ix-kw">홈페이지 제작 대행</small>{" "}
+            <h1 aria-label="홈페이지·웹사이트 제작: 마지막 설득은 홈페이지가 합니다">
+              <small className="ix-kw">홈페이지·웹사이트 제작</small>{" "}
               <Chars text={"마지막 설득은\n홈페이지가 합니다"} mark="홈페이지가 합니다" />
             </h1>
             <p className="vx-era">광고와 AI 추천으로 들어온 고객의 최종 도착지</p>
