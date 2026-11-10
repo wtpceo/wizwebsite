@@ -188,7 +188,7 @@ export default function CoreServices() {
           className="mx-auto mt-8 max-w-2xl border-t border-gray-200 pt-6 text-center"
         >
           <Link
-            href="/influencer"
+            href="/services/influencer"
             className="group inline-flex items-center gap-1 text-[15px] font-semibold text-gray-800 underline-offset-4 hover:text-emerald-700 hover:underline"
           >
             인플루언서 섭외가 필요하신가요? 브랜드에 맞는 크리에이터를 캠페인마다 새로 찾아 드립니다

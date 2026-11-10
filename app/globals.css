@@ -1,8 +1,16 @@
-@import url('https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 11-10 속도 점검: 외부 CSS(@import)가 모든 페이지의 첫 화면 그리기를 막아서, 그 파일의 @font-face 한 줄을 직접 적는다.
+   글꼴 파일은 SUIT 를 실제로 쓰는 페이지에서만 받는다. */
+@font-face {
+  font-family: 'SUIT Variable';
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.woff2') format('woff2-variations');
+}
 
 body {
   font-family: 'SUIT Variable', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;

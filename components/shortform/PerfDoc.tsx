@@ -4,6 +4,7 @@ import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, 
 import { Chars } from "./parts"
 import { ProofModal } from "./ProofModal"
 import { Icon } from "./icons"
+import HeroWall from "./HeroWall"
 
 /**
  * /services/performance — 퍼포먼스 광고 상세. 2026-11-07 대표: 색 체계 「먹과 신호」(docs/디자인시스템-색-2026-11-07.md) 방향으로 다시 설계.
@@ -151,7 +152,7 @@ export default function PerfDoc() {
         <div className="gx ix">
           <section className="dp-hero geo-hero ix-hero px-adwall" aria-label="퍼포먼스 광고 소개">
             <div className="dp-bg" aria-hidden="true">
-              <div className="bgt" data-wall="performance" />
+              <HeroWall k="performance" />
             </div>
             <div className="dp-veil" aria-hidden="true" />
             <div className="dp-w geo-hero-in">

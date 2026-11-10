@@ -6,6 +6,7 @@ import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, 
 import { Chars, vars } from "./parts"
 import { Icon } from "./icons"
 import { WORKS } from "./Works"
+import HeroWall from "./HeroWall"
 
 /**
  * /services/global — 글로벌 마케팅(중국·일본) 상세. 2026-11-08 카피 세션 안(docs/카피개선-글로벌-2026-11-08.md)으로 새로 짬.
@@ -91,7 +92,7 @@ export default function GlobalDoc() {
         {/* ① 첫 화면 */}
         <section className="dp-hero geo-hero ix-hero" aria-label="중국·일본 마케팅 소개">
           <div className="dp-bg" aria-hidden="true">
-            <div className="bgt" data-wall={s.slug} />
+            <HeroWall k={s.slug} />
           </div>
           <div className="dp-veil" aria-hidden="true" />
           <div className="dp-w geo-hero-in">

@@ -19,7 +19,6 @@
 - [오프라인 미디어](https://wiztheplanning.com/services/offline): 택배차량·극장·카카오T·인쇄 매체·배달앱 운영 관리.
 - [측정 방식: 자체 개발 GEO 관제 시스템](https://wiztheplanning.com/how-we-measure): 네 엔진 주간 반복 측정, 멘션·인용 분리, 사이트 진단, 실제 유입 확인까지 관제 화면 6장과 지표 정의. 외부 판매 없음.
 - [GEO 최적화 서비스 안내](https://wiztheplanning.com/guide/geo-optimization-service): 위즈더플래닝 GEO 서비스가 하는 일을 순서대로 정리. 업체 이름 없는 질문으로 엔진마다 여러 번 재는 진단, 고치는 네 곳(사이트 구조·이름과 사실·틀린 정보·바깥 출처), 같은 방법의 재측정, 비용(맡길 범위에 따라 제안서로 안내 · 최소 3개월), 맡기지 않는 편이 나은 경우. 근거: 정형외과 ChatGPT 언급률 17%→93%. 글 아래에서 기업 제안 요청.
-- [인플루언서 섭외 대행](https://wiztheplanning.com/influencer): 브랜드 캠페인 섭외, 공구·판매형 섭외, 중국 관광객 마케팅, 숏폼 제작. 브리프를 받으면 영업일 3일 안에 고른 이유를 붙인 후보 리스트를 무료로 보내고, 사람을 고른 뒤 비용을 정한다. 반응 좋은 콘텐츠는 2차 활용 계약을 거쳐 메타·구글 광고로 다시 쓴다.
 - [병원 GEO 대행](https://wiztheplanning.com/medical-geo-agency): 병원·의원 대상 AI 검색 최적화 전문 대행 서비스 안내.
 - [병원 무료 AI 검색 진단](https://wiztheplanning.com/medical-diagnosis): 병원·의원이 AI 검색 답변에 인용되는지 점검하는 업종 전용 진단.
 
@@ -93,7 +92,6 @@
 ## Optional
 
 - [마케팅 가이드 전체](https://wiztheplanning.com/guide): AI 검색 최적화·네이버 플레이스 실전 노하우 아카이브.
-- [포트폴리오](https://wiztheplanning.com/portfolio): 사진·영상 콘텐츠 제작과 마케팅 실행 사례.
 - [위즈 극장](https://wiztheplanning.com/theater): GEO 개념을 30초 애니메이션으로 설명하는 영상 시리즈.
 - [English site: WizThePlanning](https://wiztheplanning.com/en): 영문 브랜드 WizThePlanning. 한국 시장에 진출하는 해외 기업·해외 마케팅 대행사 대상 네이버·AI 검색(GEO)·광고 대행 안내(영어).
 - [Korea market entry](https://wiztheplanning.com/en/korea-market-entry): 해외 브랜드의 한국 진출 마케팅 서비스(영어).

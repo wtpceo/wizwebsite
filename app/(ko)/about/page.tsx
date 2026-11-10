@@ -85,6 +85,7 @@ import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, 
 import { ABOUT_PAGE } from "@/components/shortform/details"
 import { Chars, vars } from "@/components/shortform/parts"
 import { OG_TIMESTAMP as timestamp } from "@/lib/site-metadata"
+import HeroWall from "@/components/shortform/HeroWall"
 
 // 회사소개(2026-11-04 리뉴얼, 11-09 대표 「디자인 통일감」: /team·업종 페이지와 같은 틀로).
 // 순서: 첫 화면 → 기업 개요·여덟 가지 일 → 한 캠페인의 순서 → 나눠 맡길 때의 한계(남색) → 구조 비교 → 여섯 부서 → 자체 솔루션 → 회사 정보 → 질문 → 문의
@@ -127,7 +128,7 @@ export default function AboutPage() {
         {/* ① 첫 화면 */}
         <section className="dp-hero geo-hero ix-hero" aria-label="위즈더플래닝 소개">
           <div className="dp-bg" aria-hidden="true">
-            <div className="bgt" data-wall="about" />
+            <HeroWall k="about" />
           </div>
           <div className="dp-veil" aria-hidden="true" />
           <div className="dp-w geo-hero-in">

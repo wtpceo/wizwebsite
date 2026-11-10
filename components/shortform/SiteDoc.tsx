@@ -6,6 +6,7 @@ import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, 
 import { Ex, Chars, vars } from "./parts"
 import { Icon } from "./icons"
 import { CaseBox, TimeBox, SampleBox } from "./DocMore"
+import HeroWall from "./HeroWall"
 
 /**
  * /services/homepage — 웹사이트 구축 상세. 2026-11-08 카피 세션 안(docs/카피개선-웹사이트-2026-11-08.md)으로 새로 짬.
@@ -100,7 +101,7 @@ export default function SiteDoc() {
         {/* ① 첫 화면 */}
         <section className="dp-hero geo-hero ix-hero" aria-label="홈페이지 제작 소개">
           <div className="dp-bg" aria-hidden="true">
-            <div className="bgt" data-wall={s.slug} />
+            <HeroWall k={s.slug} />
           </div>
           <div className="dp-veil" aria-hidden="true" />
           <div className="dp-w geo-hero-in">

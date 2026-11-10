@@ -6,6 +6,7 @@ import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, 
 import { Ex, Chars, vars } from "./parts"
 import GeoToolReel from "./GeoToolReel"
 import { Icon } from "./icons"
+import HeroWall from "./HeroWall"
 
 /**
  * /services/influencer — 인플루언서 협업 상세. 2026-11-08 대표 지시(카피 세션과 확정한 안)로 GEO·퍼포먼스 쪽과 같은 색 체계(.gx)로 새로 짬.
@@ -328,7 +329,7 @@ export default function InflDoc() {
         {/* ① 첫 화면: 화면 가득, 왼쪽 정렬, 큰 글자(11-08 대표 「크게크게, 공간 넓게」). 뒤에 숏폼 벽, 오른쪽은 막을 얇게 해 벽이 보이게 */}
         <section className="dp-hero geo-hero ix-hero" aria-label="인플루언서 협업 소개">
           <div className="dp-bg" aria-hidden="true">
-            <div className="bgt" data-wall={s.slug} />
+            <HeroWall k={s.slug} />
           </div>
           <div className="dp-veil" aria-hidden="true" />
           <div className="dp-w geo-hero-in">

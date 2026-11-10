@@ -63,7 +63,7 @@ export const SERVICES: Service[] = [
       ["릴스 체험단", "여러 크리에이터가 같은 주에 집중해서 올림"],
     ],
     rec: [],
-    more: { href: "/influencer", label: "인플루언서 캐스팅 자세히" },
+    more: { href: "/services/influencer", label: "인플루언서 캐스팅 자세히" },
     fx: "wipe",
   },
   {

@@ -6,6 +6,7 @@ import { TEAM_PAGE } from "./details"
 import { DocShell, FaqBlock, ContactBlock, JsonLd, faqLd } from "./DocParts"
 import { Chars, vars } from "./parts"
 import { Icon } from "./icons"
+import HeroWall from "./HeroWall"
 
 /**
  * 메인(/) — 2026-11-09 리디자인 & 섹션 순서 개편본
@@ -87,7 +88,7 @@ export default function HomeDoc() {
         {/* ① 첫 화면 (Hero + 핵심 신뢰 지표 바) */}
         <section className="dp-hero geo-hero ix-hero hm2-hero" aria-label="첫 화면">
           <div className="dp-bg" aria-hidden="true">
-            <div className="bgt" data-wall="main" />
+            <HeroWall k="main" />
           </div>
           <div className="dp-veil" aria-hidden="true" />
           <div className="dp-w geo-hero-in">
@@ -166,7 +167,7 @@ export default function HomeDoc() {
                   <Link href={`/services/${s.slug}`} className="hm2-svc-card">
                     {/* 11-09 대표: 글자로 짠 화면 대신 회사소개와 같은 3D 그림 */}
                     <figure className="tw-fig-stage hm2-fig">
-                      <img src={`/sf/gen/hm-svc-${s.k}.jpg`} alt="" width={1200} height={800} loading="lazy" decoding="async" />
+                      <img src={`/sf/gen/hm-svc-${s.k}.webp`} alt="" width={800} height={533} loading="lazy" decoding="async" />
                       <span className="hm2-fig-tag" aria-hidden="true">
                         <i>{s.no}</i>
                         {SVC_ROLE[s.k]}
@@ -392,7 +393,7 @@ export default function HomeDoc() {
               {STEPS.map((st, i) => (
                 <li key={st.w} style={vars({ i })}>
                   <figure className="tw-step-fig hm2-fig">
-                    <img src={`/sf/gen/hm-step-${st.en.toLowerCase()}.jpg`} alt="" width={1200} height={800} loading="lazy" decoding="async" />
+                    <img src={`/sf/gen/hm-step-${st.en.toLowerCase()}.webp`} alt="" width={800} height={533} loading="lazy" decoding="async" />
                     <span className="hm2-fig-tag" aria-hidden="true">
                       <i>{String(i + 1).padStart(2, "0")}</i>
                       {st.en}

@@ -7,6 +7,7 @@ import { DocShell, Crumb, Meta, Sec, Faq, ContactBlock, JsonLd, breadcrumbLd, fa
 import { Ex, Chars, Nums } from "./parts"
 import Works from "./Works"
 import { CaseBox, TimeBox, SampleBox, NotFit, Reads, Consult } from "./DocMore"
+import HeroWall from "./HeroWall"
 
 /** 받침 있으면 「과」, 없으면 「와」 */
 function wa(w: string) {
@@ -55,7 +56,7 @@ export default function ServiceDoc({ slug }: { slug: string }) {
       <section className="dp-hero" aria-label={`${s.n} 소개`}>
         {/* 11-05 사장님 「숏폼이 뒤에서 도는 배경을 소개 쪽에도」 — 홈 첫 화면과 같은 벽, 막을 더 짙게 */}
         <div className="dp-bg" aria-hidden="true">
-          <div className="bgt" data-wall={slug} />
+          <HeroWall k={slug} />
         </div>
         <div className="dp-veil" aria-hidden="true" />
         <div className="dp-w dp-hero-in">

@@ -20,6 +20,11 @@ const nextConfig = {
     ],
   },
   // www → non-www 301 리다이렉트 (중복 도메인 정리, 단일 canonical 신호)
+  // 11-10 속도 점검: 글꼴 파일은 이름이 바뀌지 않는 한 내용도 그대로라 1년 캐시(다시 방문할 때 700KB를 새로 받지 않게).
+  // 글꼴을 바꿀 때는 파일 이름을 바꾼다.
+  async headers() {
+    return [{ source: '/sf/fonts/:file*', headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }] }]
+  },
   async redirects() {
     return [
       // 11-09 대표: 기업 제안 요청 폼을 문의(/contact) 하나로 합침. 운영에서 쓰던 주소라 영구 이동
@@ -30,6 +35,12 @@ const nextConfig = {
       { source: '/google-ads', destination: '/services/performance', permanent: true },
       { source: '/shortform', destination: '/services/content', permanent: true },
       { source: '/website', destination: '/services/homepage', permanent: true },
+      // 11-10 대표 「세 가지 고쳐」: 리뉴얼 전 페이지 정리. 사이트 안에서 가는 링크가 없고 자영업 말투라 새 서비스 페이지로 영구 이동.
+      // /influencer 는 11-08 승인(본부장 소개 칸·FAQ는 옮기지 않음). /focusmedia 는 엘리베이터TV 검색 노출이 있어 그대로 둔다.
+      { source: '/influencer', destination: '/services/influencer', permanent: true },
+      { source: '/naver-marketing', destination: '/services/search', permanent: true },
+      { source: '/portfolio', destination: '/services/content', permanent: true },
+      { source: '/strategy/:n(\\d+)', destination: '/', permanent: true },
       {
         source: '/:path*',
         has: [{ type: 'host', value: 'www.wiztheplanning.com' }],

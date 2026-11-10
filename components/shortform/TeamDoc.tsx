@@ -4,6 +4,7 @@ import { TEAM_PAGE } from "./details"
 import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "./DocParts"
 import { Chars, vars } from "./parts"
 import { Icon } from "./icons"
+import HeroWall from "./HeroWall"
 
 /**
  * /team — 전문팀·프로세스.
@@ -368,7 +369,7 @@ export default function TeamDoc() {
         {/* ① 첫 화면 */}
         <section className="dp-hero geo-hero ix-hero" aria-label="전문팀 소개">
           <div className="dp-bg" aria-hidden="true">
-            <div className="bgt" data-wall="team" />
+            <HeroWall k="team" />
           </div>
           <div className="dp-veil" aria-hidden="true" />
           <div className="dp-w geo-hero-in">

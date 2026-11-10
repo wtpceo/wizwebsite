@@ -6,6 +6,7 @@ import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, 
 import { Ex, Chars, Nums, vars } from "./parts"
 import { Icon } from "./icons"
 import { WORKS } from "./Works"
+import HeroWall from "./HeroWall"
 
 /**
  * /services/content — 콘텐츠 프로덕션 상세. 2026-11-08 카피 세션 안(docs/카피개선-콘텐츠-2026-11-08.md)으로 새로 짬.
@@ -147,7 +148,7 @@ export default function ContentDoc() {
         {/* ① 첫 화면 */}
         <section className="dp-hero geo-hero ix-hero" aria-label="콘텐츠 제작 소개">
           <div className="dp-bg" aria-hidden="true">
-            <div className="bgt" data-wall={s.slug} />
+            <HeroWall k={s.slug} />
           </div>
           <div className="dp-veil" aria-hidden="true" />
           <div className="dp-w geo-hero-in">

@@ -107,7 +107,10 @@ var H4=(function(){
     return {start:function(r){clearTimeout(t);live=!reduce;if(r)k=0;show();if(live)step();},stop:function(){clearTimeout(t);live=false;show();},reset:function(){k=0;show();}};}
 
   /* 배경 벽 — 릴스 + 예시 화면 + AI 모델 사진을 섞어서, 빠르게 */
-  function wall(el,key){/* 11-05 음식점 숏폼만 있던 벽에 패션·뷰티 숏폼(f1·f2·b1·b2 — 생성 사진으로 만든 4초 영상) 섞음 */
+  function wall(el,key){
+    /* 11-10 서버가 이미 그린 벽(홈)은 새로 만들지 않는다. 영상은 data-ap 로 표시돼 있고, 화면에 보일 때만 튼다 */
+    if(el.firstElementChild){var sv=[].slice.call(el.querySelectorAll('video'));sv.forEach(function(v){v.muted=true});return function(on){sv.forEach(function(v){if(on){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause();})};}
+    /* 11-05 음식점 숏폼만 있던 벽에 패션·뷰티 숏폼(f1·f2·b1·b2 — 생성 사진으로 만든 4초 영상) 섞음 */
     var R=['v/f1','v/s1','v/f2','v/b1','v/s6','v/b2','v/s3','v/s5','v/r31','v/s4','v/s2','v/r15']; /* 11-06 사장님 「패션·뷰티가 먼저, 그다음 음식점·그 외」 */ /* 11-06 사장님 「뒤 배경은 앞 내용과 다르게 · 다 영상 쇼츠 느낌으로」: 앞 휴대폰과 겹치지 않는 세로 장면만. 업체명·간판이 보이는 r13·r14·r26·r04 뺌 */
     /* 11-06 사장님 「뒤 배경은 각 상품에 맞게」: 쪽마다 그 상품 장면만. offline 매체 사진은 실사진 받으면 교체 */
     var W={
@@ -127,10 +130,11 @@ var H4=(function(){
     };
     var L=(key&&W[key])||R,MAXP=key?2:3,PLAY=key?null:{'v/f1':1,'v/s1':1,'v/b1':1},n=0;while(L.length<12)L=L.concat(L);
     var CAP={'v/s1':'세럼 한 달 써 봤어요','v/s2':'국물 한 숟갈이면 끝','v/s3':'허리 말고 엉덩이로 드세요','v/s4':'오늘의 손님 몽이','v/s5':'올레길 걸어 봤어요','v/s6':'냄비 뚜껑 열어 볼게요'};
-    var it=[],seen={};L.forEach(function(r){var isv=r.indexOf('v/')===0,has=isv&&r!=='v/s2'&&r!=='v/s4'&&r!=='v/s6',pl=has&&(PLAY?PLAY[r]:1)&&n<MAXP&&!reduce&&!seen[r],c=CAP[r]?'<p class="scp">'+CAP[r]+'</p>':'';seen[r]=1;if(pl)n++;it.push(pl?'<div class="rl"><video src="/sf/'+r+'.mp4" poster="/sf/'+r+'.jpg" muted loop playsinline autoplay preload="metadata"></video>'+c+'</div>':'<div class="rl"><img src="/sf/'+r+'.jpg" alt="" loading="lazy" decoding="async">'+c+'</div>');});
+    var it=[],seen={};L.forEach(function(r){var isv=r.indexOf('v/')===0,has=isv&&r!=='v/s2'&&r!=='v/s4'&&r!=='v/s6',pl=has&&(PLAY?PLAY[r]:1)&&n<MAXP&&!reduce&&!seen[r],c=CAP[r]?'<p class="scp">'+CAP[r]+'</p>':'';seen[r]=1;if(pl)n++;it.push(pl?'<div class="rl"><video src="/sf/'+r+'.mp4" poster="/sf/'+r+'.jpg" muted loop playsinline autoplay preload="metadata"></video>'+c+'</div>':'<div class="rl"><img src="/sf/'+r+'.jpg" alt="">'+c+'</div>');});
     var c=['','','','','',''];it.forEach(function(h,k){c[k%6]+=h});
     /* 11-08 툭툭 끊김 수정: ① 복사본은 영상 대신 포스터 사진으로(영상 디코더 절약) ② 소개 쪽 벽은 반 바퀴 분량을 두 벌로 늘려 기둥이 화면보다 길게(끝에 빈 자리 안 생김). 이어 붙는 지점(-50%)이 딱 맞는 건 CSS(.bgk gap 0 + .rl margin) */
-    function still(h){return h.replace(/<video src="[^"]*" poster="([^"]*)"[^>]*><\/video>/g,'<img src="$1" alt="" loading="lazy" decoding="async">')}
+    /* 11-10 벽 사진은 lazy 로 두지 않는다. 벽이 흘러 늦게 들어온 칸이 그때 받아지면 그 칸이 '가장 큰 그림(LCP)'으로 다시 잡혀 몇 초씩 늦게 측정된다(전문팀 8.1초). 어차피 20초 안에 전부 화면을 지나간다 */
+    function still(h){return h.replace(/<video src="[^"]*" poster="([^"]*)"[^>]*><\/video>/g,'<img src="$1" alt="">')}
     el.innerHTML=c.map(function(h){var half=key?h+still(h):h;return '<div class="bgc"><div class="bgk">'+half+still(half)+'</div></div>'}).join('');
     var vids=[].slice.call(el.querySelectorAll('video'));vids.forEach(function(v){v.muted=true});
     return function(on){vids.forEach(function(v){if(on&&v.hasAttribute('autoplay')){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause();})};}
