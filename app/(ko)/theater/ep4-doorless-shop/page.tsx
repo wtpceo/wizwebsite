@@ -6,7 +6,7 @@ import { EPISODES } from "@/lib/theater-episodes"
 
 const ep = EPISODES.find((e) => e.slug === "ep4-doorless-shop")!
 
-const TITLE = "매장 없는 출장 서비스, AI 추천에 뜨는 법: 출장세차 2개월 실제 사례 (위즈 극장 EP.4 문이 없는 가게)"
+const TITLE = "매장 없는 출장 서비스, AI 추천에 뜨는 법: 출장세차 2개월 실제 사례 (위즈 극장 EP.4)"  // 11-10 SEO 점검: 접미사 포함 70자 이내로(에피소드 이름은 본문에)
 const DESC =
   "가게도 간판도 없는 출장 서비스는 AI에게 어떻게 발견될까요? 네이버 플레이스만으로 성장이 멈췄던 신도시 출장세차가 흩어진 정보를 일치시키고 AI가 읽는 홈페이지를 만들자, 약 2개월 만에 구글 AI 개요에 노출되고 이어서 ChatGPT 추천을 받기 시작했습니다(진행 중 사례). 이 이야기를 AI 부엉이 위즈의 애니메이션으로 풀었습니다."
 const URL = "https://wiztheplanning.com/theater/ep4-doorless-shop"

@@ -6,7 +6,7 @@ import { EPISODES } from "@/lib/theater-episodes"
 
 const ep = EPISODES.find((e) => e.slug === "ep3-invisible-wall")!
 
-const TITLE = "홈페이지가 ChatGPT에 안 나온다면 방화벽부터 확인하세요: 병원 실제 사례 (위즈 극장 EP.3 보이지 않는 벽)"
+const TITLE = "홈페이지가 ChatGPT에 안 나온다면 방화벽부터 확인하세요: 병원 실제 사례 (위즈 극장 EP.3)"  // 11-10 SEO 점검: 접미사 포함 70자 이내로(에피소드 이름은 본문에)
 const DESC =
   "홈페이지가 있는데도 ChatGPT에서 검색되지 않는다면, 제작사가 기본값으로 켜 둔 보안 방화벽이 AI 크롤러를 막고 있을 수 있습니다. 실제로 한 비뇨의학과가 그랬고, 차단 해제 후 6개월 만에 ChatGPT·구글·네이버에 안정 노출됐습니다. 이 사례를 AI 부엉이 위즈가 열린 문 앞에서 튕겨 나가는 애니메이션으로 풀었습니다."
 const URL = "https://wiztheplanning.com/theater/ep3-invisible-wall"

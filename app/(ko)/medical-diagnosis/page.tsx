@@ -23,6 +23,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
+    // 11-10 SEO 점검: 공유 미리보기 그림이 비어 있어 홈과 같은 표지를 쓴다
+    images: [{ url: "/og-home.jpg", width: 1200, height: 630, alt: "위즈더플래닝" }],
     type: "website",
     url: PAGE_URL,
     title: "병원 무료 AI 검색 진단 | 위즈더플래닝",
@@ -32,6 +34,7 @@ export const metadata: Metadata = {
     locale: "ko_KR",
   },
   twitter: {
+    images: ["/og-home.jpg"],
     card: "summary_large_image",
     title: "병원 무료 AI 검색 진단 | 위즈더플래닝",
     description:

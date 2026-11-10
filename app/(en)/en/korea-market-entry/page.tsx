@@ -6,7 +6,7 @@ import { EN_BASE } from "@/lib/en/site"
 
 // 해외 기업의 한국 진출 마케팅 서비스 페이지. 가격·결과 보장은 쓰지 않는다(법무 검토 전).
 const PATH = "/en/korea-market-entry"
-const TITLE = "Korea Market Entry Marketing: Naver, AI Search and Ads"
+const TITLE = "Korea Market Entry Marketing: Naver, AI Search, Ads"
 const DESC =
   "Marketing for brands launching in Korea. We set up the Korean website, Naver presence and paid campaigns Korean customers need, and measure how Naver AI Briefing, ChatGPT, Gemini and Perplexity describe you every week."
 

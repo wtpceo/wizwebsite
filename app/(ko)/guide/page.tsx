@@ -12,6 +12,8 @@ export const metadata: Metadata = {
     "AI 검색 최적화(GEO), 네이버 플레이스, 업종별 마케팅 실전 가이드. 위즈더플래닝이 축적한 실측 데이터와 캠페인 운영 노하우를 정리했습니다.",
   alternates: { canonical: "/guide" },
   openGraph: {
+    // 11-10 SEO 점검: 공유 미리보기 그림이 비어 있어 홈과 같은 표지를 쓴다
+    images: [{ url: "/og-home.jpg", width: 1200, height: 630, alt: "위즈더플래닝" }],
     title: "마케팅 가이드 | 위즈더플래닝",
     description:
       "AI 검색 최적화(GEO), 네이버 플레이스, 업종별 마케팅 실전 가이드 모음.",

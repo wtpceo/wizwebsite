@@ -6,7 +6,7 @@ import { EPISODES } from "@/lib/theater-episodes"
 
 const ep = EPISODES.find((e) => e.slug === "ep6-picky-guests")!
 
-const TITLE = "같은 질문에 ChatGPT와 네이버 AI가 다른 가게를 추천하는 이유 (위즈 극장 EP.6 입맛이 다른 손님들)"
+const TITLE = "같은 질문에 ChatGPT와 네이버 AI가 다른 가게를 추천하는 이유 (위즈 극장 EP.6)"  // 11-10 SEO 점검: 접미사 포함 70자 이내로(에피소드 이름은 본문에)
 const DESC =
   "같은 질문을 해도 네이버 AI는 플레이스 리뷰·후기 블로그를, ChatGPT·구글 AI는 홈페이지와 디렉토리를 근거로 답합니다. 네이버가 외부 AI 크롤러를 차단해 ChatGPT는 네이버 안을 읽지 못하기 때문입니다. 엔진마다 '읽는 곳'이 다르다는 사실을 AI 부엉이 위즈와 세 손님의 애니메이션으로 풀었습니다."
 const URL = "https://wiztheplanning.com/theater/ep6-picky-guests"

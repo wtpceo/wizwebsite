@@ -6,7 +6,7 @@ import { EPISODES } from "@/lib/theater-episodes"
 
 const ep = EPISODES.find((e) => e.slug === "ep2-half-open-door")!
 
-const TITLE = "AI가 맛집을 추천할 때 다이닝코드를 인용하는 이유: 학습봇만 막은 robots.txt (위즈 극장 EP.2 반쪽 문)"
+const TITLE = "AI가 맛집을 추천할 때 다이닝코드를 인용하는 이유: 학습봇만 막은 robots.txt (위즈 극장 EP.2)"  // 11-10 SEO 점검: 접미사 포함 70자 이내로(에피소드 이름은 본문에)
 const DESC =
   "ChatGPT가 맛집을 추천할 때 다이닝코드를 자주 인용하는 데는 이유가 있습니다. 다이닝코드 robots.txt는 'AI 모델 무단 학습 차단(검색 인덱싱/트래픽 유입은 유지)': 학습봇만 막고 AI 검색봇은 허용합니다(2026년 7월 27일 실측). 이 영리한 선택을 AI 부엉이 위즈가 만난 '반쪽만 열린 문' 애니메이션으로 풀었습니다."
 const URL = "https://wiztheplanning.com/theater/ep2-half-open-door"

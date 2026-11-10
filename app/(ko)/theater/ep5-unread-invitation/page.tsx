@@ -6,7 +6,7 @@ import { EPISODES } from "@/lib/theater-episodes"
 
 const ep = EPISODES.find((e) => e.slug === "ep5-unread-invitation")!
 
-const TITLE = "IndexNow 제출해도 빙 색인이 안 될 때: 같은 글, 구글 3일 vs 빙 8일 (위즈 극장 EP.5 읽지 않는 초대장)"
+const TITLE = "IndexNow 제출해도 빙 색인이 안 될 때: 같은 글, 구글 3일 vs 빙 8일 (위즈 극장 EP.5)"  // 11-10 SEO 점검: 접미사 포함 70자 이내로(에피소드 이름은 본문에)
 const DESC =
   "빙 색인이 안 되는 건 설정 문제가 아니라 크롤 예산 때문일 수 있습니다. 같은 글을 같은 날 올렸는데 구글은 3일 만에 색인했고, 빙은 8일이 지나도 읽지 않았습니다. robots.txt·빙봇 접속·IndexNow·수동 제출 전부 정상(2026년 8월 실측). ChatGPT 검색은 빙 색인을 참고하므로 이 줄은 AI 노출의 병목입니다. 이 기록을 위즈의 애니메이션으로 풀었습니다."
 const URL = "https://wiztheplanning.com/theater/ep5-unread-invitation"
