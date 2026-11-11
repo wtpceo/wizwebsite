@@ -24,7 +24,7 @@ export const metadata: Metadata = share({
     title: t.metaTitle,
     description: t.metaDescription,
     url: URL,
-    images: ["/og-image.jpg"],
+    images: [{ url: "/og-zh.jpg", alt: "在韩国做推广之前，先查清哪里被挡住。先诊断现状的在韩华人AI搜索营销，WizThePlanning" }],
     locale: L.ogLocale,
     type: "website",
   },

@@ -29,7 +29,7 @@ export const metadata: Metadata = share({
   ],
   alternates: { canonical: "/medical-geo-agency" },
   openGraph: {
-    images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "website",
+    images: [{ url: "/og-medical-geo.jpg", alt: "콘텐츠를 늘리기 전에 막힌 곳부터 찾습니다. 진단부터 시작하는 병원 GEO 대행사, 위즈더플래닝" }], title: TITLE, description: DESC, url: URL, type: "website",
   },
 })
 

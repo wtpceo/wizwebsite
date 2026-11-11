@@ -16,7 +16,7 @@ export const metadata: Metadata = share({
   title: { absolute: TITLE },
   description: DESC,
   alternates: { canonical: "/en", languages: hreflangFor("/en") },
-  openGraph: { title: TITLE, description: DESC, url: `${EN_BASE}/en`, images: ["/og-image.jpg"], type: "website", locale: "en_US" },
+  openGraph: { title: TITLE, description: DESC, url: `${EN_BASE}/en`, images: [{ url: "/og-en.jpg", alt: "Before scaling in Korea, find your blind spots. Naver and AI search agency in Seoul, WizThePlanning" }], type: "website", locale: "en_US" },
 }, "en")
 
 const websiteJsonLd = {

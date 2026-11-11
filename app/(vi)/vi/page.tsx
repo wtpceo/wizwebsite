@@ -25,7 +25,7 @@ export const metadata: Metadata = share({
     title: t.metaTitle,
     description: t.metaDescription,
     url: URL,
-    images: ["/og-image.jpg"],
+    images: [{ url: "/og-vi.jpg", alt: "Trước khi làm quảng cáo, xem chỗ nào đang bị chặn. Marketing tìm kiếm AI cho chủ tiệm Việt, WizThePlanning" }],
     locale: L.ogLocale,
     type: "website",
   },
