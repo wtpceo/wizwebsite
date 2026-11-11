@@ -6,7 +6,6 @@ import { TEAM_PAGE } from "./details"
 import { DocShell, FaqBlock, ContactBlock, JsonLd, faqLd } from "./DocParts"
 import { Chars, vars } from "./parts"
 import { Icon } from "./icons"
-import HeroWall from "./HeroWall"
 import HeroKinetic from "./HeroKinetic"
 import HeroCards from "./HeroCards"
 
@@ -115,19 +114,7 @@ export default function HomeDoc() {
 
         {/* ① 첫 화면 (Hero + 핵심 신뢰 지표 바) */}
         <section className="dp-hero geo-hero ix-hero hm2-hero hm2-white" aria-label="첫 화면">
-          <div className="dp-bg" aria-hidden="true">
-            {/* 11-11 대표 「영상으로 돌리자」 시안(로컬 확인용, 아직 운영에 올리지 않음): 넓은 화면에서는 흐르는 이미지 벽 대신
-                실제 화면·직접 찍은 숏폼으로 만든 12초 영상을 깐다. 제목·버튼은 그대로 실제 글자다.
-                muted·autoplay 가 서버가 내려주는 HTML 에 그대로 찍혀야 자동 재생이 되므로 문자열로 넣는다. 휴대폰은 세로 영상이 없어 벽을 그대로 쓴다 */}
-            <div
-              className="hm2-hv"
-              dangerouslySetInnerHTML={{
-                __html:
-                  '<video muted loop playsinline autoplay preload="metadata" poster="/sf/hero/home-hero-white-poster.jpg" src="/sf/hero/home-hero-white-1600.mp4"></video>',
-              }}
-            />
-            <HeroWall k="main" />
-          </div>
+          {/* 11-11 운영 배포 전 정리: 흰 히어로에서는 영상과 흐르는 사진 벽이 화면에 나오지 않는데도 파일을 내려받고 있어 뺐다(영상 1개, 사진 12장, 숏폼 2개) */}
           <div className="dp-veil" aria-hidden="true" />
           <HeroCards />
           <div className="dp-w geo-hero-in">
