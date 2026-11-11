@@ -13,6 +13,14 @@ export type BizArticle = {
 
 export const BUSINESS_ARTICLES: BizArticle[] = [
   {
+    href: "/business/insights/youtuber-casting",
+    kicker: "기업 마케팅 · 인플루언서",
+    title: "유튜버 섭외 비용·단가 산정 기준과 플랫폼·대행사·직접 연락 비교",
+    desc: "유튜버 섭외 단가가 정해지는 조건과 플랫폼·에이전시·직접 연락 경로의 차이, 채널 데이터로 후보를 거르는 법과 계약 체크포인트를 마케팅 담당자 시각에서 정리했습니다.",
+    date: "2026. 11. 11",
+    cover: "/covers/business-youtuber-casting.jpg",
+  },
+  {
     href: "/business/insights/imc-marketing",
     kicker: "기업 마케팅 · IMC",
     title: "IMC 마케팅이란: 뜻과 전략 수립 5단계, 실무 예시까지",

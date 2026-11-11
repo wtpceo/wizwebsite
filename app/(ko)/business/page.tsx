@@ -341,7 +341,11 @@ export default function Page() {
               <Link href="/business/insights/imc-marketing" className="font-semibold text-gray-900 underline underline-offset-4">
                 IMC 마케팅의 뜻과 전략 수립 5단계
               </Link>
-              부터 보시면 됩니다.
+              부터 보시면 됩니다. 캠페인 예산 산정이 막막하다면{" "}
+              <Link href="/business/insights/youtuber-casting" className="font-semibold text-gray-900 underline underline-offset-4">
+                유튜버 섭외 비용 기준과 경로별 차이
+              </Link>
+              를 살펴보세요.
             </p>
             <Link href="/business/insights" className="mt-5 inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-bold text-gray-900 hover:border-gray-400">
               기업 마케팅 인사이트 보기 <ArrowRight className="h-4 w-4" />
