@@ -32,15 +32,41 @@ function authHeader(key: string, secret: string) {
   return `HMAC-SHA256 apiKey=${key}, date=${date}, salt=${salt}, signature=${signature}`
 }
 
-/** 문자 본문. 90바이트를 넘으면 솔라피가 장문(LMS)으로 바꿔 보낸다 */
-export function leadSmsText(l: { company?: string | null; name?: string | null; phone?: string | null; orgType?: string | null; budget?: string | null; form?: string | null }) {
+/** 문의 본문에서 「관심분야: …」 같은 한 줄을 뽑는다. 없으면 빈 문자열 */
+function pickLine(message: string | null | undefined, label: string, max: number) {
+  const m = (message || "").match(new RegExp(`^${label}:\\s*(.+)$`, "m"))
+  const v = m ? m[1].trim() : ""
+  return v.length > max ? `${v.slice(0, max)}…` : v
+}
+
+/**
+ * 문자 본문. 90바이트를 넘으면 솔라피가 장문(LMS)으로 바꿔 보낸다.
+ * 관리 화면 주소는 그 화면이 실제로 열릴 때(adminReady)만 넣는다. 받는 사람은 접수 메일을 못 보니 관심분야·문의 내용 앞부분을 문자에 함께 싣는다.
+ */
+export function leadSmsText(l: {
+  company?: string | null
+  name?: string | null
+  phone?: string | null
+  email?: string | null
+  orgType?: string | null
+  budget?: string | null
+  form?: string | null
+  message?: string | null
+  adminReady?: boolean
+}) {
+  const who = l.company && l.name && !l.name.includes(l.company) ? `${l.company} · ${l.name}` : l.name || l.company || "이름 없음"
+  const interest = pickLine(l.message, "관심분야", 60)
+  const note = pickLine(l.message, "문의 내용", 120)
   return [
     "[위즈더플래닝 새 문의]",
-    `${l.company || l.name || "이름 없음"}${l.orgType ? ` (${l.orgType})` : ""}`,
+    `${who}${l.orgType ? ` (${l.orgType})` : ""}`,
     l.phone ? `연락처 ${l.phone}` : "",
+    l.email ? `메일 ${l.email}` : "",
     l.budget ? `예산 ${l.budget}` : "",
+    interest && interest !== "고르지 않음" ? `관심 ${interest}` : "",
+    note ? `내용 ${note}` : "",
     l.form ? `폼 ${l.form}` : "",
-    "목록: wiztheplanning.com/admin/leads",
+    l.adminReady ? "목록 https://wiztheplanning.com/admin/leads" : "",
   ]
     .filter(Boolean)
     .join("\n")

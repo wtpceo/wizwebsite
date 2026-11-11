@@ -11,7 +11,8 @@ import {
   emailAcceptsMail,
   escapeHtml as esc,
 } from '@/lib/spam-guard'
-import { saveLead, pickOrgType } from '@/lib/crm/leads'
+import { saveLead, pickOrgType, crmConfigured } from '@/lib/crm/leads'
+import { adminConfigured } from '@/lib/crm/admin-auth'
 import { sendLeadSms, leadSmsText } from '@/lib/crm/lead-sms'
 
 // 문의 폼 공통 접수 라우트. 모든 폼(메인 상담·기업 제안·영문·인플루언서·진단·루크·외국어)이 여기로 보낸다.
@@ -98,25 +99,32 @@ export async function POST(req: Request) {
     })
 
     // UTM·입력값은 전부 조작할 수 있는 값이다. 메일 HTML 에 그대로 넣지 않는다.
+    // 11-11 대표 「전화번호가 메일에 표시 안 된다」: 연락처는 들어 있었지만 긴 유입 경로 상자 위에 작게 있어 문의내용만 보면 빠진 것처럼 보였다.
+    // 연락처·이메일을 맨 위 표로 크게 올리고(누르면 전화·메일), 문의내용을 그 바로 아래, 유입 경로는 맨 아래로 내린다.
+    const telHref = phone.replace(/[^\d+]/g, '')
+    const row = (label: string, value: string) =>
+      `<tr><td style="padding:7px 14px 7px 0;color:#6b7280;font-size:13px;white-space:nowrap;vertical-align:top;">${label}</td><td style="padding:7px 0;font-size:16px;font-weight:bold;color:#111;">${value}</td></tr>`
     const adminHtml = `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #4338ca;">새로운 문의가 접수되었습니다</h2>
+        <h2 style="color: #0A1A33;">새로운 문의가 접수되었습니다</h2>
         ${budget ? `<p style="display:inline-block;background:#fef3c7;color:#92400e;font-weight:bold;padding:6px 12px;border-radius:6px;margin:0 0 8px;">💰 월 예산: ${esc(budget)}</p>` : ''}
-        ${language ? `<p style="display:inline-block;background:#00e5a0;color:#070b14;font-weight:bold;padding:4px 10px;border-radius:6px;">🌐 ${esc(language)}</p>` : ''}
-        <p><strong>이름:</strong> ${esc(name)}</p>
-        <p><strong>연락처:</strong> ${esc(phone) || '미입력'}</p>
-        ${email ? `<p><strong>이메일:</strong> ${esc(email)}</p>` : ''}
-        ${storeName ? `<p><strong>회사명:</strong> ${esc(storeName)}</p>` : ''}
-        <div style="margin:16px 0;padding:12px;border-left:3px solid #4338ca;background:#f8f8ff;">
-          <p style="margin:0 0 6px;font-weight:bold;">📊 유입 경로</p>
+        ${language ? `<p style="display:inline-block;background:#0055FF;color:#ffffff;font-weight:bold;padding:4px 10px;border-radius:6px;">${esc(language)}</p>` : ''}
+        <table style="border-collapse:collapse;margin:8px 0 16px;">
+          ${row('이름', esc(name))}
+          ${row('연락처', phone ? `<a href="tel:${esc(telHref)}" style="color:#0055FF;text-decoration:none;">${esc(phone)}</a>` : '미입력')}
+          ${email ? row('이메일', `<a href="mailto:${esc(email)}" style="color:#0055FF;text-decoration:none;">${esc(email)}</a>`) : ''}
+          ${storeName ? row('회사명', esc(storeName)) : ''}
+        </table>
+        <p style="margin:0 0 6px;"><strong>문의내용</strong></p>
+        <div style="background-color: #f5f5f5; padding: 12px; border-radius: 4px; white-space: pre-wrap;">${esc(message, 6000)}</div>
+        <div style="margin:20px 0 0;padding:12px;border-left:3px solid #0055FF;background:#f5f8ff;">
+          <p style="margin:0 0 6px;font-weight:bold;">유입 경로</p>
           <p style="margin:0;font-size:15px;">${esc(formatAttribution(attribution))}</p>
           ${attribution.landing ? `<p style="margin:6px 0 0;color:#666;font-size:13px;">도착 페이지: ${esc(attribution.landing)}</p>` : ''}
           ${attribution.first_seen ? `<p style="margin:2px 0 0;color:#666;font-size:13px;">첫 방문: ${esc(attribution.first_seen)}</p>` : ''}
-          ${attribution.referrer ? `<p style="margin:2px 0 0;color:#666;font-size:13px;">referrer: ${esc(attribution.referrer)}</p>` : ''}
+          ${attribution.referrer ? `<p style="margin:2px 0 0;color:#666;font-size:13px;word-break:break-all;">referrer: ${esc(attribution.referrer)}</p>` : ''}
           <p style="margin:2px 0 0;color:#999;font-size:12px;">IP: ${esc(ip)}</p>
         </div>
-        <p><strong>문의내용:</strong></p>
-        <div style="background-color: #f5f5f5; padding: 12px; border-radius: 4px; white-space: pre-wrap;">${esc(message, 6000)}</div>
       </div>
     `;
 
@@ -146,7 +154,8 @@ export async function POST(req: Request) {
     }
 
     if (!isTest) {
-      await sendLeadSms(leadSmsText({ company: storeName, name, phone, orgType, budget, form: language }))
+      // 관리 화면(/admin/leads)이 실제로 열릴 때만 문자에 주소를 넣는다. 비밀번호·저장 키가 없으면 주소가 로그인 화면에서 막힌다(11-11 대표 「문자 링크가 안 열린다」)
+      await sendLeadSms(leadSmsText({ company: storeName, name, phone, email, orgType, budget, form: language, message, adminReady: adminConfigured() && crmConfigured() }))
     }
 
     // 5) 고객 자동 회신. 형식이 맞고 도메인이 메일을 받는 주소에만 보낸다.
