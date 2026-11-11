@@ -5700,3 +5700,275 @@ html.sf-anim .sf .rv.on :is(.cw-prod figure, .cw-proc-g figure, .hm2-fig, .hm-sv
   .sf .aw2 .dp-hero .aw2-year b { animation: aw2-year 1.6s cubic-bezier(.23, 1, .32, 1) both; }
   @keyframes aw2-year { from { opacity: 0; transform: translateY(40px) scale(1.06); } to { opacity: 1; transform: none; } }
 }
+
+/* ═══ 11-11 대표 「/services/influencer 는 처음에 했던 스타일로. 섭외 쪽이니까」(로컬 시안, iw2): 홈과 같은 흰 머리글·흰 히어로·인플루언서 카드·붓칠 제목·가운데 정렬 ═══ */
+.sf:has(.iw2) .sfh-doc { background: #FFFFFF !important; border-bottom-color: #E3EAF2 !important; color: #0A1A33 !important; }
+.sf:has(.iw2) .sfh-doc .sfh-nav > .sfh-it > a, .sf:has(.iw2) .sfh-doc .sfh-menu { color: #0A1A33 !important; }
+.sf:has(.iw2) .sfh-doc .sfh-logo img:not(.sfh-ko-mark), .sf:has(.iw2) .sfh-doc .sfh-logo b, .sf:has(.iw2) .sfh-doc .sfh-logo .sfh-sym { display: none !important; }
+.sf:has(.iw2) .sfh-doc .sfh-ko { display: inline-flex; align-items: center; font-family: "PaperlogySF", "PretendardSF", sans-serif; font-size: 25px; font-weight: 900; letter-spacing: -.05em; color: #0A1A33; white-space: nowrap; }
+.sf:has(.iw2) .sfh-doc .sfh-logo .sfh-ko-mark { display: block !important; width: 30px; height: 30px; margin-right: 9px; border-radius: 8px; filter: none !important; }
+.sf:has(.iw2) .sfh-doc .sfh-ko i { display: inline-block; width: .42em; height: .42em; margin-left: .07em; border-radius: 50%; background: #0055FF; align-self: flex-end; margin-bottom: .2em; }
+@media (min-width: 821px) {
+  .sf:has(.iw2) .sfh-doc .sfh-nav { position: absolute; left: 50%; top: 0; bottom: 0; transform: translateX(-50%); width: min(720px, 56vw); max-width: none; margin: 0; flex: none; }
+  .sf:has(.iw2) .sfh-doc .sfh-nav::after { display: none; }
+  .sf:has(.iw2) .sfh-doc .sfh-tick-sz span, .sf:has(.iw2) .sfh-doc .sfh-tick-roll a { padding: 0 16px; }
+  .sf:has(.iw2) .sfh-doc .sfh-tick-roll a { position: relative; z-index: 0; opacity: 1; font-weight: 800; width: fit-content; margin-left: auto; margin-right: auto; color: var(--tk-ink, #0A1A33) !important; }
+  .sf:has(.iw2) .sfh-doc .sfh-tick-roll a::before { content: ""; position: absolute; z-index: -1; inset: 0; background: var(--tk, #BCD2FF); transform: rotate(-1.2deg); -webkit-mask: var(--bm) center / 100% 100% no-repeat; mask: var(--bm) center / 100% 100% no-repeat; }
+  .sf:has(.iw2) .sfh-doc .sfh-tick-roll a:nth-child(8n+1) { --tk: #2A2D34; --tk-ink: #fff; }
+  .sf:has(.iw2) .sfh-doc .sfh-tick-roll a:nth-child(8n+2) { --tk: #C8B4F6; }
+  .sf:has(.iw2) .sfh-doc .sfh-tick-roll a:nth-child(8n+3) { --tk: #0055FF; --tk-ink: #fff; }
+  .sf:has(.iw2) .sfh-doc .sfh-tick-roll a:nth-child(8n+4) { --tk: #FFE27A; }
+  .sf:has(.iw2) .sfh-doc .sfh-tick-roll a:nth-child(8n+5) { --tk: #FFC3D2; }
+  .sf:has(.iw2) .sfh-doc .sfh-tick-roll a:nth-child(8n+6) { --tk: #FF9D8A; }
+  .sf:has(.iw2) .sfh-doc .sfh-tick-roll a:nth-child(8n+7) { --tk: #BCD2FF; }
+  .sf:has(.iw2) .sfh-doc .sfh-tick-roll a:nth-child(8n+8) { --tk: #FFD2A6; }
+}
+@media (max-width: 820px) {
+  .sf:has(.iw2) .sfh-doc .sfh-ko { font-size: 20px; }
+  .sf:has(.iw2) .sfh-doc .sfh-logo .sfh-ko-mark { width: 26px; height: 26px; margin-right: 7px; border-radius: 7px; }
+}
+/* 히어로 */
+.sf .iw2 .dp-hero { position: relative; z-index: 3; background: #FFFFFF; color: #0A1A33; overflow: visible; overflow-x: clip; border-bottom: 0; }
+.sf .iw2 .dp-hero .dp-bg, .sf .iw2 .dp-hero .dp-veil { display: none; }
+.sf .iw2 .dp-hero .hc { display: block; position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.sf .iw2 .dp-hero .hc-c { position: absolute; display: block; opacity: 0; aspect-ratio: 3 / 4; border-radius: 16px; overflow: hidden; background: #EEF2F7; box-shadow: 0 18px 40px -20px rgba(10, 26, 51, .26), 0 0 0 1px rgba(10, 26, 51, .05); will-change: transform, opacity; }
+.sf .iw2 .dp-hero .hc-c::after { content: ""; position: absolute; inset: 0; background: rgba(255, 255, 255, .45); }
+.sf .iw2 .dp-hero .hc-c img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.sf .iw2 .dp-hero .geo-hero-in { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.sf .iw2 .dp-hero h1 { color: #0A1A33; text-align: center; font-size: clamp(34px, 5.1vw, 78px) !important; }
+.sf .iw2 .dp-hero h1 .ix-kw { display: block; text-align: center; color: #0055FF !important; }
+.sf .iw2 .dp-hero h1 .ln { justify-content: center; }
+.sf .iw2 .dp-hero h1 :is(.ln, .wd, .ch):not(.mk *) { color: #0A1A33; -webkit-text-fill-color: #0A1A33; background-image: none; }
+.sf .iw2 .dp-hero .ix-tags { justify-content: center; }
+.sf .iw2 .dp-hero .ix-tags li b { color: #0A1A33; }
+.sf .iw2 .dp-hero .ix-tags li em, .sf .iw2 .dp-hero .ix-tags li small { color: #7A8597; }
+.sf .iw2 .dp-hero .ix-tags li.on b { color: #0055FF; }
+.sf .iw2 .dp-hero .ix-tags li.on em { color: #0055FF; }
+.sf .iw2 .dp-hero .dp-lead { color: #3A4556; text-align: center; margin-left: auto; margin-right: auto; }
+.sf .iw2 .dp-hero .dp-lead b { color: #0A1A33; }
+.sf .iw2 .dp-hero .dp-btns { justify-content: center; }
+.sf .iw2 .dp-hero .ix-cue, .sf .iw2 .dp-hero .ix-cue span { color: #5B6573 !important; z-index: 2; }
+.sf .iw2 .dp-hero .ix-cue i { background: #5B6573 !important; }
+.sf .iw2 .dp-hero + .dp-sec { position: relative; z-index: 1; border-top: 0; }
+@media (max-width: 1180px) { .sf .iw2 .hc-c:nth-child(n+9) { display: none; } .sf .iw2 .hc-c { scale: .8; } }
+@media (max-width: 820px) {
+  .sf .iw2 .dp-hero .hc-c { display: none; }
+  .sf .iw2 .dp-hero .hc-c:nth-child(4), .sf .iw2 .dp-hero .hc-c:nth-child(8), .sf .iw2 .dp-hero .hc-c:nth-child(9), .sf .iw2 .dp-hero .hc-c:nth-child(10) { display: block; scale: .56; }
+  .sf .iw2 .hc-c:nth-child(4) { left: 11% !important; top: 3% !important; }
+  .sf .iw2 .hc-c:nth-child(8) { left: 89% !important; top: 3% !important; }
+  .sf .iw2 .hc-c:nth-child(9) { left: 12% !important; top: 99% !important; }
+  .sf .iw2 .hc-c:nth-child(10) { left: 88% !important; top: 99% !important; }
+  .sf .iw2 .dp-hero .geo-hero-in { padding-top: 64px; }
+}
+/* 구간 머리: 가운데 정렬 + 둘째 줄 붓칠 */
+.sf .iw2 .dp-sec > .dp-w > .geo-eb, .sf .iw2 .dp-sec > .dp-w > h2 { text-align: center; }
+.sf .iw2 .dp-sec > .dp-w > .geo-lead { text-align: center; max-width: 780px; margin-left: auto; margin-right: auto; }
+.sf .iw2 .dp-sec > .dp-w > h2 > span:not(.nw) { position: relative; z-index: 0; display: inline-block; padding: 0 .12em; background-image: none !important; color: #0A1A33 !important; -webkit-text-fill-color: #0A1A33 !important; }
+.sf .iw2 .dp-sec > .dp-w > h2 > span:not(.nw)::before { content: ""; position: absolute; z-index: -1; inset: .06em -.14em .02em -.14em; background: var(--hb, #BCD2FF); transform: rotate(-1deg); -webkit-mask: var(--bm) center / 100% 100% no-repeat; mask: var(--bm) center / 100% 100% no-repeat; }
+.sf .iw2 .dp-sec.geo-sec-k > .dp-w > h2 > span:not(.nw) { margin-top: .1em; }
+.sf .iw2 .dp-sec.geo-sec-k > .dp-w > h2 > span:not(.nw)::before { inset: -.08em -.3em -.1em -.3em; }
+.sf .iw2 .dp-sec:nth-of-type(6n+2) { --hb: #FFE27A; }
+.sf .iw2 .dp-sec:nth-of-type(6n+3) { --hb: #FF9D8A; }
+.sf .iw2 .dp-sec:nth-of-type(6n+4) { --hb: #C8B4F6; }
+.sf .iw2 .dp-sec:nth-of-type(6n+5) { --hb: #BCD2FF; }
+.sf .iw2 .dp-sec:nth-of-type(6n) { --hb: #FFC3D2; }
+.sf .iw2 .dp-sec:nth-of-type(6n+1) { --hb: #FFD2A6; }
+/* 자주 묻는 질문·문의 폼·바닥글: 홈과 같은 가운데 배치 */
+.sf .iw2 .px-faq .fq-g { display: flex; flex-direction: column; align-items: center; gap: clamp(28px, 3vw, 44px); }
+.sf .iw2 .px-faq .fq-head { position: static; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; max-width: 760px; }
+.sf .iw2 .px-faq .fq-head h2 { position: relative; z-index: 0; display: inline-block; padding: 0 .16em; text-align: center; }
+.sf .iw2 .px-faq .fq-head h2::before { content: ""; position: absolute; z-index: -1; inset: .06em -.16em .02em -.16em; background: #FFD2A6; transform: rotate(-1deg); -webkit-mask: var(--bm) center / 100% 100% no-repeat; mask: var(--bm) center / 100% 100% no-repeat; }
+.sf .iw2 .px-faq .fq-more { text-align: center; }
+.sf .iw2 .px-faq .fq-g > :not(.fq-head) { width: 100%; max-width: 920px; }
+.sf .iw2 .dp-ct .dp-ct-in { display: flex; flex-direction: column; align-items: center; gap: clamp(30px, 3.4vw, 48px); }
+.sf .iw2 .dp-ct .dp-ct-in > div:first-child { display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 820px; }
+.sf .iw2 .dp-ct h2, .sf .iw2 .dp-ct .sm { text-align: center; }
+.sf .iw2 .dp-ct .ct-ways { display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: 12px; max-width: none; margin-top: 26px; }
+.sf .iw2 .dp-ct .ct-ways a { min-width: 290px; padding: 14px 20px; border: 1px solid rgba(255,255,255,.22); border-radius: 12px; text-align: left; }
+.sf .iw2 .dp-ct .ct-ways a:last-child { border-bottom: 1px solid rgba(255,255,255,.22); }
+.sf .iw2 .dp-ct .ct-ways a.kk { margin: 0; border: 0; border-radius: 12px; }
+.sf .iw2 .dp-ct .ct-ways a:first-child b { font-size: 22px; }
+.sf .iw2 .dp-ct .dp-ct-in > :last-child { width: 100%; max-width: 760px; }
+@media (max-width: 820px) { .sf .iw2 .dp-ct .ct-ways a { min-width: 0; width: 100%; } }
+@media (min-width: 821px) {
+  .sf:has(.iw2) .sff-in { max-width: none; }
+  .sf:has(.iw2) .sff-nav { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 32px; }
+  .sf:has(.iw2) .sff-biz { display: grid; grid-template-columns: 1fr auto; column-gap: 40px; align-items: end; }
+  .sf:has(.iw2) .sff-biz p { grid-column: 1; }
+  .sf:has(.iw2) .sff-biz .sff-legal { grid-column: 2; grid-row: 1 / span 3; align-self: end; text-align: right; }
+}
+.sf .iw2 .dp-hero h1 .mk, .sf .iw2 .dp-hero h1 .mk * { color: #fff !important; -webkit-text-fill-color: #fff !important; }
+.sf .iw2 .dp-sec > .dp-w > h2 > span:not(.nw) { margin-top: .06em; }
+.sf .iw2 .dp-sec > .dp-w > h2 > span:not(.nw)::before { inset: -.03em -.26em -.05em -.26em; }
+/* 11-11 대표 「패턴이 너무 똑같다 → 1번」: 인플루언서 히어로는 왼쪽 글자 + 오른쪽 휴대폰 세 대(홈의 가운데 정렬·떠다니는 카드와 다르게) */
+.sf .iw2-phones { display: none; }
+.sf .iw2 .dp-hero .geo-hero-in { align-items: flex-start; text-align: left; }
+.sf .iw2 .dp-hero h1, .sf .iw2 .dp-hero h1 .ix-kw, .sf .iw2 .dp-hero .dp-lead { text-align: left; }
+.sf .iw2 .dp-hero h1 .ln, .sf .iw2 .dp-hero .ix-tags, .sf .iw2 .dp-hero .dp-btns { justify-content: flex-start; }
+.sf .iw2 .dp-hero .dp-lead { margin-left: 0; margin-right: 0; }
+.sf .iw2 .dp-hero { overflow: hidden; background: radial-gradient(60% 70% at 82% 50%, #E8F0FF 0%, rgba(232, 240, 255, 0) 70%), #FFFFFF; }
+.sf .iw2 .dp-hero .iw2-phones { display: block; position: absolute; z-index: 0; right: max(var(--pad-x), calc((100% - 1200px) / 2)); top: 50%; width: min(46%, 560px); aspect-ratio: 560 / 620; transform: translateY(-48%); pointer-events: none; }
+.sf .iw2-ph { position: absolute; margin: 0; width: 42%; aspect-ratio: 9 / 18.6; border-radius: 13% / 6.3%; border: 7px solid #0A1A33; background: #0A1A33; overflow: hidden; box-shadow: 0 40px 70px -30px rgba(10, 26, 51, .5); }
+.sf .iw2-ph img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.sf .iw2-ph-yt { left: 29%; top: 0; z-index: 2; width: 46%; }
+.sf .iw2-ph-tt { left: 0; top: 13%; transform: rotate(-7deg); }
+.sf .iw2-ph-ig { right: 0; top: 13%; transform: rotate(7deg); }
+.sf .iw2-ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 26, 51, .38) 0%, rgba(10, 26, 51, 0) 22%, rgba(10, 26, 51, 0) 62%, rgba(10, 26, 51, .6) 100%); }
+.sf .iw2-ph-top { position: absolute; z-index: 1; left: 9%; top: 5%; display: flex; flex-direction: column; color: #fff; line-height: 1.25; }
+.sf .iw2-ph-top b { font-size: 13px; font-weight: 800; }
+.sf .iw2-ph-top small { font-size: 9.5px; opacity: .8; }
+.sf .iw2-ph-side { position: absolute; z-index: 1; right: 7%; bottom: 16%; display: flex; flex-direction: column; gap: 9px; }
+.sf .iw2-ph-side i { width: 22px; height: 22px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, .9); }
+.sf .iw2-ph-side i:first-child { background: #fff; }
+.sf .iw2-ph-bot { position: absolute; z-index: 1; left: 9%; right: 30%; bottom: 6%; display: flex; flex-direction: column; gap: 6px; }
+.sf .iw2-ph-bot i { height: 6px; border-radius: 3px; background: rgba(255, 255, 255, .85); }
+.sf .iw2-ph-bot i:last-child { width: 62%; opacity: .6; }
+.sf .iw2-ph-cap { position: absolute; left: 0; right: 0; bottom: -4%; margin: 0; text-align: center; font-size: 11px; color: #7A8597; }
+@media (min-width: 1025px) { .sf .iw2 .dp-hero .geo-hero-in > * { max-width: 54%; } .sf .iw2 .dp-hero h1 { font-size: clamp(34px, 4.3vw, 66px) !important; } }
+@media (prefers-reduced-motion: no-preference) {
+  .sf .iw2-ph-yt { animation: iw2-fl 6s ease-in-out infinite; }
+  .sf .iw2-ph-tt { animation: iw2-fl2 7s ease-in-out infinite; }
+  .sf .iw2-ph-ig { animation: iw2-fl3 6.5s ease-in-out .6s infinite; }
+  @keyframes iw2-fl { 50% { transform: translateY(-12px); } }
+  @keyframes iw2-fl2 { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(-7deg) translateY(10px); } }
+  @keyframes iw2-fl3 { 0%, 100% { transform: rotate(7deg); } 50% { transform: rotate(7deg) translateY(-10px); } }
+}
+@media (max-width: 1024px) {
+  .sf .iw2 .dp-hero { display: flex; flex-direction: column; }
+  .sf .iw2 .dp-hero .geo-hero-in { order: 1; padding-top: 40px; }
+  .sf .iw2 .dp-hero .iw2-phones { order: 2; position: relative; right: auto; top: auto; transform: none; width: min(86%, 400px); margin: 6px auto 64px; }
+  .sf .iw2 .dp-hero .ix-cue { display: none; }
+  .sf .iw2-ph { border-width: 5px; }
+  .sf .iw2-ph-top b { font-size: 10.5px; } .sf .iw2-ph-top small { font-size: 8px; }
+  .sf .iw2-ph-side i { width: 15px; height: 15px; }
+}
+@media (min-width: 1025px) { .sf .iw2 .dp-hero .dp-lead, .sf .iw2 .dp-hero .dp-lead .ix-l2 { white-space: normal !important; max-width: 50%; word-break: keep-all; } .sf .iw2 .dp-hero .dp-lead .ix-l2 { max-width: none; } }
+/* 11-11 인플루언서 히어로 휴대폰 움직임(InflPhones): 모였다 펼쳐지고, 가운데 콘텐츠에서 '다시 쓰이는 곳' 이름표가 튀어나온다 */
+.sf .iw2-live .iw2-stage { position: absolute; inset: 0; transition: transform .25s ease-out; transform-style: preserve-3d; }
+.sf .iw2-live .iw2-ph { animation: none !important; will-change: transform, opacity; }
+.sf .iw2-use { position: absolute; z-index: 3; left: 52%; top: 46%; display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px 10px 12px; border-radius: 999px; background: #fff; box-shadow: 0 14px 30px -12px rgba(10, 26, 51, .4), 0 0 0 1px rgba(10, 26, 51, .07); font-size: 15px; font-weight: 800; letter-spacing: -.02em; color: #0A1A33; white-space: nowrap; opacity: 0; transform: translate(-50%, -50%) scale(.4); will-change: transform, opacity; }
+.sf .iw2-use i { width: 12px; height: 12px; border-radius: 50%; flex: none; }
+@media (max-width: 1024px) { .sf .iw2-use { font-size: 11.5px; padding: 7px 11px 7px 8px; gap: 6px; } .sf .iw2-use i { width: 9px; height: 9px; } }
+/* 11-11 대표 「더 휙휙, 큼직하게, 사진을 더」: 휴대폰 여섯 대가 큰 원으로 넘어가는 판(iw2-ring). 휴대폰은 모두 무대 가운데를 기준으로 놓고 스크립트가 자리를 준다 */
+.sf .iw2-ring .iw2-ph { left: 50% !important; right: auto !important; top: 47% !important; width: 40% !important; transform: translate(-50%, -50%); opacity: 0; }
+.sf .iw2-ring .iw2-use { left: 50%; top: 47%; padding: .22em .7em .28em; border-radius: 0; background: none; box-shadow: none; font-family: "PaperlogySF", "PretendardSF", sans-serif; font-size: clamp(20px, 2.3vw, 34px); font-weight: 900; letter-spacing: -.04em; z-index: 40; }
+.sf .iw2-ring .iw2-use::before { content: ""; position: absolute; z-index: -1; inset: 0 -.2em; background: var(--ub, #FFE27A); -webkit-mask: var(--bm) center / 100% 100% no-repeat; mask: var(--bm) center / 100% 100% no-repeat; filter: drop-shadow(0 10px 14px rgba(10, 26, 51, .25)); }
+@media (max-width: 1024px) { .sf .iw2-ring .iw2-use { font-size: 19px; padding: .22em .7em .28em; } }
+/* 11-11 대표 「히어로 카피 가운데로 하고 저 모션도 쓸 수 없나」: 넓은 화면에서도 카피를 가운데 위에 두고, 휴대폰 원을 그 아래에 넓게 깐다(다섯 대가 한 줄) */
+@media (min-width: 1025px) {
+  .sf .iw2 .dp-hero { display: flex; flex-direction: column; background: radial-gradient(60% 50% at 50% 78%, #E8F0FF 0%, rgba(232, 240, 255, 0) 70%), #FFFFFF; }
+  .sf .iw2 .dp-hero .geo-hero-in { order: 1; align-items: center; text-align: center; padding-top: clamp(40px, 5vh, 70px); padding-bottom: 0; }
+  .sf .iw2 .dp-hero .geo-hero-in > * { max-width: none; }
+  .sf .iw2 .dp-hero h1, .sf .iw2 .dp-hero h1 .ix-kw, .sf .iw2 .dp-hero .dp-lead { text-align: center; }
+  .sf .iw2 .dp-hero h1 .ln, .sf .iw2 .dp-hero .ix-tags, .sf .iw2 .dp-hero .dp-btns { justify-content: center; }
+  .sf .iw2 .dp-hero .dp-lead, .sf .iw2 .dp-hero .dp-lead .ix-l2 { max-width: none; margin-left: auto; margin-right: auto; }
+  .sf .iw2 .dp-hero .iw2-phones { order: 2; position: relative; right: auto; top: auto; transform: none; width: min(92%, 800px); aspect-ratio: 800 / 500; margin: 26px auto 70px; }
+  .sf .iw2 .dp-hero .iw2-ring .iw2-ph { width: 23% !important; top: 50% !important; }
+  .sf .iw2 .dp-hero .iw2-ring .iw2-use { top: 50%; }
+  .sf .iw2 .dp-hero .ix-cue { display: none; }
+}
+@media (min-width: 1025px) {
+  .sf .iw2 .dp-hero { min-height: 0 !important; justify-content: flex-start; padding-top: 0; }
+  .sf .iw2 .dp-hero .geo-hero-in { padding-top: 44px !important; min-height: 0 !important; flex: none; justify-content: flex-start; }
+  .sf .iw2 .dp-hero .ix-tags { margin-top: 18px; margin-bottom: 14px; }
+  .sf .iw2 .dp-hero .iw2-phones { margin-top: 8px; }
+}
+/* 11-11 「네가 권하는 걸로」: 매체 이름 줄은 휴대폰 화면이 대신한다. 예시 표시는 휴대폰 위쪽에 또렷하게 */
+.sf .iw2 .dp-hero .ix-tags { display: none; }
+.sf .iw2 .dp-hero .dp-lead { margin-top: 18px; }
+.sf .iw2-ring .iw2-ph-cap { position: absolute; left: 50%; right: auto; top: -6px; bottom: auto; transform: translateX(-50%); z-index: 45; margin: 0; padding: 5px 12px; border-radius: 999px; background: #0A1A33; color: #fff; font-size: 11.5px; font-weight: 700; white-space: nowrap; }
+@media (min-width: 1025px) { .sf .iw2 .dp-hero .iw2-phones { margin-top: 34px; } }
+/* 제목 상자에 폭 제한이 걸려 있어 가운데 정렬해도 왼쪽으로 쏠렸다. 상자 자체를 가운데에 둔다 */
+.sf .iw2 .dp-sec > .dp-w > h2, .sf .iw2 .dp-sec > .dp-w > .geo-eb { margin-left: auto; margin-right: auto; }
+.sf .aw2 .gt-head h2, .sf .hm2 .gt-head h2 { margin-left: auto; margin-right: auto; }
+/* 11-11 대표 「네가 권하는 대로」: 흰 히어로 바로 아래 남색이 급하게 끊겨서, 첫 구간(매체별 맞춤 섭외)을 옅은 회색으로 바꾼다. 남색은 그다음 구간 하나만 남긴다 */
+.sf .iw2 #scope.dp-sec { background: #F3F6FA !important; color: #0A1A33; }
+.sf .iw2 #scope > .dp-w > .geo-eb { color: #0055FF !important; }
+.sf .iw2 #scope > .dp-w > h2 { color: #0A1A33 !important; -webkit-text-fill-color: #0A1A33; background-image: none !important; }
+.sf .iw2 #scope .ix-mc > li { box-shadow: 0 24px 50px -30px rgba(10, 26, 51, .28), 0 0 0 1px #DCE3EC; }
+/* 원본 사진이 세로 인물 컷으로 바뀌어, 가로로 잘리는 칸에서는 얼굴이 보이게 위쪽을 기준으로 자른다 */
+.sf .iw2 img[src="/infl/original-v2.webp"] { object-fit: cover; object-position: 50% 22%; }
+/* 11-11 2차 활용처 흐름(UsesFlow): 왼쪽 원본 한 편 → 오른쪽 여섯 곳. 지금 날아간 곳만 밝게 */
+.sf .ix .ixu2 { position: relative; margin-top: clamp(36px, 4vw, 56px); display: grid; grid-template-columns: minmax(200px, 250px) minmax(0, 1fr); gap: clamp(24px, 3.4vw, 56px); align-items: center; text-align: left; }
+.sf .ix .ixu2 .ixu-g { margin: 0; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.sf .ix .ixu2 .ixu-g > li { grid-column: auto !important; grid-row: auto !important; opacity: 1 !important; animation: none !important; cursor: pointer; transition: transform .45s cubic-bezier(.23,1,.32,1), box-shadow .45s, opacity .45s, filter .45s; }
+.sf .ix .ixu2 .ixu2-card { display: flex; flex-direction: column; height: 100%; }
+.sf .ix .ixu2-live .ixu-g > li:not(.on) { opacity: .5 !important; filter: saturate(.55); transform: scale(.97); }
+.sf .ix .ixu2-live .ixu-g > li.on { transform: scale(1.05); z-index: 2; box-shadow: 0 0 0 3px #0055FF, 0 34px 60px -30px rgba(0, 85, 255, .55); }
+.sf .ixu2-src { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; }
+.sf .ixu2-src > em { font-style: normal; padding: 5px 13px; border-radius: 999px; background: #0A1A33; color: #fff; font-size: 12.5px; font-weight: 800; }
+.sf .ixu2-src figure { position: relative; margin: 0; width: 100%; aspect-ratio: 9 / 15; border-radius: 22px; overflow: hidden; box-shadow: 0 34px 60px -30px rgba(10, 26, 51, .5); }
+.sf .ixu2-src figure img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; }
+.sf .ixu2-live .ixu2-src figure { animation: ixu2-pulse 1.7s ease-out infinite; }
+@keyframes ixu2-pulse { 0% { box-shadow: 0 34px 60px -30px rgba(10, 26, 51, .5), 0 0 0 0 rgba(0, 85, 255, .5); } 60%, 100% { box-shadow: 0 34px 60px -30px rgba(10, 26, 51, .5), 0 0 0 16px rgba(0, 85, 255, 0); } }
+.sf .ixu2-now { margin: 4px 0 0; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.sf .ixu2-now small { font-size: 12px; font-weight: 700; color: #7A8597; }
+.sf .ixu2-now b { position: relative; z-index: 0; display: inline-block; padding: .12em .5em .16em; font-family: "PaperlogySF", "PretendardSF", sans-serif; font-size: clamp(19px, 1.7vw, 25px); font-weight: 900; letter-spacing: -.04em; color: #0A1A33; white-space: nowrap; animation: ixu2-pop .5s cubic-bezier(.2, 1.4, .4, 1) both; }
+.sf .ixu2-now b::before { content: ""; position: absolute; z-index: -1; inset: 0 -.12em; background: #FFE27A; -webkit-mask: var(--bm) center / 100% 100% no-repeat; mask: var(--bm) center / 100% 100% no-repeat; }
+@keyframes ixu2-pop { from { opacity: 0; transform: scale(1.5) rotate(-5deg); } to { opacity: 1; transform: none; } }
+.sf .ixu2-dots { list-style: none; margin: 0; padding: 0; display: flex; gap: 6px; }
+.sf .ixu2-dots li { width: 18px; height: 4px; border-radius: 2px; background: #D3DBE6; transition: background .3s, width .3s; }
+.sf .ixu2-dots li.on { width: 30px; background: #0055FF; }
+.sf .ixu2-fly { position: absolute; left: 0; top: 0; z-index: 5; border-radius: 22px; object-fit: cover; object-position: 50% 22%; opacity: 0; pointer-events: none; transform-origin: 50% 50%; box-shadow: 0 20px 40px -16px rgba(10, 26, 51, .5); }
+@media (max-width: 1024px) {
+  .sf .ix .ixu2 { grid-template-columns: 1fr; }
+  .sf .ixu2-src { position: sticky; top: 66px; z-index: 6; flex-direction: row; justify-content: center; gap: 14px; padding: 10px 0; background: linear-gradient(180deg, #F3F5F8 80%, rgba(243, 245, 248, 0)); }
+  .sf .ixu2-src > em { display: none; }
+  .sf .ixu2-src figure { width: 74px; flex: none; border-radius: 12px; }
+  .sf .ixu2-src .ixu-play { display: none; }
+  .sf .ixu2-now { align-items: flex-start; margin: 0; }
+  .sf .ixu2-dots { display: none; }
+  .sf .ix .ixu2 .ixu-g { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .sf .ixu2-fly { border-radius: 12px; }
+}
+@media (max-width: 560px) { .sf .ix .ixu2 .ixu-g { grid-template-columns: 1fr; } }
+/* 여섯 곳이 한 화면에 다 보여야 흐름이 읽힌다: 예시 화면 높이를 맞추고 설명 칸을 줄인다 */
+@media (min-width: 1025px) {
+  .sf .ix .ixu2 .ixu-g > li .ixu-m { height: 172px; min-height: 0; overflow: hidden; flex: none; }
+  .sf .ix .ixu2 .ixu-g > li .ixu-tx { padding: 12px 16px 14px; }
+  .sf .ix .ixu2 .ixu-g > li .ixu-tx b { font-size: 16px; }
+  .sf .ix .ixu2 .ixu-g > li .ixu-tx span { font-size: 12.5px; line-height: 1.5; }
+  .sf .ix .ixu2 .ixu-g { gap: 14px; }
+}
+.sf .iw2 .ixu2 .ixu-m img[src="/infl/original-v2.webp"] { object-position: 50% 30%; }
+/* 휴대폰·좁은 화면: 카드가 한 줄로 길게 쌓여 '지금 날아간 곳'이 화면 밖에 있게 된다. 움직임·흐리게 처리를 끄고 원본을 위에 두고 여섯 곳을 모두 또렷하게 */
+@media (max-width: 1024px) {
+  .sf .ixu2-src { position: static; background: none; flex-direction: column; padding: 0; }
+  .sf .ixu2-src > em { display: inline-block; }
+  .sf .ixu2-src figure { width: 150px; border-radius: 18px; animation: none !important; }
+  .sf .ixu2-now, .sf .ixu2-fly { display: none !important; }
+  .sf .ix .ixu2-live .ixu-g > li:not(.on), .sf .ix .ixu2-live .ixu-g > li.on { opacity: 1 !important; filter: none; transform: none; box-shadow: 0 18px 40px -34px rgba(10,26,51,.4); }
+}
+/* 받은 사진이 칸마다 잘 보이게: 예시 화면을 조금 키우고 사진은 얼굴 쪽을 기준으로 자른다 */
+@media (min-width: 1025px) { .sf .ix .ixu2 .ixu-g > li .ixu-m { height: 196px; } }
+.sf .iw2 .ixu2 .ixu-m img { object-fit: cover; object-position: 50% 26%; }
+/* 예시 화면 안의 가상 문구(회색 줄 대신 실제 글자) */
+.sf .ix .ixu-m .ixu-txt { display: block; margin: 5px 0 0; font-size: 10.5px; line-height: 1.45; font-weight: 500; color: #5B6573; word-break: keep-all; }
+.sf .ix .ixu-m .ixu-txt i { display: none; }
+.sf .ix .ixu-place-h small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; }
+@media (min-width: 1025px) { .sf .ix .ixu2 .ixu-g > li .ixu-m { height: 214px; } }
+/* 가상 문구가 들어가면서 넘치던 곳: 홈페이지 칸 제품명은 두 줄 안에, 쇼핑몰 칸은 사진을 낮춰 제품명·설명이 보이게 */
+.sf .ix .ixu2 .ixu-web-hero { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); }
+.sf .ix .ixu2 .ixu-web-hero b { font-size: 15px; line-height: 1.25; word-break: keep-all; }
+.sf .ix .ixu2 .ixu-web-hero small { white-space: nowrap; font-size: 10px; }
+.sf .ix .ixu2 .ixu-web-hero .ixu-btn { margin-top: 6px; }
+.sf .ix .ixu2 .ixu-shop .ixu-phone figure { height: 92px; flex: none; }
+.sf .ix .ixu2 .ixu-shop .ixu-phone figure img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.sf .ix .ixu2 .ixu-shop .ixu-shop-in b { font-size: 12.5px; }
+.sf .ix .ixu2 .ixu-shop .ixu-shop-rv, .sf .ix .ixu2 .ixu-shop .ixu-btn { display: none; }
+/* 11-11 대표: 자체 섭외 솔루션 구간 아래 안내 문구를 가운데로 */
+.sf .iw2 .ix-stmt { text-align: center; margin-left: auto; margin-right: auto; }
+/* 11-11 인플루언서 히어로 색 동그라미: 또렷한 가장자리, 옅은 색, 천천히 떠다닌다 */
+.sf .iw2-dots { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.sf .iw2-dots i { position: absolute; border-radius: 50%; opacity: .55; transform: translate(-50%, -50%); animation: iw2-dot 7s ease-in-out infinite; }
+.sf .iw2-dots i:nth-child(6) { opacity: .22; }
+@keyframes iw2-dot { 0%, 100% { translate: 0 0; } 50% { translate: 0 -22px; } }
+.sf .iw2 .dp-hero .iw2-phones { z-index: 1; }
+@media (max-width: 820px) { .sf .iw2-dots i { scale: .5; } .sf .iw2-dots i:nth-child(2), .sf .iw2-dots i:nth-child(6) { display: none; } }
+@media (prefers-reduced-motion: reduce) { .sf .iw2-dots i { animation: none; } }
+/* 휴대폰 점검: 폭이 좁아 동그라미가 제목 글자와 겹친다. 위쪽 모서리 두 개만 작게 남긴다 */
+@media (max-width: 820px) {
+  .sf .iw2-dots i { display: none; }
+  .sf .iw2-dots i:nth-child(1) { display: block; left: 92% !important; top: 5% !important; scale: .45; }
+  .sf .iw2-dots i:nth-child(5) { display: block; left: 4% !important; top: 44% !important; scale: .4; }
+}

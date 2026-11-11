@@ -75,10 +75,11 @@ const MAP_URL = "https://map.naver.com/p/search/" + encodeURIComponent("서울 �
 /** 부서가 일하는 장면. 이미지 생성 모델로 만든 연출 사진이라 실존 인물·고객사가 아니다 */
 /* 11-09 대표 「사람 나오는 AI 사진은 어설프다, 캐릭터 느낌의 사물 그림이 낫다」: 부서 일을 사물로 그린 3D 그림 */
 const PHOTOS: [string, string, string][] = [
-  ["/sf/gen/about-shoot.jpg", "촬영팀 · 현장 촬영", "음식을 찍는 카메라와 조명을 그린 3D 그림"],
-  ["/sf/gen/about-edit.jpg", "촬영팀 · 편집", "영상 편집 화면이 켜진 모니터를 그린 3D 그림"],
-  ["/sf/gen/about-creator.jpg", "섭외팀 · 크리에이터 콘텐츠", "링라이트와 휴대폰으로 제품을 찍는 장면을 그린 3D 그림"],
-  ["/sf/gen/about-geo.jpg", "GEO팀 · AI 답변 확인", "AI 답변 말풍선이 뜬 휴대폰과 돋보기를 그린 3D 그림"],
+  // 11-11 대표: 사진들 폴더에 정리해 둔 네 장(현장촬영·영상편집·크리에이터콘텐츠·에이아이답변)으로 채운다. 로컬 시안, 대표 검수 예정
+  ["/sf/about/shoot.webp", "촬영팀 · 현장 촬영", "음식을 찍는 카메라와 조명"],
+  ["/sf/about/edit.webp", "촬영팀 · 편집", "영상 편집 화면이 켜진 모니터"],
+  ["/sf/about/creator.webp", "섭외팀 · 크리에이터 콘텐츠", "링라이트와 휴대폰으로 제품을 찍는 장면"],
+  ["/sf/about/geo.webp", "GEO팀 · AI 답변 확인", "AI 답변이 뜬 휴대폰과 돋보기"],
 ]
 import { Icon } from "@/components/shortform/icons"
 import { DocShell, FaqBlock, ContactBlock, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "@/components/shortform/DocParts"

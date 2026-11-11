@@ -7,6 +7,8 @@ import { Ex, Chars, vars } from "./parts"
 import GeoToolReel from "./GeoToolReel"
 import { Icon } from "./icons"
 import HeroWall from "./HeroWall"
+import InflPhones from "./InflPhones"
+import UsesFlow from "./UsesFlow"
 
 /**
  * /services/influencer — 인플루언서 협업 상세. 2026-11-08 대표 지시(카피 세션과 확정한 안)로 GEO·퍼포먼스 쪽과 같은 색 체계(.gx)로 새로 짬.
@@ -22,10 +24,11 @@ const CLAIM_SECOND_USE = "저희가 반응이 좋은 장면을 골라 15초 광�
 
 /** 섭외 전략 네 장 [이름, 영문, 한 줄, 배경 사진, 매체인지] — PPL은 매체가 아니라 협업 방식.
  *  배경은 2026-11-08 위즈스튜디오 레퍼런스(references 저장소)의 실제 촬영 사진: 스크린골프 스윙·네일숍·마라탕 음식점·안경 든 손(대표 「틱톡은 음식점으로」). 네 장 모두 같은 톤으로 보정(scratchpad grade.py: 자동 대비·채도·그림자 남색). 얼굴·간판 없는 컷만 골랐고 상호는 쓰지 않음 */
+// 11-11 대표: 사진들 폴더의 유튜브·인스타그램·틱톡 사진으로 바꿈(로컬 시안)
 const SCOPE: [string, string, string, string, boolean][] = [
-  ["유튜버", "YouTube", "심층 리뷰와 브이로그 콘텐츠가 검색 결과에 오래 남습니다.", "/sf/gen/infl-yt.jpg", true],
-  ["인스타그램 인플루언서", "Instagram", "릴스와 피드 콘텐츠로 원하는 고객에게 빠르게 퍼집니다.", "/sf/gen/infl-ig.jpg", true],
-  ["틱톡커", "TikTok", "숏폼 영상으로 젊은 소비층의 빠른 반응을 이끌어 냅니다.", "/sf/gen/infl-tt.jpg", true],
+  ["유튜버", "YouTube", "심층 리뷰와 브이로그 콘텐츠가 검색 결과에 오래 남습니다.", "/sf/infl/scope-yt.webp", true],
+  ["인스타그램 인플루언서", "Instagram", "릴스와 피드 콘텐츠로 원하는 고객에게 빠르게 퍼집니다.", "/sf/infl/scope-ig.webp", true],
+  ["틱톡커", "TikTok", "숏폼 영상으로 젊은 소비층의 빠른 반응을 이끌어 냅니다.", "/sf/infl/scope-tt.webp", true],
 ]
 /* 11-09 대표: 카드 제목을 매체 이름이 아니라 사람(유튜버·인스타그램 인플루언서·틱톡커)으로, PPL 카드는 뺌 */
 /** 11-09 대표 「이 섹션 마음에 안 든다」 → 3D 그림 + 매체 비교 세 줄 [포맷, 강점, 잘 맞는 목표] */
@@ -46,8 +49,20 @@ const USES: [string, string, string][] = [
   ["blog", "블로그", "블로그 체험·정보 글에 원본 사진과 영상을 씁니다"],
   ["pop", "매장 POP·전단", "매장 안 POP와 전단, 배너 시안에 씁니다"],
 ]
-const UW = "/infl/original.jpg"
+// 11-11 대표: 사진들 폴더의 「콘텐츠자산화」 사진으로 바꿈(세로 사진, 로컬 시안)
+const UW = "/infl/original-v2.webp"
 const UT = "/sf/pf/infl-beauty.jpg"
+/** 11-11 대표: 사진들 폴더에 칸 제목대로 받아 둔 사진(자사홈페이지·쇼핑몰상세페이지·지도플레이스·뉴스기사·블로그·매장피오피).
+    같은 크리에이터의 다른 컷이라 '원본 한 편이 곳마다 맞게 다시 쓰인다'가 보인다 */
+const U: Record<string, string> = {
+  web: "/sf/infl/use-web.webp",
+  shop: "/sf/infl/use-shop.webp",
+  place: "/sf/infl/use-place.webp",
+  news: "/sf/infl/use-news.webp",
+  blog: "/sf/infl/use-blog.webp",
+  pop: "/sf/infl/use-pop.webp",
+}
+// 11-11 대표 「OO 세럼 말고 위플이라는 브랜드명을 넣고, 밑에 글도 가상으로 실제처럼」: 문구는 Gemini 4 Carbon 작성(효능 단정·성과 숫자·실제 매체명 없음)
 function UseMock({ k }: { k: string }) {
   if (k === "web")
     return (
@@ -55,12 +70,12 @@ function UseMock({ k }: { k: string }) {
         <div className="ixu-bar"><i /><i /><i /><span>브랜드 공식 홈페이지</span></div>
         <div className="ixu-web-hero">
           <div>
-            <small>크리에이터가 먼저 써 본</small>
-            <b>OO 세럼</b>
-            <p><i /><i /></p>
+            <small>크리에이터의 아침 루틴</small>
+            <b>위플 데일리 세럼</b>
+            <p className="ixu-txt">매일 가볍고 산뜻하게 바르는 위플 데일리 세럼</p>
             <span className="ixu-btn">제품 보기</span>
           </div>
-          <figure><img src={UW} alt="" loading="lazy" decoding="async" /><i className="ixu-play" /></figure>
+          <figure><img src={U.web} alt="" loading="lazy" decoding="async" /><i className="ixu-play" /></figure>
         </div>
       </div>
     )
@@ -68,12 +83,12 @@ function UseMock({ k }: { k: string }) {
     return (
       <div className="ixu-m ixu-shop" aria-hidden="true">
         <div className="ixu-phone">
-          <figure><img src={UT} alt="" loading="lazy" decoding="async" /><span className="ixu-tag">크리에이터 리뷰</span></figure>
+          <figure><img src={U.shop} alt="" loading="lazy" decoding="async" /><span className="ixu-tag">크리에이터 리뷰</span></figure>
           <div className="ixu-shop-in">
-            <small>OO 브랜드</small>
-            <b>OO 세럼 50ml</b>
-            <p><i /><i /><i /></p>
-            <div className="ixu-shop-rv"><img src={UW} alt="" loading="lazy" decoding="async" /><span>“3주 써 보고 솔직하게 말합니다”</span></div>
+            <small>위플</small>
+            <b>위플 데일리 세럼 50ml</b>
+            <p className="ixu-txt">끈적임 없이 매끄럽게 발리는 데일리 세럼</p>
+            <div className="ixu-shop-rv"><img src={U.shop} alt="" loading="lazy" decoding="async" /><span>“메이크업 전에 바르기 참 편해요”</span></div>
             <span className="ixu-btn">구매하기</span>
           </div>
         </div>
@@ -82,11 +97,11 @@ function UseMock({ k }: { k: string }) {
   if (k === "place")
     return (
       <div className="ixu-m ixu-place" aria-hidden="true">
-        <div className="ixu-place-h"><b>OO 매장</b><small>홈 · 소식 · 사진 · 리뷰</small></div>
+        <div className="ixu-place-h"><b>위플 브랜드 쇼룸</b><small>소식 · 영상 속 데일리 세럼을 직접 만나보세요</small></div>
         <div className="ixu-place-g">
-          <img src={UW} alt="" loading="lazy" decoding="async" />
-          <img src={UT} alt="" loading="lazy" decoding="async" />
-          <img src="/geo/media-beauty.jpg" alt="" loading="lazy" decoding="async" />
+          <img src={U.place} alt="" loading="lazy" decoding="async" />
+          <img src={U.web} alt="" loading="lazy" decoding="async" />
+          <img src={U.blog} alt="" loading="lazy" decoding="async" />
         </div>
         <span className="ixu-place-l">대표 사진</span>
       </div>
@@ -94,26 +109,26 @@ function UseMock({ k }: { k: string }) {
   if (k === "news")
     return (
       <div className="ixu-m ixu-news" aria-hidden="true">
-        <div className="ixu-news-h"><b>OO일보</b><small>유통 · 뷰티</small></div>
-        <p className="ixu-news-t">OO 브랜드, 크리에이터와 함께 만든 사용 후기 공개</p>
-        <figure><img src={UW} alt="" loading="lazy" decoding="async" /></figure>
-        <p className="ixu-lines"><i /><i /><i /></p>
+        <div className="ixu-news-h"><b>뉴스</b><small>유통 · 뷰티</small></div>
+        <p className="ixu-news-t">위플, 크리에이터 협업 데일리 세럼 영상 공개</p>
+        <figure><img src={U.news} alt="" loading="lazy" decoding="async" /></figure>
+        <p className="ixu-txt">화장품 브랜드 위플이 일상 속 스킨케어 루틴을 담은 협업 영상을 공개했다.</p>
       </div>
     )
   if (k === "blog")
     return (
       <div className="ixu-m ixu-blog" aria-hidden="true">
         <div className="ixu-blog-h"><i /><span>블로그</span></div>
-        <p className="ixu-blog-t">OO 세럼 한 달 써 본 솔직 후기</p>
-        <figure><img src={UW} alt="" loading="lazy" decoding="async" /><i className="ixu-play" /></figure>
-        <p className="ixu-lines"><i /><i /></p>
+        <p className="ixu-blog-t">크리에이터의 일상 속 위플 데일리 세럼</p>
+        <figure><img src={U.blog} alt="" loading="lazy" decoding="async" /><i className="ixu-play" /></figure>
+        <p className="ixu-txt">협업 영상에 담긴 크리에이터의 루틴과 데일리 세럼 활용법을 소개합니다.</p>
       </div>
     )
   return (
     <div className="ixu-m ixu-pop" aria-hidden="true">
       <div className="ixu-pop-card">
-        <img src={UT} alt="" loading="lazy" decoding="async" />
-        <div><small>CREATOR PICK</small><b>OO 세럼</b></div>
+        <img src={U.pop} alt="" loading="lazy" decoding="async" />
+        <div><small>영상 속 그 데일리 세럼</small><b>위플 데일리 세럼</b></div>
       </div>
       <i className="ixu-pop-foot" />
     </div>
@@ -280,7 +295,7 @@ function CSec({ id, eb, q, sub, children, tone, cls }: { id?: string; eb: string
 function Thumb({ shape, label }: { shape: "wide" | "tall" | "square"; label?: string }) {
   return (
     <figure className={`ix-th ix-th-${shape}`}>
-      <img src="/infl/original.jpg" alt="" loading="lazy" width={960} height={540} />
+      <img src="/infl/original-v2.webp" alt="" loading="lazy" width={960} height={540} />
       <i className="ix-play" aria-hidden="true" />
       {label ? <figcaption>{label}</figcaption> : null}
     </figure>
@@ -323,7 +338,7 @@ export default function InflDoc() {
 
   return (
     <DocShell>
-      <div className="gx ix">
+      <div className="gx ix iw2">
         <JsonLd data={ld} />
 
         {/* ① 첫 화면: 화면 가득, 왼쪽 정렬, 큰 글자(11-08 대표 「크게크게, 공간 넓게」). 뒤에 숏폼 벽, 오른쪽은 막을 얇게 해 벽이 보이게 */}
@@ -332,6 +347,24 @@ export default function InflDoc() {
             <HeroWall k={s.slug} />
           </div>
           <div className="dp-veil" aria-hidden="true" />
+          {/* 11-11 대표 「패턴이 너무 똑같다 → 1번으로」(로컬 시안): 홈과 달리 글자는 왼쪽, 오른쪽에 휴대폰 화면 세 대를 세운다.
+              화면 안은 인플루언서 콘텐츠가 올라간 모습을 보여 주는 예시이고 숫자는 넣지 않는다 */}
+          {/* 11-11 대표 「카피 주변 배경이 심심하다. 색 동그라미를 띄울까」: 흐리게 번지는 덩어리 대신 가장자리가 또렷한 옅은 색 원(붓칠 색)을 제목 양옆에 띄운다 */}
+          <div className="iw2-dots" aria-hidden="true">
+            {[
+              ["7%", "16%", 132, "#FFE27A"],
+              ["15%", "44%", 58, "#C8B4F6"],
+              ["24%", "9%", 34, "#FF9D8A"],
+              ["5%", "70%", 84, "#BCD2FF"],
+              ["90%", "13%", 96, "#FFC3D2"],
+              ["80%", "38%", 44, "#0055FF"],
+              ["94%", "55%", 150, "#BCD2FF"],
+              ["73%", "8%", 28, "#FFE27A"],
+            ].map(([x, y, d, c], i) => (
+              <i key={i} style={{ left: x as string, top: y as string, width: d as number, height: d as number, background: c as string, animationDelay: `${-i * 0.9}s`, animationDuration: `${6 + (i % 4) * 1.3}s` }} />
+            ))}
+          </div>
+          <InflPhones />
           <div className="dp-w geo-hero-in">
             {/* 11-08 대표: 첫 화면 위 경로 표시(홈 › 서비스명)는 뺌. 구조화 데이터의 BreadcrumbList는 그대로 */}
             {/* 11-08 대표(카피 세션 안 승인): 머리말을 「인플루언서 마케팅 대행」으로 바꿔 H1 안에 넣는다 — 검색엔진이 읽는 H1에 핵심 키워드가 들어가게. 큰 글은 대표가 고른 문구 그대로. 다른 서비스 쪽(ServiceDoc)과 같은 h1 + small 구조 */}
@@ -354,12 +387,11 @@ export default function InflDoc() {
                 </li>
               ))}
             </ol>
+            {/* 11-11 대표 「네가 권하는 걸로」: 첫 화면에 휴대폰이 더 보이게 설명을 세 줄에서 두 줄로(Gemini 4 Carbon 작성). 매체 이름 줄은 휴대폰 화면이 대신하므로 숨긴다(sf-doc.css) */}
             <p className="dp-lead">
-              브랜드에 맞는 인플루언서를 찾아 섭외하고,{" "}
+              브랜드에 맞는 인플루언서를 섭외하며 협찬으로만 끝내지 않습니다.
               <br />
-              <span className="ix-l2">만들어진 콘텐츠가 AI 검색 답변(GEO)과 퍼포먼스 광고 성과로 이어지게 설계합니다.</span>
-              <br />
-              <b>한 번 협찬하고 끝내지 않는 통합 마케팅(IMC)입니다.</b>
+              <b>AI 검색 답변(GEO)과 광고로 잇는 통합 마케팅(IMC)입니다.</b>
             </p>
             <div className="dp-btns">
               <a className="p1" href="#contact">
@@ -461,7 +493,7 @@ export default function InflDoc() {
                 </div>
                 <div className="ix-use-vis">
                   <figure className="ix-ad">
-                    <img src="/infl/original.jpg" alt="" loading="lazy" width={540} height={960} />
+                    <img src="/infl/original-v2.webp" alt="" loading="lazy" width={540} height={960} />
                     <i className="ix-play" aria-hidden="true" />
                     <figcaption>
                       <span>Sponsored</span>
@@ -544,20 +576,23 @@ export default function InflDoc() {
             </>
           }
         >
-          <ul className="ixu-g" aria-label="협업 콘텐츠를 다시 쓰는 곳">
-            {USES.map(([k, t, x], i) => (
-              <li key={k} className={`ixu-${k}-li`} style={vars({ i })}>
+          {/* 11-11 대표 「이렇게 활용된다는 걸 더 명료하게, 모션으로」: 원본 한 편이 여섯 곳으로 차례로 날아가 꽂히는 흐름(UsesFlow) */}
+          <UsesFlow
+            src={UW}
+            titles={USES.map((u) => u[1])}
+            items={USES.map(([k, t, x], i) => (
+              <div key={k} className="ixu2-card">
                 <UseMock k={k} />
                 <div className="ixu-tx">
                   <em>{String(i + 1).padStart(2, "0")}</em>
                   <b>{t}</b>
                   <span>{x}</span>
                 </div>
-              </li>
+              </div>
             ))}
-          </ul>
+          />
           <p className="ixu-note">
-            <Ex>모두 예시 화면</Ex> 상호·제품명은 OO로 가렸습니다. 실제 활용 범위는 크리에이터 계약 조건을 따릅니다.
+            <Ex>모두 예시 화면</Ex> 브랜드와 문구는 설명을 위해 만든 가상 예시입니다. 실제 활용 범위는 크리에이터 계약 조건을 따릅니다.
           </p>
         </CSec>
 
