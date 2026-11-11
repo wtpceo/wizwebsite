@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import BizArticle, { CheckItem, Callout, BizContactNote } from "@/components/business/BizArticle"
+import { share } from "@/lib/share-meta"
 
 // 기업 경로 첫 글. 대상은 제안을 보내는 마케팅 담당자다.
 // 수치는 공개 자료와 자사 실측만 쓴다. 대행 요율은 출처를 밝힌 공개 자료로만 인용한다.
@@ -9,7 +10,7 @@ const DESC =
 const DATE = "2026-09-20"
 const URL = "https://wiztheplanning.com/business/insights/marketing-agency-rfp"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: `${TITLE} | 위즈더플래닝` },
   description: DESC,
   keywords: [
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/business/insights/marketing-agency-rfp" },
   openGraph: { images: ["/covers/business-rfp.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

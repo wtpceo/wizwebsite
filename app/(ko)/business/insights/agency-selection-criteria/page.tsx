@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import BizArticle, { CheckItem, Callout, BizContactNote } from "@/components/business/BizArticle"
+import { share } from "@/lib/share-meta"
 
 // 주 키워드: 광고대행사 선정 기준
 // 연관 검색어(2026-09-30 자동완성·2026-09-19 1페이지 조사): 광고대행사 선정 공고 / 광고대행사 계약서 /
@@ -11,7 +12,7 @@ const DESC =
 const DATE = "2026-09-30"
 const URL = "https://wiztheplanning.com/business/insights/agency-selection-criteria"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: `${TITLE} | 위즈더플래닝` },
   description: DESC,
   keywords: [
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/business/insights/agency-selection-criteria" },
   openGraph: { images: ["/covers/business-agency-selection.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

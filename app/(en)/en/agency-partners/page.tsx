@@ -3,6 +3,7 @@ import EnHeader from "@/components/en/EnHeader"
 import EnFooter from "@/components/en/EnFooter"
 import { EnHero, EnCtaButtons, EnSection, EnCard, EnSteps, EnFaq, faqJsonLd, EnBottomCta } from "@/components/en/EnSections"
 import { EN_BASE } from "@/lib/en/site"
+import { share } from "@/lib/share-meta"
 
 // 해외 마케팅 대행사 대상 한국 실행 파트너 페이지.
 // 화이트라벨 계약서는 법무 검토 전이라 "서면 합의로 정한다"까지만 쓰고 조건·수수료·독점은 약속하지 않는다.
@@ -11,12 +12,12 @@ const TITLE = "Korea Execution Partner for Marketing Agencies"
 const DESC =
   "For marketing agencies whose clients want Korea. We handle Korean-language execution on Naver, Google and AI search, plus weekly measurement, while you keep the client relationship. Branding and confidentiality are agreed in writing."
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: `${TITLE} | WizThePlanning` },
   description: DESC,
   alternates: { canonical: PATH, languages: { en: `${EN_BASE}${PATH}` } },
   openGraph: { title: TITLE, description: DESC, url: `${EN_BASE}${PATH}`, images: ["/og-image.jpg"], type: "website", locale: "en_US" },
-}
+}, "en")
 
 const FAQ = [
   {

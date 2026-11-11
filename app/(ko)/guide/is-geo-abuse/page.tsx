@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "SEO·GEO는 어뷰징인가요? 검색 마케팅에 대한 5가지 오해와 진실"
 const DESC =
@@ -7,7 +8,7 @@ const DESC =
 const DATE = "2026-07-15"
 const URL = "https://wiztheplanning.com/guide/is-geo-abuse"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/covers/is-geo-abuse.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 // FAQ 데이터 — 화면과 FAQPage 스키마가 공유 (AI가 질문/답변을 직접 인용하도록)
 const FAQ = [

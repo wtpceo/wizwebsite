@@ -7,6 +7,7 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DocShell } from "@/components/shortform/DocParts"
+import { share } from "@/lib/share-meta"
 
 // 기업 마케팅 허브. 자영업 페이지와 말과 경로를 분리한다.
 // - "사장님·가게" 대신 "담당자·브랜드·조직"
@@ -18,7 +19,7 @@ const DESC =
   "마케팅 전담 부서가 있는 기업을 위한 통합 대행 서비스입니다. 캠페인 기획, 인플루언서 섭외, 콘텐츠 프로덕션, 메타·구글 퍼포먼스 광고, 웹사이트 구축, SEO·GEO를 과업 범위에 맞춰 수행합니다. 견적은 맞춤 제안서로 안내하며 최소 계약 기간은 3개월입니다."
 const URL = "https://wiztheplanning.com/business"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: TITLE },
   description: DESC,
   keywords: [
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/business" },
   openGraph: { title: TITLE, description: DESC, url: URL, images: ["/covers/geo.jpg"], type: "website" },
-}
+})
 
 const SCOPE = [
   { icon: Gauge, title: "AI 검색 노출 측정", desc: "소비자의 실제 탐색 질문을 설계하고 네이버 AI·ChatGPT·Gemini·Perplexity에 반복 질의하여 브랜드 언급 비율과 인용 출처를 기록합니다." },

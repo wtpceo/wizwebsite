@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 // 주 키워드: 펜션 광고 (펜션 광고 방법)
 // 연관 검색어(2026-09-22 자동완성): 펜션 마케팅 / 인스타 릴스 광고 / 릴스 광고 비용·단가 / 네이버 펜션 예약 수수료
@@ -13,7 +14,7 @@ const DATE = "2026-08-12"
 const MODIFIED = "2026-09-22"
 const URL = "https://wiztheplanning.com/guide/case-pension-direct-booking"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/covers/case-pension-direct-booking.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

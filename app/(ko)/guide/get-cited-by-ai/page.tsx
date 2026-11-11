@@ -1,18 +1,19 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "우리 가게가 AI 답변에 나오게 하는 7가지 방법"
 const DESC =
   "ChatGPT와 네이버 AI가 인용하는 매장에는 공통점이 있습니다. 실제 진단 데이터에서 확인된, AI에게 추천받는 매장이 갖춘 7가지 요소를 정리했습니다."
 const DATE = "2026-07-08"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   alternates: { canonical: "/guide/get-cited-by-ai" },
   openGraph: {
     images: ["/covers/get-cited-by-ai.jpg"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/get-cited-by-ai", type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

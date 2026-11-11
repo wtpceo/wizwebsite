@@ -29,15 +29,27 @@ export function getLocale(code: Locale) {
   return LOCALES.find((l) => l.code === code)!
 }
 
-// 특정 경로에 대해 모든 로케일의 hreflang alternates 맵을 만든다.
-// (예: path="" → 홈, path="/site-check" → 각 언어 홈 하위 동일 경로가 있을 때)
-export function hreflangAlternates(path = ""): Record<string, string> {
-  const out: Record<string, string> = {}
-  for (const l of LOCALES) {
-    out[l.htmlLang] = `${BASE_URL}${l.prefix}${path}`
-  }
-  // 영어 홈(/en)은 해외 기업용 허브라서, 국문·중국어·베트남어 랜딩(한국 내 사업주 대상)의 대응 영어판은 따로 있다.
-  if (path === "") out.en = `${BASE_URL}${EN_LOCAL_BUSINESS_PATH}`
-  out["x-default"] = `${BASE_URL}${path}`
-  return out
+// hreflang 묶음(2026-11-10 정리, Ahrefs 'Missing reciprocal hreflang' 16건).
+// 규칙: 묶음 안의 모든 페이지가 같은 목록을 달아 서로를 가리킨다. 한 페이지는 한 묶음에만 든다.
+//  - 회사 홈: 국문 홈(/) ↔ 영문 허브(/en). 둘 다 기업 대상 회사 소개라 서로 짝이다. x-default 는 국문 홈.
+//  - 한국에서 사업하는 외국인 사장님 랜딩: /en/business-owners-in-korea ↔ /zh ↔ /vi. 같은 내용의 세 언어판. x-default 는 영어판.
+//    (예전에는 국문 홈이 영어 짝으로 이 랜딩을 가리켰는데, 국문 홈이 기업 전용으로 바뀌어 내용이 다르다)
+//  - 글·페이지 짝: 국문 원문 ↔ 영문 의역.
+const HREFLANG_GROUPS: Record<string, string>[] = [
+  { ko: "/", en: "/en", "x-default": "/" },
+  { en: EN_LOCAL_BUSINESS_PATH, "zh-Hans": "/zh", vi: "/vi", "x-default": EN_LOCAL_BUSINESS_PATH },
+  { ko: "/how-we-measure", en: "/en/how-we-measure" },
+  { ko: "/guide", en: "/en/insights" },
+  { ko: "/guide/naver-blocks-ai-crawlers", en: "/en/insights/naver-blocks-ai-crawlers" },
+  { ko: "/guide/naver-google-share", en: "/en/insights/naver-vs-google-korea" },
+  { ko: "/guide/case-orthopedic-chatgpt", en: "/en/insights/case-clinic-chatgpt" },
+  { ko: "/guide/case-dental-llms-factsheet", en: "/en/insights/case-dental-llms-txt" },
+]
+
+/** 이 경로가 든 hreflang 묶음을 절대 주소로 돌려준다. 묶음이 없으면 undefined(hreflang 을 달지 않는다). */
+export function hreflangFor(path: string): Record<string, string> | undefined {
+  const g = HREFLANG_GROUPS.find((x) => Object.entries(x).some(([k, v]) => k !== "x-default" && v === path))
+  if (!g) return undefined
+  // 홈은 canonical 과 같게 끝 슬래시 없이 적는다
+  return Object.fromEntries(Object.entries(g).map(([k, v]) => [k, `${BASE_URL}${v === "/" ? "" : v}`]))
 }

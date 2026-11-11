@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import EnArticle, { CheckItem, Callout } from "@/components/en/EnArticle"
+import { hreflangFor } from "@/lib/i18n/config"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "Naver Blocks AI Crawlers: What It Means for Brands"
 const DESC =
@@ -9,15 +11,12 @@ const PATH = "/en/insights/naver-blocks-ai-crawlers"
 const URL = `https://wiztheplanning.com${PATH}`
 const COVER = "/covers/naver-blocks-ai-crawlers.jpg"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: `${TITLE} | WizThePlanning` },
   description: DESC,
   alternates: {
     canonical: PATH,
-    languages: {
-      en: URL,
-      ko: "https://wiztheplanning.com/guide/naver-blocks-ai-crawlers",
-    },
+    languages: hreflangFor(PATH),
   },
   openGraph: {
     title: TITLE,
@@ -27,7 +26,7 @@ export const metadata: Metadata = {
     type: "article",
     locale: "en_US",
   },
-}
+}, "en")
 
 const FAQ = [
   {

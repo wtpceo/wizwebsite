@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ChevronLeft, ArrowRight, BookOpen } from "lucide-react"
 import { DocShell } from "@/components/shortform/DocParts"
 import { EPISODES } from "@/lib/theater-episodes"
+import { share } from "@/lib/share-meta"
 
 const ep = EPISODES.find((e) => e.slug === "ep5-unread-invitation")!
 
@@ -11,7 +12,7 @@ const DESC =
   "빙 색인이 안 되는 건 설정 문제가 아니라 크롤 예산 때문일 수 있습니다. 같은 글을 같은 날 올렸는데 구글은 3일 만에 색인했고, 빙은 8일이 지나도 읽지 않았습니다. robots.txt·빙봇 접속·IndexNow·수동 제출 전부 정상(2026년 8월 실측). ChatGPT 검색은 빙 색인을 참고하므로 이 줄은 AI 노출의 병목입니다. 이 기록을 위즈의 애니메이션으로 풀었습니다."
 const URL = "https://wiztheplanning.com/theater/ep5-unread-invitation"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/theater/ep5-unread-invitation" },
   openGraph: { images: ["/theater/ep5-poster1.jpg"], title: TITLE, description: DESC, url: URL, type: "video.episode" },
-}
+})
 
 const videoJsonLd = [
   {

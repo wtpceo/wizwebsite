@@ -1,18 +1,19 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "자영업 AI 검색 최적화 입문: 우리 가게를 AI가 추천하게 만드는 법"
 const DESC =
   "손님이 ChatGPT·네이버 AI에게 가게를 물어보는 시대입니다. AI가 어떤 가게를 고르는지, 우리 가게가 그 답에 들어가려면 무엇부터 해야 하는지 자영업 사장님 눈높이로 정리했습니다. 용어 정의와 대행 판단 기준은 GEO 총정리에 있습니다."
 const DATE = "2026-07-08"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   alternates: { canonical: "/guide/what-is-geo" },
   openGraph: {
     images: ["/covers/what-is-geo.jpg"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/what-is-geo", type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

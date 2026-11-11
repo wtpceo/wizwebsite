@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 // 주 키워드: 아파트 엘리베이터 광고 비용
 // 연관 검색어(2026-09-20 자동완성·서치콘솔 실측): 엘리베이터 광고 비용 / 아파트 엘리베이터 광고 효과 /
@@ -11,7 +12,7 @@ const DESC =
 const DATE = "2026-09-20"
 const URL = "https://wiztheplanning.com/guide/elevator-tv-ad-cost"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/covers/elevator-tv-ad-cost.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

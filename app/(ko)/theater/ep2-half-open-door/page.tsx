@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ChevronLeft, ArrowRight, BookOpen } from "lucide-react"
 import { DocShell } from "@/components/shortform/DocParts"
 import { EPISODES } from "@/lib/theater-episodes"
+import { share } from "@/lib/share-meta"
 
 const ep = EPISODES.find((e) => e.slug === "ep2-half-open-door")!
 
@@ -11,7 +12,7 @@ const DESC =
   "ChatGPT가 맛집을 추천할 때 다이닝코드를 자주 인용하는 데는 이유가 있습니다. 다이닝코드 robots.txt는 'AI 모델 무단 학습 차단(검색 인덱싱/트래픽 유입은 유지)': 학습봇만 막고 AI 검색봇은 허용합니다(2026년 7월 27일 실측). 이 영리한 선택을 AI 부엉이 위즈가 만난 '반쪽만 열린 문' 애니메이션으로 풀었습니다."
 const URL = "https://wiztheplanning.com/theater/ep2-half-open-door"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/theater/ep2-half-open-door" },
   openGraph: { images: ["/theater/ep2-poster1.jpg"], title: TITLE, description: DESC, url: URL, type: "video.episode" },
-}
+})
 
 const videoJsonLd = [
   {

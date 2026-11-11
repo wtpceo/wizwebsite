@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import BizArticle, { CheckItem, Callout, BizContactNote } from "@/components/business/BizArticle"
+import { share } from "@/lib/share-meta"
 
 // 주 키워드: 인하우스 vs 대행사
 // 연관 검색어(2026-09-19 자동완성 227개 조사): 대행사 vs 인하우스 / 인하우스 마케팅 / 인하우스 마케팅 뜻 /
@@ -16,13 +17,13 @@ const DATE = "2026-10-27"
 const MODIFIED = "2026-11-04" // 우리 금액 문장 뺌(사장님 11-04)
 const URL = "https://wiztheplanning.com/business/insights/inhouse-vs-agency"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: `${TITLE} | 위즈더플래닝` },
   description: DESC,
   keywords: ["인하우스 vs 대행사", "대행사 vs 인하우스", "인하우스 마케팅", "마케팅 아웃소싱", "마케팅팀 구성", "인하우스 퍼포먼스 마케팅"],
   alternates: { canonical: "/business/insights/inhouse-vs-agency" },
   openGraph: { images: ["/covers/business-inhouse.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

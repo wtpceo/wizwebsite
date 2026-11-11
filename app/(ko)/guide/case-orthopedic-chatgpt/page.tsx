@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout, MEDICAL_CTA } from "@/components/guide/GuideArticle"
 import CaseAccessRequest from "@/components/guide/CaseAccessRequest"
+import { hreflangFor } from "@/lib/i18n/config"
+import { share } from "@/lib/share-meta"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내
 const TITLE = "네이버·제미나이엔 뜨는데 ChatGPT만 모르던 정형외과: 언급률 17%에서 93%까지"
@@ -9,16 +11,16 @@ const DESC =
 const DATE = "2026-09-14"
 const URL = "https://wiztheplanning.com/guide/case-orthopedic-chatgpt"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
     "ChatGPT 병원 노출", "정형외과 GEO", "병원 GEO 사례", "ChatGPT 병원 추천",
     "병원 홈페이지 AI 검색", "AI 검색 언급률", "병원 AI 오정보",
   ],
-  alternates: { canonical: "/guide/case-orthopedic-chatgpt" },
+  alternates: { canonical: "/guide/case-orthopedic-chatgpt", languages: hreflangFor("/guide/case-orthopedic-chatgpt") },
   openGraph: { images: ["/covers/case-orthopedic-chatgpt.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

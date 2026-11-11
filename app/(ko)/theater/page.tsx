@@ -4,11 +4,12 @@ import { ArrowRight } from "lucide-react"
 import InsightHero from "@/components/shortform/InsightHero"
 import { DocShell } from "@/components/shortform/DocParts"
 import { EPISODES, SERIES_NAME, SERIES_DESC } from "@/lib/theater-episodes"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "위즈 극장: GEO(AI 검색 최적화)를 30초 애니메이션으로 배우는 시리즈"
 const URL = "https://wiztheplanning.com/theater"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: SERIES_DESC,
   keywords: [
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/theater" },
   openGraph: { images: ["/theater/ep1-poster1.jpg"], title: TITLE, description: SERIES_DESC, url: URL, type: "website" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

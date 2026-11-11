@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ChevronLeft, ArrowRight, BookOpen } from "lucide-react"
 import { DocShell } from "@/components/shortform/DocParts"
 import { EPISODES } from "@/lib/theater-episodes"
+import { share } from "@/lib/share-meta"
 
 const ep = EPISODES.find((e) => e.slug === "ep3-invisible-wall")!
 
@@ -11,7 +12,7 @@ const DESC =
   "홈페이지가 있는데도 ChatGPT에서 검색되지 않는다면, 제작사가 기본값으로 켜 둔 보안 방화벽이 AI 크롤러를 막고 있을 수 있습니다. 실제로 한 비뇨의학과가 그랬고, 차단 해제 후 6개월 만에 ChatGPT·구글·네이버에 안정 노출됐습니다. 이 사례를 AI 부엉이 위즈가 열린 문 앞에서 튕겨 나가는 애니메이션으로 풀었습니다."
 const URL = "https://wiztheplanning.com/theater/ep3-invisible-wall"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/theater/ep3-invisible-wall" },
   openGraph: { images: ["/theater/ep3-poster1.jpg"], title: TITLE, description: DESC, url: URL, type: "video.episode" },
-}
+})
 
 const videoJsonLd = [
   {

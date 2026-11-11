@@ -1,5 +1,5 @@
 import '../globals.css'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import RootShell from '@/components/layout/RootShell'
 import { BASE_METADATA, OG_TIMESTAMP as timestamp } from '@/lib/site-metadata'
 
@@ -34,16 +34,7 @@ export const metadata: Metadata = {
     '마케팅 대행사',
     '위즈더플래닝',
   ],
-  alternates: {
-    canonical: '/',
-    languages: {
-      ko: 'https://wiztheplanning.com/',
-      en: 'https://wiztheplanning.com/en/business-owners-in-korea',
-      'zh-Hans': 'https://wiztheplanning.com/zh',
-      vi: 'https://wiztheplanning.com/vi',
-      'x-default': 'https://wiztheplanning.com/',
-    },
-  },
+  // alternates(canonical·hreflang)는 여기 두지 않는다. 레이아웃에 두면 자기 것을 안 적은 쪽(404 등)에 홈 주소가 딸려 나간다. 각 page 가 적는다.
   openGraph: {
     title: '광고·마케팅 대행사 위즈더플래닝 | 브랜드를 분석한 제안서부터 받아 보세요',
     description: '광고·마케팅 대행사 위즈더플래닝입니다. 2016년부터 광고주와 일했고 지금 어디가 비어 있는지 먼저 분석해 제안서로 보내 드립니다. 캠페인 기획부터 인플루언서 섭외·촬영·광고·SEO·GEO·홈페이지까지 매체마다 전담 부서가 한 설계로 맡습니다.',
@@ -78,8 +69,9 @@ const jsonLd = {
       name: '위즈더플래닝',
       alternateName: ['WIZ THE PLANNING', 'WizThePlanning', '위즈더플래닝 마케팅'],
       url: 'https://wiztheplanning.com',
-      logo: 'https://wiztheplanning.com/thumbnail.png',
-      image: 'https://wiztheplanning.com/thumbnail.png',
+      // 11-10: 옛 공유 이미지(thumbnail.png, 3MB) 대신 새 심볼 아이콘과 홈 표지
+      logo: 'https://wiztheplanning.com/icon.png',
+      image: 'https://wiztheplanning.com/og-home.jpg',
       slogan: '맡긴 곳이, 직접 합니다',
       description:
         '위즈더플래닝은 AI 검색 최적화(GEO·SEO·네이버 플레이스), 퍼포먼스 광고(네이버·메타·구글·유튜브·카카오·당근), 바이럴·평판 관리, 인플루언서·MCN, 콘텐츠 프로덕션, 샤오홍슈·도우인·LINE 글로벌 마케팅, 웹사이트 구축, 택배차량·극장 같은 오프라인 미디어까지 재위탁 없이 자체 전문팀이 직접 수행하는 IMC 통합 마케팅 에이전시입니다. 고객사마다 전담 AE를 배정해 진단·전략·실행·주간 리포트·최적화를 맡습니다.',
@@ -146,6 +138,9 @@ const jsonLd = {
     },
   ],
 }
+
+// 휴대폰 브라우저 주소창 색. 사이트 머리글과 같은 남색(11-10)
+export const viewport: Viewport = { themeColor: "#0A1A33" }
 
 export default function RootLayout({
   children,

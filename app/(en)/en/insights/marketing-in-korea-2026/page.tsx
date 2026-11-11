@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import EnArticle, { CheckItem, Callout } from "@/components/en/EnArticle"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "Marketing in Korea 2026: Naver, Google and AI Search"
 const DESC =
@@ -9,12 +10,12 @@ const PATH = "/en/insights/marketing-in-korea-2026"
 const URL = `https://wiztheplanning.com${PATH}`
 const COVER = "/covers/geo.jpg"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: `${TITLE} | WizThePlanning` },
   description: DESC,
   alternates: { canonical: PATH, languages: { en: URL } },
   openGraph: { title: TITLE, description: DESC, url: URL, images: [COVER], type: "article", locale: "en_US" },
-}
+}, "en")
 
 const FAQ = [
   {

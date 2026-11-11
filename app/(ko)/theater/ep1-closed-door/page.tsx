@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ChevronLeft, ArrowRight, BookOpen } from "lucide-react"
 import { DocShell } from "@/components/shortform/DocParts"
 import { EPISODES } from "@/lib/theater-episodes"
+import { share } from "@/lib/share-meta"
 
 const ep = EPISODES.find((e) => e.slug === "ep1-closed-door")!
 
@@ -11,7 +12,7 @@ const DESC =
   "네이버 블로그·카페에 아무리 글을 쌓아도 ChatGPT·퍼플렉시티는 그 안을 읽지 못합니다. 네이버 robots.txt가 AI 학습봇·검색봇을 모두 차단하고 있기 때문입니다(2026년 7월 실측). 이 사실을 AI 부엉이 위즈가 초록 대문 앞에서 겪는 30초 애니메이션으로 풀었습니다. 전체 해설 포함."
 const URL = "https://wiztheplanning.com/theater/ep1-closed-door"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/theater/ep1-closed-door" },
   openGraph: { images: ["/theater/ep1-poster1.jpg"], title: TITLE, description: DESC, url: URL, type: "video.episode" },
-}
+})
 
 const videoJsonLd = [
   {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
+import { share } from "@/lib/share-meta"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: "포트폴리오: 매장 사진·영상 콘텐츠 제작 사례",
   description: "위즈더플래닝이 촬영·제작한 매장 사진, 영상 콘텐츠 포트폴리오. 실제 작업 결과물을 확인하세요.",
   alternates: { canonical: "/portfolio" },
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
     description: "위즈더플래닝이 촬영·제작한 매장 사진, 영상 콘텐츠 포트폴리오. 실제 작업 결과물을 확인하세요.",
     url: "https://wiztheplanning.com/portfolio",
   },
-}
+})
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return children

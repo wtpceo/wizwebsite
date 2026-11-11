@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout, MEDICAL_CTA } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "우리 병원이 ChatGPT에 나오는지 5분 만에 확인하는 법 (원장님 셀프 체크)"
 const DESC =
@@ -8,7 +9,7 @@ const DATE = "2026-07-18"
 const UPDATED = "2026-09-08"
 const URL = "https://wiztheplanning.com/guide/check-hospital-ai-visibility"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/covers/check-hospital-ai-visibility.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 // FAQ — 화면과 FAQPage 스키마 공유 (AI가 Q&A를 직접 인용하도록)
 const FAQ = [

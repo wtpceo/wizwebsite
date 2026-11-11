@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 // 타이틀은 접미사(" | 위즈더플래닝") 포함 70자 이내로 유지 — 초과 시 검색 결과에서 잘림
 const TITLE =
@@ -9,7 +10,7 @@ const DESC =
 const DATE = "2026-07-27"
 const URL = "https://wiztheplanning.com/guide/platform-ai-crawler-status"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/covers/platform-ai-crawler-status.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

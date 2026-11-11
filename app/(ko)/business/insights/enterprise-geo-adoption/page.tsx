@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import BizArticle, { CheckItem, BizContactNote } from "@/components/business/BizArticle"
+import { share } from "@/lib/share-meta"
 
 // 기업 GEO 도입 순서 (작가 원고 2026-10-31, 총괄 회의 실행안).
 // 주 키워드: 기업 GEO 도입
@@ -15,13 +16,13 @@ const DATE = "2026-10-31"
 const MODIFIED = "2026-11-04" // 금액 대신 「제안서로」(사장님 11-04)
 const URL = "https://wiztheplanning.com/business/insights/enterprise-geo-adoption"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: `${TITLE} | 위즈더플래닝` },
   description: DESC,
   keywords: ["기업 GEO 도입", "GEO 도입", "GEO 도입 순서", "GEO 도입 기간", "GEO 인하우스", "AI 검색 최적화 기업"],
   alternates: { canonical: "/business/insights/enterprise-geo-adoption" },
   openGraph: { images: ["/covers/business-enterprise-geo-adoption.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

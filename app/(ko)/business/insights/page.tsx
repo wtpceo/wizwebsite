@@ -4,18 +4,19 @@ import { DocShell, Crumb } from "@/components/shortform/DocParts"
 import { Icon } from "@/components/shortform/icons"
 import { BIZ_CTA } from "@/components/business/BizArticle"
 import { BUSINESS_ARTICLES } from "@/lib/business-articles"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "기업 마케팅 인사이트 | 위즈더플래닝"
 const DESC =
   "마케팅 실무자와 의사결정권자를 위한 인사이트 칼럼입니다. 대행사 선정과 RFP, 예산 편성과 성과 측정, AI 검색 대응 등 조직 내 주요 의사결정 과제를 실측 데이터와 수행 경험을 바탕으로 정리합니다."
 const URL = "https://wiztheplanning.com/business/insights"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: TITLE },
   description: DESC,
   alternates: { canonical: "/business/insights" },
   openGraph: { title: TITLE, description: DESC, url: URL, images: ["/covers/business-rfp.jpg"], type: "website" },
-}
+})
 
 const listJsonLd = {
   "@context": "https://schema.org",

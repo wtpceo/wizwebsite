@@ -9,6 +9,7 @@ import HowWeReport from "@/components/sections/HowWeReport"
 import DiagnosisApplyForm from "@/components/medical/DiagnosisApplyForm"
 import { GUIDE_ARTICLES } from "@/lib/guide-articles"
 import { DocShell } from "@/components/shortform/DocParts"
+import { share } from "@/lib/share-meta"
 
 const PUBLISHED = "2026-07-23"
 const UPDATED = "2026-11-10"
@@ -18,7 +19,7 @@ const DESC =
   "환자가 ChatGPT · 네이버 AI에 병원을 물었을 때 우리 병원이 나오게 만듭니다. 진단은 병원 · 의원이면 무료, 그 뒤는 월 1회 같은 기준으로 다시 재서 보고합니다. 실측 사례: 언급률 17%에서 93%."
 const URL = "https://wiztheplanning.com/medical-geo-agency"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "website",
   },
-}
+})
 
 // 대행 범위 — 실제 사례에서 검증된 순서 그대로
 const SCOPE = [

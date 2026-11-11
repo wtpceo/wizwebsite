@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 유지 → 현재 42자
 const TITLE = "GEO 대행사 추천 TOP5, 누가 쓴 글인지 확인해봤습니다"
@@ -8,7 +9,7 @@ const DESC =
 const DATE = "2026-09-02"
 const URL = "https://wiztheplanning.com/guide/geo-agency-recommendation-check"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/guide/geo-agency-recommendation-check" },
   openGraph: { images: ["/covers/geo-agency-recommendation-check.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

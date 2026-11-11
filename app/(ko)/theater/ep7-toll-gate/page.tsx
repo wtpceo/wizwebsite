@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ChevronLeft, ArrowRight, BookOpen } from "lucide-react"
 import { DocShell } from "@/components/shortform/DocParts"
 import { EPISODES } from "@/lib/theater-episodes"
+import { share } from "@/lib/share-meta"
 
 const ep = EPISODES.find((e) => e.slug === "ep7-toll-gate")!
 
@@ -11,7 +12,7 @@ const DESC =
   "네이버 펜션 실시간예약 수수료는 부가세 포함 10.45%, 야놀자·여기어때 중개수수료는 10%입니다(공정위 자율규제 기준). 플랫폼 문으로 들어온 예약이 통행료를 떼는 구조와, 자기 문을 만들 때 먼저 재야 할 것을 위즈의 애니메이션으로 풀었습니다. 수수료보다 큰 문제는 AI 인용까지 플랫폼에 넘어간다는 것입니다."
 const URL = "https://wiztheplanning.com/theater/ep7-toll-gate"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/theater/ep7-toll-gate" },
   openGraph: { images: ["/theater/ep7-poster1.jpg"], title: TITLE, description: DESC, url: URL, type: "video.episode" },
-}
+})
 
 const videoJsonLd = [
   {

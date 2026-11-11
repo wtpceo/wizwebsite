@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
 import CaseAccessRequest from "@/components/guide/CaseAccessRequest"
+import { share } from "@/lib/share-meta"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내
 const TITLE = "네이버 블로그 상위노출, 1위 글은 뭐가 달랐나: 2위 글과 나란히 비교"
@@ -10,7 +11,7 @@ const DATE = "2026-09-14"
 const MODIFIED = "2026-09-28"
 const URL = "https://wiztheplanning.com/guide/naver-blog-rank-compare"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/guide/naver-blog-rank-compare" },
   openGraph: { images: ["/covers/naver-blog-rank-compare.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

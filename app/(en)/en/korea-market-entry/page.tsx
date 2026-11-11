@@ -3,6 +3,7 @@ import EnHeader from "@/components/en/EnHeader"
 import EnFooter from "@/components/en/EnFooter"
 import { EnHero, EnCtaButtons, EnSection, EnCard, EnSteps, EnFaq, faqJsonLd, EnInsightCards, EnBottomCta } from "@/components/en/EnSections"
 import { EN_BASE } from "@/lib/en/site"
+import { share } from "@/lib/share-meta"
 
 // 해외 기업의 한국 진출 마케팅 서비스 페이지. 가격·결과 보장은 쓰지 않는다(법무 검토 전).
 const PATH = "/en/korea-market-entry"
@@ -10,12 +11,12 @@ const TITLE = "Korea Market Entry Marketing: Naver, AI Search, Ads"
 const DESC =
   "Marketing for brands launching in Korea. We set up the Korean website, Naver presence and paid campaigns Korean customers need, and measure how Naver AI Briefing, ChatGPT, Gemini and Perplexity describe you every week."
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: `${TITLE} | WizThePlanning` },
   description: DESC,
   alternates: { canonical: PATH, languages: { en: `${EN_BASE}${PATH}` } },
   openGraph: { title: TITLE, description: DESC, url: `${EN_BASE}${PATH}`, images: ["/covers/geo.jpg"], type: "website", locale: "en_US" },
-}
+}, "en")
 
 const FAQ = [
   {

@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "블로그 글이 자꾸 누락된다면: 저품질이 아니라 '키워드'가 문제였습니다 (실제 사례)"
 const DESC =
@@ -7,7 +8,7 @@ const DESC =
 const DATE = "2026-07-19"
 const URL = "https://wiztheplanning.com/guide/case-blog-omission"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/covers/case-blog-omission.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

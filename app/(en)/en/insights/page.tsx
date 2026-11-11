@@ -4,18 +4,20 @@ import EnFooter from "@/components/en/EnFooter"
 import { EnInsightCards, EnBottomCta } from "@/components/en/EnSections"
 import { EN_BASE } from "@/lib/en/site"
 import { EN_INSIGHTS } from "@/lib/en/insights"
+import { hreflangFor } from "@/lib/i18n/config"
+import { share } from "@/lib/share-meta"
 
 const PATH = "/en/insights"
 const TITLE = "Insights: Marketing in Korea, Naver and AI Search"
 const DESC =
   "Research and case studies from WizThePlanning on how Korean customers find brands: Naver, Google, AI assistants and what gets cited. Measured data, anonymised client cases."
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: `${TITLE} | WizThePlanning` },
   description: DESC,
-  alternates: { canonical: PATH, languages: { en: `${EN_BASE}${PATH}`, ko: `${EN_BASE}/guide` } },
+  alternates: { canonical: PATH, languages: hreflangFor(PATH) },
   openGraph: { title: TITLE, description: DESC, url: `${EN_BASE}${PATH}`, images: ["/covers/geo.jpg"], type: "website", locale: "en_US" },
-}
+}, "en")
 
 const listJsonLd = {
   "@context": "https://schema.org",

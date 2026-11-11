@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout, MEDICAL_CTA } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 → 현재 35자
 const TITLE = "병원 마케팅 비용: 견적서를 광고비·대행료·제작비로 나눠 보는 법"
@@ -8,7 +9,7 @@ const DESC =
 const DATE = "2026-09-18"
 const URL = "https://wiztheplanning.com/guide/hospital-marketing-cost"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/covers/hospital-marketing-cost.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

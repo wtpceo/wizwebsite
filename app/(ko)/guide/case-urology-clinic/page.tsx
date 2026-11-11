@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout, MEDICAL_CTA } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "ChatGPT에 아예 안 뜨던 비뇨기과: 원인은 홈페이지 방화벽이었습니다 (6개월 GEO 사례)"
 const DESC =
@@ -7,7 +8,7 @@ const DESC =
 const DATE = "2026-07-17"
 const URL = "https://wiztheplanning.com/guide/case-urology-clinic"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/covers/case-urology-clinic.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

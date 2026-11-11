@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "GEO란? 뜻부터 GEO 최적화 방법과 대행사·업체 선택까지"
 const DESC =
@@ -7,7 +8,7 @@ const DESC =
 const DATE = "2026-08-05"
 const URL = "https://wiztheplanning.com/guide/geo"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/covers/geo.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

@@ -4,6 +4,7 @@ import KakaoChatButton from "@/components/influencer/KakaoChatButton"
 import PickNeedLink from "@/components/influencer/PickNeedLink"
 import StickyCta from "@/components/influencer/StickyCta"
 import { DocShell } from "@/components/shortform/DocParts"
+import { share } from "@/lib/share-meta"
 
 // IMC·인플루언서 섭외 라인 소개. 기획안: 02.비즈니스/27.자사브랜딩/07_IMC재편_2026-11/IMC재편_기획안.md
 // 글은 총괄 4안 원고(20_글/원고/2026-11-03_influencer_4안_총괄원고.md). 근거: 07_IMC재편_2026-11/레퍼런스/시장수요_조사_2026-11-03.md
@@ -18,7 +19,7 @@ const DESC =
   "브리프를 남기시면 영업일 3일 안에 인플루언서 후보 리스트를 무료로 드립니다. 브랜드 캠페인, 중국 관광객 마케팅, 숏폼 제작까지 위즈더플래닝이 진행합니다."
 const URL = "https://wiztheplanning.com/influencer"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: TITLE },
   description: DESC,
   alternates: { canonical: "/influencer" },
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     images: [{ url: "/covers/influencer.jpg", width: 1200, height: 630 }],
     type: "website",
   },
-}
+})
 
 // 사내 촬영본 다섯 장. 첫 칸만 움직인다. alt 형식은 작가가 정했다
 const STRIP = [

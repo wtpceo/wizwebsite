@@ -3,6 +3,8 @@ import Link from "next/link"
 import { ChevronRight, Radar, Bell, FileText, Stethoscope, BarChart3, ListChecks } from "lucide-react"
 import EnHeader from "@/components/en/EnHeader"
 import EnFooter from "@/components/en/EnFooter"
+import { hreflangFor } from "@/lib/i18n/config"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "How We Measure: Our In-House AI Search Monitoring"
 const DESC =
@@ -11,15 +13,12 @@ const PATH = "/en/how-we-measure"
 const URL = "https://wiztheplanning.com/en/how-we-measure"
 const PUBLISHED = "2026-09-15"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: `${TITLE} | WizThePlanning` },
   description: DESC,
   alternates: {
     canonical: PATH,
-    languages: {
-      en: "https://wiztheplanning.com/en/how-we-measure",
-      ko: "https://wiztheplanning.com/how-we-measure",
-    },
+    languages: hreflangFor(PATH),
   },
   openGraph: {
     title: TITLE,
@@ -29,7 +28,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
-}
+}, "en")
 
 const SCREENS = [
   {

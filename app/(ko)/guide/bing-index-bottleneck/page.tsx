@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 const TITLE =
   "IndexNow로 통보하고 8일: 빙은 아직 우리 글을 읽지 않았습니다 (ChatGPT 노출의 진짜 병목)"
@@ -8,7 +9,7 @@ const DESC =
 const DATE = "2026-08-04"
 const URL = "https://wiztheplanning.com/guide/bing-index-bottleneck"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/covers/bing-index-bottleneck.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

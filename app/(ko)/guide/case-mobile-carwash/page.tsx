@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "네이버만으로는 한계였던 출장세차: 2개월 만에 구글 AI 개요에 뜨기까지 (실제 GEO 사례)"
 const DESC =
@@ -7,7 +8,7 @@ const DESC =
 const DATE = "2026-07-17"
 const URL = "https://wiztheplanning.com/guide/case-mobile-carwash"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/covers/case-mobile-carwash.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

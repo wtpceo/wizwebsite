@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout, MEDICAL_CTA } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 // 주 키워드: 병원 개원 준비 (마케팅 관점)
 // 연관 검색어(2026-09-28 자동완성·1페이지 조사): 개원 마케팅 / 병원 개원 마케팅 / 병원 개원 컨설팅 /
@@ -12,7 +13,7 @@ const DESC =
 const DATE = "2026-09-28"
 const URL = "https://wiztheplanning.com/guide/clinic-opening-marketing"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/covers/clinic-opening-marketing.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

@@ -4,6 +4,7 @@ import { Icon } from "@/components/shortform/icons"
 import { DocShell, Crumb, Sec, Faq, JsonLd, breadcrumbLd, faqLd, ORG_ID, SITE } from "@/components/shortform/DocParts"
 import SfInquiryForm from "@/components/shortform/SfInquiryForm"
 import { OG_TIMESTAMP as timestamp } from "@/lib/site-metadata"
+import { share } from "@/lib/share-meta"
 
 // 문의하기 쪽(2026-11-06 사장님 「로그통 문의 쪽 디자인 그대로, 품목만 우리 것으로」) — 머리글·홈·상세 쪽의 신청 버튼이 모두 여기로 온다. 홈 44번 문의 칸은 그대로.
 // 어두운 화면·두 칸 폼·칸 이름은 그쪽을 따르고, 색은 우리 파랑, 제목·안내 문장은 우리 말로 새로 썼다. 폼은 홈과 같은 /api/contact.
@@ -16,7 +17,7 @@ const FAQ: [string, string][] = [
   ["전화나 카카오톡으로 먼저 문의해도 되나요?", `가능합니다. 대표전화 ${CONTACT.tel}(${CONTACT.hours})로 연락 주시거나 카카오톡 채널로 문의하셔도 친절히 안내해 드립니다.`],
 ]
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   alternates: { canonical: "/contact" },
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: { card: "summary_large_image", title: `${TITLE} | 위즈더플래닝`, description: DESC, images: [`/og-home.jpg?v=${timestamp}`] },
-}
+})
 
 export default function ContactPage() {
   const crumbs = [

@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 유지 → 현재 44자
 const TITLE = "네이버 웹문서엔 없는데 AI 브리핑엔 첫 출처: 같은 검색어 결과가 갈리는 이유"
@@ -9,7 +10,7 @@ const DATE = "2026-09-09"
 const UPDATED = "2026-09-10"
 const URL = "https://wiztheplanning.com/guide/naver-ai-briefing-vs-web-tab"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/guide/naver-ai-briefing-vs-web-tab" },
   openGraph: { images: ["/covers/naver-ai-briefing-vs-web-tab.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

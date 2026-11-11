@@ -1,18 +1,19 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "네이버 플레이스 상위 노출 체크리스트 10가지"
 const DESC =
   "네이버 플레이스는 지역 검색과 AI 답변의 근거가 되는 가장 중요한 채널입니다. 사장님이 오늘 바로 점검할 수 있는 플레이스 관리 체크리스트 10가지를 정리했습니다."
 const DATE = "2026-07-08"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   alternates: { canonical: "/guide/naver-place-checklist" },
   openGraph: {
     images: ["/covers/naver-place-checklist.jpg"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/naver-place-checklist", type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

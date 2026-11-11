@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import BizArticle, { CheckItem, Callout, BizContactNote } from "@/components/business/BizArticle"
+import { share } from "@/lib/share-meta"
 
 // 주 키워드: 마케팅 대행사 수수료
 // 연관 검색어(2026-10-10 구글 자동완성 · 2026-09-19 1페이지 조사): 광고대행사 수수료율 /
@@ -14,7 +15,7 @@ const DATE = "2026-10-10"
 const MODIFIED = "2026-11-04" // 금액 대신 「제안서로」(사장님 11-04)
 const URL = "https://wiztheplanning.com/business/insights/marketing-agency-fee"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: `${TITLE} | 위즈더플래닝` },
   description: DESC,
   keywords: [
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/business/insights/marketing-agency-fee" },
   openGraph: { images: ["/covers/business-fee.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

@@ -3,6 +3,8 @@ import EnHeader from "@/components/en/EnHeader"
 import EnFooter from "@/components/en/EnFooter"
 import { EnHero, EnCtaButtons, EnSection, EnCard, EnSteps, EnInsightCards, EnBottomCta } from "@/components/en/EnSections"
 import { EN_BASE, EN_ORG_JSONLD } from "@/lib/en/site"
+import { hreflangFor } from "@/lib/i18n/config"
+import { share } from "@/lib/share-meta"
 
 // 영문 허브. 대외 영문 브랜드는 WizThePlanning. 해외 기업(한국 진출)·해외 대행사·한국 내 외국인 사업주 세 갈래로 나눈다.
 // 수치는 공개된 사례·가이드에 있는 것만 쓴다. 가격·결과 보장 문구는 법무 검토 전이므로 쓰지 않는다.
@@ -10,12 +12,12 @@ const TITLE = "WizThePlanning | Korea Marketing Agency for Naver and AI Search"
 const DESC =
   "Seoul-based marketing agency since 2016. We help brands get found in Korea across Naver, Google and AI assistants like ChatGPT, Gemini and Perplexity, and we measure it every week."
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: TITLE },
   description: DESC,
-  alternates: { canonical: "/en", languages: { en: `${EN_BASE}/en`, "x-default": `${EN_BASE}/en` } },
+  alternates: { canonical: "/en", languages: hreflangFor("/en") },
   openGraph: { title: TITLE, description: DESC, url: `${EN_BASE}/en`, images: ["/og-image.jpg"], type: "website", locale: "en_US" },
-}
+}, "en")
 
 const websiteJsonLd = {
   "@context": "https://schema.org",

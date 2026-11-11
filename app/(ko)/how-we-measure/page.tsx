@@ -3,6 +3,8 @@ import Link from "next/link"
 import { ChevronRight, Radar, Bell, FileText, Stethoscope, BarChart3, ListChecks } from "lucide-react"
 import { DocShell, FaqBlock } from "@/components/shortform/DocParts"
 import InsightHero from "@/components/shortform/InsightHero"
+import { hreflangFor } from "@/lib/i18n/config"
+import { share } from "@/lib/share-meta"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 → 현재 33자
 const TITLE = "측정 방식: 자체 개발 GEO 관제 시스템으로 매주 재는 것"
@@ -11,13 +13,13 @@ const DESC =
 const URL = "https://wiztheplanning.com/how-we-measure"
 const PUBLISHED = "2026-09-09"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: ["GEO 관제 시스템", "AI 검색 노출 측정", "GEO 측정 도구", "AI 인용 측정", "주간 리포트", "위즈더플래닝 측정 방식"],
-  alternates: { canonical: "/how-we-measure" },
+  alternates: { canonical: "/how-we-measure", languages: hreflangFor("/how-we-measure") },
   openGraph: { images: ["/tools/realgeo-dashboard.jpg"], title: TITLE, description: DESC, url: URL, type: "website" },
-}
+})
 
 const SCREENS = [
   {

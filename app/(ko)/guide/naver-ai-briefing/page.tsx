@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 유지 → 현재 49자
 const TITLE = "네이버 AI 브리핑 노출 방법: 누락되던 블로그를 1위로 바꾼 글 구조"
@@ -8,7 +9,7 @@ const DESC =
 const DATE = "2026-08-20"
 const URL = "https://wiztheplanning.com/guide/naver-ai-briefing"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/covers/naver-ai-briefing.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

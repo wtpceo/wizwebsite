@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout, MEDICAL_CTA } from "@/components/guide/GuideArticle"
 import CaseAccessRequest from "@/components/guide/CaseAccessRequest"
+import { hreflangFor } from "@/lib/i18n/config"
+import { share } from "@/lib/share-meta"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 유지 → 현재 43자
 const TITLE = "3쪽짜리 사이트가 167쪽보다 먼저 인용됐습니다: 치과 홈페이지 GEO 51일"
@@ -9,16 +11,16 @@ const DESC =
 const DATE = "2026-09-10"
 const URL = "https://wiztheplanning.com/guide/case-dental-llms-factsheet"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
     "치과 GEO 사례", "llms.txt 작성법", "ChatGPT 병원 추천", "치과 홈페이지 제작 AI",
     "생성형 AI 인용", "병원 홈페이지 GEO", "AI 크롤러 허용",
   ],
-  alternates: { canonical: "/guide/case-dental-llms-factsheet" },
+  alternates: { canonical: "/guide/case-dental-llms-factsheet", languages: hreflangFor("/guide/case-dental-llms-factsheet") },
   openGraph: { images: ["/covers/case-dental-llms-factsheet.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

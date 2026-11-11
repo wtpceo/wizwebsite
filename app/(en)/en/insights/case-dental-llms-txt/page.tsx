@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import EnArticle, { CheckItem, Callout } from "@/components/en/EnArticle"
+import { hreflangFor } from "@/lib/i18n/config"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "Dental Case Study: A 3-Page Site Got Cited First"
 const DESC =
@@ -9,15 +11,12 @@ const PATH = "/en/insights/case-dental-llms-txt"
 const URL = `https://wiztheplanning.com${PATH}`
 const COVER = "/covers/case-dental-llms-factsheet.jpg"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: `${TITLE} | WizThePlanning` },
   description: DESC,
   alternates: {
     canonical: PATH,
-    languages: {
-      en: URL,
-      ko: "https://wiztheplanning.com/guide/case-dental-llms-factsheet",
-    },
+    languages: hreflangFor(PATH),
   },
   openGraph: {
     title: TITLE,
@@ -27,7 +26,7 @@ export const metadata: Metadata = {
     type: "article",
     locale: "en_US",
   },
-}
+}, "en")
 
 const FAQ = [
   {

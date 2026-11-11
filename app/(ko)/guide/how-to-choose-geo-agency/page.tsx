@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 // 76자 → 53자 (검색결과 잘림 해소. 노출 315·CTR 1.6%였음)
 const TITLE =
@@ -9,7 +10,7 @@ const DESC =
 const DATE = "2026-07-28"
 const URL = "https://wiztheplanning.com/guide/how-to-choose-geo-agency"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/covers/how-to-choose-geo-agency.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

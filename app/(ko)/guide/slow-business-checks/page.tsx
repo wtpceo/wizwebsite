@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 → 현재 46자
 const TITLE = "장사 안될 때 광고비부터 늘리면 안 되는 이유: 먼저 셀 숫자 3가지"
@@ -8,7 +9,7 @@ const DESC =
 const DATE = "2026-09-19"
 const URL = "https://wiztheplanning.com/guide/slow-business-checks"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/covers/slow-business-checks.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

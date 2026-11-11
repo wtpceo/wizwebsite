@@ -1,18 +1,19 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "ChatGPT와 네이버 AI는 왜 다른 가게를 추천할까: 엔진별 인용 출처의 차이"
 const DESC =
   "같은 질문을 해도 네이버 AI, ChatGPT, 구글 AI는 서로 다른 매장을 추천합니다. 엔진마다 근거로 삼는 출처가 다르기 때문입니다. 어떤 AI가 어디를 보는지, 그래서 무엇을 준비해야 하는지 정리했습니다."
 const DATE = "2026-07-09"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   alternates: { canonical: "/guide/ai-engines-cite-differently" },
   openGraph: {
     images: ["/covers/ai-engines-cite-differently.jpg"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/ai-engines-cite-differently", type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 const TITLE =
   "홈페이지를 만들었더니 AI가 추천하기 시작했습니다. 정작 인용한 건 우리 홈페이지가 아니었습니다"
@@ -8,7 +9,7 @@ const DESC =
 const DATE = "2026-07-26"
 const URL = "https://wiztheplanning.com/guide/case-third-party-citation"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/covers/case-third-party-citation.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

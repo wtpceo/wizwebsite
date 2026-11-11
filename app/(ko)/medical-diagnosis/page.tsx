@@ -9,11 +9,12 @@ import MedicalFaq from "@/components/medical/MedicalFaq"
 import ForceTopOnLoad from "@/components/ForceTopOnLoad"
 import { MEDICAL_FAQ } from "@/lib/medical-faq-data"
 import { DocShell } from "@/components/shortform/DocParts"
+import { share } from "@/lib/share-meta"
 
 const BASE_URL = "https://wiztheplanning.com"
 const PAGE_URL = `${BASE_URL}/medical-diagnosis`
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: "병원 무료 AI 검색 진단 | ChatGPT·네이버 AI에 우리 병원이 나올까요?",
   description:
     "병원 · 의원 전용 무료 AI 검색 진단. 네이버 AI · ChatGPT · 제미나이가 우리 병원을 추천하는지, 틀린 정보를 말하는지, 경쟁 병원과 얼마나 차이 나는지 재서 알려 드립니다. 병원만, 조건 없이 무료.",
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     description:
       "네이버 AI·ChatGPT·제미나이에 우리 병원이 어떻게 나오는지 무료로 진단해 드립니다. 병원·의원 전용.",
   },
-}
+})
 
 // Service — AI가 "무엇을 제공하는 서비스인가"를 이해하도록
 const serviceJsonLd = {

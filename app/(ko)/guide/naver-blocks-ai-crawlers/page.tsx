@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout, SMALL_BIZ_CTA } from "@/components/guide/GuideArticle"
+import { hreflangFor } from "@/lib/i18n/config"
+import { share } from "@/lib/share-meta"
 
 const TITLE =
   "네이버가 ChatGPT·구글 AI의 접근을 막았습니다. 그래서 홈페이지가 필수입니다"
@@ -8,7 +10,7 @@ const DESC =
 const DATE = "2026-07-24"
 const URL = "https://wiztheplanning.com/guide/naver-blocks-ai-crawlers"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -16,11 +18,11 @@ export const metadata: Metadata = {
     "AI 크롤러 차단", "홈페이지 필요", "홈페이지 제작", "GEO 홈페이지",
     "생성형 AI 검색", "네이버 블로그 AI", "퍼플렉시티 네이버", "구글 AI 개요",
   ],
-  alternates: { canonical: "/guide/naver-blocks-ai-crawlers" },
+  alternates: { canonical: "/guide/naver-blocks-ai-crawlers", languages: hreflangFor("/guide/naver-blocks-ai-crawlers") },
   openGraph: {
     images: ["/covers/naver-blocks-ai-crawlers.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

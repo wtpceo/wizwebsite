@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import BizArticle, { CheckItem, BizContactNote } from "@/components/business/BizArticle"
+import { share } from "@/lib/share-meta"
 
 // 광고주 사례 (작가 원고 2026-10-29). 대표 결정(10/29): 기업명은 빼고 공개, 상세는 문의가 들어오면 공개.
 // 주 키워드: 광고 효율 개선
@@ -13,13 +14,13 @@ const DESC =
 const DATE = "2026-10-31"
 const URL = "https://wiztheplanning.com/business/insights/case-payment-meta-ads"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: `${TITLE} | 위즈더플래닝` },
   description: DESC,
   keywords: ["광고 효율 개선", "마케팅 성과 측정 방법", "마케팅 성과 측정 지표", "어트리뷰션 데이터", "데이터 기반 마케팅 사례"],
   alternates: { canonical: "/business/insights/case-payment-meta-ads" },
   openGraph: { images: ["/covers/business-case-payment-meta-ads.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

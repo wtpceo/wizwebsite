@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import HomeDoc from "@/components/shortform/HomeDoc"
 import { OG_TIMESTAMP as timestamp } from "@/lib/site-metadata"
+import { hreflangFor } from "@/lib/i18n/config"
+import { share } from "@/lib/share-meta"
 
 // 2026-11-04 홈 리뉴얼: 숏폼 한 편처럼 넘겨 보는 46컷 홈(기획 intent/plan-회사홈페이지-리뉴얼-2026-11-04.md).
 // 예전 홈 구역(숫자 띠·사례·후기·FAQ·가격)은 이 쪽에서 빠졌다 — 화면에 없는 FAQ 구조화 데이터도 같이 뺐다.
@@ -11,19 +13,13 @@ const TITLE = "광고·마케팅 대행사 위즈더플래닝 | 브랜드를 분
 const DESC =
   "광고·마케팅 대행사 위즈더플래닝입니다. 2016년부터 광고주와 일했고 지금 어디가 비어 있는지 먼저 분석해 제안서로 보내 드립니다. 캠페인 기획부터 인플루언서 섭외·촬영·광고·SEO·GEO·홈페이지까지 매체마다 전담 부서가 한 설계로 맡습니다."
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: TITLE },
   description: DESC,
   // 레이아웃의 alternates 를 통째로 덮으므로 hreflang 도 같이 적는다
   alternates: {
     canonical: "/",
-    languages: {
-      ko: "https://wiztheplanning.com/",
-      en: "https://wiztheplanning.com/en/business-owners-in-korea",
-      "zh-Hans": "https://wiztheplanning.com/zh",
-      vi: "https://wiztheplanning.com/vi",
-      "x-default": "https://wiztheplanning.com/",
-    },
+    languages: hreflangFor("/"),
   },
   openGraph: {
     title: TITLE,
@@ -40,7 +36,7 @@ export const metadata: Metadata = {
     description: DESC,
     images: [`/og-home.jpg?v=${timestamp}`],
   },
-}
+})
 
 // 2026-11-08 대표 「메인을 함축해서 필요한 것만」: 45컷 숏폼 홈(ShortformHome) → 아홉 칸(HomeDoc). 옛 파일은 남겨 둠
 export default function Home() {

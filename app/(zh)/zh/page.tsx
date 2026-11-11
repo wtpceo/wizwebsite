@@ -1,13 +1,14 @@
 import type { Metadata } from "next"
 import LocaleLanding from "@/components/i18n/LocaleLanding"
 import { LANDING } from "@/lib/i18n/content"
-import { BASE_URL, getLocale, hreflangAlternates } from "@/lib/i18n/config"
+import { BASE_URL, getLocale, hreflangFor } from "@/lib/i18n/config"
+import { share } from "@/lib/share-meta"
 
 const t = LANDING.zh
 const L = getLocale("zh")
 const URL = `${BASE_URL}${L.prefix}`
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   // absolute로 지정해 루트 레이아웃의 "%s | 위즈더플래닝" 한국어 접미사가 붙지 않게
   title: { absolute: t.metaTitle },
   description: t.metaDescription,
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: {
     canonical: L.prefix,
-    languages: hreflangAlternates(),
+    languages: hreflangFor("/zh"),
   },
   openGraph: {
     title: t.metaTitle,
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     locale: L.ogLocale,
     type: "website",
   },
-}
+}, "zh")
 
 const jsonLd = {
   "@context": "https://schema.org",

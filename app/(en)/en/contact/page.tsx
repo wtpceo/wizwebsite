@@ -4,17 +4,18 @@ import EnHeader from "@/components/en/EnHeader"
 import EnFooter from "@/components/en/EnFooter"
 import EnContactForm from "@/components/en/EnContactForm"
 import { EN_BASE, EN_ORG } from "@/lib/en/site"
+import { share } from "@/lib/share-meta"
 
 const PATH = "/en/contact"
 const TITLE = "Contact WizThePlanning"
 const DESC = "Contact WizThePlanning, a Seoul-based marketing agency, about Korea market entry, agency partnerships or marketing for your business in Korea. We reply by email in English."
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: `${TITLE} | Korea Marketing Agency` },
   description: DESC,
   alternates: { canonical: PATH, languages: { en: `${EN_BASE}${PATH}` } },
   openGraph: { title: TITLE, description: DESC, url: `${EN_BASE}${PATH}`, images: ["/og-image.jpg"], type: "website", locale: "en_US" },
-}
+}, "en")
 
 const contactJsonLd = {
   "@context": "https://schema.org",

@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import EnArticle, { CheckItem, Callout } from "@/components/en/EnArticle"
+import { hreflangFor } from "@/lib/i18n/config"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "Naver vs Google in Korea: Why Share Estimates Differ"
 const DESC =
@@ -9,15 +11,15 @@ const PATH = "/en/insights/naver-vs-google-korea"
 const URL = `https://wiztheplanning.com${PATH}`
 const COVER = "/covers/naver-google-share.jpg"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: `${TITLE} | WizThePlanning` },
   description: DESC,
   alternates: {
     canonical: PATH,
-    languages: { en: URL, ko: "https://wiztheplanning.com/guide/naver-google-share" },
+    languages: hreflangFor(PATH),
   },
   openGraph: { title: TITLE, description: DESC, url: URL, images: [COVER], type: "article", locale: "en_US" },
-}
+}, "en")
 
 const ROWS: [string, string, string, string][] = [
   ["Chosun Ilbo (IGAWorks Mobile Index)", "App MAU, July 2026", "46.84 million", "47.02 million"],

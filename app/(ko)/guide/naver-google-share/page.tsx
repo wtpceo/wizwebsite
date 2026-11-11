@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout, SMALL_BIZ_CTA } from "@/components/guide/GuideArticle"
+import { hreflangFor } from "@/lib/i18n/config"
+import { share } from "@/lib/share-meta"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 유지 → 현재 48자
 const TITLE = "구글 네이버 검색 점유율: 28%부터 65%까지, 왜 출처마다 다른가"
@@ -8,16 +10,16 @@ const DESC =
 const DATE = "2026-08-21"
 const URL = "https://wiztheplanning.com/guide/naver-google-share"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
     "구글 네이버 검색 점유율", "네이버 구글 MAU", "국내 검색엔진 점유율",
     "검색 점유율 2026", "네이버 AI 브리핑", "AI 검색 점유율",
   ],
-  alternates: { canonical: "/guide/naver-google-share" },
+  alternates: { canonical: "/guide/naver-google-share", languages: hreflangFor("/guide/naver-google-share") },
   openGraph: { images: ["/covers/naver-google-share.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

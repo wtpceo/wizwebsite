@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내 → 현재 45자
 const TITLE = "AI 크롤러 이름과 역할: 무엇을 열고 무엇을 막아야 하나"
@@ -8,7 +9,7 @@ const DESC =
 const DATE = "2026-09-11"
 const URL = "https://wiztheplanning.com/guide/ai-crawler-names"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/guide/ai-crawler-names" },
   openGraph: { images: ["/covers/ai-crawler-names.jpg"], title: TITLE, description: DESC, url: URL, type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

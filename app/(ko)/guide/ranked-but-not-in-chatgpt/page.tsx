@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 const TITLE =
   "네이버 AI 1위·구글 2위인데 ChatGPT엔 안 나옵니다: 우리 사이트로 직접 한 GEO 실험"
@@ -8,7 +9,7 @@ const DESC =
 const DATE = "2026-07-25"
 const URL = "https://wiztheplanning.com/guide/ranked-but-not-in-chatgpt"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/covers/ranked-but-not-in-chatgpt.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

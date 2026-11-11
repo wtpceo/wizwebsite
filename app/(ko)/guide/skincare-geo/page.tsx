@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import GuideArticle, { BUSINESS_CTA, CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "피부·에스테틱 AI 검색 최적화(GEO) 가이드: 홈페이지가 인용을 가른다"
 const DESC =
@@ -8,13 +9,13 @@ const DESC =
 const DATE = "2026-07-09"
 const UPDATED = "2026-09-08"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   alternates: { canonical: "/guide/skincare-geo" },
   openGraph: {
     images: ["/covers/skincare-geo.jpg"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/skincare-geo", type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

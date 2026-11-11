@@ -3,13 +3,14 @@ import Link from "next/link"
 import { Gauge, ShieldCheck, Zap } from "lucide-react"
 import SiteCheckTool from "@/components/site-check/SiteCheckTool"
 import { DocShell } from "@/components/shortform/DocParts"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "무료 홈페이지 SEO·GEO 진단: 주소만 넣으면 즉시 확인"
 const DESC =
   "홈페이지 주소만 넣으면 AI 크롤러가 읽을 수 있는지, 구조화 데이터와 제목·모바일 대응이 돼 있는지 바로 검사해 알려 드립니다. 검색과 AI에 보이는 홈페이지의 기초 상태를 확인하세요."
 const URL = "https://wiztheplanning.com/site-check"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -19,9 +20,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/site-check" },
   openGraph: {
-    images: ["/og-image.jpg"], title: TITLE, description: DESC, url: URL, type: "website",
+    images: ["/og-home.jpg"], title: TITLE, description: DESC, url: URL, type: "website",
   },
-}
+})
 
 const serviceJsonLd = {
   "@context": "https://schema.org",

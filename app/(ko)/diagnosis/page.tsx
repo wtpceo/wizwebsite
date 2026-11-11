@@ -9,6 +9,7 @@ import GeneralFaq from "@/components/general/GeneralFaq"
 import ForceTopOnLoad from "@/components/ForceTopOnLoad"
 import { GENERAL_FAQ } from "@/lib/general-faq-data"
 import { DocShell } from "@/components/shortform/DocParts"
+import { share } from "@/lib/share-meta"
 
 // 업종 무관 무료 AI 검색 진단 — 병원판(/medical-diagnosis)의 짝 페이지.
 // 메타광고 광고세트 B의 전용 랜딩이다. 두 랜딩의 전환 구조(폼 제출 1단계 → Lead)를
@@ -18,7 +19,7 @@ import { DocShell } from "@/components/shortform/DocParts"
 const BASE_URL = "https://wiztheplanning.com"
 const PAGE_URL = `${BASE_URL}/diagnosis`
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: "무료 AI 검색 진단 | ChatGPT·네이버 AI에 우리 가게가 나올까요?",
   description:
     "네이버 AI · ChatGPT · 제미나이가 우리 가게를 추천하는지, 틀린 정보를 말하는지, 경쟁 가게와 얼마나 차이 나는지 무료로 재서 알려 드립니다. 식당 · 카페 · 펜션 · 학원 · 헬스장 · 미용실, 업종 무관.",
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
     description:
       "네이버 AI·ChatGPT·제미나이에 우리 가게가 어떻게 나오는지 무료로 진단해 드립니다. 업종은 가리지 않습니다.",
   },
-}
+})
 
 // Service — AI가 "무엇을 제공하는 서비스인가"를 이해하도록
 const serviceJsonLd = {

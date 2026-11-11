@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import GuideArticle, { BUSINESS_CTA, Callout } from "@/components/guide/GuideArticle"
 import BusinessContactForm from "@/components/business/BusinessContactForm"
+import { share } from "@/lib/share-meta"
 
 // 리드 글 (대표 지시 10/30 "홈페이지에 리드 받을 수 있는 글 하나 올리자", 작가 원고 2026-10-30)
 // 주 키워드: GEO 최적화 서비스
@@ -15,7 +16,7 @@ const DESC =
 const DATE = "2026-10-31"
 const URL = "https://wiztheplanning.com/guide/geo-optimization-service"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: ["/covers/geo-optimization-service.jpg"], title: TITLE, description: DESC, url: URL, type: "article",
   },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

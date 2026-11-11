@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import GuideArticle, { CheckItem, Callout, MEDICAL_CTA } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 // 5.9위인데 CTR 3.3% → 규제 대신 결과를 앞세움
 const TITLE = "치과 AI 검색 최적화(GEO): ChatGPT가 우리 치과를 추천하게 하려면"
@@ -9,13 +10,13 @@ const DESC =
 const DATE = "2026-07-09"
 const UPDATED = "2026-09-08"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   alternates: { canonical: "/guide/dental-geo" },
   openGraph: {
     images: ["/covers/dental-geo.jpg"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/dental-geo", type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

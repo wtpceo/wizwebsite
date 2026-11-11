@@ -1,19 +1,20 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import GuideArticle, { CheckItem, Callout } from "@/components/guide/GuideArticle"
+import { share } from "@/lib/share-meta"
 
 const TITLE = "네이버 광고비는 오르는데 문의는 그대로일 때: 지금 매장에 무슨 일이 일어나고 있나"
 const DESC =
   "광고 예산을 늘려도 예전만큼 문의가 안 늘어난다면, 매장 문제가 아니라 고객의 검색 방식이 바뀐 것일 수 있습니다. 광고 효율이 떨어지는 진짜 이유와, 지금 확인해야 할 것을 정리했습니다."
 const DATE = "2026-07-09"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   alternates: { canonical: "/guide/why-ads-stop-working" },
   openGraph: {
     images: ["/covers/why-ads-stop-working.jpg"], title: TITLE, description: DESC, url: "https://wiztheplanning.com/guide/why-ads-stop-working", type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ChevronLeft, ArrowRight, BookOpen } from "lucide-react"
 import { DocShell } from "@/components/shortform/DocParts"
 import { EPISODES } from "@/lib/theater-episodes"
+import { share } from "@/lib/share-meta"
 
 const ep = EPISODES.find((e) => e.slug === "ep4-doorless-shop")!
 
@@ -11,7 +12,7 @@ const DESC =
   "가게도 간판도 없는 출장 서비스는 AI에게 어떻게 발견될까요? 네이버 플레이스만으로 성장이 멈췄던 신도시 출장세차가 흩어진 정보를 일치시키고 AI가 읽는 홈페이지를 만들자, 약 2개월 만에 구글 AI 개요에 노출되고 이어서 ChatGPT 추천을 받기 시작했습니다(진행 중 사례). 이 이야기를 AI 부엉이 위즈의 애니메이션으로 풀었습니다."
 const URL = "https://wiztheplanning.com/theater/ep4-doorless-shop"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/theater/ep4-doorless-shop" },
   openGraph: { images: ["/theater/ep4-poster1.jpg"], title: TITLE, description: DESC, url: URL, type: "video.episode" },
-}
+})
 
 const videoJsonLd = [
   {

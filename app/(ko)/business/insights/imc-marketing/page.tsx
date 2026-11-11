@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import BizArticle, { CheckItem, BizContactNote } from "@/components/business/BizArticle"
+import { share } from "@/lib/share-meta"
 
 // 작가 세션 원고(2026-11-10, 27.자사브랜딩/20_글/원고/2026-11-10_IMC마케팅_뜻과전략수립.md). 그림은 디자이너 세션 제작.
 // 주 키워드: IMC 마케팅
@@ -20,13 +21,13 @@ const FIG = (n: number) => `/insights/imc-marketing/fig-${n}.jpg`
 /** 디자이너 납품(11-10) 그림 세로 크기. 가로는 모두 1200이고 비율을 자르지 않는다 */
 const FIG_H: Record<number, number> = { 1: 720, 2: 480, 3: 580, 4: 700, 5: 690, 6: 1060, 7: 790 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: { absolute: `${TITLE} | 위즈더플래닝` },
   description: DESC,
   keywords: ["IMC 마케팅", "IMC 뜻", "IMC 전략", "IMC 전략 수립", "IMC 전략 예시", "통합 마케팅 커뮤니케이션", "IMC 대행사"],
   alternates: { canonical: PATH },
   openGraph: { images: [COVER], title: TITLE, description: DESC, url: URL, type: "article" },
-}
+})
 
 const jsonLd = {
   "@context": "https://schema.org",

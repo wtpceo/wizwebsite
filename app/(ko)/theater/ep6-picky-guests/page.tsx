@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ChevronLeft, ArrowRight, BookOpen } from "lucide-react"
 import { DocShell } from "@/components/shortform/DocParts"
 import { EPISODES } from "@/lib/theater-episodes"
+import { share } from "@/lib/share-meta"
 
 const ep = EPISODES.find((e) => e.slug === "ep6-picky-guests")!
 
@@ -11,7 +12,7 @@ const DESC =
   "같은 질문을 해도 네이버 AI는 플레이스 리뷰·후기 블로그를, ChatGPT·구글 AI는 홈페이지와 디렉토리를 근거로 답합니다. 네이버가 외부 AI 크롤러를 차단해 ChatGPT는 네이버 안을 읽지 못하기 때문입니다. 엔진마다 '읽는 곳'이 다르다는 사실을 AI 부엉이 위즈와 세 손님의 애니메이션으로 풀었습니다."
 const URL = "https://wiztheplanning.com/theater/ep6-picky-guests"
 
-export const metadata: Metadata = {
+export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/theater/ep6-picky-guests" },
   openGraph: { images: ["/theater/ep6-poster1.jpg"], title: TITLE, description: DESC, url: URL, type: "video.episode" },
-}
+})
 
 const videoJsonLd = [
   {
