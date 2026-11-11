@@ -5578,3 +5578,18 @@ html.sf-anim .sf .rv.on :is(.cw-prod figure, .cw-proc-g figure, .hm2-fig, .hm-sv
   .sf .hm2-hero.hm2-white + .hm2-svc { padding-top: 84px; }
   .sf .hm2 .dp-ct .ct-ways a { min-width: 0; width: 100%; }
 }
+
+/* 11-11 대표 「홈 큰 제목 숨긴 거 문제 없게」: 숨긴 <h1>을 없앴다. 모션 무대의 제목 층이 실제 <h1>이라, 앞에서 제목을 접어 두던 규칙을 이 제목에는 되돌린다.
+   글자는 스크립트가 돌기 전에도 보이게 둔다(처음 화면·스크립트가 꺼진 경우·검색엔진 모두 제목을 그대로 본다) */
+.sf .hm2-hero.hm2-white h1.hk-title { position: absolute !important; inset: 0; width: auto; height: auto; margin: 0; padding: 0; clip: auto; overflow: visible; white-space: normal; border: 0; font: inherit !important; font-size: 1em !important; letter-spacing: inherit; color: inherit; text-align: center; }
+.sf .hk-ch { opacity: 1; }
+/* 11-11 대표 「모바일에서 카드 문제, 권장하는 대로 수정」: 휴대폰은 폭이 좁아 제목 옆에 카드를 둘 자리가 없다. 제목·본문 옆 카드는 모두 빼고 위 모서리 둘, 아래 모서리 둘만 남긴다 */
+@media (max-width: 820px) {
+  .sf .hc-c { display: none; }
+  .sf .hc-c:nth-child(4), .sf .hc-c:nth-child(8), .sf .hc-c:nth-child(9), .sf .hc-c:nth-child(10) { display: block; scale: .56; }
+  .sf .hc-c:nth-child(4) { left: 11% !important; top: 3% !important; }
+  .sf .hc-c:nth-child(8) { left: 89% !important; top: 3% !important; }
+  .sf .hc-c:nth-child(9) { left: 12% !important; top: 99% !important; }
+  .sf .hc-c:nth-child(10) { left: 88% !important; top: 99% !important; }
+  .sf .hm2-hero.hm2-white .geo-hero-in { padding-top: 64px; }
+}

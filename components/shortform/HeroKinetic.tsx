@@ -99,7 +99,8 @@ export default function HeroKinetic() {
     let raf = 0
     // 가장자리 카드(HeroCards)와 같은 시계를 쓴다
     const w = window as unknown as { __hkT0?: number }
-    if (!w.__hkT0) w.__hkT0 = performance.now()
+    // 처음 열었을 때는 제목이 다 모인 장면(1.2초 지점)에서 시작한다. 빈 화면에서 글자가 날아오기를 기다리지 않게
+    if (!w.__hkT0) w.__hkT0 = performance.now() - 1200
     const t0 = w.__hkT0
     const loop = () => {
       frame(((performance.now() - t0) / 1000) % T)
@@ -121,17 +122,18 @@ export default function HeroKinetic() {
     )
 
   return (
-    <div className="hk" ref={root} aria-hidden="true">
-      <div className="hk-layer hk-title">
-        <span className="hk-ln">{line(L1, HL)}</span>
-        <span className="hk-ln">{line(L2)}</span>
-      </div>
+    <div className="hk" ref={root}>
+      {/* 이 페이지의 실제 큰 제목. 검색엔진과 낭독기는 aria-label 과 글자 그대로를 읽고, 눈에는 모션으로 보인다 */}
+      <h1 className="hk-layer hk-title" aria-label={`${L1} ${L2}`}>
+        <span className="hk-ln" aria-hidden="true">{line(L1, HL)}</span>
+        <span className="hk-ln" aria-hidden="true">{line(L2)}</span>
+      </h1>
       {WORDS.map((w) => (
-        <div className="hk-layer" key={w.text}>
+        <div className="hk-layer" key={w.text} aria-hidden="true">
           <span className={`hk-w hk-${w.fx}`}>{w.text}</span>
         </div>
       ))}
-      <div className="hk-layer">
+      <div className="hk-layer" aria-hidden="true">
         <span className="hk-brand">
           위즈더플래닝
           <i className="hk-bar" />

@@ -42,7 +42,7 @@ export default function HeroCards() {
     const cards = [...el.querySelectorAll<HTMLElement>(".hc-c")]
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     const w = window as unknown as { __hkT0?: number }
-    if (!w.__hkT0) w.__hkT0 = performance.now()
+    if (!w.__hkT0) w.__hkT0 = performance.now() - 1200
 
     const frame = (t: number, life: number) => {
       const rect = el.getBoundingClientRect()

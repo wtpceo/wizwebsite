@@ -133,12 +133,10 @@ export default function HomeDoc() {
           <div className="dp-w geo-hero-in">
             {/* 11-11 대표: 제목이 날아와 모였다 흩어지고 낱말이 여러 효과로 나온 뒤 '위즈더플래닝'으로 끝나는 글자 모션(로컬 시안, 넓은 화면).
                 실제 제목은 아래 <h1>이 그대로 갖고 있고(검색·낭독기용), 넓은 화면에서만 눈에 안 보이게 접는다 */}
-            <p className="hk-kw" aria-hidden="true">IMC 통합 마케팅 대행사 · 위즈더플래닝</p>
+            {/* 11-11 대표 「홈 큰 제목 숨긴 거 문제 없게」: 숨겨 둔 제목을 없애고, 눈에 보이는 모션의 제목 글자가 곧 이 페이지의 <h1>이다(HeroKinetic 안).
+                처음 열면 제목이 다 모인 상태로 보이고, 그 뒤에 흩어졌다 돌아오는 모션이 이어진다 */}
+            <p className="hk-kw">IMC 통합 마케팅 대행사 · 위즈더플래닝</p>
             <HeroKinetic />
-            <h1 aria-label="IMC 통합 마케팅 대행사 위즈더플래닝: 당신의 브랜드를 분석한 제안서부터 받아 보세요">
-              <small className="ix-kw">IMC 통합 마케팅 대행사 · 위즈더플래닝</small>{" "}
-              <Chars text={"당신의 브랜드를 분석한\n제안서부터 받아 보세요"} mark="분석한" />
-            </h1>
             <p className="vx-era">2016년부터 · 인하우스 6개 부서 · <span className="nw">1:1 전담 AE</span></p>
             <p className="dp-lead">
               <span className="hm2-l1">광고를 시작하기 전에 브랜드 인지도와 퍼널의 누수 지점부터 꼼꼼히 짚어봅니다.</span>{" "}
