@@ -123,7 +123,7 @@ export default function AboutPage() {
   }
   return (
     <DocShell>
-      <div className="gx ix vx cx aw">
+      <div className="gx ix vx cx aw aw2">
         <JsonLd data={ld} />
 
         {/* ① 첫 화면 */}
@@ -132,6 +132,11 @@ export default function AboutPage() {
             <HeroWall k="about" />
           </div>
           <div className="dp-veil" aria-hidden="true" />
+          {/* 11-11 대표 「2번으로 하자」(로컬 시안): 이미지 벽 대신 설립 연도를 아주 크고 옅게 깐다. 꾸밈 글자라 낭독기에는 숨긴다(연도는 아래 문장에 글자로 있다) */}
+          <div className="aw2-year" aria-hidden="true">
+            <small>SINCE</small>
+            <b>2016</b>
+          </div>
           <div className="dp-w geo-hero-in">
             <h1 aria-label="회사소개: 8가지 통합 마케팅, 한 곳에서 직접">
               <small className="ix-kw">회사소개</small> <Chars text={"8가지 통합 마케팅\n한 곳에서 직접"} mark="한 곳에서 직접" />
