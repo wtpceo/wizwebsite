@@ -7,6 +7,8 @@ import { DocShell, FaqBlock, ContactBlock, JsonLd, faqLd } from "./DocParts"
 import { Chars, vars } from "./parts"
 import { Icon } from "./icons"
 import HeroWall from "./HeroWall"
+import HeroKinetic from "./HeroKinetic"
+import HeroCards from "./HeroCards"
 
 /**
  * 메인(/) — 2026-11-09 리디자인 & 섹션 순서 개편본
@@ -73,6 +75,32 @@ function Lines({ t }: { t: string }) {
     </>
   )
 }
+/** 11-11 대표 「사진들 폴더에서 알맞은 걸로 인하우스 솔루션 박스에 넣어 봐」(로컬 확인용). 대표가 준 사진 열한 장 중 서비스와 맞는 다섯 장을 넣었다.
+    맞는 사진이 없던 GEO·웹사이트·오프라인은 대표 지시대로 구글 이미지에서 참고 장면을 골라 GPT 이미지로 새로 만들었다(글자·로고·실존 인물 없음).
+    원본·참고 그림·지시문: 27.자사브랜딩/30_디자인/작업/2026-11-11_홈카드사진 */
+const SVC_PHOTO: Record<string, string> = {
+  infl: "/sf/home/svc-infl.webp",
+  perf: "/sf/home/svc-perf.webp",
+  content: "/sf/home/svc-content.webp",
+  viral: "/sf/home/svc-viral.webp",
+  global: "/sf/home/svc-global.webp",
+  search: "/sf/home/svc-search.webp",
+  home: "/sf/home/svc-home.webp",
+  off: "/sf/home/svc-off.webp",
+}
+
+/** 11-11 대표 「사진이 화려해서 제목이 안 보인다. 제목에 붓칠 느낌으로 색을 넣고, 색은 사진 속 옷 색에 맞춰」: 카드마다 [붓칠 색, 글자 색] */
+const SVC_BRUSH: Record<string, [string, string]> = {
+  infl: ["#2A2D34", "#FFFFFF"], // 검은 티셔츠
+  perf: ["#C8B4F6", "#0A1A33"], // 연보라 티셔츠
+  search: ["#0055FF", "#FFFFFF"], // 파란 유리판
+  content: ["#FFE27A", "#0A1A33"], // 노란 셔츠
+  viral: ["#FFC3D2", "#0A1A33"], // 분홍 니트
+  global: ["#FF9D8A", "#0A1A33"], // 코랄 셔츠
+  home: ["#BCD2FF", "#0A1A33"], // 화면 속 블루
+  off: ["#F6C4D0", "#0A1A33"], // 분홍 니트
+}
+
 export default function HomeDoc() {
   const insights = [
     ...INSIGHT_HREFS.map((h) => GUIDE_ARTICLES.find((a) => a.href === h)).filter(Boolean),
@@ -86,12 +114,27 @@ export default function HomeDoc() {
         <JsonLd data={{ "@context": "https://schema.org", ...faqLd(HOME_FAQ) }} />
 
         {/* ① 첫 화면 (Hero + 핵심 신뢰 지표 바) */}
-        <section className="dp-hero geo-hero ix-hero hm2-hero" aria-label="첫 화면">
+        <section className="dp-hero geo-hero ix-hero hm2-hero hm2-white" aria-label="첫 화면">
           <div className="dp-bg" aria-hidden="true">
+            {/* 11-11 대표 「영상으로 돌리자」 시안(로컬 확인용, 아직 운영에 올리지 않음): 넓은 화면에서는 흐르는 이미지 벽 대신
+                실제 화면·직접 찍은 숏폼으로 만든 12초 영상을 깐다. 제목·버튼은 그대로 실제 글자다.
+                muted·autoplay 가 서버가 내려주는 HTML 에 그대로 찍혀야 자동 재생이 되므로 문자열로 넣는다. 휴대폰은 세로 영상이 없어 벽을 그대로 쓴다 */}
+            <div
+              className="hm2-hv"
+              dangerouslySetInnerHTML={{
+                __html:
+                  '<video muted loop playsinline autoplay preload="metadata" poster="/sf/hero/home-hero-white-poster.jpg" src="/sf/hero/home-hero-white-1600.mp4"></video>',
+              }}
+            />
             <HeroWall k="main" />
           </div>
           <div className="dp-veil" aria-hidden="true" />
+          <HeroCards />
           <div className="dp-w geo-hero-in">
+            {/* 11-11 대표: 제목이 날아와 모였다 흩어지고 낱말이 여러 효과로 나온 뒤 '위즈더플래닝'으로 끝나는 글자 모션(로컬 시안, 넓은 화면).
+                실제 제목은 아래 <h1>이 그대로 갖고 있고(검색·낭독기용), 넓은 화면에서만 눈에 안 보이게 접는다 */}
+            <p className="hk-kw" aria-hidden="true">IMC 통합 마케팅 대행사 · 위즈더플래닝</p>
+            <HeroKinetic />
             <h1 aria-label="IMC 통합 마케팅 대행사 위즈더플래닝: 당신의 브랜드를 분석한 제안서부터 받아 보세요">
               <small className="ix-kw">IMC 통합 마케팅 대행사 · 위즈더플래닝</small>{" "}
               <Chars text={"당신의 브랜드를 분석한\n제안서부터 받아 보세요"} mark="분석한" />
@@ -164,10 +207,10 @@ export default function HomeDoc() {
             <ul className="hm2-svc-g">
               {SERVICES.map((s, i) => (
                 <li key={s.k} className="rv" style={vars({ i })}>
-                  <Link href={`/services/${s.slug}`} className="hm2-svc-card">
+                  <Link href={`/services/${s.slug}`} className="hm2-svc-card" style={{ "--brush": SVC_BRUSH[s.k]?.[0], "--brush-ink": SVC_BRUSH[s.k]?.[1] } as React.CSSProperties}>
                     {/* 11-09 대표: 글자로 짠 화면 대신 회사소개와 같은 3D 그림 */}
                     <figure className="tw-fig-stage hm2-fig">
-                      <img src={`/sf/gen/hm-svc-${s.k}.webp`} alt="" width={800} height={533} loading="lazy" decoding="async" />
+                      <img src={SVC_PHOTO[s.k] ?? `/sf/gen/hm-svc-${s.k}.webp`} alt="" width={800} height={533} loading="lazy" decoding="async" />
                       <span className="hm2-fig-tag" aria-hidden="true">
                         <i>{s.no}</i>
                         {SVC_ROLE[s.k]}
@@ -195,7 +238,7 @@ export default function HomeDoc() {
         </section>
 
         {/* ③ 왜 위즈더플래닝인가 + 인하우스 통합 구조 (Before 분리 대행 vs After 통합 허브) */}
-        <section className="dp-sec geo-sec rv tw-ae hm2-arch" id="why">
+        <section className="dp-sec geo-sec rv tw-ae hm2-arch hm2-arch-w" id="why">
           <div className="dp-w">
             <div className="gt-head">
               <div>
@@ -393,7 +436,8 @@ export default function HomeDoc() {
               {STEPS.map((st, i) => (
                 <li key={st.w} style={vars({ i })}>
                   <figure className="tw-step-fig hm2-fig">
-                    <img src={`/sf/gen/hm-step-${st.en.toLowerCase()}.webp`} alt="" width={800} height={533} loading="lazy" decoding="async" />
+                    {/* 11-11 대표: 사진들 폴더의 단계별 사진(진단·전략·실행·리포트·최적화)으로 채운다. 로컬 시안 */}
+                    <img src={`/sf/home/step-${st.en.toLowerCase()}.webp`} alt="" width={800} height={533} loading="lazy" decoding="async" />
                     <span className="hm2-fig-tag" aria-hidden="true">
                       <i>{String(i + 1).padStart(2, "0")}</i>
                       {st.en}

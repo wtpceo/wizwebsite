@@ -17,6 +17,13 @@ export function SfHeader({ home = false, cta = DEFAULT_CTA }: { home?: boolean; 
         <img src="/sf/img/wiz-symbol.png" alt="" width={733} height={460} />
         {home ? <i className="sfh-sym" aria-hidden="true" /> : null}
         <b>WIZ THE PLANNING</b>
+        {/* 11-11 대표(로컬 시안): 흰 머리글에서는 한글 로고 '위즈더플래닝' + 크게 찍은 파란 원 마침표. 평소에는 숨겨 둔다(sf-doc.css) */}
+        <span className="sfh-ko" aria-hidden="true">
+          {/* 대표 「위즈더플래닝 옆에 어울리는 로고 하나」: 새로 만들지 않고 파비콘으로 쓰는 회사 심벌(파란 바탕 W)을 붙인다 */}
+          <img className="sfh-ko-mark" src="/favicon.svg" alt="" width={30} height={30} />
+          위즈더플래닝
+          <i />
+        </span>
       </Link>
       <nav className="sfh-nav" aria-label="주 메뉴">
         {/* 11-06 사장님 「상단 메뉴바 간격 다 동일하게」 + 「이름 줄이지 말고 칸마다」 — 마우스를 댄 메뉴의 항목만 글자 가운데 아래 상자로 */}
