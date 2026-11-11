@@ -7,6 +7,7 @@ import { Chars, vars } from "./parts"
 import { Icon } from "./icons"
 import { WORKS } from "./Works"
 import HeroWall from "./HeroWall"
+import GlobalRoute from "./GlobalRoute"
 
 /**
  * /services/global — 글로벌 마케팅(중국·일본) 상세. 2026-11-08 카피 세션 안(docs/카피개선-글로벌-2026-11-08.md)으로 새로 짬.
@@ -87,7 +88,7 @@ export default function GlobalDoc() {
 
   return (
     <DocShell>
-      <div className="gx ix vx cx gb">
+      <div className="gx ix vx cx gb gw2">
         <JsonLd data={ld} />
 
         {/* ① 첫 화면 */}
@@ -114,6 +115,7 @@ export default function GlobalDoc() {
             </div>
             <p className="vx-trust">현지 크리에이터 섭외 · 중국어·일본어 현지화 · <span className="nw">국내외 동일 전담 AE</span> · <span className="nw">국내외 통합 리포트</span></p>
           </div>
+          <GlobalRoute />
           <a className="ix-cue" href="#path" aria-label="해외 소비자의 동선으로 내려가기">
             <span>해외 소비자의 탐색 동선</span>
             <i aria-hidden="true" />
