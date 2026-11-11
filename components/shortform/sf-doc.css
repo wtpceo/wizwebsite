@@ -6166,3 +6166,20 @@ html.sf-anim .sf .rv.on :is(.cw-prod figure, .cw-proc-g figure, .hm2-fig, .hm-sv
   .sf .gw2-stop.on { box-shadow: 0 16px 30px -14px rgba(0, 85, 255, .55), 0 0 0 2px #0055FF; }
   .sf .gw2-dot { width: 11px; height: 11px; margin: -5.5px 0 0 -5.5px; }
 }
+
+/* 11-11 대표 「헤더에 서비스 메뉴가 안 보이네」: 글로벌(gw2)도 흰 머리글이라 돌아가는 서비스 이름이 흰 글자로 묻혔다. 인플루언서와 같은 붓칠 색 이름표로 */
+@media (min-width: 821px) {
+  .sf:has(.gw2) .sfh-doc .sfh-nav { position: absolute; left: 50%; top: 0; bottom: 0; transform: translateX(-50%); width: min(720px, 56vw); max-width: none; margin: 0; flex: none; }
+  .sf:has(.gw2) .sfh-doc .sfh-nav::after { display: none; }
+  .sf:has(.gw2) .sfh-doc .sfh-tick-sz span, .sf:has(.gw2) .sfh-doc .sfh-tick-roll a { padding: 0 16px; }
+  .sf:has(.gw2) .sfh-doc .sfh-tick-roll a { position: relative; z-index: 0; opacity: 1; font-weight: 800; width: fit-content; margin-left: auto; margin-right: auto; color: var(--tk-ink, #0A1A33) !important; }
+  .sf:has(.gw2) .sfh-doc .sfh-tick-roll a::before { content: ""; position: absolute; z-index: -1; inset: 0; background: var(--tk, #BCD2FF); transform: rotate(-1.2deg); -webkit-mask: var(--bm) center / 100% 100% no-repeat; mask: var(--bm) center / 100% 100% no-repeat; }
+  .sf:has(.gw2) .sfh-doc .sfh-tick-roll a:nth-child(8n+1) { --tk: #2A2D34; --tk-ink: #fff; }
+  .sf:has(.gw2) .sfh-doc .sfh-tick-roll a:nth-child(8n+2) { --tk: #C8B4F6; }
+  .sf:has(.gw2) .sfh-doc .sfh-tick-roll a:nth-child(8n+3) { --tk: #0055FF; --tk-ink: #fff; }
+  .sf:has(.gw2) .sfh-doc .sfh-tick-roll a:nth-child(8n+4) { --tk: #FFE27A; }
+  .sf:has(.gw2) .sfh-doc .sfh-tick-roll a:nth-child(8n+5) { --tk: #FFC3D2; }
+  .sf:has(.gw2) .sfh-doc .sfh-tick-roll a:nth-child(8n+6) { --tk: #FF9D8A; }
+  .sf:has(.gw2) .sfh-doc .sfh-tick-roll a:nth-child(8n+7) { --tk: #BCD2FF; }
+  .sf:has(.gw2) .sfh-doc .sfh-tick-roll a:nth-child(8n+8) { --tk: #FFD2A6; }
+}

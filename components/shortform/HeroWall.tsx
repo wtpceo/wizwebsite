@@ -15,7 +15,8 @@ const DEFAULT = ["v/f1", "v/s1", "v/f2", "v/b1", "v/s6", "v/b2", "v/s3", "v/s5",
 
 const WALLS: Record<string, string[]> = {
   influencer: ["v/b1", "pf/infl-fashion", "v/s6", "pf/infl-food", "v/f1", "pf/infl-beauty", "v/s1", "ex/m-reel", "v/f2", "ex/fcafe", "v/b2", "ex/m-phone"],
-  performance: ["ex/cosme", "ex/fashion-look", "ex/sunscreen", "ex/m-shop", "ex/giftset", "ex/fashion-detail", "ex/makeup", "ex/shop", "ex/beauty-flat", "ex/fnb-dessert", "ex/fashion-store", "ex/m-phone"],
+  // 11-11 대표 「사진들 폴더의 퍼포1~10으로 바꿔 줘」: 광고 소재 느낌의 제품 컷 아홉 장(7번 없음), 열두 칸을 채우려 세 장은 한 번 더
+  performance: ["perf/ad1","perf/ad2","perf/ad3","perf/ad4","perf/ad5","perf/ad6","perf/ad8","perf/ad9","perf/ad10","perf/ad2","perf/ad4","perf/ad8"],
   search: ["ex/fnb-store", "ex/dental", "ex/cafe", "ex/hanui", "ex/salon", "ex/pasta", "ex/derma", "ex/pilates", "ex/bbq", "ex/academy", "ex/m-dental", "ex/ortho"],
   content: ["v/r31", "pf/w1", "ex/m-shoot", "v/r15", "pf/w6", "v/r11", "pf/w4", "v/r22", "ex/shootcos", "pf/w2", "v/r03", "pf/g2"],
   viral: ["ex/fcafe", "ex/pasta", "ex/sashimi", "ex/fnb-dessert", "ex/pension", "ex/m-family", "ex/bbq", "ex/cafe", "ex/fnb-dish", "ex/beauty-salon", "pf/m1", "ex/palace"],

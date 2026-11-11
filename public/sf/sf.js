@@ -115,7 +115,7 @@ var H4=(function(){
     /* 11-06 사장님 「뒤 배경은 각 상품에 맞게」: 쪽마다 그 상품 장면만. offline 매체 사진은 실사진 받으면 교체 */
     var W={
       influencer:['v/b1','pf/infl-fashion','v/s6','pf/infl-food','v/f1','pf/infl-beauty','v/s1','ex/m-reel','v/f2','ex/fcafe','v/b2','ex/m-phone'],
-      performance:['ex/cosme','ex/fashion-look','ex/sunscreen','ex/m-shop','ex/giftset','ex/fashion-detail','ex/makeup','ex/shop','ex/beauty-flat','ex/fnb-dessert','ex/fashion-store','ex/m-phone'],
+      performance:['perf/ad1','perf/ad2','perf/ad3','perf/ad4','perf/ad5','perf/ad6','perf/ad8','perf/ad9','perf/ad10','perf/ad2','perf/ad4','perf/ad8'],
       search:['ex/fnb-store','ex/dental','ex/cafe','ex/hanui','ex/salon','ex/pasta','ex/derma','ex/pilates','ex/bbq','ex/academy','ex/m-dental','ex/ortho'],
       content:['v/r31','pf/w1','ex/m-shoot','v/r15','pf/w6','v/r11','pf/w4','v/r22','ex/shootcos','pf/w2','v/r03','pf/g2'], /* 11-08 대표 「배경을 우리 레퍼런스로」: 12장 중 10장이 저희가 직접 찍은 릴스·현장 사진, 촬영 현장 예시 2장만 남김 */
       viral:['ex/fcafe','ex/pasta','ex/sashimi','ex/fnb-dessert','ex/pension','ex/m-family','ex/bbq','ex/cafe','ex/fnb-dish','ex/beauty-salon','pf/m1','ex/palace'],
