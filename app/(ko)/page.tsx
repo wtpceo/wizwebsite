@@ -26,7 +26,7 @@ export const metadata: Metadata = share({
     description: DESC,
     url: "https://wiztheplanning.com",
     siteName: "위즈더플래닝",
-    images: [{ url: `/og-home.jpg?v=${timestamp}`, width: 1200, height: 630, alt: "당신의 브랜드를 분석한 제안서부터 받아 보세요. 위즈더플래닝" }],
+    images: [{ url: `/og-home.jpg?v=${timestamp}`, width: 1200, height: 630, alt: "광고비를 쓰기 전에 새는 곳부터 찾습니다. 위즈더플래닝" }],
     locale: "ko_KR",
     type: "website",
   },

@@ -45,7 +45,7 @@ export const metadata: Metadata = {
         url: `/og-home.jpg?v=${timestamp}`,
         width: 1200,
         height: 630,
-        alt: '위즈더플래닝: 맡긴 곳이, 직접 합니다',
+        alt: '광고비를 쓰기 전에 새는 곳부터 찾습니다. 위즈더플래닝',
       }
     ],
     locale: 'ko_KR',
@@ -72,7 +72,8 @@ const jsonLd = {
       // 11-10: 옛 공유 이미지(thumbnail.png, 3MB) 대신 새 심볼 아이콘과 홈 표지
       logo: 'https://wiztheplanning.com/icon.png',
       image: 'https://wiztheplanning.com/og-home.jpg',
-      slogan: '맡긴 곳이, 직접 합니다',
+      // 11-11 대표 「맡긴 곳이 직접 합니다 카피 너무 구려」: Gemini 4 Carbon 이 다시 쓴 문구(공유 이미지 og-home.jpg 와 같은 문장)
+      slogan: '광고비를 쓰기 전에 새는 곳부터 찾습니다',
       description:
         '위즈더플래닝은 AI 검색 최적화(GEO·SEO·네이버 플레이스), 퍼포먼스 광고(네이버·메타·구글·유튜브·카카오·당근), 바이럴·평판 관리, 인플루언서·MCN, 콘텐츠 프로덕션, 샤오홍슈·도우인·LINE 글로벌 마케팅, 웹사이트 구축, 택배차량·극장 같은 오프라인 미디어까지 재위탁 없이 자체 전문팀이 직접 수행하는 IMC 통합 마케팅 에이전시입니다. 고객사마다 전담 AE를 배정해 진단·전략·실행·주간 리포트·최적화를 맡습니다.',
       knowsAbout: [
