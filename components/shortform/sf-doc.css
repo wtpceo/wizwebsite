@@ -5972,3 +5972,34 @@ html.sf-anim .sf .rv.on :is(.cw-prod figure, .cw-proc-g figure, .hm2-fig, .hm-sv
   .sf .iw2-dots i:nth-child(1) { display: block; left: 92% !important; top: 5% !important; scale: .45; }
   .sf .iw2-dots i:nth-child(5) { display: block; left: 4% !important; top: 44% !important; scale: .4; }
 }
+/* 11-11 대표 휴대폰 점검: 카피가 가운데인 곳과 왼쪽인 곳이 섞여 있다 → 인플루언서 페이지는 휴대폰에서 모두 가운데로 맞춘다 */
+@media (max-width: 1024px) {
+  /* 히어로 */
+  .sf .iw2 .dp-hero .geo-hero-in { align-items: center; text-align: center; }
+  .sf .iw2 .dp-hero h1, .sf .iw2 .dp-hero h1 .ix-kw, .sf .iw2 .dp-hero .dp-lead { text-align: center; }
+  .sf .iw2 .dp-hero h1 .ln, .sf .iw2 .dp-hero .dp-btns { justify-content: center; }
+  .sf .iw2 .dp-hero .dp-lead { margin-left: auto; margin-right: auto; }
+  /* 콘텐츠 자산화: '1차 · 채널 발행' 이름표를 사진 위로, 사진 아래 글과 상자 안 글·사진을 가운데로 */
+  .sf .iw2 .ix-use .ix-use-src { flex-direction: column; align-items: center; flex-wrap: nowrap; text-align: center; }
+  .sf .iw2 .ix-use .ix-use-src em, .sf .iw2 .ix-use .ix-use-txt em { align-self: center; }
+  .sf .iw2 .ix-use .ix-use-src .ix-th-tall { max-width: 190px; }
+  .sf .iw2 .ix-use .ix-use-pane { text-align: center; }
+  .sf .iw2 .ix-use .ix-use-txt { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .sf .iw2 .ix-use .ix-use-vis { justify-content: center; align-items: center; margin-left: auto; margin-right: auto; }
+  .sf .iw2 .ix-use .ix-use-vis .ix-ad { margin-left: auto; margin-right: auto; }
+  .sf .iw2 .ix-use .ix-use-more { align-self: center; }
+  /* 매체 카드·활용처 카드 글 */
+  .sf .iw2 .ix-mc .ix-mc-h, .sf .iw2 .ix-mc .ix-mc-body > p, .sf .iw2 .ix-mc .ix-mc-body > b { text-align: center; justify-content: center; }
+  .sf .iw2 .ixu2 .ixu-tx { text-align: center; align-items: center; }
+  .sf .iw2 .ixu-note { text-align: center; }
+  /* 쇼핑몰 상세페이지 칸: 넓은 화면용으로 낮춘 사진·숨긴 후기를 휴대폰에서는 되돌려 휴대폰 화면처럼 세로로 길게 */
+  .sf .ix .ixu2 .ixu-shop .ixu-phone { width: min(230px, 70%); margin: 0 auto; }
+  .sf .ix .ixu2 .ixu-shop .ixu-phone figure { height: 150px; }
+  .sf .ix .ixu2 .ixu-shop .ixu-shop-rv { display: flex; }
+  .sf .ix .ixu2 .ixu-shop .ixu-btn { display: block; text-align: center; }
+  .sf .ix .ixu2 .ixu-shop .ixu-shop-in { text-align: left; }
+}
+@media (max-width: 1024px) {
+  .sf .iw2 .ix-mc .ix-mc-body { text-align: center; }
+  .sf .iw2 .ix-mc .ix-mc-body :is(dl, ul, table) { text-align: left; }
+}
