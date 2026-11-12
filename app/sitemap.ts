@@ -68,6 +68,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/guide/geo-optimization-service", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/geo-vs-seo", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/hospital-marketing-cost", priority: 0.9, changeFrequency: "monthly" },
+    { path: "/guide/hospital-website", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/slow-business-checks", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/elevator-tv-ad-cost", priority: 0.9, changeFrequency: "monthly" },
     { path: "/guide/clinic-opening-marketing", priority: 0.9, changeFrequency: "monthly" },

@@ -34,6 +34,16 @@ export type GuideArticle = {
 // 최신순 정렬 유지 — 가이드 목록의 "최신 글"이 이 순서를 따름
 export const GUIDE_ARTICLES: GuideArticle[] = [
   {
+    href: "/guide/hospital-website",
+    category: "concern",
+    icon: MonitorSmartphone,
+    kicker: "병원 마케팅 · 홈페이지",
+    title: "병원 홈페이지 제작 비용과 기간, 신규 구축·리뉴얼 고르는 기준",
+    desc: "병원 홈페이지 제작 비용과 기간이 정해지는 기준을 정리했습니다. 새로 만들지 고칠지 고르는 표와 기존 주소를 지키는 법, 오픈 뒤 첫 달에 생기는 일, 견적서 확인 항목을 담았습니다.",
+    date: "2026. 11. 12",
+    related: ["/guide/hospital-marketing-cost", "/guide/case-dental-llms-factsheet", "/guide/medical-geo"],
+  },
+  {
     href: "/guide/geo-optimization-service",
     category: "playbook",
     icon: SearchCheck,
