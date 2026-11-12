@@ -77,6 +77,14 @@ function Lines({ t }: { t: string }) {
 /** 11-11 대표 「사진들 폴더에서 알맞은 걸로 인하우스 솔루션 박스에 넣어 봐」(로컬 확인용). 대표가 준 사진 열한 장 중 서비스와 맞는 다섯 장을 넣었다.
     맞는 사진이 없던 GEO·웹사이트·오프라인은 대표 지시대로 구글 이미지에서 참고 장면을 골라 GPT 이미지로 새로 만들었다(글자·로고·실존 인물 없음).
     원본·참고 그림·지시문: 27.자사브랜딩/30_디자인/작업/2026-11-11_홈카드사진 */
+// 11-12 대표 「인하우스 솔루션 섹션에서 콘텐츠 프로덕션과 바이럴 박스 위치를 바꿔 줘」: 홈 카드에서만 두 칸 자리를 바꾼다(메뉴·바닥글 순서는 SERVICES 그대로)
+const SVC_HOME = (() => {
+  const a = [...SERVICES]
+  const c = a.findIndex((x) => x.k === "content"), v = a.findIndex((x) => x.k === "viral")
+  if (c >= 0 && v >= 0) [a[c], a[v]] = [a[v], a[c]]
+  return a
+})()
+
 const SVC_PHOTO: Record<string, string> = {
   infl: "/sf/home/svc-infl.webp",
   perf: "/sf/home/svc-perf.webp",
@@ -190,14 +198,14 @@ export default function HomeDoc() {
             </div>
 
             <ul className="hm2-svc-g">
-              {SERVICES.map((s, i) => (
+              {SVC_HOME.map((s, i) => (
                 <li key={s.k} className="rv" style={vars({ i })}>
                   <Link href={`/services/${s.slug}`} className="hm2-svc-card" style={{ "--brush": SVC_BRUSH[s.k]?.[0], "--brush-ink": SVC_BRUSH[s.k]?.[1] } as React.CSSProperties}>
                     {/* 11-09 대표: 글자로 짠 화면 대신 회사소개와 같은 3D 그림 */}
                     <figure className="tw-fig-stage hm2-fig">
                       <img src={SVC_PHOTO[s.k] ?? `/sf/gen/hm-svc-${s.k}.webp`} alt="" width={800} height={533} loading="lazy" decoding="async" />
                       <span className="hm2-fig-tag" aria-hidden="true">
-                        <i>{s.no}</i>
+                        <i>{String(i + 1).padStart(2, "0")}</i>
                         {SVC_ROLE[s.k]}
                       </span>
                     </figure>
