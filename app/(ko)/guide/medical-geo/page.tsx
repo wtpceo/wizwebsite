@@ -73,6 +73,10 @@ export default function Page() {
         </ul>
 
         <p>
+          웹사이트를 새로 만들거나 고칠 계획이라면 <a href="/guide/hospital-website">병원 홈페이지 신규 구축과 리뉴얼 고르는 기준</a>부터 확인해 두시면 좋습니다.
+        </p>
+
+        <p>
           우리 병원이 지금 이런 출처들에서 어떻게 읽히고 있는지는 <a href="/medical-diagnosis">병원 무료 AI 검색 진단</a>으로 확인할 수 있습니다. 네이버 AI·ChatGPT·제미나이에 환자가 쓸 법한 질문을 물어 언급 비율과 잘못 안내되는 정보를 정리해 드립니다.
         </p>
 

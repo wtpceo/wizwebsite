@@ -58,7 +58,7 @@ const FAQ = [
   },
   {
     q: "병원 홈페이지 제작 비용은 왜 견적 차이가 큰가요?",
-    a: "페이지 수와 언어, 그리고 검색엔진과 AI가 읽을 수 있게 만드는 작업이 들어갔는지에 따라 갈립니다. 저희가 진행한 치과는 120쪽을 4개 언어로 만들고 AI 크롤러 15종의 접근을 열어 두는 작업까지 포함했습니다. 디자인만 새로 하는 견적과 같은 금액일 수 없습니다. 견적서를 받으시면 페이지 수, 언어, 측정 설계 포함 여부를 나눠서 확인해 보세요.",
+    a: "페이지 수와 언어, 그리고 검색엔진과 AI가 읽을 수 있게 만드는 작업이 들어갔는지에 따라 갈립니다. 저희가 진행한 치과는 120쪽을 4개 언어로 만들고 AI 크롤러 15종의 접근을 열어 두는 작업까지 포함했습니다. 디자인만 새로 하는 견적과 같은 금액일 수 없습니다. 견적서를 받으시면 페이지 수, 언어, 측정 설계 포함 여부를 나눠서 확인해 보세요. 세부적인 견적서 항목과 병원 홈페이지 제작 비용과 기간을 정하는 기준은 따로 정리해 두었습니다.",
   },
   {
     q: "광고비를 늘리는 게 먼저인가요, 홈페이지가 먼저인가요?",
@@ -91,6 +91,20 @@ const CHECK_ROWS: [string, string][] = [
   ["성과를 무엇으로 재고 몇 번 보고하는가", "'노출 증가' 같은 말 대신, 어떤 숫자를 어떤 주기로 보여줄지 적혀야 합니다."],
   ["'보장'이라는 단어가 어디에 쓰였는가", "검색 순위나 AI 답변 노출은 매번 달라져서 보장이 구조적으로 어렵습니다. 보장을 적었다면 미달 시 정산 방법까지 계약서에 있어야 합니다."],
 ]
+
+// 11-12 작가 세션: 홈페이지 제작 비용 질문의 답 끝에 새 글(/guide/hospital-website)로 가는 링크. 구조화 데이터에는 같은 문장이 글자로 들어간다
+const LINK_TEXT = "병원 홈페이지 제작 비용과 기간을 정하는 기준"
+function withLink(a: string) {
+  const at = a.indexOf(LINK_TEXT)
+  if (at < 0) return a
+  return (
+    <>
+      {a.slice(0, at)}
+      <a href="/guide/hospital-website" className="font-semibold text-[#0055FF] underline underline-offset-4">{LINK_TEXT}</a>
+      {a.slice(at + LINK_TEXT.length)}
+    </>
+  )
+}
 
 export default function Page() {
   return (
@@ -319,7 +333,7 @@ export default function Page() {
                 <span className="shrink-0 text-[#00b57f]">Q{i + 1}.</span>
                 <span>{f.q}</span>
               </p>
-              <p className="mt-3 text-base leading-[1.85] text-gray-700">{f.a}</p>
+              <p className="mt-3 text-base leading-[1.85] text-gray-700">{withLink(f.a)}</p>
             </div>
           ))}
         </div>
