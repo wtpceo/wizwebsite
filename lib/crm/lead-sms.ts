@@ -32,16 +32,32 @@ function authHeader(key: string, secret: string) {
   return `HMAC-SHA256 apiKey=${key}, date=${date}, salt=${salt}, signature=${signature}`
 }
 
-/** 문의 본문에서 「관심분야: …」 같은 한 줄을 뽑는다. 없으면 빈 문자열 */
-function pickLine(message: string | null | undefined, label: string, max: number) {
-  const m = (message || "").match(new RegExp(`^${label}:\\s*(.+)$`, "m"))
-  const v = m ? m[1].trim() : ""
-  return v.length > max ? `${v.slice(0, max)}…` : v
+/** 문자 길이를 솔라피 기준(한글 2바이트, 영문·숫자 1바이트)으로 센다 */
+function smsBytes(t: string) {
+  let n = 0
+  for (const ch of t) n += ch.charCodeAt(0) > 127 ? 2 : 1
+  return n
+}
+
+/** 장문(LMS) 한도 2,000바이트 안으로 자른다. 넘치면 끝에 안내를 붙인다 */
+function fitLms(t: string, max = 1990) {
+  if (smsBytes(t) <= max) return t
+  const tail = "\n…(문자 한도라 이하 생략, 전문은 접수 메일에 있음)"
+  const room = max - smsBytes(tail)
+  let out = "", n = 0
+  for (const ch of t) {
+    const w = ch.charCodeAt(0) > 127 ? 2 : 1
+    if (n + w > room) break
+    out += ch
+    n += w
+  }
+  return out + tail
 }
 
 /**
  * 문자 본문. 90바이트를 넘으면 솔라피가 장문(LMS)으로 바꿔 보낸다.
- * 관리 화면 주소는 그 화면이 실제로 열릴 때(adminReady)만 넣는다. 받는 사람은 접수 메일을 못 보니 관심분야·문의 내용 앞부분을 문자에 함께 싣는다.
+ * 11-13 대표 「본부장이 링크를 눌러도 상세 내역을 못 본다 → 문자에 전부 싣기」: 문의 본문을 자르지 않고 그대로 싣는다.
+ * 받는 사람은 접수 메일도 관리 화면도 못 보니 문자 한 통으로 다 읽히게 한다. 관리 화면 주소는 그 화면이 실제로 열릴 때(adminReady)만 넣는다.
  */
 export function leadSmsText(l: {
   company?: string | null
@@ -55,21 +71,19 @@ export function leadSmsText(l: {
   adminReady?: boolean
 }) {
   const who = l.company && l.name && !l.name.includes(l.company) ? `${l.company} · ${l.name}` : l.name || l.company || "이름 없음"
-  const interest = pickLine(l.message, "관심분야", 60)
-  const note = pickLine(l.message, "문의 내용", 120)
-  return [
+  const body = (l.message || "").trim()
+  // 본문에 예산 줄이 이미 있으면 따로 적지 않는다
+  const budgetLine = l.budget && !body.includes(l.budget) ? `예산: ${l.budget}` : ""
+  const head = [
     "[위즈더플래닝 새 문의]",
     `${who}${l.orgType ? ` (${l.orgType})` : ""}`,
-    l.phone ? `연락처 ${l.phone}` : "",
-    l.email ? `메일 ${l.email}` : "",
-    l.budget ? `예산 ${l.budget}` : "",
-    interest && interest !== "고르지 않음" ? `관심 ${interest}` : "",
-    note ? `내용 ${note}` : "",
-    l.form ? `폼 ${l.form}` : "",
-    l.adminReady ? "목록 https://wiztheplanning.com/admin/leads" : "",
-  ]
-    .filter(Boolean)
-    .join("\n")
+    l.phone ? `연락처: ${l.phone}` : "",
+    l.email ? `메일: ${l.email}` : "",
+    l.form ? `폼: ${l.form}` : "",
+    budgetLine,
+  ].filter(Boolean)
+  const tail = l.adminReady ? ["", "목록 https://wiztheplanning.com/admin/leads"] : []
+  return fitLms([...head, body ? "─────" : "", body, ...tail].filter((x, i, arr) => x !== "" || (i > 0 && arr[i - 1] !== "")).join("\n"))
 }
 
 export async function sendLeadSms(text: string): Promise<boolean> {
