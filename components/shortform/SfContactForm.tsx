@@ -11,7 +11,6 @@ import { useFormGuard } from "@/components/forms/FormGuard"
 
 // label: 신청 이름(버튼·폼 이름·메일 머리) — 11-06 대표 카피덱 「진단 신청하기」. language 값은 메일 제목 꼬리표라 그대로 둔다
 /** 11-09 대표: '제안 PT 요청' 유형은 빼고, 예산(선택)·홈페이지 링크(선택)·미팅 요청 체크를 넣는다. 예산 구간은 옛 기업 제안 폼과 같다 */
-const BUDGETS = ["월 300만원 미만", "월 300~500만원", "월 500~1,000만원", "월 1,000~3,000만원", "월 3,000만원 이상", "아직 미정"]
 
 export default function SfContactForm({ initial = [], source = "home_shortform", label = "진단 신청하기" }: { initial?: string[]; source?: string; label?: string }) {
   const { guardFields, guardValues } = useFormGuard()
@@ -60,13 +59,13 @@ export default function SfContactForm({ initial = [], source = "home_shortform",
           email: email.trim() || undefined,
           storeName: company.trim(),
           // 메일 제목 앞에 [예산]이 붙는다(/api/contact)
-          budget: budget || undefined,
+          budget: budget.trim() || undefined,
           message: [
             source === "home_shortform" ? `[홈 ${label}]` : `[${label} · ${source}]`,
             meeting ? "미팅 요청: 요청함" : "",
             person.trim() ? `담당자: ${person.trim()}` : "",
             site.trim() ? `홈페이지: ${site.trim()}` : "",
-            budget ? `월 예산: ${budget}` : "",
+            budget.trim() ? `가용 예산: ${budget.trim()}` : "",
             `관심분야: ${names.length ? names.join(", ") : "고르지 않음"}`,
           ]
             .filter(Boolean)
@@ -77,7 +76,7 @@ export default function SfContactForm({ initial = [], source = "home_shortform",
       })
       if (!res.ok) throw new Error("failed")
       // industry 칸은 기업·병원·그 밖을 가르는 값이라 넣지 않는다(서비스 이름은 메일 본문에) · 어느 쪽 폼인지는 GA 쪽 주소로 갈린다
-      trackContactSubmit({ source, budget: budget || undefined, lead: true })
+      trackContactSubmit({ source, budget: budget.trim() ? "직접 입력" : undefined, lead: true })
       setStatus("done")
     } catch {
       setStatus("error")
@@ -123,18 +122,12 @@ export default function SfContactForm({ initial = [], source = "home_shortform",
         </span>
         <input value={site} onChange={(e) => setSite(e.target.value)} placeholder="https:// (없으면 비워 두세요)" type="url" inputMode="url" autoComplete="url" />
       </label>
+      {/* 11-13 대표 「예산 적는 곳을 글자로 쓰게, 예시도 똑같이」: 고르는 칸 대신 직접 적는 칸 */}
       <label className="ct-l">
         <span>
-          월 예산 <small>선택</small>
+          가용 예산 <small>선택</small>
         </span>
-        <select value={budget} onChange={(e) => setBudget(e.target.value)} className={budget ? "" : "ph"}>
-          <option value="">예산 범위를 골라 주세요</option>
-          {BUDGETS.map((b) => (
-            <option key={b} value={b}>
-              {b}
-            </option>
-          ))}
-        </select>
+        <input value={budget} onChange={(e) => setBudget(e.target.value)} placeholder="ex) 1000만원 ~ 2000만원" maxLength={60} />
       </label>
       <fieldset className="ct-s">
         <legend>

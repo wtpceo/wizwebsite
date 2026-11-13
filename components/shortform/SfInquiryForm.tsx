@@ -228,7 +228,7 @@ export default function SfInquiryForm() {
           </div>
           <label className="iq-l">
             <span>가용 예산</span>
-            <input value={budget} onChange={(e) => setBudget(e.target.value)} placeholder="예) 1,000만원 ~ 2,000만원" />
+            <input value={budget} onChange={(e) => setBudget(e.target.value)} placeholder="ex) 1000만원 ~ 2000만원" />
           </label>
           <fieldset>
             <legend>캠페인 진행 시점</legend>

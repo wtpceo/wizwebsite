@@ -107,7 +107,7 @@ export async function POST(req: Request) {
     const adminHtml = `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
         <h2 style="color: #0A1A33;">새로운 문의가 접수되었습니다</h2>
-        ${budget ? `<p style="display:inline-block;background:#fef3c7;color:#92400e;font-weight:bold;padding:6px 12px;border-radius:6px;margin:0 0 8px;">💰 월 예산: ${esc(budget)}</p>` : ''}
+        ${budget ? `<p style="display:inline-block;background:#fef3c7;color:#92400e;font-weight:bold;padding:6px 12px;border-radius:6px;margin:0 0 8px;">💰 가용 예산: ${esc(budget)}</p>` : ''}
         ${language ? `<p style="display:inline-block;background:#0055FF;color:#ffffff;font-weight:bold;padding:4px 10px;border-radius:6px;">${esc(language)}</p>` : ''}
         <table style="border-collapse:collapse;margin:8px 0 16px;">
           ${row('이름', esc(name))}
