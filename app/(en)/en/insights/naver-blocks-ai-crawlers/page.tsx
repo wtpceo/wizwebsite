@@ -93,7 +93,7 @@ const ROWS: { platform: string; train: Status; search: Status; note: string }[] 
 ]
 
 function Mark({ v }: { v: Status }) {
-  if (v === "allow") return <span className="font-bold text-emerald-600">Allowed</span>
+  if (v === "allow") return <span className="font-bold text-[#0055FF]">Allowed</span>
   if (v === "block") return <span className="font-bold text-red-500">Blocked</span>
   return <span className="font-bold text-amber-600">Partial</span>
 }

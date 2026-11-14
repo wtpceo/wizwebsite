@@ -22,8 +22,6 @@ export const LOCALES: {
 
 export const BASE_URL = "https://wiztheplanning.com"
 
-/** 한국에서 사업하는 영어권 사업주용 영어 랜딩 (2026-09-15 /en에서 이동) */
-export const EN_LOCAL_BUSINESS_PATH = "/en/business-owners-in-korea"
 
 export function getLocale(code: Locale) {
   return LOCALES.find((l) => l.code === code)!
@@ -36,8 +34,9 @@ export function getLocale(code: Locale) {
 //    (예전에는 국문 홈이 영어 짝으로 이 랜딩을 가리켰는데, 국문 홈이 기업 전용으로 바뀌어 내용이 다르다)
 //  - 글·페이지 짝: 국문 원문 ↔ 영문 의역.
 const HREFLANG_GROUPS: Record<string, string>[] = [
-  { ko: "/", en: "/en", "x-default": "/" },
-  { en: EN_LOCAL_BUSINESS_PATH, "zh-Hans": "/zh", vi: "/vi", "x-default": EN_LOCAL_BUSINESS_PATH },
+  // 11-14 대표 「외국어 페이지도 완벽하게 업데이트」: 중국어·베트남어도 기업 대상 회사 홈이 되어 네 언어 홈이 한 묶음이다.
+  //   예전 외국인 사장님 랜딩(/en/business-owners-in-korea)은 /en 으로 영구 이동했다(next.config).
+  { ko: "/", en: "/en", "zh-Hans": "/zh", vi: "/vi", "x-default": "/" },
   { ko: "/how-we-measure", en: "/en/how-we-measure" },
   { ko: "/guide", en: "/en/insights" },
   { ko: "/guide/naver-blocks-ai-crawlers", en: "/en/insights/naver-blocks-ai-crawlers" },

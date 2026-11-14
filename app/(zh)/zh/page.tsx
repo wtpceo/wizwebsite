@@ -1,63 +1,60 @@
 import type { Metadata } from "next"
-import LocaleLanding from "@/components/i18n/LocaleLanding"
-import { LANDING } from "@/lib/i18n/content"
-import { BASE_URL, getLocale, hreflangFor } from "@/lib/i18n/config"
+import IntlHome from "@/components/intl/IntlHome"
+import { INTL_HOME } from "@/lib/intl/home"
+import { BASE_URL, hreflangFor } from "@/lib/i18n/config"
 import { share } from "@/lib/share-meta"
 
-const t = LANDING.zh
-const L = getLocale("zh")
-const URL = `${BASE_URL}${L.prefix}`
+// 중국어 회사 홈. 예전 '한국에서 장사하는 화교 사장님' 랜딩(LocaleLanding)을 기업 대상으로 바꿨다.
+// 11-14 대표 「외국어 페이지도 완벽하게 업데이트」: 국문 홈과 같은 디자인·내용의 기업 대상 회사 홈. 문구는 lib/intl/home-zh.json(Gemini 의역).
+const t = INTL_HOME.zh
+const PATH = "/zh"
+const URL = `${BASE_URL}${PATH}`
 
-export const metadata: Metadata = share({
-  // absolute로 지정해 루트 레이아웃의 "%s | 위즈더플래닝" 한국어 접미사가 붙지 않게
-  title: { absolute: t.metaTitle },
-  description: t.metaDescription,
-  keywords: [
-    "在韩华人营销", "韩国开店营销", "华人老板 韩国", "GEO", "AI搜索优化",
-    "韩文官网制作", "Naver营销", "ChatGPT 推荐", "在韩国做生意", "中文营销代理",
-  ],
-  alternates: {
-    canonical: L.prefix,
-    languages: hreflangFor("/zh"),
+export const metadata: Metadata = share(
+  {
+    title: { absolute: t.meta.title },
+    description: t.meta.description,
+    alternates: { canonical: PATH, languages: hreflangFor(PATH) },
+    openGraph: {
+      title: t.meta.title,
+      description: t.meta.description,
+      url: URL,
+      images: [{ url: "/og-zh.jpg", alt: `${t.hero.h1a} ${t.hero.h1b}` }],
+      type: "website",
+      locale: "zh_CN",
+    },
   },
-  openGraph: {
-    title: t.metaTitle,
-    description: t.metaDescription,
-    url: URL,
-    images: [{ url: "/og-zh.jpg", alt: "在韩国做推广之前，先查清哪里被挡住。先诊断现状的在韩华人AI搜索营销，WizThePlanning" }],
-    locale: L.ogLocale,
-    type: "website",
-  },
-}, "zh")
+  "zh",
+)
 
-const jsonLd = {
+const orgLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "WizThePlanning (위즈더플래닝)",
+  "@id": `${BASE_URL}/zh#organization`,
+  name: "WizThePlanning",
+  alternateName: ["위즈더플래닝", "Wiz The Planning"],
   url: URL,
-  description: t.metaDescription,
-  areaServed: { "@type": "Country", name: "대한민국" },
+  email: "wiz@wiztheplanning.com",
   foundingDate: "2016",
+  address: { "@type": "PostalAddress", addressLocality: "Seoul", addressCountry: "KR" },
+  areaServed: { "@type": "Country", name: "South Korea" },
   inLanguage: "zh-Hans",
+  description: t.meta.description,
 }
 
-const faqJsonLd = {
+const faqLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   inLanguage: "zh-Hans",
-  mainEntity: t.faq.items.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
+  mainEntity: t.faq.items.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
 }
 
 export default function Page() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
-      <LocaleLanding locale="zh" t={t} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <IntlHome locale="zh" />
     </>
   )
 }

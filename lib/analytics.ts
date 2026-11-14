@@ -144,7 +144,7 @@ export function trackInfluencerProposalSubmit(params: { product?: string; budget
  *  대표 결정(2026-10-29): 홈페이지로 들어오는 모든 문의를 리드로 센다.
  *  GA4는 일반 상담과 같은 contact_submit 으로 보내 측정 세션의 '총 리드' 식을 바꾸지 않고,
  *  form_type 으로 나눈다. generate_lead 는 기업 제안 요청 전용으로 남긴다. */
-export function trackForeignContactSubmit(params: { form: "en_contact" | "locale_contact"; locale: string; interest?: string }) {
+export function trackForeignContactSubmit(params: { form: "en_contact" | "locale_contact" | "en_home" | "zh_home" | "vi_home"; locale: string; interest?: string }) {
   gaEvent("contact_submit", {
     form_type: params.form,
     locale: params.locale,

@@ -21,6 +21,8 @@ export default function ChatWidget() {
   if (pathname?.startsWith("/luke")) return null
   // 홈(숏폼형)과 리뉴얼 새 쪽(2026-11-04)은 아래 고정 바·문의 칸에 카카오톡 상담이 따로 있어 떠 있는 버튼을 숨긴다
   if (pathname === "/" || /^\/(services|solutions|team|about|contact|guide|theater|business|how-we-measure)(\/|$)/.test(pathname || "")) return null
+  // 11-14 대표 「외국어 페이지도 완벽하게 업데이트」: 외국어 쪽은 새 디자인(메일 중심)이라 초록 카카오 버튼을 띄우지 않는다
+  if (/^\/(en|zh|vi)(\/|$)/.test(pathname || "")) return null
   const locale = pathname?.startsWith("/zh") ? "zh" : pathname?.startsWith("/vi") ? "vi" : pathname === "/en" || pathname?.startsWith("/en/") ? "en" : "ko"
   const label = CHAT_LABELS[locale]
 

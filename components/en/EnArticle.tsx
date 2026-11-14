@@ -29,10 +29,10 @@ export default function EnArticle({
     <div className="flex min-h-screen flex-col bg-white">
       <EnHeader />
       <main className="flex-1">
-        <section className="relative overflow-hidden bg-[#070b14] py-16 md:py-20">
+        <section className="relative overflow-hidden bg-[#0A1A33] py-16 md:py-20">
           <div className="geo-grid-bg absolute inset-0 opacity-60" />
           <div className="container relative mx-auto max-w-3xl px-4 md:px-6">
-            <Link href="/en/insights" className="text-xs font-bold tracking-[0.2em] text-[#00e5a0] hover:underline">
+            <Link href="/en/insights" className="text-xs font-bold tracking-[0.2em] text-[#7FA8FF] hover:underline">
               {kicker.toUpperCase()}
             </Link>
             <h1 className="mt-4 text-[clamp(1.75rem,3.6vw,2.75rem)] font-extrabold leading-[1.2] tracking-tight text-white">{title}</h1>
@@ -44,17 +44,17 @@ export default function EnArticle({
           </div>
         </section>
 
-        <article className="container mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16 [&>h2]:mt-12 [&>h2]:text-2xl [&>h2]:font-extrabold [&>h2]:tracking-tight [&>h2]:text-gray-900 [&>h3]:mt-8 [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-gray-900 [&>p]:mt-4 [&>p]:text-base [&>p]:leading-[1.85] [&>p]:text-gray-700 [&>ul]:mt-4 [&>ul]:space-y-2 [&>ul]:pl-1 [&>ol]:mt-4 [&>ol]:list-decimal [&>ol]:space-y-3 [&>ol]:pl-5 [&>blockquote]:mt-5 [&>blockquote]:border-l-4 [&>blockquote]:border-[#00e5a0] [&>blockquote]:bg-slate-50 [&>blockquote]:px-5 [&>blockquote]:py-4 [&>blockquote]:text-gray-700 [&_a]:font-semibold [&_a]:text-emerald-700 [&_a]:underline-offset-4 hover:[&_a]:underline">
+        <article className="container mx-auto max-w-3xl px-4 py-12 md:px-6 md:py-16 [&>h2]:mt-12 [&>h2]:text-2xl [&>h2]:font-extrabold [&>h2]:tracking-tight [&>h2]:text-gray-900 [&>h3]:mt-8 [&>h3]:text-xl [&>h3]:font-bold [&>h3]:text-gray-900 [&>p]:mt-4 [&>p]:text-base [&>p]:leading-[1.85] [&>p]:text-gray-700 [&>ul]:mt-4 [&>ul]:space-y-2 [&>ul]:pl-1 [&>ol]:mt-4 [&>ol]:list-decimal [&>ol]:space-y-3 [&>ol]:pl-5 [&>blockquote]:mt-5 [&>blockquote]:border-l-4 [&>blockquote]:border-[#0055FF] [&>blockquote]:bg-slate-50 [&>blockquote]:px-5 [&>blockquote]:py-4 [&>blockquote]:text-gray-700 [&_a]:font-semibold [&_a]:text-[#0047D6] [&_a]:underline-offset-4 hover:[&_a]:underline">
           {children}
         </article>
 
         <section className="container mx-auto max-w-3xl px-4 pb-12 md:px-6">
-          <div className="rounded-3xl bg-gradient-to-r from-[#0b1220] to-[#101b2e] px-8 py-10 text-center">
+          <div className="rounded-3xl bg-gradient-to-r from-[#0A1A33] to-[#0D2449] px-8 py-10 text-center">
             <p className="text-xl font-extrabold text-white md:text-2xl">Planning to reach customers in Korea?</p>
             <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-400 md:text-base">
               Tell us about your brand. We will show you how you currently appear on Naver, Google and AI assistants in Korea, then suggest where to start.
             </p>
-            <Link href="/en/contact" className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-[#00e5a0] px-6 py-3 text-sm font-bold text-[#070b14] hover:bg-[#3cf0bb]">
+            <Link href="/en/contact" className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-[#0055FF] px-6 py-3 text-sm font-bold text-white hover:bg-[#2B6FFF]">
               Talk to us <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -65,13 +65,13 @@ export default function EnArticle({
             <h2 className="mb-5 text-lg font-extrabold tracking-tight text-gray-900">Keep reading</h2>
             <div className="grid gap-5 sm:grid-cols-3">
               {related.map((a) => (
-                <Link key={a.href} href={a.href} className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all hover:-translate-y-1 hover:border-emerald-500/40 hover:shadow-lg">
+                <Link key={a.href} href={a.href} className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white transition-all hover:-translate-y-1 hover:border-[#0055FF]/40 hover:shadow-lg">
                   <span className="block aspect-[16/9] overflow-hidden bg-slate-100">
                     <img src={a.cover} alt="" width={1200} height={675} loading="lazy" className="h-full w-full object-cover" />
                   </span>
                   <span className="flex flex-1 flex-col p-4">
-                    <span className="text-[11px] font-bold tracking-[0.15em] text-emerald-600">{a.kicker.toUpperCase()}</span>
-                    <span className="mt-1.5 line-clamp-3 text-sm font-bold leading-snug text-gray-900 group-hover:text-emerald-700">{a.title}</span>
+                    <span className="text-[11px] font-bold tracking-[0.15em] text-[#0055FF]">{a.kicker.toUpperCase()}</span>
+                    <span className="mt-1.5 line-clamp-3 text-sm font-bold leading-snug text-gray-900 group-hover:text-[#0047D6]">{a.title}</span>
                     <span className="mt-auto pt-3 text-xs text-gray-400">{fmtEnDate(a.date)}</span>
                   </span>
                 </Link>

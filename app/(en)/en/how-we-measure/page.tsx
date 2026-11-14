@@ -176,11 +176,11 @@ export default function Page() {
 
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative overflow-hidden bg-[#070b14] py-20 md:py-28">
+        <section className="relative overflow-hidden bg-[#0A1A33] py-20 md:py-28">
           <div className="geo-grid-bg absolute inset-0 opacity-60" />
-          <div className="absolute -right-32 top-1/4 h-[420px] w-[560px] rounded-full bg-[#00e5a0]/[0.07] blur-3xl" />
+          <div className="absolute -right-32 top-1/4 h-[420px] w-[560px] rounded-full bg-[#0055FF]/[0.10] blur-3xl" />
           <div className="container relative mx-auto max-w-5xl px-4 md:px-6">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#00e5a0]/30 bg-[#00e5a0]/10 px-4 py-1.5 text-xs font-bold tracking-wide text-[#00e5a0]">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#7FA8FF]/40 bg-[#0055FF]/15 px-4 py-1.5 text-xs font-bold tracking-wide text-[#7FA8FF]">
               <Radar className="h-3.5 w-3.5" />
               HOW WE MEASURE
             </span>
@@ -203,7 +203,7 @@ export default function Page() {
                 { n: "0", d: "Accounts sold to outsiders" },
               ].map((s) => (
                 <div key={s.d}>
-                  <p className="text-xl font-extrabold text-[#00e5a0]">{s.n}</p>
+                  <p className="text-xl font-extrabold text-[#7FA8FF]">{s.n}</p>
                   <p className="mt-0.5 text-slate-500">{s.d}</p>
                 </div>
               ))}
@@ -213,7 +213,7 @@ export default function Page() {
 
         {/* Six screens */}
         <section className="container mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-20">
-          <p className="text-xs font-bold tracking-[0.25em] text-emerald-600">SCREENS</p>
+          <p className="text-xs font-bold tracking-[0.25em] text-[#0055FF]">SCREENS</p>
           <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
             Six screens, captured in September and October 2026
           </h2>
@@ -236,7 +236,7 @@ export default function Page() {
                   />
                 </div>
                 <figcaption className={`md:col-span-2 ${i % 2 === 1 ? "md:order-1" : ""}`}>
-                  <p className="font-mono text-xs font-bold text-emerald-600">0{i + 1}</p>
+                  <p className="font-mono text-xs font-bold text-[#0055FF]">0{i + 1}</p>
                   <h3 className="mt-1 text-xl font-extrabold tracking-tight text-gray-900">{s.title}</h3>
                   <p className="mt-3 text-sm leading-[1.85] text-gray-600 md:text-base">{s.body}</p>
                 </figcaption>
@@ -248,14 +248,14 @@ export default function Page() {
         {/* Metric definitions */}
         <section className="bg-[#f6f8f7] py-16 md:py-20">
           <div className="container mx-auto max-w-5xl px-4 md:px-6">
-            <p className="text-xs font-bold tracking-[0.25em] text-emerald-600">METRICS</p>
+            <p className="text-xs font-bold tracking-[0.25em] text-[#0055FF]">METRICS</p>
             <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
               We count things separately so the numbers do not inflate
             </h2>
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               {METRICS.map((m) => (
                 <div key={m.title} className="rounded-2xl border border-gray-200 bg-white p-6">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 ring-1 ring-emerald-100">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EEF3FF] text-[#0055FF] ring-1 ring-[#DCE6FF]">
                     <m.icon className="h-5 w-5" />
                   </span>
                   <h3 className="mt-4 text-lg font-extrabold tracking-tight text-gray-900">{m.title}</h3>
@@ -267,7 +267,7 @@ export default function Page() {
               For an example of what re-measurement looks like on a real account, see{" "}
               <Link
                 href="/en/insights/case-clinic-chatgpt"
-                className="font-semibold text-emerald-700 underline-offset-4 hover:underline"
+                className="font-semibold text-[#0047D6] underline-offset-4 hover:underline"
               >
                 our clinic case: re-measuring ChatGPT citations
               </Link>
@@ -278,7 +278,7 @@ export default function Page() {
 
         {/* Weekly routine */}
         <section className="container mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-20">
-          <p className="text-xs font-bold tracking-[0.25em] text-emerald-600">ROUTINE</p>
+          <p className="text-xs font-bold tracking-[0.25em] text-[#0055FF]">ROUTINE</p>
           <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
             The same routine, every week
           </h2>
@@ -290,7 +290,7 @@ export default function Page() {
                 </span>
                 <div>
                   <div className="flex items-center gap-2">
-                    <r.icon className="h-4 w-4 text-emerald-600" />
+                    <r.icon className="h-4 w-4 text-[#0055FF]" />
                     <h3 className="text-base font-bold text-gray-900">{r.title}</h3>
                   </div>
                   <p className="mt-2 text-sm leading-relaxed text-gray-600">{r.body}</p>
@@ -301,9 +301,9 @@ export default function Page() {
         </section>
 
         {/* Not for sale */}
-        <section className="bg-[#070b14] py-16 md:py-20">
+        <section className="bg-[#0A1A33] py-16 md:py-20">
           <div className="container mx-auto max-w-5xl px-4 md:px-6">
-            <p className="text-xs font-bold tracking-[0.25em] text-[#00e5a0]">NOT FOR SALE</p>
+            <p className="text-xs font-bold tracking-[0.25em] text-[#7FA8FF]">NOT FOR SALE</p>
             <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-white md:text-3xl">
               What we do not do with this system
             </h2>
@@ -320,7 +320,7 @@ export default function Page() {
 
         {/* FAQ */}
         <section className="container mx-auto max-w-5xl px-4 py-16 md:px-6 md:py-20">
-          <p className="text-xs font-bold tracking-[0.25em] text-emerald-600">FAQ</p>
+          <p className="text-xs font-bold tracking-[0.25em] text-[#0055FF]">FAQ</p>
           <h2 className="mt-3 text-2xl font-extrabold tracking-tight text-gray-900 md:text-3xl">
             Frequently asked questions
           </h2>
@@ -339,7 +339,7 @@ export default function Page() {
 
         {/* CTA */}
         <section className="container mx-auto max-w-5xl px-4 pb-20 md:px-6">
-          <div className="rounded-3xl bg-gradient-to-r from-[#0b1220] to-[#101b2e] px-8 py-12 text-center shadow-xl">
+          <div className="rounded-3xl bg-gradient-to-r from-[#0A1A33] to-[#0D2449] px-8 py-12 text-center shadow-xl">
             <h2 className="text-xl font-extrabold text-white md:text-3xl">Start with where your brand shows up today</h2>
             <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-slate-400 md:text-base">
               We measure your current state with the same system first. You are welcome to take the results and stop
@@ -348,7 +348,7 @@ export default function Page() {
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <Link
                 href="/en/contact"
-                className="inline-flex w-full items-center justify-center gap-1 rounded-md bg-[#00e5a0] px-8 py-4 text-base font-bold text-[#070b14] transition-colors hover:bg-[#3cf0bb] sm:w-auto"
+                className="inline-flex w-full items-center justify-center gap-1 rounded-md bg-[#0055FF] px-8 py-4 text-base font-bold text-white transition-colors hover:bg-[#2B6FFF] sm:w-auto"
               >
                 Contact us
                 <ChevronRight className="h-5 w-5" />

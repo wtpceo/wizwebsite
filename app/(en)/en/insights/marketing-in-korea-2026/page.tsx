@@ -64,7 +64,7 @@ const PLATFORM_ROWS: [string, Access, Access, string][] = [
 ]
 
 function AccessMark({ v }: { v: Access }) {
-  if (v === "Open") return <span className="font-bold text-emerald-600">Open</span>
+  if (v === "Open") return <span className="font-bold text-[#0055FF]">Open</span>
   if (v === "Blocked") return <span className="font-bold text-red-500">Blocked</span>
   return <span className="font-bold text-amber-600">Partial</span>
 }

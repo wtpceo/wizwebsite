@@ -1,0 +1,388 @@
+{
+  "meta": {
+    "title": "WizThePlanning | Korea Market IMC Agency in Seoul",
+    "description": "Seoul IMC agency since 2016. Six in-house teams run influencer casting, ads, GEO, content, viral PR, and web builds for brands entering Korea."
+  },
+  "nav": {
+    "services": "Services",
+    "process": "Process",
+    "measure": "Measurement",
+    "insights": "Insights",
+    "contact": "Contact",
+    "agencies": "Agency Partners",
+    "entry": "Korea Market Entry",
+    "langLabel": "Language",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "home": "Home"
+  },
+  "hero": {
+    "kw": "Korea Market IMC Agency · Seoul",
+    "h1a": "Where Koreans discover brands,",
+    "h1b": "we execute and measure weekly",
+    "era": "Since 2016 · 6 In-House Teams · 1:1 Dedicated AE",
+    "lead1": "Korean consumers move across influencer videos, Naver search, local maps, and AI answers before choosing a brand.",
+    "lead2": "We diagnose where your funnel drops off first, then send a tailored proposal with only the channels you need.",
+    "cta": "Request a Proposal",
+    "cta2": "Email Us",
+    "cue": "8 In-House Solutions"
+  },
+  "kpis": [
+    [
+      "Founded in 2016",
+      "Integrated IMC agency in Seoul"
+    ],
+    [
+      "6 In-House Teams",
+      "Direct execution, zero outsourcing"
+    ],
+    [
+      "8 Core Solutions",
+      "Planning, shoots, ads, and GEO"
+    ],
+    [
+      "1:1 Dedicated AE",
+      "One point for comms and reporting"
+    ]
+  ],
+  "services": {
+    "eb": "In-House Solutions",
+    "h2a": "From planning to AI answers,",
+    "h2b": "8 solutions run in-house",
+    "lead": "We cover the entire Korean customer journey, from discovery short-form videos to portal reputation, AI answers (GEO), websites, and performance ads. Our teams in Seoul execute every step directly.",
+    "funnel": [
+      "Awareness · Reach",
+      "Validation · Reputation",
+      "Traffic · Conversion"
+    ],
+    "go": "Inquire About This",
+    "roles": {
+      "infl": "Awareness · Reach",
+      "perf": "Traffic · Conversion",
+      "search": "Validation · Visibility",
+      "content": "Creative · Production",
+      "viral": "Reputation · Trust",
+      "global": "Inbound · Cross-Border",
+      "home": "Landing · Structure",
+      "off": "Local Reach · OOH"
+    },
+    "items": [
+      {
+        "k": "infl",
+        "n": "Influencer Casting & YouTube PPL",
+        "ln": "We vet Korean creators who fit your brand and share a curated candidate list before you commit.",
+        "chips": [
+          "YouTube Casting",
+          "IG/TikTok Creators",
+          "PPL",
+          "Reels Seeding"
+        ]
+      },
+      {
+        "k": "perf",
+        "n": "Performance Advertising",
+        "ln": "Ad platforms are the same everywhere. Creative assets and landing architecture drive the real difference.",
+        "chips": [
+          "Naver Search/Display",
+          "Meta Ads",
+          "Google/YouTube Ads",
+          "Kakao Moment"
+        ]
+      },
+      {
+        "k": "search",
+        "n": "AI Search Optimization (GEO)",
+        "ln": "Using our proprietary tool realGEO, we measure weekly whether your brand appears in Korean generative AI answers.",
+        "chips": [
+          "GEO",
+          "SEO",
+          "Naver Place",
+          "AI Answer Tracking"
+        ]
+      },
+      {
+        "k": "viral",
+        "n": "Viral & Reputation Management",
+        "ln": "We place credible reviews and press articles on the first search page for high-intent Korean keywords.",
+        "chips": [
+          "Naver Blog Visibility",
+          "Reviewer Seeding",
+          "Online Press",
+          "Community Viral"
+        ]
+      },
+      {
+        "k": "content",
+        "n": "Content Production",
+        "ln": "Our in-house studio plans and shoots ad creatives built for Korean audiences, with 360+ short-form videos produced.",
+        "chips": [
+          "Short-Form Production",
+          "Ad Creatives",
+          "Product/Space Photos",
+          "Social Media Ops"
+        ]
+      },
+      {
+        "k": "global",
+        "n": "Inbound Traveler Marketing (CN · JP)",
+        "ln": "Reach Chinese and Japanese travelers before they land in Korea on Xiaohongshu, Douyin, and LINE.",
+        "chips": [
+          "Xiaohongshu & Douyin",
+          "Wanghong Live Commerce",
+          "Japan Instagram",
+          "LINE Official Account"
+        ]
+      },
+      {
+        "k": "home",
+        "n": "Website Development",
+        "ln": "We build Korean-language websites that persuade local buyers and let search engines and AI read your data cleanly.",
+        "chips": [
+          "Korean Websites",
+          "Landing Pages",
+          "Structured Data",
+          "Conversion Tracking"
+        ]
+      },
+      {
+        "k": "off",
+        "n": "Offline Media",
+        "ln": "Build repeated exposure across major Korean commercial districts and daily commutes via delivery trucks, cinemas, and KakaoT.",
+        "chips": [
+          "Delivery Truck Wraps",
+          "Cinema Ads",
+          "KakaoT Taxi Media",
+          "Elevator TV"
+        ]
+      }
+    ]
+  },
+  "arch": {
+    "eb": "Integrated In-House Structure",
+    "h2a": "Beyond fragmented agencies:",
+    "h2b": "1 dedicated AE, 6 teams",
+    "lead": "Splitting ads, viral PR, and video shoots across separate vendors breaks your data and blurs accountability. At WizThePlanning, one dedicated AE leads 6 in-house teams under a single strategy and report.",
+    "badHead": "What happens when you split agencies",
+    "pings": [
+      "That falls outside our scope.",
+      "Could you resend the brand assets?",
+      "The video tone doesn't match the ads.",
+      "You'll need to ask your blog vendor.",
+      "We delivered the contracted volume.",
+      "When results stall, who owns the fix?"
+    ],
+    "speakers": [
+      "Ad Agency",
+      "Video Studio",
+      "Ad Agency",
+      "Viral Agency",
+      "Ad Agency",
+      "Client Marketing Lead"
+    ],
+    "badPts": [
+      "Manages only a single media silo",
+      "Pushes fixed packages upfront",
+      "Outsources and subcontracts per channel",
+      "Sales rep disappears after signing",
+      "Reports output volume, not business impact",
+      "Communicates only through static emails"
+    ],
+    "goodHead": "6 in-house teams led by a 1:1 dedicated AE",
+    "coreSmall": "Single Point of Contact",
+    "coreB": "1:1 Dedicated AE",
+    "coreSpan": "Campaign Architecture · Team Alignment · Weekly Performance Reports",
+    "teams": [
+      [
+        "infl",
+        "Casting Team",
+        "Influencer Casting · PPL Campaigns"
+      ],
+      [
+        "perf",
+        "Performance Team",
+        "Naver, Meta, Google & Kakao Ads"
+      ],
+      [
+        "search",
+        "SEO & GEO Team",
+        "AI Visibility Tracking · Naver Place"
+      ],
+      [
+        "content",
+        "Production Team",
+        "Planning, Shooting & Short-Form"
+      ],
+      [
+        "viral",
+        "Viral PR Team",
+        "Naver Blog Visibility · Press Releases"
+      ],
+      [
+        "home",
+        "Web Dev Team",
+        "Website Builds · Conversion Tracking"
+      ]
+    ],
+    "techLabel": "Proprietary Solution",
+    "tech": "realGEO (AI Search Monitoring System)"
+  },
+  "proof": {
+    "eb": "Measured Reporting",
+    "h2a": "Zero guesswork or spin:",
+    "h2b": "raw data and candid reports",
+    "lead": "Instead of vague claims like 'visibility is improving,' we report weekly and monthly on exact metric shifts against your pre-launch baseline. Every report uses raw data from realGEO and your ad platform dashboards.",
+    "rules": [
+      [
+        "Pre-Launch Baseline Logged",
+        "Before launch, we log current search rankings, AI mention rates, and website technical scores to establish a clear benchmark."
+      ],
+      [
+        "Unfiltered Raw Metrics",
+        "We deliver unedited weekly and monthly figures pulled straight from realGEO and your Naver, Meta, and Google dashboards."
+      ],
+      [
+        "Drops Reported Honestly",
+        "We do not cherry-pick flattering numbers. When rankings dip or AI citations drop, we report them openly and deploy fixes."
+      ]
+    ],
+    "bar": "realGEO Monitoring Dashboard · Weekly Report",
+    "barTag": "Live System Screen",
+    "imgAlt": "Actual screenshot of the realGEO monitoring dashboard with client name hidden",
+    "badges": [
+      [
+        "AI Search Monitoring",
+        "4 AI engines measured weekly"
+      ],
+      [
+        "Account Ownership Policy",
+        "Ad, web, and map accounts in client's name"
+      ]
+    ],
+    "more": "See how we measure"
+  },
+  "process": {
+    "eb": "Process",
+    "h2a": "From audit to optimization,",
+    "h2b": "five steps that drive results",
+    "lead": "We never pitch one-size-fits-all packages. We pick only the channels your brand needs, launch in sync, and rework creatives and page structure as soon as metrics stall.",
+    "steps": [
+      [
+        "Diagnose",
+        "We audit your visibility across Korean map apps, blogs, AI answers, and your website at once to find where your funnel leaks."
+      ],
+      [
+        "Strategize",
+        "Based on the audit, we prioritize only the channels required to close those gaps and send a tailored proposal and quote."
+      ],
+      [
+        "Execute",
+        "Six in-house teams run on a shared weekly schedule, eliminating time lost waiting on outside subcontractors."
+      ],
+      [
+        "Report",
+        "Each week, we send a concise integrated report covering completed tasks, hard numbers, and next week's action items."
+      ],
+      [
+        "Optimize",
+        "We spot stalled metrics and fix the root cause. If traffic fails to convert into inquiries, we revise landing copy and CTAs right away."
+      ]
+    ]
+  },
+  "insights": {
+    "eb": "Insights",
+    "h2a": "Run and measured in-house:",
+    "h2b": "Korea market data reports",
+    "lead": "Explore our English-language field data and anonymized case studies measuring how brands appear on Naver, ChatGPT, and Google in Korea.",
+    "more": "View all insights"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "note": "Have a question not listed here? Leave us an inquiry and your dedicated AE will reply.",
+    "items": [
+      [
+        "Does it cost anything to request a preliminary diagnosis and proposal?",
+        "No, the preliminary diagnosis and tailored proposal are free of charge. Before any contract, we use our proprietary tool realGEO to check your Naver first-page presence, map listings, AI answer visibility, and website conversion setup. We then outline urgent priorities and send a tailored proposal with a quote."
+      ],
+      [
+        "Can we run campaigns without a Korean entity or local staff?",
+        "Yes. Consultations and reporting happen over email and video calls, while our in-house teams in Seoul handle Korean content production and media execution. Ad accounts and websites are created in your company's name from day one."
+      ],
+      [
+        "Can we commission just a single service, like influencer casting or performance ads?",
+        "Yes. You can start with one of our 8 solutions or combine several into an integrated scope. Even for a standalone service, a 1:1 dedicated AE is assigned to your account."
+      ],
+      [
+        "Who owns the ad accounts and accumulated campaign data?",
+        "You do. Ad accounts, websites, and map listings are opened in your company's name from the start, with WizThePlanning registered as an administrator. After the contract ends, every account and all historical data remain your property."
+      ],
+      [
+        "Do you guarantee search rankings or AI answer placements?",
+        "No, we do not guarantee rankings. Search positions and AI answers are determined by each platform's algorithms. Instead, we compare pre-launch baseline numbers against post-launch measurements candidly, including any metrics that declined."
+      ],
+      [
+        "What languages do you work in?",
+        "We work in English by email and video calls, and we also take inquiries in Chinese and Vietnamese. Korean-facing content is planned and written in Korean, not translated."
+      ]
+    ]
+  },
+  "contact": {
+    "title": "Start your Korea market entry with a baseline diagnosis.",
+    "sub": "Share your brand, target customers, and timeline. A dedicated AE will review your footprint and email you a clear direction.",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone (Korea)",
+    "hours": "Mon-Fri 10:00-18:00 KST",
+    "form": {
+      "company": "Company Name",
+      "companyPh": "Enter your company name",
+      "name": "Name & Title",
+      "namePh": "e.g. Alex Kim, Marketing Manager",
+      "email": "Work Email",
+      "emailPh": "Work email for our reply",
+      "website": "Website",
+      "websitePh": "https://",
+      "country": "Country",
+      "countryPh": "Country where HQ is based",
+      "phone": "Phone Number",
+      "interest": "Areas of Interest",
+      "multi": "Multiple choices allowed",
+      "message": "Project Details",
+      "messagePh": "Briefly describe your brand, target customers in Korea, and timeline",
+      "required": "Required",
+      "optional": "Optional",
+      "privacy": "We use your details only to answer your inquiry and prepare a proposal if we work together. We never add you to mailing lists. Request data access or deletion anytime at wiz@wiztheplanning.com.",
+      "privacyLink": "Privacy Policy (Korean)",
+      "submit": "Request a Proposal",
+      "sending": "Sending",
+      "done": "Your inquiry has been received.",
+      "doneSub": "A dedicated AE will review your note and reply by email.",
+      "errRequired": "Please provide your company name, a valid work email, and project details.",
+      "errSend": "Message failed to send. Please try again shortly or email wiz@wiztheplanning.com directly."
+    },
+    "interests": {
+      "infl": "Influencer Casting",
+      "perf": "Performance Ads",
+      "search": "AI Search Optimization (GEO)",
+      "viral": "Viral & Reputation",
+      "content": "Content Production",
+      "global": "Inbound Traveler Marketing",
+      "home": "Website Development",
+      "off": "Offline Media",
+      "total": "Integrated Diagnosis & Proposal"
+    }
+  },
+  "footer": {
+    "about": "Integrated IMC marketing agency in Seoul. Six in-house teams executing Korea market campaigns directly since 2016.",
+    "company": "Company",
+    "explore": "Explore",
+    "contactH": "Contact",
+    "bizNo": "Business Registration No.",
+    "address": "Units 2518 & 2519, Bldg A, Public Gasan, 178 Digital-ro, Geumcheon-gu, Seoul, South Korea",
+    "privacy": "Privacy Policy (Korean)",
+    "terms": "Terms of Use (Korean)",
+    "rights": "All rights reserved."
+  },
+  "dock": {
+    "email": "Email",
+    "contact": "Inquire"
+  }
+}

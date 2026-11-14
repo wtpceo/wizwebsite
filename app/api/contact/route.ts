@@ -167,14 +167,29 @@ export async function POST(req: Request) {
           console.warn('[contact] 자동 회신 생략: 메일 주소 도메인 확인 실패', { form: formTag, domain: email.split('@')[1] })
         } else {
           // 영문 사이트 문의는 영어로 접수 확인을 보낸다(국문 메일을 받으면 해외 담당자는 스팸으로 오해한다).
-          const isEnglish = language.startsWith('English')
+          // 11-14 외국어 홈(중국어·베트남어)도 그 언어로 보낸다(문구는 Gemini 의역, 외국어홈_2026-11-14/autoreply.json).
+          // 본문에는 고객이 쓴 글만 다시 보여 준다(앞의 관리자용 한국어 머리말 '관심분야:' 등은 빼고 '문의 내용:' 뒤만)
+          const FOREIGN: Record<string, { title: string; hi: string; reply: string; yours: string }> = {
+            en: { title: 'We received your message', hi: 'Hi {name}, thank you for contacting WizThePlanning.', reply: 'Our team in Seoul will reply by email in English.', yours: 'Your message:' },
+            zh: { title: '我们已收到您的留言', hi: '{name} 您好，感谢您联系 WizThePlanning。', reply: '我们的首尔团队将审阅您的留言，并以中文或英文通过电子邮件向您回复。', yours: '您的留言内容：' },
+            vi: { title: 'Chúng tôi đã nhận được tin nhắn của bạn', hi: 'Xin chào {name}, cảm ơn bạn đã liên hệ với WizThePlanning.', reply: 'Đội ngũ tại Seoul của chúng tôi sẽ xem xét nội dung và phản hồi bạn qua email bằng tiếng Việt hoặc tiếng Anh.', yours: 'Tin nhắn của bạn:' },
+          }
+          const fl = language.startsWith('English') ? 'en' : language.startsWith('中文') ? 'zh' : language.startsWith('Tiếng Việt') ? 'vi' : ''
+          const isEnglish = fl !== ''
+          const fc = FOREIGN[fl || 'en']
+          const own = (() => {
+            const i = message.indexOf('문의 내용: ')
+            if (i >= 0) return message.slice(i + '문의 내용: '.length)
+            const j = message.indexOf('\n\n')
+            return j >= 0 && message.startsWith('[') ? message.slice(j + 2) : message
+          })()
           const userHtml = isEnglish ? `
             <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto;">
-              <h2 style="color: #0f766e;">We received your message</h2>
-              <p>Hi ${esc(name)}, thank you for contacting WizThePlanning.</p>
-              <p>Our team in Seoul will reply by email in English.</p>
-              <p><strong>Your message:</strong></p>
-              <div style="background-color: #f5f5f5; padding: 12px; border-radius: 4px; white-space: pre-wrap;">${esc(message, 6000)}</div>
+              <h2 style="color: #0055FF;">${fc.title}</h2>
+              <p>${esc(fc.hi.replace('{name}', name))}</p>
+              <p>${fc.reply}</p>
+              <p><strong>${fc.yours}</strong></p>
+              <div style="background-color: #f5f5f5; padding: 12px; border-radius: 4px; white-space: pre-wrap;">${esc(own, 6000)}</div>
               <p style="color:#6b7280;font-size:12px;margin-top:16px;">WizThePlanning (위즈더플래닝) · Seoul, Republic of Korea · wiz@wiztheplanning.com</p>
             </div>
           ` : `
@@ -197,7 +212,7 @@ export async function POST(req: Request) {
             await resend.emails.send({
               from: MAIL_FROM,
               to: userEmailTarget,
-              subject: isEnglish ? 'WizThePlanning: we received your message' : '[위즈더플래닝] 문의가 접수되었습니다',
+              subject: isEnglish ? `WizThePlanning: ${fc.title}` : '[위즈더플래닝] 문의가 접수되었습니다',
               html: userHtml
             });
             console.log('[contact] 자동 회신 전송', { form: formTag })

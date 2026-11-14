@@ -16,7 +16,7 @@ export const metadata: Metadata = share({
   title: { absolute: `${TITLE} | WizThePlanning` },
   description: DESC,
   alternates: { canonical: PATH, languages: { en: `${EN_BASE}${PATH}` } },
-  openGraph: { title: TITLE, description: DESC, url: `${EN_BASE}${PATH}`, images: [{ url: "/og-en.jpg", alt: "Before scaling in Korea, find your blind spots. Naver and AI search agency in Seoul, WizThePlanning" }], type: "website", locale: "en_US" },
+  openGraph: { title: TITLE, description: DESC, url: `${EN_BASE}${PATH}`, images: [{ url: "/og-en.jpg", alt: "Where Koreans discover brands, we execute and measure weekly. WizThePlanning, Seoul" }], type: "website", locale: "en_US" },
 }, "en")
 
 const FAQ = [

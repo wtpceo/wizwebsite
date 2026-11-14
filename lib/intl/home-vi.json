@@ -1,0 +1,388 @@
+{
+  "meta": {
+    "title": "WizThePlanning | Đại lý Marketing tích hợp tại Hàn Quốc",
+    "description": "Từ 2016 tại Seoul, 6 phòng ban nội bộ trực tiếp triển khai influencer, quảng cáo hiệu suất, GEO, sản xuất nội dung, viral và website cho thương hiệu vào Hàn Quốc."
+  },
+  "nav": {
+    "services": "Dịch vụ",
+    "process": "Quy trình",
+    "measure": "Đo lường",
+    "insights": "Góc nhìn",
+    "contact": "Liên hệ",
+    "agencies": "Hợp tác agency",
+    "entry": "Thâm nhập Hàn Quốc",
+    "langLabel": "Ngôn ngữ",
+    "menuOpen": "Mở menu",
+    "menuClose": "Đóng menu",
+    "home": "Trang chủ"
+  },
+  "hero": {
+    "kw": "Đại lý Marketing tích hợp (IMC) tại Hàn Quốc · Seoul",
+    "h1a": "Mọi nơi khách Hàn tìm bạn,",
+    "h1b": "trực tiếp chạy và đo hàng tuần",
+    "era": "Từ năm 2016 · 6 phòng ban nội bộ · AE chuyên trách 1:1",
+    "lead1": "Khách hàng Hàn Quốc chọn thương hiệu bằng cách đối chiếu video của influencer, tìm kiếm trên Naver, bản đồ và câu trả lời từ AI.",
+    "lead2": "Chúng tôi chẩn đoán điểm đứt gãy trên hành trình đó trước, rồi chỉ chọn những kênh thực sự cần thiết để gửi đề xuất cho bạn.",
+    "cta": "Gửi yêu cầu đề xuất",
+    "cta2": "Liên hệ qua email",
+    "cue": "8 giải pháp triển khai nội bộ"
+  },
+  "kpis": [
+    [
+      "Thành lập 2016",
+      "Đại lý IMC tích hợp tại Seoul"
+    ],
+    [
+      "6 phòng ban nội bộ",
+      "Tự vận hành, không thuê ngoài"
+    ],
+    [
+      "8 giải pháp chính",
+      "Trực tiếp làm từ quay đến GEO"
+    ],
+    [
+      "AE chuyên trách 1:1",
+      "Một đầu mối trao đổi và báo cáo"
+    ]
+  ],
+  "services": {
+    "eb": "Giải pháp nội bộ",
+    "h2a": "Từ lập kế hoạch đến AI,",
+    "h2b": "8 giải pháp tự triển khai",
+    "lead": "Chúng tôi bao quát toàn bộ hành trình: từ video ngắn giúp nhận diện thương hiệu, uy tín trên cổng thông tin, câu trả lời AI (GEO), đến website và quảng cáo chuyển đổi. Mọi khâu đều do đội ngũ nội bộ tại Seoul trực tiếp thực hiện.",
+    "funnel": [
+      "Nhận diện · Lan tỏa",
+      "Kiểm chứng · Uy tín",
+      "Truy cập · Chuyển đổi"
+    ],
+    "go": "Yêu cầu tư vấn",
+    "roles": {
+      "infl": "Nhận diện · Lan tỏa",
+      "perf": "Truy cập · Chuyển đổi",
+      "search": "Kiểm chứng · Hiển thị",
+      "content": "Tư liệu · Sản xuất",
+      "viral": "Uy tín · Niềm tin",
+      "global": "Quốc tế · Du khách",
+      "home": "Trang đích · Cấu trúc",
+      "off": "Đời sống · Nhận diện"
+    },
+    "items": [
+      {
+        "k": "infl",
+        "n": "Booking Influencer · YouTuber · PPL",
+        "ln": "Chọn lọc influencer Hàn Quốc phù hợp với thương hiệu và gửi danh sách ứng viên để bạn duyệt trước.",
+        "chips": [
+          "Booking YouTuber",
+          "Creator TikTok · IG",
+          "Tài trợ PPL",
+          "Trải nghiệm Reels"
+        ]
+      },
+      {
+        "k": "perf",
+        "n": "Quảng cáo hiệu suất (Performance)",
+        "ln": "Công cụ quảng cáo ở đâu cũng giống nhau. Khác biệt nằm ở tư liệu sáng tạo và cấu trúc trang đích.",
+        "chips": [
+          "Quảng cáo Naver",
+          "Quảng cáo Meta",
+          "Google · YouTube",
+          "Kakao Moment"
+        ]
+      },
+      {
+        "k": "search",
+        "n": "Tối ưu tìm kiếm AI (GEO)",
+        "ln": "Đo lường hàng tuần bằng công cụ riêng realGEO để xem thương hiệu có xuất hiện trong câu trả lời AI tiếng Hàn hay không.",
+        "chips": [
+          "Tối ưu GEO",
+          "Tối ưu SEO",
+          "Naver Place",
+          "Đo câu trả lời AI"
+        ]
+      },
+      {
+        "k": "viral",
+        "n": "Marketing lan truyền · Quản trị uy tín",
+        "ln": "Đưa các bài đánh giá đáng tin cậy và bài báo lên trang đầu cho những từ khóa mà người tiêu dùng Hàn Quốc hay tìm kiếm.",
+        "chips": [
+          "Hiển thị Blog Naver",
+          "Review trải nghiệm",
+          "Bài PR báo chí",
+          "Viral cộng đồng"
+        ]
+      },
+      {
+        "k": "content",
+        "n": "Sản xuất nội dung",
+        "ln": "Đội quay dựng nội bộ trực tiếp lên ý tưởng và sản xuất tư liệu quảng cáo cho khách hàng Hàn. Đã thực hiện hơn 360 video ngắn.",
+        "chips": [
+          "Quay dựng short-form",
+          "Tư liệu quảng cáo",
+          "Chụp ảnh sản phẩm",
+          "Vận hành kênh SNS"
+        ]
+      },
+      {
+        "k": "global",
+        "n": "Marketing du khách (Trung · Nhật)",
+        "ln": "Quảng bá thương hiệu trên Xiaohongshu, Douyin, LINE, nơi du khách Trung Quốc và Nhật Bản tra cứu trước khi đến Hàn Quốc.",
+        "chips": [
+          "Xiaohongshu · Douyin",
+          "Livestream KOL Trung",
+          "Instagram Nhật Bản",
+          "Tài khoản LINE"
+        ]
+      },
+      {
+        "k": "home",
+        "n": "Xây dựng website",
+        "ln": "Thiết kế website tiếng Hàn thuyết phục người truy cập, đồng thời giúp công cụ tìm kiếm và AI đọc hiểu chính xác dữ liệu.",
+        "chips": [
+          "Website tiếng Hàn",
+          "Landing page",
+          "Dữ liệu có cấu trúc",
+          "Theo dõi chuyển đổi"
+        ]
+      },
+      {
+        "k": "off",
+        "n": "Truyền thông ngoại tuyến (Offline)",
+        "ln": "Hiển thị thương hiệu lặp lại trên lộ trình hàng ngày và khu thương mại lớn tại Hàn qua xe giao hàng, rạp phim, KakaoT.",
+        "chips": [
+          "Dán xe giao hàng",
+          "Quảng cáo rạp phim",
+          "Taxi KakaoT",
+          "Màn hình thang máy"
+        ]
+      }
+    ]
+  },
+  "arch": {
+    "eb": "Cấu trúc tích hợp nội bộ",
+    "h2a": "Xóa bỏ rào cản thuê lẻ với",
+    "h2b": "AE riêng và 6 phòng nội bộ",
+    "lead": "Giao quảng cáo, viral và quay dựng cho nhiều bên khác nhau sẽ làm đứt gãy dữ liệu và đùn đẩy trách nhiệm. Tại WizThePlanning, một AE chuyên trách điều phối cả 6 phòng ban nội bộ theo một chiến lược và một báo cáo thống nhất.",
+    "badHead": "Vấn đề lặp lại khi chia nhỏ việc cho nhiều agency",
+    "pings": [
+      "Phần đó không thuộc phạm vi bên em",
+      "Anh chị gửi lại tài liệu giúp em nhé",
+      "Tông màu video lệch hẳn so với quảng cáo",
+      "Việc này anh chị phải hỏi bên làm blog ạ",
+      "Bên em đã làm đủ số lượng cam kết tháng này",
+      "Không ra số thì bên nào chịu trách nhiệm?"
+    ],
+    "speakers": [
+      "Agency quảng cáo",
+      "Đơn vị quay dựng",
+      "Agency quảng cáo",
+      "Agency viral",
+      "Agency quảng cáo",
+      "Phụ trách phía khách hàng"
+    ],
+    "badPts": [
+      "Chỉ quản lý một kênh truyền thông duy nhất",
+      "Chào bán các gói dịch vụ cố định có sẵn",
+      "Thuê ngoài và giao thầu phụ theo từng kênh",
+      "Người ký hợp đồng riêng, người thực thi riêng",
+      "Chỉ báo cáo tiến độ: đã chạy đủ số lượng cam kết hay chưa",
+      "Chỉ trao đổi rời rạc qua văn bản và email"
+    ],
+    "goodHead": "6 phòng ban nội bộ xoay quanh AE chuyên trách 1:1",
+    "coreSmall": "Một đầu mối giao tiếp duy nhất",
+    "coreB": "AE chuyên trách 1:1",
+    "coreSpan": "Thiết kế chiến dịch tổng thể · Điều phối nội bộ · Báo cáo hàng tuần",
+    "teams": [
+      [
+        "infl",
+        "Đội Booking",
+        "Booking Influencer · Chiến dịch PPL"
+      ],
+      [
+        "perf",
+        "Đội Performance",
+        "Quảng cáo Naver · Meta · Google · Kakao"
+      ],
+      [
+        "search",
+        "Đội SEO · GEO",
+        "Đo hiển thị AI · Naver Place"
+      ],
+      [
+        "content",
+        "Đội Sản xuất",
+        "Kịch bản · Quay dựng · Video ngắn"
+      ],
+      [
+        "viral",
+        "Đội Viral",
+        "Hiển thị Blog · Thông cáo báo chí"
+      ],
+      [
+        "home",
+        "Đội Phát triển Web",
+        "Xây dựng website · Cài đặt đo chuyển đổi"
+      ]
+    ],
+    "techLabel": "Giải pháp công nghệ tự phát triển",
+    "tech": "realGEO (Hệ thống giám sát tìm kiếm AI)"
+  },
+  "proof": {
+    "eb": "Báo cáo dựa trên đo lường thực",
+    "h2a": "Bỏ qua suy đoán và phóng đại,",
+    "h2b": "dữ liệu thực và báo cáo rõ ràng",
+    "lead": "Thay vì những câu mơ hồ như 'hiển thị vẫn đang ổn', chúng tôi báo cáo hàng tuần và hàng tháng về sự thay đổi của các chỉ số thực tế so với trước khi ký hợp đồng. Mọi số liệu đều lấy trực tiếp từ hệ thống GEO riêng và trình quản lý gốc của các nền tảng.",
+    "rules": [
+      [
+        "Ghi nhận mốc cơ sở trước khi chạy",
+        "Trước khi bắt đầu chiến dịch, chúng tôi lưu lại thứ hạng tìm kiếm, tỷ lệ AI nhắc tên và điểm kỹ thuật của website để làm mốc đối chiếu."
+      ],
+      [
+        "Báo cáo nguyên trạng số liệu gốc",
+        "Chỉ số đo từ realGEO cùng màn hình quản trị của Naver, Meta, Google được gửi nguyên bản trong báo cáo tuần và tháng, không chỉnh sửa."
+      ],
+      [
+        "Ghi nhận cả những chỉ số sụt giảm",
+        "Chúng tôi không chỉ chọn số đẹp. Các từ khóa tụt hạng hay mục bị rớt khỏi trích dẫn AI đều được chia sẻ thẳng thắn kèm phương án khắc phục."
+      ]
+    ],
+    "bar": "Bảng điều khiển realGEO · Báo cáo hàng tuần",
+    "barTag": "Màn hình đo lường thực tế",
+    "imgAlt": "Màn hình thực tế của bảng điều khiển realGEO (đã che tên khách hàng)",
+    "badges": [
+      [
+        "Giám sát tìm kiếm AI",
+        "Đo định kỳ hàng tuần trên 4 công cụ AI"
+      ],
+      [
+        "Nguyên tắc sở hữu tài khoản",
+        "Quảng cáo, web, bản đồ đứng tên khách hàng"
+      ]
+    ],
+    "more": "Xem chi tiết cách đo lường"
+  },
+  "process": {
+    "eb": "Quy trình triển khai",
+    "h2a": "Từ chẩn đoán đến tối ưu,",
+    "h2b": "năm bước tạo ra kết quả",
+    "lead": "Chúng tôi không chào bán các gói dịch vụ rập khuôn. Chúng tôi chỉ chọn những kênh thương hiệu thực sự cần, sau khi chạy sẽ tìm ngay điểm nghẽn làm chững số liệu để sửa tư liệu và cấu trúc.",
+    "steps": [
+      [
+        "Chẩn đoán",
+        "Kiểm tra đồng thời trạng thái hiển thị trên bản đồ, blog, câu trả lời AI và website để tìm ra điểm rò rỉ khách hàng trong phễu."
+      ],
+      [
+        "Chiến lược",
+        "Chỉ chọn các kênh phù hợp với những khâu cần củng cố sau chẩn đoán, sắp xếp thứ tự ưu tiên và gửi báo giá chi tiết trong bản đề xuất."
+      ],
+      [
+        "Thực thi",
+        "6 phòng ban nội bộ phối hợp nhịp nhàng trên cùng một lịch trình hàng tuần, loại bỏ hoàn toàn thời gian chết do chờ đợi bên thuê ngoài."
+      ],
+      [
+        "Báo cáo",
+        "Tóm tắt hạng mục đã làm trong tuần, số liệu định lượng và việc cần cải thiện tuần tới vào một bản báo cáo tích hợp duy nhất mỗi tuần."
+      ],
+      [
+        "Tối ưu",
+        "Tìm khâu có chỉ số bị chững lại để xử lý nguyên nhân. Nếu lượt truy cập cao nhưng ít liên hệ, chúng tôi sửa ngay câu mở đầu và nút kêu gọi trên trang đích."
+      ]
+    ]
+  },
+  "insights": {
+    "eb": "Góc nhìn dữ liệu",
+    "h2a": "Trực tiếp triển khai và đo lường,",
+    "h2b": "báo cáo thị trường Hàn Quốc",
+    "lead": "Tổng hợp bằng tiếng Anh các số liệu đo lường thực tế và nghiên cứu tình huống ẩn danh về cách thương hiệu hiển thị trên Naver, ChatGPT và Google.",
+    "more": "Xem tất cả bài phân tích"
+  },
+  "faq": {
+    "title": "Câu hỏi thường gặp",
+    "note": "Nếu có thắc mắc khác, vui lòng để lại lời nhắn ở mục liên hệ. AE chuyên trách sẽ phản hồi trực tiếp cho bạn.",
+    "items": [
+      [
+        "Việc chẩn đoán sơ bộ và nhận đề xuất thiết kế riêng có mất phí không?",
+        "Hoàn toàn miễn phí. Trước khi ký hợp đồng, chúng tôi dùng công cụ riêng realGEO để kiểm tra trang đầu tìm kiếm Naver, các nền tảng bản đồ, mức độ hiển thị trong câu trả lời AI và cấu trúc chuyển đổi trên website của bạn. Sau đó, chúng tôi tổng hợp những hạng mục cần cải thiện gấp theo thứ tự ưu tiên và gửi bản đề xuất thiết kế riêng kèm báo giá."
+      ],
+      [
+        "Công ty chưa có pháp nhân hay nhân sự tại Hàn Quốc thì có triển khai được không?",
+        "Hoàn toàn được. Quá trình tư vấn và báo cáo diễn ra qua email và họp trực tuyến, còn khâu sản xuất nội dung tiếng Hàn và vận hành kênh do đội ngũ nội bộ tại Seoul trực tiếp đảm nhận. Tài khoản quảng cáo và website ngay từ đầu đều được tạo dưới tên công ty của bạn."
+      ],
+      [
+        "Chúng tôi chỉ thuê lẻ một dịch vụ như booking influencer hoặc quảng cáo hiệu suất có được không?",
+        "Được. Bạn có thể giao một dịch vụ đơn lẻ trong số 8 giải pháp, hoặc kết hợp nhiều giải pháp cùng lúc. Kể cả khi chỉ sử dụng một dịch vụ, bạn vẫn có một AE chuyên trách 1:1 theo sát dự án."
+      ],
+      [
+        "Quyền sở hữu tài khoản quảng cáo và dữ liệu tích lũy thuộc về ai?",
+        "Thuộc về phía khách hàng. Tài khoản quảng cáo, website và thông tin trên bản đồ đều được đăng ký dưới tên doanh nghiệp của bạn ngay từ đầu; WizThePlanning chỉ nhận quyền quản trị để vận hành. Sau khi kết thúc hợp đồng, toàn bộ tài khoản và dữ liệu tích lũy vẫn là tài sản của bạn."
+      ],
+      [
+        "WizThePlanning có cam kết thứ hạng tìm kiếm hay cam kết xuất hiện trong câu trả lời của AI không?",
+        "Chúng tôi không cam kết thứ hạng. Thứ hạng tìm kiếm và câu trả lời của AI do thuật toán của từng công cụ tìm kiếm và nền tảng quyết định. Thay vào đó, chúng tôi đối chiếu minh bạch số liệu gốc trước khi chạy với số liệu đo lại sau khi triển khai, đồng thời báo cáo đầy đủ cả những chỉ số bị giảm."
+      ],
+      [
+        "Chúng tôi sẽ trao đổi và làm việc bằng ngôn ngữ nào?",
+        "Bạn có thể liên hệ bằng tiếng Việt hoặc tiếng Anh; quá trình trao đổi sẽ có phiên dịch hỗ trợ, và báo cáo có phần giải thích bằng tiếng Việt hoặc tiếng Anh. Riêng mọi nội dung hướng tới khách hàng Hàn Quốc đều được đội ngũ tại Seoul trực tiếp lên ý tưởng và viết bằng tiếng Hàn, không qua dịch thuật."
+      ]
+    ]
+  },
+  "contact": {
+    "title": "Thâm nhập thị trường Hàn Quốc, hãy bắt đầu cùng chúng tôi từ bước chẩn đoán hiện trạng.",
+    "sub": "Hãy để lại thông tin về thương hiệu, tệp khách hàng mục tiêu và lịch trình dự kiến. AE chuyên trách sẽ kiểm tra và gửi phản hồi kèm định hướng đề xuất qua email.",
+    "emailLabel": "Email",
+    "phoneLabel": "Điện thoại tại Hàn Quốc",
+    "hours": "Thứ Hai – Thứ Sáu, 10:00–18:00 (Giờ Hàn Quốc)",
+    "form": {
+      "company": "Tên công ty",
+      "companyPh": "Nhập tên công ty của bạn",
+      "name": "Họ tên · Chức vụ",
+      "namePh": "VD: Nguyễn Văn A · Quản lý Marketing",
+      "email": "Email công ty",
+      "emailPh": "Địa chỉ email công ty nhận phản hồi",
+      "website": "Website",
+      "websitePh": "https://",
+      "country": "Quốc gia",
+      "countryPh": "Quốc gia đặt trụ sở chính",
+      "phone": "Số điện thoại",
+      "interest": "Lĩnh vực quan tâm",
+      "multi": "Có thể chọn nhiều mục",
+      "message": "Nội dung trao đổi",
+      "messagePh": "Mô tả ngắn gọn về thương hiệu, khách hàng mục tiêu tại Hàn Quốc và lịch trình dự kiến",
+      "required": "Bắt buộc",
+      "optional": "Tùy chọn",
+      "privacy": "Thông tin bạn gửi chỉ được dùng để phản hồi yêu cầu và chuẩn bị bản đề xuất nếu hai bên hợp tác. Chúng tôi không đưa email của bạn vào danh sách gửi thư quảng cáo. Để yêu cầu xem hoặc xóa dữ liệu, vui lòng gửi email tới wiz@wiztheplanning.com.",
+      "privacyLink": "Chính sách bảo mật (Tiếng Hàn)",
+      "submit": "Gửi yêu cầu đề xuất",
+      "sending": "Đang gửi",
+      "done": "Yêu cầu của bạn đã được tiếp nhận.",
+      "doneSub": "AE chuyên trách sẽ xem xét và phản hồi qua email cho bạn.",
+      "errRequired": "Vui lòng điền tên công ty, email công ty hợp lệ và nội dung trao đổi.",
+      "errSend": "Chưa thể gửi đi. Vui lòng thử lại sau ít phút hoặc gửi email trực tiếp tới wiz@wiztheplanning.com."
+    },
+    "interests": {
+      "infl": "Booking Influencer",
+      "perf": "Quảng cáo hiệu suất",
+      "search": "Tối ưu tìm kiếm AI (GEO)",
+      "viral": "Viral · Quản trị uy tín",
+      "content": "Sản xuất nội dung",
+      "global": "Marketing quốc tế",
+      "home": "Xây dựng website",
+      "off": "Truyền thông ngoại tuyến",
+      "total": "Chẩn đoán · Đề xuất tổng thể"
+    }
+  },
+  "footer": {
+    "about": "Đại lý marketing tích hợp (IMC) tại Seoul. Từ năm 2016, 6 phòng ban nội bộ trực tiếp triển khai marketing cho thị trường Hàn Quốc.",
+    "company": "Công ty",
+    "explore": "Khám phá",
+    "contactH": "Liên hệ",
+    "bizNo": "Mã số doanh nghiệp tại Hàn Quốc",
+    "address": "Phòng 2518·2519, Tòa A, Public Gasan, 178 Digital-ro, Geumcheon-gu, Seoul, Hàn Quốc",
+    "privacy": "Chính sách bảo mật (Tiếng Hàn)",
+    "terms": "Điều khoản sử dụng (Tiếng Hàn)",
+    "rights": "All rights reserved."
+  },
+  "dock": {
+    "email": "Email",
+    "contact": "Liên hệ"
+  }
+}

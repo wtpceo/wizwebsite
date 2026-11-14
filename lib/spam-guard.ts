@@ -62,7 +62,8 @@ export type FormKind = "default" | "business" | "influencer" | "en-b2b" | "local
 export function formKindOf(language: string): FormKind {
   if (language.startsWith("기업 제안 요청")) return "business"
   if (language.startsWith("IMC·인플루언서 섭외")) return "influencer"
-  if (language.startsWith("English 문의 (B2B)")) return "en-b2b"
+  // 11-14 외국어 홈(중국어·베트남어)도 기업 문의라 영문 기업 폼과 같은 기준(이메일 필수, 전화 선택)
+  if (language.startsWith("English 문의 (B2B)") || language.startsWith("中文 문의 (B2B)") || language.startsWith("Tiếng Việt 문의 (B2B)")) return "en-b2b"
   if (language === "English 문의" || language === "中文 문의" || language === "Tiếng Việt 문의") return "locale"
   if (language.startsWith("루크코리아 제휴")) return "luke"
   return "default"

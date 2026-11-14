@@ -12,12 +12,14 @@ export const EN_ORG = {
   founded: "2016",
 }
 
+// 11-14: 영문 홈이 8대 솔루션 회사 홈이 되어 메뉴 맨 앞에 서비스(홈 구간)를 둔다. 외국인 사장님 랜딩은 /en 으로 영구 이동했다
 export const EN_NAV: { label: string; href: string }[] = [
+  { label: "Services", href: "/en#services" },
   { label: "Korea Market Entry", href: "/en/korea-market-entry" },
-  { label: "For Agencies", href: "/en/agency-partners" },
-  { label: "How We Measure", href: "/en/how-we-measure" },
+  { label: "Agency Partners", href: "/en/agency-partners" },
+  { label: "Measurement", href: "/en/how-we-measure" },
   { label: "Insights", href: "/en/insights" },
-  { label: "Businesses in Korea", href: "/en/business-owners-in-korea" },
+  { label: "Contact", href: "/en/contact" },
 ]
 
 export const EN_ORG_JSONLD = {

@@ -32,10 +32,10 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(listJsonLd) }} />
       <EnHeader />
       <main className="flex-1">
-        <section className="relative overflow-hidden bg-[#070b14] py-16 md:py-20">
+        <section className="relative overflow-hidden bg-[#0A1A33] py-16 md:py-20">
           <div className="geo-grid-bg absolute inset-0 opacity-60" />
           <div className="container relative mx-auto max-w-5xl px-4 md:px-6">
-            <p className="text-xs font-bold tracking-[0.2em] text-[#00e5a0]">INSIGHTS</p>
+            <p className="text-xs font-bold tracking-[0.2em] text-[#7FA8FF]">INSIGHTS</p>
             <h1 className="mt-4 text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight tracking-tight text-white">How Korean customers find brands</h1>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">
               Measured data and anonymised case studies on Naver, Google and AI search in Korea. Our Korean-language archive has more.

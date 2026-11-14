@@ -218,28 +218,28 @@ export default function Page() {
                 <td className={tdLead}>Questions where the clinic was named</td>
                 <td className={td}>4/10</td>
                 <td className={td}>
-                  <strong className="text-emerald-700">10/10</strong>
+                  <strong className="text-[#0047D6]">10/10</strong>
                 </td>
               </tr>
               <tr className={tr}>
                 <td className={tdLead}>Average mention rate (30 answers)</td>
                 <td className={td}>17%</td>
                 <td className={td}>
-                  <strong className="text-emerald-700">93% (28 of 30)</strong>
+                  <strong className="text-[#0047D6]">93% (28 of 30)</strong>
                 </td>
               </tr>
               <tr className={tr}>
                 <td className={tdLead}>Answers citing the clinic&apos;s site</td>
                 <td className={td}>0/30</td>
                 <td className={td}>
-                  <strong className="text-emerald-700">16/30</strong>
+                  <strong className="text-[#0047D6]">16/30</strong>
                 </td>
               </tr>
               <tr className={tr}>
                 <td className={tdLead}>Answers recommending the clinic first</td>
                 <td className={td}>Not recorded</td>
                 <td className={td}>
-                  <strong className="text-emerald-700">24/30</strong>
+                  <strong className="text-[#0047D6]">24/30</strong>
                 </td>
               </tr>
             </tbody>

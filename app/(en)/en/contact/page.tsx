@@ -14,7 +14,7 @@ export const metadata: Metadata = share({
   title: { absolute: `${TITLE} | Korea Marketing Agency` },
   description: DESC,
   alternates: { canonical: PATH, languages: { en: `${EN_BASE}${PATH}` } },
-  openGraph: { title: TITLE, description: DESC, url: `${EN_BASE}${PATH}`, images: [{ url: "/og-en.jpg", alt: "Before scaling in Korea, find your blind spots. Naver and AI search agency in Seoul, WizThePlanning" }], type: "website", locale: "en_US" },
+  openGraph: { title: TITLE, description: DESC, url: `${EN_BASE}${PATH}`, images: [{ url: "/og-en.jpg", alt: "Where Koreans discover brands, we execute and measure weekly. WizThePlanning, Seoul" }], type: "website", locale: "en_US" },
 }, "en")
 
 const contactJsonLd = {
@@ -32,10 +32,10 @@ export default function Page() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }} />
       <EnHeader />
       <main className="flex-1">
-        <section className="relative overflow-hidden bg-[#070b14] py-16 md:py-20">
+        <section className="relative overflow-hidden bg-[#0A1A33] py-16 md:py-20">
           <div className="geo-grid-bg absolute inset-0 opacity-60" />
           <div className="container relative mx-auto max-w-5xl px-4 md:px-6">
-            <p className="text-xs font-bold tracking-[0.2em] text-[#00e5a0]">CONTACT</p>
+            <p className="text-xs font-bold tracking-[0.2em] text-[#7FA8FF]">CONTACT</p>
             <h1 className="mt-4 text-[clamp(2rem,4vw,3rem)] font-extrabold leading-tight tracking-tight text-white">Talk to our team in Seoul</h1>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg">
               Tell us what you are planning in Korea. We read every message and reply by email in English.
@@ -54,9 +54,9 @@ export default function Page() {
                 <li><strong className="text-gray-900">For agencies</strong>: the client&apos;s category and what they asked for.</li>
               </ul>
               <div className="mt-8 space-y-3 text-sm text-gray-700">
-                <p className="flex items-center gap-2"><Mail className="h-4 w-4 text-emerald-600" /><a href={`mailto:${EN_ORG.email}`} className="font-semibold hover:underline">{EN_ORG.email}</a></p>
-                <p className="flex items-center gap-2"><Phone className="h-4 w-4 text-emerald-600" />{EN_ORG.phoneKorea} (from Korea, Korean-language line)</p>
-                <p className="flex items-center gap-2"><MapPin className="h-4 w-4 text-emerald-600" />{EN_ORG.city}</p>
+                <p className="flex items-center gap-2"><Mail className="h-4 w-4 text-[#0055FF]" /><a href={`mailto:${EN_ORG.email}`} className="font-semibold hover:underline">{EN_ORG.email}</a></p>
+                <p className="flex items-center gap-2"><Phone className="h-4 w-4 text-[#0055FF]" />{EN_ORG.phoneKorea} (from Korea, Korean-language line)</p>
+                <p className="flex items-center gap-2"><MapPin className="h-4 w-4 text-[#0055FF]" />{EN_ORG.city}</p>
               </div>
             </div>
             <div className="rounded-3xl border border-gray-200 bg-[#f9fafb] p-5 md:col-span-3 md:p-8">

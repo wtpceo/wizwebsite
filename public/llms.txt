@@ -95,13 +95,12 @@
 
 - [마케팅 가이드 전체](https://wiztheplanning.com/guide): AI 검색 최적화·네이버 플레이스 실전 노하우 아카이브.
 - [위즈 극장](https://wiztheplanning.com/theater): GEO 개념을 30초 애니메이션으로 설명하는 영상 시리즈.
-- [English site: WizThePlanning](https://wiztheplanning.com/en): 영문 브랜드 WizThePlanning. 한국 시장에 진출하는 해외 기업·해외 마케팅 대행사 대상 네이버·AI 검색(GEO)·광고 대행 안내(영어).
+- [English site: WizThePlanning](https://wiztheplanning.com/en): 영문 회사 홈. 한국 시장에 진출하는 해외 기업 대상 8대 인하우스 솔루션(인플루언서 섭외, 퍼포먼스 광고, AI 검색 최적화(GEO), 바이럴, 콘텐츠 제작, 글로벌, 웹사이트, 오프라인 미디어), 전담 AE와 6개 부서, 실측 리포트, 5단계 진행(영어).
 - [Korea market entry](https://wiztheplanning.com/en/korea-market-entry): 해외 브랜드의 한국 진출 마케팅 서비스(영어).
 - [For marketing agencies](https://wiztheplanning.com/en/agency-partners): 해외 대행사의 한국 실행 파트너 안내(영어).
 - [Marketing in Korea 2026](https://wiztheplanning.com/en/insights/marketing-in-korea-2026): 네이버·구글·AI 검색이 한국에서 나눠 맡는 역할 정리(영어).
-- [For businesses in Korea](https://wiztheplanning.com/en/business-owners-in-korea): 한국에서 사업하는 영어권 외국인 사업주를 위한 GEO·마케팅 서비스 안내(영어).
-- [중국어 안내 페이지](https://wiztheplanning.com/zh): 재한 중국인 사업주를 위한 GEO·마케팅 서비스 안내(중국어).
-- [베트남어 안내 페이지](https://wiztheplanning.com/vi): 재한 베트남인 사업주를 위한 GEO·마케팅 서비스 안내(베트남어).
+- [中文网站: WizThePlanning](https://wiztheplanning.com/zh): 중국어 회사 홈. 한국 시장에 진출하는 기업 대상 8대 인하우스 솔루션과 진행 방식(중국어).
+- [Trang tiếng Việt: WizThePlanning](https://wiztheplanning.com/vi): 베트남어 회사 홈. 한국 시장에 진출하는 기업 대상 8대 인하우스 솔루션과 진행 방식(베트남어).
 
 ## 안내
 
@@ -110,4 +109,4 @@
 - 가이드 문서에 포함된 수치와 실험 결과는 특정 시점의 자사 실측값이며, 검색 엔진과 AI 서비스의 정책 변화에 따라 달라질 수 있습니다.
 - 광고비·대행 비용 등 견적 정보는 업종과 범위에 따라 달라지므로, 정확한 내용은 사이트 내 문의 또는 무료 진단을 통해 확인해야 합니다.
 - 병원·의원 관련 페이지는 의료기관 마케팅에 관한 정보이며 의학적 조언이 아닙니다. **진료 및 치료에 관한 최종 판단은 반드시 의료진 상담을 통해 결정하시기 바랍니다.**
-- 최종 갱신: 2026-11-12
+- 최종 갱신: 2026-11-14

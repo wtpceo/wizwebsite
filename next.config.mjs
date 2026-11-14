@@ -38,6 +38,8 @@ const nextConfig = {
       // 11-10 대표 「세 가지 고쳐」: 리뉴얼 전 페이지 정리. 사이트 안에서 가는 링크가 없고 자영업 말투라 새 서비스 페이지로 영구 이동.
       // /influencer 는 11-08 승인(본부장 소개 칸·FAQ는 옮기지 않음). /focusmedia 는 엘리베이터TV 검색 노출이 있어 그대로 둔다.
       { source: '/influencer', destination: '/services/influencer', permanent: true },
+      // 11-14 대표 「외국어 페이지도 완벽하게 업데이트(전부 기업 대상)」: 외국인 사장님 영문 랜딩은 영문 회사 홈으로 영구 이동
+      { source: '/en/business-owners-in-korea', destination: '/en', permanent: true },
       { source: '/naver-marketing', destination: '/services/search', permanent: true },
       { source: '/portfolio', destination: '/services/content', permanent: true },
       { source: '/strategy/:n(\\d+)', destination: '/', permanent: true },
