@@ -13,6 +13,14 @@ export type BizArticle = {
 
 export const BUSINESS_ARTICLES: BizArticle[] = [
   {
+    href: "/business/insights/shortform-production",
+    kicker: "기업 마케팅 · 콘텐츠",
+    title: "숏폼 제작 산출물 목록과 비용 견적서 보는 법",
+    desc: "숏폼 제작 하루 촬영으로 받는 세로 편집본, 광고 하이라이트, 채널별 사진과 자막 목록부터 장면 구성안 기획, 견적서 항목 분리, 월간 리포트 확인 기준까지 기업 담당자용 실무 기준을 정리했습니다.",
+    date: "2026. 11. 17",
+    cover: "/covers/business-shortform-production.jpg",
+  },
+  {
     href: "/business/insights/youtuber-casting",
     kicker: "기업 마케팅 · 인플루언서",
     title: "유튜버 섭외 비용·단가 산정 기준과 플랫폼·대행사·직접 연락 비교",

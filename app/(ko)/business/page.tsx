@@ -345,7 +345,13 @@ export default function Page() {
               <Link href="/business/insights/youtuber-casting" className="font-semibold text-gray-900 underline underline-offset-4">
                 유튜버 섭외 비용 기준과 경로별 차이
               </Link>
-              를 살펴보세요.
+              를 살펴보세요.{" "}
+              {/* 11-13 작가 세션 연결 문장(Gemini) */}
+              하루 촬영 결과물과 견적 비교법은{" "}
+              <Link href="/business/insights/shortform-production" className="font-semibold text-gray-900 underline underline-offset-4">
+                숏폼 제작 산출물과 견적서 보는 법
+              </Link>
+              을 참고하세요.
             </p>
             <Link href="/business/insights" className="mt-5 inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-bold text-gray-900 hover:border-gray-400">
               기업 마케팅 인사이트 보기 <ArrowRight className="h-4 w-4" />
