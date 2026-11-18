@@ -13,6 +13,14 @@ export type BizArticle = {
 
 export const BUSINESS_ARTICLES: BizArticle[] = [
   {
+    href: "/business/insights/seo-consulting",
+    kicker: "기업 마케팅 · 검색",
+    title: "SEO 컨설팅 맡기면 첫 달에 무엇을 보고 바꾸나: 기업 SEO 실측 사례",
+    desc: "SEO 컨설팅 첫 달에는 노출 검색어 대조, 페이지 제목 수정, 내부 중복 점검, 색인 요청부터 합니다. 구글 서치콘솔 실측 사례로 바뀌는 것과 산출물을 확인하세요.",
+    date: "2026. 11. 18",
+    cover: "/covers/business-seo-consulting.jpg",
+  },
+  {
     href: "/business/insights/shortform-production",
     kicker: "기업 마케팅 · 콘텐츠",
     title: "숏폼 제작 산출물 목록과 비용 견적서 보는 법",

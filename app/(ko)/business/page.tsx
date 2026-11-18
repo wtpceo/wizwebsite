@@ -351,7 +351,13 @@ export default function Page() {
               <Link href="/business/insights/shortform-production" className="font-semibold text-gray-900 underline underline-offset-4">
                 숏폼 제작 산출물과 견적서 보는 법
               </Link>
-              을 참고하세요.
+              을 참고하세요.{" "}
+              {/* 11-18 작가 세션 연결 문장(Gemini) */}
+              외부 전문가에게 검색 유입을 맡기기 전 실제 작업과 보고서 수준이 궁금하다면{" "}
+              <Link href="/business/insights/seo-consulting" className="font-semibold text-gray-900 underline underline-offset-4">
+                SEO 컨설팅 첫 달에 사이트에서 보고 바꾸는 것들
+              </Link>{" "}
+              실측 사례를 먼저 확인해 보세요.
             </p>
             <Link href="/business/insights" className="mt-5 inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-bold text-gray-900 hover:border-gray-400">
               기업 마케팅 인사이트 보기 <ArrowRight className="h-4 w-4" />
