@@ -10,10 +10,12 @@ import { share } from "@/lib/share-meta"
 //   숏폼 113곳 360편(wizstudio reference_items 11/3), 1,000만 원·300만 원·3개월(대표 결정 로그 11/3)
 // 출처 확인(11/10): 4A's 정의는 원문(1989 태스크포스 문서)이 공개돼 있지 않아 영국 개방대학교 OpenLearn 강의 자료의 인용으로 달았고
 //   연도는 뺐다. 돈 슐츠 정의는 믿을 만한 공개 원문을 찾지 못해 문장을 뺐다.
-const TITLE = "IMC 마케팅이란: 뜻과 전략 수립 5단계, 실무 예시까지"
+// 11/19 대표 "1안으로": 제목·설명을 측정 세션 수정안(40_측정/키워드/2026-11-18_IMC글_제목설명_수정안.md)으로 바꿨다. H1도 같이 바꾸기로 함. 본문은 그대로
+const TITLE = "IMC 뜻(통합 마케팅)과 전략 수립 5단계, 기획 예시"
 const DESC =
-  "IMC 마케팅은 광고, 인플루언서, 콘텐츠, 검색에 하나의 캠페인 메시지를 같게 가져가는 방식입니다. IMC 뜻과 전략 수립 5단계, 측정 기준을 정하는 법을 실무 기록으로 정리했습니다."
+  "IMC(통합 마케팅 커뮤니케이션)의 정확한 뜻과 4A's 정의를 짚어봅니다. 채널별 역할을 나누는 전략 수립 5단계부터 신제품 캠페인 가상 예시, 자주 묻는 질문까지 정리했습니다."
 const DATE = "2026-11-10"
+const MODIFIED = "2026-11-19"
 const PATH = "/business/insights/imc-marketing"
 const URL = `https://wiztheplanning.com${PATH}`
 const COVER = "/covers/business-imc-marketing.jpg"
@@ -36,7 +38,7 @@ const jsonLd = {
   description: DESC,
   image: `https://wiztheplanning.com${COVER}`,
   datePublished: DATE,
-  dateModified: DATE,
+  dateModified: MODIFIED,
   inLanguage: "ko",
   author: { "@id": "https://wiztheplanning.com/#organization" },
   publisher: { "@id": "https://wiztheplanning.com/#organization" },

@@ -56,7 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/business/insights/seo-consulting", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-11-18" },
     { path: "/business/insights/shortform-production", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-11-17" },
     { path: "/business/insights/youtuber-casting", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-11-11" },
-    { path: "/business/insights/imc-marketing", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-11-10" },
+    { path: "/business/insights/imc-marketing", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-11-19" },
     { path: "/business/insights/enterprise-geo-adoption", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-11-04" },
     { path: "/business/insights/case-payment-meta-ads", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-10-31" },
     { path: "/business/insights/weekly-report-sample", priority: 0.9, changeFrequency: "monthly", lastmod: "2026-11-04" },
