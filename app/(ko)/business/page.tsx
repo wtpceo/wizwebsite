@@ -150,7 +150,7 @@ export default function Page() {
           <div className="container relative mx-auto max-w-4xl px-4 md:px-6">
             <p className="text-xs font-bold tracking-[0.2em] text-[#00e5a0]">기업 마케팅</p>
             <h1 className="mt-4 text-[clamp(2rem,4.4vw,3.25rem)] font-extrabold leading-[1.15] tracking-tight text-white">
-              기업 마케팅 대행,
+              기업 마케팅 대행,{" "}
               <br />
               캠페인 기획부터 검색·AI 노출까지
             </h1>

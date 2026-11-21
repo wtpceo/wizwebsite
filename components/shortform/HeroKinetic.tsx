@@ -113,7 +113,10 @@ export default function HeroKinetic() {
   const line = (text: string, hl?: number[]) =>
     [...text].map((ch, i) =>
       ch === " " ? (
-        <span key={i} className="hk-sp" />
+        // 11-21: 빈 칸이면 크롤러가 '당신의브랜드를…'처럼 붙여 읽는다. 실제 공백 글자를 넣는다(폭은 CSS가 정함)
+        <span key={i} className="hk-sp">
+          {" "}
+        </span>
       ) : (
         <span key={i} className={`hk-ch${hl && i >= hl[0] && i < hl[1] ? " hk-hl" : ""}`}>
           {ch}
@@ -125,7 +128,7 @@ export default function HeroKinetic() {
     <div className="hk" ref={root}>
       {/* 이 페이지의 실제 큰 제목. 검색엔진과 낭독기는 aria-label 과 글자 그대로를 읽고, 눈에는 모션으로 보인다 */}
       <h1 className="hk-layer hk-title" aria-label={`${L1} ${L2}`}>
-        <span className="hk-ln" aria-hidden="true">{line(L1, HL)}</span>
+        <span className="hk-ln" aria-hidden="true">{line(L1, HL)}</span>{" "}
         <span className="hk-ln" aria-hidden="true">{line(L2)}</span>
       </h1>
       {WORDS.map((w) => (
