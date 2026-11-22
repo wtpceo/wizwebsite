@@ -32,11 +32,11 @@ pnpm lint       # Next.js 린터 실행
 
 ### 주요 디렉토리 구조
 - `app/` - Next.js App Router 페이지 및 API 라우트
-  - `app/[locale]/` - 다국어 페이지 (한국어 중심)
-  - `app/api/` - API 엔드포인트 (문의 폼 처리)
-  - `app/strategy/` - 전략 상세 페이지들
-  - `app/portfolio/` - 포트폴리오 페이지
-- `components/sections/` - 메인 페이지 섹션들 (Hero, Services, Pricing 등)
+  - `app/(ko)/` - 한국어 페이지(루트 `/`). 홈·가이드(`app/(ko)/guide/`)·기업(`business`)·전략(`strategy/1-6`)·포트폴리오 등
+  - `app/(en)/`·`app/(zh)/`·`app/(vi)/` - 외국어 페이지(`/en`·`/zh`·`/vi`), `app/(admin)/` - 관리자
+  - `app/api/` - API 엔드포인트 (contact·indexnow·site-check·case-access·admin)
+- `components/shortform/` - 홈(`HomeDoc`)과 새 쪽 공용 부품
+- `components/sections/` - 옛 섹션 부품. 홈에서는 안 쓰고 전략·진단·포트폴리오·네이버 마케팅 등 일부 쪽에서 아직 씀
 - `components/ui/` - shadcn/ui 컴포넌트 라이브러리
 - `public/` - 정적 파일
 
@@ -54,7 +54,7 @@ pnpm lint       # Next.js 린터 실행
 
 ### 컴포넌트 아키텍처
 모듈식 섹션 기반 구조:
-- 각 주요 섹션은 `components/sections/`에 독립적 컴포넌트로 구성
+- 홈은 `components/shortform/HomeDoc.tsx` 한 파일에 섹션을 모아 둠. 옛 쪽은 `components/sections/`의 독립 컴포넌트를 씀
 - shadcn/ui 기본 컴포넌트들을 활용
 - 공통 유틸리티는 `lib/utils.ts`에 위치 (주로 `cn()` 클래스명 병합)
 
@@ -64,7 +64,7 @@ pnpm lint       # Next.js 린터 실행
 - `class-variance-authority`로 컴포넌트 변형 처리
 
 ### 페이지 구성
-- **메인 페이지**: Hero → Services → Strategy → Pricing → Contact
+- **메인 페이지**(`HomeDoc`): 첫 화면 → 서비스(`#services`) → 왜 우리인가(`#why`) → 실적(`#proof`) → 진행 과정(`#process`) → 인사이트(`#insights`) → FAQ → 문의
 - **전략 페이지**: 6개의 개별 전략 상세 페이지 (`/strategy/1-6`)
 - **포트폴리오**: 별도 포트폴리오 페이지
 - **네이버 마케팅**: 특화 서비스 페이지
@@ -75,7 +75,7 @@ pnpm lint       # Next.js 린터 실행
 `components/ui/`의 기존 패턴을 따라 shadcn/ui 컴포넌트 추가
 
 ### 섹션 수정
-메인 페이지 섹션들은 `components/sections/`에 있으며, 각각 독립적인 스타일과 로직을 가짐
+홈 섹션은 `components/shortform/HomeDoc.tsx`에서 고친다. `components/sections/`는 그 부품을 쓰는 옛 쪽(전략·진단·포트폴리오 등)에만 영향이 있음
 
 ### 폼 작업
 React Hook Form과 Zod 스키마 사용. `ContactSection.tsx`의 문의 폼 구현 참조
@@ -83,7 +83,6 @@ React Hook Form과 Zod 스키마 사용. `ContactSection.tsx`의 문의 폼 구�
 ### 환경 변수 설정
 문의 폼이나 이메일 기능 작업 시:
 - `.env.local`에 `RESEND_API_KEY` 설정
-- 테스트 엔드포인트: `/test-api`, `/test-resend`
 
 ### 배포 고려사항
 한국 시장을 타겟으로 하며, `app/layout.tsx`에서 메타데이터와 OpenGraph 태그가 한국어로 설정되어 있음
@@ -93,12 +92,16 @@ React Hook Form과 Zod 스키마 사용. `ContactSection.tsx`의 문의 폼 구�
 IndexNow 엔드포인트를 호출한다. (빙 색인 = ChatGPT 검색 소싱의 전제조건)
 
 ```bash
+# 열쇠는 버셀 환경변수 INDEXNOW_TRIGGER_TOKEN(production · Secret)에 있다. 로컬 사본은 .env.local(git 무시)
+# Secret이라 버셀에서 다시 받아 올 수 없다. .env.local의 이 줄을 지우지 않는다
+source .env.local
 # 사이트맵 전체 제출
-curl -s "https://wiztheplanning.com/api/indexnow?token=6518149f0b33302fe3cbe5be"
+curl -s "https://wiztheplanning.com/api/indexnow?token=$INDEXNOW_TRIGGER_TOKEN"
 # 특정 URL만 제출
-curl -s "https://wiztheplanning.com/api/indexnow?token=6518149f0b33302fe3cbe5be&url=/guide/새글"
+curl -s "https://wiztheplanning.com/api/indexnow?token=$INDEXNOW_TRIGGER_TOKEN&url=/guide/새글"
 ```
-- 응답 `indexNowStatus`가 200 또는 202면 접수 성공.
+- 응답 `indexNowStatus`가 200 또는 202면 접수 성공. 열쇠가 틀리거나 서버 변수가 비어 있으면 401.
+- **열쇠 값은 코드·지침·커밋 메시지에 쓰지 않는다**(2026-11-22 공개 저장소 노출로 교체함).
 - 키 파일: `public/39f37ab7ec2c17eea0adce65d8e6720e.txt` (도메인 루트 소유 증명 — 삭제 금지).
 - 라우트: `app/api/indexnow/route.ts`.
 
@@ -128,7 +131,7 @@ Claude 는 대신 넣지 않는다. 대신 **발행 직후 통보할 URL 목록�
 
 ## 가이드 콘텐츠 작성 원칙 (필수 준수)
 
-`app/guide/` 아래 글을 작성·수정할 때 반드시 지킬 것. GEO(AI 인용) 실측 연구
+`app/(ko)/guide/` 아래 글을 작성·수정할 때 반드시 지킬 것. GEO(AI 인용) 실측 연구
 (Aggarwal et al., *GEO: Generative Engine Optimization*, KDD 2024, arXiv:2311.09735)에서
 효과가 검증된 방식이다.
 
@@ -233,7 +236,7 @@ AI는 글 서두를 통째로 발췌하는 경향이 있어, 여기에 답이 �
 0. **날짜부터 확인한다.** `date` 명령으로 오늘 날짜를 확인하고 `DATE`·`date`에 넣는다.
    2026-08-20에 발행일을 5일 전으로 잘못 박았더니 구글이 검색결과에 그대로
    "5일 전"으로 표시했다. 감으로 적지 않는다.
-1. `app/guide/<slug>/page.tsx` 생성 (`GuideArticle`에 `href` prop 필수 — 이어서 읽기 동작)
+1. `app/(ko)/guide/<slug>/page.tsx` 생성 (`GuideArticle`에 `href` prop 필수 — 이어서 읽기 동작)
 2. Article JSON-LD 필수, FAQ가 있으면 FAQPage JSON-LD도 추가
 3. `lib/guide-articles.ts`에 항목 추가 (`related`로 연결 글 큐레이션)
 4. `app/sitemap.ts`에 경로 추가
@@ -323,8 +326,9 @@ AI는 글 서두를 통째로 발췌하는 경향이 있어, 여기에 답이 �
 
 - **기업 경로**: `/business`(허브), `/business/contact`(제안 요청 폼). 부품은 `components/business/*`.
 - **메인 말투(2026-11-06 대표 선택)**: 메인·서비스·업종 쪽도 기업 말투로 전환했다. 호칭은 전담 AE·고객사·소비자·인하우스 전문팀. 근거는 카피덱 v3이고, 자체 채널·미확인 숫자·결과 약속 문구는 뺐다. 로컬 쪽(`/solutions/local`)만 「상담」을 쓴다.
-- **기준**: 대행료 **월 300만원부터, 최소 3개월, 온보딩 기준선 측정 별도**. 이 기준을 페이지에 적어 스스로 걸러지게 한다.
-  기준 미만이면 무료 진단(`/diagnosis`, `/site-check`)으로 안내한다.
+- **기준**: **최소 3개월, 온보딩 기준선 측정 별도**. 이 기준을 페이지에 적어 스스로 걸러지게 한다.
+  `/business` 허브·제안 요청 쪽에는 금액을 적지 않고 「진단 뒤 제안서로」 안내한다(2026-11-04 대표 답 · 그 전 문구 「월 300만원부터」는 그때 뺐다).
+  「300만원 미만이면 무료 진단 안내」는 2026-11-03 기업 전용 전환 때 뺐다. 무료 진단은 기업·병원 대상이다(2026-11-04).
 - **말**: 기업 페이지에서는 "사장님·가게·매장"을 쓰지 않는다. "담당자·팀·브랜드·조직"으로 쓴다.
 - **CTA**: "무료 진단" 대신 "제안 요청 보내기". 자료(RFP 항목표·평가표·리포트 샘플)는 회사 메일로만 보낸다.
 - **폼**: `/api/contact`에 `language: "기업 제안 요청"` 태그로 보내 관리자 메일 제목에서 구분한다. 회사 이메일 필수, 전화는 선택.
