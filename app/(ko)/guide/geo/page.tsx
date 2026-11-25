@@ -163,7 +163,7 @@ export default function Page() {
           </table>
         </div>
         <p>
-          중요한 건 <strong>검색 상위 노출이 곧 AI 추천을 보장하지 않는다</strong>는 점입니다.
+          중요한 건 <strong>검색 첫 화면 노출이 곧 AI 추천으로 이어지지는 않는다</strong>는 점입니다.
           저희 페이지는 &lsquo;병원 GEO 대행&rsquo; 검색에서 네이버 AI 브리핑 1위·구글 2위였는데도
           ChatGPT에는 나오지 않았습니다. 그 이유를{" "}
           <a href="/guide/ranked-but-not-in-chatgpt">우리 사이트를 실험대에 올린 기록</a>에 그대로

@@ -141,7 +141,7 @@ export default function Page() {
           사장님이 아는 상호로 검색하면 당연히 나옵니다. 손님은 상호를 모릅니다. &lsquo;동네 이름 +
           업종&rsquo;, &lsquo;근처 + 업종&rsquo;처럼 손님이 칠 법한 말로 검색해서 우리 가게가 몇 번째에
           있는지 보세요. 플레이스에서 빠지기 쉬운 항목은{" "}
-          <a href="/guide/naver-place-checklist">네이버 플레이스 상위 노출 체크리스트 10가지</a>에
+          <a href="/guide/naver-place-checklist">네이버 플레이스 검색 노출 체크리스트 10가지</a>에
           정리했습니다.
         </p>
 

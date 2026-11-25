@@ -14,7 +14,7 @@ export const metadata: Metadata = share({
   description: DESC,
   keywords: [
     "네이버 AI 브리핑", "네이버 AI 브리핑 노출", "네이버 AI 브리핑 노출 방법",
-    "AI 브리핑 인용", "네이버 블로그 누락", "블로그 상위노출",
+    "AI 브리핑 인용", "네이버 블로그 누락", "블로그 검색 노출",
     "브랜드 블로그", "네이버 블로그 글 구조",
   ],
   alternates: { canonical: "/guide/naver-ai-briefing" },
@@ -227,7 +227,7 @@ export default function Page() {
           글 구조 변경은 <strong>이미 쌓인 기반 위에서 마지막 단추</strong> 역할을 했습니다. 플레이스가
           비어 있고 리뷰가 없는 상태에서 글 형식만 바꾼다고 같은 결과가 난다고 보기는 어렵습니다.
           플레이스 기본 점검은{" "}
-          <a href="/guide/naver-place-checklist">네이버 플레이스 상위 노출 체크리스트</a>에 정리해
+          <a href="/guide/naver-place-checklist">네이버 플레이스 검색 노출 체크리스트</a>에 정리해
           두었습니다.
         </p>
         <Callout>

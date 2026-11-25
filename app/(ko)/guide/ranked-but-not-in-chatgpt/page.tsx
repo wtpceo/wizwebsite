@@ -14,7 +14,7 @@ export const metadata: Metadata = share({
   description: DESC,
   keywords: [
     "병원 GEO 대행", "네이버 AI 브리핑", "ChatGPT 추천", "GEO SEO 차이",
-    "AI 검색 최적화", "생성형 AI 노출", "구글 상위노출", "GEO 사례",
+    "AI 검색 최적화", "생성형 AI 노출", "구글 검색 노출", "GEO 사례",
     "AI 검색 안 나올 때", "제미나이 퍼플렉시티",
   ],
   alternates: { canonical: "/guide/ranked-but-not-in-chatgpt" },
@@ -42,10 +42,10 @@ const faqJsonLd = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "네이버·구글에 상위 노출되면 ChatGPT에도 자동으로 나오나요?",
+      name: "네이버·구글 검색 첫 화면에 나오면 ChatGPT에도 자동으로 나오나요?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "아닙니다. 엔진마다 답변을 만드는 출처가 다릅니다. 네이버 AI는 네이버 안 데이터, 구글은 자사 색인 순위를 보지만, ChatGPT·제미나이·퍼플렉시티는 여러 독립 출처가 공통으로 언급하는지(제3자 교차 근거)와 학습된 지식을 봅니다. 그래서 검색엔진 상위 노출이 곧 생성형 AI 추천으로 이어지지 않습니다.",
+        text: "아닙니다. 엔진마다 답변을 만드는 출처가 다릅니다. 네이버 AI는 네이버 안 데이터, 구글은 자사 색인 순위를 보지만, ChatGPT·제미나이·퍼플렉시티는 여러 독립 출처가 공통으로 언급하는지(제3자 교차 근거)와 학습된 지식을 봅니다. 그래서 검색엔진 첫 화면 노출이 곧 생성형 AI 추천으로 이어지지 않습니다.",
       },
     },
     {
@@ -121,7 +121,7 @@ export default function Page() {
           1위, 구글 2위인 회사가 말이죠. 왜 이런 일이 생길까요?
         </p>
         <Callout>
-          핵심은 이겁니다: <strong>&ldquo;검색엔진 상위 노출&rdquo;과 &ldquo;생성형 AI 추천&rdquo;은
+          핵심은 이겁니다: <strong>&ldquo;검색엔진 첫 화면 노출&rdquo;과 &ldquo;생성형 AI 추천&rdquo;은
           다른 게임입니다.</strong> 엔진마다 답을 만드는 출처가 다르기 때문입니다. 자세한 구조는{" "}
           <a href="/guide/ai-engines-cite-differently">엔진별 인용 출처의 차이</a>에 정리해
           두었습니다.

@@ -3,12 +3,12 @@ import { share } from "@/lib/share-meta"
 
 export const metadata: Metadata = share({
   title: "네이버 마케팅",
-  description: "네이버 플레이스 최적화, 콘텐츠 마케팅, 리뷰 관리로 지역 검색 상위 노출을 만드는 네이버 마케팅 서비스.",
+  description: "네이버 플레이스 최적화, 콘텐츠 마케팅, 리뷰 관리로 지역 검색 노출을 관리하는 네이버 마케팅 서비스.",
   alternates: { canonical: "/naver-marketing" },
   openGraph: {
     images: ["/thumbnail.png"],
     title: "네이버 마케팅 | 위즈더플래닝",
-    description: "네이버 플레이스 최적화, 콘텐츠 마케팅, 리뷰 관리로 지역 검색 상위 노출을 만드는 네이버 마케팅 서비스.",
+    description: "네이버 플레이스 최적화, 콘텐츠 마케팅, 리뷰 관리로 지역 검색 노출을 관리하는 네이버 마케팅 서비스.",
     url: "https://wiztheplanning.com/naver-marketing",
   },
 })

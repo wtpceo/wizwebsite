@@ -3,7 +3,7 @@ export const FAQ_ITEMS = [
   {
     question: "AI 검색 최적화(GEO)가 무엇인가요?",
     answer:
-      "GEO(Generative Engine Optimization)는 ChatGPT, 퍼플렉시티, 네이버 AI 같은 생성형 AI가 답변할 때 우리 매장을 인용하고 추천하도록 만드는 마케팅입니다. 기존 SEO가 검색 결과 목록의 상위 노출을 노렸다면, GEO는 AI가 내놓는 '답 하나'에 우리 매장이 포함되는 것을 목표로 합니다.",
+      "GEO(Generative Engine Optimization)는 ChatGPT, 퍼플렉시티, 네이버 AI 같은 생성형 AI가 답변할 때 우리 매장을 인용하고 추천하도록 만드는 마케팅입니다. 기존 SEO가 검색 결과 목록에서 위쪽에 오르는 것을 노렸다면, GEO는 AI가 내놓는 '답 하나'에 우리 매장이 포함되는 것을 목표로 합니다.",
   },
   {
     question: "SEO와 GEO는 무엇이 다른가요?",

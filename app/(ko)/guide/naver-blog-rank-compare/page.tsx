@@ -4,7 +4,7 @@ import CaseAccessRequest from "@/components/guide/CaseAccessRequest"
 import { share } from "@/lib/share-meta"
 
 // 제목: 접미사 " | 위즈더플래닝"(8자) 포함 70자 이내
-const TITLE = "네이버 블로그 상위노출, 1위 글은 뭐가 달랐나: 2위 글과 나란히 비교"
+const TITLE = "네이버 블로그 검색 노출, 1위 글은 뭐가 달랐나: 2위 글과 나란히 비교"
 const DESC =
   "발행 3일째인 저희 글이 5월 말에 올라온 글에 밀려 네이버 블로그 탭 2위에 있습니다. 두 글을 나란히 뜯어보니 1위 글이 더 좋은 글이라기보다 네이버가 읽는 신호를 더 많이 깔아 둔 쪽에 가까웠습니다. 다만 그 신호 중 일부는 과하면 누락을 부르는 양날의 검입니다. 확정이 아니라 시도해 볼 만한 것들로 정리했습니다."
 const DATE = "2026-09-14"
@@ -15,7 +15,7 @@ export const metadata: Metadata = share({
   title: TITLE,
   description: DESC,
   keywords: [
-    "네이버 블로그 상위노출", "블로그 순위", "네이버 블로그 1위", "블로그 사진 설명",
+    "네이버 블로그 검색 노출", "블로그 순위", "네이버 블로그 1위", "블로그 사진 설명",
     "블로그 이미지 파일명", "지역 키워드 블로그", "블로그 누락",
   ],
   alternates: { canonical: "/guide/naver-blog-rank-compare" },

@@ -19,7 +19,7 @@ import HeroWall from "./HeroWall"
 
 /** 검색 첫 화면 칸(예시) [칸, 예시 제목, 부가, 채우는 상품] */
 const SLOTS: [string, string, string, string][] = [
-  ["블로그 인기글", "OO 직접 다녀온 후기, 위치·가격·이용 안내", "사진 14장 · 3일 전", "블로그 상위노출"],
+  ["블로그 인기글", "OO 직접 다녀온 후기, 위치·가격·이용 안내", "사진 14장 · 3일 전", "블로그 검색 노출"],
   ["체험단 후기", "OO 2주 사용기, 장단점 솔직 정리", "협찬 표시 · 1주 전", "블로그 체험단"],
   ["뉴스", "OO, 소비자 후기 바탕으로 서비스 품질 강화", "기사형 콘텐츠", "기자단·보도자료"],
   ["카페 글", "OO 지역 커뮤니티 · 이용 후기 공유", "정식 광고 표시", "커뮤니티 바이럴"],
@@ -36,7 +36,7 @@ const PATH: [string, string, string, string[], "search" | "viral" | "chat" | "pe
 
 /** 세부 상품 사진 */
 const PROD_IMG: Record<string, string> = {
-  "블로그 상위노출": "/sf/gen/c3-viral-prod-1.webp",
+  "블로그 검색 노출": "/sf/gen/c3-viral-prod-1.webp",
   "블로그 체험단": "/sf/gen/c3-viral-prod-2.webp",
   "기자단": "/sf/gen/c3-viral-prod-3.webp",
   "커뮤니티 바이럴": "/sf/gen/c3-viral-prod-4.webp",
@@ -131,7 +131,7 @@ export default function ViralDoc() {
                 검색 첫 화면 무료 진단
               </a>
             </div>
-            <p className="vx-trust">블로그 상위노출 · 체험단 · 기자단 · 언론 보도자료</p>
+            <p className="vx-trust">블로그 검색 노출 · 체험단 · 기자단 · 언론 보도자료</p>
           </div>
           <a className="ix-cue" href="#what" aria-label="바이럴 전략으로 내려가기">
             <span>위즈더플래닝의 바이럴 전략</span>
@@ -334,7 +334,7 @@ export default function ViralDoc() {
 
         {/* ⑥ 기록과 사례(그대로): 1위 기록과 함께 2주 뒤 75위 밖으로 내려간 기록을 같이 둠 */}
         {m.case ? (
-          <CSec id="cases" eb="실측 기록과 사례" tone="mist" q="상위 노출 달성 사례와 순위 변동 기록">
+          <CSec id="cases" eb="실측 기록과 사례" tone="mist" q="검색 첫 화면 노출 사례와 순위 변동 기록">
             <CaseBox c={m.case} down={m.down} recs={m.hideRec ? [] : s.rec.filter((r) => !r.includes("사례)"))} recNote={d.recNote} />
           </CSec>
         ) : null}

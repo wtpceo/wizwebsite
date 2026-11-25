@@ -11,7 +11,7 @@
 - [전문팀·프로세스](https://wiztheplanning.com/team): 전담 AE와 여섯 개 부서(섭외·퍼포먼스·SEO·GEO·촬영·바이럴·개발)가 맡는 일, 진단 → 전략 → 실행 → 리포트 → 최적화 순서.
 - [SEO 컨설팅·GEO 대행 (AI 검색 최적화)](https://wiztheplanning.com/services/search): SEO 컨설팅과 GEO(AI 검색 최적화)를 함께 맡는 대표 서비스. AI 답변에 브랜드가 인용되도록 설계하고, 브랜드명을 검색했을 때 보이는 첫 화면 평판까지 관리. 계약 전 자체 솔루션 realGEO로 무료 진단. 네이버 플레이스·지도 플랫폼·리뷰 관리 포함.
 - [퍼포먼스 광고](https://wiztheplanning.com/services/performance): 네이버 검색광고·디스플레이광고·메타·구글·유튜브·카카오 모먼트·당근·타겟핏 문자 광고를 전담 AE가 직접 운영.
-- [바이럴·평판 관리](https://wiztheplanning.com/services/viral): 블로그 상위노출·블로그 체험단·기자단·커뮤니티 바이럴·언론 보도자료 배포·온라인 평판 관리(부당 게시물 대응).
+- [바이럴·평판 관리](https://wiztheplanning.com/services/viral): 블로그 검색 노출·블로그 체험단·기자단·커뮤니티 바이럴·언론 보도자료 배포·온라인 평판 관리(부당 게시물 대응).
 - [인플루언서 마케팅 대행: 유튜브·인스타그램·틱톡 섭외와 PPL](https://wiztheplanning.com/services/influencer): 유튜브·인스타그램·틱톡 인플루언서 섭외와 PPL. 자체 분석 툴(위플루언서)로 후보 채널마다 조회율·영상별 조회수·구독자 추이·유료 광고 이력을 분석해 광고주에게 리포트로 공유하고, 찍은 콘텐츠는 2차 퍼포먼스 광고 소재와 3차 AI 답변(GEO) 근거로 다시 씁니다. 진행은 미팅부터 결과 보고까지 일곱 단계입니다.
 - [콘텐츠 제작 대행](https://wiztheplanning.com/services/content): 광고를 돌릴 퍼포먼스팀이 반응 올 장면을 먼저 정하고 자체 촬영팀이 찍습니다. 광고 반응을 보고 다음 촬영을 다시 짜고, 한 번 찍은 장면을 광고·블로그·지도·홈페이지에 나눠 씁니다. 브랜디드 바이럴 영상·숏폼 제작·방송·드라마 PPL·모델 캐스팅·SNS 채널 운영·제품·공간 포토그래피.
 - [글로벌 마케팅 (중국·일본)](https://wiztheplanning.com/services/global): 중국 샤오홍슈·도우인·콰이쇼우·따중디엔핑·왕홍 라이브커머스, 일본 인스타그램 인플루언서·LINE 공식계정·LINE 광고.
@@ -95,7 +95,7 @@
 
 - [네이버 블로그 1위 글과 2위 글 비교](https://wiztheplanning.com/guide/naver-blog-rank-compare): 같은 지역 키워드에서 5월 글이 3일 된 글을 이긴 차이를 사진 설명·파일명·블로그 이름·경험·분량으로 대조하고, 키워드 반복의 위험과 시도해 볼 항목을 정리한 실측 비교 2026-09-28 재측정 추가: 1위 글은 넉 달째 유지, 2주 전 2위였던 글은 75위 밖, 새로 올린 글이 2위. 사진 설명은 아직 미적용이라 효과는 미검증.
 - [네이버가 AI 크롤러를 막고 있습니다](https://wiztheplanning.com/guide/naver-blocks-ai-crawlers): 네이버 robots.txt의 AI 학습·RAG 목적 접근 차단과 그 실무적 영향.
-- [네이버 플레이스 상위 노출 체크리스트](https://wiztheplanning.com/guide/naver-place-checklist): 지역 매장이 먼저 정비해야 할 플레이스 기본 10가지.
+- [네이버 플레이스 검색 노출 체크리스트](https://wiztheplanning.com/guide/naver-place-checklist): 지역 매장이 먼저 정비해야 할 플레이스 기본 10가지.
 - [네이버 광고비는 오르는데 문의는 그대로일 때](https://wiztheplanning.com/guide/why-ads-stop-working): 검색 행동 변화로 광고 효율이 떨어지는 구조 설명.
 
 ## Optional

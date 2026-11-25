@@ -13,7 +13,7 @@ export const metadata: Metadata = share({
   description: DESC,
   keywords: [
     "블로그 누락", "네이버 블로그 누락", "블로그 저품질", "저품질 블로그 확인",
-    "플레이스 리뷰 누락", "블로그 상위노출", "지역 키워드 공략",
+    "플레이스 리뷰 누락", "블로그 검색 노출", "지역 키워드 공략",
     "블로그 체급", "네이버 블로그 로직", "블로그 검색 반영 안됨",
   ],
   alternates: { canonical: "/guide/case-blog-omission" },

@@ -85,7 +85,7 @@ const jsonLd = {
         '메타 광고(인스타그램·페이스북) 운영',
         '구글·유튜브 광고 운영',
         '카카오 모먼트·당근 광고',
-        '블로그 상위노출·체험단·기자단',
+        '블로그 검색 노출·체험단·기자단',
         '인플루언서 마케팅·PPL',
         '숏폼·바이럴 영상 제작',
         '샤오홍슈·도우인·LINE 마케팅',
@@ -120,7 +120,7 @@ const jsonLd = {
         itemListElement: [
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'AI 검색 최적화 (GEO)', url: 'https://wiztheplanning.com/services/search', description: '생성형 AI와 지도 검색에서 브랜드가 정확히 언급되도록 정보 구조를 설계하고 매주 측정합니다. GEO·SEO·네이버 플레이스 광고·순위 관리·멀티 지도 플랫폼·리뷰 관리.' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '퍼포먼스 광고', url: 'https://wiztheplanning.com/services/performance', description: '주요 매체를 전담 AE가 직접 운영합니다. 네이버 검색광고·디스플레이광고·메타·구글·유튜브·카카오 모먼트·당근·타겟핏 문자 광고.' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '바이럴·평판 관리', url: 'https://wiztheplanning.com/services/viral', description: '검색 결과 첫 화면을 설계합니다. 블로그 상위노출·블로그 체험단·기자단·커뮤니티 바이럴·언론 보도자료 배포·온라인 평판 관리.' } },
+          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '바이럴·평판 관리', url: 'https://wiztheplanning.com/services/viral', description: '검색 결과 첫 화면을 설계합니다. 블로그 검색 노출·블로그 체험단·기자단·커뮤니티 바이럴·언론 보도자료 배포·온라인 평판 관리.' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '인플루언서 · 유튜브 · 인스타그램 · 틱톡 · PPL 마케팅', url: 'https://wiztheplanning.com/services/influencer', description: '타깃이 신뢰하는 크리에이터를 통해 브랜드를 알립니다. 유튜브 크리에이터 캐스팅·숏폼 콘텐츠·PPL·릴스 체험단.' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '콘텐츠 프로덕션', url: 'https://wiztheplanning.com/services/content', description: '기획·촬영·편집·배포를 자체 팀이 수행합니다. 브랜디드 바이럴 영상·숏폼 제작·방송·드라마 PPL·모델 캐스팅·SNS 채널 운영·제품·공간 포토그래피.' } },
           { '@type': 'Offer', itemOffered: { '@type': 'Service', name: '글로벌 마케팅 (중국·일본)', url: 'https://wiztheplanning.com/services/global', description: '현지 플랫폼에서 방한 소비자에게 브랜드를 알립니다. 샤오홍슈·도우인·콰이쇼우·따중디엔핑·왕홍 라이브커머스·일본 인스타그램 인플루언서·LINE 공식계정·LINE 광고.' } },
