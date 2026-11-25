@@ -13,6 +13,14 @@ export type BizArticle = {
 
 export const BUSINESS_ARTICLES: BizArticle[] = [
   {
+    href: "/business/insights/influencer-seeding",
+    kicker: "기업 마케팅 · 인플루언서",
+    title: "인플루언서 시딩, 대행사·플랫폼 비교 전 회사가 정할 7가지 기준",
+    desc: "인플루언서 시딩을 맡기기 전 품의서와 브리프에 담을 항목을 정리했습니다. 무상 발송과 유료 협찬의 차이, 인플루언서 시딩 비용 결정 요인, 대행사·플랫폼 비교 기준과 광고 표시, 2차 활용 계약까지 확인해 보세요.",
+    date: "2026. 11. 25",
+    cover: "/covers/business-influencer-seeding.jpg",
+  },
+  {
     href: "/business/insights/seo-consulting",
     kicker: "기업 마케팅 · 검색",
     title: "SEO 컨설팅 맡기면 첫 달에 무엇을 보고 바꾸나: 기업 SEO 실측 사례",

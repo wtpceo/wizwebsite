@@ -357,7 +357,13 @@ export default function Page() {
               <Link href="/business/insights/seo-consulting" className="font-semibold text-gray-900 underline underline-offset-4">
                 SEO 컨설팅 첫 달에 사이트에서 보고 바꾸는 것들
               </Link>{" "}
-              실측 사례를 먼저 확인해 보세요.
+              실측 사례를 먼저 확인해 보세요.{" "}
+              {/* 11-25 작가 세션 연결 문장(Gemini) */}
+              신제품 출시나 시즌 캠페인을 앞두고 외부 견적을 알아보고 계신다면{" "}
+              <Link href="/business/insights/influencer-seeding" className="font-semibold text-gray-900 underline underline-offset-4">
+                인플루언서 시딩을 맡기기 전에 회사가 먼저 정해야 할 7가지 기준
+              </Link>
+              을 확인해 같은 선에서 대행사와 플랫폼을 비교해 보세요.
             </p>
             <Link href="/business/insights" className="mt-5 inline-flex items-center gap-1.5 rounded-full border border-gray-300 bg-white px-5 py-2.5 text-sm font-bold text-gray-900 hover:border-gray-400">
               기업 마케팅 인사이트 보기 <ArrowRight className="h-4 w-4" />
