@@ -14,6 +14,9 @@ export default function EnArticle({
   description,
   date,
   readingMinutes,
+  ctaTitle = "Planning to reach customers in Korea?",
+  ctaBody = "Tell us about your brand. We will show you how you currently appear on Naver, Google and AI assistants in Korea, then suggest where to start.",
+  ctaLabel = "Talk to us",
   children,
 }: {
   href: string
@@ -22,6 +25,10 @@ export default function EnArticle({
   description: string
   date: string
   readingMinutes?: number
+  /** 글 아래 상자. 없으면 공통 문구 */
+  ctaTitle?: string
+  ctaBody?: string
+  ctaLabel?: string
   children: React.ReactNode
 }) {
   const related = EN_INSIGHTS.filter((a) => a.href !== href).slice(0, 3)
@@ -50,12 +57,12 @@ export default function EnArticle({
 
         <section className="container mx-auto max-w-3xl px-4 pb-12 md:px-6">
           <div className="rounded-3xl bg-gradient-to-r from-[#0A1A33] to-[#0D2449] px-8 py-10 text-center">
-            <p className="text-xl font-extrabold text-white md:text-2xl">Planning to reach customers in Korea?</p>
+            <p className="text-xl font-extrabold text-white md:text-2xl">{ctaTitle}</p>
             <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-slate-400 md:text-base">
-              Tell us about your brand. We will show you how you currently appear on Naver, Google and AI assistants in Korea, then suggest where to start.
+              {ctaBody}
             </p>
             <Link href="/en/contact" className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-[#0055FF] px-6 py-3 text-sm font-bold text-white hover:bg-[#2B6FFF]">
-              Talk to us <ArrowRight className="h-4 w-4" />
+              {ctaLabel} <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </section>

@@ -106,6 +106,9 @@
 - [Korea market entry](https://wiztheplanning.com/en/korea-market-entry): 해외 브랜드의 한국 진출 마케팅 서비스(영어).
 - [For marketing agencies](https://wiztheplanning.com/en/agency-partners): 해외 대행사의 한국 실행 파트너 안내(영어).
 - [Marketing in Korea 2026](https://wiztheplanning.com/en/insights/marketing-in-korea-2026): 네이버·구글·AI 검색이 한국에서 나눠 맡는 역할 정리(영어).
+- [Naver SEO Guide for Foreign Brands in Korea](https://wiztheplanning.com/en/insights/naver-seo-guide): 해외 기업용 네이버 SEO 안내. 네이버 블로그·서치어드바이저·플레이스의 역할, 네이버가 외부 AI 크롤러를 막아 자사 도메인 한국어 페이지가 필요한 이유, 색인과 순위 경쟁 시간(11/23 자사 글 약 3시간 반 뒤 색인, 블로그 탭 63~86위), 비용 기준, 한국어를 못 읽는 팀을 위한 측정·보고 방식(영어).
+- [Korean Influencer Marketing: Agency Guide](https://wiztheplanning.com/en/insights/korean-influencer-marketing): 해외에서 한국 인플루언서·네이버 블로거 캠페인을 맡길 때 브리프 항목, 블로그 체험단·기자단과 유튜브·인스타그램·틱톡 크리에이터 두 갈래, 비용이 정해지는 조건, 공정위 광고 표시와 2차 활용 권리, 끝나고 받는 기록(영어).
+- [Korea Press Release Distribution Guide](https://wiztheplanning.com/en/insights/korea-press-release-distribution): 해외 기업용 한국 언론 보도자료 배포 안내. 영문 보도자료를 한국 기사 형식으로 다시 쓰는 이유, 유통 파트너를 거친 약 140개 매체 유료 기사 게재 방식, 기사 안 URL·연락처 금지와 게재 뒤 수정·삭제 불가 조건, 기자단(블로그)과의 차이, 맡기기 전 물어볼 것(영어).
 - [中文网站: WizThePlanning](https://wiztheplanning.com/zh): 중국어 회사 홈. 한국 시장에 진출하는 기업 대상 8대 인하우스 솔루션과 진행 방식(중국어).
 - [Trang tiếng Việt: WizThePlanning](https://wiztheplanning.com/vi): 베트남어 회사 홈. 한국 시장에 진출하는 기업 대상 8대 인하우스 솔루션과 진행 방식(베트남어).
 

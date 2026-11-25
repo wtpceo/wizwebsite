@@ -12,6 +12,30 @@ export type EnInsight = {
 
 export const EN_INSIGHTS: EnInsight[] = [
   {
+    href: "/en/insights/korea-press-release-distribution",
+    kicker: "Korea market guide",
+    title: "Korea Press Release Distribution Guide",
+    desc: "Publishing an English press release in Korea requires rewriting it into a local news format and following the strict conditions of outlets we place in, including no URLs and no post-publication edits. Learn how paid bylined placements work across roughly 140 Korean media outlets and what to ask before requesting a quote.",
+    date: "2026-11-25",
+    cover: "/covers/en-korea-press-release-distribution.jpg",
+  },
+  {
+    href: "/en/insights/naver-seo-guide",
+    kicker: "Korea market guide",
+    title: "Naver SEO Guide for Foreign Brands in Korea",
+    desc: "Publishing on Naver requires more than translating keywords. Learn how Naver Blog, Naver Search Advisor, and Naver Place work together, why you also need Korean pages on your own site since ChatGPT cannot read Naver posts alone, and what weekly tracking and transparent reporting look like when you cannot read Korean.",
+    date: "2026-11-25",
+    cover: "/covers/en-naver-seo-guide.jpg",
+  },
+  {
+    href: "/en/insights/korean-influencer-marketing",
+    kicker: "Korea market guide",
+    title: "Korean Influencer Marketing: Agency Guide",
+    desc: "Planning an influencer or Naver blogger campaign in Korea without a local team? Learn what to include in your agency brief, how costs are structured, what Korean ad disclosure and copyright rules require, and what reporting to expect when posts go live.",
+    date: "2026-11-25",
+    cover: "/covers/en-korean-influencer-marketing.jpg",
+  },
+  {
     href: "/en/insights/marketing-in-korea-2026",
     kicker: "Korea market guide",
     title: "Marketing in Korea 2026: Naver, Google and AI Search",

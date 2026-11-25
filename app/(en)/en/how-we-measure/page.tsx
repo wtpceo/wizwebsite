@@ -42,8 +42,8 @@ const SCREENS = [
   },
   {
     src: "/tools/realgeo-weekly-report.jpg",
-    alt: "Weekly report screen: category share, source citation rate 25%, cited keywords 4/9, visibility by engine, new citations and lost citations this week",
-    title: "Weekly report",
+    alt: "Weekly measurement screen: category share, source citation rate 25%, cited keywords 4/9, visibility by engine, new citations and lost citations this week",
+    title: "Weekly measurement view",
     body: "Every week we re-measure against the same criteria and show what went up and what dropped compared with the week before. This particular week recorded 2 newly cited keywords and 3 keywords that lost their citation. The losses stay in the report too.",
   },
   {
@@ -103,8 +103,8 @@ const ROUTINE = [
   },
   {
     icon: FileText,
-    title: "One report a week",
-    body: "Change versus last week, the work done this week, and next week's priorities, written by your account manager.",
+    title: "One report a month",
+    body: "Monthly change in the weekly measurements, the work done that month, and next month's priorities, written by your account manager.",
   },
   {
     icon: ListChecks,
@@ -120,7 +120,7 @@ const NOT_FOR_SALE = [
   },
   {
     title: "Clients do not get accounts",
-    body: "It is a specialist tool that needs interpretation. Clients get a weekly report with the account manager's reading of the numbers.",
+    body: "It is a specialist tool that needs interpretation. Clients get a monthly report with the account manager's reading of the numbers.",
   },
   {
     title: "We do not guarantee visibility",
@@ -131,7 +131,7 @@ const NOT_FOR_SALE = [
 const FAQ = [
   {
     q: "Can clients log in and see the system?",
-    a: "No, we do not give out accounts. It is a specialist tool, and the numbers need someone who knows SEO and GEO to interpret them. Your account manager takes the numbers from this system, adds an interpretation, and sends you a weekly report. You do not need to learn the tool.",
+    a: "No, we do not give out accounts. It is a specialist tool, and the numbers need someone who knows SEO and GEO to interpret them. Your account manager takes the numbers from this system, adds an interpretation, and sends you a monthly report. You do not need to learn the tool.",
   },
   {
     q: "Do you sell the tool?",
@@ -139,7 +139,7 @@ const FAQ = [
   },
   {
     q: "Which AI engines do you measure, and how often?",
-    a: "Four engines: Naver AI Briefing, ChatGPT, Gemini and Perplexity. Measurement runs automatically every Monday early in the morning, and a report follows once a week.",
+    a: "Four engines: Naver AI Briefing, ChatGPT, Gemini and Perplexity. Measurement runs automatically every Monday early in the morning, and a report follows once a month.",
   },
   {
     q: "Why publish your own score?",
@@ -198,7 +198,7 @@ export default function Page() {
             <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-4 text-sm sm:grid-cols-4">
               {[
                 { n: "4", d: "AI engines measured" },
-                { n: "Weekly", d: "Automatic re-measurement and report" },
+                { n: "Weekly", d: "Automatic re-measurement, monthly report" },
                 { n: "16", d: "Our own overall score (out of 100, Oct 19; previously 18)" },
                 { n: "0", d: "Accounts sold to outsiders" },
               ].map((s) => (
