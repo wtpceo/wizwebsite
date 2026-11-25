@@ -27,6 +27,15 @@ const PARAMS = [
   "utm_content",
   "gclid",
   "fbclid",
+  // 11-25 네이버 검색광고 '자동 추적URL 파라미터'(검색광고 세션이 11/25 18:05에 켬). 어느 키워드에서 문의가 났는지 보려는 용도
+  "n_media",
+  "n_query",
+  "n_rank",
+  "n_ad_group",
+  "n_ad",
+  "n_keyword_id",
+  "n_keyword",
+  "n_campaign_type",
 ] as const
 
 export type Attribution = Partial<Record<(typeof PARAMS)[number], string>> & {
@@ -130,11 +139,25 @@ export function readSourcePath(): string {
 }
 
 /** 관리자 메일에 넣을 한 줄 요약. 값이 없으면 빈 문자열 */
+/** 네이버 검색광고 자동 추적 파라미터 요약. 등록 키워드와 실제 검색어가 다를 수 있어 둘 다 적는다 */
+function formatNaver(a: Attribution): string {
+  return [
+    a.n_keyword && `키워드 ${a.n_keyword}`,
+    a.n_query && `검색어 ${a.n_query}`,
+    a.n_rank && `순위 ${a.n_rank}`,
+    a.n_ad_group && `광고그룹 ${a.n_ad_group}`,
+  ]
+    .filter(Boolean)
+    .join(" · ")
+}
+
 export function formatAttribution(a: Attribution): string {
   const chan = [a.utm_source, a.utm_medium, a.utm_campaign, a.utm_term, a.utm_content]
     .filter(Boolean)
     .join(" / ")
-  if (chan) return chan
+  const naver = formatNaver(a)
+  if (chan) return naver ? `${chan} | 네이버 검색광고: ${naver}` : chan
+  if (naver || a.n_media || a.n_ad) return `naver / 검색광고${naver ? ` | ${naver}` : ""}`
   if (a.gclid) return "google / cpc (gclid)"
   if (a.fbclid) return "meta / paid (fbclid)"
   if (a.referrer) return `외부 유입: ${a.referrer}`
